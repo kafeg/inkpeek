@@ -108,6 +108,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
 
+    /** One dictionary per screen; ◀ ▶ page between dictionaries that have the word. */
     private fun fillDictionary(p: LinearLayout) {
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
@@ -116,15 +117,30 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             p.removeView(wait)
             val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
-            if (hits.isEmpty()) note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
-            hits.forEachIndexed { i, (dict, list) ->
-                p.addView(Ink.text(this@CardActivity, dict.name, size * 0.7f, bold = true),
-                    Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, if (i == 0) 0 else 14) })
+            if (hits.isEmpty()) { note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found)); return@launch }
+            val nav = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
+            val title = Ink.text(this@CardActivity, "", size * 0.72f, bold = true).apply { gravity = Gravity.CENTER }
+            val body = Ink.vertical(this@CardActivity)
+            var at = 0
+            fun show() {
+                val (dict, list) = hits[at]
+                title.text = if (hits.size > 1) "${dict.name} · ${at + 1}/${hits.size}" else dict.name
+                body.removeAllViews()
                 list.forEach { h ->
                     val head = if (h.word.equals(query, true)) "" else "<b>${h.word}</b><br>"
-                    p.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
+                    body.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
                 }
+                scroll.scrollTo(0, 0)
             }
+            val w = Ink.dp(this@CardActivity, 48)
+            if (hits.size > 1) nav.addView(Ink.button(this@CardActivity, "◀", size) { at = (at - 1 + hits.size) % hits.size; show() }
+                .apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
+            nav.addView(title, Ink.lp(0, weight = 1f))
+            if (hits.size > 1) nav.addView(Ink.button(this@CardActivity, "▶", size) { at = (at + 1) % hits.size; show() }
+                .apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
+            p.addView(nav, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
+            p.addView(body)
+            show()
         }
     }
 
