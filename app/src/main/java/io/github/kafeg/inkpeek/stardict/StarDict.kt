@@ -117,16 +117,21 @@ class StarDict(ifoFile: File, workRoot: File) {
             if (c < 0) lo = mid + 1 else { if (c == 0) first = mid; hi = mid - 1 }
         }
         if (first < 0) return emptyList()
-        val hits = ArrayList<Hit>(); val d = dict()
-        var i = first
-        while (i < n && keyAt(i) == key && hits.size < 8) {
+        // All entries for the key (cheap: headwords only), then the best 8 get their articles read.
+        // Order: the word as written (same case) > a form of another word (.syn) > the word in another case
+        // ("lag" is a form of "liegen" before the noun "Lag"; "Häuser" leads to "Haus").
+        val q = query.trim()
+        class E(val word: String, val off: Long, val size: Int)
+        val all = ArrayList<E>(); var i = first
+        while (i < n && keyAt(i) == key) {
             var p = blob + m.getInt(8 + 4 * i)
             val kl = m.getShort(p).toInt() and 0xFFFF; p += 2 + kl
             val wl = m.getShort(p).toInt() and 0xFFFF; val word = str(m, p + 2, wl); p += 2 + wl
-            hits += Hit(word, Article.toHtml(d.read(m.getLong(p), m.getInt(p + 8)), types))
-            i++
+            all += E(word, m.getLong(p), m.getInt(p + 8)); i++
         }
-        return hits.distinctBy { it.html }
+        val best = all.distinctBy { it.off }.sortedBy { e -> when { e.word == q -> 0; !e.word.equals(q, true) -> 1; else -> 2 } }.take(8)
+        val d = dict()
+        return best.map { Hit(it.word, Article.toHtml(d.read(it.off, it.size), types)) }.distinctBy { it.html }
     }
 
     private fun str(m: MappedByteBuffer, p: Int, len: Int): String {

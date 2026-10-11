@@ -195,7 +195,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             msg.startsWith("No API key") -> R.string.err_no_key
             msg.startsWith("No model") -> R.string.err_no_model
             else -> R.string.err_other
-        }) + if (name.isNotEmpty()) "\n\n($name${if (msg.isNotBlank()) ": " + msg.take(160) else ""})" else ""
+        }).let { t -> if (t == getString(R.string.err_other)) "$t\n\n($name${if (msg.isNotBlank()) ": " + msg.take(160) else ""})" else t }
     }
 
     private fun fillAi(p: LinearLayout, a: Action) {

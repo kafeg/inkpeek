@@ -34,7 +34,7 @@ class StarDictTest {
         val tmp = Files.createTempDirectory("sd").toFile()
         val d = StarDict(dict(tmp), File(tmp, "work"))
         assertEquals("<b>Haus</b> n — дом", d.lookup("Haus").single().html)
-        assertEquals("Haus", d.lookup("haus").single().word)
+        assertEquals("Haus", d.lookup("haus").first().word)
         assertEquals("Haus", d.lookup("häuser").single().word)
         assertEquals("досада", d.lookup("ärger").single().html)
         assertEquals("вечер", d.lookup("Abend").single().html)
@@ -96,5 +96,6 @@ class GlossTest {
     @Test fun firstMeaning() {
         org.junit.Assert.assertEquals("дом, здание", shortMeaning("<b>Haus</b><br>IPA: [haʊ̯s]<br><ol><li>дом, здание</li><li>семья</li></ol>", "Haus"))
         org.junit.Assert.assertEquals("house, building", shortMeaning("Haus<br>• house, building<br>• home", "Haus"))
+        org.junit.Assert.assertEquals("house, building", shortMeaning("<b>Haus</b><br><b>Noun</b><ul><li>IPA: [haʊ̯s]</li></ul>Haus n<ol><li>house, building</li></ol>", "Haus"))
     }
 }

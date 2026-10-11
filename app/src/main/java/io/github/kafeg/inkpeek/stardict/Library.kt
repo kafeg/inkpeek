@@ -79,11 +79,13 @@ data class Gloss(val word: String, val base: String, val meaning: String)
 
 /** First meaning of an article as one short plain line (numbered or bulleted sense, else the first content line). */
 fun shortMeaning(html: String, headword: String): String {
-    val text = html.replace(Regex("(?i)<br\\s*/?>|</(p|li|div|h[1-6])>|<li[^>]*>"), "\n").replace(Regex("<[^>]+>"), "")
+    val text = html.replace(Regex("(?i)<li[^>]*>"), "\n• ").replace(Regex("(?i)<br\\s*/?>|</(p|li|div|h[1-6])>"), "\n").replace(Regex("<[^>]+>"), "")
         .replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&amp;", "&")
     val lines = text.lines().map { it.trim() }.filter { it.length > 1 }
-    val sense = lines.firstOrNull { Regex("^(•|\\d+[.)]|[-–]) ?\\S").containsMatchIn(it) }
-        ?: lines.firstOrNull { !it.equals(headword, true) && !it.startsWith("IPA") && !it.startsWith("[") }
+    val skip = Regex("^(•\\s*)?(IPA|Hyphenation|Rhymes|Audio|Homophone|Anagrams|Etymology|Произношение|Семантические|Морфолог)|IPA:", RegexOption.IGNORE_CASE)
+    val oneWord = Regex("^[\\p{L} ]{1,20}$") // part-of-speech headings: Noun, Verb, Существительное
+    val sense = lines.firstOrNull { Regex("^(•|\\d+[.)]|[-–]) ?\\S").containsMatchIn(it) && !skip.containsMatchIn(it) && it.length > 3 }
+        ?: lines.firstOrNull { !it.equals(headword, true) && !skip.containsMatchIn(it) && !it.startsWith("[") && !oneWord.matches(it) }
         ?: ""
     return sense.replace(Regex("^(•|\\d+[.)]|[-–])\\s*"), "").take(90)
 }
