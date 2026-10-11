@@ -86,4 +86,8 @@
     <string name="err_no_model">未选择模型：请在 InkPeek 设置 → AI 中选择。</string>
     <string name="err_other">AI 请求失败。请重试；如果仍然失败，请检查 AI 设置。</string>
     <string name="back">返回</string>
+    <string name="server_url">服务器地址，例如 http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">从预设填写…</string>
+    <string name="key_optional">本地服务器无需密钥。云服务：在上方输入或放入 %1$s</string>
+    <string name="err_server">服务器无响应：%1$s\n请检查地址并确认服务器已启动。</string>
 </resources>

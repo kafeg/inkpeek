@@ -86,4 +86,8 @@
     <string name="err_no_model">Модель не вибрано: виберіть у налаштуваннях InkPeek → ШІ.</string>
     <string name="err_other">Запит до ШІ не вдався. Спробуйте ще раз; якщо повториться — перевірте налаштування ШІ.</string>
     <string name="back">Назад</string>
+    <string name="server_url">Адреса сервера, напр. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Заповнити з пресету…</string>
+    <string name="key_optional">Для локального сервера ключ не потрібен. Хмарні сервіси: введіть вище або покладіть у %1$s</string>
+    <string name="err_server">Сервер не відповідає: %1$s\nПеревірте адресу і чи запущено сервер.</string>
 </resources>

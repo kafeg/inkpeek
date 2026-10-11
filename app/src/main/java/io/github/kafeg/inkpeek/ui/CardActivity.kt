@@ -12,6 +12,7 @@ import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Action
+import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.StarDict
@@ -244,6 +245,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** A short, actionable error instead of an exception name. */
     private fun friendly(e: Throwable): String {
         val name = e.javaClass.simpleName; val msg = e.message.orEmpty()
+        val net = e is java.net.UnknownHostException || e is java.net.ConnectException || e is java.net.SocketTimeoutException ||
+            e.cause is java.net.UnknownHostException || e is java.io.InterruptedIOException
+        // Own server: online but it does not answer, or no address yet.
+        if (prefs.provider == Provider.CUSTOM && ((net && online) || msg.startsWith("No server address")))
+            return getString(R.string.err_server, prefs.url(Provider.CUSTOM).ifBlank { "—" }) + if (net) "\n\n($name)" else ""
         return getString(when {
             e is java.net.UnknownHostException || e is java.net.ConnectException || e is java.net.SocketTimeoutException ||
                 e.cause is java.net.UnknownHostException || !online -> R.string.err_offline
@@ -262,7 +268,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val pr = prefs.provider
         val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
         launch {
-            val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang) } }
+            val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang, prefs.url(pr)) } }
             dots.cancel()
             r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) },
                 { out.text = friendly(it) })

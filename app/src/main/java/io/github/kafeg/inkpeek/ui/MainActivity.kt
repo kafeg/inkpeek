@@ -32,6 +32,7 @@ import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.ModelInfo
 import io.github.kafeg.inkpeek.ai.Provider
+import io.github.kafeg.inkpeek.ai.Preset
 import io.github.kafeg.inkpeek.stardict.Importer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -193,18 +194,34 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val keyInfo = Ink.text(this, "", 14f)
         val key = edit(getString(R.string.key_hint), "", secret = true)
         val model = Ink.button(this, "", sp) {}
+        // Own server: a preset fills the address; only the IP of a local server needs changing.
+        val server = Ink.vertical(this)
+        val url = edit(getString(R.string.server_url), "") { prefs.setUrl(Provider.CUSTOM, it) }
+        val presets = Preset.ALL
+        server.addView(spinner(listOf(getString(R.string.preset_pick)) + presets.map { it.name }, 0) {
+            if (it > 0) { url.setText(presets[it - 1].url); prefs.setUrl(Provider.CUSTOM, presets[it - 1].url) }
+        })
+        server.addView(url)
         fun load(p: Provider) {
             key.setText(prefs.key(p))
+            server.visibility = if (p == Provider.CUSTOM) View.VISIBLE else View.GONE
+            url.setText(prefs.url(Provider.CUSTOM))
             keyInfo.text = when (prefs.keySource(p)) {
                 "typed in settings" -> getString(R.string.key_typed_ok)
-                "none" -> getString(R.string.key_missing, prefs.keyPath(p).path)
+                "none" -> if (p == Provider.CUSTOM) getString(R.string.key_optional, prefs.keyPath(p).path)
+                    else getString(R.string.key_missing, prefs.keyPath(p).path)
                 else -> getString(R.string.key_file_ok, prefs.keyPath(p).path)
             }
             model.text = getString(R.string.model, prefs.model(p).ifBlank { getString(R.string.model_choose) })
         }
         t.addView(spinner(providers.map { it.title }, providers.indexOf(prefs.provider)) { prefs.provider = providers[it]; load(providers[it]); refreshDicts() })
+        t.addView(server)
         t.addView(key)
-        t.addView(Ink.button(this, getString(R.string.save_key), sp) { prefs.setKey(prefs.provider, key.text.toString()); load(prefs.provider); toast(getString(R.string.saved)) })
+        t.addView(Ink.button(this, getString(R.string.save_key), sp) {
+            prefs.setKey(prefs.provider, key.text.toString())
+            if (prefs.provider == Provider.CUSTOM) prefs.setUrl(Provider.CUSTOM, url.text.toString())
+            load(prefs.provider); toast(getString(R.string.saved))
+        })
         t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
@@ -220,7 +237,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun chooseModel(done: () -> Unit) {
         val p = prefs.provider; toast(getString(R.string.loading_models))
         launch {
-            val r = withContext(Dispatchers.IO) { runCatching { Ai.models(p, prefs.effectiveKey(p)) } }
+            val r = withContext(Dispatchers.IO) { runCatching { Ai.models(p, prefs.effectiveKey(p), prefs.url(p)) } }
             r.fold({ models -> pickModel(p, models, done) }, { toast(it.message ?: it.javaClass.simpleName) })
         }
     }

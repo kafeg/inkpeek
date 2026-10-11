@@ -86,4 +86,8 @@
     <string name="err_no_model">Модель не выбрана: выберите в настройках InkPeek → AI.</string>
     <string name="err_other">Запрос к AI не удался. Попробуйте ещё раз; если повторится — проверьте настройки AI.</string>
     <string name="back">Назад</string>
+    <string name="server_url">Адрес сервера, например http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Заполнить из пресета…</string>
+    <string name="key_optional">Для локального сервера ключ не нужен. Облачные сервисы: введите выше или положите в %1$s</string>
+    <string name="err_server">Сервер не отвечает: %1$s\nПроверьте адрес и что сервер запущен.</string>
 </resources>

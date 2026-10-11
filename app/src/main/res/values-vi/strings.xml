@@ -86,4 +86,8 @@
     <string name="err_no_model">Chưa chọn mô hình: hãy chọn trong cài đặt InkPeek → AI.</string>
     <string name="err_other">Yêu cầu AI thất bại. Hãy thử lại; nếu vẫn lỗi, kiểm tra cài đặt AI.</string>
     <string name="back">Quay lại</string>
+    <string name="server_url">Địa chỉ máy chủ, vd. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Điền từ mẫu có sẵn…</string>
+    <string name="key_optional">Máy chủ cục bộ không cần khóa. Dịch vụ đám mây: nhập ở trên hoặc đặt vào %1$s</string>
+    <string name="err_server">Máy chủ không phản hồi: %1$s\nKiểm tra địa chỉ và máy chủ đã chạy chưa.</string>
 </resources>

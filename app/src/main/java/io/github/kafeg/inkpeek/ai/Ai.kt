@@ -16,6 +16,25 @@ enum class Provider(val title: String, val baseUrl: String, val defaultModel: St
     ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-opus-5-5"),
     OPENAI("OpenAI", "https://api.openai.com/v1", ""),
     OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", "openrouter/free"),
+    /** Any server with the OpenAI API: LM Studio, Ollama, llama.cpp, vLLM, Groq, DeepSeek…; the address is a setting. */
+    CUSTOM("OpenAI-compatible server", "", ""),
+}
+
+/** Ready addresses for [Provider.CUSTOM]; for a local server only the IP needs changing. */
+data class Preset(val name: String, val url: String) {
+    companion object {
+        val ALL = listOf(
+            Preset("LM Studio", "http://192.168.1.10:1234/v1"),
+            Preset("Ollama", "http://192.168.1.10:11434/v1"),
+            Preset("llama.cpp server", "http://192.168.1.10:8080/v1"),
+            Preset("vLLM", "http://192.168.1.10:8000/v1"),
+            Preset("Groq", "https://api.groq.com/openai/v1"),
+            Preset("DeepSeek", "https://api.deepseek.com/v1"),
+            Preset("Qwen (Alibaba Cloud)", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"),
+            Preset("Mistral", "https://api.mistral.ai/v1"),
+            Preset("Google Gemini", "https://generativelanguage.googleapis.com/v1beta/openai"),
+        )
+    }
 }
 
 /** What was selected: one word, a short phrase, or a passage (more than 8 words or several sentences). */
@@ -78,7 +97,10 @@ object Ai {
         "e-ink screen. Write every answer in $lang only. If the text is already in $lang, answer like an explanatory " +
         "dictionary of $lang instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
         "lists. No headings, tables or code. Keep it under 120 words unless the request needs more."
-    private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).build()
+    // The answer comes in one piece, so the read timeout must cover the whole generation.
+    private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()
+    /** A model on a home computer can take a while, the first answer also loads the model. */
+    private val slow = http.newBuilder().callTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build()
     private val cache = object : LinkedHashMap<String, String>(128, 0.75f, true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 100
     }
@@ -88,14 +110,15 @@ object Ai {
     fun cached(action: Action, text: String) = synchronized(cache) { cache[action.id + "\u0000" + text] }
 
     /** Blocking; call off the main thread. */
-    fun ask(p: Provider, key: String, model: String, action: Action, text: String, lang: String): String {
-        if (key.isBlank()) throw AiError("No API key for ${p.title}")
+    fun ask(p: Provider, key: String, model: String, action: Action, text: String, lang: String, url: String = p.baseUrl): String {
+        if (p == Provider.CUSTOM && url.isBlank()) throw AiError("No server address")
+        if (key.isBlank() && p != Provider.CUSTOM) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
         val kind = Kind.of(text)
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
             Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
         val prompt = "The selection is $what.\n" + action.prompt.replace("{text}", text).replace("{lang}", lang)
-        val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, key, model, prompt, system(lang))).trim()
+        val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, url, key, model, prompt, system(lang))).trim()
         synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
         return answer
     }
@@ -110,16 +133,16 @@ object Ai {
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }
 
-    private fun openAi(p: Provider, key: String, model: String, prompt: String, sys: String): String {
+    private fun openAi(p: Provider, url: String, key: String, model: String, prompt: String, sys: String): String {
         val body = JSONObject().put("model", model).put("messages", JSONArray()
             .put(JSONObject().put("role", "system").put("content", sys))
             .put(JSONObject().put("role", "user").put("content", prompt)))
         // OpenRouter: no reasoning pass, answers come in seconds; models that refuse the switch get a plain retry.
         if (p == Provider.OPENROUTER) body.put("reasoning", JSONObject().put("enabled", false))
         fun call(b: JSONObject): Pair<Int, String> {
-            val req = Request.Builder().url(p.baseUrl + "/chat/completions").header("Authorization", "Bearer $key")
+            val req = Request.Builder().url(url.trimEnd('/') + "/chat/completions").apply { if (key.isNotBlank()) header("Authorization", "Bearer $key") }
                 .header("X-Title", "InkPeek").post(b.toString().toRequestBody("application/json".toMediaType())).build()
-            return http.newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
+            return (if (p == Provider.CUSTOM) slow else http).newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
         }
         var (code, s) = call(body)
         if (code == 400 && body.has("reasoning")) { body.remove("reasoning"); call(body).let { code = it.first; s = it.second } }
@@ -131,13 +154,14 @@ object Ai {
     private val NOT_CHAT = Regex("embed|whisper|tts|transcri|moderation|guard|safety|dall-e|image|audio|realtime|search|:batch$", RegexOption.IGNORE_CASE)
 
     /** Chat models the provider offers (OpenRouter tells names, prices and free variants). */
-    fun models(p: Provider, key: String): List<ModelInfo> {
-        if (key.isBlank() && p != Provider.OPENROUTER) throw AiError("No API key for ${p.title}")
+    fun models(p: Provider, key: String, url: String = p.baseUrl): List<ModelInfo> {
+        if (p == Provider.CUSTOM && url.isBlank()) throw AiError("No server address")
+        if (key.isBlank() && p != Provider.OPENROUTER && p != Provider.CUSTOM) throw AiError("No API key for ${p.title}")
         if (p == Provider.ANTHROPIC) {
             val client = AnthropicOkHttpClient.builder().apiKey(key).build()
             return try { client.models().list().autoPager().map { ModelInfo(it.id(), it.displayName()) }.toList() } finally { client.close() }
         }
-        val req = Request.Builder().url(p.baseUrl + "/models").apply { if (key.isNotBlank()) header("Authorization", "Bearer $key") }.build()
+        val req = Request.Builder().url(url.trimEnd('/') + "/models").apply { if (key.isNotBlank()) header("Authorization", "Bearer $key") }.build()
         http.newCall(req).execute().use { r ->
             val s = r.body?.string().orEmpty()
             if (!r.isSuccessful) throw AiError("${p.title}: HTTP ${r.code} ${errorText(s)}")

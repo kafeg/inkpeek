@@ -32,6 +32,9 @@ class Prefs(private val ctx: Context) {
     fun setKey(p: Provider, v: String) = sp.edit().putString("key_${p.name}", v.trim()).apply()
     fun model(p: Provider): String = sp.getString("model_${p.name}", p.defaultModel)!!
     fun setModel(p: Provider, v: String) = sp.edit().putString("model_${p.name}", v.trim()).apply()
+    /** API address: fixed for the big providers, a setting for [Provider.CUSTOM]. */
+    fun url(p: Provider): String = if (p == Provider.CUSTOM) sp.getString("url_${p.name}", "")!! else p.baseUrl
+    fun setUrl(p: Provider, v: String) = sp.edit().putString("url_${p.name}", v.trim()).apply()
 
     /** Key typed in settings, else the key file in [keysDir]. */
     fun effectiveKey(p: Provider): String = key(p).ifBlank { read(keyPath(p)) }

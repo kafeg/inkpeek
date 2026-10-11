@@ -86,4 +86,8 @@
     <string name="err_no_model">Belum ada model: pilih di pengaturan InkPeek → AI.</string>
     <string name="err_other">Permintaan AI gagal. Coba lagi; jika terulang, periksa pengaturan AI.</string>
     <string name="back">Kembali</string>
+    <string name="server_url">Alamat server, mis. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Isi dari preset…</string>
+    <string name="key_optional">Server lokal tidak perlu kunci. Layanan cloud: ketik di atas atau simpan di %1$s</string>
+    <string name="err_server">Server tidak menjawab: %1$s\nPeriksa alamat dan pastikan server berjalan.</string>
 </resources>

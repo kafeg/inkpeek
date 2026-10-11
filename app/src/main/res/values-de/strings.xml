@@ -86,4 +86,8 @@
     <string name="err_no_model">Kein Modell gewählt: in InkPeek → KI auswählen.</string>
     <string name="err_other">Die KI-Anfrage ist fehlgeschlagen. Erneut versuchen; sonst KI-Einstellungen prüfen.</string>
     <string name="back">Zurück</string>
+    <string name="server_url">Serveradresse, z. B. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Aus Vorlage übernehmen…</string>
+    <string name="key_optional">Für einen lokalen Server ist kein Schlüssel nötig. Cloud-Dienste: oben eingeben oder in %1$s ablegen</string>
+    <string name="err_server">Der Server antwortet nicht: %1$s\nAdresse prüfen und ob der Server läuft.</string>
 </resources>

@@ -86,4 +86,8 @@
     <string name="err_no_model">No hay modelo elegido: elige uno en ajustes de InkPeek → IA.</string>
     <string name="err_other">La solicitud a la IA falló. Inténtalo de nuevo; si se repite, revisa los ajustes de IA.</string>
     <string name="back">Atrás</string>
+    <string name="server_url">Dirección del servidor, p. ej. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Rellenar desde un ajuste…</string>
+    <string name="key_optional">Un servidor local no necesita clave. Servicios en la nube: escríbela arriba o ponla en %1$s</string>
+    <string name="err_server">El servidor no responde: %1$s\nRevisa la dirección y que el servidor esté en marcha.</string>
 </resources>

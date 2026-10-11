@@ -86,4 +86,8 @@
     <string name="err_no_model">モデルが未選択です：InkPeek の設定 → AI で選んでください。</string>
     <string name="err_other">AI へのリクエストに失敗しました。もう一度お試しください。繰り返す場合は AI 設定を確認してください。</string>
     <string name="back">戻る</string>
+    <string name="server_url">サーバーのアドレス（例: http://192.168.1.10:1234/v1）</string>
+    <string name="preset_pick">プリセットから入力…</string>
+    <string name="key_optional">ローカルサーバーにはキー不要です。クラウドサービス: 上に入力するか %1$s に置いてください</string>
+    <string name="err_server">サーバーが応答しません: %1$s\nアドレスとサーバーが起動しているか確認してください。</string>
 </resources>

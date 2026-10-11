@@ -86,4 +86,8 @@
     <string name="err_no_model">Model seçilmedi: InkPeek ayarları → YZ bölümünden seçin.</string>
     <string name="err_other">YZ isteği başarısız oldu. Tekrar deneyin; sürerse YZ ayarlarını kontrol edin.</string>
     <string name="back">Geri</string>
+    <string name="server_url">Sunucu adresi, örn. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Hazır ayardan doldur…</string>
+    <string name="key_optional">Yerel sunucu için anahtar gerekmez. Bulut hizmetleri: yukarıya yazın veya %1$s içine koyun</string>
+    <string name="err_server">Sunucu yanıt vermiyor: %1$s\nAdresi ve sunucunun çalıştığını kontrol edin.</string>
 </resources>

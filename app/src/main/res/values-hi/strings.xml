@@ -86,4 +86,8 @@
     <string name="err_no_model">कोई मॉडल नहीं चुना गया: InkPeek सेटिंग्स → AI में चुनें।</string>
     <string name="err_other">AI अनुरोध विफल रहा। फिर कोशिश करें; बार-बार हो तो AI सेटिंग्स जाँचें।</string>
     <string name="back">वापस</string>
+    <string name="server_url">सर्वर का पता, जैसे http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">प्रीसेट से भरें…</string>
+    <string name="key_optional">लोकल सर्वर के लिए कुंजी ज़रूरी नहीं। क्लाउड सेवाएँ: ऊपर लिखें या %1$s में रखें</string>
+    <string name="err_server">सर्वर जवाब नहीं दे रहा: %1$s\nपता जाँचें और देखें कि सर्वर चल रहा है।</string>
 </resources>

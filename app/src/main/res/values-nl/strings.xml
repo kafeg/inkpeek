@@ -86,4 +86,8 @@
     <string name="err_no_model">Geen model gekozen: kies er een in de InkPeek-instellingen → AI.</string>
     <string name="err_other">Het AI-verzoek is mislukt. Probeer het opnieuw; blijft het gebeuren, controleer dan de AI-instellingen.</string>
     <string name="back">Terug</string>
+    <string name="server_url">Serveradres, bijv. http://192.168.1.10:1234/v1</string>
+    <string name="preset_pick">Invullen vanuit een voorinstelling…</string>
+    <string name="key_optional">Een lokale server heeft geen sleutel nodig. Clouddiensten: typ hem hierboven of zet hem in %1$s</string>
+    <string name="err_server">De server antwoordt niet: %1$s\nControleer het adres en of de server draait.</string>
 </resources>

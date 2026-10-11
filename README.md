@@ -122,13 +122,32 @@ InkPeek builds its own index for each dictionary once, in the background (settin
 upstream indexes still work, and `.dict.dz` is read in place, without unpacking.
 
 ### AI
-Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free). The model list has a
-search, a maker filter, "free only" and sorting. Put the key in settings, or in a file:
+Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
+OpenAI-compatible server** — your own or a cloud one. The model list has a search, a maker filter, "free only" and
+sorting. For your own server, pick a preset and change the address if needed; a local server needs no key.
+
+| preset | address |
+|---|---|
+| LM Studio | `http://<computer IP>:1234/v1` |
+| Ollama | `http://<computer IP>:11434/v1` |
+| llama.cpp server | `http://<computer IP>:8080/v1` |
+| vLLM | `http://<computer IP>:8000/v1` |
+| Groq | `https://api.groq.com/openai/v1` |
+| DeepSeek | `https://api.deepseek.com/v1` |
+| Qwen (Alibaba Cloud) | `https://dashscope-intl.aliyuncs.com/compatible-mode/v1` |
+| Mistral | `https://api.mistral.ai/v1` |
+| Google Gemini | `https://generativelanguage.googleapis.com/v1beta/openai` |
+
+A local server must listen on the network, not only on localhost (LM Studio: "Serve on Local Network"; Ollama:
+`OLLAMA_HOST=0.0.0.0`). A small local model can be slow; InkPeek waits up to 2 minutes for it.
+
+Put the key in settings, or in a file:
 
 ```
 /sdcard/InkPeek/keys/anthropic.key
 /sdcard/InkPeek/keys/openai.key
 /sdcard/InkPeek/keys/openrouter.key
+/sdcard/InkPeek/keys/custom.key
 ```
 
 ```bash
