@@ -202,7 +202,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             }
             model.text = getString(R.string.model, prefs.model(p).ifBlank { getString(R.string.model_choose) })
         }
-        t.addView(spinner(providers.map { it.title }, providers.indexOf(prefs.provider)) { prefs.provider = providers[it]; load(providers[it]) })
+        t.addView(spinner(providers.map { it.title }, providers.indexOf(prefs.provider)) { prefs.provider = providers[it]; load(providers[it]); refreshDicts() })
         t.addView(key)
         t.addView(Ink.button(this, getString(R.string.save_key), sp) { prefs.setKey(prefs.provider, key.text.toString()); load(prefs.provider); toast(getString(R.string.saved)) })
         t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
@@ -210,8 +210,9 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         t.addView(Ink.text(this, getString(R.string.answer_lang_t), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         val langs = (LANGS + prefs.answerLang).distinct()
+        val here = resources.configuration.locales[0]
         val shown = langs.map { name -> java.util.Locale.getAvailableLocales().firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == name }
-            ?.getDisplayLanguage(java.util.Locale.getDefault())?.replaceFirstChar { it.uppercase() } ?: name }
+            ?.getDisplayLanguage(here)?.replaceFirstChar { it.uppercase() } ?: name }
         t.addView(spinner(shown, langs.indexOf(prefs.answerLang)) { prefs.answerLang = langs[it] })
         load(prefs.provider)
     }
@@ -236,7 +237,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         var shown = models
         fun label(m: ModelInfo) = m.id + when {
             m.free -> "  · " + getString(R.string.free)
-            m.price != null -> "  · $%.2f/$%.2f".format(m.price.first, m.price.second)
+            m.price != null -> "  · $%.2f/$%.2f".format(java.util.Locale.US, m.price.first, m.price.second)
             else -> ""
         } + if (m.context > 0) "  · ${m.context / 1000}k" else ""
         fun apply() {
@@ -274,7 +275,14 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
         t.addView(Ink.text(this, getString(R.string.text_size), 14f))
-        t.addView(edit("20", prefs.fontSp.toString(), number = true) { it.toIntOrNull()?.let { v -> prefs.fontSp = v.coerceIn(12, 40) } })
+        val sizeRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
+        val sizeView = Ink.text(this, prefs.fontSp.toString(), sp, bold = true).apply { gravity = Gravity.CENTER }
+        fun step(by: Int) { prefs.fontSp = (prefs.fontSp + by).coerceIn(12, 40); sizeView.text = prefs.fontSp.toString() }
+        val w = Ink.dp(this, 56)
+        sizeRow.addView(Ink.button(this, "−", sp) { step(-2) }.apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
+        sizeRow.addView(sizeView, LinearLayout.LayoutParams(w * 2, w))
+        sizeRow.addView(Ink.button(this, "+", sp) { step(2) }.apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
+        t.addView(sizeRow)
         t.addView(switch(getString(R.string.dim), prefs.dim) { prefs.dim = it })
         val pos = listOf("center", "top", "bottom", "reader")
         val posLabels = listOf(R.string.pos_center, R.string.pos_top, R.string.pos_bottom, R.string.pos_reader).map { getString(it) }

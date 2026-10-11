@@ -8,7 +8,17 @@ Select a word in your reading app and a calm, high-contrast card opens over the 
 StarDict dictionaries, and tabs that ask an AI to translate in context, explain the grammar, list the harder words or
 give examples. Close the card and you are on the same page.
 
-<!-- screenshots: docs/img/*.png -->
+<p align="center">
+  <img src="docs/img/card-dictionary.png" width="240" alt="Dictionary tab over a page in FBReader">
+  <img src="docs/img/card-translate-word.png" width="240" alt="Translate tab for a word">
+  <img src="docs/img/card-grammar.png" width="240" alt="Grammar tab for a sentence">
+</p>
+<p align="center">
+  <img src="docs/img/card-translate-phrase.png" width="240" alt="A selected sentence opens on Translate">
+  <img src="docs/img/settings-card.png" width="240" alt="Card settings: choose the AI tabs">
+  <img src="docs/img/settings-models.png" width="240" alt="OpenRouter models: free only">
+</p>
+<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain).</sub></p>
 
 ## What it does
 - **Dictionary tab** — your StarDict dictionaries, one per screen, ◀ ▶ to page between them. Inflected forms are
