@@ -37,7 +37,7 @@ call an external dictionary open it as a pop-up:
 
 | reader | how |
 |---|---|
-| FBReader | Settings → Dictionary → **ColorDict 3** (for words and for the translator) |
+| FBReader | Settings → Dictionary → **ColorDict 3**. Words: the translate button. Phrases: the free FBReader sends them only to its Premium translator — use **Share → InkPeek** (InkPeek is first in the share sheet) |
 | Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict** |
 | Moon+ Reader | Dictionary → **ColorDict** |
 | any app | text selection menu → **Look up in InkPeek**, or Share → InkPeek |
