@@ -33,6 +33,16 @@ object Ink {
         isClickable = true; isFocusable = true
     }
 
+    fun label(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}", a.id)
+    fun description(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}_d", "")
+    private fun res(ctx: Context, name: String, fallback: String) =
+        ctx.resources.getIdentifier(name, "string", ctx.packageName).takeIf { it != 0 }?.let { ctx.getString(it) } ?: fallback
+
+    /** The little Markdown the AI may use (**bold**, *italic*, "- " lists) -> HTML. */
+    fun markdown(s: String): String = s.trim().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        .replace(Regex("\\*\\*(.+?)\\*\\*"), "<b>$1</b>").replace(Regex("(?<![*\\w])\\*(?!\\s)(.+?)(?<!\\s)\\*(?![*\\w])"), "<i>$1</i>")
+        .replace(Regex("(?m)^#+\\s*"), "").replace(Regex("(?m)^\\s*[-•]\\s+"), "• ").replace("\n", "<br>")
+
     fun vertical(ctx: Context) = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
     fun horizontal(ctx: Context) = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL }
     fun lp(w: Int = ViewGroup.LayoutParams.MATCH_PARENT, h: Int = ViewGroup.LayoutParams.WRAP_CONTENT, weight: Float = 0f) =

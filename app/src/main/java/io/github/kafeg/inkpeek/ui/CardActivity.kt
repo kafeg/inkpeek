@@ -4,27 +4,33 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
-import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
+import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Ai
+import io.github.kafeg.inkpeek.stardict.StarDict
 import io.github.kafeg.inkpeek.stardict.cleanQuery
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** The pop-up card: dictionary entries and AI actions for the selected text. */
+/**
+ * The pop-up card. Tabs at the bottom: Dictionary first, then one tab per enabled AI action.
+ * Each tab keeps its content; an AI answer is asked once per tab and shown again on return.
+ */
 class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
-    private lateinit var body: LinearLayout
-    private var aiBlock: TextView? = null
+    private lateinit var scroll: ScrollView
+    private val pages = HashMap<String, LinearLayout>()
+    private val tabButtons = LinkedHashMap<String, TextView>()
     private var query = ""
     private val size get() = prefs.fontSp.toFloat()
 
@@ -35,8 +41,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
-        val phrase = query.contains(' ')
-        if (phrase && prefs.aiOn && prefs.phraseAutoAi) ask(prefs.actions.first()) else lookup(phrase)
+        val first = prefs.actions.firstOrNull()
+        open(if (query.contains(' ') && prefs.aiOn && prefs.phraseAutoAi && first != null) first.id else DICT)
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
@@ -54,25 +60,31 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val root = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
         val head = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         head.addView(Ink.text(this, query, size * 1.3f, bold = true), Ink.lp(0, weight = 1f))
-        head.addView(Ink.button(this, "✕", size) { finish() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT))
+        val x = Ink.dp(this, 44)
+        head.addView(Ink.button(this, "✕", size) { finish() }.apply { setPadding(0, 0, 0, 0) },
+            LinearLayout.LayoutParams(x, x).apply { leftMargin = Ink.dp(this@CardActivity, 8) })
         root.addView(head)
-        body = Ink.vertical(this)
-        val scroll = ScrollView(this).apply { isVerticalScrollBarEnabled = true; addView(body) }
+        scroll = ScrollView(this)
         root.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
-        if (prefs.aiOn) {
-            val row = Ink.horizontal(this)
-            prefs.actions.forEachIndexed { i, a ->
-                row.addView(Ink.button(this, a.name, size * 0.8f) { ask(a) },
-                    Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
+        val tabs = listOf(DICT to getString(R.string.tab_dictionary)) +
+            if (prefs.aiOn) prefs.actions.map { it.id to Ink.label(this, it) } else emptyList()
+        val row = Ink.horizontal(this)
+        tabs.forEachIndexed { i, (id, label) ->
+            val b = Ink.button(this, label, size * 0.72f) { open(id) }.apply {
+                val q = Ink.dp(this@CardActivity, 4); setPadding(q, q * 3, q, q * 3); maxLines = 1
             }
-            root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
+            tabButtons[id] = b
+            row.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 5) })
         }
+        root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
+        if (!prefs.aiOn) root.addView(Ink.text(this, getString(R.string.ai_off), size * 0.65f),
+            Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
         setContentView(root)
     }
 
     private fun placeWindow() {
         val dm = resources.displayMetrics
-        window.setLayout((dm.widthPixels * 0.9).toInt(), (dm.heightPixels * 0.62).toInt())
+        window.setLayout((dm.widthPixels * 0.92).toInt(), (dm.heightPixels * 0.8).toInt())
         window.setGravity(when (prefs.position) {
             "top" -> Gravity.TOP; "bottom" -> Gravity.BOTTOM
             "reader" -> intent.getIntExtra("EXTRA_GRAVITY", Gravity.CENTER)
@@ -83,40 +95,51 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         window.setWindowAnimations(0)
     }
 
-    private fun note(s: String) = body.addView(Ink.text(this, s, size * 0.85f))
+    /** Shows the tab, filling it the first time. */
+    private fun open(tab: String) {
+        tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
+        val page = pages[tab] ?: Ink.vertical(this).also { p ->
+            pages[tab] = p
+            if (tab == DICT) fillDictionary(p) else Action.ALL.firstOrNull { it.id == tab }?.let { fillAi(p, it) }
+        }
+        scroll.removeAllViews(); scroll.addView(page); scroll.scrollTo(0, 0)
+    }
 
-    private fun lookup(phrase: Boolean) {
-        val wait = Ink.text(this, "…", size); body.addView(wait)
+    private fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
+
+    private fun fillDictionary(p: LinearLayout) {
+        val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
-            val res = withContext(Dispatchers.IO) {
-                runCatching { prefs.library().lookup(query, prefs.order, prefs.disabled) }
-            }
-            body.removeView(wait)
-            val hits = res.getOrElse { note("Dictionary error: ${it.message}"); return@launch }
-            if (hits.isEmpty()) note(if (phrase) "Not in dictionaries." else "Not found in dictionaries.")
-            hits.forEach { (dict, list) ->
-                body.addView(Ink.text(this@CardActivity, dict.name, size * 0.7f, bold = true),
-                    Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
+            val notReady = ArrayList<StarDict>()
+            val res = withContext(Dispatchers.IO) { runCatching { prefs.library().lookup(query, prefs.order, prefs.disabled, notReady) } }
+            p.removeView(wait)
+            val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
+            if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
+            if (hits.isEmpty()) note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
+            hits.forEachIndexed { i, (dict, list) ->
+                p.addView(Ink.text(this@CardActivity, dict.name, size * 0.7f, bold = true),
+                    Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, if (i == 0) 0 else 14) })
                 list.forEach { h ->
                     val head = if (h.word.equals(query, true)) "" else "<b>${h.word}</b><br>"
-                    body.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
+                    p.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
                 }
             }
         }
     }
 
-    private fun ask(a: Action) {
-        val p = prefs.provider
-        val block = aiBlock ?: Ink.text(this, "", size).also {
-            aiBlock = it; body.addView(it, 0, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 10) })
-        }
-        Ai.cached(a, query)?.let { block.text = "${a.name}\n$it"; return }
-        block.text = "${a.name}…"
+    private fun fillAi(p: LinearLayout, a: Action) {
+        Ai.cached(a, query)?.let { p.addView(Ink.text(this, Ink.markdown(it), size, html = true)); return }
+        val out = Ink.text(this, "", size); p.addView(out)
+        val pr = prefs.provider
+        val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + " " + "·".repeat(n % 3 + 1); n++; delay(700) } }
         launch {
-            val r = withContext(Dispatchers.IO) {
-                runCatching { Ai.ask(p, prefs.effectiveKey(p), prefs.model(p), a, query, prefs.answerLang) }
-            }
-            block.text = r.fold({ "${a.name}\n$it" }, { "${a.name}: ${it.message ?: it.javaClass.simpleName}" })
+            val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang) } }
+            dots.cancel()
+            r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) },
+                { out.text = "${it.message ?: it.javaClass.simpleName}\n\n" + getString(R.string.check_ai) })
+            if (r.isFailure) pages.remove(a.id) // ask again next time
         }
     }
+
+    companion object { const val DICT = "dict" }
 }

@@ -68,3 +68,10 @@ class StarDictTest {
         assertEquals("b", Catalog.freedict(f).single().url)
     }
 }
+
+class MarkdownTest {
+    @Test fun boldItalicLists() {
+        org.junit.Assert.assertEquals("<b>Haus</b> — <i>дом</i><br>• a &lt; b",
+            io.github.kafeg.inkpeek.ui.Ink.markdown("**Haus** — *дом*\n- a < b"))
+    }
+}

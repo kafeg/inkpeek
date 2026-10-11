@@ -8,27 +8,50 @@ import org.apache.commons.compress.compressors.xz.XZCompressorInputStream
 import org.apache.commons.compress.compressors.zstandard.ZstdCompressorInputStream
 import java.io.File
 import java.io.InputStream
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.Executors
 import java.util.zip.GZIPInputStream
 
 /**
- * Dictionaries from [roots] (own folder first, then extra folders such as /sdcard/dictdata).
- * Order and the disabled set are kept by the caller as dictionary ids.
+ * Dictionaries under [roots]. Indexes are built by one background thread, one dictionary at a time;
+ * [status] tells the UI what is going on. Order and the disabled set are kept by the caller as ids.
  */
 class Library(private val roots: List<File>, private val workRoot: File) {
     private var cache: Map<String, StarDict> = emptyMap()
+    private val worker = Executors.newSingleThreadExecutor { r -> Thread(r, "inkpeek-index").apply { isDaemon = true } }
+    private val queued = ConcurrentHashMap.newKeySet<String>()
+    /** id -> "indexing" | "error: …"; absent = ready or not yet looked at. */
+    val status = ConcurrentHashMap<String, String>()
 
     @Synchronized fun all(order: List<String> = emptyList()): List<StarDict> {
-        val found = roots.flatMap { StarDict.scan(it) }.distinctBy { it.absolutePath }
-        val byPath = cache.values.associateBy { it.ifo.absolutePath }
-        cache = found.map { byPath[it.absolutePath] ?: StarDict(it, workRoot) }.associateBy { it.id }
+        val found = roots.flatMap { StarDict.scan(it) }.map { it.canonicalFile }.distinctBy { it.path }
+        val byPath = cache.values.associateBy { it.ifo.path }
+        cache = found.map { byPath[it.path] ?: StarDict(it, workRoot) }.associateBy { it.id }
+        workRoot.listFiles()?.filter { it.name !in cache }?.forEach { it.deleteRecursively() } // removed dictionaries
         val rank = order.withIndex().associate { it.value to it.index }
         return cache.values.sortedWith(compareBy({ rank[it.id] ?: Int.MAX_VALUE }, { it.name }))
     }
 
-    /** Hits per dictionary, in [order], skipping [disabled]; only dictionaries with a hit. */
-    fun lookup(query: String, order: List<String>, disabled: Set<String>): List<Pair<StarDict, List<Hit>>> {
+    /** Queues index building for every dictionary that needs it. */
+    fun prepareAll() = cache.values.filter { !it.ready }.forEach { prepareAsync(it) }
+
+    fun prepareAsync(d: StarDict) {
+        if (d.ready || !queued.add(d.id)) return
+        status[d.id] = "indexing"
+        worker.execute {
+            runCatching { d.prepare() }.fold({ status.remove(d.id) }, { status[d.id] = "error: ${it.message ?: it.javaClass.simpleName}" })
+            queued.remove(d.id)
+        }
+    }
+
+    val busy: Boolean get() = queued.isNotEmpty()
+
+    /** Hits per ready dictionary, in [order], skipping [disabled]; unready ones are queued and listed in [notReady]. */
+    fun lookup(query: String, order: List<String>, disabled: Set<String>, notReady: MutableList<StarDict>? = null):
+        List<Pair<StarDict, List<Hit>>> {
         val q = cleanQuery(query)
         return all(order).filter { it.id !in disabled }.mapNotNull { d ->
+            if (!d.ready) { prepareAsync(d); notReady?.add(d); return@mapNotNull null }
             runCatching { d.lookup(q) }.getOrNull()?.takeIf { it.isNotEmpty() }?.let { d to it }
         }
     }

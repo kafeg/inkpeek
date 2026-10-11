@@ -35,10 +35,10 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
         val pad = Ink.dp(this, 16)
         val col = Ink.vertical(this).apply { setPadding(pad, pad, pad, pad) }
-        info = Ink.text(this, "Loading lists…", 16f)
-        filter = EditText(this).apply { hint = "Filter: de-ru, en, ru…"; textSize = 18f; setSingleLine() }
+        info = Ink.text(this, getString(io.github.kafeg.inkpeek.R.string.loading_lists), 16f)
+        filter = EditText(this).apply { hint = getString(io.github.kafeg.inkpeek.R.string.catalog_filter); textSize = 18f; setSingleLine() }
         list = ListView(this)
-        col.addView(Ink.text(this, "Get dictionaries", 24f, bold = true))
+        col.addView(Ink.text(this, getString(io.github.kafeg.inkpeek.R.string.get_dicts), 24f, bold = true))
         col.addView(filter); col.addView(info); col.addView(list, Ink.lp(h = 0, weight = 1f))
         setContentView(col)
         filter.addTextChangedListener(object : TextWatcher {
@@ -63,7 +63,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     private fun show() {
         val f = filter.text.toString().trim().lowercase()
         shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${it.title}".lowercase().contains(f) }
-        info.text = "${shown.size} of ${items.size}"
+        info.text = getString(io.github.kafeg.inkpeek.R.string.n_of_m, shown.size, items.size)
         list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
             shown.map { "${it.from} → ${it.to}   ${it.source}   ${mb(it.size)}" })
     }
@@ -76,10 +76,10 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun confirm(item: CatalogItem) = AlertDialog.Builder(this).setTitle(item.title)
         .setMessage("${mb(item.size)} · ${item.license}\n${item.url}")
-        .setPositiveButton("Download") { _, _ -> download(item) }.setNegativeButton("Cancel", null).show()
+        .setPositiveButton(io.github.kafeg.inkpeek.R.string.download) { _, _ -> download(item) }.setNegativeButton(io.github.kafeg.inkpeek.R.string.cancel, null).show()
 
     private fun download(item: CatalogItem) {
-        info.text = "Downloading ${item.title}…"
+        info.text = getString(io.github.kafeg.inkpeek.R.string.downloading, item.title)
         launch {
             val r = withContext(Dispatchers.IO) {
                 runCatching {
@@ -89,8 +89,8 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
                     }
                 }
             }
-            r.fold({ Toast.makeText(this@CatalogActivity, "Added: ${it.joinToString { d -> d.name }}", Toast.LENGTH_LONG).show() },
-                { Toast.makeText(this@CatalogActivity, "Failed: ${it.message}", Toast.LENGTH_LONG).show() })
+            r.fold({ Toast.makeText(this@CatalogActivity, getString(io.github.kafeg.inkpeek.R.string.added, it.joinToString { d -> d.name }), Toast.LENGTH_LONG).show() },
+                { Toast.makeText(this@CatalogActivity, getString(io.github.kafeg.inkpeek.R.string.failed, it.message), Toast.LENGTH_LONG).show() })
             show()
         }
     }
