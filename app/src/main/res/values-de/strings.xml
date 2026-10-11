@@ -77,7 +77,7 @@
     <string name="ui_lang">App-Sprache</string>
     <string name="ui_lang_system">Wie das System</string>
     <string name="offline">Kein Netz: KI-Tabs brauchen Internet, Wörterbücher gehen offline.</string>
-    <string name="gloss_title">Wort für Wort aus Ihren Wörterbüchern (offline):</string>
+    <string name="gloss_title">Wort für Wort aus Ihren Wörterbüchern (auch offline; Wort antippen für den Eintrag):</string>
     <string name="err_offline">Kein Netz. KI braucht Internet; der Wörterbuch-Tab geht offline.</string>
     <string name="err_key">Der API-Schlüssel wurde abgelehnt: in den InkPeek-Einstellungen prüfen.</string>
     <string name="err_rate">Zu viele Anfragen: Limit des Anbieters. In einer Minute erneut versuchen.</string>
@@ -85,4 +85,5 @@
     <string name="err_no_key">Kein API-Schlüssel: in den InkPeek-Einstellungen oder in /sdcard/InkPeek/keys/ hinterlegen.</string>
     <string name="err_no_model">Kein Modell gewählt: in InkPeek → KI auswählen.</string>
     <string name="err_other">Die KI-Anfrage ist fehlgeschlagen. Erneut versuchen; sonst KI-Einstellungen prüfen.</string>
+    <string name="back">Zurück</string>
 </resources>

@@ -50,12 +50,28 @@ class Library(private val roots: List<File>, private val workRoot: File) {
 
     val busy: Boolean get() = queued.isNotEmpty()
 
-    /** Offline help for a passage: each distinct word (3+ letters) with its base form and first meaning. */
-    fun gloss(text: String, order: List<String>, disabled: Set<String>, limit: Int = 40): List<Gloss> =
-        Regex("[\\p{L}][\\p{L}'’-]{2,}").findAll(text).map { it.value }.distinctBy { it.lowercase() }.take(limit).mapNotNull { w ->
-            val hit = lookup(w, order, disabled).firstOrNull()?.second?.firstOrNull() ?: return@mapNotNull null
-            Gloss(w, hit.word, runCatching { shortMeaning(hit.html, hit.word) }.getOrDefault(""))
-        }.toList()
+    /**
+     * Word-by-word help for a phrase or passage: each distinct word with its base form and first meaning.
+     * Only dictionaries that know most of the text count (so an English dictionary does not explain German
+     * "aus" as "AU"); among them, one whose meanings are in [script] (the answer language) wins, e.g. de→ru over de→en.
+     */
+    fun gloss(text: String, order: List<String>, disabled: Set<String>, script: Character.UnicodeScript? = null, limit: Int = 60): List<Gloss> {
+        val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).map { it.value }.distinctBy { it.lowercase() }.take(limit).toList()
+        val found = words.associateWith { lookup(it, order, disabled) }
+        val known = found.values.flatMap { r -> r.map { it.first.id } }.groupingBy { it }.eachCount()
+        val top = known.values.maxOrNull() ?: 0
+        return words.map { w ->
+            val all = found.getValue(w).filter { (d, _) -> (known[d.id] ?: 0) * 2 >= top }
+                .map { (_, hits) -> hits.first().let { h -> h to runCatching { shortMeaning(h.html, h.word) }.getOrDefault("") } }
+                .filter { it.second.isNotBlank() }
+            val pick = all.firstOrNull { (_, m) -> script != null && scriptOf(m) == script } ?: all.firstOrNull()
+            pick?.let { (h, m) -> Gloss(w, h.word, m) } ?: Gloss(w, w, "")
+        }
+    }
+
+    /** Main letter script of a text (CYRILLIC, LATIN, HAN…). */
+    fun scriptOf(s: String): Character.UnicodeScript? = s.codePoints().toArray().filter { Character.isLetter(it) }
+        .groupingBy { Character.UnicodeScript.of(it) }.eachCount().maxByOrNull { it.value }?.key
 
     /** Hits per ready dictionary, in [order], skipping [disabled]; unready ones are queued and listed in [notReady]. */
     fun lookup(query: String, order: List<String>, disabled: Set<String>, notReady: MutableList<StarDict>? = null):
@@ -77,17 +93,21 @@ class Library(private val roots: List<File>, private val workRoot: File) {
 /** One line of an offline word-by-word gloss. */
 data class Gloss(val word: String, val base: String, val meaning: String)
 
-/** First meaning of an article as one short plain line (numbered or bulleted sense, else the first content line). */
+/** First meaning of an article as one short plain line: the first sense of the first numbered list, else the first content line. */
 fun shortMeaning(html: String, headword: String): String {
-    val text = html.replace(Regex("(?i)<li[^>]*>"), "\n• ").replace(Regex("(?i)<br\\s*/?>|</(p|li|div|h[1-6])>"), "\n").replace(Regex("<[^>]+>"), "")
+    fun plain(h: String) = h.replace(Regex("(?i)<li[^>]*>"), "\n• ").replace(Regex("(?i)<br\\s*/?>|</(p|li|div|h[1-6])>"), "\n").replace(Regex("<[^>]+>"), "")
         .replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&amp;", "&")
-    val lines = text.lines().map { it.trim() }.filter { it.length > 1 }
-    val skip = Regex("^(•\\s*)?(IPA|Hyphenation|Rhymes|Audio|Homophone|Anagrams|Etymology|Произношение|Семантические|Морфолог)|IPA:", RegexOption.IGNORE_CASE)
+    fun clean(s: String) = s.substringBefore('◆').replace(Regex("^(•|\\d+[.)]|[-–])\\s*"), "").replace(Regex("\\s+"), " ").trim().take(90)
+    // Wiktionary and most HTML dictionaries keep senses in <ol><li>; transcription and forms come before it in <ul>.
+    Regex("(?is)<ol[^>]*>.*?<li[^>]*>(.*?)(</li>|<ol|<ul)").findAll(html).map { clean(plain(it.groupValues[1])) }
+        .firstOrNull { it.length > 1 }?.let { return it }
+    val lines = plain(html).lines().map { it.trim() }.filter { it.length > 1 }
+    val skip = Regex("^(•\\s*)?(IPA|Hyphenation|Rhymes|Audio|Homophone|Anagrams|Etymology|МФА|Произношение|Семантические|Морфолог)|IPA:|МФА", RegexOption.IGNORE_CASE)
     val oneWord = Regex("^[\\p{L} ]{1,20}$") // part-of-speech headings: Noun, Verb, Существительное
     val sense = lines.firstOrNull { Regex("^(•|\\d+[.)]|[-–]) ?\\S").containsMatchIn(it) && !skip.containsMatchIn(it) && it.length > 3 }
         ?: lines.firstOrNull { !it.equals(headword, true) && !skip.containsMatchIn(it) && !it.startsWith("[") && !oneWord.matches(it) }
         ?: ""
-    return sense.replace(Regex("^(•|\\d+[.)]|[-–])\\s*"), "").take(90)
+    return clean(sense)
 }
 
 /** Unpacks an archive or a set of loose StarDict files into [target]/<dictionary>/. */

@@ -97,5 +97,7 @@ class GlossTest {
         org.junit.Assert.assertEquals("дом, здание", shortMeaning("<b>Haus</b><br>IPA: [haʊ̯s]<br><ol><li>дом, здание</li><li>семья</li></ol>", "Haus"))
         org.junit.Assert.assertEquals("house, building", shortMeaning("Haus<br>• house, building<br>• home", "Haus"))
         org.junit.Assert.assertEquals("house, building", shortMeaning("<b>Haus</b><br><b>Noun</b><ul><li>IPA: [haʊ̯s]</li></ul>Haus n<ol><li>house, building</li></ol>", "Haus"))
+        // Russian Wiktionary: transcription list first, the sense with an example after ◆
+        org.junit.Assert.assertEquals("когда, в то время как", shortMeaning("<b>als</b><ul class=\"transcription\"><li>МФА: [als]</li></ul><b>Значение</b><ol><li><i></i> когда, в то время как <span>◆ Als er kam…</span></li></ol>", "als"))
     }
 }

@@ -34,8 +34,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val tabButtons = LinkedHashMap<String, TextView>()
     private var query = ""
     private val kind get() = Kind.of(query)
-    /** A dictionary has nothing to say about a whole passage — unless AI is off or offline: then a word-by-word gloss. */
-    private val dictTab get() = kind != Kind.PASSAGE || !prefs.aiOn || !online
+    /** Always: a word → its articles; a phrase or passage → a word-by-word gloss. */
+    private val dictTab get() = true
     private val online: Boolean get() {
         val cm = getSystemService(CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
         return cm.getNetworkCapabilities(cm.activeNetwork)?.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
@@ -127,18 +127,38 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
 
-    /** One dictionary per screen; ◀ ▶ page between dictionaries that have the word. */
-    private fun fillDictionary(p: LinearLayout) {
-        if (kind == Kind.PASSAGE) { fillGloss(p); return }
+    /** Script of the answer language: dictionaries whose meanings use it come first (de→ru before de→en). */
+    private val answerScript: Character.UnicodeScript get() = when (prefs.answerLang) {
+        "Russian", "Ukrainian", "Bulgarian", "Serbian", "Belarusian", "Kazakh" -> Character.UnicodeScript.CYRILLIC
+        "Chinese", "Japanese" -> Character.UnicodeScript.HAN
+        "Korean" -> Character.UnicodeScript.HANGUL
+        "Arabic", "Persian" -> Character.UnicodeScript.ARABIC
+        "Greek" -> Character.UnicodeScript.GREEK
+        "Hebrew" -> Character.UnicodeScript.HEBREW
+        else -> Character.UnicodeScript.LATIN
+    }
+
+    /** Dictionary tab: a word → its articles; a phrase or passage → word-by-word gloss, tap a word for its articles. */
+    private fun fillDictionary(p: LinearLayout) = if (kind == Kind.WORD) fillArticles(p, query, null) else fillGloss(p)
+
+    /** One dictionary per screen; ◀ ▶ page between dictionaries that have [word]. [back] — return to the gloss. */
+    private fun fillArticles(p: LinearLayout, word: String, back: (() -> Unit)?) {
+        p.removeAllViews()
+        if (back != null) p.addView(Ink.button(this, "← " + getString(R.string.back), size * 0.8f) { back() },
+            Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val notReady = ArrayList<StarDict>()
-            val res = withContext(Dispatchers.IO) { runCatching { prefs.library().lookup(query, prefs.order, prefs.disabled, notReady) } }
+            val lib = prefs.library()
+            val res = withContext(Dispatchers.IO) { runCatching {
+                lib.lookup(word, prefs.order, prefs.disabled, notReady)
+                    .sortedBy { (_, h) -> if (lib.scriptOf(h.first().html.replace(Regex("<[^>]+>"), " ")) == answerScript) 0 else 1 }
+            } }
             p.removeView(wait)
             val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
             if (hits.isEmpty()) {
-                if (notReady.isEmpty()) note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
+                if (notReady.isEmpty()) note(p, getString(if (lib.all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
                 return@launch
             }
             val nav = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
@@ -150,7 +170,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 title.text = if (hits.size > 1) "${dict.name} · ${at + 1}/${hits.size}" else dict.name
                 body.removeAllViews()
                 list.forEach { h ->
-                    val head = if (h.word.equals(query, true)) "" else "<b>${h.word}</b><br>"
+                    val head = if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>"
                     body.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
                 }
                 scroll.scrollTo(0, 0)
@@ -167,19 +187,28 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    /** Offline help for a passage: word — base form — first dictionary meaning. */
+    private var glossCache: List<io.github.kafeg.inkpeek.stardict.Gloss>? = null
+
+    /** Word by word from the local dictionaries (works offline); tap a line for the word's articles. */
     private fun fillGloss(p: LinearLayout) {
+        p.removeAllViews()
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
-            val g = withContext(Dispatchers.IO) { runCatching { prefs.library().gloss(query, prefs.order, prefs.disabled) }.getOrDefault(emptyList()) }
+            val g = glossCache ?: withContext(Dispatchers.IO) {
+                runCatching { prefs.library().gloss(query, prefs.order, prefs.disabled, answerScript) }.getOrDefault(emptyList())
+            }.also { glossCache = it }
             p.removeView(wait)
             note(p, getString(R.string.gloss_title))
             if (g.isEmpty()) { note(p, getString(R.string.not_found)); return@launch }
-            val html = g.joinToString("<br>") { x ->
+            g.forEach { x ->
                 val base = if (x.base.equals(x.word, true)) "" else " → ${Ink.escape(x.base)}"
-                "<b>${Ink.escape(x.word)}</b>$base — ${Ink.escape(x.meaning)}"
+                val meaning = if (x.meaning.isBlank()) "" else " — ${Ink.escape(x.meaning)}"
+                val row = Ink.text(this@CardActivity, "<b>${Ink.escape(x.word)}</b>$base$meaning", size, html = true).apply {
+                    val q = Ink.dp(this@CardActivity, 4); setPadding(0, q, 0, q)
+                    setOnClickListener { fillArticles(p, x.base.ifBlank { x.word }) { fillGloss(p) } }
+                }
+                p.addView(row)
             }
-            p.addView(Ink.text(this@CardActivity, html, size, html = true), Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 8) })
         }
     }
 
