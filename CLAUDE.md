@@ -4,8 +4,9 @@ Pop-up dictionary for Android e-ink readers: local StarDict + AI (Claude) action
 Spec — `docs/spec.md` (source of truth). Public repo (MIT): no secrets, keys, personal paths or IPs in commits.
 
 ## Stack
-Kotlin, Android Views, minSdk 26 / targetSdk 35, no third-party libraries. Packages: `stardict` (pure JVM),
-`ai`, `ui`. JVM unit tests for `stardict`.
+Kotlin, Android Views, minSdk 26 / targetSdk 35. Libraries: anthropic-java (Claude), OkHttp (OpenAI / OpenRouter,
+downloads), coroutines, commons-compress + xz + zstd-jni. Packages: `stardict` (pure JVM: engine, import,
+catalog), `ai`, `ui` (card, settings, catalog). JVM unit tests for `stardict`. Settings — `Prefs.kt`.
 
 ## Build and run
 ```bash

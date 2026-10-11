@@ -1,0 +1,18 @@
+<resources>
+    <style name="Theme.InkPeek" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:colorAccent">@android:color/black</item>
+        <item name="android:colorPrimary">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+    </style>
+    <style name="Theme.InkPeek.Card" parent="android:Theme.Material.Light.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+        <item name="android:colorAccent">@android:color/black</item>
+    </style>
+</resources>

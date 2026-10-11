@@ -1,0 +1,70 @@
+package io.github.kafeg.inkpeek.stardict
+
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
+import org.junit.Test
+import java.io.ByteArrayOutputStream
+import java.io.DataOutputStream
+import java.io.File
+import java.nio.file.Files
+import java.util.zip.GZIPOutputStream
+
+class StarDictTest {
+    /** Writes a tiny dictionary; the .idx is deliberately unsorted (broken upstream builds). */
+    private fun dict(dir: File, gz: Boolean = true): File {
+        val words = listOf("Haus" to "<b>Haus</b> n — дом", "abend" to "вечер", "Ärger" to "досада")
+        val data = ByteArrayOutputStream(); val idx = DataOutputStream(ByteArrayOutputStream().also { })
+        val idxBytes = ByteArrayOutputStream(); val o = DataOutputStream(idxBytes)
+        words.forEach { (w, a) ->
+            val off = data.size(); val b = a.toByteArray(); data.write(b)
+            o.write(w.toByteArray()); o.write(0); o.writeInt(off); o.writeInt(b.size)
+        }
+        idx.close()
+        File(dir, "t.idx").writeBytes(idxBytes.toByteArray())
+        if (gz) GZIPOutputStream(File(dir, "t.dict.dz").outputStream()).use { it.write(data.toByteArray()) }
+        else File(dir, "t.dict").writeBytes(data.toByteArray())
+        val syn = ByteArrayOutputStream(); DataOutputStream(syn).use { it.write("Häuser".toByteArray()); it.write(0); it.writeInt(0) }
+        File(dir, "t.syn").writeBytes(syn.toByteArray())
+        return File(dir, "t.ifo").apply {
+            writeText("StarDict's dict ifo file\nversion=3.0.0\nbookname=Test\nwordcount=3\nsametypesequence=h\n")
+        }
+    }
+
+    @Test fun lookupExactCaseAndSyn() {
+        val tmp = Files.createTempDirectory("sd").toFile()
+        val d = StarDict(dict(tmp), File(tmp, "work"))
+        assertEquals("<b>Haus</b> n — дом", d.lookup("Haus").single().html)
+        assertEquals("Haus", d.lookup("haus").single().word)
+        assertEquals("Haus", d.lookup("häuser").single().word)
+        assertEquals("досада", d.lookup("ärger").single().html)
+        assertEquals("вечер", d.lookup("Abend").single().html)
+        assertTrue(d.lookup("nope").isEmpty())
+    }
+
+    @Test fun plainDictAndQueryCleanup() {
+        val tmp = Files.createTempDirectory("sd").toFile()
+        val d = StarDict(dict(tmp, gz = false), File(tmp, "work"))
+        assertEquals("вечер", d.lookup(cleanQuery("«abend»,")).single().html)
+    }
+
+    @Test fun importerCollectsIntoOwnFolder() {
+        val src = Files.createTempDirectory("src").toFile(); dict(src)
+        val target = Files.createTempDirectory("lib").toFile()
+        val dirs = Importer.collect(src, target)
+        assertEquals(listOf("Test"), dirs.map { it.name })
+        assertTrue(File(dirs[0], "t.ifo").exists() && File(dirs[0], "t.dict.dz").exists())
+    }
+
+    @Test fun articleTypedFields() {
+        val b = ByteArrayOutputStream()
+        b.write('m'.code); b.write("a < b".toByteArray()); b.write(0); b.write('h'.code); b.write("<i>x</i>".toByteArray()); b.write(0)
+        assertEquals("a &lt; b<br><i>x</i>", Article.toHtml(b.toByteArray(), null))
+    }
+
+    @Test fun catalogParsers() {
+        val w = """{"assets":[{"name":"de-ru.tar.zst","size":5,"browser_download_url":"u"},{"name":"x.txt","size":1,"browser_download_url":"v"}]}"""
+        assertEquals("de" to "ru", Catalog.wiktionary(w).single().let { it.from to it.to })
+        val f = """[{"name":"deu-eng","releases":[{"platform":"src","URL":"a"},{"platform":"stardict","URL":"b","size":"10"}]}]"""
+        assertEquals("b", Catalog.freedict(f).single().url)
+    }
+}

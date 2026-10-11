@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A page with text lines and a magnifier peeking over it. Safe zone 21..87. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <path android:strokeColor="#000000" android:strokeWidth="3.5" android:fillColor="#FFFFFF"
+        android:strokeLineJoin="round"
+        android:pathData="M30,24 L66,24 L76,34 L76,82 L30,82 Z" />
+    <path android:strokeColor="#000000" android:strokeWidth="3" android:strokeLineCap="round"
+        android:pathData="M38,38 L60,38 M38,47 L66,47 M38,56 L52,56 M38,65 L48,65" />
+    <path android:strokeColor="#000000" android:strokeWidth="4" android:fillColor="#FFFFFF"
+        android:pathData="M66,62 m-11,0 a11,11 0 1,0 22,0 a11,11 0 1,0 -22,0" />
+    <path android:strokeColor="#000000" android:strokeWidth="6" android:strokeLineCap="round"
+        android:pathData="M74,70 L84,80" />
+</vector>

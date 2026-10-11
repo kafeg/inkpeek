@@ -9,7 +9,7 @@ Close the card and you are back on the same page.
 - Works with any reader that calls an external dictionary through the common ColorDict intent, through the system
   text-selection menu, or through "Share".
 - Local StarDict dictionaries first, instant. AI only when it helps.
-- Small, dependency-free, readable code.
+- Small, readable code; well-known libraries where they save work.
 
 ## Non-goals (v1)
 - Flashcards / Anki export, history sync, dictionary downloads, online dictionaries.
@@ -48,19 +48,25 @@ A word is found in no dictionary → show "not found" and the AI buttons.
 ## Dictionaries
 - Format: StarDict 3 — `.ifo`, `.idx` (or `.idx.gz`), `.dict` or `.dict.dz` (dictzip random access), optional `.syn`.
   `sametypesequence` `m`, `t`, `x`, `h`, `g` → plain text or simple HTML.
-- Folder: setting, default `/sdcard/dictdata` (shared with ColorDict / GoldenDict). Each subfolder = a dictionary.
-  Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
-- Lookup order per dictionary: exact → lower case → `.syn` synonyms/forms. Index: binary search over the sorted
-  `.idx` (StarDict order: case-insensitive ASCII, then byte order); loaded on first use, kept in memory.
+- Library: one folder, `/sdcard/dictdata` (created when missing; the ColorDict folder). Each dictionary in its own
+  subfolder. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
+- Import: a file picker takes `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst` or loose StarDict files.
+- Get dictionaries: live lists of Wiktionary (xxyzz/wiktionary_stardict releases, `.tar.zst`) and FreeDict
+  (`freedict-database.json`, `stardict` releases); filter by language pair, tap to download and import.
+- Own index per dictionary, built once (app files): every headword and `.syn` form, normalized (NFC, lower case, no
+  soft hyphen), sorted, binary search over a memory-mapped file. Upstream `.idx` sort order does not matter.
+  `.dict.dz` is unpacked once into the app's files.
 - Query normalization: trim, strip surrounding punctuation and quotes, collapse spaces; soft hyphen removed.
 - Rendering: HTML through `Html.fromHtml` into a `TextView` (no WebView, no JS); images ignored.
 - Dictionary list in settings: enable/disable, order.
 
-## AI (Claude)
-- Anthropic Messages API, HTTPS, non-streaming (one e-ink refresh per answer). Timeout 30 s; error shown in the card.
-- Key: from a file (setting, default `/sdcard/koreader/settings/anthropic.key`, shared with KOReader plugins) or
-  typed in settings. Never logged, never shown in full.
-- Model: setting, default `claude-haiku-5-5` (fast); `claude-sonnet-5-5` selectable.
+## AI
+- Providers: Claude (Anthropic Java SDK), OpenAI and OpenRouter (OpenAI-compatible `/chat/completions`, `/models`).
+  Non-streaming (one e-ink refresh per answer); `<think>` blocks stripped; error shown in the card.
+- Key per provider in settings; Claude can also read a key file (default `/sdcard/koreader/settings/anthropic.key`,
+  shared with KOReader plugins). Never logged, never shown in full.
+- Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-opus-5-5`
+  at effort low; refusal fallback (`fallbacks: "default"`) on models that support it.
 - Answer language: setting, default Russian.
 - Actions: name + prompt template. Placeholders: `{text}` selection, `{lang}` answer language. Defaults:
   - Translate — translate `{text}` into `{lang}`; for a single word: main senses, part of speech, gender/plural for
@@ -77,8 +83,8 @@ Font size · dictionary folder + list (enable, order) · position · dim · phra
 model · answer language · actions (edit name/prompt, add, remove, order).
 
 ## Tech
-- Kotlin, Android Views (no Compose), minSdk 26, targetSdk 35. No third-party libraries:
-  `HttpURLConnection`, `org.json`, `java.util.zip`.
+- Kotlin, Android Views (no Compose), minSdk 26, targetSdk 35. Libraries: anthropic-java, OkHttp, kotlinx-coroutines,
+  commons-compress + xz + zstd-jni (archives).
 - Packages: `stardict` (pure JVM: ifo/idx/syn/dict/dictzip readers, lookup), `ai` (Claude client, actions),
   `ui` (card activity, settings).
 - Tests: JVM unit tests for `stardict` with a tiny generated dictionary.
