@@ -89,6 +89,10 @@ class KindTest {
         org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PHRASE, io.github.kafeg.inkpeek.ai.Kind.of("Was ist mit mir geschehen?"))
         org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("Es war kein Traum. Sein Zimmer lag ruhig."))
         org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("eins zwei drei vier fünf sechs sieben acht neun"))
+        // no spaces between words: Chinese / Japanese
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.WORD, io.github.kafeg.inkpeek.ai.Kind.of("图书馆"))
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PHRASE, io.github.kafeg.inkpeek.ai.Kind.of("我喜欢看书"))
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("吾輩は猫である。名前はまだ無い。"))
     }
 }
 

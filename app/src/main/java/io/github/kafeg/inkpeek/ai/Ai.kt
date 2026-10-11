@@ -22,9 +22,17 @@ enum class Provider(val title: String, val baseUrl: String, val defaultModel: St
 enum class Kind {
     WORD, PHRASE, PASSAGE;
     companion object {
+        /** Scripts written without spaces between words: there a "word" is counted as about two characters. */
+        private val NO_SPACES = Regex("[\\p{IsHan}\\p{IsHiragana}\\p{IsKatakana}\\p{IsThai}\\p{IsLao}\\p{IsKhmer}\\p{IsMyanmar}]")
+
+        fun words(text: String): Int = text.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }.sumOf { w ->
+            val n = NO_SPACES.findAll(w).count()
+            if (n > 3) (n + 1) / 2 + (w.length - n).coerceAtMost(1) else 1
+        }
+
         fun of(text: String): Kind {
-            val words = text.trim().split(Regex("\\s+")).size
-            val sentences = Regex("[.!?…]\\s+\\p{Lu}").findAll(text).count() + 1
+            val words = words(text)
+            val sentences = Regex("[.!?…]\\s+\\p{Lu}|[。！？]\\s*\\S").findAll(text.trim()).count() + 1
             return when { words == 1 -> WORD; words <= 8 && sentences == 1 -> PHRASE; else -> PASSAGE }
         }
     }
@@ -38,17 +46,20 @@ data class Action(val id: String, val prompt: String, val onByDefault: Boolean =
     companion object {
         val ALL = listOf(
             Action("translate", "Translate into {lang}: «{text}».\n" +
-                "A single word: first line **base form** and part of speech (for nouns: gender and plural), then the " +
-                "1–3 main meanings in *italics*; say so if the word is an inflected form.\n" +
+                "A single word: first line **base form** and part of speech with the grammatical facts this language " +
+                "needs (such as gender or plural, where it has them), then the 1–3 main meanings in *italics*, no examples; say so if " +
+                "the word is an inflected form.\n" +
                 "A phrase or a passage: only a natural translation, nothing else."),
-            Action("grammar", "Explain in {lang} how «{text}» is built and why, at most 7 short lines: word order (where " +
-                "the verb stands and why), which word requires which case or form, tense and mood, and the rule behind " +
-                "it. A passage: every construction that matters, up to 10 short lines. Put the words you talk about in " +
-                "**bold**. No headings."),
+            Action("grammar", "Grammar of «{text}» in {lang}, at most 7 short lines, the words you talk about in **bold**, no headings.\n" +
+                "A single word: which form of which **base form** it is, how it is built, and the forms a learner of " +
+                "this language needs to use it correctly.\n" +
+                "A phrase: how it is built and why — the constructions that matter in this language (word order, " +
+                "agreement, which word requires which form, tense, aspect or mood) and the rule behind them. A passage: " +
+                "every construction that matters, up to 10 lines."),
             Action("words", "Vocabulary of «{text}», in {lang}.\nA phrase or a passage: list the words a learner may not " +
                 "know, one per line: **base form** — short meaning (at most 20 for a passage). Skip very common words.\n" +
                 "A single word: **base form**, 2–3 synonyms, related words, each with a short meaning."),
-            Action("examples", "3 short everyday sentences with «{text}» in its own language, the word in **bold**, each " +
+            Action("examples", "3 short everyday sentences with «{text}» in its own language, «{text}» in **bold**, each " +
                 "followed by a translation into {lang} in *italics* on the next line.", kinds = setOf(Kind.WORD, Kind.PHRASE)),
             Action("explain", "Explain «{text}» in {lang}: what it means here, register, idioms and nuances. A passage: " +
                 "what happens and what is implied, briefly. Short."),
@@ -82,7 +93,7 @@ object Ai {
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
         val kind = Kind.of(text)
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
-            Kind.PASSAGE -> "a passage of ${text.trim().split(Regex("\\s+")).size} words" }
+            Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
         val prompt = "The selection is $what.\n" + action.prompt.replace("{text}", text).replace("{lang}", lang)
         val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, key, model, prompt, system(lang))).trim()
         synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
