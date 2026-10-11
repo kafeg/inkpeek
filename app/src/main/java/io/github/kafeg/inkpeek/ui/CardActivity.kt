@@ -79,7 +79,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             tabButtons[id] = b
             row.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 5) })
         }
-        root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
+        if (tabs.size > 1) root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
         if (!prefs.aiOn) root.addView(Ink.text(this, getString(R.string.ai_off), size * 0.65f),
             Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
         setContentView(root)

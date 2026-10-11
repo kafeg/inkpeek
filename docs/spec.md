@@ -27,20 +27,19 @@ Close the card and you are back on the same page.
 - The activity is a dialog over the caller's task (`taskAffinity=""`, `excludeFromRecents`, no history). Back or a
   tap outside closes it.
 
-## Modes
-| selection | first view | AI |
-|---|---|---|
-| one word | dictionary entries | buttons |
-| phrase / sentence (has a space) | AI translation (setting `phrase_auto_ai`, default on) | buttons |
-
-A word is found in no dictionary → show "not found" and the AI buttons.
+## Card
+Tabs at the bottom: **Dictionary** first, then one tab per enabled AI action. A tab keeps its content; an AI answer
+is asked once and shown again when you come back. AI off → only the dictionary and a hint.
+A phrase (has a space) opens on the first AI tab (setting `phrase_auto_ai`, default on).
+Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a hit. A dictionary that resolves a form
+(Häuser → Haus) makes the base form be looked up in the other dictionaries.
 
 ## Card layout
 1. Header: the query (large), close button.
 2. Body (scrolls): dictionary blocks in the configured order, each with a small dictionary name; only dictionaries
    with a hit. AI answer block below, when present.
-3. Footer: AI action buttons (one row, wraps): Translate, Grammar, Explain, Examples. Configurable list.
-- Size: 90% of screen width, up to 75% of height, centered (setting: center / top / bottom / follow the reader's
+3. Footer: the tabs (labels auto-size to fit).
+- Size: 92% of screen width, 80% of height, centered (setting: center / top / bottom / follow the reader's
   `EXTRA_GRAVITY`).
 - Font size: one setting (sp) for the body; header +30%.
 - No colors, no shadows, no ripple. Thin black borders. Light dim behind the card (setting, default on).
@@ -68,19 +67,18 @@ A word is found in no dictionary → show "not found" and the AI buttons.
 - Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-opus-5-5`
   at effort low; refusal fallback (`fallbacks: "default"`) on models that support it.
 - Answer language: setting, default Russian.
-- Actions: name + prompt template. Placeholders: `{text}` selection, `{lang}` answer language. Defaults:
-  - Translate — translate `{text}` into `{lang}`; for a single word: main senses, part of speech, gender/plural for
-    nouns, base form if it is an inflected form.
-  - Grammar — explain the grammar of `{text}` in `{lang}`, briefly.
-  - Explain — explain meaning and usage of `{text}` in `{lang}`; idioms and register.
-  - Examples — 3 short example sentences with translation into `{lang}`.
-- Short answers: system prompt asks for plain text, no Markdown tables, ≤ 120 words unless asked.
+- Actions (tabs; on/off in settings): Translate, Grammar (how the phrase is built and why), Words (harder words in
+  base form), Examples, Explain (off by default). Prompts: `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
+- System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
+  Markdown only (**bold**, *italic*, "- " lists) rendered in the card; ≤ 120 words unless needed.
+- OpenRouter: `reasoning: {enabled: false}` (retry without it on HTTP 400); default model `openrouter/free`.
 - Cache: last 100 answers in memory per (action, text).
 - Data sent: only the selected text and the action prompt, only on a tap (or phrase auto mode). No telemetry.
 
 ## Settings screen
-Font size · dictionary folder + list (enable, order) · position · dim · phrase auto AI · AI on/off · key source ·
-model · answer language · actions (edit name/prompt, add, remove, order).
+Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key and
+its source, model picker with filter / maker / free only / sort, answer language) · Card (app language, text size,
+dim, position, AI tabs with descriptions). UI: English, Russian, German; system language by default.
 
 ## Tech
 - Kotlin, Android Views (no Compose), minSdk 26, targetSdk 35. Libraries: anthropic-java, OkHttp, kotlinx-coroutines,
