@@ -34,6 +34,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private var query = ""
     private val size get() = prefs.fontSp.toFloat()
 
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)

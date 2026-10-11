@@ -43,6 +43,14 @@ object Ink {
         .replace(Regex("\\*\\*(.+?)\\*\\*"), "<b>$1</b>").replace(Regex("(?<![*\\w])\\*(?!\\s)(.+?)(?<!\\s)\\*(?![*\\w])"), "<i>$1</i>")
         .replace(Regex("(?m)^#+\\s*"), "").replace(Regex("(?m)^\\s*[-•]\\s+"), "• ").replace("\n", "<br>")
 
+    /** [base] with the app language from settings applied (activities call it in attachBaseContext). */
+    fun localized(base: Context): Context {
+        val lang = base.getSharedPreferences("inkpeek", Context.MODE_PRIVATE).getString("ui_lang", "").orEmpty()
+        if (lang.isEmpty()) return base
+        val conf = android.content.res.Configuration(base.resources.configuration).apply { setLocale(java.util.Locale(lang)) }
+        return base.createConfigurationContext(conf)
+    }
+
     fun vertical(ctx: Context) = LinearLayout(ctx).apply { orientation = LinearLayout.VERTICAL }
     fun horizontal(ctx: Context) = LinearLayout(ctx).apply { orientation = LinearLayout.HORIZONTAL }
     fun lp(w: Int = ViewGroup.LayoutParams.MATCH_PARENT, h: Int = ViewGroup.LayoutParams.WRAP_CONTENT, weight: Float = 0f) =

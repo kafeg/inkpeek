@@ -51,6 +51,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private val ui = Handler(Looper.getMainLooper())
     private val sp = 18f
 
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
@@ -267,6 +269,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     // --- Card ---
     private fun buildCard(t: LinearLayout) {
+        val codes = listOf("", "en", "ru", "de")
+        val names = listOf(getString(R.string.ui_lang_system), "English", "Русский", "Deutsch")
+        t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
+        t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
         t.addView(Ink.text(this, getString(R.string.text_size), 14f))
         t.addView(edit("20", prefs.fontSp.toString(), number = true) { it.toIntOrNull()?.let { v -> prefs.fontSp = v.coerceIn(12, 40) } })
         t.addView(switch(getString(R.string.dim), prefs.dim) { prefs.dim = it })

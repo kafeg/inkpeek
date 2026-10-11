@@ -74,4 +74,6 @@
     <string name="key_typed_ok">Schlüssel: oben eingegeben ✓</string>
     <string name="key_missing">Kein Schlüssel: oben eingeben oder in %1$s ablegen</string>
     <string name="answer_lang_t">Antwortsprache</string>
+    <string name="ui_lang">App-Sprache</string>
+    <string name="ui_lang_system">Wie das System</string>
 </resources>

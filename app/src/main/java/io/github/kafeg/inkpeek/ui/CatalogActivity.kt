@@ -31,6 +31,8 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var info: android.widget.TextView
     private lateinit var filter: EditText
 
+    override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val pad = Ink.dp(this, 16)

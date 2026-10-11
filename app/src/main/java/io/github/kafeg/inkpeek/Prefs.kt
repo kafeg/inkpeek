@@ -12,6 +12,8 @@ import java.io.File
 class Prefs(private val ctx: Context) {
     private val sp = ctx.getSharedPreferences("inkpeek", Context.MODE_PRIVATE)
 
+    /** "" = system, else a language code with resources (en, ru, de). */
+    var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
     var fontSp: Int get() = sp.getInt("font_sp", 20); set(v) = sp.edit().putInt("font_sp", v).apply()
     var dim: Boolean get() = sp.getBoolean("dim", true); set(v) = sp.edit().putBoolean("dim", v).apply()
     /** center | top | bottom | reader */

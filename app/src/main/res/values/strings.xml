@@ -75,4 +75,6 @@
     <string name="key_typed_ok">Key: typed in the field above ✓</string>
     <string name="key_missing">No key: type it above or put it into %1$s</string>
     <string name="answer_lang_t">Answer language</string>
+    <string name="ui_lang">App language</string>
+    <string name="ui_lang_system">As the system</string>
 </resources>

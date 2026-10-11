@@ -74,4 +74,6 @@
     <string name="key_typed_ok">Ключ: введён в поле выше ✓</string>
     <string name="key_missing">Ключа нет: введите выше или положите в файл %1$s</string>
     <string name="answer_lang_t">Язык ответов</string>
+    <string name="ui_lang">Язык приложения</string>
+    <string name="ui_lang_system">Как в системе</string>
 </resources>
