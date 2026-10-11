@@ -45,9 +45,9 @@
     <string name="a_words">Words</string>
     <string name="a_words_d">Harder words in base form with a short meaning; for one word: synonyms and related words.</string>
     <string name="a_examples">Examples</string>
-    <string name="a_examples_d">Three short everyday sentences with a translation.</string>
+    <string name="a_examples_d">Three short everyday sentences with a translation (words and phrases).</string>
     <string name="a_explain">Explain</string>
-    <string name="a_explain_d">Meaning in context, register, idioms and nuances.</string>
+    <string name="a_explain_d">Meaning in context, register, idioms and nuances; for a passage — what happens and what is implied.</string>
     <string name="tab_dictionary">Dictionary</string>
     <string name="thinking">Thinking</string>
     <string name="ai_off">AI is off: turn it on in InkPeek settings for translation, grammar and more.</string>

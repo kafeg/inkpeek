@@ -12,6 +12,7 @@ import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Ai
+import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.StarDict
 import io.github.kafeg.inkpeek.stardict.cleanQuery
 import kotlinx.coroutines.CoroutineScope
@@ -32,6 +33,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, TextView>()
     private var query = ""
+    private val kind get() = Kind.of(query)
+    /** A dictionary has nothing to say about a whole passage. */
+    private val dictTab get() = kind != Kind.PASSAGE || !prefs.aiOn
+    /** Enabled AI tabs that fit this selection. */
+    private val actions get() = if (prefs.aiOn) prefs.actions.filter { kind in it.kinds } else emptyList()
     private val size get() = prefs.fontSp.toFloat()
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
@@ -43,8 +49,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
-        val first = prefs.actions.firstOrNull()
-        open(if (query.contains(' ') && prefs.aiOn && prefs.phraseAutoAi && first != null) first.id else DICT)
+        val first = actions.firstOrNull()
+        open(if ((kind != Kind.WORD && prefs.aiOn && prefs.phraseAutoAi && first != null) || !dictTab) first?.id ?: DICT else DICT)
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
@@ -73,8 +79,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         root.addView(head)
         scroll = ScrollView(this)
         root.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
-        val tabs = listOf(DICT to getString(R.string.tab_dictionary)) +
-            if (prefs.aiOn) prefs.actions.map { it.id to Ink.label(this, it) } else emptyList()
+        val tabs = (if (dictTab) listOf(DICT to getString(R.string.tab_dictionary)) else emptyList()) +
+            actions.map { it.id to Ink.label(this, it) }
         val row = Ink.horizontal(this)
         tabs.forEachIndexed { i, (id, label) ->
             val b = Ink.button(this, label, size * 0.72f) { open(id) }.apply {

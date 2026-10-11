@@ -30,7 +30,9 @@ Close the card and you are back on the same page.
 ## Card
 Tabs at the bottom: **Dictionary** first, then one tab per enabled AI action. A tab keeps its content; an AI answer
 is asked once and shown again when you come back. AI off → only the dictionary and a hint.
-A phrase (has a space) opens on the first AI tab (setting `phrase_auto_ai`, default on).
+Selection kinds: word · phrase (2–8 words, one sentence) · passage (more). A phrase or passage opens on the first
+AI tab (setting `phrase_auto_ai`, default on). A passage hides Dictionary and Examples (checked on real text: a
+dictionary has nothing for a paragraph, examples pick a random word); the model is told the kind.
 Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a hit. A dictionary that resolves a form
 (Häuser → Haus) makes the base form be looked up in the other dictionaries.
 

@@ -44,9 +44,9 @@
     <string name="a_words">Слова</string>
     <string name="a_words_d">Трудные слова в начальной форме с кратким значением; для слова — синонимы и однокоренные.</string>
     <string name="a_examples">Примеры</string>
-    <string name="a_examples_d">Три коротких бытовых примера с переводом.</string>
+    <string name="a_examples_d">Три коротких бытовых примера с переводом (для слов и фраз).</string>
     <string name="a_explain">Объяснить</string>
-    <string name="a_explain_d">Смысл в контексте, стиль, идиомы и оттенки.</string>
+    <string name="a_explain_d">Смысл в контексте, стиль, идиомы и оттенки; для отрывка — что происходит и что подразумевается.</string>
     <string name="tab_dictionary">Словарь</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">AI выключен: включите его в настройках InkPeek — будут перевод, грамматика и другое.</string>

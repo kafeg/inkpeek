@@ -82,3 +82,12 @@ class TidyTest {
             Article.tidy("<h3>Noun</h3><a href=\"/w\">a house</a><img src=x><br><br><br>x"))
     }
 }
+
+class KindTest {
+    @Test fun kinds() {
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.WORD, io.github.kafeg.inkpeek.ai.Kind.of("Haus"))
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PHRASE, io.github.kafeg.inkpeek.ai.Kind.of("Was ist mit mir geschehen?"))
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("Es war kein Traum. Sein Zimmer lag ruhig."))
+        org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("eins zwei drei vier fünf sechs sieben acht neun"))
+    }
+}

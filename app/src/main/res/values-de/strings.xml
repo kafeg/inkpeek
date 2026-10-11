@@ -44,9 +44,9 @@
     <string name="a_words">Wörter</string>
     <string name="a_words_d">Schwierige Wörter in Grundform mit kurzer Bedeutung; bei einem Wort: Synonyme und verwandte Wörter.</string>
     <string name="a_examples">Beispiele</string>
-    <string name="a_examples_d">Drei kurze Alltagssätze mit Übersetzung.</string>
+    <string name="a_examples_d">Drei kurze Alltagssätze mit Übersetzung (für Wörter und Wendungen).</string>
     <string name="a_explain">Erklären</string>
-    <string name="a_explain_d">Bedeutung im Kontext, Stil, Redewendungen und Nuancen.</string>
+    <string name="a_explain_d">Bedeutung im Kontext, Stil, Redewendungen und Nuancen; bei einem Abschnitt — was passiert und was mitschwingt.</string>
     <string name="tab_dictionary">Wörterbuch</string>
     <string name="thinking">Denke nach</string>
     <string name="ai_off">KI ist aus: in den InkPeek-Einstellungen einschalten für Übersetzung, Grammatik und mehr.</string>

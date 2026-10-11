@@ -18,23 +18,40 @@ enum class Provider(val title: String, val baseUrl: String, val defaultModel: St
     OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", "openrouter/free"),
 }
 
-/** An AI tab of the card. [id] keys its label and description in resources; [prompt] uses {text} and {lang}. */
-data class Action(val id: String, val prompt: String, val onByDefault: Boolean = true) {
+/** What was selected: one word, a short phrase, or a passage (more than 8 words or several sentences). */
+enum class Kind {
+    WORD, PHRASE, PASSAGE;
+    companion object {
+        fun of(text: String): Kind {
+            val words = text.trim().split(Regex("\\s+")).size
+            val sentences = Regex("[.!?…]\\s+\\p{Lu}").findAll(text).count() + 1
+            return when { words == 1 -> WORD; words <= 8 && sentences == 1 -> PHRASE; else -> PASSAGE }
+        }
+    }
+}
+
+/**
+ * An AI tab of the card. [id] keys its label and description in resources; [prompt] uses {text}, {lang} and is
+ * told the [Kind]; [kinds] — selections the tab makes sense for (no "examples" for a whole passage).
+ */
+data class Action(val id: String, val prompt: String, val onByDefault: Boolean = true, val kinds: Set<Kind> = Kind.entries.toSet()) {
     companion object {
         val ALL = listOf(
             Action("translate", "Translate into {lang}: «{text}».\n" +
                 "A single word: first line **base form** and part of speech (for nouns: gender and plural), then the " +
                 "1–3 main meanings in *italics*; say so if the word is an inflected form.\n" +
-                "A phrase or sentence: only a natural translation, nothing else."),
+                "A phrase or a passage: only a natural translation, nothing else."),
             Action("grammar", "Explain in {lang} how «{text}» is built and why, at most 7 short lines: word order (where " +
                 "the verb stands and why), which word requires which case or form, tense and mood, and the rule behind " +
-                "it. Put the words you talk about in **bold**. No headings."),
-            Action("words", "Vocabulary of «{text}», in {lang}.\nA phrase: list the words a learner may not know, one per " +
-                "line: **base form** — short meaning. Skip very common words.\nA single word: **base form**, 2–3 " +
-                "synonyms, related words, each with a short meaning."),
+                "it. A passage: every construction that matters, up to 10 short lines. Put the words you talk about in " +
+                "**bold**. No headings."),
+            Action("words", "Vocabulary of «{text}», in {lang}.\nA phrase or a passage: list the words a learner may not " +
+                "know, one per line: **base form** — short meaning (at most 20 for a passage). Skip very common words.\n" +
+                "A single word: **base form**, 2–3 synonyms, related words, each with a short meaning."),
             Action("examples", "3 short everyday sentences with «{text}» in its own language, the word in **bold**, each " +
-                "followed by a translation into {lang} in *italics* on the next line."),
-            Action("explain", "Explain «{text}» in {lang}: what it means here, register, idioms and nuances. Short.", false),
+                "followed by a translation into {lang} in *italics* on the next line.", kinds = setOf(Kind.WORD, Kind.PHRASE)),
+            Action("explain", "Explain «{text}» in {lang}: what it means here, register, idioms and nuances. A passage: " +
+                "what happens and what is implied, briefly. Short."),
         )
     }
 }
@@ -63,7 +80,10 @@ object Ai {
     fun ask(p: Provider, key: String, model: String, action: Action, text: String, lang: String): String {
         if (key.isBlank()) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
-        val prompt = action.prompt.replace("{text}", text).replace("{lang}", lang)
+        val kind = Kind.of(text)
+        val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
+            Kind.PASSAGE -> "a passage of ${text.trim().split(Regex("\\s+")).size} words" }
+        val prompt = "The selection is $what.\n" + action.prompt.replace("{text}", text).replace("{lang}", lang)
         val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, key, model, prompt, system(lang))).trim()
         synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
         return answer
