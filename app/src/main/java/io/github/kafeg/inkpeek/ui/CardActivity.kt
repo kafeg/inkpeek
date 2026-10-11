@@ -72,6 +72,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         tabs.forEachIndexed { i, (id, label) ->
             val b = Ink.button(this, label, size * 0.72f) { open(id) }.apply {
                 val q = Ink.dp(this@CardActivity, 4); setPadding(q, q * 3, q, q * 3); maxLines = 1
+                setAutoSizeTextTypeUniformWithConfiguration(9, (size * 0.72f).toInt().coerceAtLeast(10), 1, android.util.TypedValue.COMPLEX_UNIT_SP)
             }
             tabButtons[id] = b
             row.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 5) })
@@ -131,7 +132,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         Ai.cached(a, query)?.let { p.addView(Ink.text(this, Ink.markdown(it), size, html = true)); return }
         val out = Ink.text(this, "", size); p.addView(out)
         val pr = prefs.provider
-        val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + " " + "·".repeat(n % 3 + 1); n++; delay(700) } }
+        val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
         launch {
             val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang) } }
             dots.cancel()

@@ -75,3 +75,10 @@ class MarkdownTest {
             io.github.kafeg.inkpeek.ui.Ink.markdown("**Haus** — *дом*\n- a < b"))
     }
 }
+
+class TidyTest {
+    @Test fun headingsLinksImages() {
+        org.junit.Assert.assertEquals("<b>Noun</b><br>a house<br><br>x",
+            Article.tidy("<h3>Noun</h3><a href=\"/w\">a house</a><img src=x><br><br><br>x"))
+    }
+}

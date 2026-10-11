@@ -55,8 +55,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         val pad = Ink.dp(this, 16)
-        val col = Ink.vertical(this).apply { setPadding(pad, pad, pad, pad) }
+        val col = Ink.vertical(this).apply {
+            setPadding(pad, pad, pad, pad); isFocusableInTouchMode = true; setOnClickListener { hideKeyboard() }
+        }
         setContentView(ScrollView(this).apply { addView(col) })
+        col.requestFocus()
 
         col.addView(Ink.text(this, getString(R.string.app_name), 26f, bold = true))
         status = Ink.text(this, "", 14f); col.addView(status)
@@ -278,6 +281,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun edit(hint: String, value: String, secret: Boolean = false, number: Boolean = false, save: ((String) -> Unit)? = null) =
         EditText(this).apply {
             this.hint = hint; setText(value); textSize = sp; setSingleLine()
+            imeOptions = android.view.inputmethod.EditorInfo.IME_ACTION_DONE
+            setOnEditorActionListener { v, _, _ -> save?.invoke(text.toString()); hideKeyboard(); v.clearFocus(); true }
             inputType = when { secret -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 number -> InputType.TYPE_CLASS_NUMBER; else -> InputType.TYPE_CLASS_TEXT }
             if (save != null) setOnFocusChangeListener { _, has -> if (!has) save(text.toString()) }
@@ -295,6 +300,12 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             override fun onItemSelected(a: AdapterView<*>?, v: View?, i: Int, id: Long) { if (first) { first = false; return }; onPick(i) }
             override fun onNothingSelected(a: AdapterView<*>?) {}
         }
+    }
+
+    private fun hideKeyboard() {
+        (getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
+            .hideSoftInputFromWindow(window.decorView.windowToken, 0)
+        currentFocus?.clearFocus(); window.decorView.findFocus()?.clearFocus()
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

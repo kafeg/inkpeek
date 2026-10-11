@@ -232,8 +232,14 @@ object Article {
         }
         if (types != null) types.forEachIndexed { i, t -> if (p < data.size) add(t, field(t, i == types.length - 1)) }
         else while (p < data.size) { val t = data[p++].toInt().toChar(); add(t, field(t, false)) }
-        return out.toString().removeSuffix("<br>")
+        return tidy(out.toString().removeSuffix("<br>"))
     }
+
+    /** Calmer HTML for a small card: headings become bold lines, links plain text, images and styles go. */
+    fun tidy(h: String) = h.replace(Regex("(?is)<(script|style)[^>]*>.*?</\\1>"), "")
+        .replace(Regex("(?i)<h[1-6][^>]*>"), "<br><b>").replace(Regex("(?i)</h[1-6]>"), "</b><br>")
+        .replace(Regex("(?i)</?a\\b[^>]*>"), "").replace(Regex("(?i)<img[^>]*>"), "")
+        .replace(Regex("(?i)(<br\\s*/?>\\s*){3,}"), "<br><br>").removePrefix("<br>")
 
     fun escape(s: String) = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 

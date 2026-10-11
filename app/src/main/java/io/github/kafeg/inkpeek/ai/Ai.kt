@@ -46,9 +46,10 @@ data class ModelInfo(val id: String, val name: String = id, val free: Boolean = 
                      val publisher: String = id.substringBefore('/', ""), val created: Long = 0, val context: Int = 0)
 
 object Ai {
-    private const val SYSTEM = "You are a concise dictionary and language tutor inside an e-book reader on an e-ink " +
-        "screen. Formatting: only **bold** and *italic*, short lines, simple \"- \" lists. No headings, tables or code. " +
-        "Keep it under 120 words unless the request needs more."
+    private fun system(lang: String) = "You are a concise dictionary and language tutor inside an e-book reader on an " +
+        "e-ink screen. Write every answer in $lang only. If the text is already in $lang, answer like an explanatory " +
+        "dictionary of $lang instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
+        "lists. No headings, tables or code. Keep it under 120 words unless the request needs more."
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).build()
     private val cache = object : LinkedHashMap<String, String>(128, 0.75f, true) {
         override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 100
@@ -63,14 +64,14 @@ object Ai {
         if (key.isBlank()) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
         val prompt = action.prompt.replace("{text}", text).replace("{lang}", lang)
-        val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt) else openAi(p, key, model, prompt)).trim()
+        val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, key, model, prompt, system(lang))).trim()
         synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
         return answer
     }
 
-    private fun claude(key: String, model: String, prompt: String): String {
+    private fun claude(key: String, model: String, prompt: String, sys: String): String {
         val client = AnthropicOkHttpClient.builder().apiKey(key).build()
-        val b = MessageCreateParams.builder().model(model).maxTokens(4096L).system(SYSTEM).addUserMessage(prompt)
+        val b = MessageCreateParams.builder().model(model).maxTokens(4096L).system(sys).addUserMessage(prompt)
             .outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).build())
         if (FALLBACK.any { model == it }) b.addBeta("server-side-fallback-2026-07-01").putAdditionalBodyProperty("fallbacks", JsonValue.from("default"))
         val msg = try { client.beta().messages().create(b.build()) } finally { client.close() }
@@ -78,9 +79,9 @@ object Ai {
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }
 
-    private fun openAi(p: Provider, key: String, model: String, prompt: String): String {
+    private fun openAi(p: Provider, key: String, model: String, prompt: String, sys: String): String {
         val body = JSONObject().put("model", model).put("messages", JSONArray()
-            .put(JSONObject().put("role", "system").put("content", SYSTEM))
+            .put(JSONObject().put("role", "system").put("content", sys))
             .put(JSONObject().put("role", "user").put("content", prompt)))
         val req = Request.Builder().url(p.baseUrl + "/chat/completions").header("Authorization", "Bearer $key")
             .header("X-Title", "InkPeek").post(body.toString().toRequestBody("application/json".toMediaType())).build()

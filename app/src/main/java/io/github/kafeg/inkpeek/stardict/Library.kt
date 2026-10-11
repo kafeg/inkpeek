@@ -50,9 +50,15 @@ class Library(private val roots: List<File>, private val workRoot: File) {
     fun lookup(query: String, order: List<String>, disabled: Set<String>, notReady: MutableList<StarDict>? = null):
         List<Pair<StarDict, List<Hit>>> {
         val q = cleanQuery(query)
-        return all(order).filter { it.id !in disabled }.mapNotNull { d ->
-            if (!d.ready) { prepareAsync(d); notReady?.add(d); return@mapNotNull null }
-            runCatching { d.lookup(q) }.getOrNull()?.takeIf { it.isNotEmpty() }?.let { d to it }
+        val dicts = all(order).filter { it.id !in disabled }.filter { d ->
+            d.ready.also { if (!it) { prepareAsync(d); notReady?.add(d) } }
+        }
+        val hits = dicts.associateWith { d -> runCatching { d.lookup(q) }.getOrDefault(emptyList()) }
+        // A dictionary that knows the form (Häuser) names the base form (Haus): look that up in the others too.
+        val bases = hits.values.flatten().map { it.word }.filter { !it.equals(q, true) }.distinct().take(3)
+        return dicts.mapNotNull { d ->
+            val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()) } }
+            own.takeIf { it.isNotEmpty() }?.let { d to it }
         }
     }
 }
