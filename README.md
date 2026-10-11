@@ -33,11 +33,27 @@ give examples. Close the card and you are on the same page.
 
 ## Works with your reader
 InkPeek answers the common **ColorDict intent**, the same one used by ColorDict and GoldenDict, so readers that can
-call an external dictionary open it as a pop-up:
+call an external dictionary open it as a pop-up.
 
+### FBReader (free version is enough)
+Settings → **Dictionary & translator**: set both **Look up single word in** and **Translate phrases via** to
+**ColorDict 3**. (The default phrase translator is Google Translate, which is a Premium feature — that is the
+"buy Premium" screen you may see.)
+
+<p align="center"><img src="docs/img/fbreader-settings.png" width="260" alt="FBReader: Dictionary & translator → ColorDict 3 for words and phrases"></p>
+
+| a word | a phrase or a sentence |
+|---|---|
+| Long-tap the word, then the **translate** button (文A) in the selection bar. | Long-tap, drag the handle over the phrase, then **translate** (文A). |
+| <img src="docs/img/fbreader-word-select.png" width="240"> <img src="docs/img/card-dictionary.png" width="240"> | <img src="docs/img/fbreader-phrase-select.png" width="240"> <img src="docs/img/card-phrase.png" width="240"> |
+| The card opens on the dictionary; the AI tabs are one tap away. | The card opens on Translate; up to about a page of text is sent. |
+
+Tip: FBReader → Settings → Dictionary → long tap action **"select single word, release to open dictionary"** makes
+a word a single gesture.
+
+### Other readers
 | reader | how |
 |---|---|
-| FBReader | Settings → Dictionary → **ColorDict 3**. Words: the translate button. Phrases: the free FBReader sends them only to its Premium translator — use **Share → InkPeek** (InkPeek is first in the share sheet) |
 | Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict** |
 | Moon+ Reader | Dictionary → **ColorDict** |
 | any app | text selection menu → **Look up in InkPeek**, or Share → InkPeek |

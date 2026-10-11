@@ -39,7 +39,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
-        query = cleanQuery(textOf(intent).orEmpty()).take(500)
+        query = cleanQuery(textOf(intent).orEmpty()).take(4000) // about a page
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
@@ -60,11 +60,16 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun build() {
         val pad = Ink.dp(this, 14)
         val root = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
-        val head = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
-        head.addView(Ink.text(this, query, size * 1.3f, bold = true), Ink.lp(0, weight = 1f))
+        // Title over the full width, the close button pinned top-right (no weights: multi-line ellipsis measures right).
+        val head = android.widget.FrameLayout(this)
         val x = Ink.dp(this, 44)
+        val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
+        head.addView(Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
+            maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
+            setPadding(0, 0, x + Ink.dp(this@CardActivity, 8), 0)
+        }, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         head.addView(Ink.button(this, "✕", size) { finish() }.apply { setPadding(0, 0, 0, 0) },
-            LinearLayout.LayoutParams(x, x).apply { leftMargin = Ink.dp(this@CardActivity, 8) })
+            android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
         root.addView(head)
         scroll = ScrollView(this)
         root.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
