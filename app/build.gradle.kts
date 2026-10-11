@@ -16,8 +16,9 @@ android {
         applicationId = "io.github.kafeg.inkpeek"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
+        versionName = System.getenv("VERSION_NAME")?.removePrefix("v") ?: "0.1.0-dev"
+        ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") } // e-ink readers are ARM
     }
     signingConfigs {
         if (keystoreProps.isNotEmpty()) create("release") {
