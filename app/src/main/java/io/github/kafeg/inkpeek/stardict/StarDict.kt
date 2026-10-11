@@ -30,7 +30,7 @@ class StarDict(ifoFile: File, workRoot: File) {
         val i = l.indexOf('='); if (i > 0) l.substring(0, i).trim() to l.substring(i + 1).trim() else null
     }.toMap()
     val name: String = props["bookname"] ?: ifo.nameWithoutExtension
-    val id: String = sha1(ifo.path).take(16)
+    val id: String = sha1(ifo.path.lowercase()).take(16) // shared storage is case-insensitive
     private val base = ifo.path.removeSuffix(".ifo")
     val workDir = File(workRoot, id)
     private val indexFile = File(workDir, "index.ipk")
@@ -45,6 +45,7 @@ class StarDict(ifoFile: File, workRoot: File) {
     @Synchronized fun prepare() {
         if (ready) return
         workDir.deleteRecursively(); workDir.mkdirs()
+        File(workDir, "source").writeText(ifo.path)
         buildIndex()
         map = null
     }

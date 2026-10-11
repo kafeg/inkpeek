@@ -27,7 +27,11 @@ class Library(private val roots: List<File>, private val workRoot: File) {
         val found = roots.flatMap { StarDict.scan(it) }.map { it.canonicalFile }.distinctBy { it.path }
         val byPath = cache.values.associateBy { it.ifo.path }
         cache = found.map { byPath[it.path] ?: StarDict(it, workRoot) }.associateBy { it.id }
-        workRoot.listFiles()?.filter { it.name !in cache }?.forEach { it.deleteRecursively() } // removed dictionaries
+        // Drop the index of a dictionary that is gone from disk (not merely unreadable right now).
+        workRoot.listFiles()?.filter { it.name !in cache }?.forEach { dir ->
+            val src = File(dir, "source").takeIf { it.exists() }?.readText()
+            if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
+        }
         val rank = order.withIndex().associate { it.value to it.index }
         return cache.values.sortedWith(compareBy({ rank[it.id] ?: Int.MAX_VALUE }, { it.name }))
     }

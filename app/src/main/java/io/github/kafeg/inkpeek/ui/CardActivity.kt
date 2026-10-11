@@ -117,7 +117,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             p.removeView(wait)
             val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
-            if (hits.isEmpty()) { note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found)); return@launch }
+            if (hits.isEmpty()) {
+                if (notReady.isEmpty()) note(p, getString(if (prefs.library().all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
+                return@launch
+            }
             val nav = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
             val title = Ink.text(this@CardActivity, "", size * 0.72f, bold = true).apply { gravity = Gravity.CENTER }
             val body = Ink.vertical(this@CardActivity)
