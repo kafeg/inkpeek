@@ -19,12 +19,8 @@
     <string name="key_hint">API-ключ (или файл ключа)</string>
     <string name="save_key">Сохранить ключ</string>
     <string name="saved">Сохранено</string>
-    <string name="key_info">Ключ: %1$s. Файл ключа: %2$s</string>
-    <string name="key_typed">введён в настройках</string>
-    <string name="key_none">нет</string>
     <string name="model">Модель: %1$s  ▾</string>
     <string name="model_choose">выбрать…</string>
-    <string name="answer_lang">Язык ответов (по-английски: Russian, German…)</string>
     <string name="loading_models">Загружаю модели…</string>
     <string name="models_title">%1$s: моделей %2$d</string>
     <string name="filter">Фильтр</string>
@@ -74,4 +70,8 @@
     <string name="failed">Не удалось: %1$s</string>
     <string name="no_key">Нет API-ключа для %1$s</string>
     <string name="no_model">Не выбрана модель для %1$s</string>
+    <string name="key_file_ok">Ключ: из файла %1$s ✓</string>
+    <string name="key_typed_ok">Ключ: введён в поле выше ✓</string>
+    <string name="key_missing">Ключа нет: введите выше или положите в файл %1$s</string>
+    <string name="answer_lang_t">Язык ответов</string>
 </resources>

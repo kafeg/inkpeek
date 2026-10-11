@@ -19,12 +19,8 @@
     <string name="key_hint">API-Schlüssel (oder Schlüsseldatei)</string>
     <string name="save_key">Schlüssel speichern</string>
     <string name="saved">Gespeichert</string>
-    <string name="key_info">Schlüssel: %1$s. Schlüsseldatei: %2$s</string>
-    <string name="key_typed">in den Einstellungen eingegeben</string>
-    <string name="key_none">keiner</string>
     <string name="model">Modell: %1$s  ▾</string>
     <string name="model_choose">wählen…</string>
-    <string name="answer_lang">Antwortsprache (auf Englisch: Russian, German…)</string>
     <string name="loading_models">Modelle werden geladen…</string>
     <string name="models_title">%1$s: %2$d Modelle</string>
     <string name="filter">Filter</string>
@@ -74,4 +70,8 @@
     <string name="failed">Fehlgeschlagen: %1$s</string>
     <string name="no_key">Kein API-Schlüssel für %1$s</string>
     <string name="no_model">Kein Modell gewählt für %1$s</string>
+    <string name="key_file_ok">Schlüssel: aus %1$s ✓</string>
+    <string name="key_typed_ok">Schlüssel: oben eingegeben ✓</string>
+    <string name="key_missing">Kein Schlüssel: oben eingeben oder in %1$s ablegen</string>
+    <string name="answer_lang_t">Antwortsprache</string>
 </resources>

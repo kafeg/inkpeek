@@ -193,8 +193,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val model = Ink.button(this, "", sp) {}
         fun load(p: Provider) {
             key.setText(prefs.key(p))
-            val src = when (prefs.keySource(p)) { "typed in settings" -> getString(R.string.key_typed); "none" -> getString(R.string.key_none); else -> prefs.keyPath(p).path }
-            keyInfo.text = getString(R.string.key_info, src, prefs.keyPath(p).path)
+            keyInfo.text = when (prefs.keySource(p)) {
+                "typed in settings" -> getString(R.string.key_typed_ok)
+                "none" -> getString(R.string.key_missing, prefs.keyPath(p).path)
+                else -> getString(R.string.key_file_ok, prefs.keyPath(p).path)
+            }
             model.text = getString(R.string.model, prefs.model(p).ifBlank { getString(R.string.model_choose) })
         }
         t.addView(spinner(providers.map { it.title }, providers.indexOf(prefs.provider)) { prefs.provider = providers[it]; load(providers[it]) })
@@ -203,8 +206,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        t.addView(Ink.text(this, getString(R.string.answer_lang), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        t.addView(edit("Language", prefs.answerLang) { prefs.answerLang = it })
+        t.addView(Ink.text(this, getString(R.string.answer_lang_t), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
+        val langs = (LANGS + prefs.answerLang).distinct()
+        val shown = langs.map { name -> java.util.Locale.getAvailableLocales().firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == name }
+            ?.getDisplayLanguage(java.util.Locale.getDefault())?.replaceFirstChar { it.uppercase() } ?: name }
+        t.addView(spinner(shown, langs.indexOf(prefs.answerLang)) { prefs.answerLang = langs[it] })
         load(prefs.provider)
     }
 
@@ -306,6 +312,12 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         (getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager)
             .hideSoftInputFromWindow(window.decorView.windowToken, 0)
         currentFocus?.clearFocus(); window.decorView.findFocus()?.clearFocus()
+    }
+
+    companion object {
+        /** Answer languages by English name (what the prompt uses). */
+        val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
+            "Polish", "Turkish", "Dutch", "Chinese", "Japanese", "Korean")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

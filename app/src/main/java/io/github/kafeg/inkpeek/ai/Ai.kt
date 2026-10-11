@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit
 enum class Provider(val title: String, val baseUrl: String, val defaultModel: String) {
     ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-opus-5-5"),
     OPENAI("OpenAI", "https://api.openai.com/v1", ""),
-    OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", ""),
+    OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", "openrouter/free"),
 }
 
 /** An AI tab of the card. [id] keys its label and description in resources; [prompt] uses {text} and {lang}. */
@@ -83,16 +83,21 @@ object Ai {
         val body = JSONObject().put("model", model).put("messages", JSONArray()
             .put(JSONObject().put("role", "system").put("content", sys))
             .put(JSONObject().put("role", "user").put("content", prompt)))
-        val req = Request.Builder().url(p.baseUrl + "/chat/completions").header("Authorization", "Bearer $key")
-            .header("X-Title", "InkPeek").post(body.toString().toRequestBody("application/json".toMediaType())).build()
-        http.newCall(req).execute().use { r ->
-            val s = r.body?.string().orEmpty()
-            if (!r.isSuccessful) throw AiError("${p.title}: HTTP ${r.code} ${errorText(s)}")
-            return JSONObject(s).getJSONArray("choices").getJSONObject(0).getJSONObject("message").optString("content")
+        // OpenRouter: no reasoning pass, answers come in seconds; models that refuse the switch get a plain retry.
+        if (p == Provider.OPENROUTER) body.put("reasoning", JSONObject().put("enabled", false))
+        fun call(b: JSONObject): Pair<Int, String> {
+            val req = Request.Builder().url(p.baseUrl + "/chat/completions").header("Authorization", "Bearer $key")
+                .header("X-Title", "InkPeek").post(b.toString().toRequestBody("application/json".toMediaType())).build()
+            return http.newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
         }
+        var (code, s) = call(body)
+        if (code == 400 && body.has("reasoning")) { body.remove("reasoning"); call(body).let { code = it.first; s = it.second } }
+        if (code !in 200..299) throw AiError("${p.title}: HTTP $code ${errorText(s)}")
+        val choices = JSONObject(s).optJSONArray("choices") ?: throw AiError("${p.title}: ${errorText(s)}")
+        return choices.getJSONObject(0).getJSONObject("message").optString("content")
     }
 
-    private val NOT_CHAT = Regex("embed|whisper|tts|transcri|moderation|dall-e|image|audio|realtime|search", RegexOption.IGNORE_CASE)
+    private val NOT_CHAT = Regex("embed|whisper|tts|transcri|moderation|guard|safety|dall-e|image|audio|realtime|search|:batch$", RegexOption.IGNORE_CASE)
 
     /** Chat models the provider offers (OpenRouter tells names, prices and free variants). */
     fun models(p: Provider, key: String): List<ModelInfo> {

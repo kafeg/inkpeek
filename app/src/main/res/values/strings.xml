@@ -20,12 +20,8 @@
     <string name="key_hint">API key (or a key file)</string>
     <string name="save_key">Save key</string>
     <string name="saved">Saved</string>
-    <string name="key_info">Key: %1$s. Key file: %2$s</string>
-    <string name="key_typed">typed in settings</string>
-    <string name="key_none">none</string>
     <string name="model">Model: %1$s  ▾</string>
     <string name="model_choose">choose…</string>
-    <string name="answer_lang">Answer language (in English: Russian, German…)</string>
     <string name="loading_models">Loading models…</string>
     <string name="models_title">%1$s: %2$d models</string>
     <string name="filter">Filter</string>
@@ -75,4 +71,8 @@
     <string name="failed">Failed: %1$s</string>
     <string name="no_key">No API key for %1$s</string>
     <string name="no_model">No model selected for %1$s</string>
+    <string name="key_file_ok">Key: from %1$s ✓</string>
+    <string name="key_typed_ok">Key: typed in the field above ✓</string>
+    <string name="key_missing">No key: type it above or put it into %1$s</string>
+    <string name="answer_lang_t">Answer language</string>
 </resources>
