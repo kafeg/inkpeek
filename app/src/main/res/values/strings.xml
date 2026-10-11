@@ -39,9 +39,9 @@
     <string name="pos_reader">Position: as the reader asks</string>
     <string name="card_tabs">AI tabs in the card</string>
     <string name="a_translate">Translate</string>
-    <string name="a_translate_d">A word: part of speech, gender and plural, main meanings, base form. A phrase: a natural translation.</string>
+    <string name="a_translate_d">A word: base form, part of speech and main meanings. A phrase: a natural translation.</string>
     <string name="a_grammar">Grammar</string>
-    <string name="a_grammar_d">Forms, case, tense and how the phrase is built, in a few lines.</string>
+    <string name="a_grammar_d">A word: which form it is and how to use it. A phrase: how it is built and why.</string>
     <string name="a_words">Words</string>
     <string name="a_words_d">Harder words in base form with a short meaning; for one word: synonyms and related words.</string>
     <string name="a_examples">Examples</string>

@@ -2,54 +2,88 @@
 
 # InkPeek
 
-A pop-up dictionary with an AI tutor for Android e-ink readers.
+**Read books in a language you are learning without leaving the page.**
 
-Select a word in your reading app and a calm, high-contrast card opens over the page: entries from your own
-StarDict dictionaries, and tabs that ask an AI to translate in context, explain the grammar, list the harder words or
-give examples. Close the card and you are on the same page.
+Tap a word or select a sentence in your e-book reader. A calm black-and-white card opens over the page with the
+dictionary entry, a translation that fits the context, and short explanations from an AI tutor. Close the card and
+you are back on the same line.
 
-<p align="center">
-  <img src="docs/img/card-dictionary.png" width="240" alt="Dictionary tab over a page in FBReader">
-  <img src="docs/img/card-translate-word.png" width="240" alt="Translate tab for a word">
-  <img src="docs/img/card-grammar.png" width="240" alt="Grammar tab for a sentence">
-</p>
-<p align="center">
-  <img src="docs/img/card-translate-phrase.png" width="240" alt="A selected sentence opens on Translate">
-  <img src="docs/img/settings-card.png" width="240" alt="Card settings: choose the AI tabs">
-  <img src="docs/img/settings-models.png" width="240" alt="OpenRouter models: free only">
-</p>
-<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain).</sub></p>
+Made for Android e-ink readers (Onyx Boox and others); works on any Android device.
 
-## What it does
-- **Dictionary tab** — your StarDict dictionaries, one per screen, ◀ ▶ to page between them. Inflected forms are
-  found through the dictionary's own forms list (`Häuser` → `Haus`), and the base form is then looked up in every
-  other dictionary too.
-- **AI tabs** — Translate, Grammar, Words, Examples, Explain. Each tab asks once and keeps the answer. Short answers
-  with light formatting (bold words from the text, translations in italics). Choose the tabs in settings.
-- **Phrases** — select a sentence and the card opens on Translate (configurable).
-- **Built for e-ink** — black on white, large text, no animations, no colors.
-- **Languages** — the UI follows the system language (English, Russian, German); answers come in the language you
-  choose.
+## What you can do
 
-## Works with your reader
-InkPeek answers the common **ColorDict intent**, the same one used by ColorDict and GoldenDict, so readers that can
-call an external dictionary open it as a pop-up.
+<table>
+<tr>
+<td width="33%"><img src="docs/img/card-dictionary.png" alt="Dictionary entry for a word over the page"></td>
+<td width="33%"><img src="docs/img/card-phrase.png" alt="A paragraph translated in place"></td>
+<td width="33%"><img src="docs/img/card-grammar.png" alt="Grammar of a sentence explained"></td>
+</tr>
+<tr>
+<td valign="top"><b>Look up a word.</b> Entries from your own dictionaries, offline. Inflected forms find their base
+form: <i>Träumen</i> → <i>Traum</i>.</td>
+<td valign="top"><b>Translate a sentence or a paragraph.</b> A natural translation, not word by word, in the language
+you choose.</td>
+<td valign="top"><b>Understand why it is said this way.</b> Word order, forms and the rule behind them, with the words
+from the text in bold.</td>
+</tr>
+<tr>
+<td width="33%"><img src="docs/img/card-translate-word.png" alt="A word translated in context"></td>
+<td width="33%"><img src="docs/img/card-gloss.png" alt="Word-by-word gloss of a sentence, offline"></td>
+<td width="33%"><img src="docs/img/settings-card.png" alt="Choose the AI tabs"></td>
+</tr>
+<tr>
+<td valign="top"><b>Get the meaning that fits here.</b> Base form, part of speech and the main meanings; more tabs
+give synonyms, examples and nuances.</td>
+<td valign="top"><b>No internet? Still useful.</b> A selected sentence gets a word-by-word gloss from your
+dictionaries. Tap a word to open its full entry.</td>
+<td valign="top"><b>Keep only what you use.</b> Turn AI tabs on or off. Use Claude, OpenAI or OpenRouter (it has free
+models).</td>
+</tr>
+</table>
 
-### FBReader (free version is enough)
-Settings → **Dictionary & translator**: set both **Look up single word in** and **Translate phrases via** to
-**ColorDict 3**. (The default phrase translator is Google Translate, which is a Premium feature — that is the
-"buy Premium" screen you may see.)
+<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain). Answers here are in
+English or Russian: you choose the answer language.</sub></p>
 
-<p align="center"><img src="docs/img/fbreader-settings.png" width="260" alt="FBReader: Dictionary & translator → ColorDict 3 for words and phrases"></p>
+## Quick start
+1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
+   files when it asks.
+2. **Add a dictionary:** Dictionaries → **Get dictionaries** → pick a language pair (for example German → Russian).
+3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key.
+4. **Connect your reader** (below). In FBReader this is two settings.
 
-| a word | a phrase or a sentence |
+## Connect your reader
+
+### FBReader (the free version is enough)
+Open **Settings → Dictionary & translator** and set **both**:
+- **Look up single word in** → **ColorDict 3**
+- **Translate phrases via** → **ColorDict 3**
+
+The default phrase translator is Google Translate, a Premium feature: if you see "buy Premium" when you select a
+phrase, this setting is the fix.
+
+| a word | a sentence or a paragraph |
 |---|---|
-| Long-tap the word, then the **translate** button (文A) in the selection bar. | Long-tap, drag the handle over the phrase, then **translate** (文A). |
+| Long-tap the word, then the **translate** button (文A). | Long-tap, drag the handle to the end of the text, then **translate** (文A). |
 | <img src="docs/img/fbreader-word-select.png" width="240"> <img src="docs/img/card-dictionary.png" width="240"> | <img src="docs/img/fbreader-phrase-select.png" width="240"> <img src="docs/img/card-phrase.png" width="240"> |
-| The card opens on the dictionary; the AI tabs are one tap away. | The card opens on Translate; up to about a page of text is sent. |
+| The card opens on the dictionary. | The card opens on Translate (or on the gloss, without AI). |
 
-Tip: FBReader → Settings → Dictionary → long tap action **"select single word, release to open dictionary"** makes
-a word a single gesture.
+Tip: in **Settings → Dictionary**, set the long-tap action to **select single word, release to open dictionary**.
+Then one gesture opens a word.
+
+### KOReader
+KOReader calls only the dictionary apps it knows. Add InkPeek to the list with one file,
+`/sdcard/koreader/dictionaries.lua`:
+
+```lua
+return {
+    { "InkPeek", "InkPeek", false, "io.github.kafeg.inkpeek", "text" },
+}
+```
+
+Restart KOReader. Then **Settings → Dictionary settings → Use external dictionary**, and **Dictionary: InkPeek**.
+A word or a selection now opens in InkPeek. This file replaces KOReader's built-in list of external dictionaries;
+copy other entries from
+[device.lua](https://github.com/koreader/koreader/blob/master/frontend/device/android/device.lua) if you need them.
 
 ### Other readers
 | reader | how |
@@ -58,35 +92,35 @@ a word a single gesture.
 | Moon+ Reader | Dictionary → **ColorDict** |
 | any app | text selection menu → **Look up in InkPeek**, or Share → InkPeek |
 
-If another dictionary app answers the same intent, Android asks once which one to use: choose InkPeek → Always.
+If another dictionary app answers the same request, Android asks which one to use: choose InkPeek → Always.
 
-<details><summary>Protocol details</summary>
+## How it works
 
-| intent | text extra | notes |
-|---|---|---|
-| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | `EXTRA_GRAVITY` and `EXTRA_HEIGHT` are hints; `EXTRA_FULLSCREEN` is ignored (some readers send `true` when their status bar is hidden) |
-| `android.intent.action.PROCESS_TEXT` | `EXTRA_PROCESS_TEXT` | system selection menu |
-| `android.intent.action.SEND` (`text/plain`) | `EXTRA_TEXT` | Share |
+### The card
+- **Dictionary** comes first. For a word: entries from your dictionaries, one dictionary per screen, ◀ ▶ to page
+  between them; dictionaries in your answer language come first. For a sentence: the word-by-word gloss.
+- **AI tabs:** Translate, Grammar, Words, Examples, Explain. A tab asks the AI only when you open it, and keeps the
+  answer while the card is open. Switching tabs does not ask again.
+- What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
+  than one sentence; Examples is hidden for a passage).
+- A selected sentence opens on Translate when AI is on (you can turn this off).
+- Built for e-ink: black on white, large text, no animations. Text size, position and dimming are in settings.
 
-Test from a computer: `adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus`
-</details>
+### Dictionaries
+Everything lives in one folder: **`/sdcard/InkPeek/`** — `dicts/` (one folder per dictionary) and `keys/`.
 
-## Dictionaries
-Everything lives in one folder on the device: **`/sdcard/InkPeek/`** — `dicts/` (one folder per dictionary) and
-`keys/`. InkPeek needs the "all files" permission for it (the app asks).
-
-- **Get dictionaries** — live lists of [Wiktionary dictionaries](https://github.com/xxyzz/wiktionary_stardict)
-  (hundreds of language pairs) and [FreeDict](https://freedict.org); filter by language pair, tap to download.
-- **Import file** — StarDict as `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, or the loose
+- **Get dictionaries:** live lists of [Wiktionary dictionaries](https://github.com/xxyzz/wiktionary_stardict)
+  (hundreds of language pairs) and [FreeDict](https://freedict.org). Filter by language pair, tap to download.
+- **Import file:** StarDict as `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, or loose
   `.ifo` / `.idx` / `.dict(.dz)` / `.syn` files.
 - Or copy a StarDict folder into `/sdcard/InkPeek/dicts/`.
 
-InkPeek builds its own index for each dictionary once, in the background (the settings screen shows the progress),
-so badly sorted upstream indexes still work; `.dict.dz` is read in place.
+InkPeek builds its own index for each dictionary once, in the background (settings show the progress). Badly sorted
+upstream indexes still work, and `.dict.dz` is read in place, without unpacking.
 
-## AI
-Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free; the model list has a
-filter, "free only", a maker filter and sorting). Put the key in settings, or into a file the app reads:
+### AI
+Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free). The model list has a
+search, a maker filter, "free only" and sorting. Put the key in settings, or in a file:
 
 ```
 /sdcard/InkPeek/keys/anthropic.key
@@ -95,27 +129,31 @@ filter, "free only", a maker filter and sorting). Put the key in settings, or in
 ```
 
 ```bash
-adb shell mkdir -p /sdcard/InkPeek/keys
 adb push openrouter.txt /sdcard/InkPeek/keys/openrouter.key
 ```
 
-Only the selected text and the tab's prompt are sent, only when you open an AI tab (or select a phrase with
-"phrases: AI at once" on). No telemetry.
+**Privacy:** only the selected text and the tab's request go to the provider you chose, only when you open an AI tab
+(or select a phrase with "phrases: AI at once" on). No telemetry, no accounts.
 
-## Install
-Download the APK from [Releases](https://github.com/kafeg/inkpeek/releases) — built and signed by
-[GitHub Actions](.github/workflows/release.yml) from the tagged commit; a `.sha256` file is attached.
+### Protocol
+| intent | text extra | notes |
+|---|---|---|
+| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | the ColorDict / GoldenDict protocol; `EXTRA_GRAVITY` and `EXTRA_HEIGHT` are hints, `EXTRA_FULLSCREEN` is ignored |
+| `android.intent.action.PROCESS_TEXT` | `EXTRA_PROCESS_TEXT` | system selection menu, KOReader |
+| `android.intent.action.SEND` (`text/plain`) | `EXTRA_TEXT` | Share |
 
-```bash
-adb install inkpeek-v0.2.0.apk
-```
+Test from a computer: `adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus`
 
-## Build
+## Install and build
+Release APKs are built and signed by [GitHub Actions](.github/workflows/release.yml) from the tagged commit; each has
+a `.sha256` file.
+
 ```bash
 ./gradlew testDebugUnitTest assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
-Kotlin, Android Views, minSdk 26. See [docs/spec.md](docs/spec.md).
+
+Kotlin, Android Views, minSdk 26. Design notes: [docs/spec.md](docs/spec.md).
 
 ## License
 MIT. Dictionaries you download keep their own licenses (Wiktionary: CC BY-SA; FreeDict: see each dictionary).

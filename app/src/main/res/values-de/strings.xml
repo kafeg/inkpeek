@@ -38,9 +38,9 @@
     <string name="pos_reader">Position: wie der Reader es will</string>
     <string name="card_tabs">KI-Tabs in der Karte</string>
     <string name="a_translate">Übersetzen</string>
-    <string name="a_translate_d">Wort: Wortart, Genus und Plural, Hauptbedeutungen, Grundform. Satz: eine natürliche Übersetzung.</string>
+    <string name="a_translate_d">Wort: Grundform, Wortart und Hauptbedeutungen. Satz: eine natürliche Übersetzung.</string>
     <string name="a_grammar">Grammatik</string>
-    <string name="a_grammar_d">Formen, Fall, Zeit und Satzbau in wenigen Zeilen.</string>
+    <string name="a_grammar_d">Wort: welche Form es ist und wie man es verwendet. Satz: wie er gebaut ist und warum.</string>
     <string name="a_words">Wörter</string>
     <string name="a_words_d">Schwierige Wörter in Grundform mit kurzer Bedeutung; bei einem Wort: Synonyme und verwandte Wörter.</string>
     <string name="a_examples">Beispiele</string>
