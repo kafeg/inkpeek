@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -32,6 +33,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var scroll: ScrollView
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, TextView>()
+    private var shown = ""
+    /** Header button "←" next to "✕": shown while a word's article is open from the gloss. */
+    private lateinit var backButton: android.widget.ImageView
+    private lateinit var titleView: TextView
+    private var dictBack: (() -> Unit)? = null
     private var query = ""
     private val kind get() = Kind.of(query)
     /** Always: a word → its articles; a phrase or passage → a word-by-word gloss. */
@@ -74,10 +80,18 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val head = android.widget.FrameLayout(this)
         val x = Ink.dp(this, 44)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
-        head.addView(Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
+        titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
             setPadding(0, 0, x + Ink.dp(this@CardActivity, 8), 0)
-        }, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
+        }
+        head.addView(titleView, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
+        backButton = android.widget.ImageView(this).apply {
+            setImageResource(R.drawable.ic_back); background = Ink.border(this@CardActivity)
+            val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
+            contentDescription = getString(R.string.back); visibility = View.GONE
+            setOnClickListener { dictBack?.invoke() }
+        }
+        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = x + Ink.dp(this@CardActivity, 8) })
         head.addView(Ink.button(this, "✕", size) { finish() }.apply { setPadding(0, 0, 0, 0) },
             android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
         root.addView(head)
@@ -123,6 +137,19 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             if (tab == DICT) fillDictionary(p) else Action.ALL.firstOrNull { it.id == tab }?.let { fillAi(p, it) }
         }
         scroll.removeAllViews(); scroll.addView(page); scroll.scrollTo(0, 0)
+        shown = tab; showBack()
+    }
+
+    private fun showBack() {
+        val on = shown == DICT && dictBack != null
+        backButton.visibility = if (on) View.VISIBLE else View.GONE
+        val x = Ink.dp(this, 44); val gap = Ink.dp(this, 8)
+        titleView.setPadding(0, 0, if (on) 2 * x + 2 * gap else x + gap, 0)
+    }
+
+    /** System Back from a word's article returns to the gloss first. */
+    @Deprecated("Activity API") override fun onBackPressed() {
+        if (shown == DICT && dictBack != null) dictBack?.invoke() else @Suppress("DEPRECATION") super.onBackPressed()
     }
 
     private fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
@@ -135,6 +162,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         "Arabic", "Persian" -> Character.UnicodeScript.ARABIC
         "Greek" -> Character.UnicodeScript.GREEK
         "Hebrew" -> Character.UnicodeScript.HEBREW
+        "Hindi" -> Character.UnicodeScript.DEVANAGARI
+        "Thai" -> Character.UnicodeScript.THAI
         else -> Character.UnicodeScript.LATIN
     }
 
@@ -144,8 +173,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** One dictionary per screen; ◀ ▶ page between dictionaries that have [word]. [back] — return to the gloss. */
     private fun fillArticles(p: LinearLayout, word: String, back: (() -> Unit)?) {
         p.removeAllViews()
-        if (back != null) p.addView(Ink.button(this, "← " + getString(R.string.back), size * 0.8f) { back() },
-            Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
+        dictBack = back?.let { b -> { dictBack = null; showBack(); b() } }
+        showBack()
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val notReady = ArrayList<StarDict>()

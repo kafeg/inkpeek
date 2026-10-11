@@ -105,6 +105,9 @@ If another dictionary app answers the same request, Android asks which one to us
   than one sentence; Examples is hidden for a passage).
 - A selected sentence opens on Translate when AI is on (you can turn this off).
 - Built for e-ink: black on white, large text, no animations. Text size, position and dimming are in settings.
+- The app is in 18 languages (English, Русский, Deutsch, Українська, Español, Français, Italiano, Português,
+  Polski, Čeština, Nederlands, Türkçe, Bahasa Indonesia, Tiếng Việt, 中文, 日本語, 한국어, हिन्दी); AI answers come in
+  the language you choose.
 
 ### Dictionaries
 Everything lives in one folder: **`/sdcard/InkPeek/`** — `dicts/` (one folder per dictionary) and `keys/`.

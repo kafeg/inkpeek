@@ -270,8 +270,9 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     // --- Card ---
     private fun buildCard(t: LinearLayout) {
-        val codes = listOf("", "en", "ru", "de")
-        val names = listOf(getString(R.string.ui_lang_system), "English", "Русский", "Deutsch")
+        val codes = listOf("") + UI_LANGS
+        val names = listOf(getString(R.string.ui_lang_system)) + UI_LANGS.map { c ->
+            java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
         t.addView(Ink.text(this, getString(R.string.text_size), 14f))
@@ -331,7 +332,9 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     companion object {
         /** Answer languages by English name (what the prompt uses). */
         val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
-            "Polish", "Turkish", "Dutch", "Chinese", "Japanese", "Korean")
+            "Polish", "Czech", "Dutch", "Turkish", "Indonesian", "Vietnamese", "Chinese", "Japanese", "Korean", "Hindi", "Arabic")
+        /** App languages that have res/values-<code>; "in" is Android's code for Indonesian. */
+        val UI_LANGS = listOf("en", "ru", "de", "uk", "es", "fr", "it", "pt", "pl", "cs", "nl", "tr", "in", "vi", "zh", "ja", "ko", "hi")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
