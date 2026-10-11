@@ -34,8 +34,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val tabButtons = LinkedHashMap<String, TextView>()
     private var query = ""
     private val kind get() = Kind.of(query)
-    /** A dictionary has nothing to say about a whole passage. */
-    private val dictTab get() = kind != Kind.PASSAGE || !prefs.aiOn
+    /** A dictionary has nothing to say about a whole passage — unless AI is off or offline: then a word-by-word gloss. */
+    private val dictTab get() = kind != Kind.PASSAGE || !prefs.aiOn || !online
+    private val online: Boolean get() {
+        val cm = getSystemService(CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
+        return cm.getNetworkCapabilities(cm.activeNetwork)?.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+    }
     /** Enabled AI tabs that fit this selection. */
     private val actions get() = if (prefs.aiOn) prefs.actions.filter { kind in it.kinds } else emptyList()
     private val size get() = prefs.fontSp.toFloat()
@@ -91,6 +95,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             row.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 5) })
         }
         if (tabs.size > 1) root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
+        if (prefs.aiOn && !online) root.addView(Ink.text(this, getString(R.string.offline), size * 0.65f),
+            Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
         if (!prefs.aiOn) root.addView(Ink.text(this, getString(R.string.ai_off), size * 0.65f),
             Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
         setContentView(root)
@@ -123,6 +129,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** One dictionary per screen; ◀ ▶ page between dictionaries that have the word. */
     private fun fillDictionary(p: LinearLayout) {
+        if (kind == Kind.PASSAGE) { fillGloss(p); return }
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val notReady = ArrayList<StarDict>()
@@ -160,6 +167,37 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
+    /** Offline help for a passage: word — base form — first dictionary meaning. */
+    private fun fillGloss(p: LinearLayout) {
+        val wait = Ink.text(this, "…", size); p.addView(wait)
+        launch {
+            val g = withContext(Dispatchers.IO) { runCatching { prefs.library().gloss(query, prefs.order, prefs.disabled) }.getOrDefault(emptyList()) }
+            p.removeView(wait)
+            note(p, getString(R.string.gloss_title))
+            if (g.isEmpty()) { note(p, getString(R.string.not_found)); return@launch }
+            val html = g.joinToString("<br>") { x ->
+                val base = if (x.base.equals(x.word, true)) "" else " → ${Ink.escape(x.base)}"
+                "<b>${Ink.escape(x.word)}</b>$base — ${Ink.escape(x.meaning)}"
+            }
+            p.addView(Ink.text(this@CardActivity, html, size, html = true), Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 8) })
+        }
+    }
+
+    /** A short, actionable error instead of an exception name. */
+    private fun friendly(e: Throwable): String {
+        val name = e.javaClass.simpleName; val msg = e.message.orEmpty()
+        return getString(when {
+            e is java.net.UnknownHostException || e is java.net.ConnectException || e is java.net.SocketTimeoutException ||
+                e.cause is java.net.UnknownHostException || !online -> R.string.err_offline
+            name.contains("Unauthorized") || msg.contains("HTTP 401") || name.contains("PermissionDenied") || msg.contains("HTTP 403") -> R.string.err_key
+            name.contains("RateLimit") || msg.contains("HTTP 429") -> R.string.err_rate
+            msg.contains("HTTP 402") || msg.contains("credit", true) -> R.string.err_credits
+            msg.startsWith("No API key") -> R.string.err_no_key
+            msg.startsWith("No model") -> R.string.err_no_model
+            else -> R.string.err_other
+        }) + if (name.isNotEmpty()) "\n\n($name${if (msg.isNotBlank()) ": " + msg.take(160) else ""})" else ""
+    }
+
     private fun fillAi(p: LinearLayout, a: Action) {
         Ai.cached(a, query)?.let { p.addView(Ink.text(this, Ink.markdown(it), size, html = true)); return }
         val out = Ink.text(this, "", size); p.addView(out)
@@ -169,7 +207,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang) } }
             dots.cancel()
             r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) },
-                { out.text = "${it.message ?: it.javaClass.simpleName}\n\n" + getString(R.string.check_ai) })
+                { out.text = friendly(it) })
             if (r.isFailure) pages.remove(a.id) // ask again next time
         }
     }

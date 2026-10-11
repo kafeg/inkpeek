@@ -77,4 +77,13 @@
     <string name="answer_lang_t">Answer language</string>
     <string name="ui_lang">App language</string>
     <string name="ui_lang_system">As the system</string>
+    <string name="offline">No network: AI tabs work online; dictionaries work offline.</string>
+    <string name="gloss_title">Word by word from your dictionaries (offline):</string>
+    <string name="err_offline">No network. AI needs the internet; the Dictionary tab works offline.</string>
+    <string name="err_key">The API key was rejected: check it in InkPeek settings.</string>
+    <string name="err_rate">Too many requests: the provider\'s limit. Try again in a minute.</string>
+    <string name="err_credits">No credits left on this key.</string>
+    <string name="err_no_key">No API key: add one in InkPeek settings or in /sdcard/InkPeek/keys/.</string>
+    <string name="err_no_model">No model chosen: pick one in InkPeek settings → AI.</string>
+    <string name="err_other">The AI request failed. Try again; if it repeats, check the AI settings.</string>
 </resources>

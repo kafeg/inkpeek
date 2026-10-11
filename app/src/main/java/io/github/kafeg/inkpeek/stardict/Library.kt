@@ -50,6 +50,13 @@ class Library(private val roots: List<File>, private val workRoot: File) {
 
     val busy: Boolean get() = queued.isNotEmpty()
 
+    /** Offline help for a passage: each distinct word (3+ letters) with its base form and first meaning. */
+    fun gloss(text: String, order: List<String>, disabled: Set<String>, limit: Int = 40): List<Gloss> =
+        Regex("[\\p{L}][\\p{L}'’-]{2,}").findAll(text).map { it.value }.distinctBy { it.lowercase() }.take(limit).mapNotNull { w ->
+            val hit = lookup(w, order, disabled).firstOrNull()?.second?.firstOrNull() ?: return@mapNotNull null
+            Gloss(w, hit.word, runCatching { shortMeaning(hit.html, hit.word) }.getOrDefault(""))
+        }.toList()
+
     /** Hits per ready dictionary, in [order], skipping [disabled]; unready ones are queued and listed in [notReady]. */
     fun lookup(query: String, order: List<String>, disabled: Set<String>, notReady: MutableList<StarDict>? = null):
         List<Pair<StarDict, List<Hit>>> {
@@ -65,6 +72,20 @@ class Library(private val roots: List<File>, private val workRoot: File) {
             own.takeIf { it.isNotEmpty() }?.let { d to it }
         }
     }
+}
+
+/** One line of an offline word-by-word gloss. */
+data class Gloss(val word: String, val base: String, val meaning: String)
+
+/** First meaning of an article as one short plain line (numbered or bulleted sense, else the first content line). */
+fun shortMeaning(html: String, headword: String): String {
+    val text = html.replace(Regex("(?i)<br\\s*/?>|</(p|li|div|h[1-6])>|<li[^>]*>"), "\n").replace(Regex("<[^>]+>"), "")
+        .replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&amp;", "&")
+    val lines = text.lines().map { it.trim() }.filter { it.length > 1 }
+    val sense = lines.firstOrNull { Regex("^(•|\\d+[.)]|[-–]) ?\\S").containsMatchIn(it) }
+        ?: lines.firstOrNull { !it.equals(headword, true) && !it.startsWith("IPA") && !it.startsWith("[") }
+        ?: ""
+    return sense.replace(Regex("^(•|\\d+[.)]|[-–])\\s*"), "").take(90)
 }
 
 /** Unpacks an archive or a set of loose StarDict files into [target]/<dictionary>/. */

@@ -91,3 +91,10 @@ class KindTest {
         org.junit.Assert.assertEquals(io.github.kafeg.inkpeek.ai.Kind.PASSAGE, io.github.kafeg.inkpeek.ai.Kind.of("eins zwei drei vier fünf sechs sieben acht neun"))
     }
 }
+
+class GlossTest {
+    @Test fun firstMeaning() {
+        org.junit.Assert.assertEquals("дом, здание", shortMeaning("<b>Haus</b><br>IPA: [haʊ̯s]<br><ol><li>дом, здание</li><li>семья</li></ol>", "Haus"))
+        org.junit.Assert.assertEquals("house, building", shortMeaning("Haus<br>• house, building<br>• home", "Haus"))
+    }
+}
