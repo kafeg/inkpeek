@@ -36,8 +36,8 @@
     <string name="pos_top">Position: oben</string>
     <string name="pos_bottom">Position: unten</string>
     <string name="pos_reader">Position: wie der Reader es will</string>
-    <string name="a_translate">Übersetzen</string>
-    <string name="a_translate_d">Beim Öffnen: Grundform mit Artikel und Plural oder die Verbformen in der Kopfzeile; Hauptbedeutungen. Eine Phrase: eine natürliche Übersetzung.</string>
+    <string name="a_translate">KI-Übersetzung</string>
+    <string name="a_translate_d">KI: Grundform mit Artikel und Plural oder Verbformen, Hauptbedeutungen; eine Phrase — eine natürliche Übersetzung. Braucht Netz und Schlüssel.</string>
     <string name="tab_dictionary">Wörterbuch</string>
     <string name="thinking">Denke nach</string>
     <string name="ai_off">KI ist aus: in den InkPeek-Einstellungen einschalten für Übersetzung, Grammatik und mehr.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Noch nichts nachgeschlagen.</string>
     <string name="clear_history">Verlauf löschen</string>
     <string name="clear_answers">Gespeicherte KI-Antworten löschen (%1$d)</string>
-    <string name="ask_again">Neu fragen</string>
     <string name="save_word">Zu meinen Wörtern</string>
     <string name="unsave_word">Aus meinen Wörtern entfernen</string>
     <string name="a_analysis">Analyse</string>

@@ -36,8 +36,8 @@
     <string name="pos_top">位置：顶部</string>
     <string name="pos_bottom">位置：底部</string>
     <string name="pos_reader">位置：由阅读器决定</string>
-    <string name="a_translate">翻译</string>
-    <string name="a_translate_d">打开时即显示：标题中带冠词和复数的原形，或动词的各形式；主要词义。短语：自然的译文。</string>
+    <string name="a_translate">AI 翻译</string>
+    <string name="a_translate_d">AI：带冠词和复数的原形或动词各形式、主要词义；短语为自然译文。需要网络和密钥。</string>
     <string name="tab_dictionary">词典</string>
     <string name="thinking">思考中</string>
     <string name="ai_off">AI 已关闭：在 InkPeek 设置中开启，即可使用翻译、语法等功能。</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">还没有查询记录。</string>
     <string name="clear_history">清除历史</string>
     <string name="clear_answers">删除已保存的 AI 回答（%1$d）</string>
-    <string name="ask_again">重新提问</string>
     <string name="save_word">保存到我的单词</string>
     <string name="unsave_word">从我的单词中移除</string>
     <string name="a_analysis">解析</string>

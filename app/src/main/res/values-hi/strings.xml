@@ -36,8 +36,8 @@
     <string name="pos_top">स्थिति: ऊपर</string>
     <string name="pos_bottom">स्थिति: नीचे</string>
     <string name="pos_reader">स्थिति: रीडर ऐप के अनुसार</string>
-    <string name="a_translate">अनुवाद</string>
-    <string name="a_translate_d">खोलते ही: शीर्षक में आर्टिकल और बहुवचन के साथ मूल रूप, या क्रिया के रूप; मुख्य अर्थ। वाक्यांश: स्वाभाविक अनुवाद।</string>
+    <string name="a_translate">AI अनुवाद</string>
+    <string name="a_translate_d">AI: आर्टिकल और बहुवचन के साथ मूल रूप या क्रिया के रूप, मुख्य अर्थ; वाक्यांश — स्वाभाविक अनुवाद। नेटवर्क और कुंजी चाहिए।</string>
     <string name="tab_dictionary">शब्दकोश</string>
     <string name="thinking">सोच रहा है</string>
     <string name="ai_off">AI बंद है: अनुवाद, व्याकरण आदि के लिए इसे InkPeek सेटिंग्स में चालू करें।</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">अभी तक कोई खोज नहीं।</string>
     <string name="clear_history">इतिहास साफ़ करें</string>
     <string name="clear_answers">सहेजे गए AI उत्तर हटाएँ (%1$d)</string>
-    <string name="ask_again">फिर से पूछें</string>
     <string name="save_word">मेरे शब्दों में सहेजें</string>
     <string name="unsave_word">मेरे शब्दों से हटाएँ</string>
     <string name="a_analysis">विश्लेषण</string>

@@ -36,8 +36,8 @@
     <string name="pos_top">位置：上</string>
     <string name="pos_bottom">位置：下</string>
     <string name="pos_reader">位置：リーダーアプリに従う</string>
-    <string name="a_translate">翻訳</string>
-    <string name="a_translate_d">開いたときに：見出しに冠詞と複数形付きの基本形、または動詞の活用形。主な意味。フレーズ：自然な訳。</string>
+    <string name="a_translate">AI 翻訳</string>
+    <string name="a_translate_d">AI：冠詞と複数形付きの基本形または動詞の活用、主な意味。フレーズは自然な訳。ネットワークとキーが必要です。</string>
     <string name="tab_dictionary">辞書</string>
     <string name="thinking">考え中</string>
     <string name="ai_off">AI はオフです：InkPeek の設定でオンにすると、翻訳や文法などが使えます。</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">まだ検索履歴はありません。</string>
     <string name="clear_history">履歴を消去</string>
     <string name="clear_answers">保存した AI の回答を削除（%1$d）</string>
-    <string name="ask_again">もう一度聞く</string>
     <string name="save_word">マイ単語に保存</string>
     <string name="unsave_word">マイ単語から削除</string>
     <string name="a_analysis">分析</string>

@@ -373,7 +373,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         // What each icon of the card does: icon, name, one line.
         val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d))) +
             Action.ALL.map { a -> Triple(mapOf("translate" to R.drawable.ic_translate, "analysis" to R.drawable.ic_analysis)
-                .getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a), Ink.description(this, a)) } +
+                .getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a) + " · AI", Ink.description(this, a)) } +
             listOf(Triple(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d)),
                 Triple(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d)),
                 Triple(R.drawable.ic_close, getString(R.string.close), ""))

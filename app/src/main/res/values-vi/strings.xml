@@ -36,8 +36,8 @@
     <string name="pos_top">Vị trí: trên</string>
     <string name="pos_bottom">Vị trí: dưới</string>
     <string name="pos_reader">Vị trí: theo ứng dụng đọc</string>
-    <string name="a_translate">Dịch</string>
-    <string name="a_translate_d">Khi mở: dạng gốc kèm mạo từ và số nhiều, hoặc các dạng của động từ, ở tiêu đề; các nghĩa chính. Cụm từ: bản dịch tự nhiên.</string>
+    <string name="a_translate">Dịch AI</string>
+    <string name="a_translate_d">AI: dạng gốc kèm mạo từ và số nhiều hoặc các dạng động từ, nghĩa chính; cụm từ — bản dịch tự nhiên. Cần mạng và khóa.</string>
     <string name="tab_dictionary">Từ điển</string>
     <string name="thinking">Đang nghĩ</string>
     <string name="ai_off">AI đang tắt: bật trong cài đặt InkPeek để dùng dịch, ngữ pháp và hơn nữa.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Chưa tra cứu gì.</string>
     <string name="clear_history">Xóa lịch sử</string>
     <string name="clear_answers">Xóa câu trả lời AI đã lưu (%1$d)</string>
-    <string name="ask_again">Hỏi lại</string>
     <string name="save_word">Lưu vào từ của tôi</string>
     <string name="unsave_word">Bỏ khỏi từ của tôi</string>
     <string name="a_analysis">Phân tích</string>

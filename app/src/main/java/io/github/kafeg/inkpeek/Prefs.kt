@@ -19,7 +19,7 @@ class Prefs(private val ctx: Context) {
     var dim: Boolean get() = sp.getBoolean("dim", true); set(v) = sp.edit().putBoolean("dim", v).apply()
     /** center | top | bottom | reader */
     var position: String get() = sp.getString("position", "center")!!; set(v) = sp.edit().putString("position", v).apply()
-    var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", true); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
+    var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", false); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
     var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** Default: the system language, by its English name ("Russian", "German"). */
     var answerLang: String

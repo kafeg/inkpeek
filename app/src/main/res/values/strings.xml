@@ -37,8 +37,8 @@
     <string name="pos_top">Position: top</string>
     <string name="pos_bottom">Position: bottom</string>
     <string name="pos_reader">Position: as the reader asks</string>
-    <string name="a_translate">Translate</string>
-    <string name="a_translate_d">On open: base form with article and plural, or a verb\'s forms, in the header; main meanings. A phrase: a natural translation.</string>
+    <string name="a_translate">AI translation</string>
+    <string name="a_translate_d">AI: a word\'s base form with article and plural or verb forms, main meanings; a phrase — a natural translation. Needs a network and a key.</string>
     <string name="tab_dictionary">Dictionary</string>
     <string name="thinking">Thinking</string>
     <string name="ai_off">AI is off: turn it on in InkPeek settings for translation, grammar and more.</string>
@@ -92,7 +92,6 @@
     <string name="list_empty_history">No lookups yet.</string>
     <string name="clear_history">Clear history</string>
     <string name="clear_answers">Delete saved AI answers (%1$d)</string>
-    <string name="ask_again">Ask again</string>
     <string name="save_word">Save to my words</string>
     <string name="unsave_word">Remove from my words</string>
     <string name="a_analysis">Analysis</string>

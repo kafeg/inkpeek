@@ -28,11 +28,14 @@ Close the card and you are back on the same page.
   tap outside closes it.
 
 ## Card
-Tabs at the bottom: **Dictionary**, **Translate**, **Analysis**, **Context** (AI off → only the dictionary and a hint).
-A tab keeps its content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told
-the kind. A phrase or passage opens on Translate (setting `phrase_auto_ai`, default on), a word on Dictionary.
-Header of a word, once the quick answer is in: "das Haus · die Häuser" or the verb's forms ("gehen · geht · ging ·
-ist gegangen"); under it, small: "Häusern → noun, neuter · dative plural · irregular".
+Core works offline without AI; AI tabs are optional extras. Tabs: **Dictionary** (core), then the AI tabs
+**AI translation**, **Analysis**, **Context** — "AI" in the icon's corner, dimmed and a reason on tap when AI is off,
+has no key, or there is no network (a saved answer still opens). AI off in settings → no AI tabs. A tab keeps its
+content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told the kind.
+The card opens on Dictionary; a phrase opens on AI translation only with `phrase_auto_ai` (default off) and AI able
+to answer. No AI request on card open.
+Header of a word from local data only: the article from WikDict's grammar mark ("das Gewitter"); the grammar pack
+(milestone 10) adds plural and verb forms.
 Dictionary tab for a word: one short line per dictionary with a hit — "form → **base** *part of speech* — first
 meanings · dictionary"; tap a line for the full article, "←" back. Order: meanings in the answer script, then
 dictionaries whose headword is the AI's base form (German "ging" → gehen before an English look-alike), then the
@@ -94,8 +97,8 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Two requests, each answered as one JSON object (Claude: structured outputs with a JSON Schema; OpenAI-compatible:
   `response_format: json_object`, then without it on 400/422; the reply is parsed from the first `{` to the last `}`).
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
-  - **Quick**, on card open (AI on): `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
-    `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type); no grammar or comments. Fills the header and Translate.
+  - **Quick**, on opening AI translation: `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
+    `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type). Shown only in the AI translation tab.
   - **Detail**, on the first open of Analysis or Context: `analysis` (word: use, synonyms, related; phrase: how it is
     built and why + harder words; passage: constructions + up to 15 words) and `context` (3 examples with
     translation + register / idioms; passage: what happens and what is implied). Fills both tabs.
@@ -103,14 +106,13 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; brief; the model sees only the selection and
   must not guess its sentence.
 - OpenRouter default model `openrouter/free`.
-- Data sent: only the selected text and the prompt — the quick request on card open (AI on), the detailed one on a
-  tap. No telemetry.
+- Data sent: only the selected text and the prompt, only when an AI tab is opened. No telemetry.
 
 ## Storage
 - One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
   (debug ↔ release needs one). No WAL (shared storage), no UPSERT (Android 8–9 SQLite).
 - `ai`: answers by (text, answer language, request quick / detail, prompt hash) as JSON; shown again without a request,
-  also offline. "↻ Ask again" under an answer replaces it. Settings → AI: delete saved answers (count shown).
+  also offline. Settings → AI: delete saved answers (count shown).
 - `saved`: words and phrases (a passage counts as a phrase) saved with ☆ in the card header (★ = saved, tap removes),
   with one short meaning: the cached translation, else the first dictionary meaning; empty → the cached translation
   at display time.
@@ -164,7 +166,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    first in "Get dictionaries", offered for the reading languages → answer language; Wiktionary as the
    full-article dictionary. Dictionary tab for a word: one short line per dictionary (form → base — meaning),
    tap for the full article.
-9. **Core and AI apart.** Nothing in the core waits for AI or needs a network.
+9. **Core and AI apart** (done). Nothing in the core waits for AI or needs a network.
    - Header from local data only (the grammar pack; until it exists, the article from WikDict's grammar mark).
    - Tabs: core — Dictionary, Translate (offline engine of milestone 11; until then the dictionary lines / gloss),
      Save, My words, Close. AI — AI translation, Analysis, Context: an "AI" mark on the icon; inactive (and a short

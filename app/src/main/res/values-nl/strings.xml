@@ -36,8 +36,8 @@
     <string name="pos_top">Positie: boven</string>
     <string name="pos_bottom">Positie: onder</string>
     <string name="pos_reader">Positie: zoals de leesapp vraagt</string>
-    <string name="a_translate">Vertalen</string>
-    <string name="a_translate_d">Bij openen: de grondvorm met lidwoord en meervoud, of de werkwoordsvormen, in de kop; de hoofdbetekenissen. Een zin: een natuurlijke vertaling.</string>
+    <string name="a_translate">AI-vertaling</string>
+    <string name="a_translate_d">AI: grondvorm met lidwoord en meervoud of werkwoordsvormen, hoofdbetekenissen; een zin — een natuurlijke vertaling. Netwerk en sleutel nodig.</string>
     <string name="tab_dictionary">Woordenboek</string>
     <string name="thinking">Denkt na</string>
     <string name="ai_off">AI staat uit: zet het aan in de InkPeek-instellingen voor vertaling, grammatica en meer.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Nog niets opgezocht.</string>
     <string name="clear_history">Geschiedenis wissen</string>
     <string name="clear_answers">Bewaarde AI-antwoorden wissen (%1$d)</string>
-    <string name="ask_again">Opnieuw vragen</string>
     <string name="save_word">Bewaren in mijn woorden</string>
     <string name="unsave_word">Uit mijn woorden halen</string>
     <string name="a_analysis">Analyse</string>

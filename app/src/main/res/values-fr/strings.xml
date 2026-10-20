@@ -36,8 +36,8 @@
     <string name="pos_top">Position : haut</string>
     <string name="pos_bottom">Position : bas</string>
     <string name="pos_reader">Position : selon la liseuse</string>
-    <string name="a_translate">Traduire</string>
-    <string name="a_translate_d">À l’ouverture : la forme de base avec article et pluriel, ou les formes du verbe, dans l’en-tête ; les sens principaux. Une expression : une traduction naturelle.</string>
+    <string name="a_translate">Traduction IA</string>
+    <string name="a_translate_d">IA : forme de base avec article et pluriel ou formes du verbe, sens principaux ; une expression — traduction naturelle. Réseau et clé requis.</string>
     <string name="tab_dictionary">Dictionnaire</string>
     <string name="thinking">Réflexion</string>
     <string name="ai_off">L’IA est désactivée : activez-la dans les réglages d’InkPeek pour la traduction, la grammaire et plus.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Aucune recherche pour l’instant.</string>
     <string name="clear_history">Effacer l’historique</string>
     <string name="clear_answers">Supprimer les réponses d’IA enregistrées (%1$d)</string>
-    <string name="ask_again">Redemander</string>
     <string name="save_word">Ajouter à mes mots</string>
     <string name="unsave_word">Retirer de mes mots</string>
     <string name="a_analysis">Analyse</string>

@@ -36,8 +36,8 @@
     <string name="pos_top">Pozycja: góra</string>
     <string name="pos_bottom">Pozycja: dół</string>
     <string name="pos_reader">Pozycja: jak chce czytnik</string>
-    <string name="a_translate">Tłumaczenie</string>
-    <string name="a_translate_d">Od razu po otwarciu: forma podstawowa z rodzajnikiem i liczbą mnogą albo formy czasownika w nagłówku; główne znaczenia. Wyrażenie: naturalne tłumaczenie.</string>
+    <string name="a_translate">Tłumaczenie AI</string>
+    <string name="a_translate_d">AI: forma podstawowa z rodzajnikiem i l. mn. albo formy czasownika, główne znaczenia; wyrażenie — naturalne tłumaczenie. Wymaga sieci i klucza.</string>
     <string name="tab_dictionary">Słownik</string>
     <string name="thinking">Myślę</string>
     <string name="ai_off">AI jest wyłączone: włącz je w ustawieniach InkPeek, aby mieć tłumaczenie, gramatykę i więcej.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Jeszcze nic nie wyszukano.</string>
     <string name="clear_history">Wyczyść historię</string>
     <string name="clear_answers">Usuń zapisane odpowiedzi AI (%1$d)</string>
-    <string name="ask_again">Zapytaj ponownie</string>
     <string name="save_word">Zapisz w moich słowach</string>
     <string name="unsave_word">Usuń z moich słów</string>
     <string name="a_analysis">Analiza</string>

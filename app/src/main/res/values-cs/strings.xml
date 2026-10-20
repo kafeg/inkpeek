@@ -36,8 +36,8 @@
     <string name="pos_top">Pozice: nahoře</string>
     <string name="pos_bottom">Pozice: dole</string>
     <string name="pos_reader">Pozice: podle čtečky</string>
-    <string name="a_translate">Přeložit</string>
-    <string name="a_translate_d">Hned po otevření: základní tvar se členem a množným číslem nebo tvary slovesa v záhlaví; hlavní významy. Fráze: přirozený překlad.</string>
+    <string name="a_translate">Překlad AI</string>
+    <string name="a_translate_d">AI: základní tvar se členem a množným číslem nebo tvary slovesa, hlavní významy; fráze — přirozený překlad. Potřebuje síť a klíč.</string>
     <string name="tab_dictionary">Slovník</string>
     <string name="thinking">Přemýšlím</string>
     <string name="ai_off">AI je vypnutá: zapněte ji v nastavení InkPeek pro překlad, gramatiku a další.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Zatím nic nehledáno.</string>
     <string name="clear_history">Vymazat historii</string>
     <string name="clear_answers">Smazat uložené odpovědi AI (%1$d)</string>
-    <string name="ask_again">Zeptat se znovu</string>
     <string name="save_word">Uložit do mých slov</string>
     <string name="unsave_word">Odebrat z mých slov</string>
     <string name="a_analysis">Rozbor</string>

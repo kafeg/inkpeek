@@ -36,8 +36,8 @@
     <string name="pos_top">Положение: сверху</string>
     <string name="pos_bottom">Положение: снизу</string>
     <string name="pos_reader">Положение: как просит читалка</string>
-    <string name="a_translate">Перевод</string>
-    <string name="a_translate_d">Сразу при открытии: начальная форма с артиклем и мн. ч. или формы глагола — в заголовке; главные значения. Фраза: естественный перевод.</string>
+    <string name="a_translate">AI-перевод</string>
+    <string name="a_translate_d">AI: начальная форма с артиклем и мн. ч. или формы глагола, главные значения; фраза — естественный перевод. Нужны сеть и ключ.</string>
     <string name="tab_dictionary">Словарь</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">AI выключен: включите его в настройках InkPeek — будут перевод, грамматика и другое.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Пока ничего не искали.</string>
     <string name="clear_history">Очистить историю</string>
     <string name="clear_answers">Удалить сохранённые ответы AI (%1$d)</string>
-    <string name="ask_again">Спросить заново</string>
     <string name="save_word">Сохранить в мои слова</string>
     <string name="unsave_word">Убрать из моих слов</string>
     <string name="a_analysis">Разбор</string>

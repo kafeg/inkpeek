@@ -36,8 +36,8 @@
     <string name="pos_top">위치: 위</string>
     <string name="pos_bottom">위치: 아래</string>
     <string name="pos_reader">위치: 리더 앱 설정대로</string>
-    <string name="a_translate">번역</string>
-    <string name="a_translate_d">열 때 바로: 제목에 관사와 복수형을 붙인 기본형 또는 동사 활용형, 주요 뜻. 구문: 자연스러운 번역.</string>
+    <string name="a_translate">AI 번역</string>
+    <string name="a_translate_d">AI: 관사와 복수형이 붙은 기본형 또는 동사 활용, 주요 뜻. 구문은 자연스러운 번역. 네트워크와 키가 필요합니다.</string>
     <string name="tab_dictionary">사전</string>
     <string name="thinking">생각 중</string>
     <string name="ai_off">AI가 꺼져 있습니다. InkPeek 설정에서 켜면 번역, 문법 등을 쓸 수 있습니다.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">아직 검색 기록이 없습니다.</string>
     <string name="clear_history">기록 지우기</string>
     <string name="clear_answers">저장된 AI 답변 삭제(%1$d)</string>
-    <string name="ask_again">다시 묻기</string>
     <string name="save_word">내 단어에 저장</string>
     <string name="unsave_word">내 단어에서 제거</string>
     <string name="a_analysis">분석</string>

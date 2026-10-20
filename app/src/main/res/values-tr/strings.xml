@@ -36,8 +36,8 @@
     <string name="pos_top">Konum: üst</string>
     <string name="pos_bottom">Konum: alt</string>
     <string name="pos_reader">Konum: okuma uygulamasına göre</string>
-    <string name="a_translate">Çevir</string>
-    <string name="a_translate_d">Açılınca: başlıkta tanımlık ve çoğuluyla temel biçim ya da fiil çekimleri; ana anlamlar. İfade: doğal bir çeviri.</string>
+    <string name="a_translate">Yapay zekâ çevirisi</string>
+    <string name="a_translate_d">Yapay zekâ: tanımlık ve çoğuluyla temel biçim ya da fiil çekimleri, ana anlamlar; ifade — doğal çeviri. Ağ ve anahtar gerekir.</string>
     <string name="tab_dictionary">Sözlük</string>
     <string name="thinking">Düşünüyor</string>
     <string name="ai_off">YZ kapalı: çeviri, dilbilgisi ve daha fazlası için InkPeek ayarlarından açın.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Henüz arama yok.</string>
     <string name="clear_history">Geçmişi temizle</string>
     <string name="clear_answers">Kayıtlı yapay zekâ yanıtlarını sil (%1$d)</string>
-    <string name="ask_again">Yeniden sor</string>
     <string name="save_word">Kelimelerime kaydet</string>
     <string name="unsave_word">Kelimelerimden çıkar</string>
     <string name="a_analysis">Çözümleme</string>

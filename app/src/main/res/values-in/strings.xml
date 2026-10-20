@@ -36,8 +36,8 @@
     <string name="pos_top">Posisi: atas</string>
     <string name="pos_bottom">Posisi: bawah</string>
     <string name="pos_reader">Posisi: sesuai aplikasi baca</string>
-    <string name="a_translate">Terjemahkan</string>
-    <string name="a_translate_d">Saat dibuka: bentuk dasar dengan artikel dan jamak, atau bentuk kata kerja, di judul; makna utama. Frasa: terjemahan yang wajar.</string>
+    <string name="a_translate">Terjemahan AI</string>
+    <string name="a_translate_d">AI: bentuk dasar dengan artikel dan jamak atau bentuk kata kerja, makna utama; frasa — terjemahan wajar. Perlu jaringan dan kunci.</string>
     <string name="tab_dictionary">Kamus</string>
     <string name="thinking">Berpikir</string>
     <string name="ai_off">AI nonaktif: aktifkan di pengaturan InkPeek untuk terjemahan, tata bahasa, dan lainnya.</string>
@@ -91,7 +91,6 @@
     <string name="list_empty_history">Belum ada pencarian.</string>
     <string name="clear_history">Hapus riwayat</string>
     <string name="clear_answers">Hapus jawaban AI tersimpan (%1$d)</string>
-    <string name="ask_again">Tanya lagi</string>
     <string name="save_word">Simpan ke kata saya</string>
     <string name="unsave_word">Hapus dari kata saya</string>
     <string name="a_analysis">Analisis</string>

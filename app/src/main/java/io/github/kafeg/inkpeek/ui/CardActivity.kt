@@ -82,9 +82,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
-        if (prefs.aiOn) answer(Ask.QUICK)
-        val first = actions.firstOrNull()
-        open(if ((kind != Kind.WORD && prefs.aiOn && prefs.phraseAutoAi && first != null) || !dictTab) first?.id ?: DICT else DICT)
+        if (kind == Kind.WORD) localHead()
+        // The core opens; an AI tab only when the user asked for it in settings and AI can answer.
+        open(if (kind != Kind.WORD && prefs.phraseAutoAi && actions.isNotEmpty() && aiBlock() == null) "translate" else DICT)
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
@@ -134,7 +134,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             background = android.graphics.drawable.GradientDrawable().apply { setColor(android.graphics.Color.WHITE); cornerRadius = Ink.dp(this@CardActivity, 10).toFloat() }
         }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
-        tabs.forEachIndexed { i, (id, icon, label) -> add(iconButton(icon, label, side) { open(id) }.also { tabButtons[id] = it }, i == 0) }
+        tabs.forEachIndexed { i, (id, icon, label) ->
+            val ai = id != DICT
+            add(iconButton(icon, label, side, ai = ai) { if (ai) launch { val r = withContext(Dispatchers.IO) { aiBlock(id) }
+                if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
+        }
+        // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
+        launch { val blocked = withContext(Dispatchers.IO) { actions.associate { it.id to aiBlock(it.id) } }
+            blocked.forEach { (id, r) -> tabButtons[id]?.alpha = if (r == null) 1f else 0.35f } }
         bar.addView(View(this), Ink.lp(gap * 2, 1))
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side, getString(R.string.save_short)) { toggleSaved() }
         starButton = star.findViewWithTag("icon"); add(star)
@@ -150,13 +157,19 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /** A bordered icon; long press shows its name, the "captions" setting writes it under the icon. */
-    private fun iconButton(icon: Int, label: String, side: Int, caption: String = label, click: () -> Unit): View {
+    private fun iconButton(icon: Int, label: String, side: Int, caption: String = label, ai: Boolean = false, click: () -> Unit): View {
         val q = side / 5
         val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"; setPadding(q, q, q, q) }
+        val name = if (ai) "$label · AI" else label
         return Ink.vertical(this).apply {
             gravity = Gravity.CENTER_HORIZONTAL; background = Ink.border(this@CardActivity)
-            contentDescription = label; tooltipText = label; isClickable = true; setOnClickListener { click() }
-            addView(img, LinearLayout.LayoutParams(side, side))
+            contentDescription = name; tooltipText = name; isClickable = true; setOnClickListener { click() }
+            // An AI tab: a small "AI" in the icon's corner.
+            addView(if (!ai) img else android.widget.FrameLayout(this@CardActivity).apply {
+                addView(img, android.widget.FrameLayout.LayoutParams(side, side))
+                addView(Ink.text(this@CardActivity, "AI", 8f, bold = true).apply { setPadding(0, 0, 3, 0) },
+                    android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END))
+            }, LinearLayout.LayoutParams(side, side))
             if (prefs.captions) addView(Ink.text(this@CardActivity, caption, 9f).apply {
                 maxLines = 1; gravity = Gravity.CENTER; setPadding(2, 0, 2, Ink.dp(this@CardActivity, 3))
             }, LinearLayout.LayoutParams(side, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -219,8 +232,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /**
      * One short line per dictionary with [word] (form → base, part of speech, first meanings); tap a line for the full
-     * article. Meanings in the answer script first, then the dictionary whose headword is the AI's base form
-     * (German "ging" → de-ru "gehen" before en-ru), then the order from settings. [back] — return to the gloss.
+     * article. Meanings in the answer script first, then the order from settings. [back] — return to the gloss.
      */
     private var listRun = 0
 
@@ -232,20 +244,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch {
             val notReady = ArrayList<StarDict>()
             val lib = prefs.library()
-            val quick = answers[Ask.QUICK]?.takeIf { it.isCompleted }?.getCompleted()?.getOrNull()
-            val base = quick?.str("base").orEmpty()
-            // The part of speech the AI saw, to pick that block of a multi-part entry (went → go, the verb).
-            val pos = when { quick == null || word != query -> null; quick.str("forms").isNotBlank() && quick.str("article").isBlank() -> "verb"
-                quick.str("article").isNotBlank() || quick.str("plural").isNotBlank() -> "noun"; else -> null }
             val res = withContext(Dispatchers.IO) { runCatching {
-                val main = lib.lookup(word, prefs.order, prefs.disabled, notReady)
-                // The AI's base form finds what the dictionaries miss as a form (went → go).
-                val more = if (word != query || base.isBlank() || base.equals(word, true)) emptyList()
-                    else lib.lookup(base, prefs.order, prefs.disabled).mapNotNull { (d, h) -> h.filter { it.word == base }.takeIf { it.isNotEmpty() }?.let { d to it } }
-                        .filter { (d, _) -> main.none { (m, h) -> m.id == d.id && h.any { it.word == base } } }
-                (main + more).sortedWith(compareBy(
-                    { (_, h) -> lib.scriptOf(runCatching { pick(h, pos).let { shortMeaning(it.html, it.word, pos) } }.getOrDefault("")) != answerScript },
-                    { (_, h) -> base.isNotBlank() && word == query && h.none { it.word.equals(base, true) } }))
+                lib.lookup(word, prefs.order, prefs.disabled, notReady).sortedBy { (_, h) ->
+                    lib.scriptOf(runCatching { shortMeaning(h.first().html, h.first().word) }.getOrDefault("")) != answerScript }
             } }
             if (run != listRun) return@launch // a newer fill took over (the quick answer re-sorted the list)
             p.removeView(wait)
@@ -256,10 +257,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 return@launch
             }
             hits.forEach { (dict, list) ->
-                val h = pick(list, pos)
+                val h = list.first()
                 val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)} → "
-                val gram = io.github.kafeg.inkpeek.stardict.grammarOf(h.html, pos).let { if (it.isBlank()) "" else " <i>${Ink.escape(it)}</i>" }
-                val meaning = runCatching { shortMeaning(h.html, h.word, pos) }.getOrDefault("")
+                val gram = io.github.kafeg.inkpeek.stardict.grammarOf(h.html).let { if (it.isBlank()) "" else " <i>${Ink.escape(it)}</i>" }
+                val meaning = runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
                 val line = "$form<b>${Ink.escape(h.word)}</b>$gram" + (if (meaning.isBlank()) "" else " — " + Ink.escape(meaning)) +
                     "<br><small>${Ink.escape(dict.name)}</small>"
                 p.addView(Ink.text(this@CardActivity, line, size, html = true).apply {
@@ -269,10 +270,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             }
         }
     }
-
-    /** The entry of the AI's part of speech when a dictionary splits a word by it (WikDict: go — noun, go — verb). */
-    private fun pick(list: List<io.github.kafeg.inkpeek.stardict.Hit>, pos: String?) =
-        list.firstOrNull { pos != null && io.github.kafeg.inkpeek.stardict.grammarOf(it.html).contains(pos, true) } ?: list.first()
 
     /** A dictionary's full entries for [word]; "←" (or Back) returns to the list. */
     private fun article(p: LinearLayout, dict: StarDict, list: List<io.github.kafeg.inkpeek.stardict.Hit>, word: String, back: () -> Unit) {
@@ -342,66 +339,79 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private class Offline : Exception()
 
-    /** The saved answer (also offline), else a request; QUICK also fills the header. */
-    private fun answer(ask: Ask, fresh: Boolean = false): Deferred<Result<org.json.JSONObject>> {
-        if (!fresh) answers[ask]?.let { d -> if (!d.isCompleted || d.getCompleted().isSuccess) return d }
+    /** Why an AI tab cannot open now (string id), or null; a saved answer opens without a network. Blocking. */
+    private fun aiBlock(tab: String = "translate"): Int? {
+        val pr = prefs.provider
+        return when {
+            !prefs.aiOn -> R.string.ai_off
+            pr != Provider.CUSTOM && prefs.effectiveKey(pr).isBlank() -> R.string.err_no_key
+            prefs.model(pr).isBlank() -> R.string.err_no_model
+            !online && runCatching { (if (tab == "translate") Ask.QUICK else Ask.DETAIL).let { store.answer(query, prefs.answerLang, it.section, it.version) } }.getOrNull() == null -> R.string.err_offline
+            else -> null
+        }
+    }
+
+    private fun toast(s: String) = android.widget.Toast.makeText(this, s, android.widget.Toast.LENGTH_LONG).show()
+
+    /** The saved answer (also offline), else a request. */
+    private fun answer(ask: Ask): Deferred<Result<org.json.JSONObject>> {
+        answers[ask]?.let { d -> if (!d.isCompleted || d.getCompleted().isSuccess) return d }
         val pr = prefs.provider; val lang = prefs.answerLang; val model = prefs.model(pr)
         return async(Dispatchers.IO) { runCatching {
-            if (!fresh) store.answer(query, lang, ask.section, ask.version)?.let { return@runCatching org.json.JSONObject(it) }
+            store.answer(query, lang, ask.section, ask.version)?.let { return@runCatching org.json.JSONObject(it) }
             if (!online) throw Offline()
             Ai.ask(pr, prefs.effectiveKey(pr), model, ask, query, lang, prefs.url(pr))
                 .also { runCatching { store.putAnswer(query, lang, ask.section, ask.version, model, it.toString()) } }
         } }.also { d ->
             answers[ask] = d
-            if (ask == Ask.QUICK) launch { d.await().onSuccess { head(it) } }
         }
     }
 
     private fun org.json.JSONObject.str(k: String) = optString(k).trim()
 
-    /** A word's header: "das Haus · die Häuser" or the verb's forms; under it the selected form, part of speech, "irregular". */
-    private fun head(j: org.json.JSONObject) {
-        if (kind != Kind.WORD) return
-        // The base form can reorder the dictionary list (an English look-alike of a German form goes down).
-        if (shown == DICT && dictBack == null) pages[DICT]?.let { fillArticles(it, query, null) }
-        val base = j.str("base").ifBlank { query }
-        titleView.text = j.str("forms").ifBlank {
-            listOf(j.str("article"), base).filter { it.isNotBlank() }.joinToString(" ") + j.str("plural").let { if (it.isBlank()) "" else " · $it" }
-        }
-        val sub = (if (base.equals(query, true)) "" else "$query → ") + listOf(j.str("pos"), j.str("form_of"),
-            if (j.optBoolean("irregular")) getString(R.string.irregular) else "").filter { it.isNotBlank() }.joinToString(" · ")
-        subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
+    /** Instant header from the dictionaries: a German noun's article from WikDict's grammar mark ("noun, neutral"). */
+    private fun localHead() = launch {
+        val lib = prefs.library()
+        val (base, gram) = withContext(Dispatchers.IO) { runCatching {
+            lib.lookup(query, prefs.order, prefs.disabled).firstNotNullOfOrNull { (d, hits) ->
+                if (!Regex("\\(de-|Deutsch").containsMatchIn(d.name)) null
+                else hits.firstNotNullOfOrNull { h -> io.github.kafeg.inkpeek.stardict.grammarOf(h.html, "noun").takeIf { it.startsWith("noun") }?.let { h.word to it } }
+            }
+        }.getOrNull() } ?: return@launch
+        val article = when { "neut" in gram -> "das"; "fem" in gram -> "die"; "masc" in gram -> "der"; else -> return@launch }
+        titleView.text = "$article $base"
+        if (!base.equals(query, true)) { subView.text = "$query →"; subView.visibility = View.VISIBLE }
     }
 
     /** Markdown for a tab from its answer. */
     private fun render(tab: String, j: org.json.JSONObject): String = when (tab) {
         "translate" -> {
+            // AI's own view of the word inside its tab: "das Haus · die Häuser", or the verb's forms, irregular.
+            val facts = if (kind != Kind.WORD) "" else j.str("forms").ifBlank {
+                listOf(j.str("article"), j.str("base")).filter { it.isNotBlank() }.joinToString(" ") + j.str("plural").let { if (it.isBlank()) "" else " · $it" }
+            }.let { f -> listOf(f, j.str("pos"), j.str("form_of"), if (j.optBoolean("irregular")) getString(R.string.irregular) else "")
+                .filter { it.isNotBlank() }.joinToString(" · ") }
             val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).map { "- " + a.getString(it) } }.orEmpty()
-            (listOf(j.str("translation")) + m).filter { it.isNotBlank() }.joinToString("\n")
+            (listOf(if (facts.isBlank()) "" else "*$facts*", j.str("translation")) + m).filter { it.isNotBlank() }.joinToString("\n")
         }
         else -> j.str(tab)
     }
 
-    /** An AI tab: Translate reads the quick answer, Analysis and Context the detailed one; "↻" asks again. */
-    private fun fillAi(p: LinearLayout, tab: String, fresh: Boolean = false) {
+    /** An AI tab: AI translation reads the quick answer, Analysis and Context the detailed one. */
+    private fun fillAi(p: LinearLayout, tab: String) {
         val out = Ink.text(this, "", size); p.addView(out)
         val ask = if (tab == "translate") Ask.QUICK else Ask.DETAIL
         launch {
-            val d = answer(ask, fresh)
+            val d = answer(ask)
             val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
             val r = d.await()
             dots?.cancel()
-            r.fold({ answered(p, out, tab, render(tab, it)) }, { failed(p, out, tab, it.takeUnless { e -> e is Offline }) })
+            r.fold({ answered(out, render(tab, it)) }, { failed(p, out, tab, it.takeUnless { e -> e is Offline }) })
         }
     }
 
-    private fun answered(p: LinearLayout, out: TextView, tab: String, md: String) {
+    private fun answered(out: TextView, md: String) {
         out.text = android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT)
-        p.addView(Ink.button(this, "↻ " + getString(R.string.ask_again), size * 0.7f) {
-            // Analysis and Context come from one answer: the other tab is filled again when opened.
-            Action.ALL.map { it.id }.filter { it != tab && it != "translate" && tab != "translate" }.forEach { pages.remove(it) }
-            p.removeAllViews(); fillAi(p, tab, fresh = true)
-        }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = Ink.dp(this@CardActivity, 16); gravity = Gravity.END })
     }
 
     private fun starred(on: Boolean) {
