@@ -176,12 +176,19 @@ Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models download
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; fewer UI languages —
 the ones we have packs for; Translate: AI first when it can answer (setting: offline first), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
-10. **Language packs** — one curated pack per supported language pair, built by scripts in this repo
-   (`packs/`), checked by tests, published as release assets with a manifest (`packs.json`: version, files, size,
-   sha256, license, sources). A pack = dictionary (curated and post-processed from open sources, merged where that
-   helps, one per pair — not a list of 100 raw dictionaries) + grammar (from Wiktionary via kaikki.org: article,
-   plural, every inflected form → base, verb principal parts, irregular) + offline translation models. First the
-   analysis: sources and quality per pair, for ru, en, de and the main others (fr, es, it, pl, uk, …).
+10. **Language packs** — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
+   of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
+   no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
+   - Languages: en, ru, de, uk, es, fr, it, pt, pl, nl. First de, en with ru, en answers; then all.
+   - Components, each a separate asset, shared between pairs: `grammar-<x>` (StarDict: one line per lemma —
+     part of speech, gender, plural, verb principal parts, auxiliary, strong / weak / irregular from Wiktionary data
+     only; `.syn` = every inflected form → lemma), `dict-<x>-<y>` (one StarDict per pair: our own articles from the
+     Wiktionary of language y via kaikki.org, first line "header — first meanings", WikDict where Wiktionary has
+     nothing, `.syn` from the grammar), `model-<x>-<y>` (Mozilla's best model for the direction).
+   - A pair is published only when its tests pass: golden words (form → lemma, article, plural, principal parts,
+     first meaning), coverage of frequent words, first-line length; weak pairs marked as such.
+   - Inputs pinned by date and sha256 (`packs/sources.json`); the build streams the kaikki dumps, never unpacks them.
+   - CI: a manual / monthly workflow builds a draft release; a person publishes it.
 11. **Offline translation engine** (done; models picked per direction in settings until the pack manager) — Bergamot (Firefox Translations, MPL-2.0) built with the NDK; the JNI wrapper
    adapted from RTranslator (Apache-2.0, attribution); Mozilla's models (via English: de→en→ru) from the packs.
    Prototype measured on the Boox (research note): 0.15–0.85 s per sentence with both models loaded (≈ 560 MB),
@@ -191,8 +198,10 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
      (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
    - Memory: both models stay loaded when the device has room, else one at a time.
-12. **Pack manager** — first run: reading languages and answer language → download the packs; status (installed,
-   update, size), delete. Raw dictionary catalog and file import stay as "other dictionaries".
+12. **My languages** — the answer language (a setting already) + "languages of my books" (checkboxes) decide what
+   to download from `packs.json`: grammar of each book language, the dictionary of each pair, the models (through
+   English). One short screen: status, size, update, delete. First run asks these two questions. Raw dictionary
+   catalog and file import stay as "other dictionaries".
 13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized
    for e-ink, sections, fewer options.
 
