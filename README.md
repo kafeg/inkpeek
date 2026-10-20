@@ -47,7 +47,7 @@ English or Russian: you choose the answer language.</sub></p>
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
    files when it asks.
-2. **Add a dictionary:** Dictionaries → **Get dictionaries** → pick a language pair (for example German → Russian).
+2. **Choose your languages:** Languages → the language of the answers, tick the languages of your books → Download.
 3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key.
 4. **Connect your reader** (below). In FBReader this is two settings.
 
@@ -105,32 +105,37 @@ If another dictionary app answers the same request, Android asks which one to us
   than one sentence; Examples is hidden for a passage).
 - A selected sentence opens on Translate when AI is on (you can turn this off).
 - Built for e-ink: black on white, large text, no animations, few settings.
-- The app is in English and Русский — exactly the answer languages of InkPeek's language packs (German and English
-  books, answers in Russian or English); a new language comes with its packs. AI answers come in the language you
-  choose.
+- The app is in English, Русский and Deutsch — exactly the answer languages of InkPeek's language packs; a new
+  language comes with its packs. AI answers come in the language you choose.
 
-### Dictionaries
-Everything lives in one folder: **`/sdcard/InkPeek/`** — `dicts/` (one folder per dictionary) and `keys/`.
+### Languages
+Settings → **Languages**: the language of the answers and the languages of your books. For each book language InkPeek
+downloads one language pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
+— nothing comes from other servers:
 
-- **Get dictionaries:** live lists of [Wiktionary dictionaries](https://github.com/xxyzz/wiktionary_stardict)
-  (hundreds of language pairs) and [FreeDict](https://freedict.org). Filter by language pair, tap to download.
-- **Import file:** StarDict as `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, or loose
-  `.ifo` / `.idx` / `.dict(.dz)` / `.syn` files.
-- Or copy a StarDict folder into `/sdcard/InkPeek/dicts/`.
+| part | what it gives | from |
+|---|---|---|
+| dictionary of the pair | a short first line — "das Haus (Hauses, мн. Häuser) — дом, здание", "go (went, gone) неправ. — идти" — and the full article; every inflected form finds its word (Häusern, ging, went) | Wiktionary via [kaikki.org](https://kaikki.org), [WikDict](https://www.wikdict.com) |
+| grammar | gender, plural, verb forms; which language a text is in | Wiktionary via kaikki.org |
+| offline translation | Translate without the internet | [Firefox Translations](https://github.com/mozilla/translations) models |
+| language identification | which language you selected, also one without a pack | [fastText](https://fasttext.cc) lid.176 |
 
-InkPeek builds its own index for each dictionary once, in the background (settings show the progress). Badly sorted
-upstream indexes still work, and `.dict.dz` is read in place, without unpacking.
+Packs now: German → Russian, English → Russian, German → English, English → German, Russian → German (smaller).
+They are built by [`packs/`](packs/README.md) and checked by tests before they are published. A German pack with
+Russian answers is about 67 MB, English with Russian about 49 MB (the English → Russian model is shared).
+
+**Your own dictionaries:** import StarDict as `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, or loose
+`.ifo` / `.idx` / `.dict(.dz)` / `.syn` files, or copy a folder into `/sdcard/InkPeek/dicts/`. They come after the
+packs in the card. InkPeek builds its own index for each dictionary once, in the background.
 
 ### Offline translation
-The Translate tab works without the internet: InkPeek downloads translation models and runs them on the device
-(the [Bergamot](https://github.com/browsermt/bergamot-translator) engine and the models of
-[Firefox Translations](https://github.com/mozilla/translations)). Pick the language of your books in settings →
-Dictionaries → Offline translation and tap Download; the models come straight from Mozilla, about 25 MB per
-direction (35–45 MB on the device).
+The Translate tab works without the internet: the [Bergamot](https://github.com/browsermt/bergamot-translator) engine
+runs the models of the language packs on the device. The language of the selection is found by fastText and
+confirmed by the grammar; a text in a language without a pack is named as such ("This looks like French").
 
 **It goes through English.** Mozilla trains every model to or from English, so German → Russian is German →
 English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
-may pick the wrong one of ты / вы; the speaker's gender may change. English books need one model (English → Russian).
+may pick the wrong one of ты / вы; the speaker's gender may change.
 
 On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.2–0.9 s with both models in memory (about 560 MB), or 1–2 s
 when free memory is short and InkPeek loads one model at a time. With AI set up, Translate asks AI first (setting).

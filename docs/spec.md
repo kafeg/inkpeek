@@ -122,7 +122,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
+(app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
 by default.
 
 ## Tech
@@ -201,7 +201,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
      (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
    - Memory: both models stay loaded when the device has room, else one at a time.
-12. **My languages** — one system instead of the offline-translation block, the dictionary catalog and "language of
+12. **My languages** (done; checked on the Boox) — one system instead of the offline-translation block, the dictionary catalog and "language of
    my books". Packs list from our release `packs` (`packs.json`). The user ticks book languages; the answer language
    is a setting already; the app downloads what the pairs need: `grammar-<x>`, `dict-<x>-<y>`, models through
    English, `langid` — sha256 checked; status, size, update, delete. First run asks both. "Import file" stays for own
