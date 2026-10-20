@@ -202,7 +202,7 @@ Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engi
 `git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).
 
 ## License
-MIT. Dictionaries you download keep their own licenses (Wiktionary: CC BY-SA; FreeDict: see each dictionary).
+MIT. Language packs: dictionaries and grammar CC BY-SA 4.0 (Wiktionary contributors, Wiktextract/kaikki.org, WikDict), translation models MPL-2.0 (Mozilla), language identification CC BY-SA 3.0 (fastText). Dictionaries you import keep their own licenses.
 
 Third-party code and data: [Bergamot translator](https://github.com/browsermt/bergamot-translator) with marian
 (MPL-2.0; the Android build from [RTranslator](https://github.com/niedev/RTranslator)'s fork); the JNI bridge
