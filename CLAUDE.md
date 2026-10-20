@@ -17,6 +17,9 @@ adb shell appops set io.github.kafeg.inkpeek MANAGE_EXTERNAL_STORAGE allow
 adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus   # open the card
 ```
 Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
+Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,
+keyAlias, keyPassword), `VERSION_CODE=<above the installed> ./gradlew assembleRelease`, `adb install -r` keeps the
+settings (a debug build needs an uninstall). AI timings: `adb logcat -s InkPeek` (`warm …`, `ai … ms`).
 
 ## Rules
 - Branch model: `main` only, commit and push to `main`.
