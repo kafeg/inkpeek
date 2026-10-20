@@ -4,14 +4,14 @@ import json
 import os
 
 
-def records(path, lang):
-    """Entries of one language from a dump or a slice (.jsonl or .jsonl.gz)."""
+def records(path, lang, has=None):
+    """Entries of one language from a dump or a slice (.jsonl or .jsonl.gz); [has]: only lines with this text."""
     # A cheap substring check first; the real check is the top-level field (translations carry lang_code too).
     needle = f'"lang_code": "{lang}"'
     opener = gzip.open if path.endswith(".gz") else open
     with opener(path, "rt", encoding="utf-8") as fh:
         for line in fh:
-            if needle not in line:
+            if needle not in line or (has and has not in line):
                 continue
             r = json.loads(line)
             if r.get("lang_code") == lang:

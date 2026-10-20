@@ -5,7 +5,7 @@ repository's releases (`packs-*`), never from third-party servers.
 
 | component | what | from | license |
 |---|---|---|---|
-| `dict-<x>-<y>` | one dictionary per pair: first line "header — first meanings" (the header from the grammar: article, plural, verb forms, irregular), the full article, every inflected form in `.syn` | Wiktionary via [kaikki.org](https://kaikki.org) (English words: en.wiktionary's translation tables first), [WikDict](https://www.wikdict.com) | CC BY-SA 4.0 |
+| `dict-<x>-<y>` | one dictionary per pair: first line "header — first meanings" (the header from the grammar: article, plural, verb forms, irregular), the full article, every inflected form in `.syn` | Wiktionary via [kaikki.org](https://kaikki.org) (English words: en.wiktionary's translation tables first; other words without an entry in the y-Wiktionary: its own words' translation tables read backwards, Kind → ребёнок), [WikDict](https://www.wikdict.com) last | CC BY-SA 4.0 |
 | `model-<x>-<y>` | offline translation model (always to or from English) | [Firefox Translations](https://github.com/mozilla/translations), Mozilla Remote Settings; the full model where there is one | MPL-2.0 |
 | `langid` | language identification | [fastText](https://fasttext.cc) lid.176 | CC BY-SA 3.0 |
 
