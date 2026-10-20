@@ -38,7 +38,7 @@ class PacksOnDeviceTest {
 
     private fun run(kind: String, pair: String, input: String): String = when (kind) {
         // As the card does: the whole library (forms → base across dictionaries), then this pair's dictionary.
-        "head", "mean" -> lib.lookup(input, emptyList(), emptySet()).firstOrNull { (d, _) -> d.ifo.parentFile?.name == "dict-$pair" }
+        "head", "mean" -> lib.lookup(input, pair.substringAfter('-')).firstOrNull { (d, _) -> d.ifo.parentFile?.name == "dict-$pair" }
             ?.second?.firstNotNullOfOrNull { headLine(it.html) }?.let { if (kind == "head") it.substringBefore(" — ") else it.substringAfter(" — ") } ?: "(not found)"
         "lang" -> LangId.source(input, pair, prefs.packs, lib).let { (book, other) -> book ?: "!$other" }
         "tr" -> pair.split('-').let { (x, y) -> Engine.translate(prefs.modelsDir, x, y, input, keep = true) }

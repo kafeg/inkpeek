@@ -39,7 +39,6 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.io.File
 
 /** Settings in four tabs: dictionaries, AI, card, my words. */
 class MainActivity : Activity(), CoroutineScope by MainScope() {
@@ -67,8 +66,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val probe = edit(getString(R.string.try_hint), "")
         val tryRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         tryRow.addView(probe, Ink.lp(0, weight = 1f))
-        fun openCard() { if (probe.text.isNotBlank()) startActivity(Intent(this, CardActivity::class.java).setAction("colordict.intent.action.SEARCH")
-            .putExtra("EXTRA_QUERY", probe.text.toString())) }
+        fun openCard() { if (probe.text.isNotBlank()) startActivity(WordsList.card(this, probe.text.toString())) }
         probe.setOnEditorActionListener { _, _, _ -> hideKeyboard(); openCard(); true }
         // A magnifier, like any search field: it opens the card for the text (Enter does the same).
         tryRow.addView(android.widget.ImageView(this).apply {
@@ -308,17 +306,9 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (items.isEmpty()) wordsList.addView(Ink.text(this@MainActivity,
             getString(if (kind == "history") R.string.list_empty_history else R.string.list_empty_saved), 16f))
         items.forEach { e ->
-            val r = Ink.horizontal(this@MainActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-            r.addView(Ink.entry(this@MainActivity, e.text, e.meaning, 16f).apply {
-                val q = Ink.dp(this@MainActivity, 6); setPadding(0, q, q, q)
-                setOnClickListener {
-                    startActivity(Intent(this@MainActivity, CardActivity::class.java).setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text))
-                }
-            }, Ink.lp(0, weight = 1f))
-            r.addView(Ink.button(this@MainActivity, "✕", 16f) {
+            wordsList.addView(WordsList.row(this@MainActivity, e, 16f, { startActivity(WordsList.card(this@MainActivity, e.text)) }) {
                 this@MainActivity.launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).run { if (kind == "history") forget(e.text) else unsave(e.text) } } }; refreshWords() }
             })
-            wordsList.addView(r)
         }
         // An action on the whole list: under it, on the right, apart from the tabs.
         if (kind == "history" && items.isNotEmpty()) wordsList.addView(Ink.button(this@MainActivity, getString(R.string.clear_history), 15f) {
@@ -404,13 +394,12 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     // --- helpers ---
-    private fun edit(hint: String, value: String, secret: Boolean = false, number: Boolean = false, save: ((String) -> Unit)? = null) =
+    private fun edit(hint: String, value: String, secret: Boolean = false, save: ((String) -> Unit)? = null) =
         EditText(this).apply {
             this.hint = hint; setText(value); textSize = sp; setSingleLine()
             imeOptions = android.view.inputmethod.EditorInfo.IME_ACTION_DONE
             setOnEditorActionListener { v, _, _ -> save?.invoke(text.toString()); hideKeyboard(); v.clearFocus(); true }
-            inputType = when { secret -> InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-                number -> InputType.TYPE_CLASS_NUMBER; else -> InputType.TYPE_CLASS_TEXT }
+            inputType = if (secret) InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD else InputType.TYPE_CLASS_TEXT
             if (save != null) setOnFocusChangeListener { _, has -> if (!has) save(text.toString()) }
         }
 

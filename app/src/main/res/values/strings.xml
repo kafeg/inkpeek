@@ -8,7 +8,6 @@
     <string name="try_hint">A word or a phrase</string>
     <string name="look_up">Look up</string>
     <string name="allow_files">Allow access to files (needed for %1$s)</string>
-    <string name="st_indexing">indexing…</string>
     <string name="status">%1$d dictionaries · AI: %2$s</string>
     <string name="status_busy">%1$d dictionaries · indexing %2$d in the background… · AI: %3$s</string>
     <string name="use_ai">Use AI</string>
@@ -33,12 +32,8 @@
     <string name="preparing">Preparing: %1$s (first use, try again in a minute)</string>
     <string name="not_found">Not found in dictionaries.</string>
     <string name="dict_error">Dictionary error: %1$s</string>
-    <string name="check_ai">Check the AI settings in InkPeek.</string>
-    <string name="delete">Delete</string>
     <string name="cancel">Cancel</string>
     <string name="failed">Failed: %1$s</string>
-    <string name="no_key">No API key for %1$s</string>
-    <string name="no_model">No model selected for %1$s</string>
     <string name="key_file_ok">Key: from %1$s ✓</string>
     <string name="key_typed_ok">Key: typed in the field above ✓</string>
     <string name="key_missing">No key: type it above or put it into %1$s</string>

@@ -6,70 +6,62 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
+import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import io.github.kafeg.inkpeek.Net
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.Store
 import io.github.kafeg.inkpeek.ai.Action
-import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Ai
+import io.github.kafeg.inkpeek.ai.Answers
 import io.github.kafeg.inkpeek.ai.Ask
-import io.github.kafeg.inkpeek.mt.Engine
 import io.github.kafeg.inkpeek.ai.Kind
-import io.github.kafeg.inkpeek.stardict.StarDict
+import io.github.kafeg.inkpeek.mt.Engine
+import io.github.kafeg.inkpeek.mt.OfflineTranslation
 import io.github.kafeg.inkpeek.stardict.cleanPhrase
 import io.github.kafeg.inkpeek.stardict.cleanQuery
-import io.github.kafeg.inkpeek.stardict.shortMeaning
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.async
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 /**
- * The pop-up card. Tabs at the bottom: Dictionary, then Translate, Analysis, Context. On open one quick AI answer
- * (head facts + translation) fills the header and Translate; Analysis and Context share one detailed answer.
+ * The pop-up card: the header (the word's first line from the packs), the open tab's page, the icon bar. The tabs fill
+ * themselves: [DictionaryPage], [TranslatePage], [AiPage] (Analysis, Context), [WordsPage].
  */
 class CardActivity : Activity(), CoroutineScope by MainScope() {
-    private lateinit var prefs: Prefs
+    lateinit var prefs: Prefs; private set
+    val store by lazy { Store.get(this) }
+    var query = ""; private set
+    val kind get() = Kind.of(query)
+    private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
+    /** Body text size (sp); the header is larger. */
+    val size = 20f
+    val online: Boolean get() = Net.online(this)
+    val answers by lazy { Answers(prefs, store, query) { online } }
+    val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) }
+    val dictionary = DictionaryPage(this)
+    val ai = AiPage(this)
+    private val translate = TranslatePage(this)
+    private val words = WordsPage(this)
+
     private lateinit var scroll: ScrollView
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, View>()
     private var shown = ""
-    /** Header button "←": shown while a word's article is open from the gloss. */
-    private lateinit var backButton: android.widget.ImageView
-    private lateinit var starButton: android.widget.ImageView
-    private val store by lazy { Store.get(this) }
-    private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     private lateinit var titleView: TextView
     private lateinit var subView: TextView
     private lateinit var titleBox: LinearLayout
-    /** The two AI answers, started once and shared by the tabs; a failed one is asked again on the next tab open. */
-    private val answers = HashMap<Ask, Deferred<Result<org.json.JSONObject>>>()
-    private var dictBack: (() -> Unit)? = null
-    private var query = ""
-    private val kind get() = Kind.of(query)
-    /** Always: a word → its articles; a phrase or passage → a word-by-word gloss. */
-    private val dictTab get() = true
-    private val online: Boolean get() {
-        val cm = getSystemService(CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
-        val active = cm.getNetworkCapabilities(cm.activeNetwork ?: return false) ?: return false
-        if (!active.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED)) return false
-        // A VPN stays "validated" after Wi-Fi goes off: it needs a real network under it.
-        @Suppress("DEPRECATION") return active.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN) || cm.allNetworks.any { n ->
-            cm.getNetworkCapabilities(n)?.let { it.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
-                it.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) } == true
-        }
-    }
+    /** Header button "←": shown while a word's article is open from the list or the gloss. */
+    private lateinit var backButton: ImageView
+    private lateinit var starButton: ImageView
     private val actions get() = if (prefs.aiOn) Action.ALL else emptyList()
-    /** Body text size (sp); the header is larger. */
-    private val size = 20f
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -85,10 +77,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
         placeWindow()
-        if (kind == Kind.WORD) packHead()
+        if (kind == Kind.WORD) head()
         // A phrase: the offline translation starts at once; it fills Translate and the history line.
-        else launch { mt().await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t) } } } }
-        // The core opens; an AI tab only when the user asked for it in settings and AI can answer.
+        else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t) } } } }
         open(if (kind != Kind.WORD && prefs.phraseAutoAi) TRANSLATE else DICT)
     }
 
@@ -103,26 +94,26 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else -> i.getStringExtra("EXTRA_QUERY") ?: i.getStringExtra(Intent.EXTRA_TEXT)
     }
 
-    /** The card (header, body) with the icon bar under it, outside its border: tabs · save, my words · close. */
+    /** The card (header, body) with the icon bar at its bottom under a thin line: tabs · save, my words · close. */
     private fun build() {
         val pad = Ink.dp(this, 14); val x = Ink.dp(this, 44)
         val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
-        val head = android.widget.FrameLayout(this)
+        val head = FrameLayout(this)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
         }
-        // Under the title: the selected form, part of speech, "irregular" — once the quick answer is in.
+        // Under the title: the selected form, the same word in another book language.
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
-        head.addView(titleBox, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
-        backButton = android.widget.ImageView(this).apply {
+        head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
+        backButton = ImageView(this).apply {
             setImageResource(R.drawable.ic_back); background = Ink.border(this@CardActivity)
             val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
             contentDescription = getString(R.string.back); tooltipText = contentDescription; visibility = View.GONE
-            setOnClickListener { dictBack?.invoke() }
+            setOnClickListener { dictionary.back?.invoke() }
         }
-        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
+        head.addView(backButton, FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
         card.addView(head)
         scroll = ScrollView(this)
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
@@ -135,17 +126,16 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         val n = tabs.size + 3; val gap = Ink.dp(this, 5)
         val side = minOf(Ink.dp(this, 44), ((resources.displayMetrics.widthPixels * 0.92).toInt() - 2 * pad - gap * (n + 3)) / n)
-        // The icon row closes the card, under a thin line: one frame, no dead space around it.
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
-            val ai = id != DICT && id != TRANSLATE
-            add(iconButton(icon, label, side, ai = ai) { if (ai) launch { val r = withContext(Dispatchers.IO) { aiBlock(id) }
+            val isAi = id != DICT && id != TRANSLATE
+            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { answers.block(Ask.DETAIL) }
                 if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
         // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
-        launch { val blocked = withContext(Dispatchers.IO) { actions.associate { it.id to aiBlock(it.id) } }
-            blocked.forEach { (id, r) -> tabButtons[id]?.alpha = if (r == null) 1f else 0.35f } }
+        launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.DETAIL) }
+            actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else 0.35f } }
         bar.addView(View(this), Ink.lp(gap * 2, 1))
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
         starButton = star.findViewWithTag("icon"); add(star)
@@ -160,23 +150,22 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         setContentView(card)
     }
 
-    /** A bordered icon; long press shows its name. */
+    /** A bordered icon; long press shows its name; an AI tab has a small "AI" in its corner. */
     private fun iconButton(icon: Int, label: String, side: Int, ai: Boolean = false, click: () -> Unit): View {
         val q = side / 5
         // An AI icon is drawn a bit smaller: its top-right corner holds the "AI" label.
-        val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"
+        val img = ImageView(this).apply { setImageResource(icon); tag = "icon"
             if (ai) setPadding(q, q + q / 2, q + q / 2, q) else setPadding(q, q, q, q) }
         val name = if (ai) "$label · AI" else label
         return Ink.vertical(this).apply {
             gravity = Gravity.CENTER_HORIZONTAL; background = Ink.border(this@CardActivity)
             contentDescription = name; tooltipText = name; isClickable = true; setOnClickListener { click() }
-            // An AI tab: a small "AI" in the icon's corner.
-            addView(if (!ai) img else android.widget.FrameLayout(this@CardActivity).apply {
-                addView(img, android.widget.FrameLayout.LayoutParams(side, side))
+            addView(if (!ai) img else FrameLayout(this@CardActivity).apply {
+                addView(img, FrameLayout.LayoutParams(side, side))
                 // Clear of the border even when thick (the open tab): 6 dp from the box corner.
                 val m = Ink.dp(this@CardActivity, 6)
                 addView(Ink.text(this@CardActivity, "AI", 9f, bold = true).apply { includeFontPadding = false },
-                    android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
+                    FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
                         .apply { topMargin = m; rightMargin = m })
             }, LinearLayout.LayoutParams(side, side))
         }
@@ -190,394 +179,72 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         window.setWindowAnimations(0)
     }
 
+    /** A tab's page, filled the first time unless [fill] is false (the Dictionary tab opened on a word from elsewhere). */
+    fun page(tab: String, fill: Boolean = true): LinearLayout = pages[tab] ?: Ink.vertical(this).also { p ->
+        pages[tab] = p
+        if (fill) when (tab) { DICT -> dictionary.fill(p); SAVED -> words.fill(p); TRANSLATE -> translate.fill(p); else -> ai.fill(p, tab) }
+    }
+
     /** Shows the tab, filling it the first time. */
-    private fun open(tab: String) {
+    fun open(tab: String) {
         tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) SELECTED else 2) }
-        val page = pages[tab] ?: Ink.vertical(this).also { p ->
-            pages[tab] = p
-            when (tab) { DICT -> fillDictionary(p); SAVED -> fillSaved(p); TRANSLATE -> fillTranslate(p); else -> fillAi(p, tab) }
-        }
-        scroll.removeAllViews(); scroll.addView(page); scroll.scrollTo(0, 0)
+        val p = page(tab)
+        scroll.removeAllViews(); scroll.addView(p); scroll.scrollTo(0, 0)
         shown = tab; showBack()
     }
 
-    private fun showBack() {
-        val on = shown == DICT && dictBack != null
+    /** The tab is filled again on its next opening (its AI request failed). */
+    fun forget(tab: String) { pages.remove(tab) }
+
+    fun scrollTop() = scroll.scrollTo(0, 0)
+
+    fun showBack() {
+        val on = shown == DICT && dictionary.back != null
         backButton.visibility = if (on) View.VISIBLE else View.GONE
-        val x = Ink.dp(this, 44); val gap = Ink.dp(this, 8)
-        titleBox.setPadding(0, 0, if (on) x + gap else 0, 0)
+        titleBox.setPadding(0, 0, if (on) Ink.dp(this, 44) + Ink.dp(this, 8) else 0, 0)
     }
 
-    /** System Back from a word's article returns to the gloss first. */
+    /** System Back from a word's article returns to the list or the gloss first. */
     @Deprecated("Activity API") override fun onBackPressed() {
-        if (shown == DICT && dictBack != null) dictBack?.invoke() else @Suppress("DEPRECATION") super.onBackPressed()
+        if (shown == DICT && dictionary.back != null) dictionary.back?.invoke() else @Suppress("DEPRECATION") super.onBackPressed()
     }
 
-    private fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
+    fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
 
-    /** Script of the answer language: dictionaries whose meanings use it come first (de→ru before de→en). */
-    private val answerScript: Character.UnicodeScript get() = when (prefs.answerLang) {
-        "Russian", "Ukrainian", "Bulgarian", "Serbian", "Belarusian", "Kazakh" -> Character.UnicodeScript.CYRILLIC
-        "Chinese", "Japanese" -> Character.UnicodeScript.HAN
-        "Korean" -> Character.UnicodeScript.HANGUL
-        "Arabic", "Persian" -> Character.UnicodeScript.ARABIC
-        "Greek" -> Character.UnicodeScript.GREEK
-        "Hebrew" -> Character.UnicodeScript.HEBREW
-        "Hindi" -> Character.UnicodeScript.DEVANAGARI
-        "Thai" -> Character.UnicodeScript.THAI
-        else -> Character.UnicodeScript.LATIN
-    }
+    fun markdown(out: TextView, md: String) { out.text = android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT) }
 
-    /** Dictionary tab: a word → one line per dictionary; a phrase or passage → word-by-word gloss. */
-    private fun fillDictionary(p: LinearLayout) = if (kind == Kind.WORD) fillArticles(p, query, null) else fillGloss(p)
+    fun toast(s: String) = android.widget.Toast.makeText(this, s, android.widget.Toast.LENGTH_LONG).show()
 
-    /**
-     * One short line per dictionary with [word] (form → base, part of speech, first meanings); tap a line for the full
-     * article. Meanings in the answer script first, then the order from settings. [back] — return to the gloss.
-     */
-    private var listRun = 0
-
-    private fun fillArticles(p: LinearLayout, word: String, back: (() -> Unit)?) {
-        p.removeAllViews(); val run = ++listRun
-        dictBack = back?.let { b -> { dictBack = null; showBack(); b() } }
-        showBack()
-        val wait = Ink.text(this, "…", size); p.addView(wait)
-        launch {
-            val notReady = ArrayList<StarDict>()
-            val lib = prefs.library()
-            val res = withContext(Dispatchers.IO) { runCatching {
-                // A pack dictionary is in the answer language by construction (its notes in brackets may be English).
-                // Dictionaries into the answer language (the app's language) first.
-                lib.lookup(word, emptyList(), emptySet(), notReady).sortedBy { (d, _) -> d.ifo.parentFile?.name?.endsWith("-" + prefs.answerCode) != true }
-            } }
-            if (run != listRun) return@launch // a newer fill took over (the quick answer re-sorted the list)
-            p.removeView(wait)
-            val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
-            if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
-            if (hits.isEmpty()) {
-                if (notReady.isEmpty()) note(p, getString(if (lib.all().isEmpty()) R.string.lang_no_packs else R.string.not_found))
-                return@launch
-            }
-            hits.forEach { (dict, list) ->
-                val h = list.first()
-                val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)} → "
-                val gram = io.github.kafeg.inkpeek.stardict.grammarOf(h.html).let { if (it.isBlank()) "" else " <i>${Ink.escape(it)}</i>" }
-                val meaning = runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
-                // A pack dictionary has its first line ready: "das Haus (Hauses, мн. Häuser) — дом, здание".
-                val ready = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1)
-                val line = (ready?.let { form + it } ?: ("$form<b>${Ink.escape(h.word)}</b>$gram" + (if (meaning.isBlank()) "" else " — " + Ink.escape(meaning)))) +
-                    "<br><small>${Ink.escape(dict.name)}</small>"
-                p.addView(Ink.text(this@CardActivity, line, size, html = true).apply {
-                    val q = Ink.dp(this@CardActivity, 6); setPadding(0, q, 0, q)
-                    setOnClickListener { listRun++; article(p, dict, list, word) { fillArticles(p, word, back) } }
-                })
-            }
-        }
-    }
-
-    /** A dictionary's full entries for [word]; "←" (or Back) returns to the list. */
-    private fun article(p: LinearLayout, dict: StarDict, list: List<io.github.kafeg.inkpeek.stardict.Hit>, word: String, back: () -> Unit) {
-        p.removeAllViews()
-        dictBack = { dictBack = null; showBack(); back() }
-        showBack()
-        p.addView(Ink.text(this, dict.name, size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
-        list.forEach { h ->
-            val head = if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>"
-            p.addView(Ink.text(this, head + h.html, size, html = true))
-        }
-        scroll.scrollTo(0, 0)
-    }
-
-    private var glossCache: List<io.github.kafeg.inkpeek.stardict.Gloss>? = null
-
-    /** Word by word from the local dictionaries (works offline); tap a line for the word's articles. */
-    private fun fillGloss(p: LinearLayout) { p.removeAllViews(); glossInto(p) { w -> fillArticles(p, w) { fillGloss(p) } } }
-
-    /** Adds the gloss rows to [p]; [tap] opens a word's articles. */
-    private fun glossInto(p: LinearLayout, tap: (String) -> Unit) {
-        val wait = Ink.text(this, "…", size); p.addView(wait)
-        launch {
-            val g = glossCache ?: withContext(Dispatchers.IO) {
-                runCatching { prefs.library().gloss(query, emptyList(), emptySet(), answerScript) }.getOrDefault(emptyList())
-            }.also { glossCache = it }
-            p.removeView(wait)
-            note(p, getString(R.string.gloss_title))
-            if (g.isEmpty()) { note(p, getString(R.string.not_found)); return@launch }
-            g.forEach { x ->
-                val base = if (x.base.equals(x.word, true)) "" else " → ${Ink.escape(x.base)}"
-                val meaning = if (x.meaning.isBlank()) "" else " — ${Ink.escape(x.meaning)}"
-                val row = Ink.text(this@CardActivity, "<b>${Ink.escape(x.word)}</b>$base$meaning", size, html = true).apply {
-                    val q = Ink.dp(this@CardActivity, 4); setPadding(0, q, 0, q)
-                    setOnClickListener { tap(x.base.ifBlank { x.word }) }
-                }
-                p.addView(row)
-            }
-        }
-    }
-
-    /** A short, actionable error instead of an exception name. */
-    private fun friendly(e: Throwable): String {
-        val chain = generateSequence(e) { it.cause }.take(8).toList()
-        val name = e.javaClass.simpleName; val msg = chain.joinToString(" ") { it.message.orEmpty() }
-        val net = chain.any { it is java.net.UnknownHostException || it is java.net.SocketException || it is java.net.SocketTimeoutException ||
-            it is javax.net.ssl.SSLException || it is java.io.InterruptedIOException }
-        val status = (e as? com.anthropic.errors.AnthropicServiceException)?.statusCode()
-            ?: Regex("HTTP (\\d{3})").find(e.message.orEmpty())?.groupValues?.get(1)?.toInt() ?: 0
-        // 403 or Gemini's 400 "User location is not supported": often a country block (VPN helps), sometimes the key.
-        val region = status == 403 || Regex("(location|country|region|territory)[^.]{0,40}not supported|unsupported_country", RegexOption.IGNORE_CASE).containsMatchIn(msg)
-        // Own server: online but it does not answer, or no address yet.
-        if (prefs.provider == Provider.CUSTOM && ((net && online) || msg.startsWith("No server address")))
-            return getString(R.string.err_server, prefs.url(Provider.CUSTOM).ifBlank { "—" }) + if (net) "\n\n($name)" else ""
-        return getString(when {
-            !online -> R.string.err_offline
-            net -> R.string.err_unreachable
-            region -> R.string.err_region
-            status == 401 -> R.string.err_key
-            status == 429 -> R.string.err_rate
-            status == 402 || msg.contains("credit", true) -> R.string.err_credits
-            msg.startsWith("No API key") -> R.string.err_no_key
-            msg.startsWith("No model") -> R.string.err_no_model
-            else -> R.string.err_other
-        }).let { t -> if (t == getString(R.string.err_other) || t == getString(R.string.err_region)) "$t\n\n($name${if (e.message.isNullOrBlank()) "" else ": " + e.message!!.take(160)})" else t }
-    }
-
-    private class Offline : Exception()
-
-    /** Why an AI tab cannot open now (string id), or null; a saved answer opens without a network. Blocking. */
-    private fun aiBlock(tab: String = "translate"): Int? {
-        val pr = prefs.provider
-        return when {
-            !prefs.aiOn -> R.string.ai_off
-            pr != Provider.CUSTOM && prefs.effectiveKey(pr).isBlank() -> R.string.err_no_key
-            prefs.model(pr).isBlank() -> R.string.err_no_model
-            !online && runCatching { (if (tab == "translate") Ask.QUICK else Ask.DETAIL).let { store.answer(query, prefs.answerLang, it.section, it.version) } }.getOrNull() == null -> R.string.err_offline
-            else -> null
-        }
-    }
-
-    private fun toast(s: String) = android.widget.Toast.makeText(this, s, android.widget.Toast.LENGTH_LONG).show()
-
-    /** The saved answer (also offline), else a request. */
-    private fun answer(ask: Ask): Deferred<Result<org.json.JSONObject>> {
-        answers[ask]?.let { d -> if (!d.isCompleted || d.getCompleted().isSuccess) return d }
-        val pr = prefs.provider; val lang = prefs.answerLang; val model = prefs.model(pr)
-        return async(Dispatchers.IO) { runCatching {
-            store.answer(query, lang, ask.section, ask.version)?.let { return@runCatching org.json.JSONObject(it) }
-            if (!online) throw Offline()
-            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, query, lang, prefs.url(pr))
-                .also { runCatching { store.putAnswer(query, lang, ask.section, ask.version, model, it.toString()) } }
-        } }.also { d ->
-            answers[ask] = d
-        }
-    }
-
-    private fun org.json.JSONObject.str(k: String) = optString(k).trim()
-
-    private fun lineOf(html: String): String? = io.github.kafeg.inkpeek.stardict.headLine(html)
-
-    /** Its header part: "das Haus (Hauses, мн. Häuser)" or "gehen (geht, ging, ist gegangen) сильн.". */
-    private fun headOf(html: String): String? = lineOf(html)?.substringBefore(" — ")?.trim()
-
-    /** The word's header from the language packs (built from Wiktionary's grammar): instantly, offline, no AI. */
-    private fun packHead() = launch {
-        val packsDir = prefs.packs.dicts.canonicalPath + java.io.File.separator
-        val heads = withContext(Dispatchers.IO) { runCatching {
-            prefs.library().lookup(query, emptyList(), emptySet()).filter { (d, _) -> d.ifo.path.startsWith(packsDir) }
-                .sortedBy { (d, _) -> d.ifo.parentFile?.name?.endsWith("-" + prefs.answerCode) != true }
-                // One header per book language (dict-<x>-<y>): de→ru and de→en describe the same German word.
-                .distinctBy { (d, _) -> d.ifo.parentFile?.name?.split('-')?.getOrNull(1) }
-                .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headOf(h.html)?.let { Triple(h.word, it, lineOf(h.html)) } } }
-        }.getOrDefault(emptyList()) }
-        val (base, head, line) = heads.firstOrNull() ?: return@launch
-        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, line.orEmpty()) } }
-        titleView.text = head
+    /** The word's header from the packs, offline: "das Haus (Hauses, мн. Häuser)"; its first line goes to the history. */
+    private fun head() = launch {
+        val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode) }.getOrDefault(emptyList()) }
+        val first = heads.firstOrNull() ?: return@launch
+        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line) } }
+        titleView.text = first.header
         // The selected form, and the same word in another book language ("Gift" is German and English).
-        val sub = listOfNotNull(if (base.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.drop(1).firstOrNull()?.second).joinToString("\n")
+        val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.getOrNull(1)?.header).joinToString("\n")
         subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
     }
 
-    /** Markdown for a tab from its answer; Analysis and Context under the app's own headings. */
-    private fun render(tab: String, j: org.json.JSONObject): String = when (tab) {
-        "analysis" -> sections(
-            getString(when (kind) { Kind.WORD -> R.string.sec_usage_word; Kind.PHRASE -> R.string.sec_usage_phrase; else -> R.string.sec_usage_passage }) to j.str("usage"),
-            getString(if (kind == Kind.WORD) R.string.sec_related else R.string.sec_words) to
-                j.optJSONArray("words")?.let { a -> (0 until a.length()).joinToString("\n") { "- " + a.optString(it).trim().removePrefix("- ") } }.orEmpty())
-        "context" -> sections(
-            getString(R.string.sec_examples) to j.optJSONArray("examples")?.let { a -> (0 until a.length()).mapNotNull { a.optJSONObject(it) }
-                .joinToString("\n") { e -> "- " + e.str("text") + "\n*" + e.str("translation") + "*" } }.orEmpty(),
-            getString(if (kind == Kind.PASSAGE) R.string.sec_meaning else R.string.sec_notes) to j.str("notes"))
-        "translate" -> {
-            // AI's own view of the word inside its tab: "das Haus · die Häuser", or the verb's forms, irregular.
-            val facts = if (kind != Kind.WORD) "" else j.str("forms").ifBlank {
-                listOf(j.str("article"), j.str("base")).filter { it.isNotBlank() }.joinToString(" ") + j.str("plural").let { if (it.isBlank()) "" else " · $it" }
-            }.let { f -> listOf(f, j.str("pos"), j.str("form_of"), if (j.optBoolean("irregular")) getString(R.string.irregular) else "")
-                .filter { it.isNotBlank() }.joinToString(" · ") }
-            val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).map { "- " + a.getString(it) } }.orEmpty()
-            (listOf(if (facts.isBlank()) "" else "*$facts*", j.str("translation")) + m).filter { it.isNotBlank() }.joinToString("\n")
-        }
-        else -> j.str(tab)
-    }
-
-    private fun sections(vararg s: Pair<String, String>) = s.filter { it.second.isNotBlank() }.joinToString("\n\n") { (h, t) -> "**$h**\n$t" }
-
-    /**
-     * Translate (core): AI when the mode says so and it can answer, else the offline engine (through English when
-     * neither side is English); a line under the text says which one answered.
-     */
-    private var translateBy = ""
-
-    /** Two sources side by side, like My words: AI (when AI is on) and Offline; the setting picks the first one. */
-    private fun fillTranslate(p: LinearLayout) {
-        p.removeAllViews()
-        launch {
-            val aiOk = prefs.aiOn && withContext(Dispatchers.IO) { aiBlock(TRANSLATE) } == null
-            if (translateBy.isEmpty()) translateBy = if (prefs.translateMode == "ai" && aiOk) "ai" else "offline"
-            if (prefs.aiOn) {
-                val seg = Ink.subTabs(this@CardActivity, listOf("ai" to "AI", "offline" to getString(R.string.mt_offline)), translateBy, size * 0.75f) { k ->
-                    if (k == "ai" && !aiOk) this@CardActivity.launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
-                    else { translateBy = k; fillTranslate(p) }
-                }
-                if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = 0.35f
-                p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
-            }
-            val out = Ink.text(this@CardActivity, "", size); p.addView(out)
-            if (translateBy == "ai" && aiOk) {
-                val d = answer(Ask.QUICK)
-                val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
-                val r = d.await(); dots?.cancel()
-                r.fold({ answered(out, render(TRANSLATE, it)) }, { out.text = friendly(it) })
-            } else offline(p, out)
-        }
-    }
-
-    /** The offline translation: [from] the detected language, [other] a language without a pack, [text] null when none can be made. */
-    private class Mt(val from: String?, val other: String?, val text: Result<String>?)
-    private var mtJob: Deferred<Mt>? = null
-
-    /** Started once (on open for a phrase, or by Translate) and shared; a ready result is read from the store. */
-    private fun mt(): Deferred<Mt> = mtJob ?: async(Dispatchers.IO) {
-        runCatching {
-            val root = prefs.modelsDir; val to = prefs.answerCode
-            val (from, other) = io.github.kafeg.inkpeek.mt.LangId.source(query, to, prefs.packs, prefs.library())
-            when {
-                from == null || !Engine.ready(root, from, to) -> Mt(from, other, null)
-                from == to -> Mt(from, null, Result.success(query))
-                else -> {
-                    // Saved per model version: an updated model translates again.
-                    val installed = prefs.packs.installed()
-                    val ver = Engine.steps(from, to).joinToString { (a, b) -> installed["model-$a-$b"].orEmpty() }.hashCode()
-                    Mt(from, null, runCatching {
-                        store.answer(query, to, "offline-$from", ver) ?: Engine.translate(root, from, to, query, keep = roomy())
-                            .also { runCatching { store.putAnswer(query, to, "offline-$from", ver, "bergamot", it) } }
-                    })
-                }
-            }
-        }.getOrElse { Mt(null, null, Result.failure(it)) }
-    }.also { mtJob = it }
-
-    private suspend fun offline(p: LinearLayout, out: TextView) {
-        val d = mt()
-        if (!d.isCompleted) out.text = getString(R.string.mt_working)
-        val r = d.await(); val from = r.from; val other = r.other; val to = prefs.answerCode
-        val text = r.text
-        if (text == null) {
-            out.text = if (other != null) getString(R.string.lang_unsupported, java.util.Locale(other).getDisplayLanguage(resources.configuration.locales[0]))
-                else getString(R.string.mt_missing)
-            if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
-                if (pages[DICT] == null) pages[DICT] = Ink.vertical(this); open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } } }
-            return
-        }
-        val lang = from?.let { java.util.Locale(it).getDisplayLanguage(resources.configuration.locales[0]) }.orEmpty()
-        text.fold({ out.text = it; if (from != null && from != to)
-            note(p, lang.replaceFirstChar { c -> c.uppercase() } + if (Engine.steps(from, to).size > 1) " · " + getString(R.string.mt_via_english) else "") },
-            { out.text = it.message ?: it.javaClass.simpleName })
-    }
-
-    /** Keep both models loaded only with plenty of free memory (≈ 300 MB each). */
-    private fun roomy(): Boolean = android.app.ActivityManager.MemoryInfo().also {
-        (getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager).getMemoryInfo(it) }.availMem > 1_500_000_000L
-
-    /** An AI tab: Analysis and Context read the detailed answer. */
-    private fun fillAi(p: LinearLayout, tab: String) {
-        val out = Ink.text(this, "", size); p.addView(out)
-        val ask = if (tab == "translate") Ask.QUICK else Ask.DETAIL
-        launch {
-            val d = answer(ask)
-            val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
-            val r = d.await()
-            dots?.cancel()
-            r.fold({ answered(out, render(tab, it)) }, { failed(p, out, tab, it.takeUnless { e -> e is Offline }) })
-        }
-    }
-
-    private fun answered(out: TextView, md: String) {
-        out.text = android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT)
-    }
-
-    private fun starred(on: Boolean) {
+    fun starred(on: Boolean) {
         starButton.setImageResource(if (on) R.drawable.ic_star_on else R.drawable.ic_star)
         (starButton.parent as View).apply { contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word); tooltipText = contentDescription }
     }
 
-    /** ☆ saves the selection with one short meaning: the cached translation, else the dictionaries; ★ removes it. */
+    /** ☆ saves the selection with one short line: the saved AI translation, else the dictionary's first line or the offline translation; ★ removes it. */
     private fun toggleSaved() = launch {
-        val lang = prefs.answerLang; val script = answerScript
         val on = withContext(Dispatchers.IO) { runCatching {
             if (store.isSaved(query)) { store.unsave(query); false } else {
-                val ai = store.answer(query, lang, Ask.QUICK.section, Ask.QUICK.version)
-                val dict = if (ai != null) null else if (kind != Kind.WORD) mtJob?.takeIf { it.isCompleted }?.getCompleted()?.text?.getOrNull() else
-                    prefs.library().gloss(query, emptyList(), emptySet(), script).firstOrNull()?.let { g ->
-                        (if (g.base.equals(g.word, true)) "" else "→ ${g.base} · ") + g.meaning }
-                store.save(query, kindName, if (ai != null) Store.brief(ai) else dict.orEmpty()); true
+                val line = answers.saved() ?: if (kind != Kind.WORD) mt.done() else prefs.library().heads(query, prefs.answerCode).firstOrNull()?.line
+                store.save(query, kindName, line.orEmpty()); true
             }
         }.getOrNull() } ?: return@launch
         starred(on)
     }
 
-    /** The error, and for a phrase or passage the offline gloss under it; the tab asks again next time. */
-    private fun failed(p: LinearLayout, out: TextView, tab: String, e: Throwable?) {
-        out.text = if (e == null) getString(R.string.err_offline) else friendly(e)
-        pages.remove(tab)
-        // A tap on a word opens its articles in the Dictionary tab (an empty page there skips the gloss fill).
-        if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
-            if (pages[DICT] == null) pages[DICT] = Ink.vertical(this)
-            open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } }
-        }
-    }
-
-    private var savedKind = "word"
-
-    /** My words in the card: saved words or phrases; tap opens one in the card, ✕ removes it. */
-    private fun fillSaved(p: LinearLayout) {
-        p.removeAllViews()
-        launch {
-            val lang = prefs.answerLang; val kindNow = savedKind
-            val (items, counts) = withContext(Dispatchers.IO) { runCatching {
-                store.saved(kindNow, lang) to listOf(store.count("saved", "word"), store.count("saved", "phrase"))
-            }.getOrNull() } ?: return@launch
-            val seg = Ink.subTabs(this@CardActivity, listOf("word" to getString(R.string.list_words) + " (" + counts[0] + ")",
-                "phrase" to getString(R.string.list_phrases) + " (" + counts[1] + ")"), kindNow, size * 0.75f) { savedKind = it; fillSaved(p) }
-            p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
-            if (items.isEmpty()) note(p, getString(R.string.list_empty_saved))
-            items.forEach { e ->
-                val r = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-                r.addView(Ink.entry(this@CardActivity, e.text, e.meaning, size * 0.85f).apply {
-                    val q = Ink.dp(this@CardActivity, 5); setPadding(0, q, q, q)
-                    setOnClickListener { startActivity(Intent(this@CardActivity, CardActivity::class.java)
-                        .setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text)) }
-                }, Ink.lp(0, weight = 1f))
-                // The activity's scope: this coroutine is over by the time of the tap, a child of it would be cancelled.
-                r.addView(Ink.button(this@CardActivity, "✕", size * 0.75f) {
-                    this@CardActivity.launch {
-                        withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }
-                        if (e.text == query) starred(false)
-                        fillSaved(p)
-                    }
-                })
-                p.addView(r)
-            }
-        }
-    }
+    /** Keep both models loaded only with plenty of free memory (≈ 300 MB each). */
+    private fun roomy(): Boolean = android.app.ActivityManager.MemoryInfo().also {
+        (getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager).getMemoryInfo(it) }.availMem > 1_500_000_000L
 
     companion object {
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"

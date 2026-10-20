@@ -7,7 +7,6 @@
     <string name="try_hint">Слово или фраза</string>
     <string name="look_up">Найти</string>
     <string name="allow_files">Разрешить доступ к файлам (нужно для %1$s)</string>
-    <string name="st_indexing">индексируется…</string>
     <string name="status">Словарей: %1$d · AI: %2$s</string>
     <string name="status_busy">Словарей: %1$d · индексируется в фоне: %2$d… · AI: %3$s</string>
     <string name="use_ai">Использовать AI</string>
@@ -32,12 +31,8 @@
     <string name="preparing">Готовлю: %1$s (первый запуск, попробуйте через минуту)</string>
     <string name="not_found">В словарях не найдено.</string>
     <string name="dict_error">Ошибка словаря: %1$s</string>
-    <string name="check_ai">Проверьте настройки AI в InkPeek.</string>
-    <string name="delete">Удалить</string>
     <string name="cancel">Отмена</string>
     <string name="failed">Не удалось: %1$s</string>
-    <string name="no_key">Нет API-ключа для %1$s</string>
-    <string name="no_model">Не выбрана модель для %1$s</string>
     <string name="key_file_ok">Ключ: из файла %1$s ✓</string>
     <string name="key_typed_ok">Ключ: введён в поле выше ✓</string>
     <string name="key_missing">Ключа нет: введите выше или положите в файл %1$s</string>

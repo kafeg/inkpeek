@@ -4,7 +4,6 @@ import android.content.Context
 import android.os.Environment
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.stardict.Library
-import org.json.JSONArray
 import java.io.File
 
 /** All settings in one SharedPreferences file. */

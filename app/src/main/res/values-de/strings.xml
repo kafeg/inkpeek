@@ -7,7 +7,6 @@
     <string name="try_hint">Wort oder Satz</string>
     <string name="look_up">Nachschlagen</string>
     <string name="allow_files">Dateizugriff erlauben (nötig für %1$s)</string>
-    <string name="st_indexing">wird indiziert…</string>
     <string name="status">%1$d Wörterbücher · KI: %2$s</string>
     <string name="status_busy">%1$d Wörterbücher · %2$d werden im Hintergrund indiziert… · KI: %3$s</string>
     <string name="use_ai">KI verwenden</string>
@@ -32,12 +31,8 @@
     <string name="preparing">Wird vorbereitet: %1$s (erste Nutzung, gleich noch einmal versuchen)</string>
     <string name="not_found">Nicht in den Wörterbüchern.</string>
     <string name="dict_error">Wörterbuchfehler: %1$s</string>
-    <string name="check_ai">KI-Einstellungen in InkPeek prüfen.</string>
-    <string name="delete">Löschen</string>
     <string name="cancel">Abbrechen</string>
     <string name="failed">Fehlgeschlagen: %1$s</string>
-    <string name="no_key">Kein API-Schlüssel für %1$s</string>
-    <string name="no_model">Kein Modell gewählt für %1$s</string>
     <string name="key_file_ok">Schlüssel: aus %1$s ✓</string>
     <string name="key_typed_ok">Schlüssel: oben eingegeben ✓</string>
     <string name="key_missing">Kein Schlüssel: oben eingeben oder in %1$s ablegen</string>
