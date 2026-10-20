@@ -63,6 +63,15 @@ class Prefs(private val ctx: Context) {
     val home: File get() = File(Environment.getExternalStorageDirectory(), "InkPeek")
     val dictsDir: File get() = File(home, "dicts").apply { mkdirs() }
     val keysDir: File get() = File(home, "keys").apply { mkdirs() }
+    /** Offline translation models, one folder per direction (deen, enru). */
+    val modelsDir: File get() = File(home, "models").apply { mkdirs() }
+    /** Language of the books (ISO code) — the source of offline translation; "" = not chosen. */
+    var bookLang: String get() = sp.getString("book_lang", "")!!; set(v) = sp.edit().putString("book_lang", v).apply()
+    /** Translate tab: "ai" — AI when it can answer, else offline; "offline" — always offline. */
+    var translateMode: String get() = sp.getString("translate_mode", "ai")!!; set(v) = sp.edit().putString("translate_mode", v).apply()
+    /** The answer language as an ISO code ("ru"). */
+    val answerCode: String get() = answerLang.let { n -> java.util.Locale.getAvailableLocales()
+        .firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == n }?.language.orEmpty() }
 
     fun library(): Library = lib ?: Library(listOf(dictsDir), File(ctx.filesDir, "index")).also { lib = it }
 

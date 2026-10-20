@@ -36,8 +36,6 @@
     <string name="pos_top">Positie: boven</string>
     <string name="pos_bottom">Positie: onder</string>
     <string name="pos_reader">Positie: zoals de leesapp vraagt</string>
-    <string name="a_translate">AI-vertaling</string>
-    <string name="a_translate_d">AI: grondvorm met lidwoord en meervoud of werkwoordsvormen, hoofdbetekenissen; een zin — een natuurlijke vertaling. Netwerk en sleutel nodig.</string>
     <string name="tab_dictionary">Woordenboek</string>
     <string name="thinking">Denkt na</string>
     <string name="ai_off">AI staat uit: zet het aan in de InkPeek-instellingen voor vertaling, grammatica en meer.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Compact: korte vertalingen, woordsoort en geslacht; vormen leiden naar de grondvorm (ging → gehen). Het beste om snel op te zoeken.</string>
     <string name="cat_wiktionary">Volledige lemma’s: uitspraak, etymologie, alle betekenissen, voorbeelden. Goed als tweede woordenboek.</string>
     <string name="cat_freedict">Oudere compacte gegevens zonder woordvormen; WikDict dekt dezelfde paren beter.</string>
+    <string name="tab_translate">Vertalen</string>
+    <string name="icon_translate_d">AI als die kan antwoorden (zie AI-instellingen), anders de offline vertaling op het apparaat.</string>
+    <string name="mt_title">Offline vertaling</string>
+    <string name="mt_about">Vertaling op het apparaat, zonder internet (modellen van Firefox Translations). Gaat via het Engels: de betekenis komt over, nuances (jij/u, geslacht) kunnen verloren gaan.</string>
+    <string name="mt_books_lang">Taal van mijn boeken</string>
+    <string name="mt_installed">geïnstalleerd</string>
+    <string name="mt_not_installed">niet geïnstalleerd</string>
+    <string name="mt_download">Downloaden (%1$d MB)</string>
+    <string name="mt_downloading">downloaden… %1$d%%</string>
+    <string name="mt_delete">Modellen verwijderen</string>
+    <string name="mt_ai_first">Eerst met AI vertalen als die beschikbaar is</string>
+    <string name="mt_missing">Offline vertaling is niet ingesteld: InkPeek-instellingen → Woordenboeken → Offline vertaling.</string>
+    <string name="mt_working">Vertalen…</string>
+    <string name="mt_via_english">Offline vertaling, via het Engels</string>
 </resources>

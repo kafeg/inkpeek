@@ -9,3 +9,4 @@ local.properties
 keystore.properties
 captures/
 .kotlin/
+.cxx/

@@ -36,8 +36,6 @@
     <string name="pos_top">Pozice: nahoře</string>
     <string name="pos_bottom">Pozice: dole</string>
     <string name="pos_reader">Pozice: podle čtečky</string>
-    <string name="a_translate">Překlad AI</string>
-    <string name="a_translate_d">AI: základní tvar se členem a množným číslem nebo tvary slovesa, hlavní významy; fráze — přirozený překlad. Potřebuje síť a klíč.</string>
     <string name="tab_dictionary">Slovník</string>
     <string name="thinking">Přemýšlím</string>
     <string name="ai_off">AI je vypnutá: zapněte ji v nastavení InkPeek pro překlad, gramatiku a další.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Kompaktní: krátké překlady, slovní druh a rod; tvary vedou k základnímu tvaru (ging → gehen). Nejlepší pro rychlé hledání.</string>
     <string name="cat_wiktionary">Úplná hesla: výslovnost, etymologie, všechny významy, příklady. Dobrý jako druhý slovník.</string>
     <string name="cat_freedict">Starší kompaktní data bez tvarů slov; WikDict pokrývá stejné páry lépe.</string>
+    <string name="tab_translate">Překlad</string>
+    <string name="icon_translate_d">AI, pokud může odpovědět (viz nastavení AI), jinak offline překlad v zařízení.</string>
+    <string name="mt_title">Offline překlad</string>
+    <string name="mt_about">Překlad v zařízení bez internetu (modely Firefox Translations). Jde přes angličtinu: smysl se zachová, odstíny (ty/vy, rod) se mohou ztratit.</string>
+    <string name="mt_books_lang">Jazyk mých knih</string>
+    <string name="mt_installed">nainstalováno</string>
+    <string name="mt_not_installed">nenainstalováno</string>
+    <string name="mt_download">Stáhnout (%1$d MB)</string>
+    <string name="mt_downloading">stahuje se… %1$d%%</string>
+    <string name="mt_delete">Smazat modely</string>
+    <string name="mt_ai_first">Překládat nejdřív přes AI, je-li dostupná</string>
+    <string name="mt_missing">Offline překlad není nastaven: nastavení InkPeek → Slovníky → Offline překlad.</string>
+    <string name="mt_working">Překládám…</string>
+    <string name="mt_via_english">Offline překlad, přes angličtinu</string>
 </resources>

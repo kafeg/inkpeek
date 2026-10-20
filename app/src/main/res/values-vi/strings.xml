@@ -36,8 +36,6 @@
     <string name="pos_top">Vị trí: trên</string>
     <string name="pos_bottom">Vị trí: dưới</string>
     <string name="pos_reader">Vị trí: theo ứng dụng đọc</string>
-    <string name="a_translate">Dịch AI</string>
-    <string name="a_translate_d">AI: dạng gốc kèm mạo từ và số nhiều hoặc các dạng động từ, nghĩa chính; cụm từ — bản dịch tự nhiên. Cần mạng và khóa.</string>
     <string name="tab_dictionary">Từ điển</string>
     <string name="thinking">Đang nghĩ</string>
     <string name="ai_off">AI đang tắt: bật trong cài đặt InkPeek để dùng dịch, ngữ pháp và hơn nữa.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Gọn: bản dịch ngắn, từ loại và giống; dạng biến đổi dẫn về dạng gốc (ging → gehen). Tốt nhất để tra nhanh.</string>
     <string name="cat_wiktionary">Mục từ đầy đủ: phát âm, từ nguyên, mọi nghĩa, ví dụ. Hợp làm từ điển thứ hai.</string>
     <string name="cat_freedict">Dữ liệu gọn cũ, không có dạng biến đổi; WikDict có cùng các cặp tốt hơn.</string>
+    <string name="tab_translate">Dịch</string>
+    <string name="icon_translate_d">AI khi có thể trả lời (xem cài đặt AI), nếu không thì dịch ngoại tuyến trên thiết bị.</string>
+    <string name="mt_title">Dịch ngoại tuyến</string>
+    <string name="mt_about">Dịch trên thiết bị, không cần internet (mô hình Firefox Translations). Đi qua tiếng Anh: giữ được nghĩa, sắc thái (xưng hô, giống) có thể mất.</string>
+    <string name="mt_books_lang">Ngôn ngữ sách của tôi</string>
+    <string name="mt_installed">đã cài</string>
+    <string name="mt_not_installed">chưa cài</string>
+    <string name="mt_download">Tải xuống (%1$d MB)</string>
+    <string name="mt_downloading">đang tải… %1$d%%</string>
+    <string name="mt_delete">Xóa mô hình</string>
+    <string name="mt_ai_first">Dịch bằng AI trước nếu có</string>
+    <string name="mt_missing">Chưa thiết lập dịch ngoại tuyến: cài đặt InkPeek → Từ điển → Dịch ngoại tuyến.</string>
+    <string name="mt_working">Đang dịch…</string>
+    <string name="mt_via_english">Dịch ngoại tuyến, qua tiếng Anh</string>
 </resources>

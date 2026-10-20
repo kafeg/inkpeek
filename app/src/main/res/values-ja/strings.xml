@@ -36,8 +36,6 @@
     <string name="pos_top">位置：上</string>
     <string name="pos_bottom">位置：下</string>
     <string name="pos_reader">位置：リーダーアプリに従う</string>
-    <string name="a_translate">AI 翻訳</string>
-    <string name="a_translate_d">AI：冠詞と複数形付きの基本形または動詞の活用、主な意味。フレーズは自然な訳。ネットワークとキーが必要です。</string>
     <string name="tab_dictionary">辞書</string>
     <string name="thinking">考え中</string>
     <string name="ai_off">AI はオフです：InkPeek の設定でオンにすると、翻訳や文法などが使えます。</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">コンパクト：短い訳、品詞と性。変化形から基本形へ（ging → gehen）。すばやく調べるのに最適。</string>
     <string name="cat_wiktionary">完全な項目：発音、語源、すべての語義、例文。2冊目の辞書に向いています。</string>
     <string name="cat_freedict">古いコンパクトなデータで変化形なし。同じ組み合わせは WikDict の方が充実。</string>
+    <string name="tab_translate">翻訳</string>
+    <string name="icon_translate_d">AI が回答できるときは AI（AI 設定を参照）、それ以外は端末上のオフライン翻訳。</string>
+    <string name="mt_title">オフライン翻訳</string>
+    <string name="mt_about">インターネットなしで端末上で翻訳します（Firefox Translations のモデル）。英語を経由するため、意味は伝わりますが、敬語や性などのニュアンスは失われることがあります。</string>
+    <string name="mt_books_lang">本の言語</string>
+    <string name="mt_installed">インストール済み</string>
+    <string name="mt_not_installed">未インストール</string>
+    <string name="mt_download">ダウンロード（%1$d MB）</string>
+    <string name="mt_downloading">ダウンロード中… %1$d%%</string>
+    <string name="mt_delete">モデルを削除</string>
+    <string name="mt_ai_first">利用できるときはまず AI で翻訳</string>
+    <string name="mt_missing">オフライン翻訳が設定されていません：InkPeek の設定 → 辞書 → オフライン翻訳。</string>
+    <string name="mt_working">翻訳中…</string>
+    <string name="mt_via_english">オフライン翻訳（英語経由）</string>
 </resources>

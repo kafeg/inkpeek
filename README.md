@@ -121,6 +121,20 @@ Everything lives in one folder: **`/sdcard/InkPeek/`** — `dicts/` (one folder 
 InkPeek builds its own index for each dictionary once, in the background (settings show the progress). Badly sorted
 upstream indexes still work, and `.dict.dz` is read in place, without unpacking.
 
+### Offline translation
+The Translate tab works without the internet: InkPeek downloads translation models and runs them on the device
+(the [Bergamot](https://github.com/browsermt/bergamot-translator) engine and the models of
+[Firefox Translations](https://github.com/mozilla/translations)). Pick the language of your books in settings →
+Dictionaries → Offline translation and tap Download; the models come straight from Mozilla, about 25 MB per
+direction (35–45 MB on the device).
+
+**It goes through English.** Mozilla trains every model to or from English, so German → Russian is German →
+English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
+may pick the wrong one of ты / вы; the speaker's gender may change. English books need one model (English → Russian).
+
+On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.2–0.9 s with both models in memory (about 560 MB), or 1–2 s
+when free memory is short and InkPeek loads one model at a time. With AI set up, Translate asks AI first (setting).
+
 ### AI
 Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
 OpenAI-compatible server** — your own or a cloud one. The model list has a search, a maker filter, "free only" and
@@ -179,7 +193,13 @@ a `.sha256` file.
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
-Kotlin, Android Views, minSdk 26. Design notes: [docs/spec.md](docs/spec.md).
+Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engine is C++ built with the NDK:
+`git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).
 
 ## License
 MIT. Dictionaries you download keep their own licenses (Wiktionary: CC BY-SA; FreeDict: see each dictionary).
+
+Third-party code and data: [Bergamot translator](https://github.com/browsermt/bergamot-translator) with marian
+(MPL-2.0; the Android build from [RTranslator](https://github.com/niedev/RTranslator)'s fork); the JNI bridge
+adapts RTranslator's `BergamotTranslator.cpp` (Apache-2.0, Luca Martino); translation models from Mozilla
+(MPL-2.0), downloaded at run time, not in the APK.

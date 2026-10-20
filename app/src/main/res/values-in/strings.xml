@@ -36,8 +36,6 @@
     <string name="pos_top">Posisi: atas</string>
     <string name="pos_bottom">Posisi: bawah</string>
     <string name="pos_reader">Posisi: sesuai aplikasi baca</string>
-    <string name="a_translate">Terjemahan AI</string>
-    <string name="a_translate_d">AI: bentuk dasar dengan artikel dan jamak atau bentuk kata kerja, makna utama; frasa — terjemahan wajar. Perlu jaringan dan kunci.</string>
     <string name="tab_dictionary">Kamus</string>
     <string name="thinking">Berpikir</string>
     <string name="ai_off">AI nonaktif: aktifkan di pengaturan InkPeek untuk terjemahan, tata bahasa, dan lainnya.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Ringkas: terjemahan singkat, kelas kata dan gender; bentuk kata menuju bentuk dasar (ging → gehen). Terbaik untuk pencarian cepat.</string>
     <string name="cat_wiktionary">Entri lengkap: pelafalan, etimologi, semua makna, contoh. Baik sebagai kamus kedua.</string>
     <string name="cat_freedict">Data ringkas lama tanpa bentuk kata; WikDict mencakup pasangan yang sama lebih baik.</string>
+    <string name="tab_translate">Terjemahkan</string>
+    <string name="icon_translate_d">AI jika bisa menjawab (lihat pengaturan AI), jika tidak terjemahan offline di perangkat.</string>
+    <string name="mt_title">Terjemahan offline</string>
+    <string name="mt_about">Terjemahan di perangkat, tanpa internet (model Firefox Translations). Melalui bahasa Inggris: maknanya sampai, nuansa (sapaan resmi/akrab, gender) bisa hilang.</string>
+    <string name="mt_books_lang">Bahasa buku saya</string>
+    <string name="mt_installed">terpasang</string>
+    <string name="mt_not_installed">belum terpasang</string>
+    <string name="mt_download">Unduh (%1$d MB)</string>
+    <string name="mt_downloading">mengunduh… %1$d%%</string>
+    <string name="mt_delete">Hapus model</string>
+    <string name="mt_ai_first">Terjemahkan dengan AI dulu jika tersedia</string>
+    <string name="mt_missing">Terjemahan offline belum diatur: pengaturan InkPeek → Kamus → Terjemahan offline.</string>
+    <string name="mt_working">Menerjemahkan…</string>
+    <string name="mt_via_english">Terjemahan offline, melalui bahasa Inggris</string>
 </resources>

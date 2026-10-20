@@ -14,12 +14,18 @@ android {
     compileSdk = 35
     defaultConfig {
         applicationId = "io.github.kafeg.inkpeek"
-        minSdk = 26
+        minSdk = 30 // Android 11; the translation engine needs API 28+
         targetSdk = 35
         versionCode = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
         versionName = System.getenv("VERSION_NAME")?.removePrefix("v") ?: "0.1.0-dev"
-        ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") } // e-ink readers are ARM
+        ndk { abiFilters += listOf("arm64-v8a") } // e-ink readers are 64-bit ARM; the engine is built for it only
+        externalNativeBuild { cmake {
+            arguments += listOf("-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions")
+            targets += "inkpeek_mt" // only the JNI library, not marian's command-line tools
+        } }
     }
+    ndkVersion = "27.3.13750724"
+    externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
     testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
     signingConfigs {
         if (keystoreProps.isNotEmpty()) create("release") {
@@ -41,7 +47,8 @@ android {
         isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions { jvmTarget = "17" }
-    packaging { resources { excludes += setOf("META-INF/*.md", "META-INF/LICENSE*", "META-INF/NOTICE*", "META-INF/DEPENDENCIES", "META-INF/versions/**") } }
+    // Compressed dex and .so: a smaller APK to sideload (minSdk 28+ would store them uncompressed).
+    packaging { dex { useLegacyPackaging = true }; jniLibs { useLegacyPackaging = true }; resources { excludes += setOf("META-INF/*.md", "META-INF/LICENSE*", "META-INF/NOTICE*", "META-INF/DEPENDENCIES", "META-INF/versions/**") } }
 }
 
 dependencies {

@@ -16,6 +16,7 @@ import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.Ask
+import io.github.kafeg.inkpeek.mt.Engine
 import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.StarDict
 import io.github.kafeg.inkpeek.stardict.cleanPhrase
@@ -84,7 +85,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         placeWindow()
         if (kind == Kind.WORD) localHead()
         // The core opens; an AI tab only when the user asked for it in settings and AI can answer.
-        open(if (kind != Kind.WORD && prefs.phraseAutoAi && actions.isNotEmpty() && aiBlock() == null) "translate" else DICT)
+        open(if (kind != Kind.WORD && prefs.phraseAutoAi) TRANSLATE else DICT)
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
@@ -123,8 +124,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val hint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
         if (hint != null) card.addView(Ink.text(this, hint, size * 0.65f), Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
 
-        val tabs = listOf(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary))) + actions.map { a ->
-            Triple(a.id, mapOf("translate" to R.drawable.ic_translate, "analysis" to R.drawable.ic_analysis).getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a))
+        val tabs = listOf(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
+            Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate))) + actions.map { a ->
+            Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
         val n = tabs.size + 3; val gap = Ink.dp(this, 6)
         val side = minOf(Ink.dp(this, 52), ((resources.displayMetrics.widthPixels * 0.92).toInt() - gap * (n + 3)) / n)
@@ -135,7 +137,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
-            val ai = id != DICT
+            val ai = id != DICT && id != TRANSLATE
             add(iconButton(icon, label, side, ai = ai) { if (ai) launch { val r = withContext(Dispatchers.IO) { aiBlock(id) }
                 if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
@@ -194,7 +196,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
         val page = pages[tab] ?: Ink.vertical(this).also { p ->
             pages[tab] = p
-            when (tab) { DICT -> fillDictionary(p); SAVED -> fillSaved(p); else -> fillAi(p, tab) }
+            when (tab) { DICT -> fillDictionary(p); SAVED -> fillSaved(p); TRANSLATE -> fillTranslate(p); else -> fillAi(p, tab) }
         }
         scroll.removeAllViews(); scroll.addView(page); scroll.scrollTo(0, 0)
         shown = tab; showBack()
@@ -397,7 +399,45 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else -> j.str(tab)
     }
 
-    /** An AI tab: AI translation reads the quick answer, Analysis and Context the detailed one. */
+    /**
+     * Translate (core): AI when the mode says so and it can answer, else the offline engine (through English when
+     * neither side is English); a line under the text says which one answered.
+     */
+    private fun fillTranslate(p: LinearLayout) {
+        val out = Ink.text(this, "", size); p.addView(out)
+        launch {
+            if (prefs.translateMode == "ai" && withContext(Dispatchers.IO) { aiBlock(TRANSLATE) } == null) {
+                val d = answer(Ask.QUICK)
+                val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
+                val r = d.await(); dots?.cancel()
+                r.onSuccess { answered(out, render(TRANSLATE, it)); note(p, "AI"); return@launch }
+            }
+            offline(p, out)
+        }
+    }
+
+    private suspend fun offline(p: LinearLayout, out: TextView) {
+        val root = prefs.modelsDir; val from = prefs.bookLang; val to = prefs.answerCode
+        if (from.isBlank() || to.isBlank() || !Engine.ready(root, from, to)) {
+            out.text = getString(R.string.mt_missing)
+            if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
+                if (pages[DICT] == null) pages[DICT] = Ink.vertical(this); open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } } }
+            return
+        }
+        val key = "offline-$from"
+        val saved = withContext(Dispatchers.IO) { runCatching { store.answer(query, to, key, 1) }.getOrNull() }
+        if (saved == null) out.text = getString(R.string.mt_working)
+        val r = saved?.let { Result.success(it) } ?: withContext(Dispatchers.IO) { runCatching {
+            Engine.translate(root, from, to, query, keep = roomy()).also { runCatching { store.putAnswer(query, to, key, 1, "bergamot", it) } }
+        } }
+        r.fold({ out.text = it; if (Engine.steps(from, to).size > 1) note(p, getString(R.string.mt_via_english)) }, { out.text = it.message ?: it.javaClass.simpleName })
+    }
+
+    /** Keep both models loaded only with plenty of free memory (≈ 300 MB each). */
+    private fun roomy(): Boolean = android.app.ActivityManager.MemoryInfo().also {
+        (getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager).getMemoryInfo(it) }.availMem > 1_500_000_000L
+
+    /** An AI tab: Analysis and Context read the detailed answer. */
     private fun fillAi(p: LinearLayout, tab: String) {
         val out = Ink.text(this, "", size); p.addView(out)
         val ask = if (tab == "translate") Ask.QUICK else Ask.DETAIL
@@ -483,5 +523,5 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    companion object { const val DICT = "dict"; const val SAVED = "saved" }
+    companion object { const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate" }
 }

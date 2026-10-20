@@ -62,9 +62,9 @@ enum class Kind {
     }
 }
 
-/** An AI tab of the card; [id] keys its label and description in resources. */
+/** An AI tab of the card; [id] keys its label and description in resources. Translate is a core tab with an AI mode. */
 data class Action(val id: String) {
-    companion object { val ALL = listOf(Action("translate"), Action("analysis"), Action("context")) }
+    companion object { val ALL = listOf(Action("analysis"), Action("context")) }
 }
 
 /**

@@ -36,8 +36,6 @@
     <string name="pos_top">स्थिति: ऊपर</string>
     <string name="pos_bottom">स्थिति: नीचे</string>
     <string name="pos_reader">स्थिति: रीडर ऐप के अनुसार</string>
-    <string name="a_translate">AI अनुवाद</string>
-    <string name="a_translate_d">AI: आर्टिकल और बहुवचन के साथ मूल रूप या क्रिया के रूप, मुख्य अर्थ; वाक्यांश — स्वाभाविक अनुवाद। नेटवर्क और कुंजी चाहिए।</string>
     <string name="tab_dictionary">शब्दकोश</string>
     <string name="thinking">सोच रहा है</string>
     <string name="ai_off">AI बंद है: अनुवाद, व्याकरण आदि के लिए इसे InkPeek सेटिंग्स में चालू करें।</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">संक्षिप्त: छोटे अनुवाद, शब्द-भेद और लिंग; रूप मूल रूप तक ले जाते हैं (ging → gehen)। जल्दी खोज के लिए सबसे अच्छा।</string>
     <string name="cat_wiktionary">पूरी प्रविष्टियाँ: उच्चारण, व्युत्पत्ति, सभी अर्थ, उदाहरण। दूसरे शब्दकोश के रूप में अच्छा।</string>
     <string name="cat_freedict">पुराना संक्षिप्त डेटा, शब्द-रूपों के बिना; WikDict वही जोड़े बेहतर देता है।</string>
+    <string name="tab_translate">अनुवाद</string>
+    <string name="icon_translate_d">AI, अगर वह जवाब दे सके (AI सेटिंग देखें), नहीं तो डिवाइस पर ऑफ़लाइन अनुवाद।</string>
+    <string name="mt_title">ऑफ़लाइन अनुवाद</string>
+    <string name="mt_about">डिवाइस पर, इंटरनेट के बिना अनुवाद (Firefox Translations मॉडल)। यह अंग्रेज़ी के ज़रिए होता है: अर्थ आता है, बारीकियाँ (आप/तुम, लिंग) खो सकती हैं।</string>
+    <string name="mt_books_lang">मेरी किताबों की भाषा</string>
+    <string name="mt_installed">इंस्टॉल है</string>
+    <string name="mt_not_installed">इंस्टॉल नहीं</string>
+    <string name="mt_download">डाउनलोड करें (%1$d MB)</string>
+    <string name="mt_downloading">डाउनलोड हो रहा है… %1$d%%</string>
+    <string name="mt_delete">मॉडल हटाएँ</string>
+    <string name="mt_ai_first">उपलब्ध हो तो पहले AI से अनुवाद करें</string>
+    <string name="mt_missing">ऑफ़लाइन अनुवाद सेट नहीं है: InkPeek सेटिंग → शब्दकोश → ऑफ़लाइन अनुवाद।</string>
+    <string name="mt_working">अनुवाद हो रहा है…</string>
+    <string name="mt_via_english">ऑफ़लाइन अनुवाद, अंग्रेज़ी के ज़रिए</string>
 </resources>

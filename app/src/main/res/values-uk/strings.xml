@@ -36,8 +36,6 @@
     <string name="pos_top">Положення: згори</string>
     <string name="pos_bottom">Положення: знизу</string>
     <string name="pos_reader">Положення: як просить читалка</string>
-    <string name="a_translate">AI-переклад</string>
-    <string name="a_translate_d">AI: початкова форма з артиклем і мн. або форми дієслова, головні значення; фраза — природний переклад. Потрібні мережа і ключ.</string>
     <string name="tab_dictionary">Словник</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">ШІ вимкнено: увімкніть його в налаштуваннях InkPeek — будуть переклад, граматика та інше.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Компактний: короткі переклади, частина мови й рід; форми ведуть до початкової (ging → gehen). Найкращий для швидкого пошуку.</string>
     <string name="cat_wiktionary">Повні статті: вимова, етимологія, усі значення, приклади. Добрий як другий словник.</string>
     <string name="cat_freedict">Старі компактні дані без форм слів; WikDict дає ті самі пари краще.</string>
+    <string name="tab_translate">Переклад</string>
+    <string name="icon_translate_d">AI, якщо він може відповісти (див. налаштування AI), інакше офлайн-переклад на пристрої.</string>
+    <string name="mt_title">Офлайн-переклад</string>
+    <string name="mt_about">Переклад на пристрої, без інтернету (моделі Firefox Translations). Іде через англійську: зміст передається, відтінки (ти/ви, рід) можуть губитися.</string>
+    <string name="mt_books_lang">Мова моїх книжок</string>
+    <string name="mt_installed">встановлено</string>
+    <string name="mt_not_installed">не встановлено</string>
+    <string name="mt_download">Завантажити (%1$d МБ)</string>
+    <string name="mt_downloading">завантаження… %1$d%%</string>
+    <string name="mt_delete">Видалити моделі</string>
+    <string name="mt_ai_first">Перекладати спершу через AI, якщо він доступний</string>
+    <string name="mt_missing">Офлайн-переклад не налаштовано: налаштування InkPeek → Словники → Офлайн-переклад.</string>
+    <string name="mt_working">Перекладаю…</string>
+    <string name="mt_via_english">Офлайн-переклад, через англійську</string>
 </resources>

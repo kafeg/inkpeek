@@ -36,8 +36,6 @@
     <string name="pos_top">위치: 위</string>
     <string name="pos_bottom">위치: 아래</string>
     <string name="pos_reader">위치: 리더 앱 설정대로</string>
-    <string name="a_translate">AI 번역</string>
-    <string name="a_translate_d">AI: 관사와 복수형이 붙은 기본형 또는 동사 활용, 주요 뜻. 구문은 자연스러운 번역. 네트워크와 키가 필요합니다.</string>
     <string name="tab_dictionary">사전</string>
     <string name="thinking">생각 중</string>
     <string name="ai_off">AI가 꺼져 있습니다. InkPeek 설정에서 켜면 번역, 문법 등을 쓸 수 있습니다.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">간결: 짧은 번역, 품사와 성. 변화형에서 기본형으로(ging → gehen). 빠른 검색에 가장 좋음.</string>
     <string name="cat_wiktionary">전체 항목: 발음, 어원, 모든 뜻, 예문. 두 번째 사전으로 좋음.</string>
     <string name="cat_freedict">오래된 간결 데이터, 변화형 없음. 같은 언어 쌍은 WikDict가 더 좋음.</string>
+    <string name="tab_translate">번역</string>
+    <string name="icon_translate_d">AI가 답할 수 있으면 AI(AI 설정 참고), 아니면 기기의 오프라인 번역.</string>
+    <string name="mt_title">오프라인 번역</string>
+    <string name="mt_about">인터넷 없이 기기에서 번역합니다(Firefox Translations 모델). 영어를 거치므로 뜻은 전달되지만 높임말·성 같은 뉘앙스는 사라질 수 있습니다.</string>
+    <string name="mt_books_lang">내 책의 언어</string>
+    <string name="mt_installed">설치됨</string>
+    <string name="mt_not_installed">설치 안 됨</string>
+    <string name="mt_download">다운로드(%1$d MB)</string>
+    <string name="mt_downloading">다운로드 중… %1$d%%</string>
+    <string name="mt_delete">모델 삭제</string>
+    <string name="mt_ai_first">가능하면 먼저 AI로 번역</string>
+    <string name="mt_missing">오프라인 번역이 설정되지 않았습니다: InkPeek 설정 → 사전 → 오프라인 번역.</string>
+    <string name="mt_working">번역 중…</string>
+    <string name="mt_via_english">오프라인 번역, 영어 경유</string>
 </resources>

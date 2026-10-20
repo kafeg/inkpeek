@@ -4,9 +4,11 @@ Pop-up dictionary for Android e-ink readers: local StarDict + AI (Claude) action
 Spec — `docs/spec.md` (source of truth). Public repo (MIT): no secrets, keys, personal paths or IPs in commits.
 
 ## Stack
-Kotlin, Android Views, minSdk 26 / targetSdk 35. Libraries: anthropic-java (Claude), OkHttp (OpenAI / OpenRouter,
-downloads), coroutines, commons-compress + xz + zstd-jni. Packages: `stardict` (pure JVM: engine, import,
-catalog), `ai`, `ui` (card, settings, catalog). JVM unit tests for `stardict`. Settings — `Prefs.kt`.
+Kotlin, Android Views, minSdk 30 / targetSdk 35, arm64 only. Libraries: anthropic-java (Claude), OkHttp (OpenAI /
+OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni. Native: Bergamot (submodule
+`app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + `translator_jni.cpp` → `libinkpeek_mt.so`; CMake
+3.22.1 and NDK from the SDK (Gradle installs them). Packages: `stardict` (pure JVM: engine, import, catalog), `ai`,
+`mt` (models from Mozilla, engine), `ui` (card, settings, catalog). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run
 ```bash
@@ -19,7 +21,8 @@ adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus   # o
 Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
 Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,
 keyAlias, keyPassword), `VERSION_CODE=<above the installed> ./gradlew assembleRelease`, `adb install -r` keeps the
-settings (a debug build needs an uninstall). AI timings: `adb logcat -s InkPeek` (`warm …`, `ai … ms`).
+settings (a debug build needs an uninstall). AI timings: `adb logcat -s InkPeek` (`ai … ms`). Boox screenshots turn white
+when the screen sleeps: `adb shell input keyevent KEYCODE_WAKEUP` first.
 
 ## Rules
 - Branch model: `main` only, commit and push to `main`.

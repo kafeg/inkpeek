@@ -36,8 +36,6 @@
     <string name="pos_top">Position: oben</string>
     <string name="pos_bottom">Position: unten</string>
     <string name="pos_reader">Position: wie der Reader es will</string>
-    <string name="a_translate">KI-Übersetzung</string>
-    <string name="a_translate_d">KI: Grundform mit Artikel und Plural oder Verbformen, Hauptbedeutungen; eine Phrase — eine natürliche Übersetzung. Braucht Netz und Schlüssel.</string>
     <string name="tab_dictionary">Wörterbuch</string>
     <string name="thinking">Denke nach</string>
     <string name="ai_off">KI ist aus: in den InkPeek-Einstellungen einschalten für Übersetzung, Grammatik und mehr.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Kompakt: kurze Übersetzungen, Wortart und Genus; Formen führen zur Grundform (ging → gehen). Am besten zum schnellen Nachschlagen.</string>
     <string name="cat_wiktionary">Vollständige Artikel: Aussprache, Etymologie, alle Bedeutungen, Beispiele. Gut als zweites Wörterbuch.</string>
     <string name="cat_freedict">Ältere kompakte Daten ohne Wortformen; WikDict deckt dieselben Paare besser ab.</string>
+    <string name="tab_translate">Übersetzen</string>
+    <string name="icon_translate_d">KI, wenn sie antworten kann (siehe KI-Einstellungen), sonst die Offline-Übersetzung auf dem Gerät.</string>
+    <string name="mt_title">Offline-Übersetzung</string>
+    <string name="mt_about">Übersetzung auf dem Gerät, ohne Internet (Modelle von Firefox Translations). Sie läuft über Englisch: der Sinn kommt an, Feinheiten (du/Sie, Genus) können verloren gehen.</string>
+    <string name="mt_books_lang">Sprache meiner Bücher</string>
+    <string name="mt_installed">installiert</string>
+    <string name="mt_not_installed">nicht installiert</string>
+    <string name="mt_download">Herunterladen (%1$d MB)</string>
+    <string name="mt_downloading">wird geladen… %1$d%%</string>
+    <string name="mt_delete">Modelle löschen</string>
+    <string name="mt_ai_first">Zuerst mit KI übersetzen, wenn sie verfügbar ist</string>
+    <string name="mt_missing">Offline-Übersetzung ist nicht eingerichtet: InkPeek-Einstellungen → Wörterbücher → Offline-Übersetzung.</string>
+    <string name="mt_working">Übersetze…</string>
+    <string name="mt_via_english">Offline-Übersetzung, über Englisch</string>
 </resources>

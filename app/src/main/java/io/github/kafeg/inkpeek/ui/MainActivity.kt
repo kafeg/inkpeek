@@ -119,6 +119,58 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
         t.addView(Ink.text(this, getString(R.string.folder_note, prefs.dictsDir.path), 14f),
             Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        buildOffline(t)
+    }
+
+    // --- Offline translation ---
+    private lateinit var mtStatus: TextView
+    private lateinit var mtButton: TextView
+    private var mtSets: Map<Pair<String, String>, List<io.github.kafeg.inkpeek.mt.ModelSet>> = emptyMap()
+
+    /** Language of the books, models on the device, download / delete, AI first or offline only. */
+    private fun buildOffline(t: LinearLayout) {
+        t.addView(Ink.text(this, getString(R.string.mt_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 20) })
+        t.addView(Ink.text(this, getString(R.string.mt_about), 14f))
+        t.addView(Ink.text(this, getString(R.string.mt_books_lang), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        val codes = listOf("") + MT_LANGS
+        val here = resources.configuration.locales[0]
+        t.addView(spinner(codes.map { if (it.isEmpty()) "—" else java.util.Locale(it).getDisplayLanguage(here).replaceFirstChar { c -> c.uppercase() } },
+            codes.indexOf(prefs.bookLang).coerceAtLeast(0)) { prefs.bookLang = codes[it]; refreshOffline() })
+        mtStatus = Ink.text(this, "", 15f); t.addView(mtStatus)
+        mtButton = Ink.button(this, "", sp) { downloadOffline() }; t.addView(mtButton, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        t.addView(Ink.button(this, getString(R.string.mt_delete), sp) {
+            prefs.modelsDir.listFiles()?.forEach { it.deleteRecursively() }; refreshOffline()
+        }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        t.addView(switch(getString(R.string.mt_ai_first), prefs.translateMode == "ai") { prefs.translateMode = if (it) "ai" else "offline" })
+        refreshOffline()
+        launch { mtSets = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.mt.Models.list() }.getOrDefault(emptyMap()) }; refreshOffline() }
+    }
+
+    private fun mtSteps() = prefs.bookLang.takeIf { it.isNotEmpty() }?.let { io.github.kafeg.inkpeek.mt.Engine.steps(it, prefs.answerCode) }.orEmpty()
+
+    private fun refreshOffline() {
+        val root = prefs.modelsDir
+        mtStatus.text = mtSteps().joinToString("\n") { (a, b) ->
+            "$a → $b: " + getString(if (io.github.kafeg.inkpeek.mt.Models.installed(root, a, b)) R.string.mt_installed else R.string.mt_not_installed) }
+        val missing = mtSteps().filterNot { (a, b) -> io.github.kafeg.inkpeek.mt.Models.installed(root, a, b) }
+        val mb = missing.sumOf { mtSets[it]?.firstOrNull()?.size ?: 0L } / 1_000_000
+        mtButton.text = getString(R.string.mt_download, mb)
+        mtButton.visibility = if (missing.isEmpty() || mtSets.isEmpty()) View.GONE else View.VISIBLE
+    }
+
+    private fun downloadOffline() {
+        val root = prefs.modelsDir
+        val sets = mtSteps().filterNot { (a, b) -> io.github.kafeg.inkpeek.mt.Models.installed(root, a, b) }.mapNotNull { mtSets[it]?.firstOrNull() }
+        mtButton.isEnabled = false
+        launch {
+            val r = withContext(Dispatchers.IO) { runCatching { sets.forEach { set ->
+                io.github.kafeg.inkpeek.mt.Models.download(root, set) { done, all ->
+                    ui.post { mtStatus.text = "${set.from} → ${set.to}: " + getString(R.string.mt_downloading, (done * 100 / all.coerceAtLeast(1)).toInt()) } }
+            } } }
+            mtButton.isEnabled = true
+            r.onFailure { toast(getString(R.string.failed, it.message)) }
+            refreshOffline()
+        }
     }
 
     private fun refreshDicts() {
@@ -371,9 +423,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
         t.addView(switch(getString(R.string.captions), prefs.captions) { prefs.captions = it })
         // What each icon of the card does: icon, name, one line.
-        val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d))) +
-            Action.ALL.map { a -> Triple(mapOf("translate" to R.drawable.ic_translate, "analysis" to R.drawable.ic_analysis)
-                .getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a) + " · AI", Ink.description(this, a)) } +
+        val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d)),
+            Triple(R.drawable.ic_translate, getString(R.string.tab_translate), getString(R.string.icon_translate_d))) +
+            Action.ALL.map { a -> Triple(if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context,
+                Ink.label(this, a) + " · AI", Ink.description(this, a)) } +
             listOf(Triple(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d)),
                 Triple(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d)),
                 Triple(R.drawable.ic_close, getString(R.string.close), ""))
@@ -421,6 +474,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
             "Polish", "Czech", "Dutch", "Turkish", "Indonesian", "Vietnamese", "Chinese", "Japanese", "Korean", "Hindi", "Arabic")
         /** App languages that have res/values-<code>; "in" is Android's code for Indonesian. */
+        /** Book languages with Firefox Translations models to and from English (Mozilla's list, Oct 2026). */
+        val MT_LANGS = listOf("de", "en", "fr", "es", "it", "pt", "nl", "pl", "uk", "ru", "cs", "tr", "zh", "ja", "ko")
         val UI_LANGS = listOf("en", "ru", "de", "uk", "es", "fr", "it", "pt", "pl", "cs", "nl", "tr", "in", "vi", "zh", "ja", "ko", "hi")
     }
 

@@ -172,15 +172,25 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
      Save, My words, Close. AI — AI translation, Analysis, Context: an "AI" mark on the icon; inactive (and a short
      reason on tap) when AI is off, has no key, or there is no network. No AI request on card open.
    - No "Ask again".
+Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models downloaded by the app straight from Mozilla,
+the full ("base") models; the pack list is one list, each pack brings everything for its pair; fewer UI languages —
+the ones we have packs for; Translate: AI first when it can answer (setting: offline first), the offline engine
+otherwise, with a plain note in the app and the README that it goes through English.
 10. **Language packs** — one curated pack per supported language pair, built by scripts in this repo
    (`packs/`), checked by tests, published as release assets with a manifest (`packs.json`: version, files, size,
    sha256, license, sources). A pack = dictionary (curated and post-processed from open sources, merged where that
    helps, one per pair — not a list of 100 raw dictionaries) + grammar (from Wiktionary via kaikki.org: article,
    plural, every inflected form → base, verb principal parts, irregular) + offline translation models. First the
    analysis: sources and quality per pair, for ru, en, de and the main others (fr, es, it, pl, uk, …).
-11. **Offline translation engine** — Bergamot (Firefox Translations, MPL-2.0) built with the NDK; the JNI wrapper
+11. **Offline translation engine** (done; models picked per direction in settings until the pack manager) — Bergamot (Firefox Translations, MPL-2.0) built with the NDK; the JNI wrapper
    adapted from RTranslator (Apache-2.0, attribution); Mozilla's models (via English: de→en→ru) from the packs.
-   Translate is offline by default. Prototype first: build, measure de→ru on a Boox, size and memory.
+   Prototype measured on the Boox (research note): 0.15–0.85 s per sentence with both models loaded (≈ 560 MB),
+   1.2–2 s with one model at a time (≈ 380 MB); engine ≈ 3.3 MB in the APK; needs API 28+.
+   - Translate tab (core, no AI mark): AI first when it can answer (setting), else the offline engine; the text says
+     which one answered; the offline one is marked "via English".
+   - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
+     (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
+   - Memory: both models stay loaded when the device has room, else one at a time.
 12. **Pack manager** — first run: reading languages and answer language → download the packs; status (installed,
    update, size), delete. Raw dictionary catalog and file import stay as "other dictionaries".
 13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized

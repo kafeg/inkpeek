@@ -36,8 +36,6 @@
     <string name="pos_top">Konum: üst</string>
     <string name="pos_bottom">Konum: alt</string>
     <string name="pos_reader">Konum: okuma uygulamasına göre</string>
-    <string name="a_translate">Yapay zekâ çevirisi</string>
-    <string name="a_translate_d">Yapay zekâ: tanımlık ve çoğuluyla temel biçim ya da fiil çekimleri, ana anlamlar; ifade — doğal çeviri. Ağ ve anahtar gerekir.</string>
     <string name="tab_dictionary">Sözlük</string>
     <string name="thinking">Düşünüyor</string>
     <string name="ai_off">YZ kapalı: çeviri, dilbilgisi ve daha fazlası için InkPeek ayarlarından açın.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Kısa: kısa çeviriler, sözcük türü ve cinsiyet; çekimli biçimler temel biçime götürür (ging → gehen). Hızlı arama için en iyisi.</string>
     <string name="cat_wiktionary">Tam maddeler: söyleniş, köken, tüm anlamlar, örnekler. İkinci sözlük olarak iyi.</string>
     <string name="cat_freedict">Çekimli biçimleri olmayan eski kısa veri; WikDict aynı çiftleri daha iyi kapsar.</string>
+    <string name="tab_translate">Çevir</string>
+    <string name="icon_translate_d">Yanıt verebiliyorsa yapay zekâ (yapay zekâ ayarlarına bakın), yoksa cihazdaki çevrimdışı çeviri.</string>
+    <string name="mt_title">Çevrimdışı çeviri</string>
+    <string name="mt_about">İnternetsiz, cihazda çeviri (Firefox Translations modelleri). İngilizce üzerinden gider: anlam aktarılır, nüanslar (sen/siz, cinsiyet) kaybolabilir.</string>
+    <string name="mt_books_lang">Kitaplarımın dili</string>
+    <string name="mt_installed">kurulu</string>
+    <string name="mt_not_installed">kurulu değil</string>
+    <string name="mt_download">İndir (%1$d MB)</string>
+    <string name="mt_downloading">indiriliyor… %%%1$d</string>
+    <string name="mt_delete">Modelleri sil</string>
+    <string name="mt_ai_first">Varsa önce yapay zekâ ile çevir</string>
+    <string name="mt_missing">Çevrimdışı çeviri ayarlanmadı: InkPeek ayarları → Sözlükler → Çevrimdışı çeviri.</string>
+    <string name="mt_working">Çevriliyor…</string>
+    <string name="mt_via_english">Çevrimdışı çeviri, İngilizce üzerinden</string>
 </resources>

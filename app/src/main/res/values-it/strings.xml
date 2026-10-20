@@ -36,8 +36,6 @@
     <string name="pos_top">Posizione: in alto</string>
     <string name="pos_bottom">Posizione: in basso</string>
     <string name="pos_reader">Posizione: come chiede il lettore</string>
-    <string name="a_translate">Traduzione IA</string>
-    <string name="a_translate_d">IA: forma base con articolo e plurale o forme del verbo, significati principali; una frase — traduzione naturale. Servono rete e chiave.</string>
     <string name="tab_dictionary">Dizionario</string>
     <string name="thinking">Ci penso</string>
     <string name="ai_off">L’IA è disattivata: attivala nelle impostazioni di InkPeek per traduzione, grammatica e altro.</string>
@@ -109,4 +107,18 @@
     <string name="cat_wikdict">Compatto: traduzioni brevi, parte del discorso e genere; le forme portano al lemma (ging → gehen). Il migliore per cercare in fretta.</string>
     <string name="cat_wiktionary">Voci complete: pronuncia, etimologia, tutti i significati, esempi. Buono come secondo dizionario.</string>
     <string name="cat_freedict">Dati compatti più vecchi, senza forme flesse; WikDict copre meglio le stesse coppie.</string>
+    <string name="tab_translate">Traduci</string>
+    <string name="icon_translate_d">L’IA quando può rispondere (vedi impostazioni IA), altrimenti la traduzione offline sul dispositivo.</string>
+    <string name="mt_title">Traduzione offline</string>
+    <string name="mt_about">Traduzione sul dispositivo, senza internet (modelli Firefox Translations). Passa per l’inglese: il senso arriva, le sfumature (tu/lei, genere) possono perdersi.</string>
+    <string name="mt_books_lang">Lingua dei miei libri</string>
+    <string name="mt_installed">installato</string>
+    <string name="mt_not_installed">non installato</string>
+    <string name="mt_download">Scarica (%1$d MB)</string>
+    <string name="mt_downloading">download… %1$d%%</string>
+    <string name="mt_delete">Elimina i modelli</string>
+    <string name="mt_ai_first">Traduci prima con l’IA se disponibile</string>
+    <string name="mt_missing">La traduzione offline non è configurata: impostazioni di InkPeek → Dizionari → Traduzione offline.</string>
+    <string name="mt_working">Traduco…</string>
+    <string name="mt_via_english">Traduzione offline, tramite l’inglese</string>
 </resources>

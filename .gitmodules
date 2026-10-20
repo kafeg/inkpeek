@@ -1,0 +1,3 @@
+[submodule "app/src/main/cpp/bergamot"]
+	path = app/src/main/cpp/bergamot
+	url = https://github.com/niedev/bergamot-translator.git
