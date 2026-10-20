@@ -122,7 +122,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Languages (pack pairs, milestone 12) · AI (on/off, provider, key and its source, model picker with
 filter / maker / free only / sort, AI or offline first in Translate) · Card
-(app language, a phrase opens on Translate, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
+(app language, a phrase opens on Translate, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system language
 by default. The app language is also the answer language.
 
 ## Tech
@@ -179,8 +179,11 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
-   - Languages: de→ru, en→ru, de→en, then en→de, ru→de (German answers bring the German UI back), grammar ru. Then an analysis of which other packs reach the same quality; a new
-     answer language comes in tandem — its packs and the UI language together, never one without the other.
+   - Pairs (20.10): de, es, fr, it, pl, pt, nl, ru → en; en, de, es, fr, pl → ru; en, ru → de; en → fr, es, it, pt, pl.
+     Published only when the dictionary knows ≥ 85% of the book language's 5,000 most frequent words (subtitle lists,
+     forms included; de→ru 89%) and the golden words pass. Not yet: it, pt, nl → ru (73–75%), ru → de is the weakest
+     published (68%). A new answer language comes in tandem — its packs and the UI language together, never one
+     without the other. No reversed translation tables (decided 20.10: they added noise to strong pairs).
    - Components, each a separate asset, shared between pairs: `dict-<x>-<y>` (one StarDict per pair: our own articles from the
      Wiktionary of language y via kaikki.org, first line "header — first meanings", WikDict where Wiktionary has
      nothing, `.syn` from the grammar), `model-<x>-<y>` (Mozilla's best model for the direction).

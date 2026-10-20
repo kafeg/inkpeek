@@ -65,6 +65,6 @@ class Prefs(private val ctx: Context) {
     companion object {
         private var lib: Library? = null
         /** App languages = the answer languages of the packs. */
-        val ANSWERS = listOf("en", "ru", "de")
+        val ANSWERS = listOf("en", "ru", "de", "fr", "es", "it", "pt", "pl")
     }
 }

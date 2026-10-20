@@ -67,15 +67,15 @@ lang	ru	She took the book and went home.	en
 lang	ru	The weather is nice today.	en
 lang	ru	Haus	de
 lang	ru	went	en
-lang	ru	Il fait beau aujourd'hui.	!fr
-lang	ru	¿Dónde está la biblioteca?	!es
+lang	ru	Il fait beau aujourd'hui.	fr
+lang	ru	¿Dónde está la biblioteca?	es
 lang	ru	Questa è la mia casa.	!it
-lang	ru	Dzień dobry, jak się masz?	!pl
+lang	ru	Dzień dobry, jak się masz?	pl
 lang	de	Она взяла книгу и пошла домой.	ru
 lang	de	She took the book and went home.	en
 lang	de	Il fait beau aujourd'hui.	!fr
 lang	en	Der Hund schläft unter dem Tisch.	de
-lang	en	Она взяла книгу и пошла домой.	!ru
+lang	en	Она взяла книгу и пошла домой.	ru
 tr	de-ru	Der Hund schläft unter dem Tisch.	собака | пёс | пес
 tr	de-ru	Ich habe heute keine Zeit.	времени
 tr	de-ru	Wo ist der Bahnhof?	вокзал | станция
@@ -93,3 +93,22 @@ tr	ru-de	Я читаю интересную книгу.	Buch
 lang	ru	Ich liebe Pizza 🍕 und Kaffee ☕.	de
 tr	en-ru	I love pizza 🍕 and coffee.	пицц
 tr	de-ru	Das ist 𝔄𝔫𝔫𝔞s Buch.	книг
+mean	fr-en	chien	dog
+mean	fr-ru	chien	собака
+mean	es-en	perro	dog
+mean	es-ru	perro	собака
+mean	pl-ru	pies	собака
+mean	it-en	cane	dog
+mean	ru-en	собака	dog
+mean	en-fr	dog	chien
+mean	en-es	dog	perro
+mean	en-pl	dog	pies
+lang	en	Questa è la mia casa.	it
+lang	en	Dit is mijn huis.	nl
+lang	ru	Questa è la mia casa.	!it
+tr	fr-ru	Le chien dort sous la table.	собака | пёс | пес
+tr	es-en	El perro duerme debajo de la mesa.	dog
+tr	pl-ru	Pies śpi pod stołem.	собака | пёс | пес
+tr	ru-en	Собака спит под столом.	dog
+tr	en-fr	The dog is sleeping under the table.	chien
+tr	en-es	The dog is sleeping under the table.	perro
