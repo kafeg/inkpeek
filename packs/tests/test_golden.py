@@ -37,7 +37,10 @@ class GoldenTest(unittest.TestCase):
         for name in sorted(built):
             key = name.split("-", 1)[1]
             gfile = os.path.join(GOLDEN, f"{key}.tsv")
-            self.assertTrue(os.path.exists(gfile), f"no golden words for {name}")
+            with self.subTest(pack=name):
+                self.assertTrue(os.path.exists(gfile), f"no golden words for {name}")
+            if not os.path.exists(gfile):
+                continue
             arts, forms = load(name)
             for kind, word, want in rows(gfile):
                 with self.subTest(pack=name, kind=kind, word=word):

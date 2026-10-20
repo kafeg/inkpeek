@@ -1,0 +1,7 @@
+# kind	key	expected — form: the form leads to; gram: a grammar line; head: the first line starts with; mean: it contains
+mean	cão	dog
+mean	casa	house
+mean	água	water
+mean	livro	book
+mean	maçã	apple
+form	casas	casa

@@ -1,0 +1,7 @@
+# kind	key	expected — form: the form leads to; gram: a grammar line; head: the first line starts with; mean: it contains
+form	casas	casa
+form	fue	ser
+form	tengo	tener
+form	hice	hacer
+form	ojos	ojo
+gram	casa	g=f
