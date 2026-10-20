@@ -4,7 +4,7 @@
     <string name="tab_dicts">Языки</string>
     <string name="tab_ai">AI</string>
     <string name="tab_card">Карточка</string>
-    <string name="try_hint">Попробовать: слово или фраза</string>
+    <string name="try_hint">Слово или фраза</string>
     <string name="look_up">Найти</string>
     <string name="allow_files">Разрешить доступ к файлам (нужно для %1$s)</string>
     <string name="st_indexing">индексируется…</string>
@@ -66,17 +66,16 @@
     <string name="list_empty_saved">Пока ничего не сохранено: нажмите ☆ в карточке.</string>
     <string name="list_empty_history">Пока ничего не искали.</string>
     <string name="clear_history">Очистить историю</string>
-    <string name="clear_answers">Удалить сохранённые ответы AI (%1$d)</string>
     <string name="save_word">Сохранить в мои слова</string>
     <string name="unsave_word">Убрать из моих слов</string>
     <string name="a_analysis">Разбор</string>
-    <string name="a_analysis_d">Слово: как употреблять, синонимы и однокоренные. Фраза: как построена и почему, трудные слова.</string>
+    <string name="a_analysis_d">Разделы: как употреблять (фраза — как построена, отрывок — конструкции) и слова — синонимы и однокоренные или трудные слова.</string>
     <string name="a_context">Контекст</string>
-    <string name="a_context_d">Три бытовых примера с переводом, стиль и идиомы; для отрывка — что происходит и что подразумевается.</string>
+    <string name="a_context_d">Разделы: три бытовых примера с переводом, затем стиль и оттенки; для отрывка — о чём он.</string>
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icons_title">Значки в карточке</string>
-    <string name="icon_dict_d">Статьи из ваших словарей; для фразы — подстрочник. Работает офлайн.</string>
+    <string name="icon_dict_d">Статьи из языковых пакетов; для фразы — подстрочник. Работает офлайн.</string>
     <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
     <string name="tab_translate">Перевод</string>
@@ -100,4 +99,14 @@
     <string name="lang_unsupported">Похоже на %1$s: языкового пакета для него пока нет.</string>
     <string name="lang_no_packs">Языковых пакетов пока нет: настройки InkPeek → Языки.</string>
     <string name="lang_no_net">Нет сети: для списка языковых пакетов нужен интернет.</string>
+    <string name="icon_close_d">Закрывает карточку; системная «Назад» делает то же.</string>
+    <string name="sec_usage_word">Как употреблять</string>
+    <string name="sec_usage_phrase">Как построено</string>
+    <string name="sec_usage_passage">Конструкции</string>
+    <string name="sec_related">Синонимы и однокоренные</string>
+    <string name="sec_words">Слова</string>
+    <string name="sec_examples">Примеры</string>
+    <string name="sec_notes">Стиль и оттенки</string>
+    <string name="sec_meaning">О чём это</string>
+    <string name="form_of_sel">форма: %1$s</string>
 </resources>

@@ -94,9 +94,11 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
   - **Quick**, on opening AI translation: `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
     `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type). Shown only in the AI translation tab.
-  - **Detail**, on the first open of Analysis or Context: `analysis` (word: use, synonyms, related; phrase: how it is
-    built and why + harder words; passage: constructions + up to 15 words) and `context` (3 examples with
-    translation + register / idioms; passage: what happens and what is implied). Fills both tabs.
+  - **Detail**, on the first open of Analysis or Context, in parts; the app writes the headings (localized, the same
+    every time): `usage` (word: how to use it; phrase: how it is built and why; passage: constructions), `words`
+    (word: synonyms and related; else the harder words, "**base** — meaning"), `examples` (3 × {text, translation};
+    none for a passage), `notes` (register and nuances; passage: what it says). Analysis = usage + words, Context =
+    examples + notes; an empty part is not shown. Fills both tabs.
 - System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; brief; the model sees only the selection and
   must not guess its sentence.
@@ -106,17 +108,20 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Storage
 - One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
   (debug ↔ release needs one). No WAL (shared storage), no UPSERT (Android 8–9 SQLite).
-- `ai`: answers by (text, answer language, request quick / detail, prompt hash) as JSON; shown again without a request,
-  also offline. Settings → AI: delete saved answers (count shown).
+- `ai`: answers by (text, answer language, request quick / detail, prompt hash) as JSON, and the offline translation
+  (`offline-<from>`); shown again without a request, also offline. An answer lives as long as its text is in the
+  history or saved: removing it there (✕, clear history, the 1000 limit) removes its answers. No separate setting.
 - `saved`: words and phrases (a passage counts as a phrase) saved with ☆ in the card header (★ = saved, tap removes),
   with one short meaning: the cached translation, else the first dictionary meaning; empty → the cached translation
   at display time.
-- `history`: every card opening, last 1000; only in the app, not in the card.
-- Settings → My words: Words / Phrases / History with counts; tap opens the card, ✕ removes; clear history.
+- `history`: every card opening, last 1000, with one short line: a word — the pack dictionary's first line; a phrase —
+  its offline translation (started when the card opens); else the cached AI translation, else "—". Only in the app.
+- Settings → My words: Words / Phrases / History as second-level tabs (text, the open one underlined), rows of the
+  text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
 Tabs: Languages (pack pairs, milestone 12) · AI (on/off, phrase mode, provider, key and its source, model picker with
-filter / maker / free only / sort, AI or offline first in Translate, delete saved answers) · Card
+filter / maker / free only / sort, AI or offline first in Translate) · Card
 (app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
 by default. The app language is also the answer language.
 

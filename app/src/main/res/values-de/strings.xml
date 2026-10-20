@@ -4,8 +4,8 @@
     <string name="tab_dicts">Sprachen</string>
     <string name="tab_ai">KI</string>
     <string name="tab_card">Karte</string>
-    <string name="try_hint">Testen: Wort oder Satz</string>
-    <string name="look_up">Suchen</string>
+    <string name="try_hint">Wort oder Satz</string>
+    <string name="look_up">Nachschlagen</string>
     <string name="allow_files">Dateizugriff erlauben (nötig für %1$s)</string>
     <string name="st_indexing">wird indiziert…</string>
     <string name="status">%1$d Wörterbücher · KI: %2$s</string>
@@ -66,17 +66,16 @@
     <string name="list_empty_saved">Noch nichts gespeichert: tippen Sie in der Karte auf ☆.</string>
     <string name="list_empty_history">Noch nichts nachgeschlagen.</string>
     <string name="clear_history">Verlauf löschen</string>
-    <string name="clear_answers">Gespeicherte KI-Antworten löschen (%1$d)</string>
     <string name="save_word">Zu meinen Wörtern</string>
     <string name="unsave_word">Aus meinen Wörtern entfernen</string>
     <string name="a_analysis">Analyse</string>
-    <string name="a_analysis_d">Ein Wort: wie man es verwendet, Synonyme und verwandte Wörter. Eine Phrase: wie sie gebaut ist und warum, schwierige Wörter.</string>
+    <string name="a_analysis_d">Abschnitte: Gebrauch (eine Phrase: Aufbau; ein Abschnitt: Konstruktionen) und die Wörter — Synonyme und verwandte oder die schwierigen.</string>
     <string name="a_context">Kontext</string>
-    <string name="a_context_d">Drei Alltagsbeispiele mit Übersetzung, Stil und Redewendungen; bei einem Abschnitt — was passiert und was gemeint ist.</string>
+    <string name="a_context_d">Abschnitte: drei Alltagsbeispiele mit Übersetzung, dann Stil und Nuancen; bei einem Abschnitt — worum es geht.</string>
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
     <string name="icons_title">Symbole in der Karte</string>
-    <string name="icon_dict_d">Einträge aus Ihren Wörterbüchern; eine Phrase bekommt eine Wort-für-Wort-Übersetzung. Funktioniert offline.</string>
+    <string name="icon_dict_d">Einträge aus den Sprachpaketen; eine Phrase bekommt eine Wort-für-Wort-Übersetzung. Funktioniert offline.</string>
     <string name="icon_save_d">Speichert das Wort oder die Phrase in Meine Wörter; ein gefüllter Stern heißt: schon gespeichert.</string>
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
     <string name="tab_translate">Übersetzen</string>
@@ -100,4 +99,14 @@
     <string name="lang_unsupported">Das sieht nach %1$s aus: dafür gibt es noch kein Sprachpaket.</string>
     <string name="lang_no_packs">Noch keine Sprachpakete: InkPeek-Einstellungen → Sprachen.</string>
     <string name="lang_no_net">Kein Netz: für die Liste der Sprachpakete braucht es Internet.</string>
+    <string name="icon_close_d">Schließt die Karte; die System-Zurück-Taste tut dasselbe.</string>
+    <string name="sec_usage_word">Gebrauch</string>
+    <string name="sec_usage_phrase">Aufbau</string>
+    <string name="sec_usage_passage">Konstruktionen</string>
+    <string name="sec_related">Synonyme und verwandte Wörter</string>
+    <string name="sec_words">Wörter</string>
+    <string name="sec_examples">Beispiele</string>
+    <string name="sec_notes">Stil und Nuancen</string>
+    <string name="sec_meaning">Worum es geht</string>
+    <string name="form_of_sel">Form: %1$s</string>
 </resources>

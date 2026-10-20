@@ -26,4 +26,14 @@ class ModelsTest {
         assertEquals(listOf("de" to "ru", "de" to "en", "en" to "ru"), Packs.pairs(cs))
         assertEquals(emptyList<String>(), Packs.needed(cs, emptyList()).map { it.id })
     }
+
+    /** A component gone from the packs list removes only its own folder, never the whole models folder. */
+    @Test fun staleRemovesOnlyItsOwn() {
+        val root = kotlin.io.path.createTempDirectory().toFile(); val models = java.io.File(root, "models")
+        java.io.File(models, "deen").mkdirs(); java.io.File(models, "enru").mkdirs()
+        val packs = Packs(java.io.File(root, "packs"), models)
+        packs.remove(Packs.stale("model-de-en")); packs.remove(Packs.stale("model"))
+        assertEquals(listOf("enru"), models.list()!!.toList())
+        root.deleteRecursively()
+    }
 }

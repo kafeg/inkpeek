@@ -67,10 +67,14 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val probe = edit(getString(R.string.try_hint), "")
         val tryRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         tryRow.addView(probe, Ink.lp(0, weight = 1f))
-        tryRow.addView(Ink.button(this, getString(R.string.look_up), sp) {
-            startActivity(Intent(this, CardActivity::class.java).setAction("colordict.intent.action.SEARCH")
-                .putExtra("EXTRA_QUERY", probe.text.toString()))
-        })
+        fun openCard() { if (probe.text.isNotBlank()) startActivity(Intent(this, CardActivity::class.java).setAction("colordict.intent.action.SEARCH")
+            .putExtra("EXTRA_QUERY", probe.text.toString())) }
+        probe.setOnEditorActionListener { _, _, _ -> hideKeyboard(); openCard(); true }
+        // A magnifier, like any search field: it opens the card for the text (Enter does the same).
+        tryRow.addView(android.widget.ImageView(this).apply {
+            setImageResource(R.drawable.ic_search); background = Ink.border(this@MainActivity); val q = Ink.dp(this@MainActivity, 10); setPadding(q, q, q, q)
+            contentDescription = getString(R.string.look_up); tooltipText = contentDescription; setOnClickListener { openCard() }
+        }, LinearLayout.LayoutParams(Ink.dp(this, 52), Ink.dp(this, 52)).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
         col.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
 
         val bar = Ink.horizontal(this)
@@ -98,7 +102,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     override fun onSaveInstanceState(out: Bundle) { super.onSaveInstanceState(out); out.putInt("tab", current) }
-    override fun onResume() { super.onResume(); refreshDicts(); if (current == R.string.tab_words) refreshWords(); refreshAnswers() }
+    override fun onResume() { super.onResume(); refreshDicts(); if (current == R.string.tab_words) refreshWords() }
     override fun onPause() { ui.removeCallbacksAndMessages(null); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
@@ -165,7 +169,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val keep = needed.map { it.id }.toSet()
         // What no ticked pair needs, and what the packs list no longer has (grammar before 21.10).
         val extra = manifest.filter { it.id in installed && it.id !in keep } +
-            installed.keys.filter { id -> manifest.none { it.id == id } }.map { io.github.kafeg.inkpeek.packs.Component(it, it.substringBefore('-'), "", "", "", 0, "") }
+            installed.keys.filter { id -> manifest.none { it.id == id } }.map { P.stale(it) }
         val label = when {
             missing.isNotEmpty() -> getString(R.string.lang_download, (missing.sumOf { it.size } / 1_000_000).coerceAtLeast(1))
             extra.isNotEmpty() -> getString(R.string.lang_remove)
@@ -251,32 +255,15 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(switch(getString(R.string.mt_ai_first), prefs.translateMode == "ai") { prefs.translateMode = if (it) "ai" else "offline" },
             Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         load(prefs.provider)
-        answersButton = Ink.button(this, getString(R.string.clear_answers, 0), sp) {
-            launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearAnswers() } }; refreshAnswers() }
-        }
-        t.addView(answersButton, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
-    }
-
-    private var answersButton: TextView? = null
-    /** Answers are kept for offline use; the button shows how many. */
-    private fun refreshAnswers(): kotlinx.coroutines.Job = launch {
-        val n = withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).answers() }.getOrDefault(0) }
-        answersButton?.text = getString(R.string.clear_answers, n)
     }
 
     // --- My words ---
+    private lateinit var wordsTabs: LinearLayout
     private lateinit var wordsList: LinearLayout
-    private val listButtons = LinkedHashMap<String, TextView>()
     private var listKind = "word"
 
     private fun buildWords(t: LinearLayout) {
-        val seg = Ink.horizontal(this)
-        listOf("word", "phrase", "history").forEachIndexed { i, k ->
-            val b = Ink.button(this, "", 16f) { listKind = k; refreshWords() }
-            listButtons[k] = b
-            seg.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
-        }
-        t.addView(seg)
+        wordsTabs = Ink.vertical(this); t.addView(wordsTabs)
         wordsList = Ink.vertical(this); t.addView(wordsList, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
     }
 
@@ -288,19 +275,15 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             (if (kind == "history") st.history(lang) else st.saved(kind, lang)) to
                 listOf(st.count("saved", "word"), st.count("saved", "phrase"), st.count("history"))
         }.getOrNull() } ?: return@launch
-        listOf(R.string.list_words, R.string.list_phrases, R.string.list_history).zip(listButtons.entries).forEachIndexed { i, (label, e) ->
-            e.value.text = getString(label) + " (" + counts[i] + ")"; e.value.background = Ink.border(this@MainActivity, if (e.key == kind) 7 else 2)
-        }
+        wordsTabs.removeAllViews()
+        wordsTabs.addView(Ink.subTabs(this@MainActivity, listOf("word", "phrase", "history").zip(listOf(R.string.list_words, R.string.list_phrases, R.string.list_history))
+            .mapIndexed { i, (k, label) -> k to getString(label) + " (" + counts[i] + ")" }, kind, 16f) { listKind = it; refreshWords() })
         wordsList.removeAllViews()
         if (items.isEmpty()) wordsList.addView(Ink.text(this@MainActivity,
             getString(if (kind == "history") R.string.list_empty_history else R.string.list_empty_saved), 16f))
-        if (kind == "history" && items.isNotEmpty()) wordsList.addView(Ink.button(this@MainActivity, getString(R.string.clear_history), 16f) {
-            this@MainActivity.launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearHistory() } }; refreshWords() }
-        }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
         items.forEach { e ->
             val r = Ink.horizontal(this@MainActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-            val meaning = if (e.meaning.isBlank()) "" else "<br>" + Ink.escape(e.meaning)
-            r.addView(Ink.text(this@MainActivity, "<b>${Ink.escape(e.text)}</b>$meaning", 16f, html = true).apply {
+            r.addView(Ink.entry(this@MainActivity, e.text, e.meaning, 16f).apply {
                 val q = Ink.dp(this@MainActivity, 6); setPadding(0, q, q, q)
                 setOnClickListener {
                     startActivity(Intent(this@MainActivity, CardActivity::class.java).setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text))
@@ -311,6 +294,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             })
             wordsList.addView(r)
         }
+        // An action on the whole list: under it, on the right, apart from the tabs.
+        if (kind == "history" && items.isNotEmpty()) wordsList.addView(Ink.button(this@MainActivity, getString(R.string.clear_history), 15f) {
+            this@MainActivity.launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearHistory() } }; refreshWords() }
+        }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { gravity = Gravity.END; topMargin = Ink.dp(this@MainActivity, 14) })
     }
 
     private fun chooseModel(done: () -> Unit) {
@@ -379,11 +366,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                 Ink.label(this, a) + " · AI", Ink.description(this, a)) } +
             listOf(Triple(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d)),
                 Triple(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d)),
-                Triple(R.drawable.ic_close, getString(R.string.close), ""))
+                Triple(R.drawable.ic_close, getString(R.string.close), getString(R.string.icon_close_d)))
         icons.forEach { (icon, label, about) ->
             val r = Ink.horizontal(this)
             r.addView(android.widget.ImageView(this).apply { setImageResource(icon) }, LinearLayout.LayoutParams(Ink.dp(this, 28), Ink.dp(this, 28)).apply { rightMargin = Ink.dp(this@MainActivity, 12) })
-            r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b>" + if (about.isBlank()) "" else "<br>" + Ink.escape(about), 15f, html = true), Ink.lp(0, weight = 1f))
+            r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b><br>" + Ink.escape(about), 15f, html = true), Ink.lp(0, weight = 1f))
             t.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
         }
     }

@@ -187,7 +187,7 @@ def cmd_grammar(a, x):
     g = build_grammar(a, x)
     folder = os.path.join(a.out, "build", f"grammar-{x}")
     shutil.rmtree(folder, ignore_errors=True)
-    st = stardict.write(os.path.join(folder, f"grammar-{x}"), g.entries(), g.syn(), types="m", date=a.date,
+    st = stardict.write(os.path.join(folder, f"grammar-{x}"), g.entries(), g.syn(), types="m",
                         bookname=f"InkPeek grammar {x}", description=ATTRIBUTION)
     print(f"grammar-{x}: {st}", flush=True)
     return None  # build input only: the dictionaries carry its header and forms; kept in build/ for the golden tests
@@ -211,7 +211,7 @@ def cmd_dict(a, x, y):
     articles, syn, st = dictionary.build(x, y, kaikki.records(slice_file(a, y, x), x), g, wd, tables)
     folder = os.path.join(a.out, "build", f"dict-{x}-{y}")
     shutil.rmtree(folder, ignore_errors=True)
-    st.update(stardict.write(os.path.join(folder, f"dict-{x}-{y}"), articles, syn, types="h", date=a.date,
+    st.update(stardict.write(os.path.join(folder, f"dict-{x}-{y}"), articles, syn, types="h",
                              bookname=f"InkPeek {x} → {y}", description=ATTRIBUTION))
     print(f"dict-{x}-{y}: {st}", flush=True)
     return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),

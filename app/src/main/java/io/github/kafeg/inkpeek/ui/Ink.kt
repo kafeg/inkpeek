@@ -33,6 +33,24 @@ object Ink {
         isClickable = true; isFocusable = true
     }
 
+    /** Second-level tabs: plain text, the open one bold over a thick line, so they differ from bordered buttons. */
+    fun subTabs(ctx: Context, items: List<Pair<String, String>>, open: String, sp: Float, pick: (String) -> Unit) = horizontal(ctx).apply {
+        items.forEach { (k, label) ->
+            val on = k == open
+            addView(vertical(ctx).apply {
+                tag = k; isClickable = true; setOnClickListener { pick(k) }
+                addView(text(ctx, label, sp, bold = on).apply { gravity = Gravity.CENTER; val p = dp(ctx, 8); setPadding(0, p, 0, p) })
+                addView(View(ctx).apply { setBackgroundColor(Color.BLACK) }, lp(h = dp(ctx, if (on) 4 else 1)))
+            }, lp(0, weight = 1f))
+        }
+    }
+
+    /** A list row: [title] in bold, one line of [meaning] under it ("—" when none), cut with "…" so rows keep their height. */
+    fun entry(ctx: Context, title: String, meaning: String, sp: Float) = vertical(ctx).apply {
+        addView(text(ctx, title, sp, bold = true).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END })
+        addView(text(ctx, meaning.ifBlank { "—" }, sp * 0.85f).apply { isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END })
+    }
+
     fun label(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}", a.id)
     fun description(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}_d", "")
     private fun res(ctx: Context, name: String, fallback: String) =

@@ -37,7 +37,7 @@ class Packs(val root: File, val models: File) {
 
     /** Downloads one component, checks its sha256, unpacks it in place; [progress]: bytes done of the total. */
     fun install(c: Component, progress: (Long, Long) -> Unit = { _, _ -> }) {
-        root.mkdirs()
+        root.mkdirs(); File(root, "tmp").deleteRecursively()
         val tmp = File(root, c.file + ".part")
         http.newCall(Request.Builder().url(ASSETS + c.file).build()).execute().use { r ->
             if (!r.isSuccessful) error("HTTP ${r.code}: ${c.file}")
@@ -63,7 +63,7 @@ class Packs(val root: File, val models: File) {
         when (c.kind) {
             "dict" -> File(dicts, c.id).deleteRecursively()
             "grammar" -> File(root, "grammar").deleteRecursively() // old builds installed grammar packs
-            "model" -> File(models, c.from + c.to).deleteRecursively()
+            "model" -> if (c.from.isNotBlank() && c.to.isNotBlank()) File(models, c.from + c.to).deleteRecursively()
             "langid" -> langid.delete()
         }
         mark(c.id, null)
@@ -76,8 +76,11 @@ class Packs(val root: File, val models: File) {
     /** Book languages that have this answer language: those with a dictionary into it. */
     fun installedBooks(answer: String): List<String> = installedPairs().filter { it.second == answer }.map { it.first }
 
+    /** Unpacked outside the library first: the card must not see a half-written dictionary. */
+    private fun staging(dest: File) = File(root, "tmp/" + dest.name).also { it.deleteRecursively(); it.mkdirs() }
+
     private fun unzip(zip: File, dest: File) {
-        val tmp = File(dest.path + ".new"); tmp.deleteRecursively(); tmp.mkdirs()
+        val tmp = staging(dest)
         ZipInputStream(zip.inputStream().buffered()).use { z ->
             while (true) {
                 val e = z.nextEntry ?: break
@@ -90,7 +93,7 @@ class Packs(val root: File, val models: File) {
     }
 
     private fun untar(tarZst: File, dest: File) {
-        val tmp = File(dest.path + ".new"); tmp.deleteRecursively(); tmp.mkdirs()
+        val tmp = staging(dest)
         TarArchiveInputStream(ZstdInputStream(tarZst.inputStream().buffered())).use { t ->
             while (true) {
                 val e = t.nextEntry ?: break
@@ -103,6 +106,9 @@ class Packs(val root: File, val models: File) {
 
     companion object {
         const val ASSETS = "https://github.com/kafeg/inkpeek/releases/download/packs/"
+
+        /** An installed component the packs list no longer has, rebuilt from its id ("model-de-en") for removal. */
+        fun stale(id: String) = id.split('-').let { Component(id, it[0], it.getOrElse(1) { "" }, it.getOrElse(2) { "" }, "", 0, "") }
         private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
 
         fun parse(json: String): List<Component> {

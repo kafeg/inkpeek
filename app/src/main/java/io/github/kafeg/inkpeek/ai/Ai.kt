@@ -89,17 +89,18 @@ enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: 
         "Grammar, examples and comments do not belong here: other tabs give them.",
         mapOf("base" to "s", "article" to "s", "plural" to "s", "pos" to "s", "forms" to "s", "irregular" to "b",
             "form_of" to "s", "meanings" to "a", "translation" to "s"), 1024),
-    DETAIL("Selected text: «{text}». Answer with one JSON object with two keys, \"analysis\" and \"context\"; each value " +
-        "is a short text in {lang} with light Markdown (**bold**, *italic*, \"- \" lists, no headings).\n" +
-        "analysis — a single word: what a learner needs to use it (forms, case or preposition it takes, separable prefix, " +
-        "reflexive), then 2–3 synonyms and related words, **word** — short meaning. A phrase: how it is built and why " +
-        "(word order, agreement, which word requires which form, tense, mood) and the rule behind it, then the words a " +
-        "learner may not know, **base form** — short meaning. A passage: every construction that matters (up to 10 lines), " +
-        "then up to 15 harder words, **base form** — short meaning.\n" +
-        "context — a word or phrase: exactly 3 short everyday sentences in the text's own language with it in **bold**, each " +
-        "followed by its translation into {lang} in *italics* on the next line; then one line on register, idioms or " +
-        "nuances when useful. A passage: what happens and what is implied, briefly.",
-        mapOf("analysis" to "s", "context" to "s"), 3000);
+    DETAIL("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
+        "(**bold**, *italic*), no headings: the app adds them.\n" +
+        "- usage: a single word: what a learner needs to use it (forms, case or preposition it takes, separable prefix, " +
+        "reflexive), a few short lines. A phrase: how it is built and why (word order, agreement, which word requires which " +
+        "form, tense, mood) and the rule behind it. A passage: every construction that matters, up to 10 \"- \" lines.\n" +
+        "- words: a single word: 2–3 synonyms and related words; a phrase: the words a learner may not know; a passage: up " +
+        "to 15 harder words. Each item \"**base form** — short meaning\".\n" +
+        "- examples: a word or phrase: exactly 3 short everyday sentences in the text's own language with it in **bold**, " +
+        "each with its translation into {lang}; [] for a passage.\n" +
+        "- notes: a word or phrase: one line on register, idioms or nuances, \"\" when there is nothing useful; a passage: " +
+        "what happens and what is implied, briefly.",
+        mapOf("usage" to "s", "words" to "a", "examples" to "e", "notes" to "s"), 3000);
 
     /** Changes with the prompt, so saved answers of an older prompt are not shown. */
     val version: Int get() = prompt.hashCode()
@@ -108,7 +109,10 @@ enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: 
     /** JSON Schema for structured outputs: every key required, no others. */
     fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to fields.keys.toList(),
         "properties" to fields.mapValues { (_, t) -> when (t) { "b" -> mapOf("type" to "boolean")
-            "a" -> mapOf("type" to "array", "items" to mapOf("type" to "string")); else -> mapOf("type" to "string") } })
+            "a" -> mapOf("type" to "array", "items" to mapOf("type" to "string"))
+            "e" -> mapOf("type" to "array", "items" to mapOf("type" to "object", "additionalProperties" to false, "required" to listOf("text", "translation"),
+                "properties" to mapOf("text" to mapOf("type" to "string"), "translation" to mapOf("type" to "string"))))
+            else -> mapOf("type" to "string") } })
 }
 
 class AiError(msg: String) : Exception(msg)

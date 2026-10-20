@@ -5,7 +5,7 @@
     <string name="tab_dicts">Languages</string>
     <string name="tab_ai">AI</string>
     <string name="tab_card">Card</string>
-    <string name="try_hint">Try: a word or a phrase</string>
+    <string name="try_hint">A word or a phrase</string>
     <string name="look_up">Look up</string>
     <string name="allow_files">Allow access to files (needed for %1$s)</string>
     <string name="st_indexing">indexing…</string>
@@ -67,17 +67,16 @@
     <string name="list_empty_saved">Nothing saved yet: tap ☆ in the card.</string>
     <string name="list_empty_history">No lookups yet.</string>
     <string name="clear_history">Clear history</string>
-    <string name="clear_answers">Delete saved AI answers (%1$d)</string>
     <string name="save_word">Save to my words</string>
     <string name="unsave_word">Remove from my words</string>
     <string name="a_analysis">Analysis</string>
-    <string name="a_analysis_d">A word: how to use it, synonyms and related words. A phrase: how it is built and why, the harder words.</string>
+    <string name="a_analysis_d">Sections: how to use it (a phrase: how it is built; a passage: constructions) and the words — synonyms and related, or the harder ones.</string>
     <string name="a_context">Context</string>
-    <string name="a_context_d">Three everyday examples with a translation, register and idioms; for a passage — what happens and what is implied.</string>
+    <string name="a_context_d">Sections: three everyday examples with a translation, then register and nuances; for a passage — what it says.</string>
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icons_title">Icons in the card</string>
-    <string name="icon_dict_d">Entries from your dictionaries; a phrase gets a word-by-word gloss. Works offline.</string>
+    <string name="icon_dict_d">Entries from the language packs; a phrase gets a word-by-word gloss. Works offline.</string>
     <string name="icon_save_d">Keeps the word or phrase in My words; a filled star means it is there.</string>
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="tab_translate">Translate</string>
@@ -101,4 +100,14 @@
     <string name="lang_unsupported">This looks like %1$s: InkPeek has no language pack for it yet.</string>
     <string name="lang_no_packs">No language packs yet: InkPeek settings → Languages.</string>
     <string name="lang_no_net">No network: the list of language packs needs the internet.</string>
+    <string name="icon_close_d">Closes the card; the system Back does the same.</string>
+    <string name="sec_usage_word">How to use it</string>
+    <string name="sec_usage_phrase">How it is built</string>
+    <string name="sec_usage_passage">Constructions</string>
+    <string name="sec_related">Synonyms and related words</string>
+    <string name="sec_words">Words</string>
+    <string name="sec_examples">Examples</string>
+    <string name="sec_notes">Register and nuances</string>
+    <string name="sec_meaning">What it says</string>
+    <string name="form_of_sel">form: %1$s</string>
 </resources>

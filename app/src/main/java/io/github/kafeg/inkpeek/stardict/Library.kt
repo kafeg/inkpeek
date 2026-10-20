@@ -34,7 +34,8 @@ class Library(private val roots: List<File>, private val workRoot: File) {
     fun prepareAll() = cache.values.filter { !it.ready }.forEach { prepareAsync(it) }
 
     fun prepareAsync(d: StarDict) {
-        if (d.ready || !queued.add(d.id)) return
+        // A failed index is not retried on every lookup: the error stays in [status] until the app restarts.
+        if (d.ready || status[d.id]?.startsWith("error") == true || !queued.add(d.id)) return
         status[d.id] = "indexing"
         worker.execute {
             runCatching { d.prepare() }.fold({ status.remove(d.id) }, { status[d.id] = "error: ${it.message ?: it.javaClass.simpleName}" })
@@ -76,7 +77,7 @@ class Library(private val roots: List<File>, private val workRoot: File) {
         List<Pair<StarDict, List<Hit>>> {
         val q = cleanQuery(query)
         val dicts = all(order).filter { it.id !in disabled }.filter { d ->
-            d.ready.also { if (!it) { prepareAsync(d); notReady?.add(d) } }
+            d.ready.also { if (!it) { prepareAsync(d); if (status[d.id]?.startsWith("error") != true) notReady?.add(d) } }
         }
         val hits = dicts.associateWith { d -> runCatching { d.lookup(q) }.getOrDefault(emptyList()) }
         // A dictionary that knows the form (Häuser) names the base form (Haus): look that up in the others too.

@@ -99,8 +99,9 @@ If another dictionary app answers the same request, Android asks which one to us
 ### The card
 - **Dictionary** comes first. For a word: entries from your dictionaries, one dictionary per screen, ◀ ▶ to page
   between them; dictionaries into the app's language come first. For a sentence: the word-by-word gloss.
-- **AI tabs:** Translate, Grammar, Words, Examples, Explain. A tab asks the AI only when you open it, and keeps the
-  answer while the card is open. Switching tabs does not ask again.
+- **AI tabs:** Analysis (how to use it, related or harder words) and Context (examples with a translation, register),
+  each in sections. A tab asks the AI only when you open it; the answer is kept with the history entry and goes when
+  you remove that entry.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence; Examples is hidden for a passage).
 - A selected sentence opens on Translate when AI is on (you can turn this off).

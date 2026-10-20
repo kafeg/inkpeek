@@ -80,11 +80,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         Ai.recall = { prefs.variant(it) }; Ai.remember = { k, v -> prefs.setVariant(k, v) }
-        launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         if (query.isEmpty()) { finish(); return }
+        launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
         placeWindow()
         if (kind == Kind.WORD) packHead()
+        // A phrase: the offline translation starts at once; it fills Translate and the history line.
+        else launch { mt().await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t) } } } }
         // The core opens; an AI tab only when the user asked for it in settings and AI can answer.
         open(if (kind != Kind.WORD && prefs.phraseAutoAi) TRANSLATE else DICT)
     }
@@ -369,10 +371,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun org.json.JSONObject.str(k: String) = optString(k).trim()
 
-    /** Instant header from the dictionaries: a German noun's article from WikDict's grammar mark ("noun, neutral"). */
-    /** The first line of a pack dictionary's article, e.g. "das Haus (Hauses, мн. Häuser)" or "gehen (geht, ging, ist gegangen) сильн.". */
-    private fun headOf(html: String): String? = Regex("""<p class="head">(.*?)</p>""").find(html)?.groupValues?.get(1)
-        ?.let { android.text.Html.fromHtml(it, android.text.Html.FROM_HTML_MODE_COMPACT).toString() }?.substringBefore(" — ")?.trim()
+    /** The first line of a pack dictionary's article: "das Haus (Hauses, мн. Häuser) — дом, здание". */
+    private fun lineOf(html: String): String? = Regex("""<p class="head">(.*?)</p>""").find(html)?.groupValues?.get(1)
+        ?.let { android.text.Html.fromHtml(it, android.text.Html.FROM_HTML_MODE_COMPACT).toString().trim() }
+
+    /** Its header part: "das Haus (Hauses, мн. Häuser)" or "gehen (geht, ging, ist gegangen) сильн.". */
+    private fun headOf(html: String): String? = lineOf(html)?.substringBefore(" — ")?.trim()
 
     /** The word's header from the language packs (built from Wiktionary's grammar): instantly, offline, no AI. */
     private fun packHead() = launch {
@@ -380,12 +384,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val heads = withContext(Dispatchers.IO) { runCatching {
             prefs.library().lookup(query, emptyList(), emptySet()).filter { (d, _) -> d.ifo.path.startsWith(packsDir) }
                 .sortedBy { (d, _) -> d.ifo.parentFile?.name?.endsWith("-" + prefs.answerCode) != true }
-                .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headOf(h.html)?.let { h.word to it } } }
+                // One header per book language (dict-<x>-<y>): de→ru and de→en describe the same German word.
+                .distinctBy { (d, _) -> d.ifo.parentFile?.name?.split('-')?.getOrNull(1) }
+                .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headOf(h.html)?.let { Triple(h.word, it, lineOf(h.html)) } } }
         }.getOrDefault(emptyList()) }
-        val (base, head) = heads.firstOrNull() ?: return@launch
+        val (base, head, line) = heads.firstOrNull() ?: return@launch
+        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, line.orEmpty()) } }
         titleView.text = head
         // The selected form, and the same word in another book language ("Gift" is German and English).
-        val sub = listOfNotNull(if (base.equals(query, true)) null else "$query →", heads.drop(1).firstOrNull()?.second).joinToString("   ·   ")
+        val sub = listOfNotNull(if (base.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.drop(1).firstOrNull()?.second).joinToString("\n")
         subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
     }
 
@@ -418,8 +425,16 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    /** Markdown for a tab from its answer. */
+    /** Markdown for a tab from its answer; Analysis and Context under the app's own headings. */
     private fun render(tab: String, j: org.json.JSONObject): String = when (tab) {
+        "analysis" -> sections(
+            getString(when (kind) { Kind.WORD -> R.string.sec_usage_word; Kind.PHRASE -> R.string.sec_usage_phrase; else -> R.string.sec_usage_passage }) to j.str("usage"),
+            getString(if (kind == Kind.WORD) R.string.sec_related else R.string.sec_words) to
+                j.optJSONArray("words")?.let { a -> (0 until a.length()).joinToString("\n") { "- " + a.optString(it).trim().removePrefix("- ") } }.orEmpty())
+        "context" -> sections(
+            getString(R.string.sec_examples) to j.optJSONArray("examples")?.let { a -> (0 until a.length()).mapNotNull { a.optJSONObject(it) }
+                .joinToString("\n") { e -> "- " + e.str("text") + "\n*" + e.str("translation") + "*" } }.orEmpty(),
+            getString(if (kind == Kind.PASSAGE) R.string.sec_meaning else R.string.sec_notes) to j.str("notes"))
         "translate" -> {
             // AI's own view of the word inside its tab: "das Haus · die Häuser", or the verb's forms, irregular.
             val facts = if (kind != Kind.WORD) "" else j.str("forms").ifBlank {
@@ -431,6 +446,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         else -> j.str(tab)
     }
+
+    private fun sections(vararg s: Pair<String, String>) = s.filter { it.second.isNotBlank() }.joinToString("\n\n") { (h, t) -> "**$h**\n$t" }
 
     /**
      * Translate (core): AI when the mode says so and it can answer, else the offline engine (through English when
@@ -445,14 +462,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val aiOk = prefs.aiOn && withContext(Dispatchers.IO) { aiBlock(TRANSLATE) } == null
             if (translateBy.isEmpty()) translateBy = if (prefs.translateMode == "ai" && aiOk) "ai" else "offline"
             if (prefs.aiOn) {
-                val seg = Ink.horizontal(this@CardActivity)
-                listOf("ai" to "AI", "offline" to getString(R.string.mt_offline)).forEachIndexed { i, (k, label) ->
-                    seg.addView(Ink.button(this@CardActivity, label, size * 0.75f) {
-                        if (k == "ai" && !aiOk) this@CardActivity.launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
-                        else { translateBy = k; fillTranslate(p) }
-                    }.apply { background = Ink.border(this@CardActivity, if (k == translateBy) SELECTED else 2); if (k == "ai" && !aiOk) alpha = 0.35f },
-                        Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
+                val seg = Ink.subTabs(this@CardActivity, listOf("ai" to "AI", "offline" to getString(R.string.mt_offline)), translateBy, size * 0.75f) { k ->
+                    if (k == "ai" && !aiOk) this@CardActivity.launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
+                    else { translateBy = k; fillTranslate(p) }
                 }
+                if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = 0.35f
                 p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
             }
             val out = Ink.text(this@CardActivity, "", size); p.addView(out)
@@ -465,25 +479,41 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
+    /** The offline translation: [from] the detected language, [other] a language without a pack, [text] null when none can be made. */
+    private class Mt(val from: String?, val other: String?, val text: Result<String>?)
+    private var mtJob: Deferred<Mt>? = null
+
+    /** Started once (on open for a phrase, or by Translate) and shared; a ready result is read from the store. */
+    private fun mt(): Deferred<Mt> = mtJob ?: async(Dispatchers.IO) {
+        runCatching {
+            val root = prefs.modelsDir; val to = prefs.answerCode
+            val (from, other) = sourceLanguage(to)
+            when {
+                from == null || !Engine.ready(root, from, to) -> Mt(from, other, null)
+                from == to -> Mt(from, null, Result.success(query))
+                else -> Mt(from, null, runCatching {
+                    store.answer(query, to, "offline-$from", 1) ?: Engine.translate(root, from, to, query, keep = roomy())
+                        .also { runCatching { store.putAnswer(query, to, "offline-$from", 1, "bergamot", it) } }
+                })
+            }
+        }.getOrElse { Mt(null, null, Result.failure(it)) }
+    }.also { mtJob = it }
+
     private suspend fun offline(p: LinearLayout, out: TextView) {
-        val root = prefs.modelsDir; val to = prefs.answerCode
-        val (from, other) = withContext(Dispatchers.IO) { sourceLanguage(to) }
-        if (from == null || !Engine.ready(root, from, to)) {
+        val d = mt()
+        if (!d.isCompleted) out.text = getString(R.string.mt_working)
+        val r = d.await(); val from = r.from; val other = r.other; val to = prefs.answerCode
+        val text = r.text
+        if (text == null) {
             out.text = if (other != null) getString(R.string.lang_unsupported, java.util.Locale(other).getDisplayLanguage(resources.configuration.locales[0]))
                 else getString(R.string.mt_missing)
             if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
                 if (pages[DICT] == null) pages[DICT] = Ink.vertical(this); open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } } }
             return
         }
-        if (from == to) { out.text = query; return }
-        val key = "offline-$from"
-        val saved = withContext(Dispatchers.IO) { runCatching { store.answer(query, to, key, 1) }.getOrNull() }
-        if (saved == null) out.text = getString(R.string.mt_working)
-        val r = saved?.let { Result.success(it) } ?: withContext(Dispatchers.IO) { runCatching {
-            Engine.translate(root, from, to, query, keep = roomy()).also { runCatching { store.putAnswer(query, to, key, 1, "bergamot", it) } }
-        } }
-        val lang = java.util.Locale(from).getDisplayLanguage(resources.configuration.locales[0])
-        r.fold({ out.text = it; note(p, lang.replaceFirstChar { c -> c.uppercase() } + if (Engine.steps(from, to).size > 1) " · " + getString(R.string.mt_via_english) else "") },
+        val lang = from?.let { java.util.Locale(it).getDisplayLanguage(resources.configuration.locales[0]) }.orEmpty()
+        text.fold({ out.text = it; if (from != null && from != to)
+            note(p, lang.replaceFirstChar { c -> c.uppercase() } + if (Engine.steps(from, to).size > 1) " · " + getString(R.string.mt_via_english) else "") },
             { out.text = it.message ?: it.javaClass.simpleName })
     }
 
@@ -519,7 +549,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val on = withContext(Dispatchers.IO) { runCatching {
             if (store.isSaved(query)) { store.unsave(query); false } else {
                 val ai = store.answer(query, lang, Ask.QUICK.section, Ask.QUICK.version)
-                val dict = if (ai != null || kind != Kind.WORD) null else
+                val dict = if (ai != null) null else if (kind != Kind.WORD) mtJob?.takeIf { it.isCompleted }?.getCompleted()?.text?.getOrNull() else
                     prefs.library().gloss(query, emptyList(), emptySet(), script).firstOrNull()?.let { g ->
                         (if (g.base.equals(g.word, true)) "" else "→ ${g.base} · ") + g.meaning }
                 store.save(query, kindName, if (ai != null) Store.brief(ai) else dict.orEmpty()); true
@@ -549,18 +579,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val (items, counts) = withContext(Dispatchers.IO) { runCatching {
                 store.saved(kindNow, lang) to listOf(store.count("saved", "word"), store.count("saved", "phrase"))
             }.getOrNull() } ?: return@launch
-            val seg = Ink.horizontal(this@CardActivity)
-            listOf("word" to R.string.list_words, "phrase" to R.string.list_phrases).forEachIndexed { i, (k, label) ->
-                seg.addView(Ink.button(this@CardActivity, getString(label) + " (" + counts[i] + ")", size * 0.75f) { savedKind = k; fillSaved(p) }
-                    .apply { background = Ink.border(this@CardActivity, if (k == kindNow) SELECTED else 2) },
-                    Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
-            }
+            val seg = Ink.subTabs(this@CardActivity, listOf("word" to getString(R.string.list_words) + " (" + counts[0] + ")",
+                "phrase" to getString(R.string.list_phrases) + " (" + counts[1] + ")"), kindNow, size * 0.75f) { savedKind = it; fillSaved(p) }
             p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
             if (items.isEmpty()) note(p, getString(R.string.list_empty_saved))
             items.forEach { e ->
                 val r = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-                val meaning = if (e.meaning.isBlank()) "" else " — " + Ink.escape(e.meaning)
-                r.addView(Ink.text(this@CardActivity, "<b>${Ink.escape(e.text)}</b>$meaning", size * 0.85f, html = true).apply {
+                r.addView(Ink.entry(this@CardActivity, e.text, e.meaning, size * 0.85f).apply {
                     val q = Ink.dp(this@CardActivity, 5); setPadding(0, q, q, q)
                     setOnClickListener { startActivity(Intent(this@CardActivity, CardActivity::class.java)
                         .setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text)) }
