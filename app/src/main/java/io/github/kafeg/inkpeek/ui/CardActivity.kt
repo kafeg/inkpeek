@@ -128,13 +128,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate))) + actions.map { a ->
             Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
-        val n = tabs.size + 3; val gap = Ink.dp(this, 6)
-        val side = minOf(Ink.dp(this, 52), ((resources.displayMetrics.widthPixels * 0.92).toInt() - gap * (n + 3)) / n)
-        // A plain white strip: the page must not show between the icons.
-        val bar = Ink.horizontal(this).apply {
-            gravity = Gravity.CENTER_VERTICAL; setPadding(gap, gap, gap, gap)
-            background = android.graphics.drawable.GradientDrawable().apply { setColor(android.graphics.Color.WHITE); cornerRadius = Ink.dp(this@CardActivity, 10).toFloat() }
-        }
+        val n = tabs.size + 3; val gap = Ink.dp(this, 5)
+        val side = minOf(Ink.dp(this, 44), ((resources.displayMetrics.widthPixels * 0.92).toInt() - 2 * pad - gap * (n + 3)) / n)
+        // The icon row closes the card, under a thin line: one frame, no dead space around it.
+        val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
             val ai = id != DICT && id != TRANSLATE
@@ -152,16 +149,18 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
 
-        setContentView(Ink.vertical(this).apply {
-            addView(card, Ink.lp(h = 0, weight = 1f))
-            addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
-        })
+        card.addView(View(this).apply { setBackgroundColor(android.graphics.Color.BLACK) },
+            Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
+        card.addView(bar)
+        setContentView(card)
     }
 
     /** A bordered icon; long press shows its name, the "captions" setting writes it under the icon. */
     private fun iconButton(icon: Int, label: String, side: Int, caption: String = label, ai: Boolean = false, click: () -> Unit): View {
         val q = side / 5
-        val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"; setPadding(q, q, q, q) }
+        // An AI icon is drawn a bit smaller: its top-right corner holds the "AI" label.
+        val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"
+            if (ai) setPadding(q, q + q / 2, q + q / 2, q) else setPadding(q, q, q, q) }
         val name = if (ai) "$label · AI" else label
         return Ink.vertical(this).apply {
             gravity = Gravity.CENTER_HORIZONTAL; background = Ink.border(this@CardActivity)
@@ -169,9 +168,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             // An AI tab: a small "AI" in the icon's corner.
             addView(if (!ai) img else android.widget.FrameLayout(this@CardActivity).apply {
                 addView(img, android.widget.FrameLayout.LayoutParams(side, side))
-                // Clear of the border: the label sits inside the icon box, a few dp from its corner.
-                val m = Ink.dp(this@CardActivity, 4)
-                addView(Ink.text(this@CardActivity, "AI", 8f, bold = true).apply { includeFontPadding = false },
+                // Clear of the border even when thick (the open tab): 6 dp from the box corner.
+                val m = Ink.dp(this@CardActivity, 6)
+                addView(Ink.text(this@CardActivity, "AI", 9f, bold = true).apply { includeFontPadding = false },
                     android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
                         .apply { topMargin = m; rightMargin = m })
             }, LinearLayout.LayoutParams(side, side))
@@ -196,7 +195,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** Shows the tab, filling it the first time. */
     private fun open(tab: String) {
-        tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
+        tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) SELECTED else 2) }
         val page = pages[tab] ?: Ink.vertical(this).also { p ->
             pages[tab] = p
             when (tab) { DICT -> fillDictionary(p); SAVED -> fillSaved(p); TRANSLATE -> fillTranslate(p); else -> fillAi(p, tab) }
@@ -420,7 +419,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                     seg.addView(Ink.button(this@CardActivity, label, size * 0.75f) {
                         if (k == "ai" && !aiOk) launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
                         else { translateBy = k; fillTranslate(p) }
-                    }.apply { background = Ink.border(this@CardActivity, if (k == translateBy) 7 else 2); if (k == "ai" && !aiOk) alpha = 0.35f },
+                    }.apply { background = Ink.border(this@CardActivity, if (k == translateBy) SELECTED else 2); if (k == "ai" && !aiOk) alpha = 0.35f },
                         Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
                 }
                 p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
@@ -517,7 +516,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val seg = Ink.horizontal(this@CardActivity)
             listOf("word" to R.string.list_words, "phrase" to R.string.list_phrases).forEachIndexed { i, (k, label) ->
                 seg.addView(Ink.button(this@CardActivity, getString(label) + " (" + counts[i] + ")", size * 0.75f) { savedKind = k; fillSaved(p) }
-                    .apply { background = Ink.border(this@CardActivity, if (k == kindNow) 7 else 2) },
+                    .apply { background = Ink.border(this@CardActivity, if (k == kindNow) SELECTED else 2) },
                     Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
             }
             p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
@@ -542,5 +541,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    companion object { const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate" }
+    companion object {
+        const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"
+        /** Border of the open tab: a little heavier than the others, not bold. */
+        const val SELECTED = 4
+    }
 }

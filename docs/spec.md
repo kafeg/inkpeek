@@ -47,9 +47,10 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 1. The card (border): header — the selection or, for a word, its base form with article / plural or verb forms (large),
    a small line under it; "←" at the right while a word's article is open from the gloss. Body (scrolls). A hint line at
    the bottom when AI is off or there is no network.
-2. Under the card, outside its border, a white strip with bordered icons: Dictionary, Translate, Analysis, Context ·
-   ☆ Save (★ when saved), My words · ✕ Close at the right. The open tab has a thick border. Long press shows the name;
-   setting "names under the icons" writes it (short) under each icon. Icon size fits the width (≤ 52 dp).
+2. The icon row at the bottom of the card, under a thin line (one frame, no dead space around it): Dictionary,
+   Translate, Analysis, Context · ☆ Save (★ when saved), My words · ✕ Close at the right. Icons ≤ 44 dp; the open tab
+   has a slightly heavier border (4 vs 2); AI icons carry "AI" in their top-right corner, drawn smaller to leave
+   room for it. Long press shows the name; setting "names under the icons" writes it (short) under each icon.
 - My words in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
 - Size: 92% of screen width, 80% of height, centered (setting: center / top / bottom / follow the reader's
   `EXTRA_GRAVITY`).
