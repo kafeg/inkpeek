@@ -36,7 +36,6 @@
     <string name="pos_top">Positie: boven</string>
     <string name="pos_bottom">Positie: onder</string>
     <string name="pos_reader">Positie: zoals de leesapp vraagt</string>
-    <string name="card_tabs">AI-tabbladen in de kaart</string>
     <string name="a_translate">Vertalen</string>
     <string name="a_translate_d">Bij openen: de grondvorm met lidwoord en meervoud, of de werkwoordsvormen, in de kop; de hoofdbetekenissen. Een zin: een natuurlijke vertaling.</string>
     <string name="tab_dictionary">Woordenboek</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Context</string>
     <string name="a_context_d">Drie alledaagse voorbeelden met vertaling, register en uitdrukkingen; bij een passage wat er gebeurt en wat wordt bedoeld.</string>
     <string name="irregular">onregelm.</string>
+    <string name="close">Sluiten</string>
+    <string name="captions">Namen onder de pictogrammen</string>
+    <string name="icons_title">Pictogrammen in de kaart</string>
+    <string name="icon_dict_d">Lemma’s uit je woordenboeken; een zin krijgt een woord-voor-woordvertaling. Werkt offline.</string>
+    <string name="icon_save_d">Bewaart het woord of de zin in Mijn woorden; een gevulde ster betekent dat het er al is.</string>
+    <string name="icon_words_d">Je bewaarde woorden en zinnen; ook in de app-instellingen.</string>
+    <string name="save_short">Bewaren</string>
 </resources>

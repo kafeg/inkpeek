@@ -18,7 +18,7 @@ import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 enum class Provider(val title: String, val baseUrl: String, val defaultModel: String) {
-    ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-haiku-5-5"),
+    ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-sonnet-5-5"),
     OPENAI("OpenAI", "https://api.openai.com/v1", ""),
     OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", "openrouter/free"),
     /** Any server with the OpenAI API: LM Studio, Ollama, llama.cpp, vLLM, Groq, DeepSeek…; the address is a setting. */
@@ -86,9 +86,9 @@ enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: 
         "- meanings: 1–3 main meanings in {lang}, a few words each; [] for a phrase or passage.\n" +
         "- translation: a phrase or passage: a natural translation into {lang} that keeps the sentence type (a question " +
         "stays a question); \"\" for a single word.\n" +
-        "- note: one short line in {lang} only when something matters (idiom, false friend, register); else \"\".",
+        "Grammar, examples and comments do not belong here: other tabs give them.",
         mapOf("base" to "s", "article" to "s", "plural" to "s", "pos" to "s", "forms" to "s", "irregular" to "b",
-            "form_of" to "s", "meanings" to "a", "translation" to "s", "note" to "s"), 1024),
+            "form_of" to "s", "meanings" to "a", "translation" to "s"), 1024),
     DETAIL("Selected text: «{text}». Answer with one JSON object with two keys, \"analysis\" and \"context\"; each value " +
         "is a short text in {lang} with light Markdown (**bold**, *italic*, \"- \" lists, no headings).\n" +
         "analysis — a single word: what a learner needs to use it (forms, case or preposition it takes, separable prefix, " +
@@ -178,10 +178,13 @@ object Ai {
             }
             if (FALLBACK.any { model == it }) addBeta("server-side-fallback-2026-07-01").putAdditionalBodyProperty("fallbacks", JsonValue.from("default"))
         }.build()
-        val c = client(key); val memo = "anthropic|$model"
+        val c = client(key); val memo = "claude-json|$model"
         // Older models reject effort or thinking: ask once more without them and remember that.
         val msg = if (recall(memo) == 1) c.beta().messages().create(params(false)) else try { c.beta().messages().create(params(true)) }
-            catch (e: BadRequestException) { c.beta().messages().create(params(false)).also { remember(memo, 1) } }
+            catch (e: BadRequestException) {
+                Log.i("InkPeek", "$model: 400 with effort / thinking / schema, plain from now on: ${e.message?.take(200)}")
+                c.beta().messages().create(params(false)).also { remember(memo, 1) }
+            }
         if (msg.stopReason().map { it.toString() }.orElse("") == "refusal") throw AiError("The model declined this request")
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }

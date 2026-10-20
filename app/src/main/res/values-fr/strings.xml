@@ -36,7 +36,6 @@
     <string name="pos_top">Position : haut</string>
     <string name="pos_bottom">Position : bas</string>
     <string name="pos_reader">Position : selon la liseuse</string>
-    <string name="card_tabs">Onglets d’IA dans la fiche</string>
     <string name="a_translate">Traduire</string>
     <string name="a_translate_d">À l’ouverture : la forme de base avec article et pluriel, ou les formes du verbe, dans l’en-tête ; les sens principaux. Une expression : une traduction naturelle.</string>
     <string name="tab_dictionary">Dictionnaire</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Contexte</string>
     <string name="a_context_d">Trois exemples courants avec traduction, registre et expressions ; pour un passage, ce qui se passe et ce qui est sous-entendu.</string>
     <string name="irregular">irrég.</string>
+    <string name="close">Fermer</string>
+    <string name="captions">Noms sous les icônes</string>
+    <string name="icons_title">Icônes de la fiche</string>
+    <string name="icon_dict_d">Articles de vos dictionnaires ; une expression reçoit une glose mot à mot. Fonctionne hors ligne.</string>
+    <string name="icon_save_d">Garde le mot ou l’expression dans Mes mots ; une étoile pleine signifie qu’il y est déjà.</string>
+    <string name="icon_words_d">Vos mots et expressions enregistrés ; aussi dans les réglages de l’app.</string>
+    <string name="save_short">Garder</string>
 </resources>

@@ -37,7 +37,6 @@
     <string name="pos_top">Position: top</string>
     <string name="pos_bottom">Position: bottom</string>
     <string name="pos_reader">Position: as the reader asks</string>
-    <string name="card_tabs">AI tabs in the card</string>
     <string name="a_translate">Translate</string>
     <string name="a_translate_d">On open: base form with article and plural, or a verb\'s forms, in the header; main meanings. A phrase: a natural translation.</string>
     <string name="tab_dictionary">Dictionary</string>
@@ -101,4 +100,11 @@
     <string name="a_context">Context</string>
     <string name="a_context_d">Three everyday examples with a translation, register and idioms; for a passage — what happens and what is implied.</string>
     <string name="irregular">irregular</string>
+    <string name="close">Close</string>
+    <string name="captions">Names under the icons</string>
+    <string name="icons_title">Icons in the card</string>
+    <string name="icon_dict_d">Entries from your dictionaries; a phrase gets a word-by-word gloss. Works offline.</string>
+    <string name="icon_save_d">Keeps the word or phrase in My words; a filled star means it is there.</string>
+    <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
+    <string name="save_short">Save</string>
 </resources>

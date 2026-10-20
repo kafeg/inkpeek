@@ -127,7 +127,7 @@ OpenAI-compatible server** — your own or a cloud one. The model list has a sea
 sorting. For your own server, pick a preset and change the address if needed; a local server needs no key.
 
 Answers should come in seconds, so InkPeek asks every model to skip its reasoning pass where the provider allows
-it. Claude defaults to Haiku 5.5 — fast and cheap; Opus 5.5 gives deeper grammar notes but takes longer. When a
+it. Claude defaults to Sonnet 5.5; Haiku 5.5 is faster and cheaper but weaker on grammar, Opus 5.5 deeper but slower. When a
 provider refuses access (403), it often blocks the country: a VPN helps.
 
 | preset | address |

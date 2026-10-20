@@ -36,7 +36,6 @@
     <string name="pos_top">Положення: згори</string>
     <string name="pos_bottom">Положення: знизу</string>
     <string name="pos_reader">Положення: як просить читалка</string>
-    <string name="card_tabs">AI-вкладки в картці</string>
     <string name="a_translate">Переклад</string>
     <string name="a_translate_d">Одразу під час відкриття: початкова форма з артиклем і мн. або форми дієслова — у заголовку; головні значення. Фраза: природний переклад.</string>
     <string name="tab_dictionary">Словник</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Контекст</string>
     <string name="a_context_d">Три побутові приклади з перекладом, стиль та ідіоми; для уривка — що відбувається і що мається на увазі.</string>
     <string name="irregular">неправ.</string>
+    <string name="close">Закрити</string>
+    <string name="captions">Підписи під значками</string>
+    <string name="icons_title">Значки в картці</string>
+    <string name="icon_dict_d">Статті з ваших словників; для фрази — підрядник. Працює офлайн.</string>
+    <string name="icon_save_d">Зберігає слово чи фразу в «Мої слова»; зафарбована зірка — вже збережено.</string>
+    <string name="icon_words_d">Ваші збережені слова й фрази; вони ж — у налаштуваннях застосунку.</string>
+    <string name="save_short">Зберегти</string>
 </resources>

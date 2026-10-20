@@ -36,7 +36,6 @@
     <string name="pos_top">Vị trí: trên</string>
     <string name="pos_bottom">Vị trí: dưới</string>
     <string name="pos_reader">Vị trí: theo ứng dụng đọc</string>
-    <string name="card_tabs">Thẻ AI trong thẻ tra</string>
     <string name="a_translate">Dịch</string>
     <string name="a_translate_d">Khi mở: dạng gốc kèm mạo từ và số nhiều, hoặc các dạng của động từ, ở tiêu đề; các nghĩa chính. Cụm từ: bản dịch tự nhiên.</string>
     <string name="tab_dictionary">Từ điển</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Ngữ cảnh</string>
     <string name="a_context_d">Ba ví dụ thường ngày kèm bản dịch, sắc thái và thành ngữ; với đoạn văn — điều gì xảy ra và điều gì được ngụ ý.</string>
     <string name="irregular">bất quy tắc</string>
+    <string name="close">Đóng</string>
+    <string name="captions">Tên dưới biểu tượng</string>
+    <string name="icons_title">Biểu tượng trong thẻ</string>
+    <string name="icon_dict_d">Mục từ từ điển của bạn; cụm từ được giải nghĩa từng từ. Dùng được ngoại tuyến.</string>
+    <string name="icon_save_d">Lưu từ hoặc cụm từ vào Từ của tôi; sao tô kín nghĩa là đã lưu.</string>
+    <string name="icon_words_d">Các từ và cụm từ đã lưu; cũng có trong cài đặt ứng dụng.</string>
+    <string name="save_short">Lưu</string>
 </resources>

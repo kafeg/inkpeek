@@ -36,7 +36,6 @@
     <string name="pos_top">Posição: topo</string>
     <string name="pos_bottom">Posição: base</string>
     <string name="pos_reader">Posição: como o leitor pedir</string>
-    <string name="card_tabs">Separadores de IA no cartão</string>
     <string name="a_translate">Traduzir</string>
     <string name="a_translate_d">Ao abrir: a forma base com artigo e plural, ou as formas do verbo, no cabeçalho; os significados principais. Uma frase: uma tradução natural.</string>
     <string name="tab_dictionary">Dicionário</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Contexto</string>
     <string name="a_context_d">Três exemplos do dia a dia com tradução, registo e expressões; num trecho, o que acontece e o que fica implícito.</string>
     <string name="irregular">irreg.</string>
+    <string name="close">Fechar</string>
+    <string name="captions">Nomes sob os ícones</string>
+    <string name="icons_title">Ícones do cartão</string>
+    <string name="icon_dict_d">Entradas dos seus dicionários; uma frase recebe uma glosa palavra a palavra. Funciona offline.</string>
+    <string name="icon_save_d">Guarda a palavra ou frase em Minhas palavras; a estrela cheia indica que já está lá.</string>
+    <string name="icon_words_d">As suas palavras e frases guardadas; também nas definições da app.</string>
+    <string name="save_short">Guardar</string>
 </resources>

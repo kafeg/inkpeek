@@ -36,7 +36,6 @@
     <string name="pos_top">位置：上</string>
     <string name="pos_bottom">位置：下</string>
     <string name="pos_reader">位置：リーダーアプリに従う</string>
-    <string name="card_tabs">カードの AI タブ</string>
     <string name="a_translate">翻訳</string>
     <string name="a_translate_d">開いたときに：見出しに冠詞と複数形付きの基本形、または動詞の活用形。主な意味。フレーズ：自然な訳。</string>
     <string name="tab_dictionary">辞書</string>
@@ -100,4 +99,11 @@
     <string name="a_context">文脈</string>
     <string name="a_context_d">訳付きの日常的な例文3つ、文体と慣用句。長い文章では、何が起きていて何が含意されているか。</string>
     <string name="irregular">不規則</string>
+    <string name="close">閉じる</string>
+    <string name="captions">アイコンの下に名前</string>
+    <string name="icons_title">カードのアイコン</string>
+    <string name="icon_dict_d">辞書の項目。フレーズは逐語訳。オフラインで使えます。</string>
+    <string name="icon_save_d">単語やフレーズをマイ単語に保存。塗りつぶしの星は保存済み。</string>
+    <string name="icon_words_d">保存した単語とフレーズ。アプリの設定にもあります。</string>
+    <string name="save_short">保存</string>
 </resources>

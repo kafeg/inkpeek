@@ -37,10 +37,13 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
 (Häuser → Haus) makes the base form be looked up in the other dictionaries.
 
 ## Card layout
-1. Header: the query (large), close button.
-2. Body (scrolls): dictionary blocks in the configured order, each with a small dictionary name; only dictionaries
-   with a hit. AI answer block below, when present.
-3. Footer: the tabs (labels auto-size to fit).
+1. The card (border): header — the selection or, for a word, its base form with article / plural or verb forms (large),
+   a small line under it; "←" at the right while a word's article is open from the gloss. Body (scrolls). A hint line at
+   the bottom when AI is off or there is no network.
+2. Under the card, outside its border, a white strip with bordered icons: Dictionary, Translate, Analysis, Context ·
+   ☆ Save (★ when saved), My words · ✕ Close at the right. The open tab has a thick border. Long press shows the name;
+   setting "names under the icons" writes it (short) under each icon. Icon size fits the width (≤ 52 dp).
+- My words in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
 - Size: 92% of screen width, 80% of height, centered (setting: center / top / bottom / follow the reader's
   `EXTRA_GRAVITY`).
 - Font size: one setting (sp) for the body; header +30%.
@@ -67,7 +70,7 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   Non-streaming (one e-ink refresh per answer); `<think>` blocks stripped; error shown in the card.
 - Key per provider in settings; Claude can also read a key file (default `/sdcard/koreader/settings/anthropic.key`,
   shared with KOReader plugins). Never logged, never shown in full.
-- Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-haiku-5-5`.
+- Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-sonnet-5-5` (Haiku 5.5 was faster but got grammar wrong).
 - Least reasoning each model allows. Claude: effort low; thinking `disabled`, except Sonnet 5.5 (`between_tools`)
   and Opus 5.5 / Fable (cannot be off); a 400 retries without these and is remembered. Refusal fallback
   (`fallbacks: "default"`) on models that support it. One client per key, 45 s timeout, one retry.
@@ -83,7 +86,7 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   `response_format: json_object`, then without it on 400/422; the reply is parsed from the first `{` to the last `}`).
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
   - **Quick**, on card open (AI on): `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
-    `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type), `note`. Fills the header and Translate.
+    `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type); no grammar or comments. Fills the header and Translate.
   - **Detail**, on the first open of Analysis or Context: `analysis` (word: use, synonyms, related; phrase: how it is
     built and why + harder words; passage: constructions + up to 15 words) and `context` (3 examples with
     translation + register / idioms; passage: what happens and what is implied). Fills both tabs.
@@ -108,7 +111,7 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, text size, dim, position, AI tabs with descriptions) · My words. UI in 18 languages; system language
+(app language, text size, dim, position, names under icons, what each icon does) · My words. UI in 18 languages; system language
 by default.
 
 ## Tech
@@ -127,7 +130,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
 4. **Fixes and speed** (done).
    - Selection text: words lose edge punctuation; phrases keep the sentence end (`.?!…`), stray quotes and
      brackets at the edges go. Dictionaries still get the fully cleaned text.
-   - Claude: one client per key, at most one retry; default model `claude-haiku-5-5`, thinking off where the
+   - Claude: one client per key, at most one retry; default model `claude-sonnet-5-5`, thinking off where the
      model allows it (Opus 5.5 / Fable: effort low only; Sonnet 5.5: `between_tools`; others: `disabled`);
      a 400 retries once without the extras.
    - OpenAI-compatible: a "no reasoning" field chosen by host (OpenAI, OpenRouter, Gemini, DeepSeek, DashScope,
@@ -144,7 +147,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    a quick structured answer on open (head facts: base form, part of speech, article / gender, plural, verb
    forms, irregular, auxiliary; and the translation), and one detailed answer that fills Analysis and Context.
    No per-tab on/off setting.
-7. **Card** — icon bar under the card, outside its border: Dictionary, Translate, Analysis, Context · Save,
+7. **Card** (done) — icon bar under the card, outside its border: Dictionary, Translate, Analysis, Context · Save,
    My words · Close (bottom right). Long press shows the name; optional captions under icons; a settings page
    explains the icons. Header: the base form with its article and plural, or the verb's principal parts with
    "irregular"; the selected form under it when it differs.

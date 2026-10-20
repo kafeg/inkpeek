@@ -36,7 +36,6 @@
     <string name="pos_top">स्थिति: ऊपर</string>
     <string name="pos_bottom">स्थिति: नीचे</string>
     <string name="pos_reader">स्थिति: रीडर ऐप के अनुसार</string>
-    <string name="card_tabs">कार्ड में AI टैब</string>
     <string name="a_translate">अनुवाद</string>
     <string name="a_translate_d">खोलते ही: शीर्षक में आर्टिकल और बहुवचन के साथ मूल रूप, या क्रिया के रूप; मुख्य अर्थ। वाक्यांश: स्वाभाविक अनुवाद।</string>
     <string name="tab_dictionary">शब्दकोश</string>
@@ -100,4 +99,11 @@
     <string name="a_context">संदर्भ</string>
     <string name="a_context_d">अनुवाद के साथ तीन रोज़मर्रा के उदाहरण, शैली और मुहावरे; अंश के लिए — क्या हो रहा है और क्या निहित है।</string>
     <string name="irregular">अनियमित</string>
+    <string name="close">बंद करें</string>
+    <string name="captions">आइकन के नीचे नाम</string>
+    <string name="icons_title">कार्ड में आइकन</string>
+    <string name="icon_dict_d">आपके शब्दकोशों से प्रविष्टियाँ; वाक्यांश के लिए शब्दशः अर्थ। ऑफ़लाइन काम करता है।</string>
+    <string name="icon_save_d">शब्द या वाक्यांश को मेरे शब्द में रखता है; भरा तारा मतलब पहले से सहेजा है।</string>
+    <string name="icon_words_d">आपके सहेजे शब्द और वाक्यांश; ऐप सेटिंग में भी।</string>
+    <string name="save_short">सहेजें</string>
 </resources>

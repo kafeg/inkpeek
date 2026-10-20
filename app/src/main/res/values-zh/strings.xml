@@ -36,7 +36,6 @@
     <string name="pos_top">位置：顶部</string>
     <string name="pos_bottom">位置：底部</string>
     <string name="pos_reader">位置：由阅读器决定</string>
-    <string name="card_tabs">卡片中的 AI 标签</string>
     <string name="a_translate">翻译</string>
     <string name="a_translate_d">打开时即显示：标题中带冠词和复数的原形，或动词的各形式；主要词义。短语：自然的译文。</string>
     <string name="tab_dictionary">词典</string>
@@ -100,4 +99,11 @@
     <string name="a_context">语境</string>
     <string name="a_context_d">三个带译文的日常例句、语体和习语；对段落则说明发生了什么、暗含什么。</string>
     <string name="irregular">不规则</string>
+    <string name="close">关闭</string>
+    <string name="captions">图标下显示名称</string>
+    <string name="icons_title">卡片中的图标</string>
+    <string name="icon_dict_d">来自你的词典的词条；短语给出逐词释义。可离线使用。</string>
+    <string name="icon_save_d">把单词或短语存入我的单词；实心星表示已保存。</string>
+    <string name="icon_words_d">你保存的单词和短语；应用设置中也有。</string>
+    <string name="save_short">保存</string>
 </resources>

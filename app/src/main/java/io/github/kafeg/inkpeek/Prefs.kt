@@ -14,6 +14,8 @@ class Prefs(private val ctx: Context) {
     /** "" = system, else a language code with resources (en, ru, de). */
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
     var fontSp: Int get() = sp.getInt("font_sp", 20); set(v) = sp.edit().putInt("font_sp", v).apply()
+    /** Names under the card's icons. */
+    var captions: Boolean get() = sp.getBoolean("captions", false); set(v) = sp.edit().putBoolean("captions", v).apply()
     var dim: Boolean get() = sp.getBoolean("dim", true); set(v) = sp.edit().putBoolean("dim", v).apply()
     /** center | top | bottom | reader */
     var position: String get() = sp.getString("position", "center")!!; set(v) = sp.edit().putString("position", v).apply()

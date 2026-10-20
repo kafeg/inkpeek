@@ -36,7 +36,6 @@
     <string name="pos_top">Pozice: nahoře</string>
     <string name="pos_bottom">Pozice: dole</string>
     <string name="pos_reader">Pozice: podle čtečky</string>
-    <string name="card_tabs">Karty AI v kartě</string>
     <string name="a_translate">Přeložit</string>
     <string name="a_translate_d">Hned po otevření: základní tvar se členem a množným číslem nebo tvary slovesa v záhlaví; hlavní významy. Fráze: přirozený překlad.</string>
     <string name="tab_dictionary">Slovník</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Kontext</string>
     <string name="a_context_d">Tři běžné příklady s překladem, styl a idiomy; u úryvku — co se děje a co je naznačeno.</string>
     <string name="irregular">nepravid.</string>
+    <string name="close">Zavřít</string>
+    <string name="captions">Popisky pod ikonami</string>
+    <string name="icons_title">Ikony v kartě</string>
+    <string name="icon_dict_d">Hesla z vašich slovníků; fráze dostane překlad slovo po slovu. Funguje offline.</string>
+    <string name="icon_save_d">Uloží slovo nebo frázi do Mých slov; plná hvězda znamená, že už tam je.</string>
+    <string name="icon_words_d">Vaše uložená slova a fráze; také v nastavení aplikace.</string>
+    <string name="save_short">Uložit</string>
 </resources>

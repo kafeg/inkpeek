@@ -36,7 +36,6 @@
     <string name="pos_top">위치: 위</string>
     <string name="pos_bottom">위치: 아래</string>
     <string name="pos_reader">위치: 리더 앱 설정대로</string>
-    <string name="card_tabs">카드의 AI 탭</string>
     <string name="a_translate">번역</string>
     <string name="a_translate_d">열 때 바로: 제목에 관사와 복수형을 붙인 기본형 또는 동사 활용형, 주요 뜻. 구문: 자연스러운 번역.</string>
     <string name="tab_dictionary">사전</string>
@@ -100,4 +99,11 @@
     <string name="a_context">맥락</string>
     <string name="a_context_d">번역이 있는 일상 예문 3개, 문체와 관용구. 긴 글은 무슨 일이 일어나고 무엇을 암시하는지.</string>
     <string name="irregular">불규칙</string>
+    <string name="close">닫기</string>
+    <string name="captions">아이콘 아래 이름</string>
+    <string name="icons_title">카드의 아이콘</string>
+    <string name="icon_dict_d">내 사전의 항목. 구문은 단어별 풀이. 오프라인에서도 작동합니다.</string>
+    <string name="icon_save_d">단어나 구문을 내 단어에 저장. 채워진 별은 이미 저장됨.</string>
+    <string name="icon_words_d">저장한 단어와 구문. 앱 설정에도 있습니다.</string>
+    <string name="save_short">저장</string>
 </resources>

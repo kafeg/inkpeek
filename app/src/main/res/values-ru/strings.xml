@@ -36,7 +36,6 @@
     <string name="pos_top">Положение: сверху</string>
     <string name="pos_bottom">Положение: снизу</string>
     <string name="pos_reader">Положение: как просит читалка</string>
-    <string name="card_tabs">AI-вкладки в карточке</string>
     <string name="a_translate">Перевод</string>
     <string name="a_translate_d">Сразу при открытии: начальная форма с артиклем и мн. ч. или формы глагола — в заголовке; главные значения. Фраза: естественный перевод.</string>
     <string name="tab_dictionary">Словарь</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Контекст</string>
     <string name="a_context_d">Три бытовых примера с переводом, стиль и идиомы; для отрывка — что происходит и что подразумевается.</string>
     <string name="irregular">неправ.</string>
+    <string name="close">Закрыть</string>
+    <string name="captions">Подписи под значками</string>
+    <string name="icons_title">Значки в карточке</string>
+    <string name="icon_dict_d">Статьи из ваших словарей; для фразы — подстрочник. Работает офлайн.</string>
+    <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
+    <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
+    <string name="save_short">Сохранить</string>
 </resources>

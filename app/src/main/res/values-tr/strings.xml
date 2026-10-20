@@ -36,7 +36,6 @@
     <string name="pos_top">Konum: üst</string>
     <string name="pos_bottom">Konum: alt</string>
     <string name="pos_reader">Konum: okuma uygulamasına göre</string>
-    <string name="card_tabs">Karttaki yapay zekâ sekmeleri</string>
     <string name="a_translate">Çevir</string>
     <string name="a_translate_d">Açılınca: başlıkta tanımlık ve çoğuluyla temel biçim ya da fiil çekimleri; ana anlamlar. İfade: doğal bir çeviri.</string>
     <string name="tab_dictionary">Sözlük</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Bağlam</string>
     <string name="a_context_d">Çevirili üç günlük örnek, üslup ve deyimler; bir pasajda ne olduğu ve ne ima edildiği.</string>
     <string name="irregular">düzensiz</string>
+    <string name="close">Kapat</string>
+    <string name="captions">Simgelerin altında adlar</string>
+    <string name="icons_title">Karttaki simgeler</string>
+    <string name="icon_dict_d">Sözlüklerinizden maddeler; ifadeye kelime kelime açıklama. Çevrimdışı çalışır.</string>
+    <string name="icon_save_d">Kelimeyi ya da ifadeyi Kelimelerim’e kaydeder; dolu yıldız zaten kayıtlı demektir.</string>
+    <string name="icon_words_d">Kaydettiğiniz kelimeler ve ifadeler; uygulama ayarlarında da var.</string>
+    <string name="save_short">Kaydet</string>
 </resources>

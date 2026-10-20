@@ -36,7 +36,6 @@
     <string name="pos_top">Posisi: atas</string>
     <string name="pos_bottom">Posisi: bawah</string>
     <string name="pos_reader">Posisi: sesuai aplikasi baca</string>
-    <string name="card_tabs">Tab AI di kartu</string>
     <string name="a_translate">Terjemahkan</string>
     <string name="a_translate_d">Saat dibuka: bentuk dasar dengan artikel dan jamak, atau bentuk kata kerja, di judul; makna utama. Frasa: terjemahan yang wajar.</string>
     <string name="tab_dictionary">Kamus</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Konteks</string>
     <string name="a_context_d">Tiga contoh sehari-hari dengan terjemahan, ragam bahasa dan idiom; untuk bacaan — apa yang terjadi dan apa yang tersirat.</string>
     <string name="irregular">tak beraturan</string>
+    <string name="close">Tutup</string>
+    <string name="captions">Nama di bawah ikon</string>
+    <string name="icons_title">Ikon di kartu</string>
+    <string name="icon_dict_d">Entri dari kamus Anda; frasa mendapat terjemahan kata per kata. Berfungsi offline.</string>
+    <string name="icon_save_d">Menyimpan kata atau frasa ke Kata saya; bintang terisi berarti sudah tersimpan.</string>
+    <string name="icon_words_d">Kata dan frasa yang Anda simpan; juga di pengaturan aplikasi.</string>
+    <string name="save_short">Simpan</string>
 </resources>

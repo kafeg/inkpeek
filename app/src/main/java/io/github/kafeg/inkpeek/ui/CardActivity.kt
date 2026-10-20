@@ -38,9 +38,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
     private lateinit var scroll: ScrollView
     private val pages = HashMap<String, LinearLayout>()
-    private val tabButtons = LinkedHashMap<String, TextView>()
+    private val tabButtons = LinkedHashMap<String, View>()
     private var shown = ""
-    /** Header button "←" next to "✕": shown while a word's article is open from the gloss. */
+    /** Header button "←": shown while a word's article is open from the gloss. */
     private lateinit var backButton: android.widget.ImageView
     private lateinit var starButton: android.widget.ImageView
     private val store by lazy { Store.get(this) }
@@ -96,57 +96,70 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else -> i.getStringExtra("EXTRA_QUERY") ?: i.getStringExtra(Intent.EXTRA_TEXT)
     }
 
+    /** The card (header, body) with the icon bar under it, outside its border: tabs · save, my words · close. */
     private fun build() {
-        val pad = Ink.dp(this, 14)
-        val root = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
-        // Title over the full width, the close button pinned top-right (no weights: multi-line ellipsis measures right).
+        val pad = Ink.dp(this, 14); val x = Ink.dp(this, 44)
+        val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
         val head = android.widget.FrameLayout(this)
-        val x = Ink.dp(this, 44)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
         }
         // Under the title: the selected form, part of speech, "irregular" — once the quick answer is in.
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE }
-        titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView); setPadding(0, 0, 2 * (x + Ink.dp(this@CardActivity, 8)), 0) }
+        titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         backButton = android.widget.ImageView(this).apply {
             setImageResource(R.drawable.ic_back); background = Ink.border(this@CardActivity)
             val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
-            contentDescription = getString(R.string.back); visibility = View.GONE
+            contentDescription = getString(R.string.back); tooltipText = contentDescription; visibility = View.GONE
             setOnClickListener { dictBack?.invoke() }
         }
-        starButton = android.widget.ImageView(this).apply {
-            setImageResource(R.drawable.ic_star); background = Ink.border(this@CardActivity)
-            val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
-            contentDescription = getString(R.string.save_word); setOnClickListener { toggleSaved() }
-        }
-        val gap = Ink.dp(this, 8)
-        head.addView(starButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = x + gap })
-        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = 2 * (x + gap) })
-        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
-        head.addView(Ink.button(this, "✕", size) { finish() }.apply { setPadding(0, 0, 0, 0) },
-            android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
-        root.addView(head)
+        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
+        card.addView(head)
         scroll = ScrollView(this)
-        root.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
-        val tabs = (if (dictTab) listOf(DICT to getString(R.string.tab_dictionary)) else emptyList()) +
-            actions.map { it.id to Ink.label(this, it) }
-        val row = Ink.horizontal(this)
-        tabs.forEachIndexed { i, (id, label) ->
-            val b = Ink.button(this, label, size * 0.72f) { open(id) }.apply {
-                val q = Ink.dp(this@CardActivity, 4); setPadding(q, q * 3, q, q * 3); maxLines = 1
-                setAutoSizeTextTypeUniformWithConfiguration(9, (size * 0.72f).toInt().coerceAtLeast(10), 1, android.util.TypedValue.COMPLEX_UNIT_SP)
-            }
-            tabButtons[id] = b
-            row.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 5) })
+        card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
+        val hint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
+        if (hint != null) card.addView(Ink.text(this, hint, size * 0.65f), Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+
+        val tabs = listOf(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary))) + actions.map { a ->
+            Triple(a.id, mapOf("translate" to R.drawable.ic_translate, "analysis" to R.drawable.ic_analysis).getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a))
         }
-        if (tabs.size > 1) root.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 10) })
-        if (prefs.aiOn && !online) root.addView(Ink.text(this, getString(R.string.offline), size * 0.65f),
-            Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
-        if (!prefs.aiOn) root.addView(Ink.text(this, getString(R.string.ai_off), size * 0.65f),
-            Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
-        setContentView(root)
+        val n = tabs.size + 3; val gap = Ink.dp(this, 6)
+        val side = minOf(Ink.dp(this, 52), ((resources.displayMetrics.widthPixels * 0.92).toInt() - gap * (n + 3)) / n)
+        // A plain white strip: the page must not show between the icons.
+        val bar = Ink.horizontal(this).apply {
+            gravity = Gravity.CENTER_VERTICAL; setPadding(gap, gap, gap, gap)
+            background = android.graphics.drawable.GradientDrawable().apply { setColor(android.graphics.Color.WHITE); cornerRadius = Ink.dp(this@CardActivity, 10).toFloat() }
+        }
+        fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
+        tabs.forEachIndexed { i, (id, icon, label) -> add(iconButton(icon, label, side) { open(id) }.also { tabButtons[id] = it }, i == 0) }
+        bar.addView(View(this), Ink.lp(gap * 2, 1))
+        val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side, getString(R.string.save_short)) { toggleSaved() }
+        starButton = star.findViewWithTag("icon"); add(star)
+        add(iconButton(R.drawable.ic_words, getString(R.string.tab_words), side) { open(SAVED) }.also { tabButtons[SAVED] = it })
+        bar.addView(View(this), Ink.lp(0, 1, weight = 1f))
+        add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
+        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
+
+        setContentView(Ink.vertical(this).apply {
+            addView(card, Ink.lp(h = 0, weight = 1f))
+            addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+        })
+    }
+
+    /** A bordered icon; long press shows its name, the "captions" setting writes it under the icon. */
+    private fun iconButton(icon: Int, label: String, side: Int, caption: String = label, click: () -> Unit): View {
+        val q = side / 5
+        val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"; setPadding(q, q, q, q) }
+        return Ink.vertical(this).apply {
+            gravity = Gravity.CENTER_HORIZONTAL; background = Ink.border(this@CardActivity)
+            contentDescription = label; tooltipText = label; isClickable = true; setOnClickListener { click() }
+            addView(img, LinearLayout.LayoutParams(side, side))
+            if (prefs.captions) addView(Ink.text(this@CardActivity, caption, 9f).apply {
+                maxLines = 1; gravity = Gravity.CENTER; setPadding(2, 0, 2, Ink.dp(this@CardActivity, 3))
+            }, LinearLayout.LayoutParams(side, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
+        }
     }
 
     private fun placeWindow() {
@@ -167,7 +180,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
         val page = pages[tab] ?: Ink.vertical(this).also { p ->
             pages[tab] = p
-            if (tab == DICT) fillDictionary(p) else fillAi(p, tab)
+            when (tab) { DICT -> fillDictionary(p); SAVED -> fillSaved(p); else -> fillAi(p, tab) }
         }
         scroll.removeAllViews(); scroll.addView(page); scroll.scrollTo(0, 0)
         shown = tab; showBack()
@@ -177,7 +190,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val on = shown == DICT && dictBack != null
         backButton.visibility = if (on) View.VISIBLE else View.GONE
         val x = Ink.dp(this, 44); val gap = Ink.dp(this, 8)
-        titleBox.setPadding(0, 0, (if (on) 3 else 2) * (x + gap), 0)
+        titleBox.setPadding(0, 0, if (on) x + gap else 0, 0)
     }
 
     /** System Back from a word's article returns to the gloss first. */
@@ -337,8 +350,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun render(tab: String, j: org.json.JSONObject): String = when (tab) {
         "translate" -> {
             val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).map { "- " + a.getString(it) } }.orEmpty()
-            (listOf(j.str("translation")) + m + j.str("note").let { if (it.isBlank()) "" else "\n*$it*" })
-                .filter { it.isNotBlank() }.joinToString("\n")
+            (listOf(j.str("translation")) + m).filter { it.isNotBlank() }.joinToString("\n")
         }
         else -> j.str(tab)
     }
@@ -367,7 +379,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun starred(on: Boolean) {
         starButton.setImageResource(if (on) R.drawable.ic_star_on else R.drawable.ic_star)
-        starButton.contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word)
+        (starButton.parent as View).apply { contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word); tooltipText = contentDescription }
     }
 
     /** ☆ saves the selection with one short meaning: the cached translation, else the dictionaries; ★ removes it. */
@@ -396,5 +408,43 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    companion object { const val DICT = "dict" }
+    private var savedKind = "word"
+
+    /** My words in the card: saved words or phrases; tap opens one in the card, ✕ removes it. */
+    private fun fillSaved(p: LinearLayout) {
+        p.removeAllViews()
+        launch {
+            val lang = prefs.answerLang; val kindNow = savedKind
+            val (items, counts) = withContext(Dispatchers.IO) { runCatching {
+                store.saved(kindNow, lang) to listOf(store.count("saved", "word"), store.count("saved", "phrase"))
+            }.getOrNull() } ?: return@launch
+            val seg = Ink.horizontal(this@CardActivity)
+            listOf("word" to R.string.list_words, "phrase" to R.string.list_phrases).forEachIndexed { i, (k, label) ->
+                seg.addView(Ink.button(this@CardActivity, getString(label) + " (" + counts[i] + ")", size * 0.75f) { savedKind = k; fillSaved(p) }
+                    .apply { background = Ink.border(this@CardActivity, if (k == kindNow) 7 else 2) },
+                    Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
+            }
+            p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
+            if (items.isEmpty()) note(p, getString(R.string.list_empty_saved))
+            items.forEach { e ->
+                val r = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
+                val meaning = if (e.meaning.isBlank()) "" else " — " + Ink.escape(e.meaning)
+                r.addView(Ink.text(this@CardActivity, "<b>${Ink.escape(e.text)}</b>$meaning", size * 0.85f, html = true).apply {
+                    val q = Ink.dp(this@CardActivity, 5); setPadding(0, q, q, q)
+                    setOnClickListener { startActivity(Intent(this@CardActivity, CardActivity::class.java)
+                        .setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text)) }
+                }, Ink.lp(0, weight = 1f))
+                r.addView(Ink.button(this@CardActivity, "✕", size * 0.75f) {
+                    launch {
+                        withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }
+                        if (e.text == query) starred(false)
+                        fillSaved(p)
+                    }
+                })
+                p.addView(r)
+            }
+        }
+    }
+
+    companion object { const val DICT = "dict"; const val SAVED = "saved" }
 }

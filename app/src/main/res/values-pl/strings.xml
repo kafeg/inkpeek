@@ -36,7 +36,6 @@
     <string name="pos_top">Pozycja: góra</string>
     <string name="pos_bottom">Pozycja: dół</string>
     <string name="pos_reader">Pozycja: jak chce czytnik</string>
-    <string name="card_tabs">Karty AI w karcie</string>
     <string name="a_translate">Tłumaczenie</string>
     <string name="a_translate_d">Od razu po otwarciu: forma podstawowa z rodzajnikiem i liczbą mnogą albo formy czasownika w nagłówku; główne znaczenia. Wyrażenie: naturalne tłumaczenie.</string>
     <string name="tab_dictionary">Słownik</string>
@@ -100,4 +99,11 @@
     <string name="a_context">Kontekst</string>
     <string name="a_context_d">Trzy codzienne przykłady z tłumaczeniem, rejestr i idiomy; dla fragmentu — co się dzieje i co jest zasugerowane.</string>
     <string name="irregular">niereg.</string>
+    <string name="close">Zamknij</string>
+    <string name="captions">Nazwy pod ikonami</string>
+    <string name="icons_title">Ikony w karcie</string>
+    <string name="icon_dict_d">Hasła z twoich słowników; wyrażenie dostaje glosę słowo po słowie. Działa offline.</string>
+    <string name="icon_save_d">Zapisuje słowo lub wyrażenie w Moich słowach; pełna gwiazdka znaczy, że już tam jest.</string>
+    <string name="icon_words_d">Twoje zapisane słowa i wyrażenia; także w ustawieniach aplikacji.</string>
+    <string name="save_short">Zapisz</string>
 </resources>

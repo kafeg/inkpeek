@@ -368,10 +368,20 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val pos = listOf("center", "top", "bottom", "reader")
         val posLabels = listOf(R.string.pos_center, R.string.pos_top, R.string.pos_bottom, R.string.pos_reader).map { getString(it) }
         t.addView(spinner(posLabels, pos.indexOf(prefs.position).coerceAtLeast(0)) { prefs.position = pos[it] })
-        t.addView(Ink.text(this, getString(R.string.card_tabs), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
-        Action.ALL.forEach { a ->
-            t.addView(Ink.text(this, Ink.label(this, a), sp, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
-            t.addView(Ink.text(this, Ink.description(this, a), 14f))
+        t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
+        t.addView(switch(getString(R.string.captions), prefs.captions) { prefs.captions = it })
+        // What each icon of the card does: icon, name, one line.
+        val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d))) +
+            Action.ALL.map { a -> Triple(mapOf("translate" to R.drawable.ic_translate, "analysis" to R.drawable.ic_analysis)
+                .getOrDefault(a.id, R.drawable.ic_context), Ink.label(this, a), Ink.description(this, a)) } +
+            listOf(Triple(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d)),
+                Triple(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d)),
+                Triple(R.drawable.ic_close, getString(R.string.close), ""))
+        icons.forEach { (icon, label, about) ->
+            val r = Ink.horizontal(this)
+            r.addView(android.widget.ImageView(this).apply { setImageResource(icon) }, LinearLayout.LayoutParams(Ink.dp(this, 28), Ink.dp(this, 28)).apply { rightMargin = Ink.dp(this@MainActivity, 12) })
+            r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b>" + if (about.isBlank()) "" else "<br>" + Ink.escape(about), 15f, html = true), Ink.lp(0, weight = 1f))
+            t.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
         }
     }
 
