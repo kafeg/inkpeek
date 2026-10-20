@@ -16,7 +16,7 @@ import java.util.Locale
 
 /**
  * Translate (core): offline on the device (through English when neither side is English), or by AI — a second tab
- * when AI is on; the setting picks the first one.
+ * when AI is on; the setting picks which one opens.
  */
 class TranslatePage(private val card: CardActivity) {
     private var by = ""
@@ -28,7 +28,7 @@ class TranslatePage(private val card: CardActivity) {
             val aiOk = card.prefs.aiOn && withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) } == null
             if (by.isEmpty()) by = if (card.prefs.translateMode == "ai" && aiOk) "ai" else "offline"
             if (card.prefs.aiOn) {
-                val seg = Ink.subTabs(card, listOf("ai" to "AI", "offline" to card.getString(R.string.mt_offline)), by, card.size * 0.75f) { k ->
+                val seg = Ink.subTabs(card, listOf("offline" to card.getString(R.string.mt_offline), "ai" to "AI"), by, card.size * 0.75f) { k ->
                     if (k == "ai" && !aiOk) card.launch { withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) }?.let { card.toast(card.getString(it)) } }
                     else { by = k; fill(p) }
                 }
