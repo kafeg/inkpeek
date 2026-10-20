@@ -76,7 +76,6 @@
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="tab_translate">Translate</string>
     <string name="icon_translate_d">AI when it can answer (see AI settings), else the offline translation on this device.</string>
-    <string name="mt_ai_first">Translate with AI first when it can answer</string>
     <string name="mt_missing">Offline translation needs a language pack: InkPeek settings → Languages.</string>
     <string name="mt_working">Translating…</string>
     <string name="mt_via_english">Offline translation, through English</string>

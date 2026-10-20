@@ -15,20 +15,21 @@ import kotlinx.coroutines.withContext
 import java.util.Locale
 
 /**
- * Translate (core): offline on the device (through English when neither side is English), or by AI — a second tab
- * when AI is on; the setting picks which one opens.
+ * Translate: by AI when it can answer (on, set up, online) — its tab first; else offline on the device (through English
+ * when neither side is English), always there as the other tab.
  */
 class TranslatePage(private val card: CardActivity) {
     private var by = ""
     private var job: Job? = null
 
     fun fill(p: LinearLayout) {
-        job?.cancel(); p.removeAllViews()
+        job?.cancel(); p.removeAllViews(); card.hint(CardActivity.TRANSLATE, null)
         job = card.launch {
             val aiOk = card.prefs.aiOn && withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) } == null
-            if (by.isEmpty()) by = if (card.prefs.translateMode == "ai" && aiOk) "ai" else "offline"
+            if (by.isEmpty()) by = if (aiOk) "ai" else "offline"
             if (card.prefs.aiOn) {
-                val seg = Ink.subTabs(card, listOf("offline" to card.getString(R.string.mt_offline), "ai" to "AI"), by, card.size * 0.75f) { k ->
+                val tabs = listOf("ai" to "AI", "offline" to card.getString(R.string.mt_offline)).let { if (aiOk) it else it.reversed() }
+                val seg = Ink.subTabs(card, tabs, by, card.size * 0.75f) { k ->
                     if (k == "ai" && !aiOk) card.launch { withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) }?.let { card.toast(card.getString(it)) } }
                     else { by = k; fill(p) }
                 }
@@ -52,8 +53,9 @@ class TranslatePage(private val card: CardActivity) {
             if (card.kind != Kind.WORD) card.dictionary.under(p, this)
             return
         }
+        // Which language and how, in small print at the card's bottom: the translation alone in the page.
         text.fold({ out.text = it; val from = r.from
-            if (from != null && from != to) card.note(p, Locale(from).getDisplayLanguage(locale).replaceFirstChar { c -> c.uppercase() } +
+            if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Locale(from).getDisplayLanguage(locale).replaceFirstChar { c -> c.uppercase() } +
                 if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
             { out.text = it.message ?: it.javaClass.simpleName })
     }

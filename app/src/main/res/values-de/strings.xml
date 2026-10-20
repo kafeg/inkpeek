@@ -75,7 +75,6 @@
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
     <string name="tab_translate">Übersetzen</string>
     <string name="icon_translate_d">KI, wenn sie antworten kann (siehe KI-Einstellungen), sonst die Offline-Übersetzung auf dem Gerät.</string>
-    <string name="mt_ai_first">Zuerst mit KI übersetzen, wenn sie verfügbar ist</string>
     <string name="mt_missing">Für die Offline-Übersetzung braucht es ein Sprachpaket: InkPeek-Einstellungen → Sprachen.</string>
     <string name="mt_working">Übersetze…</string>
     <string name="mt_via_english">Offline-Übersetzung, über Englisch</string>

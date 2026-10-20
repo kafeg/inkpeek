@@ -76,7 +76,6 @@
     <string name="icon_words_d">Twoje zapisane słowa i wyrażenia; także w ustawieniach aplikacji.</string>
     <string name="tab_translate">Tłumaczenie</string>
     <string name="icon_translate_d">AI, gdy może odpowiedzieć (zob. ustawienia AI), a w przeciwnym razie tłumaczenie offline na urządzeniu.</string>
-    <string name="mt_ai_first">Najpierw tłumacz przez AI, gdy może odpowiedzieć</string>
     <string name="mt_missing">Tłumaczenie offline wymaga pakietu językowego: ustawienia InkPeek → Języki.</string>
     <string name="mt_working">Tłumaczenie…</string>
     <string name="mt_via_english">Tłumaczenie offline, przez angielski</string>

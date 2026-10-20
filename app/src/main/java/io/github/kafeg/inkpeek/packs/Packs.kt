@@ -97,8 +97,6 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     fun installedPairs(): List<Pair<String, String>> = installed().keys.filter { it.startsWith("dict-") }
         .map { it.removePrefix("dict-").let { p -> p.substringBefore('-') to p.substringAfter('-') } }
 
-    /** Book languages that have this answer language: those with a dictionary into it. */
-    fun installedBooks(answer: String): List<String> = installedPairs().filter { it.second == answer }.map { it.first }
 
     /** Unpacked outside the library first: the card must not see a half-written dictionary. */
     private fun staging(dest: File) = File(root, "tmp/" + dest.name).also { it.deleteRecursively(); it.mkdirs() }

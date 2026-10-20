@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Environment
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.stardict.Library
+import io.github.kafeg.inkpeek.stardict.answer
+import io.github.kafeg.inkpeek.stardict.book
 import java.io.File
 
 /** All settings in one SharedPreferences file. */
@@ -50,14 +52,17 @@ class Prefs(private val ctx: Context) {
     val keysDir: File get() = File(home, "keys").apply { mkdirs() }
     /** Offline translation models, one folder per direction (deen, enru). */
     val modelsDir: File get() = File(home, "models").apply { mkdirs() }
-    /** Translate tab: "ai" — AI when it can answer, else offline; "offline" — always offline. */
-    var translateMode: String get() = sp.getString("translate_mode", "offline")!!; set(v) = sp.edit().putString("translate_mode", v).apply()
+    /** The ticked language pairs ("de-ru"): the card uses only these; null — every installed pair (until the first change). */
+    var pairs: Set<String>? get() = sp.getStringSet("pairs", null)?.toSet(); set(v) = sp.edit().putStringSet("pairs", v).apply()
 
     /** Language packs from our releases: dictionaries, models, langid. */
     val packs: io.github.kafeg.inkpeek.packs.Packs get() = io.github.kafeg.inkpeek.packs.Packs(File(home, "packs"), modelsDir)
 
     /** The language packs' dictionaries: the card's only dictionaries. */
-    fun library(): Library = lib ?: Library(listOf(packs.dicts), File(ctx.filesDir, "index")).also { lib = it }
+    fun library(): Library = lib ?: sp.let { p ->
+        // Shared by every screen: it reads the ticks from the preferences, not from this object.
+        Library(listOf(packs.dicts), File(ctx.filesDir, "index")) { d -> p.getStringSet("pairs", null)?.contains("${d.book}-${d.answer}") ?: true }
+    }.also { lib = it }
 
     /** After installing or removing packs. */
     fun reload() { lib = null }

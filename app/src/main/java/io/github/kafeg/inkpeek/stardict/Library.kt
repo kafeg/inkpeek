@@ -5,10 +5,11 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
 /**
- * The language packs' dictionaries under [roots] (dict-<x>-<y> folders). Indexes are built by one background thread,
+ * The language packs' dictionaries under [roots] (dict-<x>-<y> folders), those [use] lets in (the ticked pairs).
+ * Indexes are built by one background thread,
  * one dictionary at a time; [status] tells the UI what is going on.
  */
-class Library(private val roots: List<File>, private val workRoot: File) {
+class Library(private val roots: List<File>, private val workRoot: File, private val use: (StarDict) -> Boolean = { true }) {
     private var cache: Map<String, StarDict> = emptyMap()
     private val worker = Executors.newSingleThreadExecutor { r -> Thread(r, "inkpeek-index").apply { isDaemon = true } }
     private val queued = ConcurrentHashMap.newKeySet<String>()
@@ -24,7 +25,7 @@ class Library(private val roots: List<File>, private val workRoot: File) {
             val src = File(dir, "source").takeIf { it.exists() }?.readText()
             if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
         }
-        return cache.values.sortedBy { it.name }
+        return cache.values.filter(use).sortedBy { it.name }
     }
 
     /** Queues index building for every dictionary that needs it. */

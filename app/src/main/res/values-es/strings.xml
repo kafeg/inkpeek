@@ -76,7 +76,6 @@
     <string name="icon_words_d">Tus palabras y frases guardadas; también en los ajustes de la app.</string>
     <string name="tab_translate">Traducir</string>
     <string name="icon_translate_d">La IA cuando puede responder (ver ajustes de IA); si no, la traducción sin conexión en el dispositivo.</string>
-    <string name="mt_ai_first">Traducir primero con IA cuando pueda responder</string>
     <string name="mt_missing">La traducción sin conexión necesita un paquete de idioma: ajustes de InkPeek → Idiomas.</string>
     <string name="mt_working">Traduciendo…</string>
     <string name="mt_via_english">Traducción sin conexión, a través del inglés</string>

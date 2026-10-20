@@ -112,8 +112,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         card.addView(head)
         scroll = ScrollView(this)
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
-        val hint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
-        if (hint != null) card.addView(Ink.text(this, hint, size * 0.65f), Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+        // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
+        baseHint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
+        hintView = Ink.text(this, "", size * 0.65f); showHint()
+        card.addView(hintView, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
 
         val tabs = listOf(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
             Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate))) + actions.map { a ->
@@ -183,12 +185,21 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (fill) when (tab) { DICT -> dictionary.fill(p); SAVED -> words.fill(p); TRANSLATE -> translate.fill(p); else -> ai.fill(p, tab) }
     }
 
+    private lateinit var hintView: TextView
+    private var baseHint: String? = null
+
+    private val hints = HashMap<String, String?>()
+
+    /** [tab]'s small line at the bottom: [s], or the card's own note when null; shown while the tab is open. */
+    fun hint(tab: String, s: String?) { hints[tab] = s; showHint() }
+    private fun showHint() { val t = hints[shown] ?: baseHint; hintView.text = t.orEmpty(); hintView.visibility = if (t.isNullOrBlank()) View.GONE else View.VISIBLE }
+
     /** Shows the tab, filling it the first time. */
     fun open(tab: String) {
         tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) SELECTED else 2) }
         val p = page(tab)
         scroll.removeAllViews(); scroll.addView(p); scroll.scrollTo(0, 0)
-        shown = tab; showBack()
+        shown = tab; showBack(); showHint()
     }
 
     /** The tab is filled again on its next opening (its AI request failed). */

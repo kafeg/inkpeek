@@ -2,6 +2,8 @@ package io.github.kafeg.inkpeek.mt
 
 import io.github.kafeg.inkpeek.packs.Packs
 import io.github.kafeg.inkpeek.stardict.Library
+import io.github.kafeg.inkpeek.stardict.answer
+import io.github.kafeg.inkpeek.stardict.book
 import java.io.File
 
 /** Language of a text by fastText's lid.176 model (from the packs): ISO codes with probabilities, best first. */
@@ -22,7 +24,8 @@ object LangId {
      * Blocking.
      */
     fun source(text: String, answer: String, packs: Packs, lib: Library): Pair<String?, String?> {
-        val books = packs.installedBooks(answer)
+        // The book languages of the dictionaries in use (the ticked pairs) into this answer language.
+        val books = lib.all().filter { it.answer == answer }.mapNotNull { it.book }.distinct()
         if (books.isEmpty()) return null to null
         val guess = runCatching { if (packs.langid.exists()) detect(packs.langid, text, 5) else emptyList() }.getOrDefault(emptyList())
         val top = guess.firstOrNull()
@@ -30,7 +33,7 @@ object LangId {
         val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).map { it.value }.distinct().take(40).toList()
         val dicts = lib.all()
         val known = books.associateWith { x ->
-            val d = dicts.firstOrNull { it.ifo.parentFile?.name == "dict-$x-$answer" }
+            val d = dicts.firstOrNull { it.book == x && it.answer == answer }
             if (d == null || !d.ready) 0 else words.count { w -> runCatching { d.lookup(w).isNotEmpty() }.getOrDefault(false) }
         }
         android.util.Log.i("InkPeek", "language: fastText $guess, dictionaries know $known of ${words.size}")

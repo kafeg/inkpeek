@@ -76,7 +76,6 @@
     <string name="icon_words_d">Vos mots et expressions enregistrés ; aussi dans les réglages de l\'app.</string>
     <string name="tab_translate">Traduire</string>
     <string name="icon_translate_d">L\'IA quand elle peut répondre (voir réglages IA), sinon la traduction hors ligne sur l\'appareil.</string>
-    <string name="mt_ai_first">Traduire d\'abord avec l\'IA quand elle peut répondre</string>
     <string name="mt_missing">La traduction hors ligne nécessite un pack de langue : réglages d\'InkPeek → Langues.</string>
     <string name="mt_working">Traduction…</string>
     <string name="mt_via_english">Traduction hors ligne, via l\'anglais</string>

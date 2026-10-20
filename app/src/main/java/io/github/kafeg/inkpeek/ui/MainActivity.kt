@@ -149,7 +149,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val P = io.github.kafeg.inkpeek.packs.Packs
         // The app's language first: those answers are the card's.
         val pairs = P.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { langName(it.first) }, { langName(it.second) }))
-        val want = wantPairs ?: packs.installedPairs().toMutableSet().also { wantPairs = it }
+        // The ticks are saved at once: the card uses only the ticked pairs, the button downloads or frees space.
+        val want = wantPairs ?: (prefs.pairs?.map { it.substringBefore('-') to it.substringAfter('-') } ?: packs.installedPairs()).toMutableSet().also { wantPairs = it }
         pairs.forEach { pair ->
             val parts = P.needed(manifest, listOf(pair))
             val missing = parts.filter { installed[it.id] != it.sha256 }
@@ -161,7 +162,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             langBox.addView(CheckBox(this).apply {
                 text = "${langName(pair.first)} → ${langName(pair.second)}  · $state"
                 textSize = 16f; isChecked = pair in want; isEnabled = !working
-                setOnCheckedChangeListener { _, on -> if (on) want += pair else want -= pair; refreshLanguages() }
+                setOnCheckedChangeListener { _, on -> if (on) want += pair else want -= pair
+                    prefs.pairs = want.map { "${it.first}-${it.second}" }.toSet(); refreshLanguages(); refreshDicts() }
             })
         }
         val needed = P.needed(manifest, want)
@@ -276,8 +278,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        t.addView(switch(getString(R.string.mt_ai_first), prefs.translateMode == "ai") { prefs.translateMode = if (it) "ai" else "offline" },
-            Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         load(prefs.provider)
     }
 

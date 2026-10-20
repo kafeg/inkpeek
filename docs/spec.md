@@ -121,7 +121,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 
 ## Settings screen
 Tabs: Languages (pack pairs, milestone 12) · AI (on/off, provider, key and its source, model picker with
-filter / maker / free only / sort, AI or offline first in Translate) · Card
+filter / maker / free only / sort) · Card
 (app language, a phrase opens on Translate, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system language
 by default. The app language is also the answer language.
 
@@ -174,7 +174,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    - No "Ask again".
 Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models downloaded by the app straight from Mozilla,
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; UI languages =
-exactly the answer languages of the packs; Translate: offline first (decided 21.10: the core tab sends nothing by default; setting: AI first when it can answer), the offline engine
+exactly the answer languages of the packs; Translate: AI first when it can answer (on, set up, online; decided 20.10, no setting), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —

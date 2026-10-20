@@ -75,7 +75,6 @@
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
     <string name="tab_translate">Перевод</string>
     <string name="icon_translate_d">AI, если он может ответить (см. настройки AI), иначе офлайн-перевод на устройстве.</string>
-    <string name="mt_ai_first">Переводить сначала через AI, если он доступен</string>
     <string name="mt_missing">Для офлайн-перевода нужен языковой пакет: настройки InkPeek → Языки.</string>
     <string name="mt_working">Перевожу…</string>
     <string name="mt_via_english">Офлайн-перевод, через английский</string>
