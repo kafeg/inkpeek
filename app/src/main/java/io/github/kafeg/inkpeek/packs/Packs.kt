@@ -20,7 +20,7 @@ data class Component(val id: String, val kind: String, val from: String, val to:
  * Layout under [root]: dicts/<id>/ (the card's dictionaries; the first line of an article is the header), langid.ftz,
  * installed.json (id → sha256); models go to [models]/<from><to>/ as the offline engine expects.
  */
-class Packs(val root: File, val models: File) {
+class Packs(val root: File, val models: File, private val assets: String = ASSETS) {
     val dicts get() = File(root, "dicts")
     val langid get() = File(root, "langid.ftz")
     private val state get() = File(root, "installed.json")
@@ -28,7 +28,7 @@ class Packs(val root: File, val models: File) {
 
     /** The packs list from the release; the last one received is kept, so installed packs show up offline too. */
     fun list(): List<Component> {
-        val json = http.newCall(Request.Builder().url(ASSETS + "packs.json").build()).execute().use {
+        val json = http.newCall(Request.Builder().url(assets + "packs.json").build()).execute().use {
             if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()
         }
         return parse(json).also { root.mkdirs(); write(listFile, json) }
@@ -72,7 +72,7 @@ class Packs(val root: File, val models: File) {
     }
 
     private fun download(c: Component, tmp: File, progress: (Long, Long) -> Unit) {
-        http.newCall(Request.Builder().url(ASSETS + c.file).build()).execute().use { r ->
+        http.newCall(Request.Builder().url(assets + c.file).build()).execute().use { r ->
             if (!r.isSuccessful) error("HTTP ${r.code}: ${c.file}")
             val md = MessageDigest.getInstance("SHA-256")
             r.body!!.byteStream().use { inp -> tmp.outputStream().use { o ->
@@ -103,6 +103,12 @@ class Packs(val root: File, val models: File) {
     /** Unpacked outside the library first: the card must not see a half-written dictionary. */
     private fun staging(dest: File) = File(root, "tmp/" + dest.name).also { it.deleteRecursively(); it.mkdirs() }
 
+    /** The unpacked folder to its place; on a fresh device its parent (dicts/, models/) does not exist yet. */
+    private fun place(tmp: File, dest: File) {
+        dest.deleteRecursively(); dest.parentFile?.mkdirs()
+        if (!tmp.renameTo(dest)) error("Cannot move ${dest.name}")
+    }
+
     private fun unzip(zip: File, dest: File) {
         val tmp = staging(dest)
         ZipInputStream(zip.inputStream().buffered()).use { z ->
@@ -113,7 +119,7 @@ class Packs(val root: File, val models: File) {
                 out.outputStream().use { z.copyTo(it) }
             }
         }
-        dest.deleteRecursively(); if (!tmp.renameTo(dest)) error("Cannot move ${dest.name}")
+        place(tmp, dest)
     }
 
     private fun untar(tarZst: File, dest: File) {
@@ -125,7 +131,7 @@ class Packs(val root: File, val models: File) {
                 File(tmp, e.name.substringAfterLast('/')).outputStream().use { t.copyTo(it) }
             }
         }
-        dest.deleteRecursively(); if (!tmp.renameTo(dest)) error("Cannot move ${dest.name}")
+        place(tmp, dest)
     }
 
     companion object {
