@@ -407,19 +407,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
-        t.addView(Ink.text(this, getString(R.string.text_size), 14f))
-        val sizeRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
-        val sizeView = Ink.text(this, prefs.fontSp.toString(), sp, bold = true).apply { gravity = Gravity.CENTER }
-        fun step(by: Int) { prefs.fontSp = (prefs.fontSp + by).coerceIn(12, 40); sizeView.text = prefs.fontSp.toString() }
-        val w = Ink.dp(this, 56)
-        sizeRow.addView(Ink.button(this, "−", sp) { step(-2) }.apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
-        sizeRow.addView(sizeView, LinearLayout.LayoutParams(w * 2, w))
-        sizeRow.addView(Ink.button(this, "+", sp) { step(2) }.apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
-        t.addView(sizeRow)
-        t.addView(switch(getString(R.string.dim), prefs.dim) { prefs.dim = it })
-        val pos = listOf("center", "top", "bottom", "reader")
-        val posLabels = listOf(R.string.pos_center, R.string.pos_top, R.string.pos_bottom, R.string.pos_reader).map { getString(it) }
-        t.addView(spinner(posLabels, pos.indexOf(prefs.position).coerceAtLeast(0)) { prefs.position = pos[it] })
         t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
         t.addView(switch(getString(R.string.captions), prefs.captions) { prefs.captions = it })
         // What each icon of the card does: icon, name, one line.

@@ -30,12 +30,6 @@
     <string name="sort_price">Сортировка: цена</string>
     <string name="sort_new">Сортировка: новые</string>
     <string name="free">бесплатно</string>
-    <string name="text_size">Размер текста (sp)</string>
-    <string name="dim">Затемнять страницу под карточкой</string>
-    <string name="pos_center">Положение: по центру</string>
-    <string name="pos_top">Положение: сверху</string>
-    <string name="pos_bottom">Положение: снизу</string>
-    <string name="pos_reader">Положение: как просит читалка</string>
     <string name="tab_dictionary">Словарь</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">AI выключен: включите его в настройках InkPeek — будут перевод, грамматика и другое.</string>

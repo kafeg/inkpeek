@@ -104,7 +104,7 @@ If another dictionary app answers the same request, Android asks which one to us
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence; Examples is hidden for a passage).
 - A selected sentence opens on Translate when AI is on (you can turn this off).
-- Built for e-ink: black on white, large text, no animations. Text size, position and dimming are in settings.
+- Built for e-ink: black on white, large text, no animations, few settings.
 - The app is in English and Русский — exactly the answer languages of InkPeek's language packs (German and English
   books, answers in Russian or English); a new language comes with its packs. AI answers come in the language you
   choose.
@@ -178,7 +178,7 @@ adb push openrouter.txt /sdcard/InkPeek/keys/openrouter.key
 ### Protocol
 | intent | text extra | notes |
 |---|---|---|
-| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | the ColorDict / GoldenDict protocol; `EXTRA_GRAVITY` and `EXTRA_HEIGHT` are hints, `EXTRA_FULLSCREEN` is ignored |
+| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | the ColorDict / GoldenDict protocol; `EXTRA_GRAVITY`, `EXTRA_HEIGHT` and `EXTRA_FULLSCREEN` are ignored |
 | `android.intent.action.PROCESS_TEXT` | `EXTRA_PROCESS_TEXT` | system selection menu, KOReader |
 | `android.intent.action.SEND` (`text/plain`) | `EXTRA_TEXT` | Share |
 

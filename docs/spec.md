@@ -22,8 +22,8 @@ Close the card and you are back on the same page.
 | `android.intent.action.PROCESS_TEXT` | system text-selection menu | extra `EXTRA_PROCESS_TEXT` |
 | `android.intent.action.SEND` (`text/plain`) | "Share" | extra `EXTRA_TEXT` |
 
-- ColorDict extras: `EXTRA_HEIGHT`, `EXTRA_GRAVITY` are hints only. `EXTRA_FULLSCREEN` is ignored: some readers
-  send `true` when their status bar is hidden; InkPeek always opens the card.
+- ColorDict extras `EXTRA_HEIGHT`, `EXTRA_GRAVITY` and `EXTRA_FULLSCREEN` are ignored (`EXTRA_FULLSCREEN`: some readers
+  send `true` when their status bar is hidden; InkPeek always opens the card).
 - The activity is a dialog over the caller's task (`taskAffinity=""`, `excludeFromRecents`, no history). Back or a
   tap outside closes it.
 
@@ -52,10 +52,9 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
    has a slightly heavier border (4 vs 2); AI icons carry "AI" in their top-right corner, drawn smaller to leave
    room for it. Long press shows the name; setting "names under the icons" writes it (short) under each icon.
 - My words in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
-- Size: 92% of screen width, 80% of height, centered (setting: center / top / bottom / follow the reader's
-  `EXTRA_GRAVITY`).
-- Font size: one setting (sp) for the body; header +30%.
-- No colors, no shadows, no ripple. Thin black borders. Light dim behind the card (setting, default on).
+- Size: 92% of screen width, 80% of height, centered. Body text 20 sp, header +30%. No settings for these: fewer
+  options (decided 21.10).
+- No colors, no shadows, no ripple. Thin black borders. Light dim behind the card.
 
 ## Dictionaries
 - Format: StarDict 3 — `.ifo`, `.idx` (or `.idx.gz`), `.dict` or `.dict.dz` (dictzip random access), optional `.syn`.
@@ -123,7 +122,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, text size, dim, position, names under icons, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
+(app language, names under icons, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
 by default.
 
 ## Tech

@@ -31,12 +31,6 @@
     <string name="sort_price">Sort: price</string>
     <string name="sort_new">Sort: newest</string>
     <string name="free">free</string>
-    <string name="text_size">Text size (sp)</string>
-    <string name="dim">Dim the page behind</string>
-    <string name="pos_center">Position: center</string>
-    <string name="pos_top">Position: top</string>
-    <string name="pos_bottom">Position: bottom</string>
-    <string name="pos_reader">Position: as the reader asks</string>
     <string name="tab_dictionary">Dictionary</string>
     <string name="thinking">Thinking</string>
     <string name="ai_off">AI is off: turn it on in InkPeek settings for translation, grammar and more.</string>

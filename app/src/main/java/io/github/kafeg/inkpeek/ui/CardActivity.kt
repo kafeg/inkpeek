@@ -68,7 +68,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
     private val actions get() = if (prefs.aiOn) Action.ALL else emptyList()
-    private val size get() = prefs.fontSp.toFloat()
+    /** Body text size (sp); the header is larger. */
+    private val size = 20f
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -183,13 +184,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun placeWindow() {
         val dm = resources.displayMetrics
         window.setLayout((dm.widthPixels * 0.92).toInt(), (dm.heightPixels * 0.8).toInt())
-        window.setGravity(when (prefs.position) {
-            "top" -> Gravity.TOP; "bottom" -> Gravity.BOTTOM
-            "reader" -> intent.getIntExtra("EXTRA_GRAVITY", Gravity.CENTER)
-            else -> Gravity.CENTER
-        })
-        if (prefs.dim) { window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); window.setDimAmount(0.25f) }
-        else window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+        window.setGravity(Gravity.CENTER)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); window.setDimAmount(0.25f)
         window.setWindowAnimations(0)
     }
 
