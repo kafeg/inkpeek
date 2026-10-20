@@ -167,10 +167,14 @@ def build_grammar(a, x):
 def pack(a, cid, folder):
     """Zip a built folder as <out>/<cid>.zip; returns its manifest file entry."""
     path = os.path.join(a.out, f"{cid}.zip")
+    # Same content → same bytes → same sha256: a fixed time in the zip, files in a fixed order.
     with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        for root, _, files in os.walk(folder):
+        for root, _, files in sorted(os.walk(folder)):
             for f in sorted(files):
-                z.write(os.path.join(root, f), os.path.relpath(os.path.join(root, f), os.path.dirname(folder)))
+                info = zipfile.ZipInfo(os.path.relpath(os.path.join(root, f), os.path.dirname(folder)), (1980, 1, 1, 0, 0, 0))
+                info.compress_type = zipfile.ZIP_DEFLATED
+                with open(os.path.join(root, f), "rb") as src:
+                    z.writestr(info, src.read(), compresslevel=9)
     return {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)}
 
 
