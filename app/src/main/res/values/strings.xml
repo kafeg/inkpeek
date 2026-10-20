@@ -122,4 +122,5 @@
     <string name="mt_missing">Offline translation is not set up: InkPeek settings → Dictionaries → Offline translation.</string>
     <string name="mt_working">Translating…</string>
     <string name="mt_via_english">Offline translation, through English</string>
+    <string name="mt_offline">Offline</string>
 </resources>

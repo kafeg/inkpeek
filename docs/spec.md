@@ -122,7 +122,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, text size, dim, position, names under icons, what each icon does) · My words. UI in 18 languages; system language
+(app language, text size, dim, position, names under icons, what each icon does) · My words. UI in 10 languages (the pack languages: en, ru, de, uk, es, fr, it, pt, pl, nl); system language
 by default.
 
 ## Tech
@@ -186,8 +186,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    adapted from RTranslator (Apache-2.0, attribution); Mozilla's models (via English: de→en→ru) from the packs.
    Prototype measured on the Boox (research note): 0.15–0.85 s per sentence with both models loaded (≈ 560 MB),
    1.2–2 s with one model at a time (≈ 380 MB); engine ≈ 3.3 MB in the APK; needs API 28+.
-   - Translate tab (core, no AI mark): AI first when it can answer (setting), else the offline engine; the text says
-     which one answered; the offline one is marked "via English".
+   - Translate tab (core, no AI mark): with AI on, two segments like My words — AI and Offline; the setting picks the
+     first one; AI dimmed (reason on tap) when it cannot answer; the offline text is marked "through English".
    - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
      (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
    - Memory: both models stay loaded when the device has room, else one at a time.

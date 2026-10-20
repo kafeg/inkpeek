@@ -121,4 +121,5 @@
     <string name="mt_missing">A tradução offline não está configurada: definições do InkPeek → Dicionários → Tradução offline.</string>
     <string name="mt_working">A traduzir…</string>
     <string name="mt_via_english">Tradução offline, através do inglês</string>
+    <string name="mt_offline">Offline</string>
 </resources>

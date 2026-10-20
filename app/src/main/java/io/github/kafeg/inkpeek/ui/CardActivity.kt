@@ -169,8 +169,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             // An AI tab: a small "AI" in the icon's corner.
             addView(if (!ai) img else android.widget.FrameLayout(this@CardActivity).apply {
                 addView(img, android.widget.FrameLayout.LayoutParams(side, side))
-                addView(Ink.text(this@CardActivity, "AI", 8f, bold = true).apply { setPadding(0, 0, 3, 0) },
-                    android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END))
+                // Clear of the border: the label sits inside the icon box, a few dp from its corner.
+                val m = Ink.dp(this@CardActivity, 4)
+                addView(Ink.text(this@CardActivity, "AI", 8f, bold = true).apply { includeFontPadding = false },
+                    android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
+                        .apply { topMargin = m; rightMargin = m })
             }, LinearLayout.LayoutParams(side, side))
             if (prefs.captions) addView(Ink.text(this@CardActivity, caption, 9f).apply {
                 maxLines = 1; gravity = Gravity.CENTER; setPadding(2, 0, 2, Ink.dp(this@CardActivity, 3))
@@ -403,16 +406,32 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
      * Translate (core): AI when the mode says so and it can answer, else the offline engine (through English when
      * neither side is English); a line under the text says which one answered.
      */
+    private var translateBy = ""
+
+    /** Two sources side by side, like My words: AI (when AI is on) and Offline; the setting picks the first one. */
     private fun fillTranslate(p: LinearLayout) {
-        val out = Ink.text(this, "", size); p.addView(out)
+        p.removeAllViews()
         launch {
-            if (prefs.translateMode == "ai" && withContext(Dispatchers.IO) { aiBlock(TRANSLATE) } == null) {
+            val aiOk = prefs.aiOn && withContext(Dispatchers.IO) { aiBlock(TRANSLATE) } == null
+            if (translateBy.isEmpty()) translateBy = if (prefs.translateMode == "ai" && aiOk) "ai" else "offline"
+            if (prefs.aiOn) {
+                val seg = Ink.horizontal(this@CardActivity)
+                listOf("ai" to "AI", "offline" to getString(R.string.mt_offline)).forEachIndexed { i, (k, label) ->
+                    seg.addView(Ink.button(this@CardActivity, label, size * 0.75f) {
+                        if (k == "ai" && !aiOk) launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
+                        else { translateBy = k; fillTranslate(p) }
+                    }.apply { background = Ink.border(this@CardActivity, if (k == translateBy) 7 else 2); if (k == "ai" && !aiOk) alpha = 0.35f },
+                        Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
+                }
+                p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
+            }
+            val out = Ink.text(this@CardActivity, "", size); p.addView(out)
+            if (translateBy == "ai" && aiOk) {
                 val d = answer(Ask.QUICK)
                 val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
                 val r = d.await(); dots?.cancel()
-                r.onSuccess { answered(out, render(TRANSLATE, it)); note(p, "AI"); return@launch }
-            }
-            offline(p, out)
+                r.fold({ answered(out, render(TRANSLATE, it)) }, { out.text = friendly(it) })
+            } else offline(p, out)
         }
     }
 
