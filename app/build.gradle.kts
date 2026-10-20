@@ -5,6 +5,10 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+/** "<appVersion>.<commits>": the third number is the project's commit count, also the version code (it only grows). */
+val commits = providers.exec { commandLine("git", "rev-list", "--count", "HEAD"); isIgnoreExitValue = true }
+    .standardOutput.asText.get().trim().toIntOrNull() ?: 1
+
 val keystoreProps = Properties().apply {
     rootProject.file("keystore.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
@@ -16,8 +20,8 @@ android {
         applicationId = "io.github.kafeg.inkpeek"
         minSdk = 30 // Android 11; the translation engine needs API 28+
         targetSdk = 35
-        versionCode = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
-        versionName = System.getenv("VERSION_NAME")?.removePrefix("v") ?: "0.1.0-dev"
+        versionCode = commits
+        versionName = "${providers.gradleProperty("appVersion").get()}.$commits"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += listOf("arm64-v8a") } // e-ink readers are 64-bit ARM; the engine is built for it only
         externalNativeBuild { cmake {

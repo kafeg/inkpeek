@@ -8,7 +8,9 @@ Kotlin, Android Views, minSdk 30 / targetSdk 35, arm64 only. Libraries: anthropi
 OpenRouter, downloads), coroutines, commons-compress + zstd-jni. Native: Bergamot (submodule
 `app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule `app/src/main/cpp/fasttext`) +
 JNI → `libinkpeek_mt.so`; CMake 3.22.1 and NDK from the SDK (Gradle installs them). Packages: `stardict` (pure JVM
-engine), `packs` (manifest, download, install), `ai`, `mt` (Bergamot engine, language id), `ui` (card, settings).
+engine; `Library`: lookup, header, gloss by answer language — JVM-tested), `packs` (manifest, download, install), `ai`
+(requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`: `CardActivity` (window, header, icon
+bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`, `WordsPage`), `MainActivity` (settings).
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run
@@ -25,9 +27,11 @@ Device tests run inside the installed release app (`testBuildType = "release"`, 
 packs or the code: fix the data or the code, never the expectation to make it pass. Boox: `adb exec-out screencap`
 prints a line before the PNG — use `screencap -p /sdcard/s.png` and `adb pull`.
 Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
+Version: `appVersion` in `gradle.properties` + the git commit count (`0.3.<commits>`; the count is also the version
+code). Release: tag `v0.3.$(git rev-list --count HEAD)` and push it; `release.yml` builds and signs the APK.
 Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,
-keyAlias, keyPassword), `VERSION_CODE=<above the installed> ./gradlew assembleRelease`, `adb install -r` keeps the
-settings (a debug build needs an uninstall). AI timings: `adb logcat -s InkPeek` (`ai … ms`). Boox screenshots turn white
+keyAlias, keyPassword), `./gradlew assembleRelease`, `adb install -r` keeps the settings (a debug build needs an
+uninstall). Two devices on adb: `ANDROID_SERIAL=<serial>` for every command. AI timings: `adb logcat -s InkPeek` (`ai … ms`). Boox screenshots turn white
 when the screen sleeps: `adb shell input keyevent KEYCODE_WAKEUP` first.
 
 ## Rules

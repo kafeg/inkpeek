@@ -3,8 +3,7 @@
 # translation (cases: app/src/androidTest/assets/cases.tsv). Needs keystore.properties and the packs installed in the app.
 set -e
 cd "$(dirname "$0")/.."
-installed=$(adb shell dumpsys package io.github.kafeg.inkpeek | sed -n 's/.*versionCode=\([0-9]*\).*/\1/p' | head -1)
-VERSION_CODE=$(( ${installed:-0} + 1 )) ./gradlew -q assembleRelease assembleReleaseAndroidTest
+./gradlew -q assembleRelease assembleReleaseAndroidTest
 adb install -r app/build/outputs/apk/release/app-release.apk >/dev/null
 adb install -r app/build/outputs/apk/androidTest/release/app-release-androidTest.apk >/dev/null
 adb logcat -c
