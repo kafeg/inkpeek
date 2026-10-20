@@ -167,5 +167,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
 9. **Offline translation** — Translate tab without network (or AI off, or mode "offline") asks the
    Offline Translator app (F-Droid `dev.davidv.translator`, Firefox models, de→en→ru pivot) through its AIDL
    service; not installed → a hint to install it and the gloss. Setting: Translate — AI / offline / auto.
+11. **App redesign** — the settings app grew from the card's widgets (huge buttons, one long scroll): a plan and a
+   mockup first, then code. Standard Android controls sized for e-ink, sections instead of tabs, fewer options.
 10. **Grammar pack** (later) — StarDict dictionary built from kaikki.org (wiktextract) data: one line per lemma
    (article, plural, verb forms) + `.syn` of all forms; built by CI, published in Releases (CC BY-SA 4.0).
