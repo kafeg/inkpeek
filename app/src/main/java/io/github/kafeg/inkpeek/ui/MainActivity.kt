@@ -108,6 +108,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     // --- Languages: the packs, then the user's own dictionaries ---
     private lateinit var langBox: LinearLayout
     private var manifest: List<io.github.kafeg.inkpeek.packs.Component> = emptyList()
+    private var manifestError: String? = null
     private var wantBooks: MutableSet<String>? = null
     private var working = false
 
@@ -129,7 +130,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun loadManifest() {
         refreshLanguages()
         launch {
-            manifest = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.packs.Packs.manifest() }.getOrDefault(emptyList()) }
+            val r = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.packs.Packs.manifest() } }
+            manifest = r.getOrDefault(emptyList())
+            // No network, or the list is not there (HTTP 404 before the first release): say which.
+            manifestError = r.exceptionOrNull()?.let { e -> if (e is java.net.UnknownHostException || e is java.net.SocketTimeoutException || e is java.net.ConnectException)
+                getString(R.string.lang_no_net) else getString(R.string.lang_no_list, e.message ?: e.javaClass.simpleName) }
             refreshLanguages()
         }
     }
@@ -141,7 +146,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         langBox.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()
         if (manifest.isEmpty()) {
-            langBox.addView(Ink.text(this, getString(R.string.lang_no_list), 15f))
+            langBox.addView(Ink.text(this, manifestError ?: "…", 15f))
             langBox.addView(Ink.button(this, getString(R.string.lang_retry), sp) { loadManifest() })
             return
         }
@@ -224,9 +229,12 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                     textSize = 16f; isChecked = d.id !in prefs.disabled
                     setOnCheckedChangeListener { _, on -> prefs.disabled = if (on) prefs.disabled - d.id else prefs.disabled + d.id }
                 }, Ink.lp(0, weight = 1f))
-                r.addView(Ink.button(this@MainActivity, "↑", 16f) { move(i, -1) })
-                r.addView(Ink.button(this@MainActivity, "↓", 16f) { move(i, 1) })
-                r.addView(Ink.button(this@MainActivity, "✕", 16f) { delete(d.name, d.ifo.parentFile!!) })
+                // Three equal square buttons.
+                val b = Ink.dp(this@MainActivity, 40)
+                listOf("↑" to { move(i, -1) }, "↓" to { move(i, 1) }, "✕" to { delete(d.name, d.ifo.parentFile!!) }).forEach { (label, act) ->
+                    r.addView(Ink.button(this@MainActivity, label, 16f) { act() }.apply { setPadding(0, 0, 0, 0) },
+                        LinearLayout.LayoutParams(b, b).apply { leftMargin = Ink.dp(this@MainActivity, 4) })
+                }
                 dictList.addView(r)
             }
             val busy = lib.status.values.count { it == "indexing" }

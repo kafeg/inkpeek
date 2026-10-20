@@ -97,7 +97,7 @@
     <string name="mt_offline">Офлайн</string>
     <string name="lang_about">Выберите язык ответов и языки ваших книг: InkPeek скачает для них словарь, грамматику и офлайн-перевод (из релизов проекта на GitHub).</string>
     <string name="own_dicts">Свои словари</string>
-    <string name="lang_no_list">Список языковых пакетов не загрузился: нужен интернет.</string>
+    <string name="lang_no_list">Список языковых пакетов пока недоступен (%1$s).</string>
     <string name="lang_retry">Попробовать снова</string>
     <string name="lang_answer">Язык ответов</string>
     <string name="lang_books">Языки моих книг</string>
@@ -111,4 +111,5 @@
     <string name="lang_working">%1$d из %2$d: %3$s %4$d%%</string>
     <string name="lang_unsupported">Похоже на %1$s: языкового пакета для него пока нет.</string>
     <string name="lang_no_packs">Языковых пакетов пока нет: настройки InkPeek → Языки.</string>
+    <string name="lang_no_net">Нет сети: для списка языковых пакетов нужен интернет.</string>
 </resources>

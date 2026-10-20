@@ -97,7 +97,7 @@
     <string name="mt_offline">Offline</string>
     <string name="lang_about">Wählen Sie die Sprache der Antworten und die Sprachen Ihrer Bücher: InkPeek lädt dafür Wörterbuch, Grammatik und Offline-Übersetzung herunter (aus den Releases des Projekts auf GitHub).</string>
     <string name="own_dicts">Eigene Wörterbücher</string>
-    <string name="lang_no_list">Die Liste der Sprachpakete wurde nicht geladen: dafür braucht es Internet.</string>
+    <string name="lang_no_list">Die Liste der Sprachpakete ist noch nicht verfügbar (%1$s).</string>
     <string name="lang_retry">Erneut versuchen</string>
     <string name="lang_answer">Sprache der Antworten</string>
     <string name="lang_books">Sprachen meiner Bücher</string>
@@ -111,4 +111,5 @@
     <string name="lang_working">%1$d von %2$d: %3$s %4$d%%</string>
     <string name="lang_unsupported">Das sieht nach %1$s aus: dafür gibt es noch kein Sprachpaket.</string>
     <string name="lang_no_packs">Noch keine Sprachpakete: InkPeek-Einstellungen → Sprachen.</string>
+    <string name="lang_no_net">Kein Netz: für die Liste der Sprachpakete braucht es Internet.</string>
 </resources>

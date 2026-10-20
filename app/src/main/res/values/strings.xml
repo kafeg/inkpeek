@@ -98,7 +98,7 @@
     <string name="mt_offline">Offline</string>
     <string name="lang_about">Choose the language of the answers and the languages of your books: InkPeek downloads their dictionary, grammar and offline translation from the project\'s releases on GitHub.</string>
     <string name="own_dicts">Your own dictionaries</string>
-    <string name="lang_no_list">The list of language packs did not load: it needs the internet.</string>
+    <string name="lang_no_list">The list of language packs is not available yet (%1$s).</string>
     <string name="lang_retry">Try again</string>
     <string name="lang_answer">Language of the answers</string>
     <string name="lang_books">Languages of my books</string>
@@ -112,4 +112,5 @@
     <string name="lang_working">%1$d of %2$d: %3$s %4$d%%</string>
     <string name="lang_unsupported">This looks like %1$s: InkPeek has no language pack for it yet.</string>
     <string name="lang_no_packs">No language packs yet: InkPeek settings → Languages.</string>
+    <string name="lang_no_net">No network: the list of language packs needs the internet.</string>
 </resources>
