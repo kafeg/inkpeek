@@ -13,8 +13,6 @@ class Prefs(private val ctx: Context) {
 
     /** "" = system, else a language code with resources (en, ru, de). */
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
-    /** Names under the card's icons. */
-    var captions: Boolean get() = sp.getBoolean("captions", false); set(v) = sp.edit().putBoolean("captions", v).apply()
     var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", false); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
     var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** Default: the system language, by its English name ("Russian", "German"). */

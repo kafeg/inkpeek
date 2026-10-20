@@ -83,12 +83,10 @@
     <string name="a_context_d">Drei Alltagsbeispiele mit Übersetzung, Stil und Redewendungen; bei einem Abschnitt — was passiert und was gemeint ist.</string>
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
-    <string name="captions">Namen unter den Symbolen</string>
     <string name="icons_title">Symbole in der Karte</string>
     <string name="icon_dict_d">Einträge aus Ihren Wörterbüchern; eine Phrase bekommt eine Wort-für-Wort-Übersetzung. Funktioniert offline.</string>
     <string name="icon_save_d">Speichert das Wort oder die Phrase in Meine Wörter; ein gefüllter Stern heißt: schon gespeichert.</string>
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
-    <string name="save_short">Merken</string>
     <string name="tab_translate">Übersetzen</string>
     <string name="icon_translate_d">KI, wenn sie antworten kann (siehe KI-Einstellungen), sonst die Offline-Übersetzung auf dem Gerät.</string>
     <string name="mt_about">Übersetzung auf dem Gerät, ohne Internet (Modelle von Firefox Translations). Sie läuft über Englisch: der Sinn kommt an, Feinheiten (du/Sie, Genus) können verloren gehen.</string>

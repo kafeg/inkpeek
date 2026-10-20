@@ -143,7 +143,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch { val blocked = withContext(Dispatchers.IO) { actions.associate { it.id to aiBlock(it.id) } }
             blocked.forEach { (id, r) -> tabButtons[id]?.alpha = if (r == null) 1f else 0.35f } }
         bar.addView(View(this), Ink.lp(gap * 2, 1))
-        val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side, getString(R.string.save_short)) { toggleSaved() }
+        val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
         starButton = star.findViewWithTag("icon"); add(star)
         add(iconButton(R.drawable.ic_words, getString(R.string.tab_words), side) { open(SAVED) }.also { tabButtons[SAVED] = it })
         bar.addView(View(this), Ink.lp(0, 1, weight = 1f))
@@ -156,8 +156,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         setContentView(card)
     }
 
-    /** A bordered icon; long press shows its name, the "captions" setting writes it under the icon. */
-    private fun iconButton(icon: Int, label: String, side: Int, caption: String = label, ai: Boolean = false, click: () -> Unit): View {
+    /** A bordered icon; long press shows its name. */
+    private fun iconButton(icon: Int, label: String, side: Int, ai: Boolean = false, click: () -> Unit): View {
         val q = side / 5
         // An AI icon is drawn a bit smaller: its top-right corner holds the "AI" label.
         val img = android.widget.ImageView(this).apply { setImageResource(icon); tag = "icon"
@@ -175,9 +175,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                     android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
                         .apply { topMargin = m; rightMargin = m })
             }, LinearLayout.LayoutParams(side, side))
-            if (prefs.captions) addView(Ink.text(this@CardActivity, caption, 9f).apply {
-                maxLines = 1; gravity = Gravity.CENTER; setPadding(2, 0, 2, Ink.dp(this@CardActivity, 3))
-            }, LinearLayout.LayoutParams(side, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         }
     }
 

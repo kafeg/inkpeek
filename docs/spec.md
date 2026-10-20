@@ -50,7 +50,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 2. The icon row at the bottom of the card, under a thin line (one frame, no dead space around it): Dictionary,
    Translate, Analysis, Context · ☆ Save (★ when saved), My words · ✕ Close at the right. Icons ≤ 44 dp; the open tab
    has a slightly heavier border (4 vs 2); AI icons carry "AI" in their top-right corner, drawn smaller to leave
-   room for it. Long press shows the name; setting "names under the icons" writes it (short) under each icon.
+   room for it. Long press shows the name.
 - My words in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
 - Size: 92% of screen width, 80% of height, centered. Body text 20 sp, header +30%. No settings for these: fewer
   options (decided 21.10).
@@ -122,7 +122,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, names under icons, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
+(app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
 by default.
 
 ## Tech

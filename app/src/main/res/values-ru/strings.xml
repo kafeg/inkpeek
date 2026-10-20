@@ -83,12 +83,10 @@
     <string name="a_context_d">Три бытовых примера с переводом, стиль и идиомы; для отрывка — что происходит и что подразумевается.</string>
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
-    <string name="captions">Подписи под значками</string>
     <string name="icons_title">Значки в карточке</string>
     <string name="icon_dict_d">Статьи из ваших словарей; для фразы — подстрочник. Работает офлайн.</string>
     <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
-    <string name="save_short">Сохранить</string>
     <string name="tab_translate">Перевод</string>
     <string name="icon_translate_d">AI, если он может ответить (см. настройки AI), иначе офлайн-перевод на устройстве.</string>
     <string name="mt_about">Перевод на устройстве, без интернета (модели Firefox Translations). Идёт через английский: смысл передаётся, оттенки (ты/вы, род) могут теряться.</string>

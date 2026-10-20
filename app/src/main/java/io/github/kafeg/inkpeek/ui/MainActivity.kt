@@ -440,7 +440,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
         t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
-        t.addView(switch(getString(R.string.captions), prefs.captions) { prefs.captions = it })
         // What each icon of the card does: icon, name, one line.
         val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d)),
             Triple(R.drawable.ic_translate, getString(R.string.tab_translate), getString(R.string.icon_translate_d))) +
