@@ -331,7 +331,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (items.isEmpty()) wordsList.addView(Ink.text(this@MainActivity,
             getString(if (kind == "history") R.string.list_empty_history else R.string.list_empty_saved), 16f))
         if (kind == "history" && items.isNotEmpty()) wordsList.addView(Ink.button(this@MainActivity, getString(R.string.clear_history), 16f) {
-            launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearHistory() } }; refreshWords() }
+            this@MainActivity.launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearHistory() } }; refreshWords() }
         }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
         items.forEach { e ->
             val r = Ink.horizontal(this@MainActivity).apply { gravity = Gravity.CENTER_VERTICAL }
@@ -343,7 +343,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                 }
             }, Ink.lp(0, weight = 1f))
             r.addView(Ink.button(this@MainActivity, "✕", 16f) {
-                launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).run { if (kind == "history") forget(e.text) else unsave(e.text) } } }; refreshWords() }
+                this@MainActivity.launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).run { if (kind == "history") forget(e.text) else unsave(e.text) } } }; refreshWords() }
             })
             wordsList.addView(r)
         }

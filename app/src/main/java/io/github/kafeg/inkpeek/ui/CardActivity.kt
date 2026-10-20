@@ -417,7 +417,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 val seg = Ink.horizontal(this@CardActivity)
                 listOf("ai" to "AI", "offline" to getString(R.string.mt_offline)).forEachIndexed { i, (k, label) ->
                     seg.addView(Ink.button(this@CardActivity, label, size * 0.75f) {
-                        if (k == "ai" && !aiOk) launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
+                        if (k == "ai" && !aiOk) this@CardActivity.launch { withContext(Dispatchers.IO) { aiBlock(TRANSLATE) }?.let { toast(getString(it)) } }
                         else { translateBy = k; fillTranslate(p) }
                     }.apply { background = Ink.border(this@CardActivity, if (k == translateBy) SELECTED else 2); if (k == "ai" && !aiOk) alpha = 0.35f },
                         Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@CardActivity, 6) })
@@ -529,8 +529,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                     setOnClickListener { startActivity(Intent(this@CardActivity, CardActivity::class.java)
                         .setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", e.text)) }
                 }, Ink.lp(0, weight = 1f))
+                // The activity's scope: this coroutine is over by the time of the tap, a child of it would be cancelled.
                 r.addView(Ink.button(this@CardActivity, "✕", size * 0.75f) {
-                    launch {
+                    this@CardActivity.launch {
                         withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }
                         if (e.text == query) starred(false)
                         fillSaved(p)
