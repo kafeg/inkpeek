@@ -143,6 +143,8 @@ class TablesTest(unittest.TestCase):
         self.assertIn("— Mensch</p>", arts["человек"])                    # the y-Wiktionary's own entry goes first
         self.assertEqual((st["wiktionary"], st["reverse"]), (1, 3))
         self.assertIn(("детей", "ребёнок"), syn)
+        rev2 = {"детей": [("noun", [("die Kinder", [])])]}            # a form of ребёнок: no article of its own
+        self.assertNotIn("детей", dictionary.build("ru", "de", [own], g, reverse=rev2)[0])
 
 
 if __name__ == "__main__":

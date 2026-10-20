@@ -194,8 +194,10 @@ def build(x, y, records, grammar, wikdict_base=None, tables=None, reverse=None):
             blocks.setdefault(r["word"], []).append((r.get("pos"), ss))
     stats["wiktionary"] = len(blocks) - stats["tables"]
     stats["reverse"] = 0
+    # A word the grammar knows only as a form (Kinder → Kind) needs no article: its form leads to the word's own.
+    lemmas = {w for w, _ in grammar.lemmas}
     for w, b in (reverse or {}).items():
-        if w not in blocks:
+        if w not in blocks and (w in lemmas or w not in grammar.forms):
             blocks[w] = list(b)
             stats["reverse"] += 1
     stats["wikdict"] = 0
