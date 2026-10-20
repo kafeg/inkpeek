@@ -38,7 +38,10 @@ class LibraryTest {
         assertEquals("das Haus (Hauses, pl. Häuser)", lib.heads("Häuser", "en").first().header)
         // "Gift" is German and English: the German header first for Russian answers, the English one under it.
         assertEquals(listOf("das Gift", "gift"), lib.heads("Gift", "ru").map { it.header })
-        assertEquals(listOf("dict-de-en", "dict-de-ru"), lib.lookup("Hund", "en").map { it.first.ifo.parentFile!!.name })
+        assertEquals(listOf("das Haus (Hauses, pl. Häuser)"), lib.heads("Haus", "en").map { it.header }) // not the Russian one
+        // Only the dictionaries into the app's language; the others when none of those knows the word.
+        assertEquals(listOf("dict-de-en"), lib.lookup("Hund", "en").map { it.first.ifo.parentFile!!.name })
+        assertEquals(listOf("dict-de-ru", "dict-en-ru"), lib.lookup("Gift", "en").map { it.first.ifo.parentFile!!.name })
     }
 
     @Test fun glossPicksTheTextsLanguageIntoTheAnswer() {

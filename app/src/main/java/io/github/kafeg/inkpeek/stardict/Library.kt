@@ -43,8 +43,8 @@ class Library(private val roots: List<File>, private val workRoot: File) {
     val busy: Boolean get() = queued.isNotEmpty()
 
     /**
-     * Hits per ready dictionary, the ones into [answer] (the app's language) first; unready ones are queued and
-     * listed in [notReady].
+     * Hits per ready dictionary into [answer] (the app's language); the other dictionaries only when none of those
+     * knows the word (an Italian book with no Italian → Russian pack). Unready ones are queued and listed in [notReady].
      */
     fun lookup(query: String, answer: String, notReady: MutableList<StarDict>? = null): List<Pair<StarDict, List<Hit>>> {
         val q = cleanQuery(query)
@@ -58,7 +58,7 @@ class Library(private val roots: List<File>, private val workRoot: File) {
             // The base form named by another dictionary, as written: "go" (from "went") is not German "Go".
             val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()).filter { it.word == b } } }
             own.takeIf { it.isNotEmpty() }?.let { d to it }
-        }.sortedBy { (d, _) -> d.answer != answer }
+        }.let { all -> all.filter { (d, _) -> d.answer == answer }.ifEmpty { all } }
     }
 
     /**
