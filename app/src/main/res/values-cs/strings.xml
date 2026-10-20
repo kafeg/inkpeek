@@ -80,7 +80,7 @@
     <string name="gloss_title">Slovo po slovu z vašich slovníků (funguje offline; klepnutím na slovo otevřete heslo):</string>
     <string name="err_offline">Bez připojení. AI potřebuje internet; záložka Slovník funguje offline.</string>
     <string name="err_unreachable">Server AI neodpovídá. Zkontrolujte připojení k internetu nebo VPN.</string>
-    <string name="err_region">Poskytovatel AI odmítl přístup. Často blokuje některé země: zkuste VPN. Pokud to není ono, zkontrolujte klíč API.</string>
+    <string name="err_region">Služba AI požadavek odmítla. Zkontrolujte síť nebo VPN a klíč API.</string>
     <string name="err_key">Klíč API byl odmítnut: zkontrolujte ho v nastavení InkPeek.</string>
     <string name="err_rate">Příliš mnoho požadavků: limit poskytovatele. Zkuste to za minutu.</string>
     <string name="err_credits">Na tomto klíči došel kredit.</string>

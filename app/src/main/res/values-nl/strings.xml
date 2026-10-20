@@ -80,7 +80,7 @@
     <string name="gloss_title">Woord voor woord uit je woordenboeken (werkt offline; tik op een woord voor het lemma):</string>
     <string name="err_offline">Geen netwerk. AI heeft internet nodig; het tabblad Woordenboek werkt offline.</string>
     <string name="err_unreachable">De AI-server antwoordt niet. Controleer de internetverbinding of de VPN.</string>
-    <string name="err_region">De AI-aanbieder weigerde de toegang. Die blokkeert vaak sommige landen: probeer een VPN. Is dat het niet, controleer dan de API-sleutel.</string>
+    <string name="err_region">De AI-dienst weigerde het verzoek. Controleer het netwerk of de VPN en de API-sleutel.</string>
     <string name="err_key">De API-sleutel is geweigerd: controleer hem in de InkPeek-instellingen.</string>
     <string name="err_rate">Te veel verzoeken: limiet van de provider. Probeer het over een minuut opnieuw.</string>
     <string name="err_credits">Geen tegoed meer op deze sleutel.</string>

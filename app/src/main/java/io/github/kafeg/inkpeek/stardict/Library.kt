@@ -53,7 +53,8 @@ class Library(private val roots: List<File>, private val workRoot: File) {
     /**
      * Word-by-word help for a phrase or passage: each distinct word with its base form and first meaning.
      * Only dictionaries that know most of the text count (so an English dictionary does not explain German
-     * "aus" as "AU"); among them, one whose meanings are in [script] (the answer language) wins, e.g. de→ru over de→en.
+     * "aus" as "AU"); among them, one whose meanings are in [script] (the answer language) wins, e.g. de→ru over de→en,
+     * then the one that knows more words of this text.
      */
     fun gloss(text: String, order: List<String>, disabled: Set<String>, script: Character.UnicodeScript? = null, limit: Int = 60): List<Gloss> {
         val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).map { it.value }.distinctBy { it.lowercase() }.take(limit).toList()
@@ -61,11 +62,14 @@ class Library(private val roots: List<File>, private val workRoot: File) {
         val known = found.values.flatMap { r -> r.map { it.first.id } }.groupingBy { it }.eachCount()
         val top = known.values.maxOrNull() ?: 0
         return words.map { w ->
-            val all = found.getValue(w).filter { (d, _) -> (known[d.id] ?: 0) * 2 >= top }
-                .map { (_, hits) -> hits.first().let { h -> h to runCatching { shortMeaning(h.html, h.word) }.getOrDefault("") } }
-                .filter { it.second.isNotBlank() }
-            val pick = all.firstOrNull { (_, m) -> script != null && scriptOf(m) == script } ?: all.firstOrNull()
-            pick?.let { (h, m) -> Gloss(w, h.word, m) } ?: Gloss(w, w, "")
+            // Meanings in the answer script first, then the dictionary that knows more of this text (de→ru over en→ru
+            // for a German sentence, even when en→ru comes first in the order).
+            val pick = found.getValue(w).filter { (d, _) -> (known[d.id] ?: 0) * 2 >= top }
+                .map { (d, hits) -> Triple(d, hits.first(), runCatching { shortMeaning(hits.first().html, hits.first().word) }.getOrDefault("")) }
+                .filter { it.third.isNotBlank() }
+                .sortedWith(compareBy({ script == null || scriptOf(it.third) != script }, { -(known[it.first.id] ?: 0) }))
+                .firstOrNull()
+            pick?.let { (_, h, m) -> Gloss(w, h.word, m) } ?: Gloss(w, w, "")
         }
     }
 

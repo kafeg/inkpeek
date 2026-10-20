@@ -264,7 +264,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             it is javax.net.ssl.SSLException || it is java.io.InterruptedIOException }
         val status = (e as? com.anthropic.errors.AnthropicServiceException)?.statusCode()
             ?: Regex("HTTP (\\d{3})").find(e.message.orEmpty())?.groupValues?.get(1)?.toInt() ?: 0
-        // Some providers refuse whole countries: 403, or Gemini's 400 "User location is not supported".
+        // 403 or Gemini's 400 "User location is not supported": often a country block (VPN helps), sometimes the key.
         val region = status == 403 || Regex("(location|country|region|territory)[^.]{0,40}not supported|unsupported_country", RegexOption.IGNORE_CASE).containsMatchIn(msg)
         // Own server: online but it does not answer, or no address yet.
         if (prefs.provider == Provider.CUSTOM && ((net && online) || msg.startsWith("No server address")))

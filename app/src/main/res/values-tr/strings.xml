@@ -80,7 +80,7 @@
     <string name="gloss_title">Sözlüklerinizden kelime kelime (çevrimdışı çalışır; madde için bir kelimeye dokunun):</string>
     <string name="err_offline">Ağ yok. YZ için internet gerekir; Sözlük sekmesi çevrimdışı çalışır.</string>
     <string name="err_unreachable">Yapay zekâ sunucusu yanıt vermiyor. İnternet bağlantısını veya VPN’i kontrol edin.</string>
-    <string name="err_region">Yapay zekâ sağlayıcısı erişimi reddetti. Bazı ülkeleri sık sık engeller: VPN deneyin. Sorun bu değilse API anahtarını kontrol edin.</string>
+    <string name="err_region">Yapay zekâ hizmeti isteği reddetti. Ağı veya VPN’i ve API anahtarını kontrol edin.</string>
     <string name="err_key">API anahtarı reddedildi: InkPeek ayarlarından kontrol edin.</string>
     <string name="err_rate">Çok fazla istek: sağlayıcı sınırı. Bir dakika sonra tekrar deneyin.</string>
     <string name="err_credits">Bu anahtarda kredi kalmadı.</string>

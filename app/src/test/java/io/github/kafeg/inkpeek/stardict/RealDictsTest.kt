@@ -12,6 +12,9 @@ class RealDictsTest {
         val lib = Library(listOf(root!!), File(root.parentFile, "dicts-work"))
         lib.all().forEach { it.prepare() }
         val text = System.getenv("INKPEEK_TEXT") ?: "Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt."
+        Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).map { it.value }.forEach { w ->
+            println("HITS $w: " + lib.lookup(w, emptyList(), emptySet()).joinToString { (d, h) -> d.name + "=" + h.first().word })
+        }
         lib.gloss(text, emptyList(), emptySet(), Character.UnicodeScript.CYRILLIC).forEach { println("GLOSS ${it.word} -> ${it.base} — ${it.meaning}") }
     }
 }

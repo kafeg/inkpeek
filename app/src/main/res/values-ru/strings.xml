@@ -80,7 +80,7 @@
     <string name="gloss_title">Подстрочник по вашим словарям (работает офлайн; нажмите на слово — откроется статья):</string>
     <string name="err_offline">Нет сети. AI нужен интернет; вкладка «Словарь» работает офлайн.</string>
     <string name="err_unreachable">Сервер AI не отвечает. Проверьте интернет или VPN.</string>
-    <string name="err_region">Провайдер AI отказал в доступе. Часто он не работает из некоторых стран — включите VPN. Если дело не в этом, проверьте ключ API.</string>
+    <string name="err_region">Сервис AI отклонил запрос. Проверьте сеть или VPN и ключ API.</string>
     <string name="err_key">Ключ API не принят: проверьте его в настройках InkPeek.</string>
     <string name="err_rate">Слишком много запросов: лимит провайдера. Попробуйте через минуту.</string>
     <string name="err_credits">На ключе закончились средства.</string>

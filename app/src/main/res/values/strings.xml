@@ -81,7 +81,7 @@
     <string name="gloss_title">Word by word from your dictionaries (works offline; tap a word for its entry):</string>
     <string name="err_offline">No network. AI needs the internet; the Dictionary tab works offline.</string>
     <string name="err_unreachable">The AI server does not answer. Check the internet connection or VPN.</string>
-    <string name="err_region">The AI provider refused access. It often blocks some countries: try a VPN. If that is not it, check the API key.</string>
+    <string name="err_region">The AI service refused the request. Check the network or VPN and the API key.</string>
     <string name="err_key">The API key was rejected: check it in InkPeek settings.</string>
     <string name="err_rate">Too many requests: the provider\'s limit. Try again in a minute.</string>
     <string name="err_credits">No credits left on this key.</string>

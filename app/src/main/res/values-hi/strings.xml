@@ -80,7 +80,7 @@
     <string name="gloss_title">आपके शब्दकोशों से शब्द-दर-शब्द (ऑफ़लाइन भी; प्रविष्टि के लिए शब्द पर टैप करें):</string>
     <string name="err_offline">नेटवर्क नहीं। AI को इंटरनेट चाहिए; शब्दकोश टैब ऑफ़लाइन चलता है।</string>
     <string name="err_unreachable">AI सर्वर जवाब नहीं दे रहा। इंटरनेट कनेक्शन या VPN जाँचें।</string>
-    <string name="err_region">AI प्रदाता ने पहुँच से मना कर दिया। वह अक्सर कुछ देशों को रोकता है: VPN आज़माएँ। अगर यह कारण नहीं है, तो API कुंजी जाँचें।</string>
+    <string name="err_region">AI सेवा ने अनुरोध अस्वीकार कर दिया। नेटवर्क या VPN और API कुंजी जाँचें।</string>
     <string name="err_key">API कुंजी अस्वीकार हुई: इसे InkPeek सेटिंग्स में जाँचें।</string>
     <string name="err_rate">बहुत ज़्यादा अनुरोध: प्रदाता की सीमा। एक मिनट बाद फिर कोशिश करें।</string>
     <string name="err_credits">इस कुंजी पर क्रेडिट खत्म हो गए हैं।</string>

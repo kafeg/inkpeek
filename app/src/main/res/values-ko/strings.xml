@@ -80,7 +80,7 @@
     <string name="gloss_title">내 사전으로 단어별 풀이(오프라인 가능, 단어를 누르면 항목 표시):</string>
     <string name="err_offline">네트워크가 없습니다. AI는 인터넷이 필요하며, 사전 탭은 오프라인에서도 작동합니다.</string>
     <string name="err_unreachable">AI 서버가 응답하지 않습니다. 인터넷 연결이나 VPN을 확인하세요.</string>
-    <string name="err_region">AI 제공자가 접근을 거부했습니다. 일부 국가를 차단하는 경우가 많습니다. VPN을 사용해 보세요. 그게 아니라면 API 키를 확인하세요.</string>
+    <string name="err_region">AI 서비스가 요청을 거부했습니다. 네트워크나 VPN, API 키를 확인하세요.</string>
     <string name="err_key">API 키가 거부되었습니다. InkPeek 설정에서 확인하세요.</string>
     <string name="err_rate">요청이 너무 많습니다(제공업체 한도). 1분 후 다시 시도하세요.</string>
     <string name="err_credits">이 키의 크레딧이 모두 소진되었습니다.</string>

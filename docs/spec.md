@@ -77,8 +77,8 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   one is remembered per (host, model) in settings.
 - Warm-up: the card opens the provider connection in the background (no tokens) while the dictionary shows.
 - Network: "online" = a validated network; a VPN counts only with a real network under it. Offline → no request.
-- Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → the provider blocks the
-  country or the key; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
+- Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → a neutral "the service
+  refused: check the network or VPN and the key"; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
 - Answer language: setting, default Russian.
 - Actions (tabs; on/off in settings): Translate, Grammar (how the phrase is built and why), Words (harder words in
   base form), Examples, Explain (off by default). Prompts: `ai/Ai.kt`, placeholders `{text}`, `{lang}`.

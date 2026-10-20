@@ -80,7 +80,7 @@
     <string name="gloss_title">Từng từ theo từ điển của bạn (dùng được ngoại tuyến; chạm vào một từ để xem mục từ):</string>
     <string name="err_offline">Không có mạng. AI cần internet; tab Từ điển dùng được ngoại tuyến.</string>
     <string name="err_unreachable">Máy chủ AI không phản hồi. Hãy kiểm tra kết nối internet hoặc VPN.</string>
-    <string name="err_region">Nhà cung cấp AI đã từ chối truy cập. Họ thường chặn một số quốc gia: hãy thử VPN. Nếu không phải do đó, hãy kiểm tra khóa API.</string>
+    <string name="err_region">Dịch vụ AI đã từ chối yêu cầu. Hãy kiểm tra mạng hoặc VPN và khóa API.</string>
     <string name="err_key">Khóa API bị từ chối: hãy kiểm tra trong cài đặt InkPeek.</string>
     <string name="err_rate">Quá nhiều yêu cầu: giới hạn của nhà cung cấp. Hãy thử lại sau một phút.</string>
     <string name="err_credits">Khóa này đã hết tín dụng.</string>
