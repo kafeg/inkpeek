@@ -110,7 +110,7 @@ def cmd_publish(a):
     mine = json.load(open(os.path.join(a.out, "packs.json"), encoding="utf-8"))
     have = gh("release", "view", a.release, "--json", "assets", "--jq", ".assets[].name", check=False)
     if have.returncode != 0:
-        gh("release", "create", a.release, "--title", "Language packs", "--notes",
+        gh("release", "create", a.release, "--latest=false", "--title", "Language packs", "--notes",
            "InkPeek language packs: grammar, dictionaries (CC BY-SA 4.0: Wiktionary contributors, Wiktextract/kaikki.org, "
            "WikDict), translation models (MPL-2.0, Mozilla), language identification (CC BY-SA 3.0, fastText). "
            "Built by packs/ in this repository.")
