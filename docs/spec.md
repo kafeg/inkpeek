@@ -33,8 +33,12 @@ A tab keeps its content. Selection kinds: word · phrase (2–8 words, one sente
 the kind. A phrase or passage opens on Translate (setting `phrase_auto_ai`, default on), a word on Dictionary.
 Header of a word, once the quick answer is in: "das Haus · die Häuser" or the verb's forms ("gehen · geht · ging ·
 ist gegangen"); under it, small: "Häusern → noun, neuter · dative plural · irregular".
-Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a hit. A dictionary that resolves a form
-(Häuser → Haus) makes the base form be looked up in the other dictionaries.
+Dictionary tab for a word: one short line per dictionary with a hit — "form → **base** *part of speech* — first
+meanings · dictionary"; tap a line for the full article, "←" back. Order: meanings in the answer script, then
+dictionaries whose headword is the AI's base form (German "ging" → gehen before an English look-alike), then the
+settings order; the list re-sorts once when the quick answer arrives. The AI's base form is also looked up
+(exact case), so "went" finds "go"; its part of speech picks the entry (WikDict "go" verb, not noun). A dictionary
+that resolves a form (Häuser → Haus) makes the base form be looked up in the other dictionaries.
 
 ## Card layout
 1. The card (border): header — the selection or, for a word, its base form with article / plural or verb forms (large),
@@ -55,8 +59,13 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
 - Library: one folder, `/sdcard/dictdata` (created when missing; the ColorDict folder). Each dictionary in its own
   subfolder. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
 - Import: a file picker takes `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst` or loose StarDict files.
-- Get dictionaries: live lists of Wiktionary (xxyzz/wiktionary_stardict releases, `.tar.zst`) and FreeDict
-  (`freedict-database.json`, `stardict` releases); filter by language pair, tap to download and import.
+- Get dictionaries: live lists of WikDict (`download.wikdict.com/dictionaries/stardict/` index, `.zip`, CC BY-SA),
+  Wiktionary (xxyzz/wiktionary_stardict releases, `.tar.zst`) and FreeDict (`freedict-database.json`); language
+  names, pairs into the answer language first, ★ WikDict among them (compact: short translations, gender, forms →
+  base). A ★ download goes first in the order. The download dialog says what each source is good for.
+- Short line of an article: WikDict — the `<div>` translations of the first (or the AI's) part-of-speech block and
+  its grammar mark ("noun, neutral"); Wiktionary — the first sense of the first `<ol>`; plain text (Mueller) — the
+  first line without `[transcription]`, `_v.`, `1>` marks; always up to the first ";".
 - Own index per dictionary, built once (app files): every headword and `.syn` form, normalized (NFC, lower case, no
   soft hyphen), sorted, binary search over a memory-mapped file. Upstream `.idx` sort order does not matter.
   `.dict.dz` is unpacked once into the app's files.
@@ -151,7 +160,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    My words · Close (bottom right). Long press shows the name; optional captions under icons; a settings page
    explains the icons. Header: the base form with its article and plural, or the verb's principal parts with
    "irregular"; the selected form under it when it differs.
-8. **Dictionaries** — WikDict (compact, CC BY-SA, `download.wikdict.com/dictionaries/stardict/wikdict-<src>-<dst>.zip`)
+8. **Dictionaries** (done) — WikDict (compact, CC BY-SA, `download.wikdict.com/dictionaries/stardict/wikdict-<src>-<dst>.zip`)
    first in "Get dictionaries", offered for the reading languages → answer language; Wiktionary as the
    full-article dictionary. Dictionary tab for a word: one short line per dictionary (form → base — meaning),
    tap for the full article.

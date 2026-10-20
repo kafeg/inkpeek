@@ -107,4 +107,8 @@
     <string name="icon_save_d">Keeps the word or phrase in My words; a filled star means it is there.</string>
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="save_short">Save</string>
+    <string name="cat_recommended">★ — recommended: compact translations into your answer language.</string>
+    <string name="cat_wikdict">Compact: short translations, part of speech and gender; inflected forms find the base form (ging → gehen). Best for quick look-ups.</string>
+    <string name="cat_wiktionary">Full articles: pronunciation, etymology, all senses, examples. Good as a second dictionary.</string>
+    <string name="cat_freedict">Older compact data, without inflected forms; WikDict covers the same pairs better.</string>
 </resources>

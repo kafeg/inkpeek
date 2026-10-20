@@ -106,4 +106,8 @@
     <string name="icon_save_d">Menyimpan kata atau frasa ke Kata saya; bintang terisi berarti sudah tersimpan.</string>
     <string name="icon_words_d">Kata dan frasa yang Anda simpan; juga di pengaturan aplikasi.</string>
     <string name="save_short">Simpan</string>
+    <string name="cat_recommended">★ — disarankan: terjemahan singkat ke bahasa jawaban Anda.</string>
+    <string name="cat_wikdict">Ringkas: terjemahan singkat, kelas kata dan gender; bentuk kata menuju bentuk dasar (ging → gehen). Terbaik untuk pencarian cepat.</string>
+    <string name="cat_wiktionary">Entri lengkap: pelafalan, etimologi, semua makna, contoh. Baik sebagai kamus kedua.</string>
+    <string name="cat_freedict">Data ringkas lama tanpa bentuk kata; WikDict mencakup pasangan yang sama lebih baik.</string>
 </resources>

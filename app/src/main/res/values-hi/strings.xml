@@ -106,4 +106,8 @@
     <string name="icon_save_d">शब्द या वाक्यांश को मेरे शब्द में रखता है; भरा तारा मतलब पहले से सहेजा है।</string>
     <string name="icon_words_d">आपके सहेजे शब्द और वाक्यांश; ऐप सेटिंग में भी।</string>
     <string name="save_short">सहेजें</string>
+    <string name="cat_recommended">★ — सुझाया गया: आपकी उत्तर-भाषा में छोटे अनुवाद।</string>
+    <string name="cat_wikdict">संक्षिप्त: छोटे अनुवाद, शब्द-भेद और लिंग; रूप मूल रूप तक ले जाते हैं (ging → gehen)। जल्दी खोज के लिए सबसे अच्छा।</string>
+    <string name="cat_wiktionary">पूरी प्रविष्टियाँ: उच्चारण, व्युत्पत्ति, सभी अर्थ, उदाहरण। दूसरे शब्दकोश के रूप में अच्छा।</string>
+    <string name="cat_freedict">पुराना संक्षिप्त डेटा, शब्द-रूपों के बिना; WikDict वही जोड़े बेहतर देता है।</string>
 </resources>

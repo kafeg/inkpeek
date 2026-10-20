@@ -20,6 +20,7 @@ import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.StarDict
 import io.github.kafeg.inkpeek.stardict.cleanPhrase
 import io.github.kafeg.inkpeek.stardict.cleanQuery
+import io.github.kafeg.inkpeek.stardict.shortMeaning
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
@@ -213,22 +214,40 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else -> Character.UnicodeScript.LATIN
     }
 
-    /** Dictionary tab: a word → its articles; a phrase or passage → word-by-word gloss, tap a word for its articles. */
+    /** Dictionary tab: a word → one line per dictionary; a phrase or passage → word-by-word gloss. */
     private fun fillDictionary(p: LinearLayout) = if (kind == Kind.WORD) fillArticles(p, query, null) else fillGloss(p)
 
-    /** One dictionary per screen; ◀ ▶ page between dictionaries that have [word]. [back] — return to the gloss. */
+    /**
+     * One short line per dictionary with [word] (form → base, part of speech, first meanings); tap a line for the full
+     * article. Meanings in the answer script first, then the dictionary whose headword is the AI's base form
+     * (German "ging" → de-ru "gehen" before en-ru), then the order from settings. [back] — return to the gloss.
+     */
+    private var listRun = 0
+
     private fun fillArticles(p: LinearLayout, word: String, back: (() -> Unit)?) {
-        p.removeAllViews()
+        p.removeAllViews(); val run = ++listRun
         dictBack = back?.let { b -> { dictBack = null; showBack(); b() } }
         showBack()
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val notReady = ArrayList<StarDict>()
             val lib = prefs.library()
+            val quick = answers[Ask.QUICK]?.takeIf { it.isCompleted }?.getCompleted()?.getOrNull()
+            val base = quick?.str("base").orEmpty()
+            // The part of speech the AI saw, to pick that block of a multi-part entry (went → go, the verb).
+            val pos = when { quick == null || word != query -> null; quick.str("forms").isNotBlank() && quick.str("article").isBlank() -> "verb"
+                quick.str("article").isNotBlank() || quick.str("plural").isNotBlank() -> "noun"; else -> null }
             val res = withContext(Dispatchers.IO) { runCatching {
-                lib.lookup(word, prefs.order, prefs.disabled, notReady)
-                    .sortedBy { (_, h) -> if (lib.scriptOf(h.first().html.replace(Regex("<[^>]+>"), " ")) == answerScript) 0 else 1 }
+                val main = lib.lookup(word, prefs.order, prefs.disabled, notReady)
+                // The AI's base form finds what the dictionaries miss as a form (went → go).
+                val more = if (word != query || base.isBlank() || base.equals(word, true)) emptyList()
+                    else lib.lookup(base, prefs.order, prefs.disabled).mapNotNull { (d, h) -> h.filter { it.word == base }.takeIf { it.isNotEmpty() }?.let { d to it } }
+                        .filter { (d, _) -> main.none { (m, h) -> m.id == d.id && h.any { it.word == base } } }
+                (main + more).sortedWith(compareBy(
+                    { (_, h) -> lib.scriptOf(runCatching { pick(h, pos).let { shortMeaning(it.html, it.word, pos) } }.getOrDefault("")) != answerScript },
+                    { (_, h) -> base.isNotBlank() && word == query && h.none { it.word.equals(base, true) } }))
             } }
+            if (run != listRun) return@launch // a newer fill took over (the quick answer re-sorted the list)
             p.removeView(wait)
             val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
@@ -236,30 +255,36 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 if (notReady.isEmpty()) note(p, getString(if (lib.all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
                 return@launch
             }
-            val nav = Ink.horizontal(this@CardActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-            val title = Ink.text(this@CardActivity, "", size * 0.72f, bold = true).apply { gravity = Gravity.CENTER }
-            val body = Ink.vertical(this@CardActivity)
-            var at = 0
-            fun show() {
-                val (dict, list) = hits[at]
-                title.text = if (hits.size > 1) "${dict.name} · ${at + 1}/${hits.size}" else dict.name
-                body.removeAllViews()
-                list.forEach { h ->
-                    val head = if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>"
-                    body.addView(Ink.text(this@CardActivity, head + h.html, size, html = true))
-                }
-                scroll.scrollTo(0, 0)
+            hits.forEach { (dict, list) ->
+                val h = pick(list, pos)
+                val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)} → "
+                val gram = io.github.kafeg.inkpeek.stardict.grammarOf(h.html, pos).let { if (it.isBlank()) "" else " <i>${Ink.escape(it)}</i>" }
+                val meaning = runCatching { shortMeaning(h.html, h.word, pos) }.getOrDefault("")
+                val line = "$form<b>${Ink.escape(h.word)}</b>$gram" + (if (meaning.isBlank()) "" else " — " + Ink.escape(meaning)) +
+                    "<br><small>${Ink.escape(dict.name)}</small>"
+                p.addView(Ink.text(this@CardActivity, line, size, html = true).apply {
+                    val q = Ink.dp(this@CardActivity, 6); setPadding(0, q, 0, q)
+                    setOnClickListener { listRun++; article(p, dict, list, word) { fillArticles(p, word, back) } }
+                })
             }
-            val w = Ink.dp(this@CardActivity, 48)
-            if (hits.size > 1) nav.addView(Ink.button(this@CardActivity, "◀", size) { at = (at - 1 + hits.size) % hits.size; show() }
-                .apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
-            nav.addView(title, Ink.lp(0, weight = 1f))
-            if (hits.size > 1) nav.addView(Ink.button(this@CardActivity, "▶", size) { at = (at + 1) % hits.size; show() }
-                .apply { setPadding(0, 0, 0, 0) }, LinearLayout.LayoutParams(w, w))
-            p.addView(nav, Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
-            p.addView(body)
-            show()
         }
+    }
+
+    /** The entry of the AI's part of speech when a dictionary splits a word by it (WikDict: go — noun, go — verb). */
+    private fun pick(list: List<io.github.kafeg.inkpeek.stardict.Hit>, pos: String?) =
+        list.firstOrNull { pos != null && io.github.kafeg.inkpeek.stardict.grammarOf(it.html).contains(pos, true) } ?: list.first()
+
+    /** A dictionary's full entries for [word]; "←" (or Back) returns to the list. */
+    private fun article(p: LinearLayout, dict: StarDict, list: List<io.github.kafeg.inkpeek.stardict.Hit>, word: String, back: () -> Unit) {
+        p.removeAllViews()
+        dictBack = { dictBack = null; showBack(); back() }
+        showBack()
+        p.addView(Ink.text(this, dict.name, size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(this@CardActivity, 8) })
+        list.forEach { h ->
+            val head = if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>"
+            p.addView(Ink.text(this, head + h.html, size, html = true))
+        }
+        scroll.scrollTo(0, 0)
     }
 
     private var glossCache: List<io.github.kafeg.inkpeek.stardict.Gloss>? = null
@@ -337,6 +362,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** A word's header: "das Haus · die Häuser" or the verb's forms; under it the selected form, part of speech, "irregular". */
     private fun head(j: org.json.JSONObject) {
         if (kind != Kind.WORD) return
+        // The base form can reorder the dictionary list (an English look-alike of a German form goes down).
+        if (shown == DICT && dictBack == null) pages[DICT]?.let { fillArticles(it, query, null) }
         val base = j.str("base").ifBlank { query }
         titleView.text = j.str("forms").ifBlank {
             listOf(j.str("article"), base).filter { it.isNotBlank() }.joinToString(" ") + j.str("plural").let { if (it.isBlank()) "" else " · $it" }

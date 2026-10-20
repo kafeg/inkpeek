@@ -106,4 +106,8 @@
     <string name="icon_save_d">把单词或短语存入我的单词；实心星表示已保存。</string>
     <string name="icon_words_d">你保存的单词和短语；应用设置中也有。</string>
     <string name="save_short">保存</string>
+    <string name="cat_recommended">★ — 推荐：译成你的回答语言的简短译文。</string>
+    <string name="cat_wikdict">简明：简短译文、词性和性；变化形式指向原形（ging → gehen）。最适合快速查询。</string>
+    <string name="cat_wiktionary">完整词条：发音、词源、全部义项、例句。适合作为第二部词典。</string>
+    <string name="cat_freedict">较旧的简明数据，没有变化形式；同样的语言对 WikDict 更好。</string>
 </resources>

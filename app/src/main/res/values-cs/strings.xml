@@ -106,4 +106,8 @@
     <string name="icon_save_d">Uloží slovo nebo frázi do Mých slov; plná hvězda znamená, že už tam je.</string>
     <string name="icon_words_d">Vaše uložená slova a fráze; také v nastavení aplikace.</string>
     <string name="save_short">Uložit</string>
+    <string name="cat_recommended">★ — doporučeno: krátké překlady do jazyka odpovědí.</string>
+    <string name="cat_wikdict">Kompaktní: krátké překlady, slovní druh a rod; tvary vedou k základnímu tvaru (ging → gehen). Nejlepší pro rychlé hledání.</string>
+    <string name="cat_wiktionary">Úplná hesla: výslovnost, etymologie, všechny významy, příklady. Dobrý jako druhý slovník.</string>
+    <string name="cat_freedict">Starší kompaktní data bez tvarů slov; WikDict pokrývá stejné páry lépe.</string>
 </resources>

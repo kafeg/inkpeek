@@ -23,7 +23,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit
 
-/** Public dictionaries (Wiktionary, FreeDict): filter by language pair, tap to download and import. */
+/** Public dictionaries (WikDict, Wiktionary, FreeDict): pairs into the answer language first, WikDict first among them. */
 class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
     private var items: List<CatalogItem> = emptyList()
@@ -41,7 +41,8 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         filter = EditText(this).apply { hint = getString(io.github.kafeg.inkpeek.R.string.catalog_filter); textSize = 18f; setSingleLine() }
         list = ListView(this)
         col.addView(Ink.text(this, getString(io.github.kafeg.inkpeek.R.string.get_dicts), 24f, bold = true))
-        col.addView(filter); col.addView(info); col.addView(list, Ink.lp(h = 0, weight = 1f))
+        col.addView(filter); col.addView(Ink.text(this, getString(io.github.kafeg.inkpeek.R.string.cat_recommended), 14f)); col.addView(info)
+        col.addView(list, Ink.lp(h = 0, weight = 1f))
         setContentView(col)
         filter.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) = show()
@@ -51,23 +52,31 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         list.setOnItemClickListener { _, _, i, _ -> confirm(shown[i]) }
         launch {
             val loaded = withContext(Dispatchers.IO) {
-                listOf(Catalog.WIKTIONARY_URL to Catalog::wiktionary, Catalog.FREEDICT_URL to Catalog::freedict)
+                listOf(Catalog.WIKDICT_URL to Catalog::wikdict, Catalog.WIKTIONARY_URL to Catalog::wiktionary, Catalog.FREEDICT_URL to Catalog::freedict)
                     .flatMap { (url, parse) -> runCatching { parse(get(url)) }.getOrDefault(emptyList()) }
             }
-            items = loaded.sortedWith(compareBy({ it.from }, { it.to }, { it.source }))
+            val rank = listOf("WikDict", "Wiktionary", "FreeDict")
+            items = loaded.sortedWith(compareBy({ it.to != answer }, { !recommended(it) }, { name(it.from) }, { rank.indexOf(it.source) }))
             show()
         }
     }
 
     override fun onDestroy() { cancel(); super.onDestroy() }
 
+    /** The answer language as an ISO code ("ru"), from its English name in settings. */
+    private val answer: String by lazy { val n = Prefs(this).answerLang
+        java.util.Locale.getAvailableLocales().firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == n }?.language.orEmpty() }
+    private fun recommended(i: CatalogItem) = i.source == "WikDict" && i.to == answer
+    private fun name(code: String) = java.util.Locale(code).getDisplayLanguage(resources.configuration.locales[0])
+        .takeIf { it.isNotBlank() && it != code }?.replaceFirstChar { it.uppercase() } ?: code
+
     private var shown: List<CatalogItem> = emptyList()
     private fun show() {
         val f = filter.text.toString().trim().lowercase()
-        shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${it.title}".lowercase().contains(f) }
+        shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${it.title} ${name(it.from)} ${name(it.to)}".lowercase().contains(f) }
         info.text = getString(io.github.kafeg.inkpeek.R.string.n_of_m, shown.size, items.size)
         list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
-            shown.map { "${it.from} → ${it.to}   ${it.source}   ${mb(it.size)}" })
+            shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}   ${it.source}   ${mb(it.size)}" })
     }
 
     private fun mb(b: Long) = if (b <= 0) "" else "%.1f MB".format(b / 1e6)
@@ -77,7 +86,9 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private fun confirm(item: CatalogItem) = AlertDialog.Builder(this).setTitle(item.title)
-        .setMessage("${mb(item.size)} · ${item.license}\n${item.url}")
+        .setMessage(getString(when (item.source) { "WikDict" -> io.github.kafeg.inkpeek.R.string.cat_wikdict
+            "Wiktionary" -> io.github.kafeg.inkpeek.R.string.cat_wiktionary; else -> io.github.kafeg.inkpeek.R.string.cat_freedict }) +
+            "\n\n${mb(item.size)} · ${item.license}\n${item.url}")
         .setPositiveButton(io.github.kafeg.inkpeek.R.string.download) { _, _ -> download(item) }.setNegativeButton(io.github.kafeg.inkpeek.R.string.cancel, null).show()
 
     private fun download(item: CatalogItem) {
@@ -88,6 +99,12 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
                     http.newCall(Request.Builder().url(item.url).build()).execute().use { resp ->
                         if (!resp.isSuccessful) error("HTTP ${resp.code}")
                         Importer.importStream(item.url.substringAfterLast('/'), resp.body!!.byteStream(), Prefs(this@CatalogActivity).dictsDir, cacheDir)
+                    }.also { dirs ->
+                        // A recommended dictionary goes first: its short lines come before full articles.
+                        if (recommended(item)) Prefs(this@CatalogActivity).run {
+                            val all = library().all(order); val new = all.filter { d -> dirs.any { it.canonicalPath == d.ifo.parentFile?.canonicalPath } }
+                            order = (new + (all - new.toSet())).map { it.id }
+                        }
                     }
                 }
             }

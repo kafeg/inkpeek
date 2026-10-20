@@ -106,4 +106,8 @@
     <string name="icon_save_d">Bewaart het woord of de zin in Mijn woorden; een gevulde ster betekent dat het er al is.</string>
     <string name="icon_words_d">Je bewaarde woorden en zinnen; ook in de app-instellingen.</string>
     <string name="save_short">Bewaren</string>
+    <string name="cat_recommended">★ — aanbevolen: korte vertalingen in je antwoordtaal.</string>
+    <string name="cat_wikdict">Compact: korte vertalingen, woordsoort en geslacht; vormen leiden naar de grondvorm (ging → gehen). Het beste om snel op te zoeken.</string>
+    <string name="cat_wiktionary">Volledige lemma’s: uitspraak, etymologie, alle betekenissen, voorbeelden. Goed als tweede woordenboek.</string>
+    <string name="cat_freedict">Oudere compacte gegevens zonder woordvormen; WikDict dekt dezelfde paren beter.</string>
 </resources>

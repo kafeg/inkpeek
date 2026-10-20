@@ -106,4 +106,8 @@
     <string name="icon_save_d">Зберігає слово чи фразу в «Мої слова»; зафарбована зірка — вже збережено.</string>
     <string name="icon_words_d">Ваші збережені слова й фрази; вони ж — у налаштуваннях застосунку.</string>
     <string name="save_short">Зберегти</string>
+    <string name="cat_recommended">★ — радимо: короткі переклади вашою мовою відповіді.</string>
+    <string name="cat_wikdict">Компактний: короткі переклади, частина мови й рід; форми ведуть до початкової (ging → gehen). Найкращий для швидкого пошуку.</string>
+    <string name="cat_wiktionary">Повні статті: вимова, етимологія, усі значення, приклади. Добрий як другий словник.</string>
+    <string name="cat_freedict">Старі компактні дані без форм слів; WikDict дає ті самі пари краще.</string>
 </resources>

@@ -11,6 +11,15 @@ data class CatalogItem(val source: String, val from: String, val to: String, val
 object Catalog {
     const val WIKTIONARY_URL = "https://api.github.com/repos/xxyzz/wiktionary_stardict/releases/latest"
     const val FREEDICT_URL = "https://freedict.org/freedict-database.json"
+    const val WIKDICT_URL = "https://download.wikdict.com/dictionaries/stardict/"
+
+    /** WikDict: the server's file index, "wikdict-<from>-<to>.zip" with a size like 4M or 552K. */
+    fun wikdict(html: String): List<CatalogItem> =
+        Regex("""href="(wikdict-([a-z]{2,3})-([a-z]{2,3})\.zip)".*?\s(\d+(?:\.\d+)?)([KMG])\s*$""", RegexOption.MULTILINE).findAll(html).map { m ->
+            val (file, from, to, n, unit) = m.destructured
+            val size = (n.toDouble() * when (unit) { "K" -> 1e3; "M" -> 1e6; else -> 1e9 }).toLong()
+            CatalogItem("WikDict", from, to, "WikDict $from → $to", WIKDICT_URL + file, size, "CC BY-SA 4.0")
+        }.toList()
 
     /** xxyzz/wiktionary_stardict: assets "<words>-<glosses>.tar.zst". */
     fun wiktionary(json: String): List<CatalogItem> {

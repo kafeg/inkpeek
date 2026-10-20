@@ -106,4 +106,8 @@
     <string name="icon_save_d">Zapisuje słowo lub wyrażenie w Moich słowach; pełna gwiazdka znaczy, że już tam jest.</string>
     <string name="icon_words_d">Twoje zapisane słowa i wyrażenia; także w ustawieniach aplikacji.</string>
     <string name="save_short">Zapisz</string>
+    <string name="cat_recommended">★ — polecane: krótkie tłumaczenia na twój język odpowiedzi.</string>
+    <string name="cat_wikdict">Zwięzły: krótkie tłumaczenia, część mowy i rodzaj; formy prowadzą do formy podstawowej (ging → gehen). Najlepszy do szybkiego szukania.</string>
+    <string name="cat_wiktionary">Pełne hasła: wymowa, etymologia, wszystkie znaczenia, przykłady. Dobry jako drugi słownik.</string>
+    <string name="cat_freedict">Starsze zwięzłe dane bez form wyrazów; WikDict lepiej obejmuje te same pary.</string>
 </resources>

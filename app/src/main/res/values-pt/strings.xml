@@ -106,4 +106,8 @@
     <string name="icon_save_d">Guarda a palavra ou frase em Minhas palavras; a estrela cheia indica que já está lá.</string>
     <string name="icon_words_d">As suas palavras e frases guardadas; também nas definições da app.</string>
     <string name="save_short">Guardar</string>
+    <string name="cat_recommended">★ — recomendado: traduções curtas para a sua língua de resposta.</string>
+    <string name="cat_wikdict">Compacto: traduções curtas, classe e género; as formas levam à forma base (ging → gehen). O melhor para consultas rápidas.</string>
+    <string name="cat_wiktionary">Entradas completas: pronúncia, etimologia, todos os sentidos, exemplos. Bom como segundo dicionário.</string>
+    <string name="cat_freedict">Dados compactos antigos, sem formas flexionadas; o WikDict cobre melhor os mesmos pares.</string>
 </resources>

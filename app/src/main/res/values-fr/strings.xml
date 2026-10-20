@@ -106,4 +106,8 @@
     <string name="icon_save_d">Garde le mot ou l’expression dans Mes mots ; une étoile pleine signifie qu’il y est déjà.</string>
     <string name="icon_words_d">Vos mots et expressions enregistrés ; aussi dans les réglages de l’app.</string>
     <string name="save_short">Garder</string>
+    <string name="cat_recommended">★ — recommandé : traductions courtes dans votre langue de réponse.</string>
+    <string name="cat_wikdict">Compact : traductions courtes, nature et genre ; les formes mènent au lemme (ging → gehen). Idéal pour chercher vite.</string>
+    <string name="cat_wiktionary">Articles complets : prononciation, étymologie, tous les sens, exemples. Bon second dictionnaire.</string>
+    <string name="cat_freedict">Données compactes plus anciennes, sans formes fléchies ; WikDict couvre mieux les mêmes paires.</string>
 </resources>

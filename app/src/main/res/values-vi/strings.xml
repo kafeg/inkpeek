@@ -106,4 +106,8 @@
     <string name="icon_save_d">Lưu từ hoặc cụm từ vào Từ của tôi; sao tô kín nghĩa là đã lưu.</string>
     <string name="icon_words_d">Các từ và cụm từ đã lưu; cũng có trong cài đặt ứng dụng.</string>
     <string name="save_short">Lưu</string>
+    <string name="cat_recommended">★ — đề xuất: bản dịch ngắn sang ngôn ngữ trả lời của bạn.</string>
+    <string name="cat_wikdict">Gọn: bản dịch ngắn, từ loại và giống; dạng biến đổi dẫn về dạng gốc (ging → gehen). Tốt nhất để tra nhanh.</string>
+    <string name="cat_wiktionary">Mục từ đầy đủ: phát âm, từ nguyên, mọi nghĩa, ví dụ. Hợp làm từ điển thứ hai.</string>
+    <string name="cat_freedict">Dữ liệu gọn cũ, không có dạng biến đổi; WikDict có cùng các cặp tốt hơn.</string>
 </resources>

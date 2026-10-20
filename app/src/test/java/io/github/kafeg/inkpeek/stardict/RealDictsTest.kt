@@ -17,4 +17,16 @@ class RealDictsTest {
         }
         lib.gloss(text, emptyList(), emptySet(), Character.UnicodeScript.CYRILLIC).forEach { println("GLOSS ${it.word} -> ${it.base} — ${it.meaning}") }
     }
+
+    /** INKPEEK_WORD: each dictionary's hit for one word, its short line and the start of its article. */
+    @Test fun article() {
+        val root = System.getenv("INKPEEK_DICTS")?.let(::File); val w = System.getenv("INKPEEK_WORD")
+        assumeTrue(root?.isDirectory == true && w != null)
+        val lib = Library(listOf(root!!), File(root.parentFile, "dicts-work"))
+        lib.all().forEach { it.prepare() }
+        lib.lookup(w!!, emptyList(), emptySet()).forEach { (d, hits) ->
+            println("ART ${d.name}: ${hits.first().word} | ${shortMeaning(hits.first().html, hits.first().word)}")
+            println("ART   " + hits.first().html.take(400).replace("\n", " "))
+        }
+    }
 }

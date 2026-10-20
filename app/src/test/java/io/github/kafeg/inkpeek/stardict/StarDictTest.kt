@@ -105,6 +105,27 @@ class GlossTest {
         org.junit.Assert.assertEquals("когда, в то время как", shortMeaning("<b>als</b><ul class=\"transcription\"><li>МФА: [als]</li></ul><b>Значение</b><ol><li><i></i> когда, в то время как <span>◆ Als er kam…</span></li></ol>", "als"))
     }
 
+    @Test fun wikdictArticle() {
+        val gehen = "<div>/<font color=\"gray\">ɡeːn</font>/<br> <div><font class=\"grammar\" color=\"green\">verb</font></div><ol><li><ol>" +
+            "<li><div>ходить</div></li><li><div>уходить</div></li><li><div>годиться</div></li><li><div>отойти</div></li></ol></li></ol></div>"
+        assertEquals("ходить, уходить, годиться", shortMeaning(gehen, "gehen"))
+        val gewitter = "<div>/<font color=\"gray\">ɡəˈvɪtɐ</font>/<br> <div><font class=\"grammar\" color=\"green\">noun, neutral</font></div>" +
+            "Wettererscheinung mit Blitz und Donner<div>гроза</div></div>"
+        assertEquals("гроза", shortMeaning(gewitter, "Gewitter"))
+        assertEquals("noun, neutral", grammarOf(gewitter))
+        val go = "<div><font class=\"grammar\">noun</font></div><ol><li><div>очередь</div></li></ol>" +
+            "<div><font class=\"grammar\">verb</font></div><ol><li><div>идти</div></li><li><div>ехать</div></li></ol>"
+        assertEquals("очередь", shortMeaning(go, "go"))
+        assertEquals("идти, ехать", shortMeaning(go, "go", "verb"))
+        assertEquals("verb", grammarOf(go, "verb"))
+        // Mueller
+        assertEquals("от go 1", shortMeaning("[went] _p. от go 1", "went"))
+        assertEquals("идти, ходить", shortMeaning("[gəu] 1. _v. (went - gone) 1&gt; идти, ходить; быть в движении", "go"))
+        val index = "<a href=\"wikdict-de-ru.zip\">wikdict-de-ru.zip</a>                23-Jun-2026 21:21      4M\n" +
+            "<a href=\"wikdict-ca-bg.zip\">wikdict-ca-bg.zip</a>                23-Jun-2026 21:21    552K\n"
+        assertEquals(listOf(Triple("de", "ru", 4_000_000L), Triple("ca", "bg", 552_000L)), Catalog.wikdict(index).map { Triple(it.from, it.to, it.size) })
+    }
+
     @Test fun phraseKeepsSentenceEnd() {
         assertEquals("Wo ist er?", cleanPhrase("„Wo ist er?“ "))
         assertEquals("Was ist „Heimat“?", cleanPhrase("Was ist „Heimat“?"))

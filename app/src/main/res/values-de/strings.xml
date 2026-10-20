@@ -106,4 +106,8 @@
     <string name="icon_save_d">Speichert das Wort oder die Phrase in Meine Wörter; ein gefüllter Stern heißt: schon gespeichert.</string>
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
     <string name="save_short">Merken</string>
+    <string name="cat_recommended">★ — empfohlen: kurze Übersetzungen in Ihre Antwortsprache.</string>
+    <string name="cat_wikdict">Kompakt: kurze Übersetzungen, Wortart und Genus; Formen führen zur Grundform (ging → gehen). Am besten zum schnellen Nachschlagen.</string>
+    <string name="cat_wiktionary">Vollständige Artikel: Aussprache, Etymologie, alle Bedeutungen, Beispiele. Gut als zweites Wörterbuch.</string>
+    <string name="cat_freedict">Ältere kompakte Daten ohne Wortformen; WikDict deckt dieselben Paare besser ab.</string>
 </resources>

@@ -106,4 +106,8 @@
     <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
     <string name="save_short">Сохранить</string>
+    <string name="cat_recommended">★ — рекомендуем: короткие переводы на ваш язык ответа.</string>
+    <string name="cat_wikdict">Компактный: короткие переводы, часть речи и род; формы ведут к начальной (ging → gehen). Лучший для быстрого поиска.</string>
+    <string name="cat_wiktionary">Полные статьи: произношение, этимология, все значения, примеры. Хорош вторым словарём.</string>
+    <string name="cat_freedict">Старые компактные данные без форм слов; WikDict даёт те же пары лучше.</string>
 </resources>

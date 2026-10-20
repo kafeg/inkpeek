@@ -106,4 +106,8 @@
     <string name="icon_save_d">単語やフレーズをマイ単語に保存。塗りつぶしの星は保存済み。</string>
     <string name="icon_words_d">保存した単語とフレーズ。アプリの設定にもあります。</string>
     <string name="save_short">保存</string>
+    <string name="cat_recommended">★ — おすすめ：回答言語への短い訳。</string>
+    <string name="cat_wikdict">コンパクト：短い訳、品詞と性。変化形から基本形へ（ging → gehen）。すばやく調べるのに最適。</string>
+    <string name="cat_wiktionary">完全な項目：発音、語源、すべての語義、例文。2冊目の辞書に向いています。</string>
+    <string name="cat_freedict">古いコンパクトなデータで変化形なし。同じ組み合わせは WikDict の方が充実。</string>
 </resources>

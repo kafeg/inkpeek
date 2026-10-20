@@ -106,4 +106,8 @@
     <string name="icon_save_d">단어나 구문을 내 단어에 저장. 채워진 별은 이미 저장됨.</string>
     <string name="icon_words_d">저장한 단어와 구문. 앱 설정에도 있습니다.</string>
     <string name="save_short">저장</string>
+    <string name="cat_recommended">★ — 추천: 답변 언어로 된 짧은 번역.</string>
+    <string name="cat_wikdict">간결: 짧은 번역, 품사와 성. 변화형에서 기본형으로(ging → gehen). 빠른 검색에 가장 좋음.</string>
+    <string name="cat_wiktionary">전체 항목: 발음, 어원, 모든 뜻, 예문. 두 번째 사전으로 좋음.</string>
+    <string name="cat_freedict">오래된 간결 데이터, 변화형 없음. 같은 언어 쌍은 WikDict가 더 좋음.</string>
 </resources>
