@@ -473,10 +473,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         /** Answer languages by English name (what the prompt uses). */
         val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
             "Polish", "Czech", "Dutch", "Turkish", "Indonesian", "Vietnamese", "Chinese", "Japanese", "Korean", "Hindi", "Arabic")
-        /** App languages that have res/values-<code>. */
-        /** Book languages with Firefox Translations models to and from English (Mozilla's list, Oct 2026). */
-        val MT_LANGS = listOf("de", "en", "fr", "es", "it", "pt", "nl", "pl", "uk", "ru")
-        val UI_LANGS = listOf("en", "ru", "de", "uk", "es", "fr", "it", "pt", "pl", "nl")
+        /** App languages: exactly the languages InkPeek has packs for (added together with a pack). */
+        /** Book languages with packs. */
+        val MT_LANGS = listOf("de", "en")
+        val UI_LANGS = listOf("en", "ru", "de")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
