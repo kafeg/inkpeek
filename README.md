@@ -41,8 +41,8 @@ translation. ☆ keeps a word or phrase in My words; the history keeps the rest.
 </tr>
 </table>
 
-<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain). The app here is in
-Russian, so are the answers: they come in the app's language.</sub></p>
+<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain), German → English.
+Answers come in the app's language.</sub></p>
 
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
