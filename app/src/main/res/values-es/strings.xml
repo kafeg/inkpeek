@@ -36,17 +36,9 @@
     <string name="pos_top">Posición: arriba</string>
     <string name="pos_bottom">Posición: abajo</string>
     <string name="pos_reader">Posición: según el lector</string>
-    <string name="card_tabs">Pestañas de IA en la ficha</string>
+    <string name="card_tabs">Pestañas de IA en la tarjeta</string>
     <string name="a_translate">Traducir</string>
-    <string name="a_translate_d">Palabra: forma base, categoría gramatical y significados principales. Frase: una traducción natural.</string>
-    <string name="a_grammar">Gramática</string>
-    <string name="a_grammar_d">Palabra: qué forma es y cómo se usa. Frase: cómo está construida y por qué.</string>
-    <string name="a_words">Palabras</string>
-    <string name="a_words_d">Palabras difíciles en forma base con un significado breve; para una sola palabra: sinónimos y palabras afines.</string>
-    <string name="a_examples">Ejemplos</string>
-    <string name="a_examples_d">Tres frases cortas cotidianas con traducción (para palabras y frases).</string>
-    <string name="a_explain">Explicar</string>
-    <string name="a_explain_d">Sentido en contexto, registro, modismos y matices; para un pasaje — qué pasa y qué se da a entender.</string>
+    <string name="a_translate_d">Al abrir: la forma base con artículo y plural, o las formas del verbo, en el encabezado; los significados principales. Una frase: una traducción natural.</string>
     <string name="tab_dictionary">Diccionario</string>
     <string name="thinking">Pensando</string>
     <string name="ai_off">La IA está desactivada: actívala en los ajustes de InkPeek para traducción, gramática y más.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Preguntar de nuevo</string>
     <string name="save_word">Guardar en mis palabras</string>
     <string name="unsave_word">Quitar de mis palabras</string>
+    <string name="a_analysis">Análisis</string>
+    <string name="a_analysis_d">Una palabra: cómo se usa, sinónimos y palabras afines. Una frase: cómo está construida y por qué, las palabras difíciles.</string>
+    <string name="a_context">Contexto</string>
+    <string name="a_context_d">Tres ejemplos cotidianos con traducción, registro y modismos; en un pasaje, qué ocurre y qué se insinúa.</string>
+    <string name="irregular">irreg.</string>
 </resources>

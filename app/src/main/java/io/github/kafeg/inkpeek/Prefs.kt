@@ -2,7 +2,6 @@ package io.github.kafeg.inkpeek
 
 import android.content.Context
 import android.os.Environment
-import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.stardict.Library
 import org.json.JSONArray
@@ -57,12 +56,6 @@ class Prefs(private val ctx: Context) {
     /** Which "no reasoning" request variant a (host, model) accepts, see Ai. */
     fun variant(key: String): Int? = sp.getInt("rv_$key", -1).takeIf { it >= 0 }
     fun setVariant(key: String, v: Int) { if (variant(key) != v) sp.edit().putInt("rv_$key", v).apply() }
-
-    /** Ids of the AI tabs shown in the card. */
-    var actionIds: Set<String>
-        get() = sp.getStringSet("actions_on", null)?.toSet() ?: Action.ALL.filter { it.onByDefault }.map { it.id }.toSet()
-        set(v) = sp.edit().putStringSet("actions_on", v).apply()
-    val actions: List<Action> get() = actionIds.let { on -> Action.ALL.filter { it.id in on } }
 
     /** The app folder on shared storage: dictionaries and key files (needs all-files access). */
     val home: File get() = File(Environment.getExternalStorageDirectory(), "InkPeek")

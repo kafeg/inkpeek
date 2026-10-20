@@ -46,7 +46,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     /** Saved entries of [kind], newest first; an empty meaning is filled from a cached translation in [lang]. */
     fun saved(kind: String, lang: String): List<Entry> = list(
-        "SELECT s.text, s.kind, s.meaning, s.created, a.answer FROM saved s LEFT JOIN ai a ON a.text=s.text AND a.lang=? AND a.section='translate' " +
+        "SELECT s.text, s.kind, s.meaning, s.created, a.answer FROM saved s LEFT JOIN ai a ON a.text=s.text AND a.lang=? AND a.section='quick' " +
             "WHERE s.kind=? GROUP BY s.text ORDER BY s.created DESC", arrayOf(lang, kind))
 
     fun seen(text: String, kind: String) {
@@ -57,7 +57,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         db.execSQL("DELETE FROM history WHERE text NOT IN (SELECT text FROM history ORDER BY seen DESC LIMIT $HISTORY)")
     }
     fun history(lang: String): List<Entry> = list(
-        "SELECT h.text, h.kind, '', h.seen, a.answer FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='translate' " +
+        "SELECT h.text, h.kind, '', h.seen, a.answer FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='quick' " +
             "GROUP BY h.text ORDER BY h.seen DESC", arrayOf(lang))
     fun forget(text: String) { writableDatabase.delete("history", "text=?", arrayOf(text)) }
     fun clearHistory() { writableDatabase.delete("history", null, null) }
@@ -82,8 +82,14 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
             }
         }
 
-        /** One line from an AI answer in light Markdown: the first lines without marks, short. */
-        fun brief(answer: String?): String = answer.orEmpty().lines().map { it.replace(Regex("[*_#]"), "").removePrefix("- ").trim() }
-            .filter { it.isNotEmpty() }.take(2).joinToString(" · ").take(140)
+        /** One line from a quick AI answer (JSON): the translation, or the base form with its meanings. */
+        fun brief(answer: String?): String = runCatching {
+            val j = org.json.JSONObject(answer ?: return "")
+            j.optString("translation").ifBlank {
+                val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).joinToString(", ") { a.getString(it) } }.orEmpty()
+                listOf(listOf(j.optString("article"), j.optString("base")).filter { it.isNotBlank() }.joinToString(" "), m)
+                    .filter { it.isNotBlank() }.joinToString(" — ")
+            }.take(140)
+        }.getOrDefault("")
     }
 }

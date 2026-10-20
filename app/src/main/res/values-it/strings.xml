@@ -36,17 +36,9 @@
     <string name="pos_top">Posizione: in alto</string>
     <string name="pos_bottom">Posizione: in basso</string>
     <string name="pos_reader">Posizione: come chiede il lettore</string>
-    <string name="card_tabs">Schede IA nel riquadro</string>
+    <string name="card_tabs">Schede di IA nella scheda</string>
     <string name="a_translate">Traduci</string>
-    <string name="a_translate_d">Parola: forma base, parte del discorso e significati principali. Frase: una traduzione naturale.</string>
-    <string name="a_grammar">Grammatica</string>
-    <string name="a_grammar_d">Parola: che forma è e come si usa. Frase: com’è costruita e perché.</string>
-    <string name="a_words">Parole</string>
-    <string name="a_words_d">Parole difficili in forma base con un breve significato; per una sola parola: sinonimi e parole affini.</string>
-    <string name="a_examples">Esempi</string>
-    <string name="a_examples_d">Tre frasi brevi di tutti i giorni con traduzione (parole e frasi).</string>
-    <string name="a_explain">Spiega</string>
-    <string name="a_explain_d">Significato nel contesto, registro, modi di dire e sfumature; per un brano — cosa succede e cosa è sottinteso.</string>
+    <string name="a_translate_d">All’apertura: la forma base con articolo e plurale, o le forme del verbo, nell’intestazione; i significati principali. Una frase: una traduzione naturale.</string>
     <string name="tab_dictionary">Dizionario</string>
     <string name="thinking">Ci penso</string>
     <string name="ai_off">L’IA è disattivata: attivala nelle impostazioni di InkPeek per traduzione, grammatica e altro.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Chiedi di nuovo</string>
     <string name="save_word">Salva nelle mie parole</string>
     <string name="unsave_word">Togli dalle mie parole</string>
+    <string name="a_analysis">Analisi</string>
+    <string name="a_analysis_d">Una parola: come usarla, sinonimi e parole affini. Una frase: come è costruita e perché, le parole difficili.</string>
+    <string name="a_context">Contesto</string>
+    <string name="a_context_d">Tre esempi quotidiani con traduzione, registro e modi di dire; per un brano, cosa succede e cosa è sottinteso.</string>
+    <string name="irregular">irreg.</string>
 </resources>

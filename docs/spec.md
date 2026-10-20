@@ -28,11 +28,11 @@ Close the card and you are back on the same page.
   tap outside closes it.
 
 ## Card
-Tabs at the bottom: **Dictionary** first, then one tab per enabled AI action. A tab keeps its content; an AI answer
-is asked once and shown again when you come back. AI off → only the dictionary and a hint.
-Selection kinds: word · phrase (2–8 words, one sentence) · passage (more). A phrase or passage opens on the first
-AI tab (setting `phrase_auto_ai`, default on). A passage hides Dictionary and Examples (checked on real text: a
-dictionary has nothing for a paragraph, examples pick a random word); the model is told the kind.
+Tabs at the bottom: **Dictionary**, **Translate**, **Analysis**, **Context** (AI off → only the dictionary and a hint).
+A tab keeps its content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told
+the kind. A phrase or passage opens on Translate (setting `phrase_auto_ai`, default on), a word on Dictionary.
+Header of a word, once the quick answer is in: "das Haus · die Häuser" or the verb's forms ("gehen · geht · ging ·
+ist gegangen"); under it, small: "Häusern → noun, neuter · dative plural · irregular".
 Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a hit. A dictionary that resolves a form
 (Häuser → Haus) makes the base form be looked up in the other dictionaries.
 
@@ -75,22 +75,29 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   local servers `reasoning_effort: none` (OpenAI then `low`), Gemini `none` then `minimal`, DeepSeek
   `thinking.disabled`, DashScope `enable_thinking: false`; on HTTP 400/422 the next variant, then none; the working
   one is remembered per (host, model) in settings.
-- Warm-up: the card opens the provider connection in the background (no tokens) while the dictionary shows.
 - Network: "online" = a validated network; a VPN counts only with a real network under it. Offline → no request.
 - Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → a neutral "the service
   refused: check the network or VPN and the key"; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
 - Answer language: setting, default Russian.
-- Actions (tabs; on/off in settings): Translate, Grammar (how the phrase is built and why), Words (harder words in
-  base form), Examples, Explain (off by default). Prompts: `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
+- Two requests, each answered as one JSON object (Claude: structured outputs with a JSON Schema; OpenAI-compatible:
+  `response_format: json_object`, then without it on 400/422; the reply is parsed from the first `{` to the last `}`).
+  Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
+  - **Quick**, on card open (AI on): `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
+    `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type), `note`. Fills the header and Translate.
+  - **Detail**, on the first open of Analysis or Context: `analysis` (word: use, synonyms, related; phrase: how it is
+    built and why + harder words; passage: constructions + up to 15 words) and `context` (3 examples with
+    translation + register / idioms; passage: what happens and what is implied). Fills both tabs.
 - System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
-  Markdown only (**bold**, *italic*, "- " lists) rendered in the card; ≤ 120 words unless needed.
+  Markdown only (**bold**, *italic*, "- " lists) rendered in the card; brief; the model sees only the selection and
+  must not guess its sentence.
 - OpenRouter default model `openrouter/free`.
-- Data sent: only the selected text and the action prompt, only on a tap (or phrase auto mode). No telemetry.
+- Data sent: only the selected text and the prompt — the quick request on card open (AI on), the detailed one on a
+  tap. No telemetry.
 
 ## Storage
 - One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
   (debug ↔ release needs one). No WAL (shared storage), no UPSERT (Android 8–9 SQLite).
-- `ai`: answers by (text, answer language, section, prompt version = prompt hash); shown again without a request,
+- `ai`: answers by (text, answer language, request quick / detail, prompt hash) as JSON; shown again without a request,
   also offline. "↻ Ask again" under an answer replaces it. Settings → AI: delete saved answers (count shown).
 - `saved`: words and phrases (a passage counts as a phrase) saved with ☆ in the card header (★ = saved, tap removes),
   with one short meaning: the cached translation, else the first dictionary meaning; empty → the cached translation
@@ -133,7 +140,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    (text, answer language, section, schema version), "↻" asks again; saved words and phrases (☆ in the card);
    history of lookups (app only, not in the card). App: a "My words" tab — Words / Phrases / History, remove.
    Export later.
-6. **AI sections** — Translate · Analysis (grammar + words) · Context (examples + explain). Two requests:
+6. **AI sections** (done) — Translate · Analysis (grammar + words) · Context (examples + explain). Two requests:
    a quick structured answer on open (head facts: base form, part of speech, article / gender, plural, verb
    forms, irregular, auxiliary; and the translation), and one detailed answer that fills Analysis and Context.
    No per-tab on/off setting.

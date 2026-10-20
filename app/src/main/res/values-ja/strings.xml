@@ -38,15 +38,7 @@
     <string name="pos_reader">位置：リーダーアプリに従う</string>
     <string name="card_tabs">カードの AI タブ</string>
     <string name="a_translate">翻訳</string>
-    <string name="a_translate_d">単語：原形、品詞、主な意味。フレーズ：自然な訳。</string>
-    <string name="a_grammar">文法</string>
-    <string name="a_grammar_d">単語：どの形か、どう使うか。フレーズ：どう組み立てられているか、その理由。</string>
-    <string name="a_words">語彙</string>
-    <string name="a_words_d">難しめの単語を原形で短い意味とともに。1語なら類義語と関連語。</string>
-    <string name="a_examples">例文</string>
-    <string name="a_examples_d">日常的な短い例文を3つ、訳つきで（単語・フレーズ）。</string>
-    <string name="a_explain">解説</string>
-    <string name="a_explain_d">文脈での意味、文体、慣用句やニュアンス。文章なら何が起きていて何が暗示されているか。</string>
+    <string name="a_translate_d">開いたときに：見出しに冠詞と複数形付きの基本形、または動詞の活用形。主な意味。フレーズ：自然な訳。</string>
     <string name="tab_dictionary">辞書</string>
     <string name="thinking">考え中</string>
     <string name="ai_off">AI はオフです：InkPeek の設定でオンにすると、翻訳や文法などが使えます。</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">もう一度聞く</string>
     <string name="save_word">マイ単語に保存</string>
     <string name="unsave_word">マイ単語から削除</string>
+    <string name="a_analysis">分析</string>
+    <string name="a_analysis_d">単語：使い方、類義語と関連語。フレーズ：どう組み立てられているか、その理由、難しい語。</string>
+    <string name="a_context">文脈</string>
+    <string name="a_context_d">訳付きの日常的な例文3つ、文体と慣用句。長い文章では、何が起きていて何が含意されているか。</string>
+    <string name="irregular">不規則</string>
 </resources>

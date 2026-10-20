@@ -36,17 +36,9 @@
     <string name="pos_top">Pozycja: góra</string>
     <string name="pos_bottom">Pozycja: dół</string>
     <string name="pos_reader">Pozycja: jak chce czytnik</string>
-    <string name="card_tabs">Zakładki AI na karcie</string>
+    <string name="card_tabs">Karty AI w karcie</string>
     <string name="a_translate">Tłumaczenie</string>
-    <string name="a_translate_d">Słowo: forma podstawowa, część mowy i główne znaczenia. Fraza: naturalne tłumaczenie.</string>
-    <string name="a_grammar">Gramatyka</string>
-    <string name="a_grammar_d">Słowo: jaka to forma i jak jej używać. Fraza: jak jest zbudowana i dlaczego.</string>
-    <string name="a_words">Słowa</string>
-    <string name="a_words_d">Trudniejsze słowa w formie podstawowej z krótkim znaczeniem; dla jednego słowa: synonimy i wyrazy pokrewne.</string>
-    <string name="a_examples">Przykłady</string>
-    <string name="a_examples_d">Trzy krótkie, codzienne zdania z tłumaczeniem (dla słów i fraz).</string>
-    <string name="a_explain">Wyjaśnij</string>
-    <string name="a_explain_d">Znaczenie w kontekście, rejestr, idiomy i niuanse; dla fragmentu — co się dzieje i co jest między wierszami.</string>
+    <string name="a_translate_d">Od razu po otwarciu: forma podstawowa z rodzajnikiem i liczbą mnogą albo formy czasownika w nagłówku; główne znaczenia. Wyrażenie: naturalne tłumaczenie.</string>
     <string name="tab_dictionary">Słownik</string>
     <string name="thinking">Myślę</string>
     <string name="ai_off">AI jest wyłączone: włącz je w ustawieniach InkPeek, aby mieć tłumaczenie, gramatykę i więcej.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Zapytaj ponownie</string>
     <string name="save_word">Zapisz w moich słowach</string>
     <string name="unsave_word">Usuń z moich słów</string>
+    <string name="a_analysis">Analiza</string>
+    <string name="a_analysis_d">Słowo: jak go używać, synonimy i wyrazy pokrewne. Wyrażenie: jak jest zbudowane i dlaczego, trudniejsze słowa.</string>
+    <string name="a_context">Kontekst</string>
+    <string name="a_context_d">Trzy codzienne przykłady z tłumaczeniem, rejestr i idiomy; dla fragmentu — co się dzieje i co jest zasugerowane.</string>
+    <string name="irregular">niereg.</string>
 </resources>

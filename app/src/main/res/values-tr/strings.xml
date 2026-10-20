@@ -36,17 +36,9 @@
     <string name="pos_top">Konum: üst</string>
     <string name="pos_bottom">Konum: alt</string>
     <string name="pos_reader">Konum: okuma uygulamasına göre</string>
-    <string name="card_tabs">Karttaki YZ sekmeleri</string>
+    <string name="card_tabs">Karttaki yapay zekâ sekmeleri</string>
     <string name="a_translate">Çevir</string>
-    <string name="a_translate_d">Kelime: temel biçim, sözcük türü ve ana anlamlar. İfade: doğal bir çeviri.</string>
-    <string name="a_grammar">Dilbilgisi</string>
-    <string name="a_grammar_d">Kelime: hangi biçim olduğu ve nasıl kullanıldığı. İfade: nasıl kurulduğu ve neden.</string>
-    <string name="a_words">Kelimeler</string>
-    <string name="a_words_d">Zor kelimeler temel biçimde ve kısa anlamıyla; tek kelime için: eş anlamlılar ve ilgili kelimeler.</string>
-    <string name="a_examples">Örnekler</string>
-    <string name="a_examples_d">Çevirisiyle üç kısa günlük cümle (kelimeler ve ifadeler için).</string>
-    <string name="a_explain">Açıkla</string>
-    <string name="a_explain_d">Bağlamdaki anlam, üslup, deyimler ve nüanslar; bir pasaj için — ne olduğu ve ne ima edildiği.</string>
+    <string name="a_translate_d">Açılınca: başlıkta tanımlık ve çoğuluyla temel biçim ya da fiil çekimleri; ana anlamlar. İfade: doğal bir çeviri.</string>
     <string name="tab_dictionary">Sözlük</string>
     <string name="thinking">Düşünüyor</string>
     <string name="ai_off">YZ kapalı: çeviri, dilbilgisi ve daha fazlası için InkPeek ayarlarından açın.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Yeniden sor</string>
     <string name="save_word">Kelimelerime kaydet</string>
     <string name="unsave_word">Kelimelerimden çıkar</string>
+    <string name="a_analysis">Çözümleme</string>
+    <string name="a_analysis_d">Kelime: nasıl kullanılır, eş anlamlılar ve ilgili kelimeler. İfade: nasıl ve neden böyle kurulduğu, zor kelimeler.</string>
+    <string name="a_context">Bağlam</string>
+    <string name="a_context_d">Çevirili üç günlük örnek, üslup ve deyimler; bir pasajda ne olduğu ve ne ima edildiği.</string>
+    <string name="irregular">düzensiz</string>
 </resources>

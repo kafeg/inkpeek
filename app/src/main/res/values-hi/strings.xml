@@ -38,15 +38,7 @@
     <string name="pos_reader">स्थिति: रीडर ऐप के अनुसार</string>
     <string name="card_tabs">कार्ड में AI टैब</string>
     <string name="a_translate">अनुवाद</string>
-    <string name="a_translate_d">शब्द: मूल रूप, शब्द-भेद और मुख्य अर्थ। वाक्यांश: स्वाभाविक अनुवाद।</string>
-    <string name="a_grammar">व्याकरण</string>
-    <string name="a_grammar_d">शब्द: यह कौन-सा रूप है और कैसे इस्तेमाल करें। वाक्यांश: कैसे बना है और क्यों।</string>
-    <string name="a_words">शब्दावली</string>
-    <string name="a_words_d">कठिन शब्द मूल रूप में, छोटे अर्थ के साथ; एक शब्द के लिए: समानार्थी और संबंधित शब्द।</string>
-    <string name="a_examples">उदाहरण</string>
-    <string name="a_examples_d">रोज़मर्रा के तीन छोटे वाक्य, अनुवाद के साथ (शब्द और वाक्यांश)।</string>
-    <string name="a_explain">समझाएँ</string>
-    <string name="a_explain_d">संदर्भ में अर्थ, शैली, मुहावरे और बारीकियाँ; अंश के लिए — क्या हो रहा है और क्या संकेत है।</string>
+    <string name="a_translate_d">खोलते ही: शीर्षक में आर्टिकल और बहुवचन के साथ मूल रूप, या क्रिया के रूप; मुख्य अर्थ। वाक्यांश: स्वाभाविक अनुवाद।</string>
     <string name="tab_dictionary">शब्दकोश</string>
     <string name="thinking">सोच रहा है</string>
     <string name="ai_off">AI बंद है: अनुवाद, व्याकरण आदि के लिए इसे InkPeek सेटिंग्स में चालू करें।</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">फिर से पूछें</string>
     <string name="save_word">मेरे शब्दों में सहेजें</string>
     <string name="unsave_word">मेरे शब्दों से हटाएँ</string>
+    <string name="a_analysis">विश्लेषण</string>
+    <string name="a_analysis_d">शब्द: कैसे इस्तेमाल करें, पर्यायवाची और संबंधित शब्द। वाक्यांश: कैसे बना है और क्यों, कठिन शब्द।</string>
+    <string name="a_context">संदर्भ</string>
+    <string name="a_context_d">अनुवाद के साथ तीन रोज़मर्रा के उदाहरण, शैली और मुहावरे; अंश के लिए — क्या हो रहा है और क्या निहित है।</string>
+    <string name="irregular">अनियमित</string>
 </resources>

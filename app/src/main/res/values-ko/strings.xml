@@ -38,15 +38,7 @@
     <string name="pos_reader">위치: 리더 앱 설정대로</string>
     <string name="card_tabs">카드의 AI 탭</string>
     <string name="a_translate">번역</string>
-    <string name="a_translate_d">단어: 기본형, 품사, 주요 뜻. 구문: 자연스러운 번역.</string>
-    <string name="a_grammar">문법</string>
-    <string name="a_grammar_d">단어: 어떤 형태이고 어떻게 쓰는지. 구문: 어떻게 구성되었고 왜 그런지.</string>
-    <string name="a_words">어휘</string>
-    <string name="a_words_d">어려운 단어를 기본형과 짧은 뜻으로. 단어 하나면 유의어와 관련어.</string>
-    <string name="a_examples">예문</string>
-    <string name="a_examples_d">짧은 일상 예문 3개와 번역(단어와 구문).</string>
-    <string name="a_explain">설명</string>
-    <string name="a_explain_d">문맥 속 의미, 문체, 관용구와 뉘앙스. 긴 글이면 무슨 일이 일어나고 무엇을 암시하는지.</string>
+    <string name="a_translate_d">열 때 바로: 제목에 관사와 복수형을 붙인 기본형 또는 동사 활용형, 주요 뜻. 구문: 자연스러운 번역.</string>
     <string name="tab_dictionary">사전</string>
     <string name="thinking">생각 중</string>
     <string name="ai_off">AI가 꺼져 있습니다. InkPeek 설정에서 켜면 번역, 문법 등을 쓸 수 있습니다.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">다시 묻기</string>
     <string name="save_word">내 단어에 저장</string>
     <string name="unsave_word">내 단어에서 제거</string>
+    <string name="a_analysis">분석</string>
+    <string name="a_analysis_d">단어: 쓰는 법, 동의어와 관련어. 구문: 어떻게 왜 그렇게 구성되었는지, 어려운 단어.</string>
+    <string name="a_context">맥락</string>
+    <string name="a_context_d">번역이 있는 일상 예문 3개, 문체와 관용구. 긴 글은 무슨 일이 일어나고 무엇을 암시하는지.</string>
+    <string name="irregular">불규칙</string>
 </resources>

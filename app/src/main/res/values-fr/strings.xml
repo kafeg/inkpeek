@@ -36,17 +36,9 @@
     <string name="pos_top">Position : haut</string>
     <string name="pos_bottom">Position : bas</string>
     <string name="pos_reader">Position : selon la liseuse</string>
-    <string name="card_tabs">Onglets IA dans la fiche</string>
+    <string name="card_tabs">Onglets d’IA dans la fiche</string>
     <string name="a_translate">Traduire</string>
-    <string name="a_translate_d">Un mot : forme de base, nature et sens principaux. Une phrase : une traduction naturelle.</string>
-    <string name="a_grammar">Grammaire</string>
-    <string name="a_grammar_d">Un mot : de quelle forme il s’agit et comment l’employer. Une phrase : comment elle est construite et pourquoi.</string>
-    <string name="a_words">Mots</string>
-    <string name="a_words_d">Mots difficiles à la forme de base avec un sens court ; pour un seul mot : synonymes et mots apparentés.</string>
-    <string name="a_examples">Exemples</string>
-    <string name="a_examples_d">Trois phrases courtes du quotidien avec traduction (mots et expressions).</string>
-    <string name="a_explain">Expliquer</string>
-    <string name="a_explain_d">Sens en contexte, registre, expressions et nuances ; pour un passage — ce qui se passe et ce qui est sous-entendu.</string>
+    <string name="a_translate_d">À l’ouverture : la forme de base avec article et pluriel, ou les formes du verbe, dans l’en-tête ; les sens principaux. Une expression : une traduction naturelle.</string>
     <string name="tab_dictionary">Dictionnaire</string>
     <string name="thinking">Réflexion</string>
     <string name="ai_off">L’IA est désactivée : activez-la dans les réglages d’InkPeek pour la traduction, la grammaire et plus.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Redemander</string>
     <string name="save_word">Ajouter à mes mots</string>
     <string name="unsave_word">Retirer de mes mots</string>
+    <string name="a_analysis">Analyse</string>
+    <string name="a_analysis_d">Un mot : comment l’employer, synonymes et mots apparentés. Une expression : sa construction et pourquoi, les mots difficiles.</string>
+    <string name="a_context">Contexte</string>
+    <string name="a_context_d">Trois exemples courants avec traduction, registre et expressions ; pour un passage, ce qui se passe et ce qui est sous-entendu.</string>
+    <string name="irregular">irrég.</string>
 </resources>

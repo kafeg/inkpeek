@@ -36,17 +36,9 @@
     <string name="pos_top">位置：顶部</string>
     <string name="pos_bottom">位置：底部</string>
     <string name="pos_reader">位置：由阅读器决定</string>
-    <string name="card_tabs">卡片中的 AI 标签页</string>
+    <string name="card_tabs">卡片中的 AI 标签</string>
     <string name="a_translate">翻译</string>
-    <string name="a_translate_d">单词：原形、词性和主要释义。短语：自然的译文。</string>
-    <string name="a_grammar">语法</string>
-    <string name="a_grammar_d">单词：是哪种形式、怎么用。短语：如何构成及原因。</string>
-    <string name="a_words">词汇</string>
-    <string name="a_words_d">较难的词（原形）及简短释义；单个词则给出同义词和相关词。</string>
-    <string name="a_examples">例句</string>
-    <string name="a_examples_d">三个简短的日常例句并附译文（适用于单词和短语）。</string>
-    <string name="a_explain">解释</string>
-    <string name="a_explain_d">语境中的含义、语体、习语和细微差别；段落则说明发生了什么、暗示了什么。</string>
+    <string name="a_translate_d">打开时即显示：标题中带冠词和复数的原形，或动词的各形式；主要词义。短语：自然的译文。</string>
     <string name="tab_dictionary">词典</string>
     <string name="thinking">思考中</string>
     <string name="ai_off">AI 已关闭：在 InkPeek 设置中开启，即可使用翻译、语法等功能。</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">重新提问</string>
     <string name="save_word">保存到我的单词</string>
     <string name="unsave_word">从我的单词中移除</string>
+    <string name="a_analysis">解析</string>
+    <string name="a_analysis_d">单词：用法、近义词和相关词。短语：怎样构成及原因，较难的词。</string>
+    <string name="a_context">语境</string>
+    <string name="a_context_d">三个带译文的日常例句、语体和习语；对段落则说明发生了什么、暗含什么。</string>
+    <string name="irregular">不规则</string>
 </resources>

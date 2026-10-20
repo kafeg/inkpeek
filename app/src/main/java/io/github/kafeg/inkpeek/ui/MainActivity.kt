@@ -370,11 +370,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(spinner(posLabels, pos.indexOf(prefs.position).coerceAtLeast(0)) { prefs.position = pos[it] })
         t.addView(Ink.text(this, getString(R.string.card_tabs), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
         Action.ALL.forEach { a ->
-            t.addView(CheckBox(this).apply {
-                text = Ink.label(this@MainActivity, a); textSize = sp; isChecked = a.id in prefs.actionIds
-                setOnCheckedChangeListener { _, on -> prefs.actionIds = if (on) prefs.actionIds + a.id else prefs.actionIds - a.id }
-            }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
-            t.addView(Ink.text(this, Ink.description(this, a), 14f).apply { setPadding(Ink.dp(this@MainActivity, 32), 0, 0, 0) })
+            t.addView(Ink.text(this, Ink.label(this, a), sp, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+            t.addView(Ink.text(this, Ink.description(this, a), 14f))
         }
     }
 

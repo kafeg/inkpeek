@@ -36,17 +36,9 @@
     <string name="pos_top">Vị trí: trên</string>
     <string name="pos_bottom">Vị trí: dưới</string>
     <string name="pos_reader">Vị trí: theo ứng dụng đọc</string>
-    <string name="card_tabs">Tab AI trong thẻ</string>
+    <string name="card_tabs">Thẻ AI trong thẻ tra</string>
     <string name="a_translate">Dịch</string>
-    <string name="a_translate_d">Từ: dạng gốc, từ loại và nghĩa chính. Cụm từ: bản dịch tự nhiên.</string>
-    <string name="a_grammar">Ngữ pháp</string>
-    <string name="a_grammar_d">Từ: đó là dạng gì và dùng thế nào. Cụm từ: được cấu tạo ra sao và vì sao.</string>
-    <string name="a_words">Từ vựng</string>
-    <string name="a_words_d">Các từ khó hơn ở dạng gốc kèm nghĩa ngắn; với một từ: từ đồng nghĩa và từ liên quan.</string>
-    <string name="a_examples">Ví dụ</string>
-    <string name="a_examples_d">Ba câu ngắn thường ngày kèm bản dịch (cho từ và cụm từ).</string>
-    <string name="a_explain">Giải thích</string>
-    <string name="a_explain_d">Nghĩa trong ngữ cảnh, văn phong, thành ngữ và sắc thái; với một đoạn — chuyện gì xảy ra và điều gì được ngụ ý.</string>
+    <string name="a_translate_d">Khi mở: dạng gốc kèm mạo từ và số nhiều, hoặc các dạng của động từ, ở tiêu đề; các nghĩa chính. Cụm từ: bản dịch tự nhiên.</string>
     <string name="tab_dictionary">Từ điển</string>
     <string name="thinking">Đang nghĩ</string>
     <string name="ai_off">AI đang tắt: bật trong cài đặt InkPeek để dùng dịch, ngữ pháp và hơn nữa.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Hỏi lại</string>
     <string name="save_word">Lưu vào từ của tôi</string>
     <string name="unsave_word">Bỏ khỏi từ của tôi</string>
+    <string name="a_analysis">Phân tích</string>
+    <string name="a_analysis_d">Từ: cách dùng, từ đồng nghĩa và từ liên quan. Cụm từ: được cấu tạo thế nào và vì sao, các từ khó.</string>
+    <string name="a_context">Ngữ cảnh</string>
+    <string name="a_context_d">Ba ví dụ thường ngày kèm bản dịch, sắc thái và thành ngữ; với đoạn văn — điều gì xảy ra và điều gì được ngụ ý.</string>
+    <string name="irregular">bất quy tắc</string>
 </resources>

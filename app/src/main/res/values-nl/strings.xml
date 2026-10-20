@@ -38,15 +38,7 @@
     <string name="pos_reader">Positie: zoals de leesapp vraagt</string>
     <string name="card_tabs">AI-tabbladen in de kaart</string>
     <string name="a_translate">Vertalen</string>
-    <string name="a_translate_d">Een woord: grondvorm, woordsoort en hoofdbetekenissen. Een zin: een natuurlijke vertaling.</string>
-    <string name="a_grammar">Grammatica</string>
-    <string name="a_grammar_d">Een woord: welke vorm het is en hoe je het gebruikt. Een zin: hoe hij is opgebouwd en waarom.</string>
-    <string name="a_words">Woorden</string>
-    <string name="a_words_d">Moeilijkere woorden in grondvorm met een korte betekenis; bij één woord: synoniemen en verwante woorden.</string>
-    <string name="a_examples">Voorbeelden</string>
-    <string name="a_examples_d">Drie korte alledaagse zinnen met vertaling (voor woorden en zinnen).</string>
-    <string name="a_explain">Uitleggen</string>
-    <string name="a_explain_d">Betekenis in context, register, uitdrukkingen en nuances; bij een passage — wat er gebeurt en wat er tussen de regels staat.</string>
+    <string name="a_translate_d">Bij openen: de grondvorm met lidwoord en meervoud, of de werkwoordsvormen, in de kop; de hoofdbetekenissen. Een zin: een natuurlijke vertaling.</string>
     <string name="tab_dictionary">Woordenboek</string>
     <string name="thinking">Denkt na</string>
     <string name="ai_off">AI staat uit: zet het aan in de InkPeek-instellingen voor vertaling, grammatica en meer.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Opnieuw vragen</string>
     <string name="save_word">Bewaren in mijn woorden</string>
     <string name="unsave_word">Uit mijn woorden halen</string>
+    <string name="a_analysis">Analyse</string>
+    <string name="a_analysis_d">Een woord: hoe je het gebruikt, synoniemen en verwante woorden. Een zin: hoe die is opgebouwd en waarom, de moeilijke woorden.</string>
+    <string name="a_context">Context</string>
+    <string name="a_context_d">Drie alledaagse voorbeelden met vertaling, register en uitdrukkingen; bij een passage wat er gebeurt en wat wordt bedoeld.</string>
+    <string name="irregular">onregelm.</string>
 </resources>

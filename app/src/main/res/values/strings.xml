@@ -39,15 +39,7 @@
     <string name="pos_reader">Position: as the reader asks</string>
     <string name="card_tabs">AI tabs in the card</string>
     <string name="a_translate">Translate</string>
-    <string name="a_translate_d">A word: base form, part of speech and main meanings. A phrase: a natural translation.</string>
-    <string name="a_grammar">Grammar</string>
-    <string name="a_grammar_d">A word: which form it is and how to use it. A phrase: how it is built and why.</string>
-    <string name="a_words">Words</string>
-    <string name="a_words_d">Harder words in base form with a short meaning; for one word: synonyms and related words.</string>
-    <string name="a_examples">Examples</string>
-    <string name="a_examples_d">Three short everyday sentences with a translation (words and phrases).</string>
-    <string name="a_explain">Explain</string>
-    <string name="a_explain_d">Meaning in context, register, idioms and nuances; for a passage — what happens and what is implied.</string>
+    <string name="a_translate_d">On open: base form with article and plural, or a verb\'s forms, in the header; main meanings. A phrase: a natural translation.</string>
     <string name="tab_dictionary">Dictionary</string>
     <string name="thinking">Thinking</string>
     <string name="ai_off">AI is off: turn it on in InkPeek settings for translation, grammar and more.</string>
@@ -104,4 +96,9 @@
     <string name="ask_again">Ask again</string>
     <string name="save_word">Save to my words</string>
     <string name="unsave_word">Remove from my words</string>
+    <string name="a_analysis">Analysis</string>
+    <string name="a_analysis_d">A word: how to use it, synonyms and related words. A phrase: how it is built and why, the harder words.</string>
+    <string name="a_context">Context</string>
+    <string name="a_context_d">Three everyday examples with a translation, register and idioms; for a passage — what happens and what is implied.</string>
+    <string name="irregular">irregular</string>
 </resources>

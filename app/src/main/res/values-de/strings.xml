@@ -38,15 +38,7 @@
     <string name="pos_reader">Position: wie der Reader es will</string>
     <string name="card_tabs">KI-Tabs in der Karte</string>
     <string name="a_translate">Übersetzen</string>
-    <string name="a_translate_d">Wort: Grundform, Wortart und Hauptbedeutungen. Satz: eine natürliche Übersetzung.</string>
-    <string name="a_grammar">Grammatik</string>
-    <string name="a_grammar_d">Wort: welche Form es ist und wie man es verwendet. Satz: wie er gebaut ist und warum.</string>
-    <string name="a_words">Wörter</string>
-    <string name="a_words_d">Schwierige Wörter in Grundform mit kurzer Bedeutung; bei einem Wort: Synonyme und verwandte Wörter.</string>
-    <string name="a_examples">Beispiele</string>
-    <string name="a_examples_d">Drei kurze Alltagssätze mit Übersetzung (für Wörter und Wendungen).</string>
-    <string name="a_explain">Erklären</string>
-    <string name="a_explain_d">Bedeutung im Kontext, Stil, Redewendungen und Nuancen; bei einem Abschnitt — was passiert und was mitschwingt.</string>
+    <string name="a_translate_d">Beim Öffnen: Grundform mit Artikel und Plural oder die Verbformen in der Kopfzeile; Hauptbedeutungen. Eine Phrase: eine natürliche Übersetzung.</string>
     <string name="tab_dictionary">Wörterbuch</string>
     <string name="thinking">Denke nach</string>
     <string name="ai_off">KI ist aus: in den InkPeek-Einstellungen einschalten für Übersetzung, Grammatik und mehr.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Neu fragen</string>
     <string name="save_word">Zu meinen Wörtern</string>
     <string name="unsave_word">Aus meinen Wörtern entfernen</string>
+    <string name="a_analysis">Analyse</string>
+    <string name="a_analysis_d">Ein Wort: wie man es verwendet, Synonyme und verwandte Wörter. Eine Phrase: wie sie gebaut ist und warum, schwierige Wörter.</string>
+    <string name="a_context">Kontext</string>
+    <string name="a_context_d">Drei Alltagsbeispiele mit Übersetzung, Stil und Redewendungen; bei einem Abschnitt — was passiert und was gemeint ist.</string>
+    <string name="irregular">unregelm.</string>
 </resources>

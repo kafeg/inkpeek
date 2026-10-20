@@ -36,17 +36,9 @@
     <string name="pos_top">Положення: згори</string>
     <string name="pos_bottom">Положення: знизу</string>
     <string name="pos_reader">Положення: як просить читалка</string>
-    <string name="card_tabs">Вкладки ШІ в картці</string>
+    <string name="card_tabs">AI-вкладки в картці</string>
     <string name="a_translate">Переклад</string>
-    <string name="a_translate_d">Слово: початкова форма, частина мови, головні значення. Фраза: природний переклад.</string>
-    <string name="a_grammar">Граматика</string>
-    <string name="a_grammar_d">Слово: що це за форма і як її вживати. Фраза: як побудована і чому.</string>
-    <string name="a_words">Слова</string>
-    <string name="a_words_d">Складні слова в початковій формі з коротким значенням; для одного слова — синоніми та спільнокореневі.</string>
-    <string name="a_examples">Приклади</string>
-    <string name="a_examples_d">Три короткі побутові речення з перекладом (для слів і фраз).</string>
-    <string name="a_explain">Пояснити</string>
-    <string name="a_explain_d">Зміст у контексті, стиль, ідіоми та відтінки; для уривка — що відбувається і що мається на увазі.</string>
+    <string name="a_translate_d">Одразу під час відкриття: початкова форма з артиклем і мн. або форми дієслова — у заголовку; головні значення. Фраза: природний переклад.</string>
     <string name="tab_dictionary">Словник</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">ШІ вимкнено: увімкніть його в налаштуваннях InkPeek — будуть переклад, граматика та інше.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Запитати знову</string>
     <string name="save_word">Зберегти в мої слова</string>
     <string name="unsave_word">Прибрати з моїх слів</string>
+    <string name="a_analysis">Розбір</string>
+    <string name="a_analysis_d">Слово: як уживати, синоніми й спільнокореневі. Фраза: як побудована і чому, складні слова.</string>
+    <string name="a_context">Контекст</string>
+    <string name="a_context_d">Три побутові приклади з перекладом, стиль та ідіоми; для уривка — що відбувається і що мається на увазі.</string>
+    <string name="irregular">неправ.</string>
 </resources>

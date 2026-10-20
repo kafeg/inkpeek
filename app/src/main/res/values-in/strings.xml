@@ -38,15 +38,7 @@
     <string name="pos_reader">Posisi: sesuai aplikasi baca</string>
     <string name="card_tabs">Tab AI di kartu</string>
     <string name="a_translate">Terjemahkan</string>
-    <string name="a_translate_d">Kata: bentuk dasar, jenis kata, dan arti utama. Frasa: terjemahan yang wajar.</string>
-    <string name="a_grammar">Tata bahasa</string>
-    <string name="a_grammar_d">Kata: bentuk apa itu dan cara memakainya. Frasa: bagaimana susunannya dan mengapa.</string>
-    <string name="a_words">Kosakata</string>
-    <string name="a_words_d">Kata yang lebih sulit dalam bentuk dasar dengan arti singkat; untuk satu kata: sinonim dan kata terkait.</string>
-    <string name="a_examples">Contoh</string>
-    <string name="a_examples_d">Tiga kalimat sehari-hari yang pendek dengan terjemahan (untuk kata dan frasa).</string>
-    <string name="a_explain">Jelaskan</string>
-    <string name="a_explain_d">Makna dalam konteks, ragam bahasa, idiom, dan nuansa; untuk satu bagian — apa yang terjadi dan apa yang tersirat.</string>
+    <string name="a_translate_d">Saat dibuka: bentuk dasar dengan artikel dan jamak, atau bentuk kata kerja, di judul; makna utama. Frasa: terjemahan yang wajar.</string>
     <string name="tab_dictionary">Kamus</string>
     <string name="thinking">Berpikir</string>
     <string name="ai_off">AI nonaktif: aktifkan di pengaturan InkPeek untuk terjemahan, tata bahasa, dan lainnya.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Tanya lagi</string>
     <string name="save_word">Simpan ke kata saya</string>
     <string name="unsave_word">Hapus dari kata saya</string>
+    <string name="a_analysis">Analisis</string>
+    <string name="a_analysis_d">Kata: cara memakainya, sinonim dan kata terkait. Frasa: bagaimana dan mengapa disusun begitu, kata-kata sulit.</string>
+    <string name="a_context">Konteks</string>
+    <string name="a_context_d">Tiga contoh sehari-hari dengan terjemahan, ragam bahasa dan idiom; untuk bacaan — apa yang terjadi dan apa yang tersirat.</string>
+    <string name="irregular">tak beraturan</string>
 </resources>

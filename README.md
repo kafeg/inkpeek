@@ -32,12 +32,12 @@ from the text in bold.</td>
 <td width="33%"><img src="docs/img/settings-card.png" alt="Choose the AI tabs"></td>
 </tr>
 <tr>
-<td valign="top"><b>Get the meaning that fits here.</b> Base form, part of speech and the main meanings; more tabs
-give synonyms, examples and nuances.</td>
+<td valign="top"><b>Get the meaning that fits here.</b> The header shows the base form with its article and plural,
+or a verb's forms; Translate gives the main meanings, Analysis the grammar and related words, Context examples.</td>
 <td valign="top"><b>No internet? Still useful.</b> A selected sentence gets a word-by-word gloss from your
 dictionaries. Tap a word to open its full entry.</td>
-<td valign="top"><b>Keep only what you use.</b> Turn AI tabs on or off. Use Claude, OpenAI or OpenRouter (it has free
-models).</td>
+<td valign="top"><b>Keep what you look up.</b> AI answers are saved and shown again, also offline; ☆ keeps a word or
+phrase in My words. Use Claude, OpenAI, OpenRouter (it has free models) or your own server.</td>
 </tr>
 </table>
 

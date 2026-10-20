@@ -36,17 +36,9 @@
     <string name="pos_top">Pozice: nahoře</string>
     <string name="pos_bottom">Pozice: dole</string>
     <string name="pos_reader">Pozice: podle čtečky</string>
-    <string name="card_tabs">Záložky AI v kartě</string>
+    <string name="card_tabs">Karty AI v kartě</string>
     <string name="a_translate">Přeložit</string>
-    <string name="a_translate_d">Slovo: základní tvar, slovní druh a hlavní významy. Fráze: přirozený překlad.</string>
-    <string name="a_grammar">Gramatika</string>
-    <string name="a_grammar_d">Slovo: jaký je to tvar a jak se používá. Fráze: jak je postavená a proč.</string>
-    <string name="a_words">Slova</string>
-    <string name="a_words_d">Těžší slova v základním tvaru s krátkým významem; u jednoho slova: synonyma a příbuzná slova.</string>
-    <string name="a_examples">Příklady</string>
-    <string name="a_examples_d">Tři krátké běžné věty s překladem (pro slova i fráze).</string>
-    <string name="a_explain">Vysvětlit</string>
-    <string name="a_explain_d">Význam v kontextu, styl, idiomy a nuance; u úryvku — co se děje a co je naznačeno.</string>
+    <string name="a_translate_d">Hned po otevření: základní tvar se členem a množným číslem nebo tvary slovesa v záhlaví; hlavní významy. Fráze: přirozený překlad.</string>
     <string name="tab_dictionary">Slovník</string>
     <string name="thinking">Přemýšlím</string>
     <string name="ai_off">AI je vypnutá: zapněte ji v nastavení InkPeek pro překlad, gramatiku a další.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Zeptat se znovu</string>
     <string name="save_word">Uložit do mých slov</string>
     <string name="unsave_word">Odebrat z mých slov</string>
+    <string name="a_analysis">Rozbor</string>
+    <string name="a_analysis_d">Slovo: jak ho použít, synonyma a příbuzná slova. Fráze: jak je postavená a proč, těžší slova.</string>
+    <string name="a_context">Kontext</string>
+    <string name="a_context_d">Tři běžné příklady s překladem, styl a idiomy; u úryvku — co se děje a co je naznačeno.</string>
+    <string name="irregular">nepravid.</string>
 </resources>

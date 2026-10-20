@@ -5,6 +5,7 @@ import com.anthropic.client.AnthropicClient
 import com.anthropic.client.okhttp.AnthropicOkHttpClient
 import com.anthropic.errors.BadRequestException
 import com.anthropic.core.JsonValue
+import com.anthropic.models.beta.messages.BetaJsonOutputFormat
 import com.anthropic.models.beta.messages.BetaOutputConfig
 import com.anthropic.models.beta.messages.BetaThinkingConfigDisabled
 import com.anthropic.models.beta.messages.MessageCreateParams
@@ -61,33 +62,53 @@ enum class Kind {
     }
 }
 
+/** An AI tab of the card; [id] keys its label and description in resources. */
+data class Action(val id: String) {
+    companion object { val ALL = listOf(Action("translate"), Action("analysis"), Action("context")) }
+}
+
 /**
- * An AI tab of the card. [id] keys its label and description in resources; [prompt] uses {text}, {lang} and is
- * told the [Kind]; [kinds] — selections the tab makes sense for (no "examples" for a whole passage).
+ * The two AI requests, each answered as one JSON object: [QUICK] on card open (head facts + translation, the Translate
+ * tab), [DETAIL] on the first tap of Analysis or Context (fills both). Placeholders: {text}, {lang}.
  */
-data class Action(val id: String, val prompt: String, val onByDefault: Boolean = true, val kinds: Set<Kind> = Kind.entries.toSet()) {
-    companion object {
-        val ALL = listOf(
-            Action("translate", "Translate into {lang}: «{text}».\n" +
-                "A single word: first line **base form** and part of speech with the grammatical facts this language " +
-                "needs (such as gender or plural, where it has them), then the 1–3 main meanings in *italics*, no examples; say so if " +
-                "the word is an inflected form.\n" +
-                "A phrase or a passage: only a natural translation, nothing else."),
-            Action("grammar", "Grammar of «{text}» in {lang}, at most 7 short lines, the words you talk about in **bold**, no headings.\n" +
-                "A single word: which form of which **base form** it is, how it is built, and the forms a learner of " +
-                "this language needs to use it correctly.\n" +
-                "A phrase: how it is built and why — the constructions that matter in this language (word order, " +
-                "agreement, which word requires which form, tense, aspect or mood) and the rule behind them. A passage: " +
-                "every construction that matters, up to 10 lines."),
-            Action("words", "Vocabulary of «{text}», in {lang}.\nA phrase or a passage: list the words a learner may not " +
-                "know, one per line: **base form** — short meaning (at most 20 for a passage). Skip very common words.\n" +
-                "A single word: **base form**, 2–3 synonyms, related words, each with a short meaning."),
-            Action("examples", "3 short everyday sentences with «{text}» in its own language, «{text}» in **bold**, each " +
-                "followed by a translation into {lang} in *italics* on the next line.", kinds = setOf(Kind.WORD, Kind.PHRASE)),
-            Action("explain", "Explain «{text}» in {lang}: what it means here, register, idioms and nuances. A passage: " +
-                "what happens and what is implied, briefly. Short."),
-        )
-    }
+enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: Long) {
+    QUICK("Selected text: «{text}». Answer with one JSON object, these keys only:\n" +
+        "- base: the dictionary form in the text's own language (Häusern → Haus, went → go, ging → gehen); \"\" for a phrase or passage.\n" +
+        "- article: the article of the base that shows its gender where the language has one (German der/die/das, " +
+        "French le/la, Spanish el/la…); \"\" otherwise or for non-nouns.\n" +
+        "- plural: a noun's plural in the text's language, with the article for German (die Häuser); else \"\".\n" +
+        "- pos: part of speech in {lang}, short; for a noun add the gender of the ORIGINAL word, not of its translation.\n" +
+        "- forms: a verb's principal parts in the text's language — German: infinitive · 3rd person singular present · " +
+        "Präteritum · Perfekt with its auxiliary (\"gehen · geht · ging · ist gegangen\"); English: \"go · went · gone\"; " +
+        "an adjective with irregular comparison: \"gut · besser · am besten\"; else \"\".\n" +
+        "- irregular: true for an irregular or strong verb (or irregular comparison), else false.\n" +
+        "- form_of: when the selected word is an inflected form, which form, in {lang} (plural, dative; past tense…); else \"\".\n" +
+        "- meanings: 1–3 main meanings in {lang}, a few words each; [] for a phrase or passage.\n" +
+        "- translation: a phrase or passage: a natural translation into {lang} that keeps the sentence type (a question " +
+        "stays a question); \"\" for a single word.\n" +
+        "- note: one short line in {lang} only when something matters (idiom, false friend, register); else \"\".",
+        mapOf("base" to "s", "article" to "s", "plural" to "s", "pos" to "s", "forms" to "s", "irregular" to "b",
+            "form_of" to "s", "meanings" to "a", "translation" to "s", "note" to "s"), 1024),
+    DETAIL("Selected text: «{text}». Answer with one JSON object with two keys, \"analysis\" and \"context\"; each value " +
+        "is a short text in {lang} with light Markdown (**bold**, *italic*, \"- \" lists, no headings).\n" +
+        "analysis — a single word: what a learner needs to use it (forms, case or preposition it takes, separable prefix, " +
+        "reflexive), then 2–3 synonyms and related words, **word** — short meaning. A phrase: how it is built and why " +
+        "(word order, agreement, which word requires which form, tense, mood) and the rule behind it, then the words a " +
+        "learner may not know, **base form** — short meaning. A passage: every construction that matters (up to 10 lines), " +
+        "then up to 15 harder words, **base form** — short meaning.\n" +
+        "context — a word or phrase: exactly 3 short everyday sentences in the text's own language with it in **bold**, each " +
+        "followed by its translation into {lang} in *italics* on the next line; then one line on register, idioms or " +
+        "nuances when useful. A passage: what happens and what is implied, briefly.",
+        mapOf("analysis" to "s", "context" to "s"), 3000);
+
+    /** Changes with the prompt, so saved answers of an older prompt are not shown. */
+    val version: Int get() = prompt.hashCode()
+    val section: String get() = name.lowercase()
+
+    /** JSON Schema for structured outputs: every key required, no others. */
+    fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to fields.keys.toList(),
+        "properties" to fields.mapValues { (_, t) -> when (t) { "b" -> mapOf("type" to "boolean")
+            "a" -> mapOf("type" to "array", "items" to mapOf("type" to "string")); else -> mapOf("type" to "string") } })
 }
 
 class AiError(msg: String) : Exception(msg)
@@ -100,7 +121,8 @@ object Ai {
     private fun system(lang: String) = "You are a concise dictionary and language tutor inside an e-book reader on an " +
         "e-ink screen. Write every answer in $lang only. If the text is already in $lang, answer like an explanatory " +
         "dictionary of $lang instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
-        "lists. No headings, tables or code. Keep it under 120 words unless the request needs more."
+        "lists inside JSON string values. No headings, tables or code. Be brief. You see only the selected text, " +
+        "not the sentence around it: do not guess a context (a preposition, a speaker) that is not in the text."
     // The answer comes in one piece, so the read timeout must cover the whole generation.
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()
     /** A model on a home computer can take a while, the first answer also loads the model. */
@@ -115,22 +137,26 @@ object Ai {
     var recall: (String) -> Int? = { null }
     var remember: (String, Int) -> Unit = { _, _ -> }
 
-    /** Changes with the prompt, so cached answers of an older prompt are not shown. */
-    fun version(a: Action): Int = a.prompt.hashCode()
-
-    /** Blocking; call off the main thread. */
-    fun ask(p: Provider, key: String, model: String, action: Action, text: String, lang: String, url: String = p.baseUrl): String {
+    /** Blocking; call off the main thread. The answer is the model's JSON object. */
+    fun ask(p: Provider, key: String, model: String, ask: Ask, text: String, lang: String, url: String = p.baseUrl): JSONObject {
         if (p == Provider.CUSTOM && url.isBlank()) throw AiError("No server address")
         if (key.isBlank() && p != Provider.CUSTOM) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
         val kind = Kind.of(text)
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
             Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
-        val prompt = "The selection is $what.\n" + action.prompt.replace("{text}", text).replace("{lang}", lang)
+        val prompt = "The selection is $what.\n" + ask.prompt.replace("{text}", text).replace("{lang}", lang)
         val t0 = System.currentTimeMillis()
-        val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, url, key, model, prompt, system(lang))).trim()
-        Log.i("InkPeek", "ai ${p.name} $model ${action.id} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${answer.length} chars")
-        return answer
+        val raw = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang), ask) else openAi(p, url, key, model, prompt, system(lang), ask)).trim()
+        Log.i("InkPeek", "ai ${p.name} $model ${ask.section} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${raw.length} chars")
+        return json(raw)
+    }
+
+    /** The JSON object in a reply, also when a model wraps it in a code fence or adds a sentence around it. */
+    fun json(s: String): JSONObject {
+        val a = s.indexOf('{'); val b = s.lastIndexOf('}')
+        if (a < 0 || b <= a) throw AiError("The model did not answer in JSON: ${s.take(120)}")
+        return JSONObject(s.substring(a, b + 1))
     }
 
     private fun client(key: String): AnthropicClient = synchronized(this) {
@@ -138,19 +164,13 @@ object Ai {
             .also { c -> claudeClient?.second?.close(); claudeClient = key to c }
     }
 
-    /** Loads the client and opens the connection while the card shows the dictionary; costs no tokens. */
-    fun warm(p: Provider, key: String, model: String, url: String = p.baseUrl) = runCatching {
-        val t0 = System.currentTimeMillis()
-        if (p == Provider.ANTHROPIC) { if (key.isNotBlank() && model.isNotBlank()) client(key).models().retrieve(model) }
-        else if (url.isNotBlank()) http.newCall(Request.Builder().url(url.trimEnd('/') + "/models").head().build()).execute().close()
-        Log.i("InkPeek", "warm ${p.name} ${System.currentTimeMillis() - t0} ms")
-    }
-
-    private fun claude(key: String, model: String, prompt: String, sys: String): String {
-        fun params(extras: Boolean) = MessageCreateParams.builder().model(model).maxTokens(4096L).system(sys).addUserMessage(prompt).apply {
+    private fun claude(key: String, model: String, prompt: String, sys: String, ask: Ask): String {
+        fun params(extras: Boolean) = MessageCreateParams.builder().model(model).maxTokens(ask.maxTokens).system(sys).addUserMessage(prompt).apply {
             if (!extras) return@apply
             // Least thinking the model allows: none, or "between_tools" (Sonnet 5.5), or only effort low (Opus 5.5).
-            outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).build())
+            outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).format(BetaJsonOutputFormat.builder()
+                .schema(BetaJsonOutputFormat.Schema.builder().putAllAdditionalProperties(ask.schema().mapValues { JsonValue.from(it.value) }).build())
+                .build()).build())
             when {
                 ALWAYS_THINK.containsMatchIn(model) -> {}
                 model.startsWith("claude-sonnet-5-5") -> putAdditionalBodyProperty("thinking", JsonValue.from(mapOf("type" to "between_tools")))
@@ -166,7 +186,7 @@ object Ai {
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }
 
-    private fun openAi(p: Provider, url: String, key: String, model: String, prompt: String, sys: String): String {
+    private fun openAi(p: Provider, url: String, key: String, model: String, prompt: String, sys: String, ask: Ask): String {
         val body = JSONObject().put("model", model).put("messages", JSONArray()
             .put(JSONObject().put("role", "system").put("content", sys))
             .put(JSONObject().put("role", "user").put("content", prompt)))
@@ -176,12 +196,20 @@ object Ai {
             return (if (p == Provider.CUSTOM) slow else http).newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
         }
         // No reasoning pass: try the host's "off" field, then a weaker one, then none; remember what worked.
+        // JSON mode first; a server without it gets the request again without, the prompt still asks for JSON.
         val variants = noReasoning(url) + JSONObject()
-        val memo = "${url.substringAfter("://").substringBefore('/')}|$model"
-        var i = (recall(memo) ?: 0).coerceIn(0, variants.size - 1)
-        var (code, s) = call(withFields(body, variants[i]))
-        while ((code == 400 || code == 422) && i < variants.size - 1) { i++; call(withFields(body, variants[i])).let { code = it.first; s = it.second } }
-        if (code in 200..299) remember(memo, i)
+        val memo = "${url.substringAfter("://").substringBefore('/')}|$model"; val fmtMemo = "json|$memo"
+        var json = recall(fmtMemo) != 1
+        fun attempt(): Pair<Int, String> {
+            val b = if (json) withFields(body, JSONObject().put("response_format", JSONObject().put("type", "json_object"))) else body
+            var i = (recall(memo) ?: 0).coerceIn(0, variants.size - 1)
+            var r = call(withFields(b, variants[i]))
+            while ((r.first == 400 || r.first == 422) && i < variants.size - 1) { i++; r = call(withFields(b, variants[i])) }
+            if (r.first in 200..299) remember(memo, i)
+            return r
+        }
+        var (code, s) = attempt()
+        if ((code == 400 || code == 422) && json) { json = false; attempt().let { code = it.first; s = it.second }; if (code in 200..299) remember(fmtMemo, 1) }
         if (code !in 200..299) throw AiError("${p.title}: HTTP $code ${errorText(s)}")
         val choices = JSONObject(s).optJSONArray("choices") ?: throw AiError("${p.title}: ${errorText(s)}")
         return choices.getJSONObject(0).getJSONObject("message").optString("content")

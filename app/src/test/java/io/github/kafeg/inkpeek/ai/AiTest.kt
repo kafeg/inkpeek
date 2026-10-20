@@ -27,17 +27,20 @@ class AiTest {
 
     /** A server that rejects `reasoning_effort` gets the request again without it; the choice is remembered. */
     @Test fun reasoningFieldFallsBack() {
+        // A model that wraps its JSON in a code fence.
+        val reply = JSONObject().put("choices", org.json.JSONArray().put(JSONObject().put("message",
+            JSONObject().put("content", "```json\n" + JSONObject().put("translation", "дом") + "\n```")))).toString()
         val seen = ArrayList<Boolean>()
-        val ss = serve { b -> seen += b.has("reasoning_effort")
-            if (b.has("reasoning_effort")) 400 to """{"error":{"message":"unknown field"}}""" else 200 to """{"choices":[{"message":{"content":"дом"}}]}""" }
+        val ss = serve { b -> seen += b.has("reasoning_effort"); assertEquals("json_object", b.getJSONObject("response_format").getString("type"))
+            if (b.has("reasoning_effort")) 400 to """{"error":{"message":"unknown field"}}""" else 200 to reply }
         val memo = HashMap<String, Int>()
         Ai.recall = { memo[it] }; Ai.remember = { k, v -> memo[k] = v }
         try {
             val url = "http://127.0.0.1:${ss.localPort}/v1"
-            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Action.ALL[0], "Haus", "Russian", url))
+            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.QUICK, "Haus", "Russian", url).getString("translation"))
             assertEquals(listOf(true, false), seen)
             seen.clear()
-            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Action.ALL[1], "Haus", "Russian", url))
+            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.DETAIL, "Haus", "Russian", url).getString("translation"))
             assertEquals(listOf(false), seen) // remembered: one call
         } finally { ss.close() }
     }

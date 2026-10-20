@@ -38,15 +38,7 @@
     <string name="pos_reader">Положение: как просит читалка</string>
     <string name="card_tabs">AI-вкладки в карточке</string>
     <string name="a_translate">Перевод</string>
-    <string name="a_translate_d">Слово: начальная форма, часть речи, главные значения. Фраза: естественный перевод.</string>
-    <string name="a_grammar">Грамматика</string>
-    <string name="a_grammar_d">Слово: что это за форма и как её употреблять. Фраза: как построена и почему.</string>
-    <string name="a_words">Слова</string>
-    <string name="a_words_d">Трудные слова в начальной форме с кратким значением; для слова — синонимы и однокоренные.</string>
-    <string name="a_examples">Примеры</string>
-    <string name="a_examples_d">Три коротких бытовых примера с переводом (для слов и фраз).</string>
-    <string name="a_explain">Объяснить</string>
-    <string name="a_explain_d">Смысл в контексте, стиль, идиомы и оттенки; для отрывка — что происходит и что подразумевается.</string>
+    <string name="a_translate_d">Сразу при открытии: начальная форма с артиклем и мн. ч. или формы глагола — в заголовке; главные значения. Фраза: естественный перевод.</string>
     <string name="tab_dictionary">Словарь</string>
     <string name="thinking">Думаю</string>
     <string name="ai_off">AI выключен: включите его в настройках InkPeek — будут перевод, грамматика и другое.</string>
@@ -103,4 +95,9 @@
     <string name="ask_again">Спросить заново</string>
     <string name="save_word">Сохранить в мои слова</string>
     <string name="unsave_word">Убрать из моих слов</string>
+    <string name="a_analysis">Разбор</string>
+    <string name="a_analysis_d">Слово: как употреблять, синонимы и однокоренные. Фраза: как построена и почему, трудные слова.</string>
+    <string name="a_context">Контекст</string>
+    <string name="a_context_d">Три бытовых примера с переводом, стиль и идиомы; для отрывка — что происходит и что подразумевается.</string>
+    <string name="irregular">неправ.</string>
 </resources>
