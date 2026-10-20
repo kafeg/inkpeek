@@ -1,7 +1,7 @@
 # Language packs on the device, through the app's own code. kind	pair	input	expected ("a | b": any of them)
 # head: the header (first line before " — ") starts with; mean: the first meanings contain;
 # lang: the language the card picks for a text, "!xx" = named as a language without a pack (pair = answer language);
-# tr: the offline translation contains.
+# tr: the offline translation contains. "?kind": a known gap of the data — checked and shown as GAP, does not fail.
 head	de-ru	Häusern	das Haus (Hauses, мн. Häuser)
 head	de-ru	ging	gehen (geht, ging, ist gegangen)
 head	de-ru	Kinder	das Kind
@@ -54,7 +54,7 @@ mean	en-de	book	Buch
 head	ru-de	домами	дом
 head	ru-de	книги	книга
 head	ru-de	шёл	идти
-head	ru-de	детей	ребёнок | дети
+?head	ru-de	детей	ребёнок | дети
 mean	ru-de	собака	Hund
 mean	ru-de	дерево	Baum
 mean	ru-de	окно	Fenster

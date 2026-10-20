@@ -12,7 +12,5 @@
   },
   "wikdict": "https://download.wikdict.com/dictionaries/stardict/wikdict-{x}-{y}.zip",
   "languages": {"en": "English", "ru": "Russian", "de": "German", "uk": "Ukrainian", "es": "Spanish", "fr": "French",
-                "it": "Italian", "pt": "Portuguese", "pl": "Polish", "nl": "Dutch"},
- "reverse_pairs": ["ru-de"],
- "reverse_pairs_note": "Pairs whose dictionary also reads the answer Wiktionary's translation tables backwards; only where the pair is weak without them (measured): ru-de 24k → 46k words. de-ru gains only rare words and noise."
+                "it": "Italian", "pt": "Portuguese", "pl": "Polish", "nl": "Dutch"}
 }

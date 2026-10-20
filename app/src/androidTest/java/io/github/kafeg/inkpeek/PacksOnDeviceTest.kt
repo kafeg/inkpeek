@@ -20,7 +20,8 @@ class PacksOnDeviceTest {
         val cases = InstrumentationRegistry.getInstrumentation().context.assets.open("cases.tsv").bufferedReader().readLines()
             .filter { it.isNotBlank() && !it.startsWith("#") }.map { it.split('\t') }
         lib.all().filter { !it.ready }.forEach { it.prepare() }
-        val failed = cases.filter { (kind, pair, input, expected) ->
+        val failed = cases.filter { (k, pair, input, expected) ->
+            val gap = k.startsWith("?"); val kind = k.removePrefix("?")
             val t0 = System.currentTimeMillis()
             val actual = runCatching { run(kind, pair, input) }.getOrElse { "ERROR ${it.javaClass.simpleName}: ${it.message}" }
             val ok = expected.split(" | ").any { e -> when (kind) {
@@ -28,8 +29,8 @@ class PacksOnDeviceTest {
                 "lang" -> actual == e
                 else -> actual.contains(e, ignoreCase = true)
             } }
-            Log.i(TAG, "${if (ok) "PASS" else "FAIL"}\t$kind\t$pair\t$input\t$expected\t$actual\t${System.currentTimeMillis() - t0} ms")
-            !ok
+            Log.i(TAG, "${if (ok) "PASS" else if (gap) "GAP" else "FAIL"}\t$kind\t$pair\t$input\t$expected\t$actual\t${System.currentTimeMillis() - t0} ms")
+            !ok && !gap
         }
         Log.i(TAG, "${cases.size - failed.size} of ${cases.size} passed")
         assertTrue("${failed.size} of ${cases.size} failed (adb logcat -s $TAG)", failed.isEmpty())

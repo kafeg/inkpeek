@@ -106,31 +106,22 @@ def senses(record):
 STRESS = re.compile("[\u0300\u0301]")
 
 
-def _table(r, lang):
-    """(word, sense, sense number, tags) of a record's translation table into [lang], without old words and dialects."""
-    for t in r.get("translations") or []:
-        tags = set(t.get("tags") or [])
-        if t.get("lang_code") != lang or not t.get("word") or tags & {"archaic", "obsolete", "dated", "rare"} \
-                or any(c.isupper() for tag in tags for c in tag):          # dialects: "Alemannic-German"
-            continue
-        n = re.match(r"\d*", t.get("sense_index") or "").group()
-        yield STRESS.sub("", t["word"]), t.get("sense") or "", int(n) if n else 0, tags
-
-
-def _article(word, tags, lang):
-    """'das Haus': the article when the tags give one gender."""
-    g = [c for c in ("masculine", "feminine", "neuter") if c in tags]
-    return f"{ARTICLE[lang][g[0][0]]} {word}" if lang in ARTICLE and len(g) == 1 and g[0][0] in ARTICLE[lang] else word
-
-
 def translations(records, y):
     """English Wiktionary's translation tables of English words: word → [(pos, [(gloss, [])])]; a gloss is the
     translations of one sense, with the article for German nouns, the sense itself in parentheses."""
     out = {}
     for r in records:
         senses, order = {}, []
-        for w, sense, _, tags in _table(r, y):
-            w = _article(w, tags, y)
+        for t in r.get("translations") or []:
+            tags = set(t.get("tags") or [])
+            if t.get("lang_code") != y or not t.get("word") or tags & {"archaic", "obsolete", "dated", "rare"} \
+                    or any(c.isupper() for tag in tags for c in tag):          # dialects: "Alemannic-German"
+                continue
+            w = STRESS.sub("", t["word"])
+            g = [c for c in ("masculine", "feminine", "neuter") if c in tags]
+            if y in ARTICLE and len(g) == 1 and g[0][0] in ARTICLE[y]:
+                w = f"{ARTICLE[y][g[0][0]]} {w}"
+            sense = t.get("sense") or ""
             if sense not in senses:
                 senses[sense] = []; order.append(sense)
             if w not in senses[sense]:
@@ -138,36 +129,6 @@ def translations(records, y):
         if senses:
             glosses = [(", ".join(senses[s]) + (f" ({s})" if s else ""), []) for s in order]
             out.setdefault(r["word"], []).append((r.get("pos"), glosses))
-    return out
-
-
-# Extraction noise in tables: labels ("разг."), explanations with brackets or quotes, whole descriptions.
-NOT_A_WORD = re.compile(r"[.,;:()\[\]‚‘“”„«»]|(\S+\s+){3}\S")
-
-
-def reverse_translations(records, x, y):
-    """The y-Wiktionary's translation tables read backwards: x-word → [(pos, [(gloss, [])])]; a gloss is one y-word
-    (with its article) and the senses it is translated in; first the y-words whose main sense it is, then the ones
-    with bigger tables."""
-    found = {}
-    for r in records:
-        # A name keeps no article: "Yokohama", not "das Yokohama".
-        head = r["word"] if r.get("pos") == "name" else _article(r["word"], r.get("tags") or [], y)
-        size = len(r.get("translations") or [])
-        for w, sense, n, _ in _table(r, x):
-            if NOT_A_WORD.search(w):
-                continue
-            e = found.setdefault(w, {}).setdefault(r.get("pos"), {}).setdefault(head, [(n, -size), []])
-            e[0] = min(e[0], (n, -size))
-            if sense and sense not in e[1]:
-                e[1].append(sense)
-    out = {}
-    for w, by_pos in found.items():
-        blocks = []
-        for pos, heads in by_pos.items():
-            hs = sorted(heads.items(), key=lambda h: h[1][0])
-            blocks.append((hs[0][1][0], pos, [(h + (f" ({'; '.join(ss)})" if ss else ""), []) for h, (_, ss) in hs]))
-        out[w] = [(pos, gl) for _, pos, gl in sorted(blocks, key=lambda b: b[0])]
     return out
 
 
@@ -183,9 +144,9 @@ def wikdict_articles(base):
     return out
 
 
-def build(x, y, records, grammar, wikdict_base=None, tables=None, reverse=None):
+def build(x, y, records, grammar, wikdict_base=None, tables=None):
     """Articles (HTML) and .syn pairs for x→y; [records] — entries of language x in the y-Wiktionary; [tables] —
-    translation tables (English words) that go first; [reverse] — reversed tables for words still without one."""
+    translation tables (English words) that go first."""
     blocks = {w: list(b) for w, b in (tables or {}).items()}
     stats = {"tables": len(blocks)}
     for r in records:
@@ -193,13 +154,6 @@ def build(x, y, records, grammar, wikdict_base=None, tables=None, reverse=None):
         if ss:
             blocks.setdefault(r["word"], []).append((r.get("pos"), ss))
     stats["wiktionary"] = len(blocks) - stats["tables"]
-    stats["reverse"] = 0
-    # A word the grammar knows only as a form (Kinder → Kind) needs no article: its form leads to the word's own.
-    lemmas = {w for w, _ in grammar.lemmas}
-    for w, b in (reverse or {}).items():
-        if w not in blocks and (w in lemmas or w not in grammar.forms):
-            blocks[w] = list(b)
-            stats["reverse"] += 1
     stats["wikdict"] = 0
     if wikdict_base:
         for w, (gram, tr) in wikdict_articles(wikdict_base).items():
@@ -218,7 +172,7 @@ def build(x, y, records, grammar, wikdict_base=None, tables=None, reverse=None):
             firsts.append(len(re.sub(r"<[^>]+>", "", html.unescape(first))))
         articles[w] = "".join(parts)
     firsts.sort()
-    stats["weak"] = stats["tables"] + stats["wiktionary"] + stats["reverse"] < 10000  # mostly WikDict: fewer and shorter articles
+    stats["weak"] = stats["tables"] + stats["wiktionary"] < 10000  # mostly WikDict: fewer and shorter articles
     stats["first_median"] = firsts[len(firsts) // 2] if firsts else 0
     stats["first_p90"] = firsts[int(len(firsts) * 0.9)] if firsts else 0
     return articles, grammar.syn(), stats

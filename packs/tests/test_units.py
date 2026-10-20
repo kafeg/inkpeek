@@ -120,32 +120,6 @@ class TablesTest(unittest.TestCase):
         self.assertEqual(dictionary.translations([r], "de"), {"house": [("noun", [("das Haus (human abode)", []), ("die Kammer (chamber)", [])])]})
         self.assertEqual(dictionary.translations([r], "ru")["house"][0][1][0][0], "дом (human abode)")
 
-    def test_reverse_tables(self):
-        de = lambda w, tags, trs: dict(word=w, pos="noun", lang_code="de", tags=tags, translations=trs)
-        ru = lambda w, s, i: {"lang_code": "ru", "word": w, "sense": s, "sense_index": i, "tags": ["masculine"]}
-        rev = dictionary.reverse_translations([
-            de("Baby", ["neuter"], [ru("ребёнок", "Kind im Allgemeinen", "2")]),
-            de("Kind", ["neuter"], [ru("ребёнок", "junger Mensch", "1"), ru("ребёнок", "Nachkomme", "2"), ru("дитя", "Nachkomme", "2"),
-                                    {"lang_code": "en", "word": "child", "sense_index": "1"}]),
-            de("Mensch", ["masculine"], [ru("человек", "Lebewesen", "1"), ru("разг.", "", "1"),
-                                         ru("наклейка судебного исполнителя на имущество", "", "2")]),
-            dict(word="Yokohama", pos="name", lang_code="de", tags=["neuter"], translations=[ru("Иокогама", "", "1")])], "ru", "de")
-        self.assertEqual(rev["ребёнок"], [("noun", [("das Kind (junger Mensch; Nachkomme)", []), ("das Baby (Kind im Allgemeinen)", [])])])
-        self.assertNotIn("child", rev)
-        self.assertEqual(sorted(rev), ["Иокогама", "дитя", "ребёнок", "человек"])   # no labels, no descriptions
-        self.assertEqual(rev["Иокогама"][0][1][0][0], "Yokohama")
-        g = grammar.Grammar("ru")
-        L = g.lemma("ребёнок", "noun"); L.gender.add("m"); L.plural.append("дети")
-        g.form("детей", "ребёнок"); g.form("дети", "ребёнок")
-        own = dict(word="человек", pos="noun", lang_code="ru", senses=[{"glosses": ["Mensch"]}])
-        arts, syn, st = dictionary.build("ru", "de", [own], g, reverse=rev)
-        self.assertIn('<p class="head"><b>ребёнок</b> (m., Pl. дети) — das Kind, das Baby</p>', arts["ребёнок"])
-        self.assertIn("— Mensch</p>", arts["человек"])                    # the y-Wiktionary's own entry goes first
-        self.assertEqual((st["wiktionary"], st["reverse"]), (1, 3))
-        self.assertIn(("детей", "ребёнок"), syn)
-        rev2 = {"детей": [("noun", [("die Kinder", [])])]}            # a form of ребёнок: no article of its own
-        self.assertNotIn("детей", dictionary.build("ru", "de", [own], g, reverse=rev2)[0])
-
 
 if __name__ == "__main__":
     unittest.main()
