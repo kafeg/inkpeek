@@ -18,7 +18,12 @@ Language packs are built in `packs/` (Python, see its README). JVM unit tests. S
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell appops set io.github.kafeg.inkpeek MANAGE_EXTERNAL_STORAGE allow
 adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus   # open the card
+scripts/device-test.sh                  # packs on the device: headers, meanings, language, offline translation
 ```
+Device tests run inside the installed release app (`testBuildType = "release"`, same signature, its packs); cases in
+`app/src/androidTest/assets/cases.tsv`, results in `adb logcat -s InkPeekTest`. A failing case is a finding about the
+packs or the code: fix the data or the code, never the expectation to make it pass. Boox: `adb exec-out screencap`
+prints a line before the PNG — use `screencap -p /sdcard/s.png` and `adb pull`.
 Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
 Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,
 keyAlias, keyPassword), `VERSION_CODE=<above the installed> ./gradlew assembleRelease`, `adb install -r` keeps the

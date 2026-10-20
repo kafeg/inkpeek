@@ -1,0 +1,92 @@
+# Language packs on the device, through the app's own code. kind	pair	input	expected ("a | b": any of them)
+# head: the header (first line before " — ") starts with; mean: the first meanings contain;
+# lang: the language the card picks for a text, "!xx" = named as a language without a pack (pair = answer language);
+# tr: the offline translation contains.
+head	de-ru	Häusern	das Haus (Hauses, мн. Häuser)
+head	de-ru	ging	gehen (geht, ging, ist gegangen)
+head	de-ru	Kinder	das Kind
+head	de-ru	Frau	die Frau
+head	de-ru	Tisch	der Tisch
+head	de-ru	sprach	sprechen
+head	de-ru	Bäume	der Baum
+head	de-ru	hatte	haben
+head	de-ru	gegessen	essen
+head	de-ru	Mädchen	das Mädchen
+head	de-ru	schönsten	schön
+head	de-ru	Zeitungen	die Zeitung
+mean	de-ru	Hund	собака
+mean	de-ru	Buch	книга
+mean	de-ru	schnell	быстр
+mean	de-ru	Gewitter	гроза
+mean	de-ru	aufstehen	вставать
+mean	de-ru	Schmetterling	бабочка
+mean	de-ru	Zeitung	газета
+mean	de-ru	Wald	лес
+mean	de-ru	Stuhl	стул
+mean	de-ru	klein	маленьк
+head	en-ru	went	go (went, gone)
+head	en-ru	children	child
+head	en-ru	mice	mouse
+head	en-ru	taught	teach (taught
+head	en-ru	ran	run (ran, run)
+head	en-ru	geese	goose
+head	en-ru	wrote	write (wrote, written)
+mean	en-ru	dog	собака
+mean	en-ru	book	книга
+mean	en-ru	tree	дерево
+mean	en-ru	happy	счастлив
+mean	en-ru	window	окно
+mean	en-ru	bridge	мост
+mean	en-ru	butterfly	бабочка
+head	de-en	Häuser	das Haus
+head	de-en	ging	gehen (geht, ging, ist gegangen)
+mean	de-en	Hund	dog
+mean	de-en	Baum	tree
+mean	de-en	Kirche	church
+mean	de-en	schnell	fast | quick
+head	en-de	went	go (went, gone)
+mean	en-de	dog	Hund
+mean	en-de	house	Haus
+mean	en-de	tree	Baum
+mean	en-de	church	Kirche
+mean	en-de	window	Fenster
+mean	en-de	book	Buch
+head	ru-de	домами	дом
+head	ru-de	книги	книга
+head	ru-de	шёл	идти
+head	ru-de	детей	ребёнок | дети
+mean	ru-de	собака	Hund
+mean	ru-de	дерево	Baum
+mean	ru-de	окно	Fenster
+mean	ru-de	город	Stadt
+mean	ru-de	читать	lesen
+mean	ru-de	красивый	schön
+lang	ru	Der Hund schläft unter dem Tisch.	de
+lang	ru	Ich habe heute keine Zeit.	de
+lang	ru	She took the book and went home.	en
+lang	ru	The weather is nice today.	en
+lang	ru	Haus	de
+lang	ru	went	en
+lang	ru	Il fait beau aujourd'hui.	!fr
+lang	ru	¿Dónde está la biblioteca?	!es
+lang	ru	Questa è la mia casa.	!it
+lang	ru	Dzień dobry, jak się masz?	!pl
+lang	de	Она взяла книгу и пошла домой.	ru
+lang	de	She took the book and went home.	en
+lang	de	Il fait beau aujourd'hui.	!fr
+lang	en	Der Hund schläft unter dem Tisch.	de
+lang	en	Она взяла книгу и пошла домой.	!ru
+tr	de-ru	Der Hund schläft unter dem Tisch.	собака | пёс | пес
+tr	de-ru	Ich habe heute keine Zeit.	времени
+tr	de-ru	Wo ist der Bahnhof?	вокзал | станция
+tr	de-ru	Morgen fahren wir in die Berge.	гор
+tr	en-ru	She took the book and went home.	книг
+tr	en-ru	The weather is nice today.	погода
+tr	en-ru	Where is the train station?	вокзал | станция
+tr	de-en	Der Hund schläft unter dem Tisch.	dog
+tr	de-en	Ich habe heute keine Zeit.	time
+tr	en-de	The dog is sleeping under the table.	Hund
+tr	en-de	Where is the train station?	Bahnhof
+tr	ru-de	Собака спит под столом.	Hund
+tr	ru-de	Где находится вокзал?	Bahnhof
+tr	ru-de	Я читаю интересную книгу.	Buch

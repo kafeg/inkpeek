@@ -81,7 +81,6 @@
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="tab_translate">Translate</string>
     <string name="icon_translate_d">AI when it can answer (see AI settings), else the offline translation on this device.</string>
-    <string name="mt_about">Translation on this device, without the internet (Firefox Translations models). It goes through English: the meaning comes through, nuances (you formal/informal, gender) may get lost.</string>
     <string name="mt_ai_first">Translate with AI first when it can answer</string>
     <string name="mt_missing">Offline translation needs a language pack: InkPeek settings → Languages.</string>
     <string name="mt_working">Translating…</string>
@@ -110,4 +109,16 @@
     <string name="sec_notes">Register and nuances</string>
     <string name="sec_meaning">What it says</string>
     <string name="form_of_sel">form: %1$s</string>
+    <string name="how_title">How the packs are built</string>
+    <string name="how_dict_t">Dictionary</string>
+    <string name="how_dict">Wiktionary articles in the answer language (via kaikki.org); English words also from the translation tables of the English Wiktionary; WikDict where Wiktionary has no article. The first line: the word with its grammar and the main meanings.</string>
+    <string name="how_gram_t">Grammar</string>
+    <string name="how_gram">Gender, plural, verb forms, irregular or strong — from Wiktionary\'s inflection tables. Every form leads to its word: Häusern → Haus, went → go. Only what Wiktionary says, no guessing.</string>
+    <string name="how_mt_t">Translation</string>
+    <string name="how_mt">Firefox Translations models (Mozilla), the best one for each direction, running on the device. Between two languages other than English it goes through English: the meaning comes through, nuances (formal you, gender) may get lost.</string>
+    <string name="how_lid_t">Language of the text</string>
+    <string name="how_lid">fastText (lid.176); when it is unsure (a word or two), the dictionary that knows more of the words decides.</string>
+    <string name="how_build_t">Build</string>
+    <string name="how_build">Our scripts on GitHub build every pack from these open sources and check it with tests (words and their forms) before publishing; the app downloads only from the project\'s releases.</string>
+    <string name="how_more">More on GitHub</string>
 </resources>

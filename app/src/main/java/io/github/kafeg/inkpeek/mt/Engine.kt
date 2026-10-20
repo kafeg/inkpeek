@@ -19,11 +19,17 @@ object Engine {
 
     fun ready(root: File, from: String, to: String) = steps(from, to).all { (a, b) -> Models.installed(root, a, b) }
 
-    /** Blocking. [keep] holds the models in memory for the next call (≈ 280–360 MB each); else frees them after use. */
-    fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String =
-        native.let { steps(from, to).fold(text) { t, (a, b) -> translateNative(config(Models.dir(root, a, b)), t, keep) } }
+    /** The pair whose models are held in memory: only one at a time, models of other pairs would add up (killed by Android). */
+    private var held: Pair<String, String>? = null
 
-    fun release() { native; releaseNative() }
+    /** Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use. */
+    @Synchronized fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = native.let {
+        if (held != null && held != from to to) { releaseNative(); held = null }
+        if (keep) held = from to to
+        steps(from, to).fold(text) { t, (a, b) -> translateNative(config(Models.dir(root, a, b)), t, keep) }
+    }
+
+    @Synchronized fun release() { native; releaseNative(); held = null }
 
     /** Marian options for one model folder (model, lex shortlist, vocab or src / trg vocab). */
     fun config(d: File): String {

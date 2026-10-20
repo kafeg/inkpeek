@@ -93,6 +93,11 @@ class Library(private val roots: List<File>, private val workRoot: File) {
 /** One line of an offline word-by-word gloss. */
 data class Gloss(val word: String, val base: String, val meaning: String)
 
+/** A pack article's first line as text: "das Haus (Hauses, мн. Häuser) — дом, здание". */
+fun headLine(html: String): String? = Regex("""<p class="head">(.*?)</p>""").find(html)?.groupValues?.get(1)
+    ?.replace(Regex("<[^>]+>"), "")?.replace("&lt;", "<")?.replace("&gt;", ">")?.replace("&quot;", "\"")?.replace("&#x27;", "'")
+    ?.replace("&amp;", "&")?.trim()
+
 /** WikDict marks the part of speech and gender ("noun, neutral") and puts each translation in a plain <div>. */
 fun grammarOf(html: String, pos: String? = null): String = GRAMMAR.findAll(html).map { it.groupValues[1].trim() }
     .let { all -> all.firstOrNull { pos != null && it.contains(pos, true) } ?: all.firstOrNull() }.orEmpty()

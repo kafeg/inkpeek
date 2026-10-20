@@ -78,6 +78,18 @@ class GrammarTest(unittest.TestCase):
         os.unlink(f.name)
         self.assertEqual(g.forms["went"], ["go"])
 
+    def test_related_words_are_not_forms(self):
+        g = grammar.Grammar("ru")
+        ru = lambda w, p, forms: dict(word=w, pos=p, lang_code="ru", senses=[{"glosses": ["x"]}], forms=forms)
+        grammar.from_enwiktionary([
+            ru("ребёнок", "noun", [{"form": "дете́й", "tags": ["genitive", "plural"]}, {"form": "де́тский", "tags": ["adjective", "relational"]}]),
+            ru("знать", "verb", [{"form": "узна́ть", "tags": ["perfective"]}, {"form": "зна́ю", "tags": ["first-person", "present", "singular"]}]),
+        ], g)
+        self.assertEqual(g.forms["детей"], ["ребёнок"])
+        self.assertEqual(g.forms["знаю"], ["знать"])
+        self.assertNotIn("детский", g.forms)
+        self.assertNotIn("узнать", g.forms)
+
 
 class DictionaryTest(unittest.TestCase):
     def test_first_line(self):

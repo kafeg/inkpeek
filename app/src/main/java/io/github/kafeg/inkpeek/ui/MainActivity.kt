@@ -179,7 +179,21 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         langBox.addView(Ink.button(this, label, sp) { if (!working && (missing.isNotEmpty() || extra.isNotEmpty())) apply(missing, extra, status) }
             .apply { alpha = if (missing.isEmpty() && extra.isEmpty() || working) 0.4f else 1f }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
         langBox.addView(status)
-        langBox.addView(Ink.text(this, getString(R.string.mt_about), 13f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        howPacks(langBox)
+    }
+
+    /** What is inside a pack and where it comes from. */
+    private fun howPacks(box: LinearLayout) {
+        box.addView(Ink.text(this, getString(R.string.how_title), 16f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 20) })
+        listOf(R.string.how_dict_t to R.string.how_dict, R.string.how_gram_t to R.string.how_gram, R.string.how_mt_t to R.string.how_mt,
+            R.string.how_lid_t to R.string.how_lid, R.string.how_build_t to R.string.how_build).forEach { (t, d) ->
+            box.addView(Ink.text(this, "<b>${Ink.escape(getString(t))}.</b> ${Ink.escape(getString(d))}", 14f, html = true),
+                Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        }
+        box.addView(Ink.button(this, getString(R.string.how_more), 15f) {
+            runCatching { startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kafeg/inkpeek/blob/main/packs/README.md"))) }
+                .onFailure { toast(it.message ?: "") }
+        }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = Ink.dp(this@MainActivity, 10) })
     }
 
     private fun apply(missing: List<io.github.kafeg.inkpeek.packs.Component>, extra: List<io.github.kafeg.inkpeek.packs.Component>, status: TextView) {

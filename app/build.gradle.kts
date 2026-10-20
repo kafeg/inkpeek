@@ -18,6 +18,7 @@ android {
         targetSdk = 35
         versionCode = System.getenv("VERSION_CODE")?.toIntOrNull() ?: 1
         versionName = System.getenv("VERSION_NAME")?.removePrefix("v") ?: "0.1.0-dev"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ndk { abiFilters += listOf("arm64-v8a") } // e-ink readers are 64-bit ARM; the engine is built for it only
         externalNativeBuild { cmake {
             arguments += listOf("-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions")
@@ -27,6 +28,7 @@ android {
     ndkVersion = "27.3.13750724"
     externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
     testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
+    testBuildType = "release" // device tests run in the installed release app (same signature, its packs)
     signingConfigs {
         if (keystoreProps.isNotEmpty()) create("release") {
             storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
@@ -60,4 +62,6 @@ dependencies {
     implementation("com.github.luben:zstd-jni:1.5.6-8@aar")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20240303")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
 }

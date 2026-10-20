@@ -371,9 +371,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun org.json.JSONObject.str(k: String) = optString(k).trim()
 
-    /** The first line of a pack dictionary's article: "das Haus (Hauses, мн. Häuser) — дом, здание". */
-    private fun lineOf(html: String): String? = Regex("""<p class="head">(.*?)</p>""").find(html)?.groupValues?.get(1)
-        ?.let { android.text.Html.fromHtml(it, android.text.Html.FROM_HTML_MODE_COMPACT).toString().trim() }
+    private fun lineOf(html: String): String? = io.github.kafeg.inkpeek.stardict.headLine(html)
 
     /** Its header part: "das Haus (Hauses, мн. Häuser)" or "gehen (geht, ging, ist gegangen) сильн.". */
     private fun headOf(html: String): String? = lineOf(html)?.substringBefore(" — ")?.trim()
@@ -394,35 +392,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // The selected form, and the same word in another book language ("Gift" is German and English).
         val sub = listOfNotNull(if (base.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.drop(1).firstOrNull()?.second).joinToString("\n")
         subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
-    }
-
-    /**
-     * Language of the selection among the installed book languages: fastText's language identification; when it is
-     * unsure, the pack dictionary that knows more of the words; a language without a pack comes back as unsupported.
-     */
-    private fun sourceLanguage(answer: String): Pair<String?, String?> {
-        val books = prefs.packs.installedBooks(answer)
-        if (books.isEmpty()) return null to null
-        val guess = runCatching { if (prefs.packs.langid.exists()) io.github.kafeg.inkpeek.mt.LangId.detect(prefs.packs.langid, query, 5) else emptyList() }
-            .getOrDefault(emptyList())
-        val top = guess.firstOrNull()
-        // When fastText is unsure (a word or two): how many words each book language's dictionary knows, forms included.
-        val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(query).map { it.value }.distinct().take(40).toList()
-        val dicts = prefs.library().all()
-        val known = books.associateWith { x ->
-            val d = dicts.firstOrNull { it.ifo.parentFile?.name == "dict-$x-$answer" }
-            if (d == null || !d.ready) 0 else words.count { w -> runCatching { d.lookup(w).isNotEmpty() }.getOrDefault(false) }
-        }
-        android.util.Log.i("InkPeek", "language: fastText $guess, dictionaries know $known of ${words.size}")
-        val best = known.maxByOrNull { it.value }
-        return when {
-            top != null && top.second >= 0.5f && top.first in books -> top.first to null
-            // fastText is sure it is a language without a pack: say so, unless a book dictionary knows nearly every word.
-            top != null && top.second >= 0.5f && (best == null || best.value < words.size * 0.8) -> null to top.first
-            best != null && best.value > 0 -> best.key to null
-            top != null && top.first in books -> top.first to null
-            else -> books.first() to null
-        }
     }
 
     /** Markdown for a tab from its answer; Analysis and Context under the app's own headings. */
@@ -487,7 +456,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun mt(): Deferred<Mt> = mtJob ?: async(Dispatchers.IO) {
         runCatching {
             val root = prefs.modelsDir; val to = prefs.answerCode
-            val (from, other) = sourceLanguage(to)
+            val (from, other) = io.github.kafeg.inkpeek.mt.LangId.source(query, to, prefs.packs, prefs.library())
             when {
                 from == null || !Engine.ready(root, from, to) -> Mt(from, other, null)
                 from == to -> Mt(from, null, Result.success(query))

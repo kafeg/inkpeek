@@ -8,6 +8,10 @@ GENDER = {"masculine": "m", "feminine": "f", "neuter": "n"}
 SKIP_FORM = {"table-tags", "inflection-template", "class", "romanization", "auxiliary", "diminutive", "augmentative",
              "alternative", "obsolete", "archaic", "dialectal", "misspelling", "abbreviation", "canonical", "nonstandard",
              "error-unrecognized-form", "rare", "variant", "feminine", "masculine"}
+# Related words that Wiktionary lists among the forms: an aspect partner (знать → узнать), a relational or possessive
+# adjective (собака → собачий), an abstract or verbal noun. They have their own entries; not inflections.
+RELATED = {"relational", "possessive", "abstract-noun", "noun-from-verb"}
+ASPECT = {"perfective", "imperfective", "semelfactive", "iterative", "dated", "infinitive"}
 SKIP_SENSE = {"obsolete", "archaic", "misspelling", "nonstandard", "dialectal", "rare"}
 PRONOUN = re.compile(r"^(ich|du|er/sie/es|wir|ihr|sie|Sie)\s+")
 CLASS_WORDS = ("irregular", "strong", "weak", "mixed")
@@ -173,7 +177,7 @@ def from_enwiktionary(records, g, irregular_category=None, fill=False):
                 _add(L.cmp, x)
             if t == {"superlative"}:
                 _add(L.sup, x)
-            if t & SKIP_FORM or " " in x or x == w:
+            if t & SKIP_FORM or t & RELATED or (t and t <= ASPECT) or " " in x or x == w:
                 continue
             g.form(x, w)
         if pos == "verb" and not L.cls:

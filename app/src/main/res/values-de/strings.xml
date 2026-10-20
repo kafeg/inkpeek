@@ -80,7 +80,6 @@
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
     <string name="tab_translate">Übersetzen</string>
     <string name="icon_translate_d">KI, wenn sie antworten kann (siehe KI-Einstellungen), sonst die Offline-Übersetzung auf dem Gerät.</string>
-    <string name="mt_about">Übersetzung auf dem Gerät, ohne Internet (Modelle von Firefox Translations). Sie läuft über Englisch: der Sinn kommt an, Feinheiten (du/Sie, Genus) können verloren gehen.</string>
     <string name="mt_ai_first">Zuerst mit KI übersetzen, wenn sie verfügbar ist</string>
     <string name="mt_missing">Für die Offline-Übersetzung braucht es ein Sprachpaket: InkPeek-Einstellungen → Sprachen.</string>
     <string name="mt_working">Übersetze…</string>
@@ -109,4 +108,16 @@
     <string name="sec_notes">Stil und Nuancen</string>
     <string name="sec_meaning">Worum es geht</string>
     <string name="form_of_sel">Form: %1$s</string>
+    <string name="how_title">Wie die Pakete entstehen</string>
+    <string name="how_dict_t">Wörterbuch</string>
+    <string name="how_dict">Wiktionary-Artikel in der Antwortsprache (über kaikki.org); englische Wörter auch aus den Übersetzungstabellen des englischen Wiktionary; WikDict, wo Wiktionary keinen Artikel hat. Die erste Zeile: das Wort mit seiner Grammatik und die Hauptbedeutungen.</string>
+    <string name="how_gram_t">Grammatik</string>
+    <string name="how_gram">Genus, Plural, Verbformen, unregelmäßig oder stark — aus den Flexionstabellen des Wiktionary. Jede Form führt zu ihrem Wort: Häusern → Haus, went → go. Nur was im Wiktionary steht, nichts geraten.</string>
+    <string name="how_mt_t">Übersetzung</string>
+    <string name="how_mt">Modelle von Firefox Translations (Mozilla), das beste je Richtung, laufen auf dem Gerät. Zwischen zwei Sprachen außer Englisch geht es über Englisch: der Sinn kommt an, Nuancen (du/Sie, Genus) können verloren gehen.</string>
+    <string name="how_lid_t">Sprache des Textes</string>
+    <string name="how_lid">fastText (lid.176); ist es unsicher (ein, zwei Wörter), entscheidet das Wörterbuch, das mehr der Wörter kennt.</string>
+    <string name="how_build_t">Erstellung</string>
+    <string name="how_build">Unsere Skripte auf GitHub bauen jedes Paket aus diesen offenen Quellen und prüfen es mit Tests (Wörter und ihre Formen) vor der Veröffentlichung; die App lädt nur aus den Releases des Projekts.</string>
+    <string name="how_more">Mehr auf GitHub</string>
 </resources>

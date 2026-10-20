@@ -26,6 +26,10 @@ inside); a run with them already downloaded takes about 4 minutes and 2 GB of me
 `<id>.zip` (StarDict folders), `model-<x>-<y>.tar.zst`, and `packs.json` — id, kind, languages, file name, size,
 sha256, license, attribution, stats.
 
+On a device the app itself is tested on the installed packs: `scripts/device-test.sh` (headers and meanings of
+words and their forms per pair, language identification, offline translation; cases in
+`app/src/androidTest/assets/cases.tsv`).
+
 ## Release
 The `Packs` workflow (manual) takes the book languages and answer languages to build, e.g. `de,en` and `ru,en`:
 1. `slices` — per-language slices of the kaikki dumps come from release `packs-sources`; a dump is downloaded and
