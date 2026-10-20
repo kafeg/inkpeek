@@ -174,7 +174,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    - No "Ask again".
 Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models downloaded by the app straight from Mozilla,
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; UI languages =
-exactly the answer languages of the packs; Translate: AI first when it can answer (setting: offline first), the offline engine
+exactly the answer languages of the packs; Translate: offline first (decided 21.10: the core tab sends nothing by default; setting: AI first when it can answer), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
@@ -198,7 +198,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      first one; AI dimmed (reason on tap) when it cannot answer; the offline text is marked "through English".
    - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), from the packs (milestone 10: mirrored from
      Mozilla Remote Settings `translations-models-v2`, the newest "base" record, else "base-memory").
-   - Memory: both models stay loaded when the device has room, else one at a time.
+   - Memory: the models of one pair stay loaded when the device has room (else one at a time), freed after 3 idle
+     minutes, on low memory and when another pair is translated.
 12. **My languages** (done; checked on the Boox) — one system instead of the offline-translation block, the
    dictionary catalog, "language of my books" and the user's own dictionaries (all gone, 21.10). Packs list from our
    release `packs` (`packs.json`). No answer-language setting: answers come in the app's language. The list shows

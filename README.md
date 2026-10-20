@@ -136,7 +136,7 @@ English → Russian. The meaning comes through; nuances can get lost: *du* and *
 may pick the wrong one of ты / вы; the speaker's gender may change.
 
 On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.2–0.9 s with both models in memory (about 560 MB), or 1–2 s
-when free memory is short and InkPeek loads one model at a time. With AI set up, Translate asks AI first (setting).
+when free memory is short and InkPeek loads one model at a time. Translate is offline first; with AI set up, a setting makes it ask AI first.
 
 ### AI
 Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
