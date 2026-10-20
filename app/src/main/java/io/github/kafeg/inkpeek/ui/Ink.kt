@@ -45,9 +45,9 @@ object Ink {
         }
     }
 
-    /** A list row: [title] in bold, one line of [meaning] under it ("—" when none), cut with "…" so rows keep their height. */
+    /** A list row: [title] in bold, one line of [meaning] under it ("—" when none); both cut with "…", rows keep their height. */
     fun entry(ctx: Context, title: String, meaning: String, sp: Float) = vertical(ctx).apply {
-        addView(text(ctx, title, sp, bold = true).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END })
+        addView(text(ctx, title, sp, bold = true).apply { isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END })
         addView(text(ctx, meaning.ifBlank { "—" }, sp * 0.85f).apply { isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END })
     }
 

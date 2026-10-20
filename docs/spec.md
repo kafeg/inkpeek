@@ -120,9 +120,9 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
-Tabs: Languages (pack pairs, milestone 12) · AI (on/off, phrase mode, provider, key and its source, model picker with
+Tabs: Languages (pack pairs, milestone 12) · AI (on/off, provider, key and its source, model picker with
 filter / maker / free only / sort, AI or offline first in Translate) · Card
-(app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
+(app language, a phrase opens on Translate, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
 by default. The app language is also the answer language.
 
 ## Tech

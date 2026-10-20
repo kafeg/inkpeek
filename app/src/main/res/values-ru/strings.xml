@@ -11,7 +11,7 @@
     <string name="status">Словарей: %1$d · AI: %2$s</string>
     <string name="status_busy">Словарей: %1$d · индексируется в фоне: %2$d… · AI: %3$s</string>
     <string name="use_ai">Использовать AI</string>
-    <string name="phrase_ai">Фразы: сразу открывать первую AI-вкладку</string>
+    <string name="phrase_ai">Фразы: открывать сразу «Перевод»</string>
     <string name="key_hint">API-ключ (или файл ключа)</string>
     <string name="save_key">Сохранить ключ</string>
     <string name="saved">Сохранено</string>

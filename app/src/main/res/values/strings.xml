@@ -12,7 +12,7 @@
     <string name="status">%1$d dictionaries · AI: %2$s</string>
     <string name="status_busy">%1$d dictionaries · indexing %2$d in the background… · AI: %3$s</string>
     <string name="use_ai">Use AI</string>
-    <string name="phrase_ai">Phrases: open the first AI tab at once</string>
+    <string name="phrase_ai">Phrases: open on Translate</string>
     <string name="key_hint">API key (or a key file)</string>
     <string name="save_key">Save key</string>
     <string name="saved">Saved</string>

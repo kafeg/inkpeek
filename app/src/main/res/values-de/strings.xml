@@ -11,7 +11,7 @@
     <string name="status">%1$d Wörterbücher · KI: %2$s</string>
     <string name="status_busy">%1$d Wörterbücher · %2$d werden im Hintergrund indiziert… · KI: %3$s</string>
     <string name="use_ai">KI verwenden</string>
-    <string name="phrase_ai">Sätze: gleich den ersten KI-Tab öffnen</string>
+    <string name="phrase_ai">Phrasen: gleich mit „Übersetzung“ öffnen</string>
     <string name="key_hint">API-Schlüssel (oder Schlüsseldatei)</string>
     <string name="save_key">Schlüssel speichern</string>
     <string name="saved">Gespeichert</string>

@@ -243,7 +243,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     // --- AI ---
     private fun buildAi(t: LinearLayout) {
         t.addView(switch(getString(R.string.use_ai), prefs.aiOn) { prefs.aiOn = it })
-        t.addView(switch(getString(R.string.phrase_ai), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
         val providers = Provider.entries
         val keyInfo = Ink.text(this, "", 14f)
         val key = edit(getString(R.string.key_hint), "", secret = true)
@@ -385,6 +384,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
+        // A core setting: Translate works offline, so it is here and not on the AI tab.
+        t.addView(switch(getString(R.string.phrase_ai), prefs.phraseAutoAi) { prefs.phraseAutoAi = it }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
         // What each icon of the card does: icon, name, one line.
         val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d)),
