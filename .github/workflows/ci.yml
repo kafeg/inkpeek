@@ -12,6 +12,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '17' }
       - uses: gradle/actions/setup-gradle@v4
+      - run: python3 -m unittest discover -s packs/tests   # pack pipeline (golden words need built packs: skipped here)
       - run: ./gradlew --no-daemon testDebugUnitTest assembleDebug
       - uses: actions/upload-artifact@v4
         with: { name: inkpeek-debug, path: app/build/outputs/apk/debug/app-debug.apk }

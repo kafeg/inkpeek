@@ -79,7 +79,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
-        Ai.recall = { prefs.variant(it) }; Ai.remember = { k, v -> prefs.setVariant(k, v) }
+        // Static hooks: they hold the application's preferences, not this activity.
+        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) } }
         if (query.isEmpty()) { finish(); return }
         launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
@@ -93,6 +94,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onDestroy() { cancel(); super.onDestroy() }
+    override fun onTrimMemory(level: Int) { super.onTrimMemory(level); if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) Engine.release() }
 
     private fun textOf(i: Intent): String? = when (i.action) {
         "colordict.intent.action.SEARCH" -> i.getStringExtra("EXTRA_QUERY")
@@ -460,10 +462,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             when {
                 from == null || !Engine.ready(root, from, to) -> Mt(from, other, null)
                 from == to -> Mt(from, null, Result.success(query))
-                else -> Mt(from, null, runCatching {
-                    store.answer(query, to, "offline-$from", 1) ?: Engine.translate(root, from, to, query, keep = roomy())
-                        .also { runCatching { store.putAnswer(query, to, "offline-$from", 1, "bergamot", it) } }
-                })
+                else -> {
+                    // Saved per model version: an updated model translates again.
+                    val installed = prefs.packs.installed()
+                    val ver = Engine.steps(from, to).joinToString { (a, b) -> installed["model-$a-$b"].orEmpty() }.hashCode()
+                    Mt(from, null, runCatching {
+                        store.answer(query, to, "offline-$from", ver) ?: Engine.translate(root, from, to, query, keep = roomy())
+                            .also { runCatching { store.putAnswer(query, to, "offline-$from", ver, "bergamot", it) } }
+                    })
+                }
             }
         }.getOrElse { Mt(null, null, Result.failure(it)) }
     }.also { mtJob = it }

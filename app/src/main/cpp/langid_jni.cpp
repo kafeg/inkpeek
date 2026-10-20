@@ -11,14 +11,14 @@ static std::map<std::string, std::unique_ptr<fasttext::FastText>> loaded; // by 
 static std::mutex lock;
 
 // "de 0.981\nen 0.012\n…": up to [k] languages above [threshold]; the model stays loaded.
+// The text comes as UTF-8 bytes (jstring's modified UTF-8 breaks characters outside the BMP); labels are ASCII.
 extern "C" JNIEXPORT jstring JNICALL
-Java_io_github_kafeg_inkpeek_mt_LangId_detectNative(JNIEnv *env, jobject, jstring model, jstring text, jint k, jfloat threshold) {
+Java_io_github_kafeg_inkpeek_mt_LangId_detectNative(JNIEnv *env, jobject, jstring model, jbyteArray text, jint k, jfloat threshold) {
   std::lock_guard<std::mutex> guard(lock);
   const char *m = env->GetStringUTFChars(model, nullptr);
-  const char *t = env->GetStringUTFChars(text, nullptr);
-  std::string path(m), line(t);
+  std::string path(m), line(env->GetArrayLength(text), '\0');
   env->ReleaseStringUTFChars(model, m);
-  env->ReleaseStringUTFChars(text, t);
+  env->GetByteArrayRegion(text, 0, (jsize) line.size(), reinterpret_cast<jbyte *>(&line[0]));
   try {
     auto &ft = loaded[path];
     if (!ft) {

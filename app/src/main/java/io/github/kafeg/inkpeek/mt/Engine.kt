@@ -7,7 +7,10 @@ object Engine {
     /** The native library loads on the first translation, off the main thread. */
     private val native by lazy { System.loadLibrary("inkpeek_mt") }
 
-    private external fun translateNative(cfg: String, text: String, keep: Boolean): String
+    private external fun translateNative(cfg: String, text: ByteArray, keep: Boolean): ByteArray
+    /** Held models (300–560 MB) are freed after a few idle minutes: the process lives on next to the reader. */
+    private val idle = java.util.concurrent.Executors.newSingleThreadScheduledExecutor { r -> Thread(r, "inkpeek-mt-idle").apply { isDaemon = true } }
+    private var freeing: java.util.concurrent.ScheduledFuture<*>? = null
     private external fun releaseNative()
 
     /** Model directories a [from]→[to] translation needs, in order. */
@@ -26,7 +29,9 @@ object Engine {
     @Synchronized fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = native.let {
         if (held != null && held != from to to) { releaseNative(); held = null }
         if (keep) held = from to to
-        steps(from, to).fold(text) { t, (a, b) -> translateNative(config(Models.dir(root, a, b)), t, keep) }
+        freeing?.cancel(false)
+        steps(from, to).fold(text) { t, (a, b) -> String(translateNative(config(Models.dir(root, a, b)), t.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8) }
+            .also { if (keep) freeing = idle.schedule({ release() }, 3, java.util.concurrent.TimeUnit.MINUTES) }
     }
 
     @Synchronized fun release() { native; releaseNative(); held = null }

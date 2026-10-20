@@ -54,7 +54,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        prefs = Prefs(this)
+        prefs = Prefs(this); screen = java.lang.ref.WeakReference(this)
         val pad = Ink.dp(this, 16)
         val col = Ink.vertical(this).apply {
             setPadding(pad, pad, pad, pad); isFocusableInTouchMode = true; setOnClickListener { hideKeyboard() }
@@ -111,7 +111,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private var manifest: List<io.github.kafeg.inkpeek.packs.Component> = emptyList()
     private var manifestError: String? = null
     private var wantPairs: MutableSet<Pair<String, String>>? = null
-    private var working = false
+    private val working get() = install?.isActive == true
 
     private fun buildDictionaries(t: LinearLayout) {
         if (!Environment.isExternalStorageManager())
@@ -126,8 +126,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun loadManifest() {
         refreshLanguages()
         launch {
-            val r = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.packs.Packs.manifest() } }
-            manifest = r.getOrDefault(emptyList())
+            val packs = prefs.packs
+            val r = withContext(Dispatchers.IO) { runCatching { packs.list() } }
+            // Offline: the list received last time, so what is installed can still be seen and removed.
+            manifest = r.getOrNull() ?: withContext(Dispatchers.IO) { packs.cachedList() }.orEmpty()
             // No network, or the list is not there (HTTP 404 before the first release): say which.
             manifestError = r.exceptionOrNull()?.let { e -> if (e is java.net.UnknownHostException || e is java.net.SocketTimeoutException || e is java.net.ConnectException)
                 getString(R.string.lang_no_net) else getString(R.string.lang_no_list, e.message ?: e.javaClass.simpleName) }
@@ -141,10 +143,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun refreshLanguages() {
         langBox.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()
-        if (manifest.isEmpty()) {
+        if (manifest.isEmpty() || manifestError != null) {
             langBox.addView(Ink.text(this, manifestError ?: "…", 15f))
-            langBox.addView(Ink.button(this, getString(R.string.lang_retry), sp) { loadManifest() })
-            return
+            langBox.addView(Ink.button(this, getString(R.string.lang_retry), sp) { loadManifest() }, Ink.lp().apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
+            if (manifest.isEmpty()) return
         }
         val P = io.github.kafeg.inkpeek.packs.Packs
         // The app's language first: those answers are the card's.
@@ -175,8 +177,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             extra.isNotEmpty() -> getString(R.string.lang_remove)
             else -> getString(R.string.lang_ready)
         }
-        val status = Ink.text(this, "", 14f)
-        langBox.addView(Ink.button(this, label, sp) { if (!working && (missing.isNotEmpty() || extra.isNotEmpty())) apply(missing, extra, status) }
+        val status = Ink.text(this, if (working) installStatus else "", 14f).also { statusLine = it }
+        langBox.addView(Ink.button(this, label, sp) { if (!working && (missing.isNotEmpty() || extra.isNotEmpty())) apply(missing, extra) }
             .apply { alpha = if (missing.isEmpty() && extra.isEmpty() || working) 0.4f else 1f }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
         langBox.addView(status)
         howPacks(langBox)
@@ -196,22 +198,33 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = Ink.dp(this@MainActivity, 10) })
     }
 
-    private fun apply(missing: List<io.github.kafeg.inkpeek.packs.Component>, extra: List<io.github.kafeg.inkpeek.packs.Component>, status: TextView) {
-        working = true; refreshLanguages()
-        launch {
-            val packs = prefs.packs
-            val r = withContext(Dispatchers.IO) { runCatching {
+    /** Downloads and removals run in the process, not in this screen: a recreated screen (language change) finds them. */
+    private fun apply(missing: List<io.github.kafeg.inkpeek.packs.Component>, extra: List<io.github.kafeg.inkpeek.packs.Component>) {
+        val packs = prefs.packs; val app = applicationContext
+        val res = resources; val main = Handler(Looper.getMainLooper()) // the process scope must not hold this activity
+        install = kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
+            val r = runCatching {
                 extra.forEach { packs.remove(it) }
                 missing.forEachIndexed { i, c ->
-                    packs.install(c) { done, all -> ui.post { statusLine?.text = getString(R.string.lang_working, i + 1, missing.size, c.id, (done * 100 / all.coerceAtLeast(1)).toInt()) } }
+                    var shown = -1
+                    packs.install(c) { done, all ->
+                        val pct = (done * 100 / all.coerceAtLeast(1)).toInt()
+                        // E-ink: redraw only when the percentage changes.
+                        if (pct != shown) { shown = pct; installStatus = res.getString(R.string.lang_working, i + 1, missing.size, c.id, pct)
+                            main.post { screen?.get()?.statusLine?.text = installStatus } }
+                    }
                 }
-            } }
-            working = false; statusLine = null
-            prefs.reload()
-            r.onFailure { toast(getString(R.string.failed, it.message)) }
-            refreshLanguages(); refreshDicts()
+            }
+            Prefs(app).reload()
+            withContext(Dispatchers.Main) { install = null; screen?.get()?.installed(r.exceptionOrNull()) }
         }
-        statusLine = status
+        refreshLanguages()
+    }
+
+    private fun installed(e: Throwable?) {
+        if (isDestroyed) return
+        e?.let { toast(getString(R.string.failed, it.message)) }
+        refreshLanguages(); refreshDicts()
     }
     private var statusLine: TextView? = null
 
@@ -421,6 +434,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     companion object {
+        /** One install at a time for the whole process, and the screen showing it (recreated on a language change). */
+        private var install: kotlinx.coroutines.Job? = null
+        @Volatile private var installStatus = ""
+        private var screen: java.lang.ref.WeakReference<MainActivity>? = null
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

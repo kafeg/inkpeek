@@ -52,7 +52,7 @@ class Prefs(private val ctx: Context) {
     /** Offline translation models, one folder per direction (deen, enru). */
     val modelsDir: File get() = File(home, "models").apply { mkdirs() }
     /** Translate tab: "ai" — AI when it can answer, else offline; "offline" — always offline. */
-    var translateMode: String get() = sp.getString("translate_mode", "ai")!!; set(v) = sp.edit().putString("translate_mode", v).apply()
+    var translateMode: String get() = sp.getString("translate_mode", "offline")!!; set(v) = sp.edit().putString("translate_mode", v).apply()
 
     /** Language packs from our releases: dictionaries, models, langid. */
     val packs: io.github.kafeg.inkpeek.packs.Packs get() = io.github.kafeg.inkpeek.packs.Packs(File(home, "packs"), modelsDir)

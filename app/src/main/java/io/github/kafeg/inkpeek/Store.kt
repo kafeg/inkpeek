@@ -23,6 +23,9 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         db.execSQL("CREATE TABLE history(text TEXT PRIMARY KEY, kind TEXT, seen INTEGER, count INTEGER, meaning TEXT)")
     }
 
+    /** An older app over a newer file (debug ↔ release share it): keep the data, the extra columns do no harm. */
+    override fun onDowngrade(db: SQLiteDatabase, from: Int, to: Int) {}
+
     override fun onUpgrade(db: SQLiteDatabase, from: Int, to: Int) {
         if (from < 2) { db.execSQL("ALTER TABLE history ADD COLUMN meaning TEXT"); dropAnswers(db) }
     }
@@ -55,8 +58,9 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         "SELECT s.text, s.kind, s.meaning, s.created, a.answer, h.meaning FROM saved s LEFT JOIN history h ON h.text=s.text " +
             "LEFT JOIN ai a ON a.text=s.text AND a.lang=? AND a.section='quick' WHERE s.kind=? GROUP BY s.text ORDER BY s.created DESC", arrayOf(lang, kind))
 
-    fun seen(text: String, kind: String) {
-        val db = writableDatabase
+    fun seen(text: String, kind: String) = writableDatabase.let { db -> db.beginTransaction(); try { seen(db, text, kind); db.setTransactionSuccessful() } finally { db.endTransaction() } }
+
+    private fun seen(db: SQLiteDatabase, text: String, kind: String) {
         // No UPSERT: Android 8 and 9 ship SQLite older than 3.24.
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, 0, 0)", arrayOf(text, kind))
         db.execSQL("UPDATE history SET seen=?, count=count+1 WHERE text=?", arrayOf(System.currentTimeMillis(), text))
@@ -93,8 +97,13 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         fun get(ctx: Context): Store = one ?: synchronized(this) {
             one ?: run {
                 val dir = File(Environment.getExternalStorageDirectory(), "InkPeek")
-                val path = if (Environment.isExternalStorageManager() && (dir.isDirectory || dir.mkdirs())) File(dir, "inkpeek.db").path
-                    else ctx.getDatabasePath("inkpeek.db").path
+                val own = ctx.getDatabasePath("inkpeek.db")
+                val shared = File(dir, "inkpeek.db")
+                val path = if (Environment.isExternalStorageManager() && (dir.isDirectory || dir.mkdirs())) {
+                    // Used before all-files access was granted: the file moves to shared storage once.
+                    if (!shared.exists() && own.exists()) runCatching { own.copyTo(shared) }.onSuccess { own.delete() }
+                    shared.path
+                } else own.path
                 Store(ctx.applicationContext, path).also { one = it }
             }
         }
