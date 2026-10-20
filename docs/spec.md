@@ -123,7 +123,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
 and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
-(app language, text size, dim, position, names under icons, what each icon does) · My words. UI exactly in the pack languages (en, ru, de); system language
+(app language, text size, dim, position, names under icons, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru); system language
 by default.
 
 ## Tech
@@ -175,13 +175,13 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    - No "Ask again".
 Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models downloaded by the app straight from Mozilla,
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; UI languages =
-exactly the pack languages; Translate: AI first when it can answer (setting: offline first), the offline engine
+exactly the answer languages of the packs; Translate: AI first when it can answer (setting: offline first), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
    - Languages: de→ru, en→ru, de→en first. Then an analysis of which other packs reach the same quality; a new
-     language comes in tandem — its pack and the UI language together, never one without the other.
+     answer language comes in tandem — its packs and the UI language together, never one without the other.
    - Components, each a separate asset, shared between pairs: `grammar-<x>` (StarDict: one line per lemma —
      part of speech, gender, plural, verb principal parts, auxiliary, strong / weak / irregular from Wiktionary data
      only; `.syn` = every inflected form → lemma), `dict-<x>-<y>` (one StarDict per pair: our own articles from the

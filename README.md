@@ -105,8 +105,8 @@ If another dictionary app answers the same request, Android asks which one to us
   than one sentence; Examples is hidden for a passage).
 - A selected sentence opens on Translate when AI is on (you can turn this off).
 - Built for e-ink: black on white, large text, no animations. Text size, position and dimming are in settings.
-- The app is in English, Русский and Deutsch — exactly the languages InkPeek has language packs for (German and
-  English books, Russian and English answers); a language comes with its pack. AI answers come in the language you
+- The app is in English and Русский — exactly the answer languages of InkPeek's language packs (German and English
+  books, answers in Russian or English); a new language comes with its packs. AI answers come in the language you
   choose.
 
 ### Dictionaries
