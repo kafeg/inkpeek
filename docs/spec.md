@@ -159,7 +159,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    forms, irregular, auxiliary; and the translation), and one detailed answer that fills Analysis and Context.
    No per-tab on/off setting.
 7. **Card** (done) — icon bar under the card, outside its border: Dictionary, Translate, Analysis, Context · Save,
-   My words · Close (bottom right). Long press shows the name; optional captions under icons; a settings page
+   My words · Close (bottom right). Long press shows the name; a settings page
    explains the icons. Header: the base form with its article and plural, or the verb's principal parts with
    "irregular"; the selected form under it when it differs.
 8. **Dictionaries** (done) — WikDict (compact, CC BY-SA, `download.wikdict.com/dictionaries/stardict/wikdict-<src>-<dst>.zip`)
