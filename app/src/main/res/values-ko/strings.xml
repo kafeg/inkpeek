@@ -92,4 +92,15 @@
     <string name="preset_pick">프리셋으로 채우기…</string>
     <string name="key_optional">로컬 서버에는 키가 필요 없습니다. 클라우드 서비스: 위에 입력하거나 %1$s에 넣으세요</string>
     <string name="err_server">서버가 응답하지 않습니다: %1$s\n주소와 서버 실행 여부를 확인하세요.</string>
+    <string name="tab_words">내 단어</string>
+    <string name="list_words">단어</string>
+    <string name="list_phrases">구문</string>
+    <string name="list_history">기록</string>
+    <string name="list_empty_saved">아직 저장한 것이 없습니다. 카드에서 ☆를 누르세요.</string>
+    <string name="list_empty_history">아직 검색 기록이 없습니다.</string>
+    <string name="clear_history">기록 지우기</string>
+    <string name="clear_answers">저장된 AI 답변 삭제(%1$d)</string>
+    <string name="ask_again">다시 묻기</string>
+    <string name="save_word">내 단어에 저장</string>
+    <string name="unsave_word">내 단어에서 제거</string>
 </resources>

@@ -92,4 +92,15 @@
     <string name="preset_pick">Заполнить из пресета…</string>
     <string name="key_optional">Для локального сервера ключ не нужен. Облачные сервисы: введите выше или положите в %1$s</string>
     <string name="err_server">Сервер не отвечает: %1$s\nПроверьте адрес и что сервер запущен.</string>
+    <string name="tab_words">Мои слова</string>
+    <string name="list_words">Слова</string>
+    <string name="list_phrases">Фразы</string>
+    <string name="list_history">История</string>
+    <string name="list_empty_saved">Пока ничего не сохранено: нажмите ☆ в карточке.</string>
+    <string name="list_empty_history">Пока ничего не искали.</string>
+    <string name="clear_history">Очистить историю</string>
+    <string name="clear_answers">Удалить сохранённые ответы AI (%1$d)</string>
+    <string name="ask_again">Спросить заново</string>
+    <string name="save_word">Сохранить в мои слова</string>
+    <string name="unsave_word">Убрать из моих слов</string>
 </resources>

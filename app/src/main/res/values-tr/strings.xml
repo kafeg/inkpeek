@@ -92,4 +92,15 @@
     <string name="preset_pick">Hazır ayardan doldur…</string>
     <string name="key_optional">Yerel sunucu için anahtar gerekmez. Bulut hizmetleri: yukarıya yazın veya %1$s içine koyun</string>
     <string name="err_server">Sunucu yanıt vermiyor: %1$s\nAdresi ve sunucunun çalıştığını kontrol edin.</string>
+    <string name="tab_words">Kelimelerim</string>
+    <string name="list_words">Kelimeler</string>
+    <string name="list_phrases">İfadeler</string>
+    <string name="list_history">Geçmiş</string>
+    <string name="list_empty_saved">Henüz bir şey kaydedilmedi: kartta ☆ simgesine dokunun.</string>
+    <string name="list_empty_history">Henüz arama yok.</string>
+    <string name="clear_history">Geçmişi temizle</string>
+    <string name="clear_answers">Kayıtlı yapay zekâ yanıtlarını sil (%1$d)</string>
+    <string name="ask_again">Yeniden sor</string>
+    <string name="save_word">Kelimelerime kaydet</string>
+    <string name="unsave_word">Kelimelerimden çıkar</string>
 </resources>

@@ -92,4 +92,15 @@
     <string name="preset_pick">Điền từ mẫu có sẵn…</string>
     <string name="key_optional">Máy chủ cục bộ không cần khóa. Dịch vụ đám mây: nhập ở trên hoặc đặt vào %1$s</string>
     <string name="err_server">Máy chủ không phản hồi: %1$s\nKiểm tra địa chỉ và máy chủ đã chạy chưa.</string>
+    <string name="tab_words">Từ của tôi</string>
+    <string name="list_words">Từ</string>
+    <string name="list_phrases">Cụm từ</string>
+    <string name="list_history">Lịch sử</string>
+    <string name="list_empty_saved">Chưa lưu gì: chạm ☆ trong thẻ.</string>
+    <string name="list_empty_history">Chưa tra cứu gì.</string>
+    <string name="clear_history">Xóa lịch sử</string>
+    <string name="clear_answers">Xóa câu trả lời AI đã lưu (%1$d)</string>
+    <string name="ask_again">Hỏi lại</string>
+    <string name="save_word">Lưu vào từ của tôi</string>
+    <string name="unsave_word">Bỏ khỏi từ của tôi</string>
 </resources>

@@ -92,4 +92,15 @@
     <string name="preset_pick">Заповнити з пресету…</string>
     <string name="key_optional">Для локального сервера ключ не потрібен. Хмарні сервіси: введіть вище або покладіть у %1$s</string>
     <string name="err_server">Сервер не відповідає: %1$s\nПеревірте адресу і чи запущено сервер.</string>
+    <string name="tab_words">Мої слова</string>
+    <string name="list_words">Слова</string>
+    <string name="list_phrases">Фрази</string>
+    <string name="list_history">Історія</string>
+    <string name="list_empty_saved">Поки нічого не збережено: натисніть ☆ у картці.</string>
+    <string name="list_empty_history">Поки нічого не шукали.</string>
+    <string name="clear_history">Очистити історію</string>
+    <string name="clear_answers">Видалити збережені відповіді AI (%1$d)</string>
+    <string name="ask_again">Запитати знову</string>
+    <string name="save_word">Зберегти в мої слова</string>
+    <string name="unsave_word">Прибрати з моїх слів</string>
 </resources>

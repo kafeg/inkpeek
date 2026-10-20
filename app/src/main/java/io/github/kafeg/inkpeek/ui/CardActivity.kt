@@ -11,6 +11,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
+import io.github.kafeg.inkpeek.Store
 import io.github.kafeg.inkpeek.ai.Action
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Ai
@@ -38,6 +39,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private var shown = ""
     /** Header button "←" next to "✕": shown while a word's article is open from the gloss. */
     private lateinit var backButton: android.widget.ImageView
+    private lateinit var starButton: android.widget.ImageView
+    private val store by lazy { Store.get(this) }
+    private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     private lateinit var titleView: TextView
     private var dictBack: (() -> Unit)? = null
     private var query = ""
@@ -67,6 +71,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         Ai.recall = { prefs.variant(it) }; Ai.remember = { k, v -> prefs.setVariant(k, v) }
+        launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
@@ -95,7 +100,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
-            setPadding(0, 0, x + Ink.dp(this@CardActivity, 8), 0)
+            setPadding(0, 0, 2 * (x + Ink.dp(this@CardActivity, 8)), 0)
         }
         head.addView(titleView, android.widget.FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         backButton = android.widget.ImageView(this).apply {
@@ -104,7 +109,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             contentDescription = getString(R.string.back); visibility = View.GONE
             setOnClickListener { dictBack?.invoke() }
         }
-        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = x + Ink.dp(this@CardActivity, 8) })
+        starButton = android.widget.ImageView(this).apply {
+            setImageResource(R.drawable.ic_star); background = Ink.border(this@CardActivity)
+            val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
+            contentDescription = getString(R.string.save_word); setOnClickListener { toggleSaved() }
+        }
+        val gap = Ink.dp(this, 8)
+        head.addView(starButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = x + gap })
+        head.addView(backButton, android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END).apply { marginEnd = 2 * (x + gap) })
+        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
         head.addView(Ink.button(this, "✕", size) { finish() }.apply { setPadding(0, 0, 0, 0) },
             android.widget.FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
         root.addView(head)
@@ -157,7 +170,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val on = shown == DICT && dictBack != null
         backButton.visibility = if (on) View.VISIBLE else View.GONE
         val x = Ink.dp(this, 44); val gap = Ink.dp(this, 8)
-        titleView.setPadding(0, 0, if (on) 2 * x + 2 * gap else x + gap, 0)
+        titleView.setPadding(0, 0, (if (on) 3 else 2) * (x + gap), 0)
     }
 
     /** System Back from a word's article returns to the gloss first. */
@@ -282,18 +295,50 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }).let { t -> if (t == getString(R.string.err_other) || t == getString(R.string.err_region)) "$t\n\n($name${if (e.message.isNullOrBlank()) "" else ": " + e.message!!.take(160)})" else t }
     }
 
-    private fun fillAi(p: LinearLayout, a: Action) {
-        Ai.cached(a, query)?.let { p.addView(Ink.text(this, Ink.markdown(it), size, html = true)); return }
+    /** An AI tab: the saved answer when there is one (also offline), else ask; "↻" asks again. */
+    private fun fillAi(p: LinearLayout, a: Action, fresh: Boolean = false) {
         val out = Ink.text(this, "", size); p.addView(out)
-        // No network: do not wait for a timeout, show the gloss for a phrase right away.
-        if (!online) { failed(p, out, a, null); return }
-        val pr = prefs.provider
-        val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
+        val pr = prefs.provider; val lang = prefs.answerLang
         launch {
-            val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang, prefs.url(pr)) } }
+            val saved = if (fresh) null else withContext(Dispatchers.IO) { runCatching { store.answer(query, lang, a.id, Ai.version(a)) }.getOrNull() }
+            if (saved != null) { answered(p, out, a, saved); return@launch }
+            // No network: do not wait for a timeout, show the gloss for a phrase right away.
+            if (!online) { failed(p, out, a, null); return@launch }
+            val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
+            val r = withContext(Dispatchers.IO) { runCatching {
+                Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, lang, prefs.url(pr))
+                    .also { runCatching { store.putAnswer(query, lang, a.id, Ai.version(a), prefs.model(pr), it) } }
+            } }
             dots.cancel()
-            r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) }, { failed(p, out, a, it) })
+            r.fold({ answered(p, out, a, it) }, { failed(p, out, a, it) })
         }
+    }
+
+    private fun answered(p: LinearLayout, out: TextView, a: Action, answer: String) {
+        out.text = android.text.Html.fromHtml(Ink.markdown(answer), android.text.Html.FROM_HTML_MODE_COMPACT)
+        p.addView(Ink.button(this, "↻ " + getString(R.string.ask_again), size * 0.7f) {
+            p.removeAllViews(); fillAi(p, a, fresh = true)
+        }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { topMargin = Ink.dp(this@CardActivity, 16); gravity = Gravity.END })
+    }
+
+    private fun starred(on: Boolean) {
+        starButton.setImageResource(if (on) R.drawable.ic_star_on else R.drawable.ic_star)
+        starButton.contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word)
+    }
+
+    /** ☆ saves the selection with one short meaning: the cached translation, else the dictionaries; ★ removes it. */
+    private fun toggleSaved() = launch {
+        val lang = prefs.answerLang; val script = answerScript
+        val on = withContext(Dispatchers.IO) { runCatching {
+            if (store.isSaved(query)) { store.unsave(query); false } else {
+                val ai = Action.ALL.firstOrNull { it.id == "translate" }?.let { store.answer(query, lang, it.id, Ai.version(it)) }
+                val dict = if (ai != null || kind != Kind.WORD) null else
+                    prefs.library().gloss(query, prefs.order, prefs.disabled, script).firstOrNull()?.let { g ->
+                        (if (g.base.equals(g.word, true)) "" else "→ ${g.base} · ") + g.meaning }
+                store.save(query, kindName, if (ai != null) Store.brief(ai) else dict.orEmpty()); true
+            }
+        }.getOrNull() } ?: return@launch
+        starred(on)
     }
 
     /** The error, and for a phrase or passage the offline gloss under it; the tab asks again next time. */

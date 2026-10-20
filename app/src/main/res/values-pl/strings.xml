@@ -92,4 +92,15 @@
     <string name="preset_pick">Wypełnij z szablonu…</string>
     <string name="key_optional">Serwer lokalny nie wymaga klucza. Usługi w chmurze: wpisz go wyżej lub umieść w %1$s</string>
     <string name="err_server">Serwer nie odpowiada: %1$s\nSprawdź adres i czy serwer działa.</string>
+    <string name="tab_words">Moje słowa</string>
+    <string name="list_words">Słowa</string>
+    <string name="list_phrases">Wyrażenia</string>
+    <string name="list_history">Historia</string>
+    <string name="list_empty_saved">Nic jeszcze nie zapisano: stuknij ☆ w karcie.</string>
+    <string name="list_empty_history">Jeszcze nic nie wyszukano.</string>
+    <string name="clear_history">Wyczyść historię</string>
+    <string name="clear_answers">Usuń zapisane odpowiedzi AI (%1$d)</string>
+    <string name="ask_again">Zapytaj ponownie</string>
+    <string name="save_word">Zapisz w moich słowach</string>
+    <string name="unsave_word">Usuń z moich słów</string>
 </resources>

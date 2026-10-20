@@ -92,4 +92,15 @@
     <string name="preset_pick">Isi dari preset…</string>
     <string name="key_optional">Server lokal tidak perlu kunci. Layanan cloud: ketik di atas atau simpan di %1$s</string>
     <string name="err_server">Server tidak menjawab: %1$s\nPeriksa alamat dan pastikan server berjalan.</string>
+    <string name="tab_words">Kata saya</string>
+    <string name="list_words">Kata</string>
+    <string name="list_phrases">Frasa</string>
+    <string name="list_history">Riwayat</string>
+    <string name="list_empty_saved">Belum ada yang disimpan: ketuk ☆ di kartu.</string>
+    <string name="list_empty_history">Belum ada pencarian.</string>
+    <string name="clear_history">Hapus riwayat</string>
+    <string name="clear_answers">Hapus jawaban AI tersimpan (%1$d)</string>
+    <string name="ask_again">Tanya lagi</string>
+    <string name="save_word">Simpan ke kata saya</string>
+    <string name="unsave_word">Hapus dari kata saya</string>
 </resources>

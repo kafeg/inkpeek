@@ -92,4 +92,15 @@
     <string name="preset_pick">प्रीसेट से भरें…</string>
     <string name="key_optional">लोकल सर्वर के लिए कुंजी ज़रूरी नहीं। क्लाउड सेवाएँ: ऊपर लिखें या %1$s में रखें</string>
     <string name="err_server">सर्वर जवाब नहीं दे रहा: %1$s\nपता जाँचें और देखें कि सर्वर चल रहा है।</string>
+    <string name="tab_words">मेरे शब्द</string>
+    <string name="list_words">शब्द</string>
+    <string name="list_phrases">वाक्यांश</string>
+    <string name="list_history">इतिहास</string>
+    <string name="list_empty_saved">अभी कुछ सहेजा नहीं गया: कार्ड में ☆ दबाएँ।</string>
+    <string name="list_empty_history">अभी तक कोई खोज नहीं।</string>
+    <string name="clear_history">इतिहास साफ़ करें</string>
+    <string name="clear_answers">सहेजे गए AI उत्तर हटाएँ (%1$d)</string>
+    <string name="ask_again">फिर से पूछें</string>
+    <string name="save_word">मेरे शब्दों में सहेजें</string>
+    <string name="unsave_word">मेरे शब्दों से हटाएँ</string>
 </resources>

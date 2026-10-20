@@ -105,9 +105,6 @@ object Ai {
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()
     /** A model on a home computer can take a while, the first answer also loads the model. */
     private val slow = http.newBuilder().callTimeout(120, TimeUnit.SECONDS).readTimeout(120, TimeUnit.SECONDS).build()
-    private val cache = object : LinkedHashMap<String, String>(128, 0.75f, true) {
-        override fun removeEldestEntry(e: MutableMap.MutableEntry<String, String>) = size > 100
-    }
     /** Server-side refusal fallback is offered for these Claude models. */
     private val FALLBACK = listOf("claude-fable-5-1", "claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5")
     /** Thinking cannot be switched off on these; effort low is the minimum. */
@@ -118,7 +115,8 @@ object Ai {
     var recall: (String) -> Int? = { null }
     var remember: (String, Int) -> Unit = { _, _ -> }
 
-    fun cached(action: Action, text: String) = synchronized(cache) { cache[action.id + "\u0000" + text] }
+    /** Changes with the prompt, so cached answers of an older prompt are not shown. */
+    fun version(a: Action): Int = a.prompt.hashCode()
 
     /** Blocking; call off the main thread. */
     fun ask(p: Provider, key: String, model: String, action: Action, text: String, lang: String, url: String = p.baseUrl): String {
@@ -132,7 +130,6 @@ object Ai {
         val t0 = System.currentTimeMillis()
         val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, url, key, model, prompt, system(lang))).trim()
         Log.i("InkPeek", "ai ${p.name} $model ${action.id} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${answer.length} chars")
-        synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
         return answer
     }
 

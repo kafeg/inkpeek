@@ -92,4 +92,15 @@
     <string name="preset_pick">Vyplnit ze šablony…</string>
     <string name="key_optional">Místní server klíč nepotřebuje. Cloudové služby: zadejte ho výše nebo uložte do %1$s</string>
     <string name="err_server">Server neodpovídá: %1$s\nZkontrolujte adresu a zda server běží.</string>
+    <string name="tab_words">Moje slova</string>
+    <string name="list_words">Slova</string>
+    <string name="list_phrases">Fráze</string>
+    <string name="list_history">Historie</string>
+    <string name="list_empty_saved">Zatím nic uloženo: klepněte na ☆ v kartě.</string>
+    <string name="list_empty_history">Zatím nic nehledáno.</string>
+    <string name="clear_history">Vymazat historii</string>
+    <string name="clear_answers">Smazat uložené odpovědi AI (%1$d)</string>
+    <string name="ask_again">Zeptat se znovu</string>
+    <string name="save_word">Uložit do mých slov</string>
+    <string name="unsave_word">Odebrat z mých slov</string>
 </resources>

@@ -92,4 +92,15 @@
     <string name="preset_pick">Aus Vorlage übernehmen…</string>
     <string name="key_optional">Für einen lokalen Server ist kein Schlüssel nötig. Cloud-Dienste: oben eingeben oder in %1$s ablegen</string>
     <string name="err_server">Der Server antwortet nicht: %1$s\nAdresse prüfen und ob der Server läuft.</string>
+    <string name="tab_words">Meine Wörter</string>
+    <string name="list_words">Wörter</string>
+    <string name="list_phrases">Phrasen</string>
+    <string name="list_history">Verlauf</string>
+    <string name="list_empty_saved">Noch nichts gespeichert: tippen Sie in der Karte auf ☆.</string>
+    <string name="list_empty_history">Noch nichts nachgeschlagen.</string>
+    <string name="clear_history">Verlauf löschen</string>
+    <string name="clear_answers">Gespeicherte KI-Antworten löschen (%1$d)</string>
+    <string name="ask_again">Neu fragen</string>
+    <string name="save_word">Zu meinen Wörtern</string>
+    <string name="unsave_word">Aus meinen Wörtern entfernen</string>
 </resources>

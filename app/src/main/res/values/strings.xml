@@ -93,4 +93,15 @@
     <string name="preset_pick">Fill in from a preset…</string>
     <string name="key_optional">A key is optional for a local server. Cloud services: type it above or put it into %1$s</string>
     <string name="err_server">The server does not answer: %1$s\nCheck the address and that the server is running.</string>
+    <string name="tab_words">My words</string>
+    <string name="list_words">Words</string>
+    <string name="list_phrases">Phrases</string>
+    <string name="list_history">History</string>
+    <string name="list_empty_saved">Nothing saved yet: tap ☆ in the card.</string>
+    <string name="list_empty_history">No lookups yet.</string>
+    <string name="clear_history">Clear history</string>
+    <string name="clear_answers">Delete saved AI answers (%1$d)</string>
+    <string name="ask_again">Ask again</string>
+    <string name="save_word">Save to my words</string>
+    <string name="unsave_word">Remove from my words</string>
 </resources>

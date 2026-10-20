@@ -92,4 +92,15 @@
     <string name="preset_pick">Compila da un modello…</string>
     <string name="key_optional">Un server locale non richiede chiave. Servizi cloud: inseriscila sopra o mettila in %1$s</string>
     <string name="err_server">Il server non risponde: %1$s\nControlla l’indirizzo e che il server sia avviato.</string>
+    <string name="tab_words">Le mie parole</string>
+    <string name="list_words">Parole</string>
+    <string name="list_phrases">Frasi</string>
+    <string name="list_history">Cronologia</string>
+    <string name="list_empty_saved">Ancora niente di salvato: tocca ☆ nella scheda.</string>
+    <string name="list_empty_history">Ancora nessuna ricerca.</string>
+    <string name="clear_history">Cancella cronologia</string>
+    <string name="clear_answers">Elimina le risposte di IA salvate (%1$d)</string>
+    <string name="ask_again">Chiedi di nuovo</string>
+    <string name="save_word">Salva nelle mie parole</string>
+    <string name="unsave_word">Togli dalle mie parole</string>
 </resources>

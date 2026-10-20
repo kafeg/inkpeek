@@ -85,12 +85,22 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
 - System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; ≤ 120 words unless needed.
 - OpenRouter default model `openrouter/free`.
-- Cache: last 100 answers in memory per (action, text).
 - Data sent: only the selected text and the action prompt, only on a tap (or phrase auto mode). No telemetry.
+
+## Storage
+- One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
+  (debug ↔ release needs one). No WAL (shared storage), no UPSERT (Android 8–9 SQLite).
+- `ai`: answers by (text, answer language, section, prompt version = prompt hash); shown again without a request,
+  also offline. "↻ Ask again" under an answer replaces it. Settings → AI: delete saved answers (count shown).
+- `saved`: words and phrases (a passage counts as a phrase) saved with ☆ in the card header (★ = saved, tap removes),
+  with one short meaning: the cached translation, else the first dictionary meaning; empty → the cached translation
+  at display time.
+- `history`: every card opening, last 1000; only in the app, not in the card.
+- Settings → My words: Words / Phrases / History with counts; tap opens the card, ✕ removes; clear history.
 
 ## Settings screen
 Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key and
-its source, model picker with filter / maker / free only / sort, answer language) · Card (app language, text size,
+its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · My words · Card (app language, text size,
 dim, position, AI tabs with descriptions). UI: English, Russian, German; system language by default.
 
 ## Tech
@@ -118,7 +128,7 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    - Network: "online" means a validated network. Errors: 401 → key; 403 or "location not supported" → the
      provider blocks the region (VPN) or the key; network exceptions anywhere in the cause chain → offline.
    - A phrase with no network or a failed AI answer shows the offline gloss in the same page.
-5. **Storage** — one SQLite file `/sdcard/InkPeek/inkpeek.db` (survives reinstall): AI answers cached by
+5. **Storage** (done) — one SQLite file `/sdcard/InkPeek/inkpeek.db` (survives reinstall): AI answers cached by
    (text, answer language, section, schema version), "↻" asks again; saved words and phrases (☆ in the card);
    history of lookups (app only, not in the card). App: a "My words" tab — Words / Phrases / History, remove.
    Export later.

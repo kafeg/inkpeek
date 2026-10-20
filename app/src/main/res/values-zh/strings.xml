@@ -92,4 +92,15 @@
     <string name="preset_pick">从预设填写…</string>
     <string name="key_optional">本地服务器无需密钥。云服务：在上方输入或放入 %1$s</string>
     <string name="err_server">服务器无响应：%1$s\n请检查地址并确认服务器已启动。</string>
+    <string name="tab_words">我的单词</string>
+    <string name="list_words">单词</string>
+    <string name="list_phrases">短语</string>
+    <string name="list_history">历史</string>
+    <string name="list_empty_saved">还没有保存任何内容：在卡片中点按 ☆。</string>
+    <string name="list_empty_history">还没有查询记录。</string>
+    <string name="clear_history">清除历史</string>
+    <string name="clear_answers">删除已保存的 AI 回答（%1$d）</string>
+    <string name="ask_again">重新提问</string>
+    <string name="save_word">保存到我的单词</string>
+    <string name="unsave_word">从我的单词中移除</string>
 </resources>

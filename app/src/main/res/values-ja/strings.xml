@@ -92,4 +92,15 @@
     <string name="preset_pick">プリセットから入力…</string>
     <string name="key_optional">ローカルサーバーにはキー不要です。クラウドサービス: 上に入力するか %1$s に置いてください</string>
     <string name="err_server">サーバーが応答しません: %1$s\nアドレスとサーバーが起動しているか確認してください。</string>
+    <string name="tab_words">マイ単語</string>
+    <string name="list_words">単語</string>
+    <string name="list_phrases">フレーズ</string>
+    <string name="list_history">履歴</string>
+    <string name="list_empty_saved">まだ何も保存されていません。カードの ☆ をタップしてください。</string>
+    <string name="list_empty_history">まだ検索履歴はありません。</string>
+    <string name="clear_history">履歴を消去</string>
+    <string name="clear_answers">保存した AI の回答を削除（%1$d）</string>
+    <string name="ask_again">もう一度聞く</string>
+    <string name="save_word">マイ単語に保存</string>
+    <string name="unsave_word">マイ単語から削除</string>
 </resources>

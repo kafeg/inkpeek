@@ -92,4 +92,15 @@
     <string name="preset_pick">Invullen vanuit een voorinstelling…</string>
     <string name="key_optional">Een lokale server heeft geen sleutel nodig. Clouddiensten: typ hem hierboven of zet hem in %1$s</string>
     <string name="err_server">De server antwoordt niet: %1$s\nControleer het adres en of de server draait.</string>
+    <string name="tab_words">Mijn woorden</string>
+    <string name="list_words">Woorden</string>
+    <string name="list_phrases">Zinnen</string>
+    <string name="list_history">Geschiedenis</string>
+    <string name="list_empty_saved">Nog niets bewaard: tik op ☆ in de kaart.</string>
+    <string name="list_empty_history">Nog niets opgezocht.</string>
+    <string name="clear_history">Geschiedenis wissen</string>
+    <string name="clear_answers">Bewaarde AI-antwoorden wissen (%1$d)</string>
+    <string name="ask_again">Opnieuw vragen</string>
+    <string name="save_word">Bewaren in mijn woorden</string>
+    <string name="unsave_word">Uit mijn woorden halen</string>
 </resources>

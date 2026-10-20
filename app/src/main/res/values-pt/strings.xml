@@ -92,4 +92,15 @@
     <string name="preset_pick">Preencher a partir de um modelo…</string>
     <string name="key_optional">Um servidor local não precisa de chave. Serviços em nuvem: digite acima ou coloque em %1$s</string>
     <string name="err_server">O servidor não responde: %1$s\nVerifique o endereço e se o servidor está rodando.</string>
+    <string name="tab_words">Minhas palavras</string>
+    <string name="list_words">Palavras</string>
+    <string name="list_phrases">Frases</string>
+    <string name="list_history">Histórico</string>
+    <string name="list_empty_saved">Ainda nada guardado: toque em ☆ no cartão.</string>
+    <string name="list_empty_history">Ainda sem pesquisas.</string>
+    <string name="clear_history">Limpar histórico</string>
+    <string name="clear_answers">Apagar respostas de IA guardadas (%1$d)</string>
+    <string name="ask_again">Perguntar de novo</string>
+    <string name="save_word">Guardar nas minhas palavras</string>
+    <string name="unsave_word">Tirar das minhas palavras</string>
 </resources>
