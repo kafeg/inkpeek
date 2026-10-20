@@ -242,7 +242,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val notReady = ArrayList<StarDict>()
             val lib = prefs.library()
             val res = withContext(Dispatchers.IO) { runCatching {
-                lib.lookup(word, prefs.order, prefs.disabled, notReady).sortedBy { (_, h) ->
+                // A pack dictionary is in the answer language by construction (its notes in brackets may be English).
+                lib.lookup(word, prefs.order, prefs.disabled, notReady).sortedBy { (_, h) -> h.first().html.contains("class=\"head\"").not() &&
                     lib.scriptOf(runCatching { shortMeaning(h.first().html, h.first().word) }.getOrDefault("")) != answerScript }
             } }
             if (run != listRun) return@launch // a newer fill took over (the quick answer re-sorted the list)
@@ -403,10 +404,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val g = grammar.firstOrNull { it.ifo.parentFile?.name == "grammar-$x" }
             if (g == null || !g.ready) 0 else words.count { w -> runCatching { g.lookup(w).isNotEmpty() }.getOrDefault(false) }
         }
+        android.util.Log.i("InkPeek", "language: fastText $guess, grammar knows $known of ${words.size}")
+        val best = known.maxByOrNull { it.value }
         return when {
-            top != null && top.second >= 0.5f && top.first in books && (known[top.first] ?: 0) > 0 -> top.first to null
-            known.values.any { it > 0 } -> known.maxByOrNull { it.value }!!.key to null
-            top != null && top.second >= 0.5f && top.first !in books -> null to top.first
+            top != null && top.second >= 0.5f && top.first in books -> top.first to null
+            // fastText is sure it is a language without a pack: say so, unless a book language knows nearly every word.
+            top != null && top.second >= 0.5f && (best == null || best.value < words.size * 0.8) -> null to top.first
+            best != null && best.value > 0 -> best.key to null
             top != null && top.first in books -> top.first to null
             else -> books.first() to null
         }

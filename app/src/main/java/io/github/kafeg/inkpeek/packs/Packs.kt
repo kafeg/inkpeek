@@ -126,7 +126,7 @@ class Packs(val root: File, val models: File) {
         fun needed(cs: List<Component>, books: Collection<String>, answer: String): List<Component> {
             val ids = books.flatMap { x ->
                 listOf("grammar-$x", "dict-$x-$answer") + Engine.steps(x, answer).map { (a, b) -> "model-$a-$b" }
-            } + "langid"
+            } + if (books.isEmpty()) emptyList() else listOf("langid")
             return cs.filter { it.id in ids.toSet() }
         }
     }

@@ -90,7 +90,8 @@ class Library(private val roots: List<File>, private val workRoot: File) {
         // A dictionary that knows the form (Häuser) names the base form (Haus): look that up in the others too.
         val bases = hits.values.flatten().map { it.word }.filter { !it.equals(q, true) }.distinct().take(3)
         return dicts.mapNotNull { d ->
-            val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()) } }
+            // The base form named by another dictionary, as written: "go" (from "went") is not German "Go".
+            val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()).filter { it.word == b } } }
             own.takeIf { it.isNotEmpty() }?.let { d to it }
         }
     }
