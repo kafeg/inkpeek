@@ -164,10 +164,25 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
    first in "Get dictionaries", offered for the reading languages → answer language; Wiktionary as the
    full-article dictionary. Dictionary tab for a word: one short line per dictionary (form → base — meaning),
    tap for the full article.
-9. **Offline translation** — Translate tab without network (or AI off, or mode "offline") asks the
-   Offline Translator app (F-Droid `dev.davidv.translator`, Firefox models, de→en→ru pivot) through its AIDL
-   service; not installed → a hint to install it and the gloss. Setting: Translate — AI / offline / auto.
-11. **App redesign** — the settings app grew from the card's widgets (huge buttons, one long scroll): a plan and a
-   mockup first, then code. Standard Android controls sized for e-ink, sections instead of tabs, fewer options.
-10. **Grammar pack** (later) — StarDict dictionary built from kaikki.org (wiktextract) data: one line per lemma
-   (article, plural, verb forms) + `.syn` of all forms; built by CI, published in Releases (CC BY-SA 4.0).
+9. **Core and AI apart.** Nothing in the core waits for AI or needs a network.
+   - Header from local data only (the grammar pack; until it exists, the article from WikDict's grammar mark).
+   - Tabs: core — Dictionary, Translate (offline engine of milestone 11; until then the dictionary lines / gloss),
+     Save, My words, Close. AI — AI translation, Analysis, Context: an "AI" mark on the icon; inactive (and a short
+     reason on tap) when AI is off, has no key, or there is no network. No AI request on card open.
+   - No "Ask again".
+10. **Language packs** — one curated pack per supported language pair, built by scripts in this repo
+   (`packs/`), checked by tests, published as release assets with a manifest (`packs.json`: version, files, size,
+   sha256, license, sources). A pack = dictionary (curated and post-processed from open sources, merged where that
+   helps, one per pair — not a list of 100 raw dictionaries) + grammar (from Wiktionary via kaikki.org: article,
+   plural, every inflected form → base, verb principal parts, irregular) + offline translation models. First the
+   analysis: sources and quality per pair, for ru, en, de and the main others (fr, es, it, pl, uk, …).
+11. **Offline translation engine** — Bergamot (Firefox Translations, MPL-2.0) built with the NDK; the JNI wrapper
+   adapted from RTranslator (Apache-2.0, attribution); Mozilla's models (via English: de→en→ru) from the packs.
+   Translate is offline by default. Prototype first: build, measure de→ru on a Boox, size and memory.
+12. **Pack manager** — first run: reading languages and answer language → download the packs; status (installed,
+   update, size), delete. Raw dictionary catalog and file import stay as "other dictionaries".
+13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized
+   for e-ink, sections, fewer options.
+
+Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
+languages); grammar from AI; AI as the default translation.

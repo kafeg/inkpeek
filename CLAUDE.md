@@ -24,5 +24,11 @@ settings (a debug build needs an uninstall). AI timings: `adb logcat -s InkPeek`
 ## Rules
 - Branch model: `main` only, commit and push to `main`.
 - Spec first: a new feature → `docs/spec.md` → implement by milestone, stop after each.
+- **No AI in core.** Look-up, the header (article, plural, verb forms) and translation work from local data,
+  offline. AI is only optional, marked tabs, inactive when AI is unavailable. No guessing heuristics in core data
+  (no ending stripping): real data from the language packs.
+- **An app, not a device.** Everything a user needs comes from the app's own downloads: curated language packs
+  (dictionary, grammar, translation models) built by our scripts and covered by tests. Never fix quality by
+  hand-installing or deleting files on a test device; a manual step there is a missing feature.
 - KISS; comments — one line at most. No WebView, no animations, no colors (e-ink).
 - The API key never goes to logs, UI or commits.
