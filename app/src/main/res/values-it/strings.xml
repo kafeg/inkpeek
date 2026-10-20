@@ -79,6 +79,8 @@
     <string name="offline">Nessuna rete: le schede IA richiedono Internet; i dizionari funzionano offline.</string>
     <string name="gloss_title">Parola per parola dai tuoi dizionari (funziona offline; tocca una parola per la sua voce):</string>
     <string name="err_offline">Nessuna rete. L’IA richiede Internet; la scheda Dizionario funziona offline.</string>
+    <string name="err_unreachable">Il server di IA non risponde. Controlla la connessione a internet o la VPN.</string>
+    <string name="err_region">Il fornitore di IA ha rifiutato l’accesso. Spesso blocca alcuni paesi: prova una VPN. Altrimenti controlla la chiave API.</string>
     <string name="err_key">La chiave API è stata rifiutata: controllala nelle impostazioni di InkPeek.</string>
     <string name="err_rate">Troppe richieste: limite del fornitore. Riprova tra un minuto.</string>
     <string name="err_credits">Credito esaurito su questa chiave.</string>

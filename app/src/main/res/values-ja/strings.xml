@@ -79,6 +79,8 @@
     <string name="offline">オフライン：AI タブはネット接続が必要、辞書はオフラインで使えます。</string>
     <string name="gloss_title">辞書による逐語訳（オフライン可。単語をタップすると項目を表示）：</string>
     <string name="err_offline">ネットに接続されていません。AI にはインターネットが必要です。「辞書」タブはオフラインで使えます。</string>
+    <string name="err_unreachable">AI サーバーが応答しません。インターネット接続または VPN を確認してください。</string>
+    <string name="err_region">AI プロバイダーがアクセスを拒否しました。一部の国からの利用を制限していることがあります。VPN を試してください。それ以外の場合は API キーを確認してください。</string>
     <string name="err_key">API キーが拒否されました：InkPeek の設定で確認してください。</string>
     <string name="err_rate">リクエストが多すぎます（プロバイダーの上限）。1分後にもう一度お試しください。</string>
     <string name="err_credits">このキーのクレジットが残っていません。</string>

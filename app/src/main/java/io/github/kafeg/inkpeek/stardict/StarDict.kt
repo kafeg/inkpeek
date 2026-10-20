@@ -20,6 +20,12 @@ fun normKey(s: String): String =
 private val EDGE = Regex("^[\\p{P}\\p{S}\\s]+|[\\p{P}\\p{S}\\s]+$")
 fun cleanQuery(s: String): String = s.replace("­", "").replace(Regex("\\s+"), " ").replace(EDGE, "")
 
+private val PHRASE_START = Regex("^[\\p{P}\\p{S}\\s&&[^¿¡]]+")
+private val PHRASE_END = Regex("[\\p{P}\\p{S}\\s&&[^.!?…。！？]]+$")
+
+/** A phrase for the card and the AI: stray quotes, brackets and dashes at the edges go; the sentence end (?!.…) stays. */
+fun cleanPhrase(s: String): String = s.replace("­", "").replace(Regex("\\s+"), " ").replace(PHRASE_START, "").replace(PHRASE_END, "")
+
 /**
  * A StarDict 3 dictionary: <base>.ifo, .idx[.gz], .dict[.dz], optional .syn.
  * Its own sorted index lives in [workRoot]/<id>/, never in the dictionary folder.

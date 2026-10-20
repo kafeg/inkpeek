@@ -8,3 +8,4 @@ local.properties
 *.jks
 keystore.properties
 captures/
+.kotlin/

@@ -104,4 +104,12 @@ class GlossTest {
         // Russian Wiktionary: transcription list first, the sense with an example after ◆
         org.junit.Assert.assertEquals("когда, в то время как", shortMeaning("<b>als</b><ul class=\"transcription\"><li>МФА: [als]</li></ul><b>Значение</b><ol><li><i></i> когда, в то время как <span>◆ Als er kam…</span></li></ol>", "als"))
     }
+
+    @Test fun phraseKeepsSentenceEnd() {
+        assertEquals("Wo ist er?", cleanPhrase("„Wo ist er?“ "))
+        assertEquals("Was ist „Heimat“?", cleanPhrase("Was ist „Heimat“?"))
+        assertEquals("Er kam nicht…", cleanPhrase("— Er kam nicht…»"))
+        assertEquals("sehr gut", cleanPhrase("(sehr gut),"))
+        assertEquals("¿Dónde está?", cleanPhrase("«¿Dónde está?»"))
+    }
 }

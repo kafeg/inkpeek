@@ -79,6 +79,8 @@
     <string name="offline">Pas de réseau : les onglets IA ont besoin d’Internet ; les dictionnaires marchent hors ligne.</string>
     <string name="gloss_title">Mot à mot d’après vos dictionnaires (hors ligne ; touchez un mot pour voir son article) :</string>
     <string name="err_offline">Pas de réseau. L’IA a besoin d’Internet ; l’onglet Dictionnaire marche hors ligne.</string>
+    <string name="err_unreachable">Le serveur d’IA ne répond pas. Vérifiez la connexion internet ou le VPN.</string>
+    <string name="err_region">Le fournisseur d’IA a refusé l’accès. Il bloque souvent certains pays : essayez un VPN. Sinon, vérifiez la clé API.</string>
     <string name="err_key">La clé API a été refusée : vérifiez-la dans les réglages d’InkPeek.</string>
     <string name="err_rate">Trop de requêtes : limite du fournisseur. Réessayez dans une minute.</string>
     <string name="err_credits">Plus de crédits sur cette clé.</string>

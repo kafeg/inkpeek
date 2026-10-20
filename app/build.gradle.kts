@@ -20,6 +20,7 @@ android {
         versionName = System.getenv("VERSION_NAME")?.removePrefix("v") ?: "0.1.0-dev"
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") } // e-ink readers are ARM
     }
+    testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
     signingConfigs {
         if (keystoreProps.isNotEmpty()) create("release") {
             storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))

@@ -54,6 +54,10 @@ class Prefs(private val ctx: Context) {
         get() = sp.getStringSet("dict_disabled", emptySet())!!.toSet()
         set(v) = sp.edit().putStringSet("dict_disabled", v).apply()
 
+    /** Which "no reasoning" request variant a (host, model) accepts, see Ai. */
+    fun variant(key: String): Int? = sp.getInt("rv_$key", -1).takeIf { it >= 0 }
+    fun setVariant(key: String, v: Int) { if (variant(key) != v) sp.edit().putInt("rv_$key", v).apply() }
+
     /** Ids of the AI tabs shown in the card. */
     var actionIds: Set<String>
         get() = sp.getStringSet("actions_on", null)?.toSet() ?: Action.ALL.filter { it.onByDefault }.map { it.id }.toSet()

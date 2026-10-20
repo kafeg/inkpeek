@@ -79,6 +79,8 @@
     <string name="offline">Tidak ada jaringan: tab AI perlu online, kamus berfungsi offline.</string>
     <string name="gloss_title">Kata demi kata dari kamus Anda (berfungsi offline; ketuk kata untuk melihat entrinya):</string>
     <string name="err_offline">Tidak ada jaringan. AI perlu internet; tab Kamus berfungsi offline.</string>
+    <string name="err_unreachable">Server AI tidak menjawab. Periksa koneksi internet atau VPN.</string>
+    <string name="err_region">Penyedia AI menolak akses. Penyedia sering memblokir beberapa negara: coba VPN. Jika bukan itu, periksa kunci API.</string>
     <string name="err_key">Kunci API ditolak: periksa di pengaturan InkPeek.</string>
     <string name="err_rate">Terlalu banyak permintaan: batas penyedia. Coba lagi dalam semenit.</string>
     <string name="err_credits">Kredit di kunci ini sudah habis.</string>

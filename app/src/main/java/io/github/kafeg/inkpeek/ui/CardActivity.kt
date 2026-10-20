@@ -16,6 +16,7 @@ import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.StarDict
+import io.github.kafeg.inkpeek.stardict.cleanPhrase
 import io.github.kafeg.inkpeek.stardict.cleanQuery
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +46,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val dictTab get() = true
     private val online: Boolean get() {
         val cm = getSystemService(CONNECTIVITY_SERVICE) as android.net.ConnectivityManager
-        return cm.getNetworkCapabilities(cm.activeNetwork)?.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
+        val active = cm.getNetworkCapabilities(cm.activeNetwork ?: return false) ?: return false
+        if (!active.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED)) return false
+        // A VPN stays "validated" after Wi-Fi goes off: it needs a real network under it.
+        @Suppress("DEPRECATION") return active.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN) || cm.allNetworks.any { n ->
+            cm.getNetworkCapabilities(n)?.let { it.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_NOT_VPN) &&
+                it.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) } == true
+        }
     }
     /** Enabled AI tabs that fit this selection. */
     private val actions get() = if (prefs.aiOn) prefs.actions.filter { kind in it.kinds } else emptyList()
@@ -56,10 +63,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
-        query = cleanQuery(textOf(intent).orEmpty()).take(4000) // about a page
+        // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
+        val raw = textOf(intent).orEmpty().take(4000) // about a page
+        query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
+        Ai.recall = { prefs.variant(it) }; Ai.remember = { k, v -> prefs.setVariant(k, v) }
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
+        val pr = prefs.provider
+        if (prefs.aiOn && online) launch(Dispatchers.IO) { Ai.warm(pr, prefs.effectiveKey(pr), prefs.model(pr), prefs.url(pr)) }
         val first = actions.firstOrNull()
         open(if ((kind != Kind.WORD && prefs.aiOn && prefs.phraseAutoAi && first != null) || !dictTab) first?.id ?: DICT else DICT)
     }
@@ -220,8 +232,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private var glossCache: List<io.github.kafeg.inkpeek.stardict.Gloss>? = null
 
     /** Word by word from the local dictionaries (works offline); tap a line for the word's articles. */
-    private fun fillGloss(p: LinearLayout) {
-        p.removeAllViews()
+    private fun fillGloss(p: LinearLayout) { p.removeAllViews(); glossInto(p) { w -> fillArticles(p, w) { fillGloss(p) } } }
+
+    /** Adds the gloss rows to [p]; [tap] opens a word's articles. */
+    private fun glossInto(p: LinearLayout, tap: (String) -> Unit) {
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val g = glossCache ?: withContext(Dispatchers.IO) {
@@ -235,7 +249,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 val meaning = if (x.meaning.isBlank()) "" else " — ${Ink.escape(x.meaning)}"
                 val row = Ink.text(this@CardActivity, "<b>${Ink.escape(x.word)}</b>$base$meaning", size, html = true).apply {
                     val q = Ink.dp(this@CardActivity, 4); setPadding(0, q, 0, q)
-                    setOnClickListener { fillArticles(p, x.base.ifBlank { x.word }) { fillGloss(p) } }
+                    setOnClickListener { tap(x.base.ifBlank { x.word }) }
                 }
                 p.addView(row)
             }
@@ -244,35 +258,52 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** A short, actionable error instead of an exception name. */
     private fun friendly(e: Throwable): String {
-        val name = e.javaClass.simpleName; val msg = e.message.orEmpty()
-        val net = e is java.net.UnknownHostException || e is java.net.ConnectException || e is java.net.SocketTimeoutException ||
-            e.cause is java.net.UnknownHostException || e is java.io.InterruptedIOException
+        val chain = generateSequence(e) { it.cause }.take(8).toList()
+        val name = e.javaClass.simpleName; val msg = chain.joinToString(" ") { it.message.orEmpty() }
+        val net = chain.any { it is java.net.UnknownHostException || it is java.net.SocketException || it is java.net.SocketTimeoutException ||
+            it is javax.net.ssl.SSLException || it is java.io.InterruptedIOException }
+        val status = (e as? com.anthropic.errors.AnthropicServiceException)?.statusCode()
+            ?: Regex("HTTP (\\d{3})").find(e.message.orEmpty())?.groupValues?.get(1)?.toInt() ?: 0
+        // Some providers refuse whole countries: 403, or Gemini's 400 "User location is not supported".
+        val region = status == 403 || Regex("(location|country|region|territory)[^.]{0,40}not supported|unsupported_country", RegexOption.IGNORE_CASE).containsMatchIn(msg)
         // Own server: online but it does not answer, or no address yet.
         if (prefs.provider == Provider.CUSTOM && ((net && online) || msg.startsWith("No server address")))
             return getString(R.string.err_server, prefs.url(Provider.CUSTOM).ifBlank { "—" }) + if (net) "\n\n($name)" else ""
         return getString(when {
-            e is java.net.UnknownHostException || e is java.net.ConnectException || e is java.net.SocketTimeoutException ||
-                e.cause is java.net.UnknownHostException || !online -> R.string.err_offline
-            name.contains("Unauthorized") || msg.contains("HTTP 401") || name.contains("PermissionDenied") || msg.contains("HTTP 403") -> R.string.err_key
-            name.contains("RateLimit") || msg.contains("HTTP 429") -> R.string.err_rate
-            msg.contains("HTTP 402") || msg.contains("credit", true) -> R.string.err_credits
+            !online -> R.string.err_offline
+            net -> R.string.err_unreachable
+            region -> R.string.err_region
+            status == 401 -> R.string.err_key
+            status == 429 -> R.string.err_rate
+            status == 402 || msg.contains("credit", true) -> R.string.err_credits
             msg.startsWith("No API key") -> R.string.err_no_key
             msg.startsWith("No model") -> R.string.err_no_model
             else -> R.string.err_other
-        }).let { t -> if (t == getString(R.string.err_other)) "$t\n\n($name${if (msg.isNotBlank()) ": " + msg.take(160) else ""})" else t }
+        }).let { t -> if (t == getString(R.string.err_other) || t == getString(R.string.err_region)) "$t\n\n($name${if (e.message.isNullOrBlank()) "" else ": " + e.message!!.take(160)})" else t }
     }
 
     private fun fillAi(p: LinearLayout, a: Action) {
         Ai.cached(a, query)?.let { p.addView(Ink.text(this, Ink.markdown(it), size, html = true)); return }
         val out = Ink.text(this, "", size); p.addView(out)
+        // No network: do not wait for a timeout, show the gloss for a phrase right away.
+        if (!online) { failed(p, out, a, null); return }
         val pr = prefs.provider
         val dots = launch { var n = 0; while (true) { out.text = getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
         launch {
             val r = withContext(Dispatchers.IO) { runCatching { Ai.ask(pr, prefs.effectiveKey(pr), prefs.model(pr), a, query, prefs.answerLang, prefs.url(pr)) } }
             dots.cancel()
-            r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) },
-                { out.text = friendly(it) })
-            if (r.isFailure) pages.remove(a.id) // ask again next time
+            r.fold({ out.text = android.text.Html.fromHtml(Ink.markdown(it), android.text.Html.FROM_HTML_MODE_COMPACT) }, { failed(p, out, a, it) })
+        }
+    }
+
+    /** The error, and for a phrase or passage the offline gloss under it; the tab asks again next time. */
+    private fun failed(p: LinearLayout, out: TextView, a: Action, e: Throwable?) {
+        out.text = if (e == null) getString(R.string.err_offline) else friendly(e)
+        pages.remove(a.id)
+        // A tap on a word opens its articles in the Dictionary tab (an empty page there skips the gloss fill).
+        if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
+            if (pages[DICT] == null) pages[DICT] = Ink.vertical(this)
+            open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } }
         }
     }
 

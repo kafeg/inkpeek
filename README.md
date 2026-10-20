@@ -126,6 +126,10 @@ Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of model
 OpenAI-compatible server** — your own or a cloud one. The model list has a search, a maker filter, "free only" and
 sorting. For your own server, pick a preset and change the address if needed; a local server needs no key.
 
+Answers should come in seconds, so InkPeek asks every model to skip its reasoning pass where the provider allows
+it. Claude defaults to Haiku 5.5 — fast and cheap; Opus 5.5 gives deeper grammar notes but takes longer. When a
+provider refuses access (403), it often blocks the country: a VPN helps.
+
 | preset | address |
 |---|---|
 | LM Studio | `http://<computer IP>:1234/v1` |

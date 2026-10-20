@@ -79,6 +79,8 @@
     <string name="offline">Sin red: las pestañas de IA necesitan internet; los diccionarios funcionan sin conexión.</string>
     <string name="gloss_title">Palabra por palabra con tus diccionarios (funciona sin conexión; toca una palabra para ver su entrada):</string>
     <string name="err_offline">Sin red. La IA necesita internet; la pestaña Diccionario funciona sin conexión.</string>
+    <string name="err_unreachable">El servidor de IA no responde. Compruebe la conexión a internet o la VPN.</string>
+    <string name="err_region">El proveedor de IA denegó el acceso. Suele bloquear algunos países: pruebe una VPN. Si no es eso, revise la clave de API.</string>
     <string name="err_key">La clave API fue rechazada: revísala en los ajustes de InkPeek.</string>
     <string name="err_rate">Demasiadas solicitudes: límite del proveedor. Inténtalo de nuevo en un minuto.</string>
     <string name="err_credits">No quedan créditos en esta clave.</string>

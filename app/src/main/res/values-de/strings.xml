@@ -79,6 +79,8 @@
     <string name="offline">Kein Netz: KI-Tabs brauchen Internet, Wörterbücher gehen offline.</string>
     <string name="gloss_title">Wort für Wort aus Ihren Wörterbüchern (auch offline; Wort antippen für den Eintrag):</string>
     <string name="err_offline">Kein Netz. KI braucht Internet; der Wörterbuch-Tab geht offline.</string>
+    <string name="err_unreachable">Der KI-Server antwortet nicht. Prüfen Sie die Internetverbindung oder das VPN.</string>
+    <string name="err_region">Der KI-Anbieter hat den Zugriff verweigert. Er sperrt oft einige Länder: versuchen Sie ein VPN. Sonst prüfen Sie den API-Schlüssel.</string>
     <string name="err_key">Der API-Schlüssel wurde abgelehnt: in den InkPeek-Einstellungen prüfen.</string>
     <string name="err_rate">Zu viele Anfragen: Limit des Anbieters. In einer Minute erneut versuchen.</string>
     <string name="err_credits">Kein Guthaben mehr auf diesem Schlüssel.</string>

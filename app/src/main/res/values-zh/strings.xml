@@ -79,6 +79,8 @@
     <string name="offline">无网络：AI 标签页需要联网，词典可离线使用。</string>
     <string name="gloss_title">根据您的词典逐词释义（可离线使用；点按单词查看词条）：</string>
     <string name="err_offline">无网络。AI 需要联网；“词典”标签页可离线使用。</string>
+    <string name="err_unreachable">AI 服务器没有响应。请检查网络连接或 VPN。</string>
+    <string name="err_region">AI 服务商拒绝了访问。它常常不对某些国家开放：请尝试 VPN。如果不是这个原因，请检查 API 密钥。</string>
     <string name="err_key">API 密钥被拒绝：请在 InkPeek 设置中检查。</string>
     <string name="err_rate">请求过多：已达服务商限额。请一分钟后再试。</string>
     <string name="err_credits">此密钥的余额已用完。</string>

@@ -1,8 +1,12 @@
 package io.github.kafeg.inkpeek.ai
 
+import android.util.Log
+import com.anthropic.client.AnthropicClient
 import com.anthropic.client.okhttp.AnthropicOkHttpClient
+import com.anthropic.errors.BadRequestException
 import com.anthropic.core.JsonValue
 import com.anthropic.models.beta.messages.BetaOutputConfig
+import com.anthropic.models.beta.messages.BetaThinkingConfigDisabled
 import com.anthropic.models.beta.messages.MessageCreateParams
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -13,7 +17,7 @@ import org.json.JSONObject
 import java.util.concurrent.TimeUnit
 
 enum class Provider(val title: String, val baseUrl: String, val defaultModel: String) {
-    ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-opus-5-5"),
+    ANTHROPIC("Claude (Anthropic)", "https://api.anthropic.com", "claude-haiku-5-5"),
     OPENAI("OpenAI", "https://api.openai.com/v1", ""),
     OPENROUTER("OpenRouter", "https://openrouter.ai/api/v1", "openrouter/free"),
     /** Any server with the OpenAI API: LM Studio, Ollama, llama.cpp, vLLM, Groq, DeepSeek…; the address is a setting. */
@@ -106,6 +110,13 @@ object Ai {
     }
     /** Server-side refusal fallback is offered for these Claude models. */
     private val FALLBACK = listOf("claude-fable-5-1", "claude-opus-5-5", "claude-opus-5", "claude-sonnet-5-5")
+    /** Thinking cannot be switched off on these; effort low is the minimum. */
+    private val ALWAYS_THINK = Regex("^claude-(opus-5-5|fable|mythos)")
+    /** One client per key: a new one per request costs a TLS handshake. */
+    private var claudeClient: Pair<String, AnthropicClient>? = null
+    /** Remembers which "no reasoning" variant a (host, model) accepts; set by the app to persist it. */
+    var recall: (String) -> Int? = { null }
+    var remember: (String, Int) -> Unit = { _, _ -> }
 
     fun cached(action: Action, text: String) = synchronized(cache) { cache[action.id + "\u0000" + text] }
 
@@ -118,17 +129,42 @@ object Ai {
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
             Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
         val prompt = "The selection is $what.\n" + action.prompt.replace("{text}", text).replace("{lang}", lang)
+        val t0 = System.currentTimeMillis()
         val answer = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang)) else openAi(p, url, key, model, prompt, system(lang))).trim()
+        Log.i("InkPeek", "ai ${p.name} $model ${action.id} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${answer.length} chars")
         synchronized(cache) { cache[action.id + "\u0000" + text] = answer }
         return answer
     }
 
+    private fun client(key: String): AnthropicClient = synchronized(this) {
+        claudeClient?.takeIf { it.first == key }?.second ?: AnthropicOkHttpClient.builder().apiKey(key).maxRetries(1).timeout(java.time.Duration.ofSeconds(45)).build()
+            .also { c -> claudeClient?.second?.close(); claudeClient = key to c }
+    }
+
+    /** Loads the client and opens the connection while the card shows the dictionary; costs no tokens. */
+    fun warm(p: Provider, key: String, model: String, url: String = p.baseUrl) = runCatching {
+        val t0 = System.currentTimeMillis()
+        if (p == Provider.ANTHROPIC) { if (key.isNotBlank() && model.isNotBlank()) client(key).models().retrieve(model) }
+        else if (url.isNotBlank()) http.newCall(Request.Builder().url(url.trimEnd('/') + "/models").head().build()).execute().close()
+        Log.i("InkPeek", "warm ${p.name} ${System.currentTimeMillis() - t0} ms")
+    }
+
     private fun claude(key: String, model: String, prompt: String, sys: String): String {
-        val client = AnthropicOkHttpClient.builder().apiKey(key).build()
-        val b = MessageCreateParams.builder().model(model).maxTokens(4096L).system(sys).addUserMessage(prompt)
-            .outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).build())
-        if (FALLBACK.any { model == it }) b.addBeta("server-side-fallback-2026-07-01").putAdditionalBodyProperty("fallbacks", JsonValue.from("default"))
-        val msg = try { client.beta().messages().create(b.build()) } finally { client.close() }
+        fun params(extras: Boolean) = MessageCreateParams.builder().model(model).maxTokens(4096L).system(sys).addUserMessage(prompt).apply {
+            if (!extras) return@apply
+            // Least thinking the model allows: none, or "between_tools" (Sonnet 5.5), or only effort low (Opus 5.5).
+            outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).build())
+            when {
+                ALWAYS_THINK.containsMatchIn(model) -> {}
+                model.startsWith("claude-sonnet-5-5") -> putAdditionalBodyProperty("thinking", JsonValue.from(mapOf("type" to "between_tools")))
+                else -> thinking(BetaThinkingConfigDisabled.builder().build())
+            }
+            if (FALLBACK.any { model == it }) addBeta("server-side-fallback-2026-07-01").putAdditionalBodyProperty("fallbacks", JsonValue.from("default"))
+        }.build()
+        val c = client(key); val memo = "anthropic|$model"
+        // Older models reject effort or thinking: ask once more without them and remember that.
+        val msg = if (recall(memo) == 1) c.beta().messages().create(params(false)) else try { c.beta().messages().create(params(true)) }
+            catch (e: BadRequestException) { c.beta().messages().create(params(false)).also { remember(memo, 1) } }
         if (msg.stopReason().map { it.toString() }.orElse("") == "refusal") throw AiError("The model declined this request")
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }
@@ -137,18 +173,38 @@ object Ai {
         val body = JSONObject().put("model", model).put("messages", JSONArray()
             .put(JSONObject().put("role", "system").put("content", sys))
             .put(JSONObject().put("role", "user").put("content", prompt)))
-        // OpenRouter: no reasoning pass, answers come in seconds; models that refuse the switch get a plain retry.
-        if (p == Provider.OPENROUTER) body.put("reasoning", JSONObject().put("enabled", false))
         fun call(b: JSONObject): Pair<Int, String> {
             val req = Request.Builder().url(url.trimEnd('/') + "/chat/completions").apply { if (key.isNotBlank()) header("Authorization", "Bearer $key") }
                 .header("X-Title", "InkPeek").post(b.toString().toRequestBody("application/json".toMediaType())).build()
             return (if (p == Provider.CUSTOM) slow else http).newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
         }
-        var (code, s) = call(body)
-        if (code == 400 && body.has("reasoning")) { body.remove("reasoning"); call(body).let { code = it.first; s = it.second } }
+        // No reasoning pass: try the host's "off" field, then a weaker one, then none; remember what worked.
+        val variants = noReasoning(url) + JSONObject()
+        val memo = "${url.substringAfter("://").substringBefore('/')}|$model"
+        var i = (recall(memo) ?: 0).coerceIn(0, variants.size - 1)
+        var (code, s) = call(withFields(body, variants[i]))
+        while ((code == 400 || code == 422) && i < variants.size - 1) { i++; call(withFields(body, variants[i])).let { code = it.first; s = it.second } }
+        if (code in 200..299) remember(memo, i)
         if (code !in 200..299) throw AiError("${p.title}: HTTP $code ${errorText(s)}")
         val choices = JSONObject(s).optJSONArray("choices") ?: throw AiError("${p.title}: ${errorText(s)}")
         return choices.getJSONObject(0).getJSONObject("message").optString("content")
+    }
+
+    private fun withFields(body: JSONObject, extra: JSONObject) = JSONObject(body.toString()).apply { extra.keys().forEach { put(it, extra.get(it)) } }
+
+    /** Fields that switch reasoning off on this server, strongest first (each provider names it differently). */
+    private fun noReasoning(url: String): List<JSONObject> {
+        fun o(vararg kv: Pair<String, Any>) = JSONObject().apply { kv.forEach { put(it.first, it.second) } }
+        val host = url.substringAfter("://").substringBefore('/')
+        return when {
+            "openrouter.ai" in host -> listOf(o("reasoning" to o("effort" to "none")))
+            "api.openai.com" in host -> listOf(o("reasoning_effort" to "none"), o("reasoning_effort" to "low"))
+            "generativelanguage.googleapis.com" in host -> listOf(o("reasoning_effort" to "none"), o("reasoning_effort" to "minimal"))
+            "deepseek.com" in host -> listOf(o("thinking" to o("type" to "disabled")))
+            "dashscope" in host -> listOf(o("enable_thinking" to false))
+            "groq.com" in host -> listOf(o("reasoning_effort" to "none"), o("reasoning_effort" to "low", "include_reasoning" to false))
+            else -> listOf(o("reasoning_effort" to "none")) // Mistral, Ollama, llama.cpp, vLLM, LM Studio
+        }
     }
 
     private val NOT_CHAT = Regex("embed|whisper|tts|transcri|moderation|guard|safety|dall-e|image|audio|realtime|search|:batch$", RegexOption.IGNORE_CASE)

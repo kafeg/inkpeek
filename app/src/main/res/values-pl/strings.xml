@@ -79,6 +79,8 @@
     <string name="offline">Brak sieci: zakładki AI działają online, słowniki offline.</string>
     <string name="gloss_title">Słowo po słowie z Twoich słowników (działa offline; dotknij słowa, aby zobaczyć hasło):</string>
     <string name="err_offline">Brak sieci. AI potrzebuje internetu; zakładka Słownik działa offline.</string>
+    <string name="err_unreachable">Serwer AI nie odpowiada. Sprawdź połączenie z internetem lub VPN.</string>
+    <string name="err_region">Dostawca AI odmówił dostępu. Często blokuje niektóre kraje: spróbuj VPN. Jeśli to nie to, sprawdź klucz API.</string>
     <string name="err_key">Klucz API został odrzucony: sprawdź go w ustawieniach InkPeek.</string>
     <string name="err_rate">Za dużo zapytań: limit dostawcy. Spróbuj za minutę.</string>
     <string name="err_credits">Brak środków na tym kluczu.</string>

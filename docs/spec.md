@@ -12,8 +12,8 @@ Close the card and you are back on the same page.
 - Small, readable code; well-known libraries where they save work.
 
 ## Non-goals (v1)
-- Flashcards / Anki export, history sync, dictionary downloads, online dictionaries.
-- A full dictionary app (search screen, browsing, bookmarks).
+- Flashcards / spaced repetition, history sync, online dictionaries.
+- A full dictionary app (search screen, browsing). Saved words and history are lists, not a trainer.
 
 ## Invocation
 | entry | how readers send it | text |
@@ -58,6 +58,7 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   soft hyphen), sorted, binary search over a memory-mapped file. Upstream `.idx` sort order does not matter.
   `.dict.dz` is unpacked once into the app's files.
 - Query normalization: trim, strip surrounding punctuation and quotes, collapse spaces; soft hyphen removed.
+  The card and the AI get a phrase with its sentence end (`?!.…`) kept and stray edge quotes / brackets removed.
 - Rendering: HTML through `Html.fromHtml` into a `TextView` (no WebView, no JS); images ignored.
 - Dictionary list in settings: enable/disable, order.
 
@@ -66,14 +67,24 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
   Non-streaming (one e-ink refresh per answer); `<think>` blocks stripped; error shown in the card.
 - Key per provider in settings; Claude can also read a key file (default `/sdcard/koreader/settings/anthropic.key`,
   shared with KOReader plugins). Never logged, never shown in full.
-- Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-opus-5-5`
-  at effort low; refusal fallback (`fallbacks: "default"`) on models that support it.
+- Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-haiku-5-5`.
+- Least reasoning each model allows. Claude: effort low; thinking `disabled`, except Sonnet 5.5 (`between_tools`)
+  and Opus 5.5 / Fable (cannot be off); a 400 retries without these and is remembered. Refusal fallback
+  (`fallbacks: "default"`) on models that support it. One client per key, 45 s timeout, one retry.
+- OpenAI-compatible: a "no reasoning" field by host — OpenRouter `reasoning.effort: none`, OpenAI / Groq / Mistral /
+  local servers `reasoning_effort: none` (OpenAI then `low`), Gemini `none` then `minimal`, DeepSeek
+  `thinking.disabled`, DashScope `enable_thinking: false`; on HTTP 400/422 the next variant, then none; the working
+  one is remembered per (host, model) in settings.
+- Warm-up: the card opens the provider connection in the background (no tokens) while the dictionary shows.
+- Network: "online" = a validated network; a VPN counts only with a real network under it. Offline → no request.
+- Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → the provider blocks the
+  country or the key; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
 - Answer language: setting, default Russian.
 - Actions (tabs; on/off in settings): Translate, Grammar (how the phrase is built and why), Words (harder words in
   base form), Examples, Explain (off by default). Prompts: `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
 - System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; ≤ 120 words unless needed.
-- OpenRouter: `reasoning: {enabled: false}` (retry without it on HTTP 400); default model `openrouter/free`.
+- OpenRouter default model `openrouter/free`.
 - Cache: last 100 answers in memory per (action, text).
 - Data sent: only the selected text and the action prompt, only on a tap (or phrase auto mode). No telemetry.
 
@@ -92,6 +103,39 @@ dim, position, AI tabs with descriptions). UI: English, Russian, German; system 
 - License: MIT.
 
 ## Milestones
-1. Card + intents + StarDict lookup (no AI). Install on a reader, check with FBReader / Cool Reader.
-2. AI actions + phrase auto mode + settings.
-3. Polish: dictionary ordering UI, action editor, release build + GitHub release.
+v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18 UI languages, releases.
+
+### v0.3 (plan; each milestone: spec → code → check on the Boox → commit, stop)
+4. **Fixes and speed** (done).
+   - Selection text: words lose edge punctuation; phrases keep the sentence end (`.?!…`), stray quotes and
+     brackets at the edges go. Dictionaries still get the fully cleaned text.
+   - Claude: one client per key, at most one retry; default model `claude-haiku-5-5`, thinking off where the
+     model allows it (Opus 5.5 / Fable: effort low only; Sonnet 5.5: `between_tools`; others: `disabled`);
+     a 400 retries once without the extras.
+   - OpenAI-compatible: a "no reasoning" field chosen by host (OpenAI, OpenRouter, Gemini, DeepSeek, DashScope,
+     Groq, Mistral, others), then a weaker one, then none, on HTTP 400/422; the variant that worked is
+     remembered per host and model.
+   - Network: "online" means a validated network. Errors: 401 → key; 403 or "location not supported" → the
+     provider blocks the region (VPN) or the key; network exceptions anywhere in the cause chain → offline.
+   - A phrase with no network or a failed AI answer shows the offline gloss in the same page.
+5. **Storage** — one SQLite file `/sdcard/InkPeek/inkpeek.db` (survives reinstall): AI answers cached by
+   (text, answer language, section, schema version), "↻" asks again; saved words and phrases (☆ in the card);
+   history of lookups (app only, not in the card). App: a "My words" tab — Words / Phrases / History, remove.
+   Export later.
+6. **AI sections** — Translate · Analysis (grammar + words) · Context (examples + explain). Two requests:
+   a quick structured answer on open (head facts: base form, part of speech, article / gender, plural, verb
+   forms, irregular, auxiliary; and the translation), and one detailed answer that fills Analysis and Context.
+   No per-tab on/off setting.
+7. **Card** — icon bar under the card, outside its border: Dictionary, Translate, Analysis, Context · Save,
+   My words · Close (bottom right). Long press shows the name; optional captions under icons; a settings page
+   explains the icons. Header: the base form with its article and plural, or the verb's principal parts with
+   "irregular"; the selected form under it when it differs.
+8. **Dictionaries** — WikDict (compact, CC BY-SA, `download.wikdict.com/dictionaries/stardict/wikdict-<src>-<dst>.zip`)
+   first in "Get dictionaries", offered for the reading languages → answer language; Wiktionary as the
+   full-article dictionary. Dictionary tab for a word: one short line per dictionary (form → base — meaning),
+   tap for the full article.
+9. **Offline translation** — Translate tab without network (or AI off, or mode "offline") asks the
+   Offline Translator app (F-Droid `dev.davidv.translator`, Firefox models, de→en→ru pivot) through its AIDL
+   service; not installed → a hint to install it and the gloss. Setting: Translate — AI / offline / auto.
+10. **Grammar pack** (later) — StarDict dictionary built from kaikki.org (wiktextract) data: one line per lemma
+   (article, plural, verb forms) + `.syn` of all forms; built by CI, published in Releases (CC BY-SA 4.0).
