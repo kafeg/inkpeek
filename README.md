@@ -21,33 +21,33 @@ Made for Android e-ink readers (Onyx Boox and others); works on any Android devi
 <tr>
 <td valign="top"><b>Look up a word.</b> Entries from the language packs, offline. Inflected forms find their base
 form: <i>Träumen</i> → <i>Traum</i>.</td>
-<td valign="top"><b>Translate a sentence or a paragraph.</b> A natural translation, not word by word, in the language
-you choose.</td>
-<td valign="top"><b>Understand why it is said this way.</b> Word order, forms and the rule behind them, with the words
-from the text in bold.</td>
+<td valign="top"><b>Translate a sentence or a paragraph.</b> On the device, without the internet; or by AI when
+you set it up.</td>
+<td valign="top"><b>Understand why it is said this way.</b> Analysis (AI): how it is built and the rule behind it,
+then the harder words, in sections.</td>
 </tr>
 <tr>
-<td width="33%"><img src="docs/img/card-translate-word.png" alt="A word translated in context"></td>
+<td width="33%"><img src="docs/img/card-context.png" alt="Examples of a word in context"></td>
 <td width="33%"><img src="docs/img/card-gloss.png" alt="Word-by-word gloss of a sentence, offline"></td>
-<td width="33%"><img src="docs/img/settings-card.png" alt="Choose the AI tabs"></td>
+<td width="33%"><img src="docs/img/settings-languages.png" alt="Language packs to download"></td>
 </tr>
 <tr>
-<td valign="top"><b>Get the meaning that fits here.</b> The header shows the base form with its article and plural,
-or a verb's forms; Translate gives the main meanings, Analysis the grammar and related words, Context examples.</td>
-<td valign="top"><b>No internet? Still useful.</b> A selected sentence gets a word-by-word gloss from your
-dictionaries. Tap a word to open its full entry.</td>
-<td valign="top"><b>Keep what you look up.</b> AI answers are saved and shown again, also offline; ☆ keeps a word or
-phrase in My words. Use Claude, OpenAI, OpenRouter (it has free models) or your own server.</td>
+<td valign="top"><b>See it in use.</b> Context (AI): three everyday sentences with a translation, then register and
+nuances.</td>
+<td valign="top"><b>Word by word, offline.</b> A selected sentence gets a gloss from the language packs: each word with
+its base form and meaning. Tap a word to open its entry.</td>
+<td valign="top"><b>Choose your languages.</b> Tick the pairs you read; each pack brings a dictionary and offline
+translation. ☆ keeps a word or phrase in My words; the history keeps the rest.</td>
 </tr>
 </table>
 
-<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain). Answers here are in
-English or Russian: answers come in the app's language.</sub></p>
+<p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain). The app here is in
+Russian, so are the answers: they come in the app's language.</sub></p>
 
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
    files when it asks.
-2. **Choose your languages:** Languages → the language of the answers, tick the languages of your books → Download.
+2. **Choose your languages:** Languages → tick the pairs of your books → Download. Answers come in the app's language.
 3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key.
 4. **Connect your reader** (below). In FBReader this is two settings.
 
@@ -97,37 +97,69 @@ If another dictionary app answers the same request, Android asks which one to us
 ## How it works
 
 ### The card
-- **Dictionary** comes first. For a word: entries from your dictionaries, one dictionary per screen, ◀ ▶ to page
-  between them; dictionaries into the app's language come first. For a sentence: the word-by-word gloss.
-- **AI tabs:** Analysis (how to use it, related or harder words) and Context (examples with a translation, register),
-  each in sections. A tab asks the AI only when you open it; the answer is kept with the history entry and goes when
-  you remove that entry.
+- **Dictionary** comes first. For a word: the header from the packs — "das Haus (Hauses, мн. Häuser)", "go (went, gone)
+  неправ." — then one line per dictionary, those into the app's language first; tap a line for the full entry. For a
+  sentence: the word-by-word gloss.
+- **Translate**: by AI when it can answer (set up and online), offline on the device otherwise — both are tabs, the
+  available one first. Which language it was and how sits in small print at the card's bottom.
+- **AI tabs** (marked "AI", dimmed when AI cannot answer): Analysis and Context, each in sections. A tab asks only when
+  you open it; the answer is kept with the history entry and goes when you remove that entry.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
-  than one sentence; Examples is hidden for a passage).
-- A selected sentence opens on Translate when AI is on (you can turn this off).
+  than one sentence).
+- **My words**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line.
 - Built for e-ink: black on white, large text, no animations, few settings.
-- The app is in English, Русский and Deutsch — exactly the answer languages of InkPeek's language packs; a new
-  language comes with its packs. Answers come in the app's language.
+- The app is in English, Русский, Deutsch, Français, Español, Italiano, Português and Polski — exactly the answer
+  languages of InkPeek's language packs; a new language comes with its packs. Answers come in the app's language.
 
 ### Languages
-Settings → **Languages**: every language pair InkPeek has; tick the ones you read (or all of them). For each pair
-InkPeek downloads its pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
-— nothing comes from other servers:
+Settings → **Languages**: every language pair InkPeek has; tick the ones you read (or all of them). The card uses only
+the ticked pairs; "Remove unticked" frees the space of the others. For each pair InkPeek downloads its pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
+— nothing comes from other servers.
 
-| part | what it gives | from |
-|---|---|---|
-| dictionary of the pair | a short first line — "das Haus (Hauses, мн. Häuser) — дом, здание", "go (went, gone) неправ. — идти" — and the full article; every inflected form finds its word (Häusern, ging, went); gender, plural and verb forms come from Wiktionary's grammar data | Wiktionary via [kaikki.org](https://kaikki.org), [WikDict](https://www.wikdict.com) |
-| offline translation | Translate without the internet | [Firefox Translations](https://github.com/mozilla/translations) models |
-| language identification | which language you selected, also one without a pack | [fastText](https://fasttext.cc) lid.176 |
+Packs now — books in a language, answers in the app's language:
 
-Packs now: German → Russian, English → Russian, German → English, English → German, Russian → German.
-They are built by [`packs/`](packs/README.md) and checked by tests before they are published. A German pack with
-Russian answers is about 62 MB, English with Russian about 40 MB (the English → Russian model is shared). The card
-uses only the packs: a new language comes as a pack.
+| answers | books |
+|---|---|
+| English | German, Spanish, French, Italian, Polish, Portuguese, Dutch, Russian |
+| Русский | English, German, Spanish, French, Polish |
+| Deutsch | English, Russian |
+| Français, Español, Italiano, Português, Polski | English |
+
+A pair is published when its dictionary knows at least 85% of the 5,000 most frequent words of the book language
+(subtitle frequency lists, forms included) and its golden words pass. A pack is about 25–60 MB; translation models are
+shared between pairs (German → Russian goes German → English → Russian).
+
+### How the packs are made
+InkPeek does not ship third-party dictionaries as they are: the scripts in [`packs/`](packs/README.md) build every pack
+from open data, test it and publish it.
+
+- **The dictionary of a pair** (x → y) is our own: the y-language Wiktionary's articles about x-words (German words in
+  the Russian Wiktionary for German → Russian), read from [kaikki.org](https://kaikki.org)'s Wiktextract data; for
+  English words also the translation tables of the English Wiktionary; [WikDict](https://www.wikdict.com) only where
+  Wiktionary has no article. Every article starts with one line — the word with its grammar, then its main meanings:
+  "das Haus (Hauses, мн. Häuser) — дом, здание", "gehen (geht, ging, ist gegangen) сильн. — идти". The card's header,
+  the dictionary list and the word-by-word gloss all show this line.
+- **The grammar** comes from Wiktionary's inflection tables (the German Wiktionary for German, the English one for the
+  other languages):
+  - a noun's gender as its article — **der / die / das** in German (le / la, el / la, il / la, o / a, de / het in
+    other languages), its genitive and plural;
+  - a verb's principal parts — German: 3rd person, Präteritum and Perfekt with *haben* or *sein*; English: past and
+    participle — and whether it is strong or irregular;
+  - every inflected form leads to its word: *Häusern* → Haus, *ging* → gehen, *went* → go, *домами* → дом. Related
+    words (an aspect partner, a derived adjective) have their own entries and are not taken for forms.
+  - Only what Wiktionary says, no guessing from endings. A word with more than one gender in
+    Wiktionary shows them all (*der / das Zentimeter*).
+- **Offline translation:** [Firefox Translations](https://github.com/mozilla/translations) models by Mozilla, the best
+  one for each direction, mirrored in our release and run on the device by the
+  [Bergamot](https://github.com/browsermt/bergamot-translator) engine (C++, built into the app).
+- **Language identification:** [fastText](https://fasttext.cc) lid.176; when it is unsure (a word or two), the pack
+  dictionary that knows more of the words decides.
+- **Tests:** golden words for every language and pair (forms, headers, meanings) must pass before a pack is
+  published; `scripts/device-test.sh` checks the app itself on a device — headers, meanings, language identification
+  and offline translation of real words and sentences.
 
 ### Offline translation
-The Translate tab works without the internet: the [Bergamot](https://github.com/browsermt/bergamot-translator) engine
-runs the models of the language packs on the device. The language of the selection is found by fastText (when it is
+The Translate tab works without the internet: the Bergamot engine runs the models of the language packs on the device. The language of the selection is found by fastText (when it is
 unsure — a word or two — by the pack dictionary that knows more of the words); a text in a language without a pack
 is named as such ("This looks like French"). AI translation needs none of this.
 
@@ -135,8 +167,8 @@ is named as such ("This looks like French"). AI translation needs none of this.
 English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
 may pick the wrong one of ты / вы; the speaker's gender may change.
 
-On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.2–0.9 s with both models in memory (about 560 MB), or 1–2 s
-when free memory is short and InkPeek loads one model at a time. Translate is offline first; with AI set up, a setting makes it ask AI first.
+On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.1–0.9 s with the pair's models in memory (about 560 MB), or
+1–2 s when free memory is short and InkPeek loads one model at a time; the models leave memory after 3 idle minutes.
 
 ### AI
 Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
@@ -175,8 +207,8 @@ Put the key in settings, or in a file:
 adb push openrouter.txt /sdcard/InkPeek/keys/openrouter.key
 ```
 
-**Privacy:** only the selected text and the tab's request go to the provider you chose, only when you open an AI tab
-(or select a phrase with "phrases: AI at once" on). No telemetry, no accounts.
+**Privacy:** only the selected text and the tab's request go to the provider you chose: when you open an AI tab, or
+Translate while AI is on and online. With AI off nothing leaves the device. No telemetry, no accounts.
 
 ### Protocol
 | intent | text extra | notes |
@@ -194,7 +226,10 @@ a `.sha256` file.
 ```bash
 ./gradlew testDebugUnitTest assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
+scripts/device-test.sh        # the language packs on a connected device: headers, forms, language, offline translation
 ```
+
+The version is `0.3.<number of commits>`; the same number is the version code.
 
 Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engine is C++ built with the NDK:
 `git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).
