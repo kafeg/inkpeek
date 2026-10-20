@@ -64,9 +64,9 @@
     <string name="save_word">Сохранить в мои слова</string>
     <string name="unsave_word">Убрать из моих слов</string>
     <string name="a_analysis">Разбор</string>
-    <string name="a_analysis_d">Разделы: как употреблять (фраза — как построена, отрывок — конструкции) и слова — синонимы и однокоренные или трудные слова.</string>
+    <string name="a_analysis_d">Грамматика: какая это форма, как построено и правило за этим. Слова: трудные слова или синонимы и однокоренные.</string>
     <string name="a_context">Контекст</string>
-    <string name="a_context_d">Разделы: три бытовых примера с переводом, затем стиль и оттенки; для отрывка — о чём он.</string>
+    <string name="a_context_d">Объяснение: что значит здесь, стиль, идиомы, оттенки. Примеры: три бытовых предложения с переводом.</string>
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icons_title">Значки в карточке</string>
@@ -93,14 +93,7 @@
     <string name="lang_no_packs">Языковых пакетов пока нет: настройки InkPeek → Языки.</string>
     <string name="lang_no_net">Нет сети: для списка языковых пакетов нужен интернет.</string>
     <string name="icon_close_d">Закрывает карточку; системная «Назад» делает то же.</string>
-    <string name="sec_usage_word">Как употреблять</string>
-    <string name="sec_usage_phrase">Как построено</string>
-    <string name="sec_usage_passage">Конструкции</string>
-    <string name="sec_related">Синонимы и однокоренные</string>
-    <string name="sec_words">Слова</string>
     <string name="sec_examples">Примеры</string>
-    <string name="sec_notes">Стиль и оттенки</string>
-    <string name="sec_meaning">О чём это</string>
     <string name="form_of_sel">форма: %1$s</string>
     <string name="how_title">Как собраны пакеты</string>
     <string name="how_dict_t">Словарь</string>
@@ -114,4 +107,7 @@
     <string name="how_build_t">Сборка</string>
     <string name="how_build">Наши скрипты на GitHub собирают каждый пакет из этих открытых источников и проверяют тестами (слова и их формы) перед публикацией; приложение скачивает только из релизов проекта.</string>
     <string name="how_more">Подробнее на GitHub</string>
+    <string name="sec_grammar">Грамматика</string>
+    <string name="sec_words">Слова</string>
+    <string name="sec_explanation">Объяснение</string>
 </resources>

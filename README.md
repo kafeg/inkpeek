@@ -23,8 +23,8 @@ Made for Android e-ink readers (Onyx Boox and others); works on any Android devi
 form: <i>Träumen</i> → <i>Traum</i>.</td>
 <td valign="top"><b>Translate a sentence or a paragraph.</b> On the device, without the internet; or by AI when
 you set it up.</td>
-<td valign="top"><b>Understand why it is said this way.</b> Analysis (AI): how it is built and the rule behind it,
-then the harder words, in sections.</td>
+<td valign="top"><b>Understand why it is said this way.</b> Analysis (AI): Grammar — which form, how it is built,
+the rule behind it — and Words.</td>
 </tr>
 <tr>
 <td width="33%"><img src="docs/img/card-context.png" alt="Examples of a word in context"></td>
@@ -32,8 +32,8 @@ then the harder words, in sections.</td>
 <td width="33%"><img src="docs/img/settings-languages.png" alt="Language packs to download"></td>
 </tr>
 <tr>
-<td valign="top"><b>See it in use.</b> Context (AI): three everyday sentences with a translation, then register and
-nuances.</td>
+<td valign="top"><b>See it in use.</b> Context (AI): Explanation — what it means here, register, idioms — and
+Examples with a translation.</td>
 <td valign="top"><b>Word by word, offline.</b> A selected sentence gets a gloss from the language packs: each word with
 its base form and meaning. Tap a word to open its entry.</td>
 <td valign="top"><b>Choose your languages.</b> Tick the pairs you read; each pack brings a dictionary and offline
@@ -102,8 +102,9 @@ If another dictionary app answers the same request, Android asks which one to us
   sentence: the word-by-word gloss.
 - **Translate**: by AI when it can answer (set up and online), offline on the device otherwise — both are tabs, the
   available one first. Which language it was and how sits in small print at the card's bottom.
-- **AI tabs** (marked "AI", dimmed when AI cannot answer): Analysis and Context, each in sections. A tab asks only when
-  you open it; the answer is kept with the history entry and goes when you remove that entry.
+- **AI tabs** (marked "AI", dimmed when AI cannot answer): Analysis — Grammar and Words; Context — Explanation and
+  Examples. Opening any AI tab asks for all of them at once (the open one first), so the others open instantly; the
+  answers are kept with the history entry and go when you remove that entry.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence).
 - **My words**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line.

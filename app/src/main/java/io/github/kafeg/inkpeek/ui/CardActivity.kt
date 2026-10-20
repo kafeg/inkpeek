@@ -127,11 +127,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
             val isAi = id != DICT && id != TRANSLATE
-            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { answers.block(Ask.DETAIL) }
+            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { answers.block(ai.ask(id)) }
                 if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
         // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
-        launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.DETAIL) }
+        launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.ANALYSIS) }
             actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else 0.35f } }
         bar.addView(View(this), Ink.lp(gap * 2, 1))
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }

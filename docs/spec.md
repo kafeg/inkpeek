@@ -94,11 +94,9 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
   - **Quick**, on opening AI translation: `base`, `article`, `plural`, `pos` (gender of the original word), `forms`,
     `irregular`, `form_of`, `meanings`, `translation` (keeps the sentence type). Shown only in the AI translation tab.
-  - **Detail**, on the first open of Analysis or Context, in parts; the app writes the headings (localized, the same
-    every time): `usage` (word: how to use it; phrase: how it is built and why; passage: constructions), `words`
-    (word: synonyms and related; else the harder words, "**base** — meaning"), `examples` (3 × {text, translation};
-    none for a passage), `notes` (register and nuances; passage: what it says). Analysis = usage + words, Context =
-    examples + notes; an empty part is not shown. Fills both tabs.
+  - **Analysis** (`grammar`, `words`) and **Context** (`explanation`, `examples`: 3 × {text, translation}, none for a
+    passage), the prompts of v0.2's separate tabs; the app writes the headings (Grammar, Words; Explanation, Examples).
+    Opening any AI tab, or Translate's AI tab, sends all three requests at once, the open one first; each is saved.
 - System prompt: answer only in `{lang}`; a text already in `{lang}` gets an explanatory-dictionary answer; light
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; brief; the model sees only the selection and
   must not guess its sentence.

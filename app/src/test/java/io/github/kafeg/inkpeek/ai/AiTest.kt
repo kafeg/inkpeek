@@ -40,7 +40,7 @@ class AiTest {
             assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.QUICK, "Haus", "Russian", url).getString("translation"))
             assertEquals(listOf(true, false), seen)
             seen.clear()
-            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.DETAIL, "Haus", "Russian", url).getString("translation"))
+            assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.ANALYSIS, "Haus", "Russian", url).getString("translation"))
             assertEquals(listOf(false), seen) // remembered: one call
         } finally { ss.close() }
     }

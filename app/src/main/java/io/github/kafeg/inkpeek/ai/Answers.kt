@@ -28,6 +28,10 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         } }.also { started[ask] = it }
     }
 
+    /** Every request at once, [first] first: whichever AI tab opens, the others' answers are on their way and saved. */
+    fun all(scope: CoroutineScope, first: Ask): Deferred<Result<JSONObject>> =
+        get(scope, first).also { Ask.entries.filter { it != first }.forEach { a -> get(scope, a) } }
+
     /** Why an AI tab cannot open now (a string id), or null. Blocking. */
     fun block(ask: Ask): Int? {
         val pr = prefs.provider

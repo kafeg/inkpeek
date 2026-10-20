@@ -68,8 +68,8 @@ data class Action(val id: String) {
 }
 
 /**
- * The two AI requests, each answered as one JSON object: [QUICK] on card open (head facts + translation, the Translate
- * tab), [DETAIL] on the first tap of Analysis or Context (fills both). Placeholders: {text}, {lang}.
+ * The AI requests, each answered as one JSON object: [QUICK] for Translate (head facts + translation), [ANALYSIS] and
+ * [CONTEXT] for their tabs; opening any AI tab sends all three at once. Placeholders: {text}, {lang}.
  */
 enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: Long) {
     QUICK("Selected text: «{text}». Answer with one JSON object, these keys only:\n" +
@@ -89,18 +89,25 @@ enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: 
         "Grammar, examples and comments do not belong here: other tabs give them.",
         mapOf("base" to "s", "article" to "s", "plural" to "s", "pos" to "s", "forms" to "s", "irregular" to "b",
             "form_of" to "s", "meanings" to "a", "translation" to "s"), 1024),
-    DETAIL("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
+    // The two AI tabs, one request each; the parts as in the separate tabs before (v0.2), the app adds the headings.
+    ANALYSIS("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
+        "(**bold**, *italic*, \"- \" lists), no headings: the app adds them.\n" +
+        "- grammar: at most 7 short lines, the words you talk about in **bold**. A single word: which form of which " +
+        "**base form** it is, how it is built, and the forms a learner of this language needs to use it correctly. A " +
+        "phrase: how it is built and why — the constructions that matter in this language (word order, agreement, which " +
+        "word requires which form, tense, aspect or mood) and the rule behind them. A passage: every construction that " +
+        "matters, up to 10 lines.\n" +
+        "- words: a phrase or a passage: the words a learner may not know, \"**base form** — short meaning\" each (at most " +
+        "20 for a passage), very common words skipped; a single word: its **base form**, 2–3 synonyms and related words, " +
+        "each \"**word** — short meaning\".",
+        mapOf("grammar" to "s", "words" to "a"), 3000),
+    CONTEXT("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
         "(**bold**, *italic*), no headings: the app adds them.\n" +
-        "- usage: a single word: what a learner needs to use it (forms, case or preposition it takes, separable prefix, " +
-        "reflexive), a few short lines. A phrase: how it is built and why (word order, agreement, which word requires which " +
-        "form, tense, mood) and the rule behind it. A passage: every construction that matters, up to 10 \"- \" lines.\n" +
-        "- words: a single word: 2–3 synonyms and related words; a phrase: the words a learner may not know; a passage: up " +
-        "to 15 harder words. Each item \"**base form** — short meaning\".\n" +
-        "- examples: a word or phrase: exactly 3 short everyday sentences in the text's own language with it in **bold**, " +
-        "each with its translation into {lang}; [] for a passage.\n" +
-        "- notes: a word or phrase: one line on register, idioms or nuances, \"\" when there is nothing useful; a passage: " +
-        "what happens and what is implied, briefly.",
-        mapOf("usage" to "s", "words" to "a", "examples" to "e", "notes" to "s"), 3000);
+        "- explanation: what it means here, register, idioms and nuances; a passage: what happens and what is implied, " +
+        "briefly.\n" +
+        "- examples: a word or phrase: 3 short everyday sentences in the text's own language with it in **bold**, each " +
+        "with its translation into {lang}; [] for a passage.",
+        mapOf("explanation" to "s", "examples" to "e"), 3000);
 
     /** Changes with the prompt, so saved answers of an older prompt are not shown. */
     val version: Int get() = prompt.hashCode()
@@ -125,7 +132,8 @@ object Ai {
     private fun system(lang: String) = "You are a concise dictionary and language tutor inside an e-book reader on an " +
         "e-ink screen. Write every answer in $lang only. If the text is already in $lang, answer like an explanatory " +
         "dictionary of $lang instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
-        "lists inside JSON string values. No headings, tables or code. Be brief. You see only the selected text, " +
+        "lists inside JSON string values. No headings, tables or code. Keep each part under 120 words unless it needs " +
+        "more. You see only the selected text, " +
         "not the sentence around it: do not guess a context (a preposition, a speaker) that is not in the text."
     // The answer comes in one piece, so the read timeout must cover the whole generation.
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()

@@ -64,9 +64,9 @@
     <string name="save_word">Zu meinen Wörtern</string>
     <string name="unsave_word">Aus meinen Wörtern entfernen</string>
     <string name="a_analysis">Analyse</string>
-    <string name="a_analysis_d">Abschnitte: Gebrauch (eine Phrase: Aufbau; ein Abschnitt: Konstruktionen) und die Wörter — Synonyme und verwandte oder die schwierigen.</string>
+    <string name="a_analysis_d">Grammatik: welche Form es ist, wie es gebaut ist und die Regel dahinter. Wörter: die schwierigen Wörter oder Synonyme und verwandte.</string>
     <string name="a_context">Kontext</string>
-    <string name="a_context_d">Abschnitte: drei Alltagsbeispiele mit Übersetzung, dann Stil und Nuancen; bei einem Abschnitt — worum es geht.</string>
+    <string name="a_context_d">Erklärung: was es hier bedeutet, Stil, Redewendungen, Nuancen. Beispiele: drei Alltagssätze mit Übersetzung.</string>
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
     <string name="icons_title">Symbole in der Karte</string>
@@ -93,14 +93,7 @@
     <string name="lang_no_packs">Noch keine Sprachpakete: InkPeek-Einstellungen → Sprachen.</string>
     <string name="lang_no_net">Kein Netz: für die Liste der Sprachpakete braucht es Internet.</string>
     <string name="icon_close_d">Schließt die Karte; die System-Zurück-Taste tut dasselbe.</string>
-    <string name="sec_usage_word">Gebrauch</string>
-    <string name="sec_usage_phrase">Aufbau</string>
-    <string name="sec_usage_passage">Konstruktionen</string>
-    <string name="sec_related">Synonyme und verwandte Wörter</string>
-    <string name="sec_words">Wörter</string>
     <string name="sec_examples">Beispiele</string>
-    <string name="sec_notes">Stil und Nuancen</string>
-    <string name="sec_meaning">Worum es geht</string>
     <string name="form_of_sel">Form: %1$s</string>
     <string name="how_title">Wie die Pakete entstehen</string>
     <string name="how_dict_t">Wörterbuch</string>
@@ -114,4 +107,7 @@
     <string name="how_build_t">Erstellung</string>
     <string name="how_build">Unsere Skripte auf GitHub bauen jedes Paket aus diesen offenen Quellen und prüfen es mit Tests (Wörter und ihre Formen) vor der Veröffentlichung; die App lädt nur aus den Releases des Projekts.</string>
     <string name="how_more">Mehr auf GitHub</string>
+    <string name="sec_grammar">Grammatik</string>
+    <string name="sec_words">Wörter</string>
+    <string name="sec_explanation">Erklärung</string>
 </resources>

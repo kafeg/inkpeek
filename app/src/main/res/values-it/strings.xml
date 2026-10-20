@@ -65,9 +65,9 @@
     <string name="save_word">Aggiungi alle mie parole</string>
     <string name="unsave_word">Rimuovi dalle mie parole</string>
     <string name="a_analysis">Analisi</string>
-    <string name="a_analysis_d">Sezioni: come si usa (una frase: com\'è costruita; un brano: costruzioni) e le parole — sinonimi e parole affini, o le più difficili.</string>
+    <string name="a_analysis_d">Grammatica: che forma è, come è costruita e la regola dietro. Parole: le parole difficili, o sinonimi e parole collegate.</string>
     <string name="a_context">Contesto</string>
-    <string name="a_context_d">Sezioni: tre esempi quotidiani con traduzione, poi registro e sfumature; per un brano — che cosa dice.</string>
+    <string name="a_context_d">Spiegazione: cosa significa qui, registro, modi di dire, sfumature. Esempi: tre frasi quotidiane con traduzione.</string>
     <string name="irregular">irreg.</string>
     <string name="close">Chiudi</string>
     <string name="icons_title">Icone nella scheda</string>
@@ -94,14 +94,7 @@
     <string name="lang_no_packs">Ancora nessun pacchetto linguistico: impostazioni di InkPeek → Lingue.</string>
     <string name="lang_no_net">Nessuna rete: l\'elenco dei pacchetti linguistici richiede internet.</string>
     <string name="icon_close_d">Chiude la scheda; il tasto Indietro di sistema fa lo stesso.</string>
-    <string name="sec_usage_word">Come si usa</string>
-    <string name="sec_usage_phrase">Com\'è costruita</string>
-    <string name="sec_usage_passage">Costruzioni</string>
-    <string name="sec_related">Sinonimi e parole affini</string>
-    <string name="sec_words">Parole</string>
     <string name="sec_examples">Esempi</string>
-    <string name="sec_notes">Registro e sfumature</string>
-    <string name="sec_meaning">Che cosa dice</string>
     <string name="form_of_sel">forma: %1$s</string>
     <string name="how_title">Come sono fatti i pacchetti</string>
     <string name="how_dict_t">Dizionario</string>
@@ -115,4 +108,7 @@
     <string name="how_build_t">Compilazione</string>
     <string name="how_build">I nostri script su GitHub creano ogni pacchetto da queste fonti aperte e lo verificano con test (parole e loro forme) prima della pubblicazione; l\'app scarica solo dalle release del progetto.</string>
     <string name="how_more">Altro su GitHub</string>
+    <string name="sec_grammar">Grammatica</string>
+    <string name="sec_words">Parole</string>
+    <string name="sec_explanation">Spiegazione</string>
 </resources>

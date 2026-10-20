@@ -65,9 +65,9 @@
     <string name="save_word">Ajouter à Mes mots</string>
     <string name="unsave_word">Retirer de Mes mots</string>
     <string name="a_analysis">Analyse</string>
-    <string name="a_analysis_d">Sections : comment l\'employer (une expression : sa construction ; un passage : les tournures) et les mots — synonymes et mots apparentés, ou les plus difficiles.</string>
+    <string name="a_analysis_d">Grammaire : quelle forme c\'est, comment c\'est construit et la règle derrière. Mots : les mots difficiles, ou synonymes et mots de la même famille.</string>
     <string name="a_context">Contexte</string>
-    <string name="a_context_d">Sections : trois exemples courants avec traduction, puis registre et nuances ; pour un passage — ce qu\'il dit.</string>
+    <string name="a_context_d">Explication : ce que cela veut dire ici, registre, expressions, nuances. Exemples : trois phrases courantes avec leur traduction.</string>
     <string name="irregular">irrég.</string>
     <string name="close">Fermer</string>
     <string name="icons_title">Icônes de la fiche</string>
@@ -94,14 +94,7 @@
     <string name="lang_no_packs">Pas encore de packs de langue : réglages d\'InkPeek → Langues.</string>
     <string name="lang_no_net">Pas de réseau : la liste des packs de langue nécessite Internet.</string>
     <string name="icon_close_d">Ferme la fiche ; le bouton Retour du système fait de même.</string>
-    <string name="sec_usage_word">Comment l\'employer</string>
-    <string name="sec_usage_phrase">Construction</string>
-    <string name="sec_usage_passage">Tournures</string>
-    <string name="sec_related">Synonymes et mots apparentés</string>
-    <string name="sec_words">Mots</string>
     <string name="sec_examples">Exemples</string>
-    <string name="sec_notes">Registre et nuances</string>
-    <string name="sec_meaning">Ce que ça dit</string>
     <string name="form_of_sel">forme : %1$s</string>
     <string name="how_title">Comment les packs sont faits</string>
     <string name="how_dict_t">Dictionnaire</string>
@@ -115,4 +108,7 @@
     <string name="how_build_t">Fabrication</string>
     <string name="how_build">Nos scripts sur GitHub construisent chaque pack à partir de ces sources ouvertes et le vérifient par des tests (mots et leurs formes) avant publication ; l\'app télécharge uniquement depuis les versions publiées du projet.</string>
     <string name="how_more">En savoir plus sur GitHub</string>
+    <string name="sec_grammar">Grammaire</string>
+    <string name="sec_words">Mots</string>
+    <string name="sec_explanation">Explication</string>
 </resources>

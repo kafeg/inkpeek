@@ -65,9 +65,9 @@
     <string name="save_word">Zapisz w Moich słowach</string>
     <string name="unsave_word">Usuń z Moich słów</string>
     <string name="a_analysis">Analiza</string>
-    <string name="a_analysis_d">Sekcje: jak używać (wyrażenie: jak jest zbudowane; fragment: konstrukcje) i słowa — synonimy i wyrazy pokrewne albo te trudniejsze.</string>
+    <string name="a_analysis_d">Gramatyka: jaka to forma, jak jest zbudowana i reguła za tym. Słowa: trudne słowa albo synonimy i słowa pokrewne.</string>
     <string name="a_context">Kontekst</string>
-    <string name="a_context_d">Sekcje: trzy codzienne przykłady z tłumaczeniem, potem rejestr i niuanse; dla fragmentu — o czym mówi.</string>
+    <string name="a_context_d">Wyjaśnienie: co znaczy tutaj, styl, idiomy, niuanse. Przykłady: trzy codzienne zdania z tłumaczeniem.</string>
     <string name="irregular">nieregul.</string>
     <string name="close">Zamknij</string>
     <string name="icons_title">Ikony na karcie</string>
@@ -94,14 +94,7 @@
     <string name="lang_no_packs">Brak pakietów językowych: ustawienia InkPeek → Języki.</string>
     <string name="lang_no_net">Brak sieci: lista pakietów językowych wymaga internetu.</string>
     <string name="icon_close_d">Zamyka kartę; systemowy przycisk Wstecz działa tak samo.</string>
-    <string name="sec_usage_word">Jak używać</string>
-    <string name="sec_usage_phrase">Jak jest zbudowane</string>
-    <string name="sec_usage_passage">Konstrukcje</string>
-    <string name="sec_related">Synonimy i wyrazy pokrewne</string>
-    <string name="sec_words">Słowa</string>
     <string name="sec_examples">Przykłady</string>
-    <string name="sec_notes">Rejestr i niuanse</string>
-    <string name="sec_meaning">O czym to jest</string>
     <string name="form_of_sel">forma: %1$s</string>
     <string name="how_title">Jak powstają pakiety</string>
     <string name="how_dict_t">Słownik</string>
@@ -115,4 +108,7 @@
     <string name="how_build_t">Budowanie</string>
     <string name="how_build">Nasze skrypty na GitHubie budują każdy pakiet z tych otwartych źródeł i przed publikacją sprawdzają go testami (słowa i ich formy); aplikacja pobiera tylko z wydań projektu.</string>
     <string name="how_more">Więcej na GitHubie</string>
+    <string name="sec_grammar">Gramatyka</string>
+    <string name="sec_words">Słowa</string>
+    <string name="sec_explanation">Wyjaśnienie</string>
 </resources>

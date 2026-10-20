@@ -65,9 +65,9 @@
     <string name="save_word">Save to my words</string>
     <string name="unsave_word">Remove from my words</string>
     <string name="a_analysis">Analysis</string>
-    <string name="a_analysis_d">Sections: how to use it (a phrase: how it is built; a passage: constructions) and the words — synonyms and related, or the harder ones.</string>
+    <string name="a_analysis_d">Grammar: which form it is, how it is built and the rule behind it. Words: the harder words, or synonyms and related ones.</string>
     <string name="a_context">Context</string>
-    <string name="a_context_d">Sections: three everyday examples with a translation, then register and nuances; for a passage — what it says.</string>
+    <string name="a_context_d">Explanation: what it means here, register, idioms, nuances. Examples: three everyday sentences with a translation.</string>
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icons_title">Icons in the card</string>
@@ -94,14 +94,7 @@
     <string name="lang_no_packs">No language packs yet: InkPeek settings → Languages.</string>
     <string name="lang_no_net">No network: the list of language packs needs the internet.</string>
     <string name="icon_close_d">Closes the card; the system Back does the same.</string>
-    <string name="sec_usage_word">How to use it</string>
-    <string name="sec_usage_phrase">How it is built</string>
-    <string name="sec_usage_passage">Constructions</string>
-    <string name="sec_related">Synonyms and related words</string>
-    <string name="sec_words">Words</string>
     <string name="sec_examples">Examples</string>
-    <string name="sec_notes">Register and nuances</string>
-    <string name="sec_meaning">What it says</string>
     <string name="form_of_sel">form: %1$s</string>
     <string name="how_title">How the packs are built</string>
     <string name="how_dict_t">Dictionary</string>
@@ -115,4 +108,7 @@
     <string name="how_build_t">Build</string>
     <string name="how_build">Our scripts on GitHub build every pack from these open sources and check it with tests (words and their forms) before publishing; the app downloads only from the project\'s releases.</string>
     <string name="how_more">More on GitHub</string>
+    <string name="sec_grammar">Grammar</string>
+    <string name="sec_words">Words</string>
+    <string name="sec_explanation">Explanation</string>
 </resources>
