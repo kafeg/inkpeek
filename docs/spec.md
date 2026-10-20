@@ -99,9 +99,10 @@ Dictionary tab: one dictionary per screen, ◀ ▶ between dictionaries with a h
 - Settings → My words: Words / Phrases / History with counts; tap opens the card, ✕ removes; clear history.
 
 ## Settings screen
-Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key and
-its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · My words · Card (app language, text size,
-dim, position, AI tabs with descriptions). UI: English, Russian, German; system language by default.
+Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
+and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
+(app language, text size, dim, position, AI tabs with descriptions) · My words. UI in 18 languages; system language
+by default.
 
 ## Tech
 - Kotlin, Android Views (no Compose), minSdk 26, targetSdk 35. Libraries: anthropic-java, OkHttp, kotlinx-coroutines,
