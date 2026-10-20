@@ -82,14 +82,6 @@ class Grammar:
         return [(f, l) for f, ls in self.forms.items() for l in ls]
 
 
-def marginal(r):
-    """An entry whose every sense is archaic, rare or regional ("die Gift" = gift, archaic; "der Gift", South German):
-    it must not add a gender or forms to the common word."""
-    ss = r.get("senses") or []
-    return bool(ss) and all(set(s.get("tags") or []) & (SKIP_SENSE | {"regional"}) or
-                            any(c.isupper() for t in s.get("tags") or [] for c in t) for s in ss)
-
-
 def from_dewiktionary(records, g):
     """German from de.wiktionary: gender, plural, genitive, the conjugation table, and every form."""
     for r in records:
@@ -101,8 +93,6 @@ def from_dewiktionary(records, g):
                 for fo in s.get("form_of", []) or []:
                     if fo.get("word") and fo["word"] != w:
                         g.form(w, fo["word"], table=False)
-            continue
-        if marginal(r):
             continue
         L = g.lemma(w, pos)
         L.gender |= {GENDER[t] for t in tags if t in GENDER}
@@ -155,7 +145,7 @@ def from_enwiktionary(records, g, irregular_category=None, fill=False):
                     g.form(w, x["word"], table=False)
         if forms_of and len(forms_of) == len([s for s in ss if "alt_of" not in s]):
             continue                                  # a form entry only
-        if (fill and (w, pos) not in g.lemmas) or marginal(r):
+        if fill and (w, pos) not in g.lemmas:
             continue
         L = g.lemma(w, pos)
         if not fill:

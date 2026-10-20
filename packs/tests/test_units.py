@@ -78,12 +78,6 @@ class GrammarTest(unittest.TestCase):
         os.unlink(f.name)
         self.assertEqual(g.forms["went"], ["go"])
 
-    def test_archaic_and_regional_entries_add_no_gender(self):
-        g = grammar.Grammar("de")
-        de = lambda tags, sense_tags: dict(word="Gift", pos="noun", lang_code="de", tags=tags, senses=[{"glosses": ["x"], "tags": sense_tags}])
-        grammar.from_dewiktionary([de(["neuter"], []), de(["feminine"], ["archaic"]), de(["masculine"], ["South-German", "regional"])], g)
-        self.assertEqual(g.lemmas[("Gift", "noun")].gender, {"n"})
-
     def test_related_words_are_not_forms(self):
         g = grammar.Grammar("ru")
         ru = lambda w, p, forms: dict(word=w, pos=p, lang_code="ru", senses=[{"glosses": ["x"]}], forms=forms)
