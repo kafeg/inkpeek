@@ -64,16 +64,24 @@ def _head_html(head, tail):
     return out
 
 
+def _unparen(s):
+    """Without parenthesized notes, nested ones too; a stray bracket goes as well."""
+    prev = None
+    while prev != s:
+        prev, s = s, re.sub(r"\s*\([^()]*\)", "", s)
+    return s.replace("(", "").replace(")", "").strip(" ;,.")
+
+
 def _short(glosses, limit=60):
+    """The first meanings for the first line: unique items in order (tables repeat a word for every sense)."""
     out = []
     for gl in glosses:
-        gl = re.sub(r"\s*\([^)]*\)", "", gl).strip(" ;,.")
-        if not gl:
-            continue
-        if out and len("; ".join(out + [gl])) > limit:
-            break
-        out.append(gl)
-    return "; ".join(out) or (glosses[0][:limit] if glosses else "")
+        for item in re.split(r"\s*[;,]\s*", _unparen(gl)):
+            if item and item not in out:
+                if out and len(", ".join(out + [item])) > limit:
+                    return ", ".join(out)
+                out.append(item)
+    return ", ".join(out) or (glosses[0][:limit] if glosses else "")
 
 
 def senses(record):
@@ -95,6 +103,35 @@ def senses(record):
     return out
 
 
+STRESS = re.compile("[\u0300\u0301]")
+
+
+def translations(records, y):
+    """English Wiktionary's translation tables of English words: word → [(pos, [(gloss, [])])]; a gloss is the
+    translations of one sense, with the article for German nouns, the sense itself in parentheses."""
+    out = {}
+    for r in records:
+        senses, order = {}, []
+        for t in r.get("translations") or []:
+            tags = set(t.get("tags") or [])
+            if t.get("lang_code") != y or not t.get("word") or tags & {"archaic", "obsolete", "dated", "rare"} \
+                    or any(c.isupper() for tag in tags for c in tag):          # dialects: "Alemannic-German"
+                continue
+            w = STRESS.sub("", t["word"])
+            g = [c for c in ("masculine", "feminine", "neuter") if c in tags]
+            if y in ARTICLE and len(g) == 1 and g[0][0] in ARTICLE[y]:
+                w = f"{ARTICLE[y][g[0][0]]} {w}"
+            sense = t.get("sense") or ""
+            if sense not in senses:
+                senses[sense] = []; order.append(sense)
+            if w not in senses[sense]:
+                senses[sense].append(w)
+        if senses:
+            glosses = [(", ".join(senses[s]) + (f" ({s})" if s else ""), []) for s in order]
+            out.setdefault(r["word"], []).append((r.get("pos"), glosses))
+    return out
+
+
 def wikdict_articles(base):
     """WikDict: headword → (grammar mark, translations); translations are its plain <div> lines."""
     out = {}
@@ -107,14 +144,17 @@ def wikdict_articles(base):
     return out
 
 
-def build(x, y, records, grammar, wikdict_base=None):
-    """Articles (HTML) and .syn pairs for x→y; [records] — entries of language x in the y-Wiktionary."""
-    blocks = {}
+def build(x, y, records, grammar, wikdict_base=None, tables=None):
+    """Articles (HTML) and .syn pairs for x→y; [records] — entries of language x in the y-Wiktionary; [tables] —
+    translation tables (English words) that go first."""
+    blocks = {w: list(b) for w, b in (tables or {}).items()}
+    stats = {"tables": len(blocks)}
     for r in records:
         ss = senses(r)
         if ss:
             blocks.setdefault(r["word"], []).append((r.get("pos"), ss))
-    stats = {"wiktionary": len(blocks), "wikdict": 0}
+    stats["wiktionary"] = len(blocks) - stats["tables"]
+    stats["wikdict"] = 0
     if wikdict_base:
         for w, (gram, tr) in wikdict_articles(wikdict_base).items():
             if w not in blocks:
@@ -132,6 +172,7 @@ def build(x, y, records, grammar, wikdict_base=None):
             firsts.append(len(re.sub(r"<[^>]+>", "", html.unescape(first))))
         articles[w] = "".join(parts)
     firsts.sort()
+    stats["weak"] = stats["tables"] + stats["wiktionary"] < 10000  # mostly WikDict: fewer and shorter articles
     stats["first_median"] = firsts[len(firsts) // 2] if firsts else 0
     stats["first_p90"] = firsts[int(len(firsts) * 0.9)] if firsts else 0
     return articles, grammar.syn(), stats

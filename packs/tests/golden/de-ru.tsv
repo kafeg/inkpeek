@@ -1,0 +1,6 @@
+# kind	key	expected — head: the article's first line starts with; mean: it contains
+head	Haus	das Haus
+head	gehen	gehen (geht, ging, ist gegangen)
+mean	Haus	дом
+mean	gehen	идти
+mean	Gewitter	гроза

@@ -1,0 +1,6 @@
+form	домами	дом
+form	книги	книга
+form	шёл	идти
+form	людей	человек
+gram	дом	pos=noun
+gram	книга	g=f

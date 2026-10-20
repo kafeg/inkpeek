@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from inkpeek_packs import stardict  # noqa: E402
 
 OUT = os.environ.get("PACKS_OUT")
-ANSWER = {"de": "ru", "en": "ru"}
+GOLDEN = os.path.join(os.path.dirname(__file__), "golden")
 
 
 def load(name):
@@ -22,26 +22,31 @@ def load(name):
     return arts, forms
 
 
+def rows(path):
+    for line in open(path, encoding="utf-8"):
+        if line.strip() and not line.startswith("#"):
+            yield line.rstrip("\n").split("\t")
+
+
 @unittest.skipUnless(OUT, "PACKS_OUT not set")
 class GoldenTest(unittest.TestCase):
-    def test_languages(self):
-        for lang in ("de", "en"):
-            gfile = os.path.join(os.path.dirname(__file__), "golden", f"{lang}.tsv")
-            if not os.path.isdir(os.path.join(OUT, "build", f"grammar-{lang}")):
-                continue
-            gram, gforms = load(f"grammar-{lang}")
-            arts, _ = load(f"dict-{lang}-{ANSWER[lang]}")
-            for line in open(gfile, encoding="utf-8"):
-                if not line.strip() or line.startswith("#"):
-                    continue
-                kind, key, want = line.rstrip("\n").split("\t")
-                with self.subTest(lang=lang, kind=kind, key=key):
+    """Every built grammar-<x> is checked against golden/<x>.tsv, every dict-<x>-<y> against golden/<x>-<y>.tsv."""
+
+    def test_built(self):
+        built = os.listdir(os.path.join(OUT, "build"))
+        for name in sorted(built):
+            key = name.split("-", 1)[1]
+            gfile = os.path.join(GOLDEN, f"{key}.tsv")
+            self.assertTrue(os.path.exists(gfile), f"no golden words for {name}")
+            arts, forms = load(name)
+            for kind, word, want in rows(gfile):
+                with self.subTest(pack=name, kind=kind, word=word):
                     if kind == "form":
-                        self.assertIn(want, gforms.get(key, []))
+                        self.assertIn(want, forms.get(word, []))
                     elif kind == "gram":
-                        self.assertIn(want, gram.get(key, "").replace("\t", "\n").splitlines())
+                        self.assertIn(want, arts.get(word, "").replace("\t", "\n").splitlines())
                     else:
-                        first = re.search(r'<p class="head">(.*?)</p>', arts.get(key, ""))
+                        first = re.search(r'<p class="head">(.*?)</p>', arts.get(word, ""))
                         text = html.unescape(re.sub(r"<[^>]+>", "", first.group(1))) if first else ""
                         (self.assertTrue(text.startswith(want), text) if kind == "head" else self.assertIn(want, text))
 

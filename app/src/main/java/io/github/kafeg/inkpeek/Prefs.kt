@@ -61,15 +61,23 @@ class Prefs(private val ctx: Context) {
     val keysDir: File get() = File(home, "keys").apply { mkdirs() }
     /** Offline translation models, one folder per direction (deen, enru). */
     val modelsDir: File get() = File(home, "models").apply { mkdirs() }
-    /** Language of the books (ISO code) — the source of offline translation; "" = not chosen. */
-    var bookLang: String get() = sp.getString("book_lang", "")!!; set(v) = sp.edit().putString("book_lang", v).apply()
     /** Translate tab: "ai" — AI when it can answer, else offline; "offline" — always offline. */
     var translateMode: String get() = sp.getString("translate_mode", "ai")!!; set(v) = sp.edit().putString("translate_mode", v).apply()
     /** The answer language as an ISO code ("ru"). */
     val answerCode: String get() = answerLang.let { n -> java.util.Locale.getAvailableLocales()
         .firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == n }?.language.orEmpty() }
 
-    fun library(): Library = lib ?: Library(listOf(dictsDir), File(ctx.filesDir, "index")).also { lib = it }
+    /** Language packs from our releases: dictionaries, grammar, models, langid. */
+    val packs: io.github.kafeg.inkpeek.packs.Packs get() = io.github.kafeg.inkpeek.packs.Packs(File(home, "packs"), modelsDir)
 
-    companion object { private var lib: Library? = null }
+    /** Dictionaries for the card: the packs' first, then the user's own. */
+    fun library(): Library = lib ?: Library(listOf(packs.dicts, dictsDir), File(ctx.filesDir, "index")).also { lib = it }
+
+    /** The packs' grammar (header, language of a text); its own index folder — a Library cleans up what it does not know. */
+    fun grammar(): Library = gram ?: Library(listOf(packs.grammar), File(ctx.filesDir, "index-grammar")).also { gram = it }
+
+    /** After installing or removing packs. */
+    fun reload() { lib = null; gram = null }
+
+    companion object { private var lib: Library? = null; private var gram: Library? = null }
 }

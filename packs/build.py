@@ -1,14 +1,17 @@
 #!/usr/bin/env python3
 """InkPeek language packs. Usage:
-  build.py all --langs de,en --answers ru,en --work W --out O   # everything for these languages
-  build.py slice | grammar X | dict X Y | models | manifest       # one step (same --work / --out)
-Inputs: kaikki.org dumps (fetched into W/dl, sliced per language into W/slices), WikDict, Mozilla's models."""
+  build.py slices --langs de,en --answers ru,en --work W   # slices from release packs-sources, re-cut when a dump changed
+  build.py all --langs de,en --answers ru,en --work W --out O   # grammar, pair dictionaries, models, langid
+  build.py grammar X | dict X Y | models | langid             # one step (same --work / --out)
+  build.py publish --out O --release packs                    # upload O's assets, merge packs.json in the release
+Inputs: kaikki.org dumps (sliced per language), WikDict, Mozilla's models, fastText's language identification."""
 import argparse
 import datetime
 import hashlib
 import json
 import os
 import shutil
+import subprocess
 import sys
 import urllib.request
 import zipfile
@@ -38,6 +41,92 @@ def sha256(path):
         for b in iter(lambda: f.read(1 << 20), b""):
             h.update(b)
     return h.hexdigest()
+
+
+LANGID_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz"
+
+
+def gh(*args, check=True):
+    return subprocess.run(["gh", *args], check=check, capture_output=True, text=True)
+
+
+def remote_stamp(url):
+    """ETag / Last-Modified / size of a remote file: a changed stamp means a new dump."""
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "InkPeek-packs"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return "|".join(r.headers.get(h, "") for h in ("ETag", "Last-Modified", "Content-Length"))
+
+
+def editions(a):
+    """The Wiktionary editions this run reads: en (grammar of every language), de (German grammar), each answer's."""
+    return sorted({"en"} | ({"de"} if "de" in a.langs else set()) | {y for y in a.answers if y in SOURCES["kaikki"]})
+
+
+def cmd_slices(a):
+    """Make W/slices hold <edition>.<lang>.jsonl.gz for every language of the list, from release packs-sources;
+    a dump whose stamp changed (or a missing slice) is downloaded and cut again for all languages, then uploaded."""
+    rel, d = a.sources_release, os.path.join(a.work, "slices")
+    os.makedirs(d, exist_ok=True)
+    langs = sorted(SOURCES["languages"])
+    have = gh("release", "view", rel, "--json", "assets", "--jq", ".assets[].name", check=False)
+    assets = set(have.stdout.split()) if have.returncode == 0 else set()
+    if have.returncode != 0:
+        gh("release", "create", rel, "--title", "Pack sources (kaikki slices)", "--notes",
+           "Per-language slices of the kaikki.org Wiktionary dumps (CC BY-SA 4.0), used to build the packs.", "--prerelease")
+    state = {}
+    if "state.json" in assets:
+        gh("release", "download", rel, "-p", "state.json", "-D", d, "--clobber")
+        state = json.load(open(os.path.join(d, "state.json")))
+    for ed in editions(a):
+        url = SOURCES["kaikki"][ed]
+        stamp = remote_stamp(url)
+        names = [f"{ed}.{l}.jsonl.gz" for l in langs]
+        if state.get(ed) == stamp and all(n in assets for n in names):
+            for n in names:
+                if n.split(".")[1] in set(a.langs) | set(a.answers):
+                    gh("release", "download", rel, "-p", n, "-D", d, "--clobber")
+            print(f"slices {ed}: from {rel}", flush=True)
+            continue
+        print(f"slices {ed}: dump changed or slices missing — cutting", flush=True)
+        counts = kaikki.slice_dump(fetch(url, dump(a, ed)), langs, d, ed)
+        print(f"  {counts}", flush=True)
+        os.remove(dump(a, ed))
+        gh("release", "upload", rel, *[os.path.join(d, n) for n in names], "--clobber")
+        state[ed] = stamp
+        json.dump(state, open(os.path.join(d, "state.json"), "w"), indent=1)
+        gh("release", "upload", rel, os.path.join(d, "state.json"), "--clobber")
+
+
+def cmd_langid(a):
+    """fastText's language identification model, mirrored (CC BY-SA 3.0)."""
+    path = fetch(LANGID_URL, os.path.join(a.out, "langid-176.ftz"))
+    return {"id": "langid", "kind": "langid", "version": "176",
+            "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
+            "license": "CC-BY-SA-3.0", "attribution": "fastText language identification (lid.176), Facebook AI Research"}
+
+
+def cmd_publish(a):
+    """Upload this run's assets to the release and merge their entries into its packs.json."""
+    mine = json.load(open(os.path.join(a.out, "packs.json"), encoding="utf-8"))
+    have = gh("release", "view", a.release, "--json", "assets", "--jq", ".assets[].name", check=False)
+    if have.returncode != 0:
+        gh("release", "create", a.release, "--title", "Language packs", "--notes",
+           "InkPeek language packs: grammar, dictionaries (CC BY-SA 4.0: Wiktionary contributors, Wiktextract/kaikki.org, "
+           "WikDict), translation models (MPL-2.0, Mozilla), language identification (CC BY-SA 3.0, fastText). "
+           "Built by packs/ in this repository.")
+        old = []
+    else:
+        tmp = os.path.join(a.work, "published")
+        os.makedirs(tmp, exist_ok=True)
+        r = gh("release", "download", a.release, "-p", "packs.json", "-D", tmp, "--clobber", check=False)
+        old = json.load(open(os.path.join(tmp, "packs.json"), encoding="utf-8"))["components"] if r.returncode == 0 else []
+    ids = {c["id"] for c in mine["components"]}
+    merged = sorted([c for c in old if c["id"] not in ids] + mine["components"], key=lambda c: c["id"])
+    path = os.path.join(a.out, "packs.json")
+    json.dump({"format": 1, "generated": a.date, "components": merged}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    files = [os.path.join(a.out, c["file"]["name"]) for c in mine["components"]]
+    gh("release", "upload", a.release, *files, path, "--clobber")
+    print(f"published {sorted(ids)} to {a.release}; {len(merged)} components in packs.json", flush=True)
 
 
 def dump(a, edition):
@@ -110,13 +199,14 @@ def cmd_dict(a, x, y):
         wd = stardict.find(d)
     except Exception as e:  # not every pair exists at WikDict
         print(f"  no WikDict {x}-{y}: {e}", flush=True)
-    articles, syn, st = dictionary.build(x, y, kaikki.records(slice_file(a, y, x), x), g, wd)
+    tables = dictionary.translations(kaikki.records(slice_file(a, "en", "en"), "en"), y) if x == "en" else None
+    articles, syn, st = dictionary.build(x, y, kaikki.records(slice_file(a, y, x), x), g, wd, tables)
     folder = os.path.join(a.out, "build", f"dict-{x}-{y}")
     shutil.rmtree(folder, ignore_errors=True)
     st.update(stardict.write(os.path.join(folder, f"dict-{x}-{y}"), articles, syn, types="h", date=a.date,
                              bookname=f"InkPeek {x} → {y}", description=ATTRIBUTION))
     print(f"dict-{x}-{y}: {st}", flush=True)
-    return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),
+    return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "weak": st["weak"], "file": pack(a, f"dict-{x}-{y}", folder),
             "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}
 
 
@@ -146,9 +236,15 @@ def main():
     p.add_argument("--work", default="work")
     p.add_argument("--out", default="out")
     p.add_argument("--date", default=datetime.date.today().isoformat())
+    p.add_argument("--release", default="packs")
+    p.add_argument("--sources-release", default="packs-sources")
     a = p.parse_args()
     a.langs, a.answers = a.langs.split(","), a.answers.split(",")
     os.makedirs(a.out, exist_ok=True)
+    if a.cmd == "slices":
+        return cmd_slices(a)
+    if a.cmd == "publish":
+        return cmd_publish(a)
     comps = []
     if a.cmd in ("all", "grammar"):
         for x in (a.args or a.langs):
@@ -159,6 +255,8 @@ def main():
     if a.cmd in ("all", "models"):
         dirs = sorted({(x, "en") for x in a.langs if x != "en"} | {("en", y) for y in a.answers if y != "en"})
         comps += cmd_models(a, dirs)
+    if a.cmd in ("all", "langid"):
+        comps.append(cmd_langid(a))
     if comps:
         manifest = os.path.join(a.out, "packs.json")
         old = json.load(open(manifest, encoding="utf-8"))["components"] if os.path.exists(manifest) else []

@@ -105,78 +105,114 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     override fun onPause() { ui.removeCallbacksAndMessages(null); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
-    // --- Dictionaries ---
+    // --- Languages: the packs, then the user's own dictionaries ---
+    private lateinit var langBox: LinearLayout
+    private var manifest: List<io.github.kafeg.inkpeek.packs.Component> = emptyList()
+    private var wantBooks: MutableSet<String>? = null
+    private var working = false
+
     private fun buildDictionaries(t: LinearLayout) {
         if (!Environment.isExternalStorageManager())
             t.addView(Ink.button(this, getString(R.string.allow_files, prefs.home.path), sp) {
                 startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:$packageName")))
             })
+        t.addView(Ink.text(this, getString(R.string.lang_about), 14f))
+        langBox = Ink.vertical(this); t.addView(langBox, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        t.addView(Ink.text(this, getString(R.string.own_dicts), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 22) })
         dictList = Ink.vertical(this); t.addView(dictList)
-        val row = Ink.horizontal(this)
-        row.addView(Ink.button(this, getString(R.string.import_file), sp) { pickFiles() }, Ink.lp(0, weight = 1f))
-        row.addView(Ink.button(this, getString(R.string.get_dicts), sp) { startActivity(Intent(this, CatalogActivity::class.java)) },
-            Ink.lp(0, weight = 1f).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
-        t.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
+        t.addView(Ink.button(this, getString(R.string.import_file), sp) { pickFiles() }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
         t.addView(Ink.text(this, getString(R.string.folder_note, prefs.dictsDir.path), 14f),
             Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
-        buildOffline(t)
+        loadManifest()
     }
 
-    // --- Offline translation ---
-    private lateinit var mtStatus: TextView
-    private lateinit var mtButton: TextView
-    private var mtSets: Map<Pair<String, String>, List<io.github.kafeg.inkpeek.mt.ModelSet>> = emptyMap()
-
-    /** Language of the books, models on the device, download / delete, AI first or offline only. */
-    private fun buildOffline(t: LinearLayout) {
-        t.addView(Ink.text(this, getString(R.string.mt_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 20) })
-        t.addView(Ink.text(this, getString(R.string.mt_about), 14f))
-        t.addView(Ink.text(this, getString(R.string.mt_books_lang), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
-        val codes = listOf("") + MT_LANGS
-        val here = resources.configuration.locales[0]
-        t.addView(spinner(codes.map { if (it.isEmpty()) "—" else java.util.Locale(it).getDisplayLanguage(here).replaceFirstChar { c -> c.uppercase() } },
-            codes.indexOf(prefs.bookLang).coerceAtLeast(0)) { prefs.bookLang = codes[it]; refreshOffline() })
-        mtStatus = Ink.text(this, "", 15f); t.addView(mtStatus)
-        mtButton = Ink.button(this, "", sp) { downloadOffline() }; t.addView(mtButton, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
-        t.addView(Ink.button(this, getString(R.string.mt_delete), sp) {
-            prefs.modelsDir.listFiles()?.forEach { it.deleteRecursively() }; refreshOffline()
-        }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
-        t.addView(switch(getString(R.string.mt_ai_first), prefs.translateMode == "ai") { prefs.translateMode = if (it) "ai" else "offline" })
-        refreshOffline()
-        launch { mtSets = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.mt.Models.list() }.getOrDefault(emptyMap()) }; refreshOffline() }
-    }
-
-    private fun mtSteps() = prefs.bookLang.takeIf { it.isNotEmpty() }?.let { io.github.kafeg.inkpeek.mt.Engine.steps(it, prefs.answerCode) }.orEmpty()
-
-    private fun refreshOffline() {
-        val root = prefs.modelsDir
-        mtStatus.text = mtSteps().joinToString("\n") { (a, b) ->
-            "$a → $b: " + getString(if (io.github.kafeg.inkpeek.mt.Models.installed(root, a, b)) R.string.mt_installed else R.string.mt_not_installed) }
-        val missing = mtSteps().filterNot { (a, b) -> io.github.kafeg.inkpeek.mt.Models.installed(root, a, b) }
-        val mb = missing.sumOf { mtSets[it]?.firstOrNull()?.size ?: 0L } / 1_000_000
-        mtButton.text = getString(R.string.mt_download, mb)
-        mtButton.visibility = if (missing.isEmpty() || mtSets.isEmpty()) View.GONE else View.VISIBLE
-    }
-
-    private fun downloadOffline() {
-        val root = prefs.modelsDir
-        val sets = mtSteps().filterNot { (a, b) -> io.github.kafeg.inkpeek.mt.Models.installed(root, a, b) }.mapNotNull { mtSets[it]?.firstOrNull() }
-        mtButton.isEnabled = false
+    private fun loadManifest() {
+        refreshLanguages()
         launch {
-            val r = withContext(Dispatchers.IO) { runCatching { sets.forEach { set ->
-                io.github.kafeg.inkpeek.mt.Models.download(root, set) { done, all ->
-                    ui.post { mtStatus.text = "${set.from} → ${set.to}: " + getString(R.string.mt_downloading, (done * 100 / all.coerceAtLeast(1)).toInt()) } }
-            } } }
-            mtButton.isEnabled = true
-            r.onFailure { toast(getString(R.string.failed, it.message)) }
-            refreshOffline()
+            manifest = withContext(Dispatchers.IO) { runCatching { io.github.kafeg.inkpeek.packs.Packs.manifest() }.getOrDefault(emptyList()) }
+            refreshLanguages()
         }
     }
+
+    private fun langName(code: String) = java.util.Locale(code).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
+
+    /** Answer language, book languages with their state, one button that downloads what is missing and removes what is not needed. */
+    private fun refreshLanguages() {
+        langBox.removeAllViews()
+        val packs = prefs.packs; val installed = packs.installed()
+        if (manifest.isEmpty()) {
+            langBox.addView(Ink.text(this, getString(R.string.lang_no_list), 15f))
+            langBox.addView(Ink.button(this, getString(R.string.lang_retry), sp) { loadManifest() })
+            return
+        }
+        val P = io.github.kafeg.inkpeek.packs.Packs
+        val answers = P.answers(manifest)
+        val answer = prefs.answerCode.takeIf { it in answers } ?: answers.first().also { prefs.answerLang = java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
+        langBox.addView(Ink.text(this, getString(R.string.lang_answer), 14f))
+        langBox.addView(spinner(answers.map { langName(it) }, answers.indexOf(answer)) {
+            prefs.answerLang = java.util.Locale(answers[it]).getDisplayLanguage(java.util.Locale.ENGLISH); wantBooks = null; refreshLanguages()
+        })
+        val books = P.books(manifest, answer)
+        val want = wantBooks ?: packs.installedBooks(answer).toMutableSet().also { wantBooks = it }
+        langBox.addView(Ink.text(this, getString(R.string.lang_books), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
+        books.forEach { x ->
+            val parts = P.needed(manifest, listOf(x), answer)
+            val missing = parts.filter { installed[it.id] != it.sha256 }
+            val state = when {
+                missing.isEmpty() -> getString(R.string.lang_installed, parts.sumOf { it.size } / 1_000_000)
+                missing.size < parts.size && missing.all { it.id in installed } -> getString(R.string.lang_update)
+                else -> getString(R.string.lang_not_installed, missing.sumOf { it.size } / 1_000_000)
+            }
+            val weak = manifest.firstOrNull { it.id == "dict-$x-$answer" }?.weak == true
+            langBox.addView(CheckBox(this).apply {
+                text = "${langName(x)} → ${langName(answer)}  · $state" + if (weak) "\n" + getString(R.string.lang_weak) else ""
+                textSize = 16f; isChecked = x in want; isEnabled = !working
+                setOnCheckedChangeListener { _, on -> if (on) want += x else want -= x; refreshLanguages() }
+            })
+        }
+        val needed = P.needed(manifest, want, answer)
+        val missing = needed.filter { installed[it.id] != it.sha256 }
+        // Parts no ticked language needs, for this answer language (other answers keep theirs).
+        val keep = needed.map { it.id }.toSet() + answers.filter { it != answer }.flatMap { a -> P.needed(manifest, packs.installedBooks(a), a).map { it.id } }
+        val extra = manifest.filter { it.id in installed && it.id !in keep }
+        val label = when {
+            missing.isNotEmpty() -> getString(R.string.lang_download, (missing.sumOf { it.size } / 1_000_000).coerceAtLeast(1))
+            extra.isNotEmpty() -> getString(R.string.lang_remove)
+            else -> getString(R.string.lang_ready)
+        }
+        val status = Ink.text(this, "", 14f)
+        langBox.addView(Ink.button(this, label, sp) { if (!working && (missing.isNotEmpty() || extra.isNotEmpty())) apply(missing, extra, status) }
+            .apply { alpha = if (missing.isEmpty() && extra.isEmpty() || working) 0.4f else 1f }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        langBox.addView(status)
+        langBox.addView(Ink.text(this, getString(R.string.mt_about), 13f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+    }
+
+    private fun apply(missing: List<io.github.kafeg.inkpeek.packs.Component>, extra: List<io.github.kafeg.inkpeek.packs.Component>, status: TextView) {
+        working = true; refreshLanguages()
+        launch {
+            val packs = prefs.packs
+            val r = withContext(Dispatchers.IO) { runCatching {
+                extra.forEach { packs.remove(it) }
+                missing.forEachIndexed { i, c ->
+                    packs.install(c) { done, all -> ui.post { statusLine?.text = getString(R.string.lang_working, i + 1, missing.size, c.id, (done * 100 / all.coerceAtLeast(1)).toInt()) } }
+                }
+            } }
+            working = false; statusLine = null
+            prefs.reload()
+            r.onFailure { toast(getString(R.string.failed, it.message)) }
+            refreshLanguages(); refreshDicts()
+        }
+        statusLine = status
+    }
+    private var statusLine: TextView? = null
 
     private fun refreshDicts() {
         launch {
             val lib = prefs.library()
-            val dicts = withContext(Dispatchers.IO) { lib.all(prefs.order).also { lib.prepareAll() } }
+            val all = withContext(Dispatchers.IO) { lib.all(prefs.order).also { lib.prepareAll(); prefs.grammar().run { all(); prepareAll() } } }
+            // The packs' dictionaries are managed above; the list is the user's own.
+            val own = prefs.dictsDir.canonicalPath + File.separator
+            val dicts = all.filter { it.ifo.path.startsWith(own) }
             prefs.order = dicts.map { it.id }
             dictList.removeAllViews()
             if (dicts.isEmpty()) dictList.addView(Ink.text(this@MainActivity, getString(R.string.no_dicts), 16f))
@@ -194,8 +230,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                 dictList.addView(r)
             }
             val busy = lib.status.values.count { it == "indexing" }
-            status.text = if (busy > 0) getString(R.string.status_busy, dicts.size, busy, prefs.provider.title)
-                else getString(R.string.status, dicts.size, prefs.provider.title)
+            status.text = if (busy > 0) getString(R.string.status_busy, all.size, busy, prefs.provider.title)
+                else getString(R.string.status, all.size, prefs.provider.title)
             if (lib.busy) ui.postDelayed({ refreshDicts() }, 3000)
         }
     }
@@ -280,12 +316,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        t.addView(Ink.text(this, getString(R.string.answer_lang_t), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        val langs = (LANGS + prefs.answerLang).distinct()
-        val here = resources.configuration.locales[0]
-        val shown = langs.map { name -> java.util.Locale.getAvailableLocales().firstOrNull { it.getDisplayLanguage(java.util.Locale.ENGLISH) == name }
-            ?.getDisplayLanguage(here)?.replaceFirstChar { it.uppercase() } ?: name }
-        t.addView(spinner(shown, langs.indexOf(prefs.answerLang)) { prefs.answerLang = langs[it] })
+        t.addView(switch(getString(R.string.mt_ai_first), prefs.translateMode == "ai") { prefs.translateMode = if (it) "ai" else "offline" },
+            Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         load(prefs.provider)
         answersButton = Ink.button(this, getString(R.string.clear_answers, 0), sp) {
             launch { withContext(Dispatchers.IO) { runCatching { Store.get(this@MainActivity).clearAnswers() } }; refreshAnswers() }
@@ -461,9 +493,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
             "Polish", "Czech", "Dutch", "Turkish", "Indonesian", "Vietnamese", "Chinese", "Japanese", "Korean", "Hindi", "Arabic")
         /** App languages: exactly the answer languages of the packs (a new one comes with its packs). */
-        /** Book languages with packs. */
-        val MT_LANGS = listOf("de", "en")
-        val UI_LANGS = listOf("en", "ru")
+        val UI_LANGS = listOf("en", "ru", "de")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

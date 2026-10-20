@@ -1,0 +1,4 @@
+# kind	key	expected — head: the article's first line starts with; mean: it contains
+head	go	go (went, gone)
+mean	house	дом
+mean	go	идти

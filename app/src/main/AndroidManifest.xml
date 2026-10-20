@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.CatalogActivity" android:exported="false" android:windowSoftInputMode="stateHidden" />
 
         <activity
             android:name=".ui.CardActivity"

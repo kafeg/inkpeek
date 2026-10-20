@@ -1,3 +1,6 @@
 [submodule "app/src/main/cpp/bergamot"]
 	path = app/src/main/cpp/bergamot
 	url = https://github.com/niedev/bergamot-translator.git
+[submodule "app/src/main/cpp/fasttext"]
+	path = app/src/main/cpp/fasttext
+	url = https://github.com/facebookresearch/fastText.git

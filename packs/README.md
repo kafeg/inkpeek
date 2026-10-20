@@ -23,5 +23,10 @@ inside); a run with them already downloaded takes about 4 minutes and 2 GB of me
 sha256, license, attribution, stats.
 
 ## Release
-The `Packs` workflow (manual, and monthly) builds, runs the tests and creates a draft release `packs-YYYY.MM.DD-N`;
-a person checks and publishes it.
+The `Packs` workflow (manual) takes the book languages and answer languages to build, e.g. `de,en` and `ru,en`:
+1. `slices` — per-language slices of the kaikki dumps come from release `packs-sources`; a dump is downloaded and
+   cut again only when kaikki changed it (ETag / Last-Modified) or a slice is missing.
+2. `all` — grammar of each book language, a dictionary per pair, the models through English, `langid`.
+3. Unit tests and golden words (`tests/golden/<x>.tsv` per grammar, `<x>-<y>.tsv` per dictionary).
+4. `publish` — uploads only these assets to release `packs` and merges their entries into its `packs.json`;
+   components built earlier stay as they are. The app reads `packs.json` from that release.

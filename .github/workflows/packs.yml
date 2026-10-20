@@ -1,28 +1,32 @@
 name: Packs
+# Builds the packs of the given languages only and adds them to release "packs" (packs.json is merged).
+# kaikki dumps are cut into per-language slices once and kept in release "packs-sources"; a dump is downloaded
+# again only when kaikki changed it.
 on:
   workflow_dispatch:
     inputs:
       langs: { description: "Book languages", default: "de,en" }
       answers: { description: "Answer languages", default: "ru,en" }
-  schedule:
-    - cron: "0 3 1 * *"
+      publish: { description: "Upload to release 'packs'", type: boolean, default: true }
 permissions:
   contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 300
+    env:
+      GH_TOKEN: ${{ github.token }}
+      WORK: ${{ runner.temp }}/packs-work
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: python3 -m unittest discover -s packs/tests
-      - run: python3 packs/build.py all --langs "${{ inputs.langs || 'de,en' }}" --answers "${{ inputs.answers || 'ru,en' }}" --work "$RUNNER_TEMP/packs-work" --out packs-out
+      - run: python3 packs/build.py slices --langs "${{ inputs.langs }}" --answers "${{ inputs.answers }}" --work "$WORK"
+      - run: python3 packs/build.py all --langs "${{ inputs.langs }}" --answers "${{ inputs.answers }}" --work "$WORK" --out packs-out
       - run: PACKS_OUT=packs-out python3 -m unittest discover -s packs/tests
-      - name: Draft release
-        env: { GH_TOKEN: "${{ github.token }}" }
-        run: |
-          tag="packs-$(date -u +%Y.%m.%d)-${{ github.run_number }}"
-          gh release create "$tag" --draft --title "Language packs $(date -u +%Y-%m-%d)" \
-            --notes "Grammar, dictionaries (CC BY-SA 4.0: Wiktionary contributors, Wiktextract/kaikki.org, WikDict) and translation models (MPL-2.0, Mozilla Firefox Translations). See packs/README.md." \
-            packs-out/*.zip packs-out/*.tar.zst packs-out/packs.json
+      - if: ${{ inputs.publish }}
+        run: python3 packs/build.py publish --work "$WORK" --out packs-out --release packs
+      - if: ${{ !inputs.publish }}
+        uses: actions/upload-artifact@v4
+        with: { name: packs-out, path: "packs-out/*.*" }

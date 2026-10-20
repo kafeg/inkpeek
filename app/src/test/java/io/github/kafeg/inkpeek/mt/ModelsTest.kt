@@ -1,30 +1,29 @@
 package io.github.kafeg.inkpeek.mt
 
+import io.github.kafeg.inkpeek.packs.Packs
 import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class ModelsTest {
-    private fun rec(s: String, t: String, type: String, v: String, arch: String, filter: String = "") = JSONObject()
-        .put("sourceLanguage", s).put("targetLanguage", t).put("fileType", type).put("version", v).put("architecture", arch)
-        .put("name", "$type.$s$t").put("filter_expression", filter).put("decompressedHash", "h").put("decompressedSize", 10)
-        .put("attachment", JSONObject().put("location", "x/$type$s$t$v$arch.zst").put("size", 5))
-
-    /** The full model first, then the newest version; incomplete, alpha and nightly-only sets are skipped. */
-    @Test fun picksBestCompleteSet() {
-        val recs = JSONArray()
-        listOf("model", "lex", "vocab").forEach { recs.put(rec("en", "ru", it, "3.1", "base-memory", "env.appinfo.OS == 'Android'")) }
-        listOf("model", "lex", "vocab").forEach { recs.put(rec("en", "ru", it, "3.0", "base", "env.appinfo.OS != 'Android'")) }
-        listOf("model", "lex").forEach { recs.put(rec("de", "en", it, "3.0", "base")) } // no vocab: incomplete
-        listOf("model", "lex", "vocab").forEach { recs.put(rec("de", "en", it, "3.0", "base-memory")) }
-        listOf("model", "lex", "vocab").forEach { recs.put(rec("be", "en", it, "3.0a1", "tiny", "env.channel == 'nightly'")) }
-        val sets = Models.parse(JSONObject().put("data", recs).toString())
-        assertEquals("base" to "3.0", sets.getValue("en" to "ru").first().let { it.arch to it.version })
-        assertEquals("base-memory", sets.getValue("de" to "en").single().arch)
-        assertTrue(("be" to "en") !in sets)
+    @Test fun stepsGoThroughEnglish() {
         assertEquals(listOf("de" to "en", "en" to "ru"), Engine.steps("de", "ru"))
         assertEquals(listOf("en" to "ru"), Engine.steps("en", "ru"))
+        assertEquals(emptyList<Pair<String, String>>(), Engine.steps("de", "de"))
+    }
+
+    /** German books with Russian answers need German grammar, de→ru, de→en + en→ru models and langid — nothing else. */
+    @Test fun neededComponents() {
+        fun c(id: String, kind: String, from: String = "", to: String = "") = JSONObject().put("id", id).put("kind", kind)
+            .put("from", from).put("to", to).put("file", JSONObject().put("name", "$id.zip").put("size", 1).put("sha256", "x"))
+        val all = JSONArray().put(c("grammar-de", "grammar", "de")).put(c("grammar-en", "grammar", "en"))
+            .put(c("dict-de-ru", "dict", "de", "ru")).put(c("dict-de-en", "dict", "de", "en")).put(c("dict-en-ru", "dict", "en", "ru"))
+            .put(c("model-de-en", "model", "de", "en")).put(c("model-en-ru", "model", "en", "ru")).put(c("model-en-de", "model", "en", "de"))
+            .put(c("langid", "langid"))
+        val cs = Packs.parse(JSONObject().put("components", all).toString())
+        assertEquals(listOf("grammar-de", "dict-de-ru", "model-de-en", "model-en-ru", "langid"), Packs.needed(cs, listOf("de"), "ru").map { it.id })
+        assertEquals(listOf("ru", "en"), Packs.answers(cs))
+        assertEquals(listOf("de", "en"), Packs.books(cs, "ru"))
     }
 }

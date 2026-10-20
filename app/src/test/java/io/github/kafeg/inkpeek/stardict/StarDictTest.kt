@@ -61,12 +61,6 @@ class StarDictTest {
         assertEquals("a &lt; b<br><i>x</i>", Article.toHtml(b.toByteArray(), null))
     }
 
-    @Test fun catalogParsers() {
-        val w = """{"assets":[{"name":"de-ru.tar.zst","size":5,"browser_download_url":"u"},{"name":"x.txt","size":1,"browser_download_url":"v"}]}"""
-        assertEquals("de" to "ru", Catalog.wiktionary(w).single().let { it.from to it.to })
-        val f = """[{"name":"deu-eng","releases":[{"platform":"src","URL":"a"},{"platform":"stardict","URL":"b","size":"10"}]}]"""
-        assertEquals("b", Catalog.freedict(f).single().url)
-    }
 }
 
 class MarkdownTest {
@@ -121,9 +115,6 @@ class GlossTest {
         // Mueller
         assertEquals("от go 1", shortMeaning("[went] _p. от go 1", "went"))
         assertEquals("идти, ходить", shortMeaning("[gəu] 1. _v. (went - gone) 1&gt; идти, ходить; быть в движении", "go"))
-        val index = "<a href=\"wikdict-de-ru.zip\">wikdict-de-ru.zip</a>                23-Jun-2026 21:21      4M\n" +
-            "<a href=\"wikdict-ca-bg.zip\">wikdict-ca-bg.zip</a>                23-Jun-2026 21:21    552K\n"
-        assertEquals(listOf(Triple("de", "ru", 4_000_000L), Triple("ca", "bg", 552_000L)), Catalog.wikdict(index).map { Triple(it.from, it.to, it.size) })
     }
 
     @Test fun phraseKeepsSentenceEnd() {

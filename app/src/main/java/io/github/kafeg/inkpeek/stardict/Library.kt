@@ -33,7 +33,9 @@ class Library(private val roots: List<File>, private val workRoot: File) {
             if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
         }
         val rank = order.withIndex().associate { it.value to it.index }
-        return cache.values.sortedWith(compareBy({ rank[it.id] ?: Int.MAX_VALUE }, { it.name }))
+        // Roots first (the language packs before the user's own), then the user's order within a root.
+        val root = { d: StarDict -> roots.indexOfFirst { d.ifo.path.startsWith(it.canonicalPath + File.separator) }.let { if (it < 0) roots.size else it } }
+        return cache.values.sortedWith(compareBy({ root(it) }, { rank[it.id] ?: Int.MAX_VALUE }, { it.name }))
     }
 
     /** Queues index building for every dictionary that needs it. */

@@ -84,7 +84,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (query.isEmpty()) { finish(); return }
         build()
         placeWindow()
-        if (kind == Kind.WORD) localHead()
+        if (kind == Kind.WORD) packHead()
         // The core opens; an AI tab only when the user asked for it in settings and AI can answer.
         open(if (kind != Kind.WORD && prefs.phraseAutoAi) TRANSLATE else DICT)
     }
@@ -253,7 +253,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val hits = res.getOrElse { note(p, getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) note(p, getString(R.string.preparing, notReady.joinToString { it.name }))
             if (hits.isEmpty()) {
-                if (notReady.isEmpty()) note(p, getString(if (lib.all().isEmpty()) R.string.no_dicts_card else R.string.not_found))
+                if (notReady.isEmpty()) note(p, getString(if (lib.all().isEmpty()) R.string.lang_no_packs else R.string.not_found))
                 return@launch
             }
             hits.forEach { (dict, list) ->
@@ -261,7 +261,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)} → "
                 val gram = io.github.kafeg.inkpeek.stardict.grammarOf(h.html).let { if (it.isBlank()) "" else " <i>${Ink.escape(it)}</i>" }
                 val meaning = runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
-                val line = "$form<b>${Ink.escape(h.word)}</b>$gram" + (if (meaning.isBlank()) "" else " — " + Ink.escape(meaning)) +
+                // A pack dictionary has its first line ready: "das Haus (Hauses, мн. Häuser) — дом, здание".
+                val ready = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1)
+                val line = (ready?.let { form + it } ?: ("$form<b>${Ink.escape(h.word)}</b>$gram" + (if (meaning.isBlank()) "" else " — " + Ink.escape(meaning)))) +
                     "<br><small>${Ink.escape(dict.name)}</small>"
                 p.addView(Ink.text(this@CardActivity, line, size, html = true).apply {
                     val q = Ink.dp(this@CardActivity, 6); setPadding(0, q, 0, q)
@@ -370,17 +372,47 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun org.json.JSONObject.str(k: String) = optString(k).trim()
 
     /** Instant header from the dictionaries: a German noun's article from WikDict's grammar mark ("noun, neutral"). */
-    private fun localHead() = launch {
-        val lib = prefs.library()
-        val (base, gram) = withContext(Dispatchers.IO) { runCatching {
-            lib.lookup(query, prefs.order, prefs.disabled).firstNotNullOfOrNull { (d, hits) ->
-                if (!Regex("\\(de-|Deutsch").containsMatchIn(d.name)) null
-                else hits.firstNotNullOfOrNull { h -> io.github.kafeg.inkpeek.stardict.grammarOf(h.html, "noun").takeIf { it.startsWith("noun") }?.let { h.word to it } }
-            }
-        }.getOrNull() } ?: return@launch
-        val article = when { "neut" in gram -> "das"; "fem" in gram -> "die"; "masc" in gram -> "der"; else -> return@launch }
-        titleView.text = "$article $base"
-        if (!base.equals(query, true)) { subView.text = "$query →"; subView.visibility = View.VISIBLE }
+    /** The first line of a pack dictionary's article, e.g. "das Haus (Hauses, мн. Häuser)" or "gehen (geht, ging, ist gegangen) сильн.". */
+    private fun headOf(html: String): String? = Regex("""<p class="head">(.*?)</p>""").find(html)?.groupValues?.get(1)
+        ?.let { android.text.Html.fromHtml(it, android.text.Html.FROM_HTML_MODE_COMPACT).toString() }?.substringBefore(" — ")?.trim()
+
+    /** The word's header from the language packs (built from Wiktionary's grammar): instantly, offline, no AI. */
+    private fun packHead() = launch {
+        val packsDir = prefs.packs.dicts.canonicalPath + java.io.File.separator
+        val heads = withContext(Dispatchers.IO) { runCatching {
+            prefs.library().lookup(query, prefs.order, prefs.disabled).filter { (d, _) -> d.ifo.path.startsWith(packsDir) }
+                .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headOf(h.html)?.let { h.word to it } } }
+        }.getOrDefault(emptyList()) }
+        val (base, head) = heads.firstOrNull() ?: return@launch
+        titleView.text = head
+        // The selected form, and the same word in another book language ("Gift" is German and English).
+        val sub = listOfNotNull(if (base.equals(query, true)) null else "$query →", heads.drop(1).firstOrNull()?.second).joinToString("   ·   ")
+        subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
+    }
+
+    /**
+     * Language of the selection among the installed book languages: fastText's language identification, confirmed by
+     * the grammar (how many of its words it knows); a language without a pack comes back as unsupported.
+     */
+    private fun sourceLanguage(answer: String): Pair<String?, String?> {
+        val books = prefs.packs.installedBooks(answer)
+        if (books.isEmpty()) return null to null
+        val guess = runCatching { if (prefs.packs.langid.exists()) io.github.kafeg.inkpeek.mt.LangId.detect(prefs.packs.langid, query, 5) else emptyList() }
+            .getOrDefault(emptyList())
+        val top = guess.firstOrNull()
+        val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(query).map { it.value }.distinct().take(40).toList()
+        val grammar = prefs.grammar().all()
+        val known = books.associateWith { x ->
+            val g = grammar.firstOrNull { it.ifo.parentFile?.name == "grammar-$x" }
+            if (g == null || !g.ready) 0 else words.count { w -> runCatching { g.lookup(w).isNotEmpty() }.getOrDefault(false) }
+        }
+        return when {
+            top != null && top.second >= 0.5f && top.first in books && (known[top.first] ?: 0) > 0 -> top.first to null
+            known.values.any { it > 0 } -> known.maxByOrNull { it.value }!!.key to null
+            top != null && top.second >= 0.5f && top.first !in books -> null to top.first
+            top != null && top.first in books -> top.first to null
+            else -> books.first() to null
+        }
     }
 
     /** Markdown for a tab from its answer. */
@@ -431,20 +463,25 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private suspend fun offline(p: LinearLayout, out: TextView) {
-        val root = prefs.modelsDir; val from = prefs.bookLang; val to = prefs.answerCode
-        if (from.isBlank() || to.isBlank() || !Engine.ready(root, from, to)) {
-            out.text = getString(R.string.mt_missing)
+        val root = prefs.modelsDir; val to = prefs.answerCode
+        val (from, other) = withContext(Dispatchers.IO) { sourceLanguage(to) }
+        if (from == null || !Engine.ready(root, from, to)) {
+            out.text = if (other != null) getString(R.string.lang_unsupported, java.util.Locale(other).getDisplayLanguage(resources.configuration.locales[0]))
+                else getString(R.string.mt_missing)
             if (kind != Kind.WORD) glossInto(p.also { it.addView(View(this), Ink.lp(h = Ink.dp(this, 12))) }) { w ->
                 if (pages[DICT] == null) pages[DICT] = Ink.vertical(this); open(DICT); pages[DICT]?.let { d -> fillArticles(d, w) { fillGloss(d) } } }
             return
         }
+        if (from == to) { out.text = query; return }
         val key = "offline-$from"
         val saved = withContext(Dispatchers.IO) { runCatching { store.answer(query, to, key, 1) }.getOrNull() }
         if (saved == null) out.text = getString(R.string.mt_working)
         val r = saved?.let { Result.success(it) } ?: withContext(Dispatchers.IO) { runCatching {
             Engine.translate(root, from, to, query, keep = roomy()).also { runCatching { store.putAnswer(query, to, key, 1, "bergamot", it) } }
         } }
-        r.fold({ out.text = it; if (Engine.steps(from, to).size > 1) note(p, getString(R.string.mt_via_english)) }, { out.text = it.message ?: it.javaClass.simpleName })
+        val lang = java.util.Locale(from).getDisplayLanguage(resources.configuration.locales[0])
+        r.fold({ out.text = it; note(p, lang.replaceFirstChar { c -> c.uppercase() } + if (Engine.steps(from, to).size > 1) " · " + getString(R.string.mt_via_english) else "") },
+            { out.text = it.message ?: it.javaClass.simpleName })
     }
 
     /** Keep both models loaded only with plenty of free memory (≈ 300 MB each). */

@@ -179,7 +179,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
-   - Languages: de→ru, en→ru, de→en first. Then an analysis of which other packs reach the same quality; a new
+   - Languages: de→ru, en→ru, de→en, then en→de, ru→de (German answers bring the German UI back), grammar ru. Then an analysis of which other packs reach the same quality; a new
      answer language comes in tandem — its packs and the UI language together, never one without the other.
    - Components, each a separate asset, shared between pairs: `grammar-<x>` (StarDict: one line per lemma —
      part of speech, gender, plural, verb principal parts, auxiliary, strong / weak / irregular from Wiktionary data
@@ -189,7 +189,9 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - A pair is published only when its tests pass: golden words (form → lemma, article, plural, principal parts,
      first meaning), coverage of frequent words, first-line length; weak pairs marked as such.
    - Inputs pinned by date and sha256 (`packs/sources.json`); the build streams the kaikki dumps, never unpacks them.
-   - CI: a manual / monthly workflow builds a draft release; a person publishes it.
+   - CI per component: slices of the kaikki dumps are cut once and kept in release `packs-sources` (re-cut only
+     when a dump changes: ETag / Last-Modified); a run builds only the languages it is given, tests them and
+     uploads those assets to release `packs`, merging `packs.json` (other components stay as they are).
 11. **Offline translation engine** (done; models picked per direction in settings until the pack manager) — Bergamot (Firefox Translations, MPL-2.0) built with the NDK; the JNI wrapper
    adapted from RTranslator (Apache-2.0, attribution); Mozilla's models (via English: de→en→ru) from the packs.
    Prototype measured on the Boox (research note): 0.15–0.85 s per sentence with both models loaded (≈ 560 MB),
@@ -199,10 +201,16 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
      (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
    - Memory: both models stay loaded when the device has room, else one at a time.
-12. **My languages** — the answer language (a setting already) + "languages of my books" (checkboxes) decide what
-   to download from `packs.json`: grammar of each book language, the dictionary of each pair, the models (through
-   English). One short screen: status, size, update, delete. First run asks these two questions. Raw dictionary
-   catalog and file import stay as "other dictionaries".
+12. **My languages** — one system instead of the offline-translation block, the dictionary catalog and "language of
+   my books". Packs list from our release `packs` (`packs.json`). The user ticks book languages; the answer language
+   is a setting already; the app downloads what the pairs need: `grammar-<x>`, `dict-<x>-<y>`, models through
+   English, `langid` — sha256 checked; status, size, update, delete. First run asks both. "Import file" stays for own
+   dictionaries; the raw catalog (WikDict, Wiktionary, FreeDict) goes.
+   - Header of a word from `grammar-<x>`: instantly, offline, no AI.
+   - Language of a selection: fastText language identification (`lid.176.ftz`, CC BY-SA 3.0, ≈ 1 MB, in our packs;
+     fastText MIT, native) among the installed book languages; the grammar confirms (how many words of the text it
+     knows, forms included); a word known in two languages shows both. A language without a pack is said so.
+   - Offline translation from the detected language; the setting "language of my books" goes.
 13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized
    for e-ink, sections, fewer options.
 

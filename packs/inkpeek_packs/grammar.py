@@ -11,6 +11,9 @@ SKIP_FORM = {"table-tags", "inflection-template", "class", "romanization", "auxi
 SKIP_SENSE = {"obsolete", "archaic", "misspelling", "nonstandard", "dialectal", "rare"}
 PRONOUN = re.compile(r"^(ich|du|er/sie/es|wir|ihr|sie|Sie)\s+")
 CLASS_WORDS = ("irregular", "strong", "weak", "mixed")
+# Wiktionary marks stress in Russian and Ukrainian forms (до́ма); books do not.
+STRESS = re.compile("[\u0300\u0301]")
+UNSTRESS = {"ru", "uk"}
 
 
 class Lemma:
@@ -33,6 +36,7 @@ def _first(xs):
 
 
 def _add(xs, x):
+    x = STRESS.sub("", x) if x else x
     if x and x not in xs and x != "—":
         xs.append(x)
 
@@ -44,10 +48,14 @@ class Grammar:
         self.forms = defaultdict(list)        # form → lemmas, first the one whose own table lists the form
 
     def lemma(self, word, pos):
+        word = self.plain(word)
         return self.lemmas.setdefault((word, pos), Lemma(word, pos))
 
+    def plain(self, s):
+        return STRESS.sub("", s) if self.lang in UNSTRESS else s
+
     def form(self, form, lemma, table=True):
-        form = PRONOUN.sub("", form.strip().rstrip("!"))
+        form, lemma = self.plain(PRONOUN.sub("", form.strip().rstrip("!"))), self.plain(lemma)
         if not form or " " in form or form == lemma:
             return
         ls = self.forms[form]
@@ -147,6 +155,8 @@ def from_enwiktionary(records, g, irregular_category=None, fill=False):
                 continue
             if t & {"table-tags", "class"}:
                 classes.append(x)
+            if "canonical" in t and not fill:  # the headword with its gender (Russian, Polish…: "кни́га f inan")
+                L.gender |= {GENDER[g] for g in t if g in GENDER}
             if fill:
                 continue
             if "auxiliary" in t:

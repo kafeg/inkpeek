@@ -86,8 +86,21 @@ class DictionaryTest(unittest.TestCase):
         g.form("Häusern", "Haus")
         arts, syn, st = dictionary.build("de", "ru", [rec("Haus", "noun", senses=[
             {"glosses": ["дом, здание"], "examples": [{"text": "Das Haus ist alt."}]}, {"glosses": ["семья (род)"]}])], g)
-        self.assertIn('<p class="head"><b>das Haus</b> (мн. Häuser) — дом, здание; семья</p>', arts["Haus"])
+        self.assertIn('<p class="head"><b>das Haus</b> (мн. Häuser) — дом, здание, семья</p>', arts["Haus"])
+        self.assertEqual(dictionary._short(["das Haus (abode)", "das Haus (building)", "das Haus, die Kammer (chamber (of parliament))", "gehen) x"]),
+                         "das Haus, die Kammer, gehen x")
         self.assertIn(("Häusern", "Haus"), syn)
+
+
+class TablesTest(unittest.TestCase):
+    def test_translation_tables(self):
+        r = dict(word="house", pos="noun", lang_code="en", translations=[
+            {"lang_code": "de", "word": "Haus", "sense": "human abode", "tags": ["neuter"]},
+            {"lang_code": "de", "word": "Huus", "sense": "human abode", "tags": ["Alemannic-German", "neuter"]},
+            {"lang_code": "ru", "word": "дом", "sense": "human abode", "tags": ["masculine"]},
+            {"lang_code": "de", "word": "Kammer", "sense": "chamber", "tags": ["feminine"]}])
+        self.assertEqual(dictionary.translations([r], "de"), {"house": [("noun", [("das Haus (human abode)", []), ("die Kammer (chamber)", [])])]})
+        self.assertEqual(dictionary.translations([r], "ru")["house"][0][1][0][0], "дом (human abode)")
 
 
 if __name__ == "__main__":

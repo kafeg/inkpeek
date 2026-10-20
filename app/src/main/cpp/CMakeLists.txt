@@ -1,4 +1,5 @@
 # Offline translation: Bergamot (MPL-2.0) with its marian; build flags as in RTranslator (Apache-2.0).
+# One library: libinkpeek_mt.so (translation + language identification).
 cmake_minimum_required(VERSION 3.18)
 project(inkpeek_native C CXX)
 
@@ -14,5 +15,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-enum-constexpr-conversion")
 
 add_subdirectory(bergamot EXCLUDE_FROM_ALL)
 
-add_library(inkpeek_mt SHARED translator_jni.cpp)
+# Language identification: fastText (MIT), its library sources only (no main.cc).
+file(GLOB FASTTEXT_SOURCES fasttext/src/*.cc)
+list(FILTER FASTTEXT_SOURCES EXCLUDE REGEX ".*/main\\.cc$")
+
+add_library(inkpeek_mt SHARED translator_jni.cpp langid_jni.cpp ${FASTTEXT_SOURCES})
+target_include_directories(inkpeek_mt PRIVATE fasttext/src)
 target_link_libraries(inkpeek_mt bergamot-translator android log)
