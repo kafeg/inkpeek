@@ -209,7 +209,8 @@ def cmd_dict(a, x, y):
     except Exception as e:  # not every pair exists at WikDict
         print(f"  no WikDict {x}-{y}: {e}", flush=True)
     tables = dictionary.translations(kaikki.records(slice_file(a, "en", "en"), "en"), y) if x == "en" else None
-    reverse = None if x == "en" else dictionary.reverse_translations(
+    # Only for pairs listed after a measurement: elsewhere it adds rare words and noise (sources.json).
+    reverse = None if f"{x}-{y}" not in SOURCES.get("reverse_pairs", []) else dictionary.reverse_translations(
         kaikki.records(slice_file(a, y, y), y, has=f'"lang_code": "{x}"'), x, y)
     articles, syn, st = dictionary.build(x, y, kaikki.records(slice_file(a, y, x), x), g, wd, tables, reverse)
     folder = os.path.join(a.out, "build", f"dict-{x}-{y}")
