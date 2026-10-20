@@ -41,10 +41,10 @@ class DictionaryPage(private val card: CardActivity) {
             if (hits.isEmpty() && notReady.isEmpty()) card.note(p, card.getString(if (none) R.string.lang_no_packs else R.string.not_found))
             hits.forEach { (dict, list) ->
                 val h = list.first()
-                val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)} → "
-                // The pack's first line as it is: "das Haus (Hauses, мн. Häuser) — дом, здание".
+                // The pack's first line as it is, "das Haus (Hauses, мн. Häuser) — дом, здание"; a form says which one it is.
                 val first = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1) ?: "<b>${Ink.escape(h.word)}</b>"
-                p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(dict.name)}</small>", card.size, html = true).apply {
+                val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)}: "
+                p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.pairName(dict))}</small>", card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
                 })
@@ -56,7 +56,7 @@ class DictionaryPage(private val card: CardActivity) {
     private fun article(dict: StarDict, list: List<Hit>, word: String, to: () -> Unit) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(to)
-        p.addView(Ink.text(card, dict.name, card.size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+        p.addView(Ink.text(card, card.pairName(dict), card.size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)) }
         card.scrollTop()
     }
@@ -81,9 +81,15 @@ class DictionaryPage(private val card: CardActivity) {
             card.note(p, card.getString(R.string.gloss_title))
             if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
             g.forEach { x ->
-                val base = if (x.base.equals(x.word, true)) "" else " → ${Ink.escape(x.base)}"
-                val meaning = if (x.meaning.isBlank()) "" else " — ${Ink.escape(x.meaning)}"
-                p.addView(Ink.text(card, "<b>${Ink.escape(x.word)}</b>$base$meaning", card.size, html = true).apply {
+                // The same first line as the header and the Dictionary tab: "der Hund (Hundes, мн. Hunde) — собака";
+                // a form names itself first: "schläft: schlafen (schläft, schlief, hat geschlafen) — спать".
+                val line = x.head?.line?.let { Ink.escape(it) }
+                val text = when {
+                    line == null -> "<b>${Ink.escape(x.word)}</b>"
+                    x.base.equals(x.word, true) -> line
+                    else -> "<b>${Ink.escape(x.word)}</b>: $line"
+                }
+                p.addView(Ink.text(card, text, card.size, html = true).apply {
                     val q = Ink.dp(card, 4); setPadding(0, q, 0, q)
                     setOnClickListener { tap(x.base.ifBlank { x.word }) }
                 })

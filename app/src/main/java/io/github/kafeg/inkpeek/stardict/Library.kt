@@ -69,21 +69,27 @@ class Library(private val roots: List<File>, private val workRoot: File) {
         .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it) } } }
 
     /**
-     * Word-by-word help for a phrase or passage: each distinct word with its base form and first meanings. Only
+     * Word-by-word help for a phrase or passage: each distinct word with its base form's first line. Only
      * dictionaries that know most of the text count (so an English dictionary does not explain German "aus" as "AU");
      * among them the one into [answer] wins, then the one that knows more words of this text.
      */
     fun gloss(text: String, answer: String, limit: Int = 60): List<Gloss> {
-        val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).map { it.value }.distinctBy { it.lowercase() }.take(limit).toList()
-        val found = words.associateWith { lookup(it, answer) }
+        val all = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).toList()
+        val words = all.map { it.value }.distinctBy { it.lowercase() }.take(limit)
+        // A sentence's first word is capitalized by spelling, not by meaning: "Er" is "er", "Der" is "der".
+        val starts = all.filter { m -> text.substring(0, m.range.first).trimEnd().let { it.isEmpty() || it.last() in ".!?…:" } }.map { it.value }.toSet()
+        val found = words.associateWith { w ->
+            (if (w in starts && w != w.lowercase()) lookup(w.lowercase(), answer).filter { (_, h) -> h.first().word == w.lowercase() } else emptyList())
+                .ifEmpty { lookup(w, answer) }
+        }
         val known = found.values.flatMap { r -> r.map { it.first.id } }.groupingBy { it }.eachCount()
         val top = known.values.maxOrNull() ?: 0
         return words.map { w ->
             found.getValue(w).filter { (d, _) -> (known[d.id] ?: 0) * 2 >= top }
-                .mapNotNull { (d, hits) -> headLine(hits.first().html)?.let { Triple(d, hits.first().word, Head(hits.first().word, it).meaning) } }
-                .filter { it.third.isNotBlank() }
+                .mapNotNull { (d, hits) -> headLine(hits.first().html)?.let { d to Head(hits.first().word, it) } }
+                .filter { it.second.meaning.isNotBlank() }
                 .sortedWith(compareBy({ it.first.answer != answer }, { -(known[it.first.id] ?: 0) }))
-                .firstOrNull()?.let { (_, base, m) -> Gloss(w, base, m) } ?: Gloss(w, w, "")
+                .firstOrNull()?.let { (_, h) -> Gloss(w, h) } ?: Gloss(w, null)
         }
     }
 }
@@ -92,8 +98,11 @@ class Library(private val roots: List<File>, private val workRoot: File) {
 val StarDict.book: String? get() = ifo.parentFile?.name?.split('-')?.getOrNull(1)
 val StarDict.answer: String? get() = ifo.parentFile?.name?.split('-')?.getOrNull(2)
 
-/** One line of an offline word-by-word gloss. */
-data class Gloss(val word: String, val base: String, val meaning: String)
+/** One line of an offline word-by-word gloss: the [word] of the text and its base form's first line, if any. */
+data class Gloss(val word: String, val head: Head?) {
+    val base: String get() = head?.word ?: word
+    val meaning: String get() = head?.meaning.orEmpty()
+}
 
 /** A pack article's first line: [word] is the headword, [line] "das Haus (Hauses, мн. Häuser) — дом, здание". */
 data class Head(val word: String, val line: String) {

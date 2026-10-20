@@ -23,6 +23,8 @@ import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.mt.Engine
 import io.github.kafeg.inkpeek.mt.OfflineTranslation
 import io.github.kafeg.inkpeek.stardict.cleanPhrase
+import io.github.kafeg.inkpeek.stardict.answer
+import io.github.kafeg.inkpeek.stardict.book
 import io.github.kafeg.inkpeek.stardict.cleanQuery
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -58,8 +60,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var titleView: TextView
     private lateinit var subView: TextView
     private lateinit var titleBox: LinearLayout
-    /** Header button "←": shown while a word's article is open from the list or the gloss. */
-    private lateinit var backButton: ImageView
+    /** "←" in the icon bar: shown while a word's article is open from the list or the gloss. */
+    private lateinit var backButton: View
     private lateinit var starButton: ImageView
     private val actions get() = if (prefs.aiOn) Action.ALL else emptyList()
 
@@ -96,7 +98,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** The card (header, body) with the icon bar at its bottom under a thin line: tabs · save, my words · close. */
     private fun build() {
-        val pad = Ink.dp(this, 14); val x = Ink.dp(this, 44)
+        val pad = Ink.dp(this, 14)
         val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
         val head = FrameLayout(this)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
@@ -107,13 +109,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
-        backButton = ImageView(this).apply {
-            setImageResource(R.drawable.ic_back); background = Ink.border(this@CardActivity)
-            val q = Ink.dp(this@CardActivity, 9); setPadding(q, q, q, q)
-            contentDescription = getString(R.string.back); tooltipText = contentDescription; visibility = View.GONE
-            setOnClickListener { dictionary.back?.invoke() }
-        }
-        head.addView(backButton, FrameLayout.LayoutParams(x, x, Gravity.TOP or Gravity.END))
         card.addView(head)
         scroll = ScrollView(this)
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
@@ -124,7 +119,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate))) + actions.map { a ->
             Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
-        val n = tabs.size + 3; val gap = Ink.dp(this, 5)
+        val n = tabs.size + 4; val gap = Ink.dp(this, 5) // + save, my words, back, close
         val side = minOf(Ink.dp(this, 44), ((resources.displayMetrics.widthPixels * 0.92).toInt() - 2 * pad - gap * (n + 3)) / n)
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
@@ -141,6 +136,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         starButton = star.findViewWithTag("icon"); add(star)
         add(iconButton(R.drawable.ic_words, getString(R.string.tab_words), side) { open(SAVED) }.also { tabButtons[SAVED] = it })
         bar.addView(View(this), Ink.lp(0, 1, weight = 1f))
+        // "←" in the free space before Close: from an article back to the list or the gloss.
+        backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { dictionary.back?.invoke() }.apply { visibility = View.GONE }
+        add(backButton)
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
 
@@ -198,10 +196,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     fun scrollTop() = scroll.scrollTo(0, 0)
 
-    fun showBack() {
-        val on = shown == DICT && dictionary.back != null
-        backButton.visibility = if (on) View.VISIBLE else View.GONE
-        titleBox.setPadding(0, 0, if (on) Ink.dp(this, 44) + Ink.dp(this, 8) else 0, 0)
+    fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null) View.VISIBLE else View.GONE }
+
+    /** A pack dictionary's languages: "Немецкий → Русский". */
+    fun pairName(d: io.github.kafeg.inkpeek.stardict.StarDict): String {
+        val l = resources.configuration.locales[0]
+        fun name(c: String?) = c?.let { java.util.Locale(it).getDisplayLanguage(l).replaceFirstChar { ch -> ch.uppercase() } }
+        return listOfNotNull(name(d.book), name(d.answer)).joinToString(" → ").ifBlank { d.name }
     }
 
     /** System Back from a word's article returns to the list or the gloss first. */
