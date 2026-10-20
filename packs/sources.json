@@ -1,0 +1,16 @@
+{
+  "kaikki": {
+    "en": "https://kaikki.org/dictionary/raw-wiktextract-data.jsonl.gz",
+    "de": "https://kaikki.org/dewiktionary/raw-wiktextract-data.jsonl.gz",
+    "ru": "https://kaikki.org/ruwiktionary/raw-wiktextract-data.jsonl.gz",
+    "fr": "https://kaikki.org/frwiktionary/raw-wiktextract-data.jsonl.gz",
+    "es": "https://kaikki.org/eswiktionary/raw-wiktextract-data.jsonl.gz",
+    "it": "https://kaikki.org/itwiktionary/raw-wiktextract-data.jsonl.gz",
+    "pt": "https://kaikki.org/ptwiktionary/raw-wiktextract-data.jsonl.gz",
+    "pl": "https://kaikki.org/plwiktionary/raw-wiktextract-data.jsonl.gz",
+    "nl": "https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz"
+  },
+  "wikdict": "https://download.wikdict.com/dictionaries/stardict/wikdict-{x}-{y}.zip",
+  "languages": {"en": "English", "ru": "Russian", "de": "German", "uk": "Ukrainian", "es": "Spanish", "fr": "French",
+                "it": "Italian", "pt": "Portuguese", "pl": "Polish", "nl": "Dutch"}
+}

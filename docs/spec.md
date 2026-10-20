@@ -177,7 +177,7 @@ Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models download
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; fewer UI languages —
 the ones we have packs for; Translate: AI first when it can answer (setting: offline first), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
-10. **Language packs** — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
+10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
    of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
    - Languages: en, ru, de, uk, es, fr, it, pt, pl, nl. First de, en with ru, en answers; then all.

@@ -1,0 +1,20 @@
+# kind	key	expected — form: form → lemma; head: first line of the de→ru article starts with; mean: first line contains
+form	Kindern	Kind
+form	Häusern	Haus
+form	Fenstern	Fenster
+form	ging	gehen
+form	gegangen	gehen
+form	las	lesen
+form	ist	sein
+form	Mäusen	Maus
+gram	Haus	g=n
+gram	Haus	pl=Häuser
+gram	gehen	past=ging
+gram	gehen	aux=sein
+gram	gehen	class=strong
+gram	kaufen	class=weak
+head	Haus	das Haus
+head	gehen	gehen (geht, ging, ist gegangen)
+mean	Haus	дом
+mean	gehen	идти
+mean	Gewitter	гроза

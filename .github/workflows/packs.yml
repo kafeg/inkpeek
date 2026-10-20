@@ -1,0 +1,28 @@
+name: Packs
+on:
+  workflow_dispatch:
+    inputs:
+      langs: { description: "Book languages", default: "de,en" }
+      answers: { description: "Answer languages", default: "ru,en" }
+  schedule:
+    - cron: "0 3 1 * *"
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: python3 -m unittest discover -s packs/tests
+      - run: python3 packs/build.py all --langs "${{ inputs.langs || 'de,en' }}" --answers "${{ inputs.answers || 'ru,en' }}" --work "$RUNNER_TEMP/packs-work" --out packs-out
+      - run: PACKS_OUT=packs-out python3 -m unittest discover -s packs/tests
+      - name: Draft release
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          tag="packs-$(date -u +%Y.%m.%d)-${{ github.run_number }}"
+          gh release create "$tag" --draft --title "Language packs $(date -u +%Y-%m-%d)" \
+            --notes "Grammar, dictionaries (CC BY-SA 4.0: Wiktionary contributors, Wiktextract/kaikki.org, WikDict) and translation models (MPL-2.0, Mozilla Firefox Translations). See packs/README.md." \
+            packs-out/*.zip packs-out/*.tar.zst packs-out/packs.json

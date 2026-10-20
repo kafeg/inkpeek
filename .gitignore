@@ -10,3 +10,7 @@ keystore.properties
 captures/
 .kotlin/
 .cxx/
+packs-out/
+packs/work/
+packs/out/
+__pycache__/
