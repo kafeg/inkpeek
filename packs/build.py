@@ -121,7 +121,12 @@ def cmd_publish(a):
         r = gh("release", "download", a.release, "-p", "packs.json", "-D", tmp, "--clobber", check=False)
         old = json.load(open(os.path.join(tmp, "packs.json"), encoding="utf-8"))["components"] if r.returncode == 0 else []
     ids = {c["id"] for c in mine["components"]}
-    merged = sorted([c for c in old if c["id"] not in ids] + mine["components"], key=lambda c: c["id"])
+    # Only what the app downloads (grammar is a build input since 21.10); stale assets go from the release too.
+    kinds = {"dict", "model", "langid"}
+    merged = sorted([c for c in old if c["id"] not in ids and c["kind"] in kinds] + mine["components"], key=lambda c: c["id"])
+    for c in old:
+        if c["kind"] not in kinds:
+            gh("release", "delete-asset", a.release, c["file"]["name"], "--yes", check=False)
     path = os.path.join(a.out, "packs.json")
     json.dump({"format": 1, "generated": a.date, "components": merged}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     files = [os.path.join(a.out, c["file"]["name"]) for c in mine["components"]]
@@ -185,8 +190,7 @@ def cmd_grammar(a, x):
     st = stardict.write(os.path.join(folder, f"grammar-{x}"), g.entries(), g.syn(), types="m", date=a.date,
                         bookname=f"InkPeek grammar {x}", description=ATTRIBUTION)
     print(f"grammar-{x}: {st}", flush=True)
-    return {"id": f"grammar-{x}", "kind": "grammar", "from": x, "file": pack(a, f"grammar-{x}", folder),
-            "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}
+    return None  # build input only: the dictionaries carry its header and forms; kept in build/ for the golden tests
 
 
 def cmd_dict(a, x, y):
@@ -210,7 +214,7 @@ def cmd_dict(a, x, y):
     st.update(stardict.write(os.path.join(folder, f"dict-{x}-{y}"), articles, syn, types="h", date=a.date,
                              bookname=f"InkPeek {x} → {y}", description=ATTRIBUTION))
     print(f"dict-{x}-{y}: {st}", flush=True)
-    return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "weak": st["weak"], "file": pack(a, f"dict-{x}-{y}", folder),
+    return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),
             "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}
 
 
@@ -252,7 +256,7 @@ def main():
     comps = []
     if a.cmd in ("all", "grammar"):
         for x in (a.args or a.langs):
-            comps.append(cmd_grammar(a, x))
+            cmd_grammar(a, x)
     if a.cmd in ("all", "dict"):
         pairs = [tuple(a.args)] if a.args else [(x, y) for x in a.langs for y in a.answers if x != y]
         comps += [c for c in (cmd_dict(a, x, y) for x, y in pairs) if c]

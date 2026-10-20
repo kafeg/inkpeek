@@ -59,13 +59,9 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Dictionaries
 - Format: StarDict 3 — `.ifo`, `.idx` (or `.idx.gz`), `.dict` or `.dict.dz` (dictzip random access), optional `.syn`.
   `sametypesequence` `m`, `t`, `x`, `h`, `g` → plain text or simple HTML.
-- Library: one folder, `/sdcard/dictdata` (created when missing; the ColorDict folder). Each dictionary in its own
-  subfolder. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
-- Import: a file picker takes `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst` or loose StarDict files.
-- Get dictionaries: live lists of WikDict (`download.wikdict.com/dictionaries/stardict/` index, `.zip`, CC BY-SA),
-  Wiktionary (xxyzz/wiktionary_stardict releases, `.tar.zst`) and FreeDict (`freedict-database.json`); language
-  names, pairs into the answer language first, ★ WikDict among them (compact: short translations, gender, forms →
-  base). A ★ download goes first in the order. The download dialog says what each source is good for.
+- Library: the pack dictionaries only, `/sdcard/InkPeek/packs/dicts/<id>/` (Languages tab, milestone 12); no
+  import, no third-party lists. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
+- Order in the card: dictionaries into the app's language first.
 - Short line of an article: WikDict — the `<div>` translations of the first (or the AI's) part-of-speech block and
   its grammar mark ("noun, neutral"); Wiktionary — the first sense of the first `<ol>`; plain text (Mueller) — the
   first line without `[transcription]`, `_v.`, `1>` marks; always up to the first ";".
@@ -75,7 +71,6 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Query normalization: trim, strip surrounding punctuation and quotes, collapse spaces; soft hyphen removed.
   The card and the AI get a phrase with its sentence end (`?!.…`) kept and stray edge quotes / brackets removed.
 - Rendering: HTML through `Html.fromHtml` into a `TextView` (no WebView, no JS); images ignored.
-- Dictionary list in settings: enable/disable, order.
 
 ## AI
 - Providers: Claude (Anthropic Java SDK), OpenAI and OpenRouter (OpenAI-compatible `/chat/completions`, `/models`).
@@ -93,7 +88,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Network: "online" = a validated network; a VPN counts only with a real network under it. Offline → no request.
 - Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → a neutral "the service
   refused: check the network or VPN and the key"; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
-- Answer language: setting, default Russian.
+- Answer language: the app's language (en, ru, de; system language by default, English otherwise). No separate setting.
 - Two requests, each answered as one JSON object (Claude: structured outputs with a JSON Schema; OpenAI-compatible:
   `response_format: json_object`, then without it on 400/422; the reply is parsed from the first `{` to the last `}`).
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
@@ -120,14 +115,14 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Settings → My words: Words / Phrases / History with counts; tap opens the card, ✕ removes; clear history.
 
 ## Settings screen
-Tabs: Dictionaries (list with status, enable, order, delete; import; get) · AI (on/off, phrase mode, provider, key
-and its source, model picker with filter / maker / free only / sort, answer language, delete saved answers) · Card
+Tabs: Languages (pack pairs, milestone 12) · AI (on/off, phrase mode, provider, key and its source, model picker with
+filter / maker / free only / sort, AI or offline first in Translate, delete saved answers) · Card
 (app language, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de); system language
-by default.
+by default. The app language is also the answer language.
 
 ## Tech
-- Kotlin, Android Views (no Compose), minSdk 26, targetSdk 35. Libraries: anthropic-java, OkHttp, kotlinx-coroutines,
-  commons-compress + xz + zstd-jni (archives).
+- Kotlin, Android Views (no Compose), minSdk 30, targetSdk 35, arm64. Libraries: anthropic-java, OkHttp,
+  kotlinx-coroutines, commons-compress + zstd-jni (pack archives). Native: Bergamot, fastText.
 - Packages: `stardict` (pure JVM: ifo/idx/syn/dict/dictzip readers, lookup), `ai` (Claude client, actions),
   `ui` (card activity, settings).
 - Tests: JVM unit tests for `stardict` with a tiny generated dictionary.
@@ -181,13 +176,11 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
    - Languages: de→ru, en→ru, de→en, then en→de, ru→de (German answers bring the German UI back), grammar ru. Then an analysis of which other packs reach the same quality; a new
      answer language comes in tandem — its packs and the UI language together, never one without the other.
-   - Components, each a separate asset, shared between pairs: `grammar-<x>` (StarDict: one line per lemma —
-     part of speech, gender, plural, verb principal parts, auxiliary, strong / weak / irregular from Wiktionary data
-     only; `.syn` = every inflected form → lemma), `dict-<x>-<y>` (one StarDict per pair: our own articles from the
+   - Components, each a separate asset, shared between pairs: `dict-<x>-<y>` (one StarDict per pair: our own articles from the
      Wiktionary of language y via kaikki.org, first line "header — first meanings", WikDict where Wiktionary has
      nothing, `.syn` from the grammar), `model-<x>-<y>` (Mozilla's best model for the direction).
    - A pair is published only when its tests pass: golden words (form → lemma, article, plural, principal parts,
-     first meaning), coverage of frequent words, first-line length; weak pairs marked as such.
+     first meaning), coverage of frequent words, first-line length.
    - Inputs pinned by date and sha256 (`packs/sources.json`); the build streams the kaikki dumps, never unpacks them.
    - CI per component: slices of the kaikki dumps are cut once and kept in release `packs-sources` (re-cut only
      when a dump changes: ETag / Last-Modified); a run builds only the languages it is given, tests them and
@@ -198,19 +191,20 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    1.2–2 s with one model at a time (≈ 380 MB); engine ≈ 3.3 MB in the APK; needs API 28+.
    - Translate tab (core, no AI mark): with AI on, two segments like My words — AI and Offline; the setting picks the
      first one; AI dimmed (reason on tap) when it cannot answer; the offline text is marked "through English".
-   - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), downloaded from Mozilla Remote Settings
-     (`translations-models-v2`, the newest "base" record, else "base-memory"), sha256 checked.
+   - Models in `/sdcard/InkPeek/models/<from><to>/` (model, lex, vocab), from the packs (milestone 10: mirrored from
+     Mozilla Remote Settings `translations-models-v2`, the newest "base" record, else "base-memory").
    - Memory: both models stay loaded when the device has room, else one at a time.
-12. **My languages** (done; checked on the Boox) — one system instead of the offline-translation block, the dictionary catalog and "language of
-   my books". Packs list from our release `packs` (`packs.json`). The user ticks book languages; the answer language
-   is a setting already; the app downloads what the pairs need: `grammar-<x>`, `dict-<x>-<y>`, models through
-   English, `langid` — sha256 checked; status, size, update, delete. First run asks both. "Import file" stays for own
-   dictionaries; the raw catalog (WikDict, Wiktionary, FreeDict) goes.
-   - Header of a word from `grammar-<x>`: instantly, offline, no AI.
-   - Language of a selection: fastText language identification (`lid.176.ftz`, CC BY-SA 3.0, ≈ 1 MB, in our packs;
-     fastText MIT, native) among the installed book languages; the grammar confirms (how many words of the text it
-     knows, forms included); a word known in two languages shows both. A language without a pack is said so.
-   - Offline translation from the detected language; the setting "language of my books" goes.
+12. **My languages** (done; checked on the Boox) — one system instead of the offline-translation block, the
+   dictionary catalog, "language of my books" and the user's own dictionaries (all gone, 21.10). Packs list from our
+   release `packs` (`packs.json`). No answer-language setting: answers come in the app's language. The list shows
+   every pair of the packs (those into the app's language first); the user ticks any or all, the app downloads
+   what the pairs need — `dict-<x>-<y>`, the models through English, `langid` — sha256 checked; status, size,
+   update; what is not ticked (or no longer in the list) is removed. The card's dictionaries are the packs only.
+   - Header of a word: the first line of the pack dictionary's article (built from Wiktionary's grammar), offline.
+   - Language of a selection (offline translation only; AI needs none): fastText (`lid.176.ftz`, CC BY-SA 3.0,
+     ≈ 1 MB; fastText MIT, native) among the installed book languages; when it is unsure (< 0.5, a word or two), the
+     pack dictionary that knows more of the words (forms included). A language without a pack is named as such.
+   - The grammar is a build input of the dictionaries, not a download.
 13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized
    for e-ink, sections, fewer options.
 

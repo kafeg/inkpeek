@@ -19,7 +19,7 @@ Made for Android e-ink readers (Onyx Boox and others); works on any Android devi
 <td width="33%"><img src="docs/img/card-grammar.png" alt="Grammar of a sentence explained"></td>
 </tr>
 <tr>
-<td valign="top"><b>Look up a word.</b> Entries from your own dictionaries, offline. Inflected forms find their base
+<td valign="top"><b>Look up a word.</b> Entries from the language packs, offline. Inflected forms find their base
 form: <i>Träumen</i> → <i>Traum</i>.</td>
 <td valign="top"><b>Translate a sentence or a paragraph.</b> A natural translation, not word by word, in the language
 you choose.</td>
@@ -42,7 +42,7 @@ phrase in My words. Use Claude, OpenAI, OpenRouter (it has free models) or your 
 </table>
 
 <p align="center"><sub>Onyx Boox Go 6, FBReader, Franz Kafka «Die Verwandlung» (public domain). Answers here are in
-English or Russian: you choose the answer language.</sub></p>
+English or Russian: answers come in the app's language.</sub></p>
 
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
@@ -98,7 +98,7 @@ If another dictionary app answers the same request, Android asks which one to us
 
 ### The card
 - **Dictionary** comes first. For a word: entries from your dictionaries, one dictionary per screen, ◀ ▶ to page
-  between them; dictionaries in your answer language come first. For a sentence: the word-by-word gloss.
+  between them; dictionaries into the app's language come first. For a sentence: the word-by-word gloss.
 - **AI tabs:** Translate, Grammar, Words, Examples, Explain. A tab asks the AI only when you open it, and keeps the
   answer while the card is open. Switching tabs does not ask again.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
@@ -106,32 +106,29 @@ If another dictionary app answers the same request, Android asks which one to us
 - A selected sentence opens on Translate when AI is on (you can turn this off).
 - Built for e-ink: black on white, large text, no animations, few settings.
 - The app is in English, Русский and Deutsch — exactly the answer languages of InkPeek's language packs; a new
-  language comes with its packs. AI answers come in the language you choose.
+  language comes with its packs. Answers come in the app's language.
 
 ### Languages
-Settings → **Languages**: the language of the answers and the languages of your books. For each book language InkPeek
-downloads one language pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
+Settings → **Languages**: every language pair InkPeek has; tick the ones you read (or all of them). For each pair
+InkPeek downloads its pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
 — nothing comes from other servers:
 
 | part | what it gives | from |
 |---|---|---|
-| dictionary of the pair | a short first line — "das Haus (Hauses, мн. Häuser) — дом, здание", "go (went, gone) неправ. — идти" — and the full article; every inflected form finds its word (Häusern, ging, went) | Wiktionary via [kaikki.org](https://kaikki.org), [WikDict](https://www.wikdict.com) |
-| grammar | gender, plural, verb forms; which language a text is in | Wiktionary via kaikki.org |
+| dictionary of the pair | a short first line — "das Haus (Hauses, мн. Häuser) — дом, здание", "go (went, gone) неправ. — идти" — and the full article; every inflected form finds its word (Häusern, ging, went); gender, plural and verb forms come from Wiktionary's grammar data | Wiktionary via [kaikki.org](https://kaikki.org), [WikDict](https://www.wikdict.com) |
 | offline translation | Translate without the internet | [Firefox Translations](https://github.com/mozilla/translations) models |
 | language identification | which language you selected, also one without a pack | [fastText](https://fasttext.cc) lid.176 |
 
-Packs now: German → Russian, English → Russian, German → English, English → German, Russian → German (smaller).
+Packs now: German → Russian, English → Russian, German → English, English → German, Russian → German.
 They are built by [`packs/`](packs/README.md) and checked by tests before they are published. A German pack with
-Russian answers is about 67 MB, English with Russian about 49 MB (the English → Russian model is shared).
-
-**Your own dictionaries:** import StarDict as `.zip`, `.tar`, `.tar.gz`, `.tar.bz2`, `.tar.xz`, `.tar.zst`, or loose
-`.ifo` / `.idx` / `.dict(.dz)` / `.syn` files, or copy a folder into `/sdcard/InkPeek/dicts/`. They come after the
-packs in the card. InkPeek builds its own index for each dictionary once, in the background.
+Russian answers is about 62 MB, English with Russian about 40 MB (the English → Russian model is shared). The card
+uses only the packs: a new language comes as a pack.
 
 ### Offline translation
 The Translate tab works without the internet: the [Bergamot](https://github.com/browsermt/bergamot-translator) engine
-runs the models of the language packs on the device. The language of the selection is found by fastText and
-confirmed by the grammar; a text in a language without a pack is named as such ("This looks like French").
+runs the models of the language packs on the device. The language of the selection is found by fastText (when it is
+unsure — a word or two — by the pack dictionary that knows more of the words); a text in a language without a pack
+is named as such ("This looks like French"). AI translation needs none of this.
 
 **It goes through English.** Mozilla trains every model to or from English, so German → Russian is German →
 English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
@@ -202,7 +199,7 @@ Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engi
 `git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).
 
 ## License
-MIT. Language packs: dictionaries and grammar CC BY-SA 4.0 (Wiktionary contributors, Wiktextract/kaikki.org, WikDict), translation models MPL-2.0 (Mozilla), language identification CC BY-SA 3.0 (fastText). Dictionaries you import keep their own licenses.
+MIT. Language packs: dictionaries and grammar CC BY-SA 4.0 (Wiktionary contributors, Wiktextract/kaikki.org, WikDict), translation models MPL-2.0 (Mozilla), language identification CC BY-SA 3.0 (fastText).
 
 Third-party code and data: [Bergamot translator](https://github.com/browsermt/bergamot-translator) with marian
 (MPL-2.0; the Android build from [RTranslator](https://github.com/niedev/RTranslator)'s fork); the JNI bridge

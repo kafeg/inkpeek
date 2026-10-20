@@ -47,13 +47,6 @@ class StarDictTest {
         assertEquals("вечер", d.lookup(cleanQuery("«abend»,")).single().html)
     }
 
-    @Test fun importerCollectsIntoOwnFolder() {
-        val src = Files.createTempDirectory("src").toFile(); dict(src)
-        val target = Files.createTempDirectory("lib").toFile()
-        val dirs = Importer.collect(src, target)
-        assertEquals(listOf("Test"), dirs.map { it.name })
-        assertTrue(File(dirs[0], "t.ifo").exists() && File(dirs[0], "t.dict.dz").exists())
-    }
 
     @Test fun articleTypedFields() {
         val b = ByteArrayOutputStream()

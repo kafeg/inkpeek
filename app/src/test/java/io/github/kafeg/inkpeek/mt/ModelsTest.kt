@@ -13,7 +13,7 @@ class ModelsTest {
         assertEquals(emptyList<Pair<String, String>>(), Engine.steps("de", "de"))
     }
 
-    /** German books with Russian answers need German grammar, de→ru, de→en + en→ru models and langid — nothing else. */
+    /** The pair German → Russian needs the de→ru dictionary, de→en + en→ru models and langid — nothing else. */
     @Test fun neededComponents() {
         fun c(id: String, kind: String, from: String = "", to: String = "") = JSONObject().put("id", id).put("kind", kind)
             .put("from", from).put("to", to).put("file", JSONObject().put("name", "$id.zip").put("size", 1).put("sha256", "x"))
@@ -22,8 +22,8 @@ class ModelsTest {
             .put(c("model-de-en", "model", "de", "en")).put(c("model-en-ru", "model", "en", "ru")).put(c("model-en-de", "model", "en", "de"))
             .put(c("langid", "langid"))
         val cs = Packs.parse(JSONObject().put("components", all).toString())
-        assertEquals(listOf("grammar-de", "dict-de-ru", "model-de-en", "model-en-ru", "langid"), Packs.needed(cs, listOf("de"), "ru").map { it.id })
-        assertEquals(listOf("ru", "en"), Packs.answers(cs))
-        assertEquals(listOf("de", "en"), Packs.books(cs, "ru"))
+        assertEquals(listOf("dict-de-ru", "model-de-en", "model-en-ru", "langid"), Packs.needed(cs, listOf("de" to "ru")).map { it.id })
+        assertEquals(listOf("de" to "ru", "de" to "en", "en" to "ru"), Packs.pairs(cs))
+        assertEquals(emptyList<String>(), Packs.needed(cs, emptyList()).map { it.id })
     }
 }

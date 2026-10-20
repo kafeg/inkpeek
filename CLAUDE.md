@@ -5,10 +5,11 @@ Spec — `docs/spec.md` (source of truth). Public repo (MIT): no secrets, keys, 
 
 ## Stack
 Kotlin, Android Views, minSdk 30 / targetSdk 35, arm64 only. Libraries: anthropic-java (Claude), OkHttp (OpenAI /
-OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni. Native: Bergamot (submodule
-`app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + `translator_jni.cpp` → `libinkpeek_mt.so`; CMake
-3.22.1 and NDK from the SDK (Gradle installs them). Packages: `stardict` (pure JVM: engine, import, catalog), `ai`,
-`mt` (models from Mozilla, engine), `ui` (card, settings, catalog). JVM unit tests. Settings — `Prefs.kt`.
+OpenRouter, downloads), coroutines, commons-compress + zstd-jni. Native: Bergamot (submodule
+`app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule `app/src/main/cpp/fasttext`) +
+JNI → `libinkpeek_mt.so`; CMake 3.22.1 and NDK from the SDK (Gradle installs them). Packages: `stardict` (pure JVM
+engine), `packs` (manifest, download, install), `ai`, `mt` (Bergamot engine, language id), `ui` (card, settings).
+Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run
 ```bash

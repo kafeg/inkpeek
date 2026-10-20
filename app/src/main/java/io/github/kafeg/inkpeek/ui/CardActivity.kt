@@ -243,8 +243,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val lib = prefs.library()
             val res = withContext(Dispatchers.IO) { runCatching {
                 // A pack dictionary is in the answer language by construction (its notes in brackets may be English).
-                lib.lookup(word, prefs.order, prefs.disabled, notReady).sortedBy { (_, h) -> h.first().html.contains("class=\"head\"").not() &&
-                    lib.scriptOf(runCatching { shortMeaning(h.first().html, h.first().word) }.getOrDefault("")) != answerScript }
+                // Dictionaries into the answer language (the app's language) first.
+                lib.lookup(word, emptyList(), emptySet(), notReady).sortedBy { (d, _) -> d.ifo.parentFile?.name?.endsWith("-" + prefs.answerCode) != true }
             } }
             if (run != listRun) return@launch // a newer fill took over (the quick answer re-sorted the list)
             p.removeView(wait)
@@ -294,7 +294,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val wait = Ink.text(this, "…", size); p.addView(wait)
         launch {
             val g = glossCache ?: withContext(Dispatchers.IO) {
-                runCatching { prefs.library().gloss(query, prefs.order, prefs.disabled, answerScript) }.getOrDefault(emptyList())
+                runCatching { prefs.library().gloss(query, emptyList(), emptySet(), answerScript) }.getOrDefault(emptyList())
             }.also { glossCache = it }
             p.removeView(wait)
             note(p, getString(R.string.gloss_title))
@@ -378,7 +378,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun packHead() = launch {
         val packsDir = prefs.packs.dicts.canonicalPath + java.io.File.separator
         val heads = withContext(Dispatchers.IO) { runCatching {
-            prefs.library().lookup(query, prefs.order, prefs.disabled).filter { (d, _) -> d.ifo.path.startsWith(packsDir) }
+            prefs.library().lookup(query, emptyList(), emptySet()).filter { (d, _) -> d.ifo.path.startsWith(packsDir) }
+                .sortedBy { (d, _) -> d.ifo.parentFile?.name?.endsWith("-" + prefs.answerCode) != true }
                 .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headOf(h.html)?.let { h.word to it } } }
         }.getOrDefault(emptyList()) }
         val (base, head) = heads.firstOrNull() ?: return@launch
@@ -389,8 +390,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /**
-     * Language of the selection among the installed book languages: fastText's language identification, confirmed by
-     * the grammar (how many of its words it knows); a language without a pack comes back as unsupported.
+     * Language of the selection among the installed book languages: fastText's language identification; when it is
+     * unsure, the pack dictionary that knows more of the words; a language without a pack comes back as unsupported.
      */
     private fun sourceLanguage(answer: String): Pair<String?, String?> {
         val books = prefs.packs.installedBooks(answer)
@@ -398,17 +399,18 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val guess = runCatching { if (prefs.packs.langid.exists()) io.github.kafeg.inkpeek.mt.LangId.detect(prefs.packs.langid, query, 5) else emptyList() }
             .getOrDefault(emptyList())
         val top = guess.firstOrNull()
+        // When fastText is unsure (a word or two): how many words each book language's dictionary knows, forms included.
         val words = Regex("[\\p{L}][\\p{L}'’-]*").findAll(query).map { it.value }.distinct().take(40).toList()
-        val grammar = prefs.grammar().all()
+        val dicts = prefs.library().all()
         val known = books.associateWith { x ->
-            val g = grammar.firstOrNull { it.ifo.parentFile?.name == "grammar-$x" }
-            if (g == null || !g.ready) 0 else words.count { w -> runCatching { g.lookup(w).isNotEmpty() }.getOrDefault(false) }
+            val d = dicts.firstOrNull { it.ifo.parentFile?.name == "dict-$x-$answer" }
+            if (d == null || !d.ready) 0 else words.count { w -> runCatching { d.lookup(w).isNotEmpty() }.getOrDefault(false) }
         }
-        android.util.Log.i("InkPeek", "language: fastText $guess, grammar knows $known of ${words.size}")
+        android.util.Log.i("InkPeek", "language: fastText $guess, dictionaries know $known of ${words.size}")
         val best = known.maxByOrNull { it.value }
         return when {
             top != null && top.second >= 0.5f && top.first in books -> top.first to null
-            // fastText is sure it is a language without a pack: say so, unless a book language knows nearly every word.
+            // fastText is sure it is a language without a pack: say so, unless a book dictionary knows nearly every word.
             top != null && top.second >= 0.5f && (best == null || best.value < words.size * 0.8) -> null to top.first
             best != null && best.value > 0 -> best.key to null
             top != null && top.first in books -> top.first to null
@@ -518,7 +520,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             if (store.isSaved(query)) { store.unsave(query); false } else {
                 val ai = store.answer(query, lang, Ask.QUICK.section, Ask.QUICK.version)
                 val dict = if (ai != null || kind != Kind.WORD) null else
-                    prefs.library().gloss(query, prefs.order, prefs.disabled, script).firstOrNull()?.let { g ->
+                    prefs.library().gloss(query, emptyList(), emptySet(), script).firstOrNull()?.let { g ->
                         (if (g.base.equals(g.word, true)) "" else "→ ${g.base} · ") + g.meaning }
                 store.save(query, kindName, if (ai != null) Store.brief(ai) else dict.orEmpty()); true
             }

@@ -57,7 +57,6 @@ dependencies {
     implementation("com.anthropic:anthropic-java:2.34.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("org.apache.commons:commons-compress:1.27.1")
-    implementation("org.tukaani:xz:1.10")
     implementation("com.github.luben:zstd-jni:1.5.6-8@aar")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.json:json:20240303")

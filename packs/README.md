@@ -5,9 +5,13 @@ repository's releases (`packs-*`), never from third-party servers.
 
 | component | what | from | license |
 |---|---|---|---|
-| `grammar-<x>` | one line per lemma: part of speech, gender, genitive, plural, verb principal parts, auxiliary, strong / weak / irregular; `.syn`: every inflected form → its lemma | Wiktionary via [kaikki.org](https://kaikki.org) (de: de.wiktionary + classes from en.wiktionary; others: en.wiktionary) | CC BY-SA 4.0 |
-| `dict-<x>-<y>` | one dictionary per pair: articles from the Wiktionary of language y, first line "header — first meanings", WikDict where Wiktionary has no article, `.syn` from the grammar | kaikki.org, [WikDict](https://www.wikdict.com) | CC BY-SA 4.0 |
+| `dict-<x>-<y>` | one dictionary per pair: first line "header — first meanings" (the header from the grammar: article, plural, verb forms, irregular), the full article, every inflected form in `.syn` | Wiktionary via [kaikki.org](https://kaikki.org) (English words: en.wiktionary's translation tables first), [WikDict](https://www.wikdict.com) | CC BY-SA 4.0 |
 | `model-<x>-<y>` | offline translation model (always to or from English) | [Firefox Translations](https://github.com/mozilla/translations), Mozilla Remote Settings; the full model where there is one | MPL-2.0 |
+| `langid` | language identification | [fastText](https://fasttext.cc) lid.176 | CC BY-SA 3.0 |
+
+The grammar of each book language (gender, genitive, plural, verb principal parts, auxiliary, strong / weak /
+irregular, every form → its lemma) is built from Wiktionary — de: de.wiktionary + classes from en.wiktionary; others:
+en.wiktionary — as an input of the dictionaries; it is not published on its own.
 
 No guessing: forms, genders and classes come only from Wiktionary data; hand edits live in `overrides/<x>.tsv`.
 

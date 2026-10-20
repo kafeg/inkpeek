@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.os.Environment
 import android.os.Handler
 import android.os.Looper
-import android.provider.OpenableColumns
 import android.provider.Settings
 import android.text.Editable
 import android.text.InputType
@@ -34,7 +33,6 @@ import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.ModelInfo
 import io.github.kafeg.inkpeek.ai.Provider
 import io.github.kafeg.inkpeek.ai.Preset
-import io.github.kafeg.inkpeek.stardict.Importer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -46,7 +44,6 @@ import java.io.File
 /** Settings in four tabs: dictionaries, AI, card, my words. */
 class MainActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
-    private lateinit var dictList: LinearLayout
     private lateinit var status: TextView
     private val tabs = LinkedHashMap<Int, LinearLayout>()
     private val tabButtons = HashMap<Int, TextView>()
@@ -105,11 +102,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     override fun onPause() { ui.removeCallbacksAndMessages(null); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
-    // --- Languages: the packs, then the user's own dictionaries ---
+    // --- Languages: the packs ---
     private lateinit var langBox: LinearLayout
     private var manifest: List<io.github.kafeg.inkpeek.packs.Component> = emptyList()
     private var manifestError: String? = null
-    private var wantBooks: MutableSet<String>? = null
+    private var wantPairs: MutableSet<Pair<String, String>>? = null
     private var working = false
 
     private fun buildDictionaries(t: LinearLayout) {
@@ -119,11 +116,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             })
         t.addView(Ink.text(this, getString(R.string.lang_about), 14f))
         langBox = Ink.vertical(this); t.addView(langBox, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
-        t.addView(Ink.text(this, getString(R.string.own_dicts), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 22) })
-        dictList = Ink.vertical(this); t.addView(dictList)
-        t.addView(Ink.button(this, getString(R.string.import_file), sp) { pickFiles() }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
-        t.addView(Ink.text(this, getString(R.string.folder_note, prefs.dictsDir.path), 14f),
-            Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
         loadManifest()
     }
 
@@ -141,7 +133,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun langName(code: String) = java.util.Locale(code).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
 
-    /** Answer language, book languages with their state, one button that downloads what is missing and removes what is not needed. */
+    /** Every pack pair with its state and size; one button downloads what is ticked and removes what is not. */
     private fun refreshLanguages() {
         langBox.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()
@@ -151,35 +143,29 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             return
         }
         val P = io.github.kafeg.inkpeek.packs.Packs
-        val answers = P.answers(manifest)
-        val answer = prefs.answerCode.takeIf { it in answers } ?: answers.first().also { prefs.answerLang = java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
-        langBox.addView(Ink.text(this, getString(R.string.lang_answer), 14f))
-        langBox.addView(spinner(answers.map { langName(it) }, answers.indexOf(answer)) {
-            prefs.answerLang = java.util.Locale(answers[it]).getDisplayLanguage(java.util.Locale.ENGLISH); wantBooks = null; refreshLanguages()
-        })
-        val books = P.books(manifest, answer)
-        val want = wantBooks ?: packs.installedBooks(answer).toMutableSet().also { wantBooks = it }
-        langBox.addView(Ink.text(this, getString(R.string.lang_books), 14f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
-        books.forEach { x ->
-            val parts = P.needed(manifest, listOf(x), answer)
+        // The app's language first: those answers are the card's.
+        val pairs = P.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { langName(it.first) }, { langName(it.second) }))
+        val want = wantPairs ?: packs.installedPairs().toMutableSet().also { wantPairs = it }
+        pairs.forEach { pair ->
+            val parts = P.needed(manifest, listOf(pair))
             val missing = parts.filter { installed[it.id] != it.sha256 }
             val state = when {
                 missing.isEmpty() -> getString(R.string.lang_installed, parts.sumOf { it.size } / 1_000_000)
-                missing.size < parts.size && missing.all { it.id in installed } -> getString(R.string.lang_update)
+                missing.all { it.id in installed } -> getString(R.string.lang_update)
                 else -> getString(R.string.lang_not_installed, missing.sumOf { it.size } / 1_000_000)
             }
-            val weak = manifest.firstOrNull { it.id == "dict-$x-$answer" }?.weak == true
             langBox.addView(CheckBox(this).apply {
-                text = "${langName(x)} → ${langName(answer)}  · $state" + if (weak) "\n" + getString(R.string.lang_weak) else ""
-                textSize = 16f; isChecked = x in want; isEnabled = !working
-                setOnCheckedChangeListener { _, on -> if (on) want += x else want -= x; refreshLanguages() }
+                text = "${langName(pair.first)} → ${langName(pair.second)}  · $state"
+                textSize = 16f; isChecked = pair in want; isEnabled = !working
+                setOnCheckedChangeListener { _, on -> if (on) want += pair else want -= pair; refreshLanguages() }
             })
         }
-        val needed = P.needed(manifest, want, answer)
+        val needed = P.needed(manifest, want)
         val missing = needed.filter { installed[it.id] != it.sha256 }
-        // Parts no ticked language needs, for this answer language (other answers keep theirs).
-        val keep = needed.map { it.id }.toSet() + answers.filter { it != answer }.flatMap { a -> P.needed(manifest, packs.installedBooks(a), a).map { it.id } }
-        val extra = manifest.filter { it.id in installed && it.id !in keep }
+        val keep = needed.map { it.id }.toSet()
+        // What no ticked pair needs, and what the packs list no longer has (grammar before 21.10).
+        val extra = manifest.filter { it.id in installed && it.id !in keep } +
+            installed.keys.filter { id -> manifest.none { it.id == id } }.map { io.github.kafeg.inkpeek.packs.Component(it, it.substringBefore('-'), "", "", "", 0, "") }
         val label = when {
             missing.isNotEmpty() -> getString(R.string.lang_download, (missing.sumOf { it.size } / 1_000_000).coerceAtLeast(1))
             extra.isNotEmpty() -> getString(R.string.lang_remove)
@@ -211,79 +197,17 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
     private var statusLine: TextView? = null
 
+    /** Builds the indexes of the pack dictionaries once (in the background) and shows the status line. */
     private fun refreshDicts() {
         launch {
             val lib = prefs.library()
-            val all = withContext(Dispatchers.IO) { lib.all(prefs.order).also { lib.prepareAll(); prefs.grammar().run { all(); prepareAll() } } }
-            // The packs' dictionaries are managed above; the list is the user's own.
-            val own = prefs.dictsDir.canonicalPath + File.separator
-            val dicts = all.filter { it.ifo.path.startsWith(own) }
-            prefs.order = dicts.map { it.id }
-            dictList.removeAllViews()
-            if (dicts.isEmpty()) dictList.addView(Ink.text(this@MainActivity, getString(R.string.no_dicts), 16f))
-            dicts.forEachIndexed { i, d ->
-                val r = Ink.horizontal(this@MainActivity).apply { gravity = Gravity.CENTER_VERTICAL }
-                val state = lib.status[d.id]
-                r.addView(CheckBox(this@MainActivity).apply {
-                    text = d.name + when { state == null -> ""; state == "indexing" -> "  · " + getString(R.string.st_indexing); else -> "  · $state" }
-                    textSize = 16f; isChecked = d.id !in prefs.disabled
-                    setOnCheckedChangeListener { _, on -> prefs.disabled = if (on) prefs.disabled - d.id else prefs.disabled + d.id }
-                }, Ink.lp(0, weight = 1f))
-                // Three equal square buttons.
-                val b = Ink.dp(this@MainActivity, 40)
-                listOf("↑" to { move(i, -1) }, "↓" to { move(i, 1) }, "✕" to { delete(d.name, d.ifo.parentFile!!) }).forEach { (label, act) ->
-                    r.addView(Ink.button(this@MainActivity, label, 16f) { act() }.apply { setPadding(0, 0, 0, 0) },
-                        LinearLayout.LayoutParams(b, b).apply { leftMargin = Ink.dp(this@MainActivity, 4) })
-                }
-                dictList.addView(r)
-            }
+            val all = withContext(Dispatchers.IO) { lib.all().also { lib.prepareAll() } }
             val busy = lib.status.values.count { it == "indexing" }
             status.text = if (busy > 0) getString(R.string.status_busy, all.size, busy, prefs.provider.title)
                 else getString(R.string.status, all.size, prefs.provider.title)
             if (lib.busy) ui.postDelayed({ refreshDicts() }, 3000)
         }
     }
-
-    private fun move(i: Int, by: Int) {
-        val o = prefs.order.toMutableList(); val j = i + by
-        if (j !in o.indices) return
-        o[i] = o[j].also { o[j] = o[i] }; prefs.order = o; refreshDicts()
-    }
-
-    private fun delete(name: String, dir: File) = AlertDialog.Builder(this).setMessage(getString(R.string.delete_q, name))
-        .setPositiveButton(R.string.delete) { _, _ -> dir.deleteRecursively(); refreshDicts() }.setNegativeButton(R.string.cancel, null).show()
-
-    private fun pickFiles() = startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE)
-        .setType("*/*").putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true), 1)
-
-    @Deprecated("Plain Activity result: no AndroidX dependency")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode != 1 || resultCode != RESULT_OK || data == null) return
-        val uris = data.clipData?.let { c -> (0 until c.itemCount).map { c.getItemAt(it).uri } } ?: listOfNotNull(data.data)
-        status.text = getString(R.string.importing)
-        launch {
-            val r = withContext(Dispatchers.IO) {
-                runCatching {
-                    val loose = File(cacheDir, "loose-" + System.nanoTime()).apply { mkdirs() }
-                    val dirs = uris.flatMap { u ->
-                        val name = displayName(u)
-                        contentResolver.openInputStream(u)!!.use { input ->
-                            if (Regex("\\.(ifo|idx|idx\\.gz|dict|dict\\.dz|syn)$").containsMatchIn(name)) {
-                                File(loose, name).outputStream().use { input.copyTo(it) }; emptyList()
-                            } else Importer.importStream(name, input, prefs.dictsDir, cacheDir)
-                        }
-                    } + Importer.collect(loose, prefs.dictsDir)
-                    loose.deleteRecursively(); dirs.size
-                }
-            }
-            r.fold({ toast(getString(R.string.imported, it)) }, { toast(getString(R.string.import_failed, it.message)) })
-            refreshDicts()
-        }
-    }
-
-    private fun displayName(u: Uri): String = contentResolver.query(u, arrayOf(OpenableColumns.DISPLAY_NAME), null, null, null)
-        ?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: u.lastPathSegment.orEmpty()
 
     // --- AI ---
     private fun buildAi(t: LinearLayout) {
@@ -442,8 +366,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     // --- Card ---
     private fun buildCard(t: LinearLayout) {
-        val codes = listOf("") + UI_LANGS
-        val names = listOf(getString(R.string.ui_lang_system)) + UI_LANGS.map { c ->
+        val codes = listOf("") + io.github.kafeg.inkpeek.Prefs.ANSWERS
+        val names = listOf(getString(R.string.ui_lang_system)) + io.github.kafeg.inkpeek.Prefs.ANSWERS.map { c ->
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
         t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
@@ -496,11 +420,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     companion object {
-        /** Answer languages by English name (what the prompt uses). */
-        val LANGS = listOf("Russian", "English", "German", "Ukrainian", "Spanish", "French", "Italian", "Portuguese",
-            "Polish", "Czech", "Dutch", "Turkish", "Indonesian", "Vietnamese", "Chinese", "Japanese", "Korean", "Hindi", "Arabic")
-        /** App languages: exactly the answer languages of the packs (a new one comes with its packs). */
-        val UI_LANGS = listOf("en", "ru", "de")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

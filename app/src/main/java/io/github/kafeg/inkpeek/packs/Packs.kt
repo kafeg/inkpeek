@@ -11,18 +11,17 @@ import java.security.MessageDigest
 import java.util.concurrent.TimeUnit
 import java.util.zip.ZipInputStream
 
-/** One downloadable part of the language packs (see packs/README.md): grammar, dict, model or langid. */
+/** One downloadable part of the language packs (see packs/README.md): dict, model or langid. */
 data class Component(val id: String, val kind: String, val from: String, val to: String, val file: String,
-                     val size: Long, val sha256: String, val weak: Boolean = false)
+                     val size: Long, val sha256: String)
 
 /**
  * InkPeek's language packs from this project's release "packs" — the only source the app downloads them from.
- * Layout under [root]: dicts/<id>/ (shown in the card), grammar/<id>/ (header, language), langid.ftz,
+ * Layout under [root]: dicts/<id>/ (the card's dictionaries; the first line of an article is the header), langid.ftz,
  * installed.json (id → sha256); models go to [models]/<from><to>/ as the offline engine expects.
  */
 class Packs(val root: File, val models: File) {
     val dicts get() = File(root, "dicts")
-    val grammar get() = File(root, "grammar")
     val langid get() = File(root, "langid.ftz")
     private val state get() = File(root, "installed.json")
 
@@ -51,7 +50,7 @@ class Packs(val root: File, val models: File) {
         }
         try {
             when (c.kind) {
-                "dict", "grammar" -> unzip(tmp, File(if (c.kind == "dict") dicts else grammar, c.id))
+                "dict" -> unzip(tmp, File(dicts, c.id))
                 "model" -> untar(tmp, File(models, c.from + c.to))
                 "langid" -> { langid.delete(); tmp.renameTo(langid) }
                 else -> error("Unknown pack kind ${c.kind}")
@@ -63,16 +62,19 @@ class Packs(val root: File, val models: File) {
     fun remove(c: Component) {
         when (c.kind) {
             "dict" -> File(dicts, c.id).deleteRecursively()
-            "grammar" -> File(grammar, c.id).deleteRecursively()
+            "grammar" -> File(root, "grammar").deleteRecursively() // old builds installed grammar packs
             "model" -> File(models, c.from + c.to).deleteRecursively()
             "langid" -> langid.delete()
         }
         mark(c.id, null)
     }
 
+    /** Installed pairs (from → to). */
+    fun installedPairs(): List<Pair<String, String>> = installed().keys.filter { it.startsWith("dict-") }
+        .map { it.removePrefix("dict-").let { p -> p.substringBefore('-') to p.substringAfter('-') } }
+
     /** Book languages that have this answer language: those with a dictionary into it. */
-    fun installedBooks(answer: String): List<String> = installed().keys.filter { it.startsWith("dict-") && it.endsWith("-$answer") }
-        .map { it.removePrefix("dict-").substringBefore('-') }
+    fun installedBooks(answer: String): List<String> = installedPairs().filter { it.second == answer }.map { it.first }
 
     private fun unzip(zip: File, dest: File) {
         val tmp = File(dest.path + ".new"); tmp.deleteRecursively(); tmp.mkdirs()
@@ -108,7 +110,7 @@ class Packs(val root: File, val models: File) {
             return (0 until a.length()).map { a.getJSONObject(it) }.map { c ->
                 val f = c.getJSONObject("file")
                 Component(c.getString("id"), c.getString("kind"), c.optString("from"), c.optString("to"),
-                    f.getString("name"), f.getLong("size"), f.getString("sha256"), c.optBoolean("weak"))
+                    f.getString("name"), f.getLong("size"), f.getString("sha256"))
             }
         }
 
@@ -116,17 +118,13 @@ class Packs(val root: File, val models: File) {
             if (!it.isSuccessful) error("HTTP ${it.code}"); parse(it.body!!.string())
         }
 
-        /** Answer languages offered: those with a dictionary into them. */
-        fun answers(cs: List<Component>) = cs.filter { it.kind == "dict" }.map { it.to }.distinct()
+        /** The language pairs offered: one per dictionary. */
+        fun pairs(cs: List<Component>) = cs.filter { it.kind == "dict" }.map { it.from to it.to }
 
-        /** Book languages for an answer language. */
-        fun books(cs: List<Component>, answer: String) = cs.filter { it.kind == "dict" && it.to == answer }.map { it.from }.distinct()
-
-        /** Everything the chosen book languages need for [answer]: grammar, dictionary, models (through English), langid. */
-        fun needed(cs: List<Component>, books: Collection<String>, answer: String): List<Component> {
-            val ids = books.flatMap { x ->
-                listOf("grammar-$x", "dict-$x-$answer") + Engine.steps(x, answer).map { (a, b) -> "model-$a-$b" }
-            } + if (books.isEmpty()) emptyList() else listOf("langid")
+        /** Everything the chosen pairs need: their dictionaries, the models (through English), langid. */
+        fun needed(cs: List<Component>, pairs: Collection<Pair<String, String>>): List<Component> {
+            val ids = pairs.flatMap { (x, y) -> listOf("dict-$x-$y") + Engine.steps(x, y).map { (a, b) -> "model-$a-$b" } } +
+                if (pairs.isEmpty()) emptyList() else listOf("langid")
             return cs.filter { it.id in ids.toSet() }
         }
     }
