@@ -51,7 +51,7 @@
     <string name="err_no_model">Nie wybrano modelu: wybierz go w ustawieniach InkPeek → AI.</string>
     <string name="err_other">Żądanie do AI nie powiodło się. Spróbuj ponownie; jeśli to się powtórzy, sprawdź ustawienia AI.</string>
     <string name="back">Wstecz</string>
-    <string name="server_url">Adres serwera, np. http://192.168.1.10:1234/v1</string>
+    <string name="server_url">Adres serwera, np. http://192.168.0.100:1234/v1</string>
     <string name="preset_pick">Wypełnij z szablonu…</string>
     <string name="key_optional">Dla lokalnego serwera klucz jest opcjonalny. Usługi w chmurze: wpisz go powyżej lub umieść w %1$s</string>
     <string name="err_server">Serwer nie odpowiada: %1$s\nSprawdź adres i czy serwer jest uruchomiony.</string>

@@ -29,10 +29,10 @@ enum class Provider(val title: String, val baseUrl: String, val defaultModel: St
 data class Preset(val name: String, val url: String) {
     companion object {
         val ALL = listOf(
-            Preset("LM Studio", "http://192.168.1.10:1234/v1"),
-            Preset("Ollama", "http://192.168.1.10:11434/v1"),
-            Preset("llama.cpp server", "http://192.168.1.10:8080/v1"),
-            Preset("vLLM", "http://192.168.1.10:8000/v1"),
+            Preset("LM Studio", "http://192.168.0.100:1234/v1"),
+            Preset("Ollama", "http://192.168.0.100:11434/v1"),
+            Preset("llama.cpp server", "http://192.168.0.100:8080/v1"),
+            Preset("vLLM", "http://192.168.0.100:8000/v1"),
             Preset("Groq", "https://api.groq.com/openai/v1"),
             Preset("DeepSeek", "https://api.deepseek.com/v1"),
             Preset("Qwen (Alibaba Cloud)", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"),

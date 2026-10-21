@@ -51,7 +51,7 @@
     <string name="err_no_model">Aucun modèle choisi : choisissez-en un dans les réglages d\'InkPeek → IA.</string>
     <string name="err_other">La requête IA a échoué. Réessayez ; si cela se répète, vérifiez les réglages IA.</string>
     <string name="back">Retour</string>
-    <string name="server_url">Adresse du serveur, p. ex. http://192.168.1.10:1234/v1</string>
+    <string name="server_url">Adresse du serveur, p. ex. http://192.168.0.100:1234/v1</string>
     <string name="preset_pick">Remplir depuis un préréglage…</string>
     <string name="key_optional">La clé est facultative pour un serveur local. Services cloud : saisissez-la ci-dessus ou placez-la dans %1$s</string>
     <string name="err_server">Le serveur ne répond pas : %1$s\nVérifiez l\'adresse et que le serveur est lancé.</string>
