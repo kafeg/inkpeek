@@ -34,7 +34,7 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         val col = Ink.vertical(this).apply { setPadding(pad, pad, pad, pad) }
         info = Ink.text(this, getString(R.string.loading_lists), 15f)
         list = ListView(this)
-        col.addView(Ink.text(this, getString(R.string.packs_page), 24f, bold = true))
+        col.addView(Rows.header(this, getString(R.string.packs_page)))
         col.addView(Ink.text(this, getString(R.string.packs_page_d), 14f), Ink.lp().apply { topMargin = Ink.dp(this@PacksActivity, 6) })
         col.addView(info, Ink.lp().apply { topMargin = Ink.dp(this@PacksActivity, 6) })
         col.addView(list, Ink.lp(h = 0, weight = 1f))

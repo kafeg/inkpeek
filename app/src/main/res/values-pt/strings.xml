@@ -52,15 +52,15 @@
     <string name="preset_pick">Preencher com uma predefinição…</string>
     <string name="key_optional">Não é precisa para um servidor em casa; serviços na nuvem pedem-na.</string>
     <string name="err_server">O servidor não responde: %1$s\nVerifique o endereço e se o servidor está rodando.</string>
-    <string name="tab_words">Minhas palavras</string>
+    <string name="tab_words">Notas</string>
     <string name="list_words">Palavras</string>
     <string name="list_phrases">Frases</string>
     <string name="list_history">Histórico</string>
     <string name="list_empty_saved">Nada salvo ainda: toque em ☆ no cartão.</string>
     <string name="list_empty_history">Nenhuma busca ainda.</string>
     <string name="clear_history">Limpar histórico</string>
-    <string name="save_word">Salvar em Minhas palavras</string>
-    <string name="unsave_word">Remover de Minhas palavras</string>
+    <string name="save_word">Guardar em Notas</string>
+    <string name="unsave_word">Remover de Notas</string>
     <string name="a_analysis">Análise</string>
     <string name="a_analysis_d">A gramática da forma ou frase e a regra; palavras difíceis ou sinónimos.</string>
     <string name="a_context">Contexto</string>
@@ -68,8 +68,8 @@
     <string name="irregular">irreg.</string>
     <string name="close">Fechar</string>
     <string name="icon_dict_d">Pacotes e outros dicionários; uma frase: palavra a palavra. Offline.</string>
-    <string name="icon_save_d">Guarda em Minhas palavras; estrela cheia: já guardado.</string>
-    <string name="icon_words_d">As suas palavras e frases guardadas, também nas definições.</string>
+    <string name="icon_save_d">Guarda em Notas; estrela cheia: já guardado.</string>
+    <string name="icon_words_d">Palavras, frases guardadas e o histórico, também nas definições.</string>
     <string name="tab_translate">Traduzir</string>
     <string name="icon_translate_d">A IA se puder responder; senão, a tradução offline.</string>
     <string name="mt_missing">A tradução offline precisa de um pacote de idioma: configurações do InkPeek → Idiomas.</string>
@@ -109,7 +109,7 @@
     <string name="look_bar">Barra de ícones</string>
     <string name="look_bar_d">Desligado: só a página aberta; Voltar ou tocar fora fecha.</string>
     <string name="look_save">Guardar palavras</string>
-    <string name="look_save_d">Os ícones ☆ e Minhas palavras; o histórico é sempre guardado.</string>
+    <string name="look_save_d">Os ícones ☆ e Notas; o histórico é sempre guardado.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Claro, escuro (branco sobre preto) ou como o modo noturno do Android.</string>
     <string name="theme_light">Claro</string>
@@ -132,7 +132,7 @@
     <string name="folder_found">Usar %1$s</string>
     <string name="folder_empty">Ainda não há dicionários StarDict em %1$s</string>
     <string name="get_title">Transferir</string>
-    <string name="get_dicts">Escolher dicionários…</string>
+    <string name="get_dicts">Transferir dicionários…</string>
     <string name="no_sources">Todas as fontes estão desligadas</string>
     <string name="cat_wikdict">Traduções curtas, classe e género; as formas levam à base (ging → gehen).</string>
     <string name="cat_wiktionary">Artigos completos do Wikcionário: pronúncia, todos os sentidos, exemplos.</string>
@@ -166,7 +166,7 @@
     <string name="packs_update">Atualizar os pacotes (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">Os pacotes do projeto, feitos a partir do Wikcionário, WikDict e modelos da Mozilla.</string>
-    <string name="packs_get">Escolher pacotes…</string>
+    <string name="packs_get">Transferir pacotes…</string>
     <string name="packs_page">Pacotes de idioma InkPeek</string>
     <string name="packs_page_d">Toque num par para o transferir: dicionário, gramática e tradução.</string>
     <string name="pack_installed">instalado</string>
@@ -222,7 +222,7 @@
     <string name="aih_free">O OpenRouter tem modelos gratuitos: abra a lista e marque «só gratuitos». São mais lentos e mudam com frequência.</string>
     <string name="icon_back_d">De um artigo de volta à lista ou à tradução palavra a palavra.</string>
     <string name="page_of">%1$d–%2$d de %3$d</string>
-    <string name="unsave_q">Remover «%1$s» de Minhas palavras?</string>
+    <string name="unsave_q">Remover «%1$s» de Notas?</string>
     <string name="forget_q">Remover «%1$s» do histórico?</string>
     <string name="clear_history_q">Limpar todo o histórico?</string>
     <string name="lookup">Procurar no InkPeek</string>

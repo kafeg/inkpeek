@@ -52,15 +52,15 @@
     <string name="preset_pick">Wypełnij z szablonu…</string>
     <string name="key_optional">Niepotrzebny dla serwera domowego; usługi w chmurze go wymagają.</string>
     <string name="err_server">Serwer nie odpowiada: %1$s\nSprawdź adres i czy serwer jest uruchomiony.</string>
-    <string name="tab_words">Moje słowa</string>
+    <string name="tab_words">Notatki</string>
     <string name="list_words">Słowa</string>
     <string name="list_phrases">Wyrażenia</string>
     <string name="list_history">Historia</string>
     <string name="list_empty_saved">Nic jeszcze nie zapisano: dotknij ☆ na karcie.</string>
     <string name="list_empty_history">Nic jeszcze nie wyszukano.</string>
     <string name="clear_history">Wyczyść historię</string>
-    <string name="save_word">Zapisz w Moich słowach</string>
-    <string name="unsave_word">Usuń z Moich słów</string>
+    <string name="save_word">Zapisz w notatkach</string>
+    <string name="unsave_word">Usuń z notatek</string>
     <string name="a_analysis">Analiza</string>
     <string name="a_analysis_d">Gramatyka formy lub frazy i jej reguła; trudne słowa lub synonimy.</string>
     <string name="a_context">Kontekst</string>
@@ -68,8 +68,8 @@
     <string name="irregular">nieregul.</string>
     <string name="close">Zamknij</string>
     <string name="icon_dict_d">Pakiety i inne słowniki; fraza: słowo po słowie. Działa offline.</string>
-    <string name="icon_save_d">Zapisuje w Moich słowach; pełna gwiazdka: już zapisane.</string>
-    <string name="icon_words_d">Twoje zapisane słowa i frazy, także w ustawieniach.</string>
+    <string name="icon_save_d">Zapisuje w Notatkach; pełna gwiazdka: już zapisane.</string>
+    <string name="icon_words_d">Zapisane słowa, frazy i historia, także w ustawieniach.</string>
     <string name="tab_translate">Tłumaczenie</string>
     <string name="icon_translate_d">AI, jeśli może odpowiedzieć, inaczej tłumaczenie offline.</string>
     <string name="mt_missing">Tłumaczenie offline wymaga pakietu językowego: ustawienia InkPeek → Języki.</string>
@@ -109,7 +109,7 @@
     <string name="look_bar">Pasek ikon</string>
     <string name="look_bar_d">Wyłączone: tylko otwarta strona; Wstecz lub dotyk obok zamyka kartę.</string>
     <string name="look_save">Zapisywanie słów</string>
-    <string name="look_save_d">Ikony ☆ i Moje słowa; historia jest prowadzona zawsze.</string>
+    <string name="look_save_d">Ikony ☆ i Notatki; historia jest prowadzona zawsze.</string>
     <string name="look_theme">Motyw</string>
     <string name="look_theme_d">Jasny, ciemny (biały na czarnym) lub jak tryb nocny Androida.</string>
     <string name="theme_light">Jasny</string>
@@ -132,7 +132,7 @@
     <string name="folder_found">Użyj %1$s</string>
     <string name="folder_empty">W %1$s nie ma jeszcze słowników StarDict</string>
     <string name="get_title">Pobierz</string>
-    <string name="get_dicts">Wybierz słowniki…</string>
+    <string name="get_dicts">Pobierz słowniki…</string>
     <string name="no_sources">Wszystkie źródła są wyłączone</string>
     <string name="cat_wikdict">Krótkie tłumaczenia, część mowy i rodzaj; formy prowadzą do podstawy (ging → gehen).</string>
     <string name="cat_wiktionary">Pełne hasła Wikisłownika: wymowa, wszystkie znaczenia, przykłady.</string>
@@ -166,7 +166,7 @@
     <string name="packs_update">Zaktualizuj pakiety (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">Pakiety projektu, zbudowane z Wikisłownika, WikDict i modeli Mozilli.</string>
-    <string name="packs_get">Wybierz pakiety…</string>
+    <string name="packs_get">Pobierz pakiety…</string>
     <string name="packs_page">Pakiety językowe InkPeek</string>
     <string name="packs_page_d">Dotknij pary, by ją pobrać: słownik, gramatyka i tłumaczenie offline.</string>
     <string name="pack_installed">zainstalowany</string>
@@ -222,7 +222,7 @@
     <string name="aih_free">OpenRouter ma darmowe modele: otwórz listę i zaznacz „tylko darmowe”. Są wolniejsze i często się zmieniają.</string>
     <string name="icon_back_d">Z hasła z powrotem do listy lub tłumaczenia słowo po słowie.</string>
     <string name="page_of">%1$d–%2$d z %3$d</string>
-    <string name="unsave_q">Usunąć „%1$s” z Moich słów?</string>
+    <string name="unsave_q">Usunąć „%1$s” z notatek?</string>
     <string name="forget_q">Usunąć „%1$s” z historii?</string>
     <string name="clear_history_q">Wyczyścić całą historię?</string>
     <string name="lookup">Szukaj w InkPeek</string>

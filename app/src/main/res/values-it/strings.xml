@@ -52,15 +52,15 @@
     <string name="preset_pick">Compila da un preset…</string>
     <string name="key_optional">Non serve per un server di casa; i servizi cloud la chiedono.</string>
     <string name="err_server">Il server non risponde: %1$s\nControlla l\'indirizzo e che il server sia avviato.</string>
-    <string name="tab_words">Le mie parole</string>
+    <string name="tab_words">Note</string>
     <string name="list_words">Parole</string>
     <string name="list_phrases">Frasi</string>
     <string name="list_history">Cronologia</string>
     <string name="list_empty_saved">Ancora nulla di salvato: tocca ☆ nella scheda.</string>
     <string name="list_empty_history">Ancora nessuna ricerca.</string>
     <string name="clear_history">Cancella cronologia</string>
-    <string name="save_word">Aggiungi alle mie parole</string>
-    <string name="unsave_word">Rimuovi dalle mie parole</string>
+    <string name="save_word">Salva nelle note</string>
+    <string name="unsave_word">Togli dalle note</string>
     <string name="a_analysis">Analisi</string>
     <string name="a_analysis_d">La grammatica della forma o frase e la regola; parole difficili o sinonimi.</string>
     <string name="a_context">Contesto</string>
@@ -68,8 +68,8 @@
     <string name="irregular">irreg.</string>
     <string name="close">Chiudi</string>
     <string name="icon_dict_d">Pacchetti e altri dizionari; una frase: parola per parola. Offline.</string>
-    <string name="icon_save_d">Salva in Le mie parole; stella piena: già salvato.</string>
-    <string name="icon_words_d">Le tue parole e frasi salvate, anche nelle impostazioni.</string>
+    <string name="icon_save_d">Salva in Note; stella piena: già salvato.</string>
+    <string name="icon_words_d">Parole, frasi salvate e cronologia, anche nelle impostazioni.</string>
     <string name="tab_translate">Traduci</string>
     <string name="icon_translate_d">L\'IA se può rispondere, altrimenti la traduzione offline.</string>
     <string name="mt_missing">La traduzione offline richiede un pacchetto linguistico: impostazioni di InkPeek → Lingue.</string>
@@ -109,7 +109,7 @@
     <string name="look_bar">Barra delle icone</string>
     <string name="look_bar_d">Disattivato: solo la pagina aperta; Indietro o un tocco fuori chiude.</string>
     <string name="look_save">Salvare parole</string>
-    <string name="look_save_d">Le icone ☆ e Le mie parole; la cronologia resta comunque.</string>
+    <string name="look_save_d">Le icone ☆ e Note; la cronologia resta comunque.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Chiaro, scuro (bianco su nero) o come la modalità notte di Android.</string>
     <string name="theme_light">Chiaro</string>
@@ -132,7 +132,7 @@
     <string name="folder_found">Usa %1$s</string>
     <string name="folder_empty">Ancora nessun dizionario StarDict in %1$s</string>
     <string name="get_title">Scarica</string>
-    <string name="get_dicts">Scegli i dizionari…</string>
+    <string name="get_dicts">Scarica dizionari…</string>
     <string name="no_sources">Tutte le fonti sono disattivate</string>
     <string name="cat_wikdict">Traduzioni brevi, categoria e genere; le forme portano alla base (ging → gehen).</string>
     <string name="cat_wiktionary">Voci complete del Wikizionario: pronuncia, tutti i significati, esempi.</string>
@@ -166,7 +166,7 @@
     <string name="packs_update">Aggiorna i pacchetti (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">I pacchetti del progetto, fatti da Wikizionario, WikDict e modelli di Mozilla.</string>
-    <string name="packs_get">Scegli pacchetti…</string>
+    <string name="packs_get">Scarica pacchetti…</string>
     <string name="packs_page">Pacchetti linguistici InkPeek</string>
     <string name="packs_page_d">Tocca una coppia per scaricarla: dizionario, grammatica e traduzione.</string>
     <string name="pack_installed">installato</string>
@@ -222,7 +222,7 @@
     <string name="aih_free">OpenRouter ha modelli gratuiti: apri l\'elenco e spunta «solo gratuiti». Sono più lenti e cambiano spesso.</string>
     <string name="icon_back_d">Da una voce di nuovo all\'elenco o alla traduzione parola per parola.</string>
     <string name="page_of">%1$d–%2$d di %3$d</string>
-    <string name="unsave_q">Togliere «%1$s» da Le mie parole?</string>
+    <string name="unsave_q">Togliere «%1$s» dalle note?</string>
     <string name="forget_q">Togliere «%1$s» dalla cronologia?</string>
     <string name="clear_history_q">Cancellare tutta la cronologia?</string>
     <string name="lookup">Cerca in InkPeek</string>

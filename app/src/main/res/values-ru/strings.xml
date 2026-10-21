@@ -51,15 +51,15 @@
     <string name="preset_pick">Заполнить из пресета…</string>
     <string name="key_optional">Для домашнего сервера не нужен; облачным сервисам нужен.</string>
     <string name="err_server">Сервер не отвечает: %1$s\nПроверьте адрес и что сервер запущен.</string>
-    <string name="tab_words">Мои слова</string>
+    <string name="tab_words">Записи</string>
     <string name="list_words">Слова</string>
     <string name="list_phrases">Фразы</string>
     <string name="list_history">История</string>
     <string name="list_empty_saved">Пока ничего не сохранено: нажмите ☆ в карточке.</string>
     <string name="list_empty_history">Пока ничего не искали.</string>
     <string name="clear_history">Очистить историю</string>
-    <string name="save_word">Сохранить в мои слова</string>
-    <string name="unsave_word">Убрать из моих слов</string>
+    <string name="save_word">Сохранить в записи</string>
+    <string name="unsave_word">Убрать из записей</string>
     <string name="a_analysis">Разбор</string>
     <string name="a_analysis_d">Грамматика формы или фразы и правило; трудные слова или синонимы.</string>
     <string name="a_context">Контекст</string>
@@ -67,8 +67,8 @@
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icon_dict_d">Пакеты и другие словари; фраза — перевод по словам. Работает офлайн.</string>
-    <string name="icon_save_d">Сохраняет в «Мои слова»; закрашенная звезда — уже сохранено.</string>
-    <string name="icon_words_d">Ваши сохранённые слова и фразы, они же — в настройках.</string>
+    <string name="icon_save_d">Сохраняет в «Записи»; закрашенная звезда — уже сохранено.</string>
+    <string name="icon_words_d">Сохранённые слова, фразы и история, они же — в настройках.</string>
     <string name="tab_translate">Перевод</string>
     <string name="icon_translate_d">AI, если он может ответить, иначе офлайн-перевод на устройстве.</string>
     <string name="mt_missing">Для офлайн-перевода нужен языковой пакет: настройки InkPeek → Языки.</string>
@@ -108,7 +108,7 @@
     <string name="look_bar">Панель значков</string>
     <string name="look_bar_d">Выключено: только открытая страница; закрыть — «Назад» или касание вне.</string>
     <string name="look_save">Сохранение слов</string>
-    <string name="look_save_d">Значки ☆ и «Мои слова»; история ведётся в любом случае.</string>
+    <string name="look_save_d">Значки ☆ и «Записи»; история ведётся в любом случае.</string>
     <string name="look_theme">Тема</string>
     <string name="look_theme_d">Светлая, тёмная (белым по чёрному) или как ночной режим Android.</string>
     <string name="theme_light">Светлая</string>
@@ -131,7 +131,7 @@
     <string name="folder_found">Взять %1$s</string>
     <string name="folder_empty">В %1$s пока нет словарей StarDict</string>
     <string name="get_title">Скачать</string>
-    <string name="get_dicts">Выбрать словари…</string>
+    <string name="get_dicts">Скачать словари…</string>
     <string name="no_sources">Все источники выключены</string>
     <string name="cat_wikdict">Короткие переводы, часть речи и род; формы ведут к начальной (ging → gehen).</string>
     <string name="cat_wiktionary">Полные статьи Викисловаря: произношение, все значения, примеры.</string>
@@ -165,7 +165,7 @@
     <string name="packs_update">Обновить пакеты (%1$d МБ)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">Пакеты проекта: собраны его скриптами из Викисловаря, WikDict и моделей Mozilla.</string>
-    <string name="packs_get">Выбрать пакеты…</string>
+    <string name="packs_get">Скачать пакеты…</string>
     <string name="packs_page">Языковые пакеты InkPeek</string>
     <string name="packs_page_d">Нажмите на пару, чтобы скачать: словарь, грамматика и офлайн-перевод.</string>
     <string name="pack_installed">установлен</string>
@@ -221,7 +221,7 @@
     <string name="aih_free">У OpenRouter есть бесплатные модели: откройте список моделей и отметьте «бесплатные». Они медленнее и часто меняются.</string>
     <string name="icon_back_d">Из статьи назад к списку или к переводу по словам.</string>
     <string name="page_of">%1$d–%2$d из %3$d</string>
-    <string name="unsave_q">Удалить «%1$s» из «Моих слов»?</string>
+    <string name="unsave_q">Удалить «%1$s» из записей?</string>
     <string name="forget_q">Удалить «%1$s» из истории?</string>
     <string name="clear_history_q">Очистить всю историю?</string>
     <string name="lookup">Найти в InkPeek</string>

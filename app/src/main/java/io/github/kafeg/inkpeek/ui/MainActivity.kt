@@ -74,9 +74,13 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             sections[t] = Ink.vertical(this)
             val b = Ink.tab(this, getString(t), 18f) { show(t) }
             sectionButtons[t] = b
-            bar.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
+            // All as tall as the tallest, the text in the middle: a shrunk label does not stick to the top.
+            bar.addView(b, Ink.lp(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
         }
         col.addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 16) })
+        // One text size for all four: the size the longest label shrank to on this screen.
+        bar.post { val min = sectionButtons.values.minOf { it.textSize }
+            sectionButtons.values.forEach { it.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE); it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, min) } }
         sections.values.forEach { col.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
         languages = LanguagesSettings(this).also { it.build(sections.getValue(R.string.tab_dicts)) }
         AiSettings(this).build(sections.getValue(R.string.tab_ai))

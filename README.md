@@ -117,7 +117,7 @@ If another dictionary app answers the same request, Android asks which one to us
   instantly; the answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence).
-- **My words**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line.
+- **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page).
 - **The card's look** (Card → Window): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; light, dark (white on black) or as in Android's night mode. Card → Main: the icon bar,

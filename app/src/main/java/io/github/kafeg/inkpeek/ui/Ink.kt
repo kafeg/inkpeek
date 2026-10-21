@@ -39,7 +39,7 @@ object Ink {
 
     /** A tab button: one line, the text shrinks to fit a narrow screen (a phone) instead of breaking the word. */
     fun tab(ctx: Context, label: String, sp: Float, onClick: (View) -> Unit) = button(ctx, label, sp, onClick).apply {
-        maxLines = 1 // the padding stays clear of the open tab's thick border; the text shrinks instead
+        maxLines = 1; gravity = Gravity.CENTER // the padding stays clear of the open tab's thick border; the text shrinks instead
         setAutoSizeTextTypeUniformWithConfiguration(10, sp.toInt(), 1, TypedValue.COMPLEX_UNIT_SP)
     }
 

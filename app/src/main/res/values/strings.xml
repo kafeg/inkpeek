@@ -52,15 +52,15 @@
     <string name="preset_pick">Fill in from a preset…</string>
     <string name="key_optional">Not needed for a home server; cloud services need one.</string>
     <string name="err_server">The server does not answer: %1$s\nCheck the address and that the server is running.</string>
-    <string name="tab_words">My words</string>
+    <string name="tab_words">Notes</string>
     <string name="list_words">Words</string>
     <string name="list_phrases">Phrases</string>
     <string name="list_history">History</string>
     <string name="list_empty_saved">Nothing saved yet: tap ☆ in the card.</string>
     <string name="list_empty_history">No lookups yet.</string>
     <string name="clear_history">Clear history</string>
-    <string name="save_word">Save to my words</string>
-    <string name="unsave_word">Remove from my words</string>
+    <string name="save_word">Save to Notes</string>
+    <string name="unsave_word">Remove from Notes</string>
     <string name="a_analysis">Analysis</string>
     <string name="a_analysis_d">The grammar of the form or phrase and its rule; harder words or synonyms.</string>
     <string name="a_context">Context</string>
@@ -68,8 +68,8 @@
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icon_dict_d">Packs and other dictionaries; a phrase: word by word. Works offline.</string>
-    <string name="icon_save_d">Keeps it in My words; a filled star: it is there already.</string>
-    <string name="icon_words_d">Your saved words and phrases, also in the settings.</string>
+    <string name="icon_save_d">Keeps it in Notes; a filled star: it is there already.</string>
+    <string name="icon_words_d">Your saved words and phrases and the history, also in the settings.</string>
     <string name="tab_translate">Translate</string>
     <string name="icon_translate_d">AI when it can answer, else the offline translation on the device.</string>
     <string name="mt_missing">Offline translation needs a language pack: InkPeek settings → Languages.</string>
@@ -109,7 +109,7 @@
     <string name="look_bar">Icon bar</string>
     <string name="look_bar_d">Off: only the open page; Back or a tap outside closes the card.</string>
     <string name="look_save">Saving words</string>
-    <string name="look_save_d">The ☆ and My words icons; the history is kept either way.</string>
+    <string name="look_save_d">The ☆ and Notes icons; the history is kept either way.</string>
     <string name="look_theme">Theme</string>
     <string name="look_theme_d">Light, dark (white on black) or as Android\'s night mode.</string>
     <string name="theme_light">Light</string>
@@ -132,7 +132,7 @@
     <string name="folder_found">Use %1$s</string>
     <string name="folder_empty">No StarDict dictionaries in %1$s yet</string>
     <string name="get_title">Download</string>
-    <string name="get_dicts">Choose dictionaries…</string>
+    <string name="get_dicts">Download dictionaries…</string>
     <string name="no_sources">All sources are off</string>
     <string name="cat_wikdict">Short translations, part of speech and gender; forms lead to the base (ging → gehen).</string>
     <string name="cat_wiktionary">Full Wiktionary articles: pronunciation, all senses, examples.</string>
@@ -166,7 +166,7 @@
     <string name="packs_update">Update the packs (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">The project\'s packs, built by its scripts from Wiktionary, WikDict and Mozilla\'s models.</string>
-    <string name="packs_get">Choose packs…</string>
+    <string name="packs_get">Download packs…</string>
     <string name="packs_page">InkPeek language packs</string>
     <string name="packs_page_d">Tap a pair to download it: dictionary, grammar and offline translation.</string>
     <string name="pack_installed">installed</string>
@@ -222,7 +222,7 @@
     <string name="aih_free">OpenRouter has free models: open the model list and tick «free only». Free models are slower and change often.</string>
     <string name="icon_back_d">From an article back to the list or the word-by-word translation.</string>
     <string name="page_of">%1$d–%2$d of %3$d</string>
-    <string name="unsave_q">Remove «%1$s» from My words?</string>
+    <string name="unsave_q">Remove «%1$s» from Notes?</string>
     <string name="forget_q">Remove «%1$s» from the history?</string>
     <string name="clear_history_q">Clear the whole history?</string>
     <string name="lookup">Look up in InkPeek</string>

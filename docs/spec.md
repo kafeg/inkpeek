@@ -48,10 +48,10 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
    a small line under it; "←" at the right while a word's article is open from the gloss. Body (scrolls). A hint line at
    the bottom when AI is off or there is no network.
 2. The icon row at the bottom of the card, under a thin line (one frame, no dead space around it): Dictionary,
-   Translate, Analysis, Context · ☆ Save (★ when saved), My words · ✕ Close at the right. Icons ≤ 44 dp; the open tab
+   Translate, Analysis, Context · ☆ Save (★ when saved), Notes · ✕ Close at the right. Icons ≤ 44 dp; the open tab
    has a slightly heavier border (4 vs 2); AI icons carry "AI" in their top-right corner, drawn smaller to leave
    room for it. Long press shows the name.
-- My words in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
+- Notes in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
 - Size: 92% of screen width, 80% of height, centered. Body text 20 sp, header +30%. No settings for these: fewer
   options (decided 21.10).
 - No colors, no shadows, no ripple. Thin black borders. Light dim behind the card.
@@ -114,7 +114,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   at display time.
 - `history`: every card opening, last 1000, with one short line: a word — the pack dictionary's first line; a phrase —
   its offline translation (started when the card opens); else the cached AI translation, else "—". Only in the app.
-- Settings → My words: Words / Phrases / History as second-level tabs (text, the open one underlined), rows of the
+- Settings → Notes: Words / Phrases / History as second-level tabs (text, the open one underlined), rows of the
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
@@ -237,8 +237,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       a published pair into the app's language that is not installed, the Offline tab names that InkPeek pack. AI: a
       list whose first entry is "Off" (no AI icons, no AI hints) instead of the switch.
    4. **Settings in one style.** Every section has three tabs — the main one, a second one, help: Languages (InkPeek ·
-      Other dictionaries · Help), AI (Main · Prompts · Help), Card (Main · Window · Icons), My words (Words · Phrases ·
-      History). One row everywhere: a box, an icon or nothing on the left; a title in one line; an explanation of at most
+      Other dictionaries · Help), AI (Main · Prompts · Help), Card (Main · Window · Icons), Notes — formerly My words (Words ·
+      Phrases · History). One row everywhere: a box, an icon or nothing on the left; a title in one line; an explanation of at most
       two lines (texts written to fit, ~80 characters, in every language); a drop-down a little apart from its text.
       Every delete asks first. Help tabs are rows of the same kind, no small print.
       - **Languages → InkPeek** looks like Other dictionaries: "Your packs" (installed pairs: a box — the card uses it,
@@ -250,7 +250,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
         save icons. **Icons**: what each icon does (help).
       - **AI → Prompts**: each request's parts (the meaning of every answer key, the general style) can be edited and
         reset; the keys and the JSON format stay fixed. Answers saved with an older text are kept, not asked again.
-      - **My words**: 50 per page, the pager and "Clear history" under the list.
+      - **Notes**: 50 per page, the pager and "Clear history" under the list.
    5. Readers: Librera (selection menu → "+" → InkPeek) checked and in the README.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the

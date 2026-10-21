@@ -52,15 +52,15 @@
     <string name="preset_pick">Rellenar desde un preajuste…</string>
     <string name="key_optional">No hace falta para un servidor local; los servicios en la nube la piden.</string>
     <string name="err_server">El servidor no responde: %1$s\nRevisa la dirección y que el servidor esté en marcha.</string>
-    <string name="tab_words">Mis palabras</string>
+    <string name="tab_words">Notas</string>
     <string name="list_words">Palabras</string>
     <string name="list_phrases">Frases</string>
     <string name="list_history">Historial</string>
     <string name="list_empty_saved">Aún no hay nada guardado: toca ☆ en la tarjeta.</string>
     <string name="list_empty_history">Aún no hay búsquedas.</string>
     <string name="clear_history">Borrar historial</string>
-    <string name="save_word">Guardar en Mis palabras</string>
-    <string name="unsave_word">Quitar de Mis palabras</string>
+    <string name="save_word">Guardar en Notas</string>
+    <string name="unsave_word">Quitar de Notas</string>
     <string name="a_analysis">Análisis</string>
     <string name="a_analysis_d">La gramática de la forma o frase y su regla; palabras difíciles o sinónimos.</string>
     <string name="a_context">Contexto</string>
@@ -68,8 +68,8 @@
     <string name="irregular">irreg.</string>
     <string name="close">Cerrar</string>
     <string name="icon_dict_d">Paquetes y otros diccionarios; una frase: palabra por palabra. Sin conexión.</string>
-    <string name="icon_save_d">Guarda en Mis palabras; estrella llena: ya guardado.</string>
-    <string name="icon_words_d">Tus palabras y frases guardadas, también en los ajustes.</string>
+    <string name="icon_save_d">Guarda en Notas; estrella llena: ya guardado.</string>
+    <string name="icon_words_d">Palabras, frases guardadas y el historial, también en los ajustes.</string>
     <string name="tab_translate">Traducir</string>
     <string name="icon_translate_d">La IA si puede responder; si no, la traducción sin conexión.</string>
     <string name="mt_missing">La traducción sin conexión necesita un paquete de idioma: ajustes de InkPeek → Idiomas.</string>
@@ -109,7 +109,7 @@
     <string name="look_bar">Barra de iconos</string>
     <string name="look_bar_d">Desactivado: solo la página abierta; Atrás o tocar fuera la cierra.</string>
     <string name="look_save">Guardar palabras</string>
-    <string name="look_save_d">Los iconos ☆ y Mis palabras; el historial se guarda igualmente.</string>
+    <string name="look_save_d">Los iconos ☆ y Notas; el historial se guarda igualmente.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Clara, oscura (blanco sobre negro) o como el modo nocturno de Android.</string>
     <string name="theme_light">Claro</string>
@@ -132,7 +132,7 @@
     <string name="folder_found">Usar %1$s</string>
     <string name="folder_empty">Aún no hay diccionarios StarDict en %1$s</string>
     <string name="get_title">Descargar</string>
-    <string name="get_dicts">Elegir diccionarios…</string>
+    <string name="get_dicts">Descargar diccionarios…</string>
     <string name="no_sources">Todas las fuentes están desactivadas</string>
     <string name="cat_wikdict">Traducciones cortas, categoría y género; las formas llevan a la base (ging → gehen).</string>
     <string name="cat_wiktionary">Artículos completos de Wikcionario: pronunciación, todos los sentidos, ejemplos.</string>
@@ -166,7 +166,7 @@
     <string name="packs_update">Actualizar los paquetes (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">Los paquetes del proyecto, hechos con Wikcionario, WikDict y los modelos de Mozilla.</string>
-    <string name="packs_get">Elegir paquetes…</string>
+    <string name="packs_get">Descargar paquetes…</string>
     <string name="packs_page">Paquetes de idioma InkPeek</string>
     <string name="packs_page_d">Toca un par para descargarlo: diccionario, gramática y traducción.</string>
     <string name="pack_installed">instalado</string>
@@ -222,7 +222,7 @@
     <string name="aih_free">OpenRouter tiene modelos gratuitos: abre la lista y marca «solo gratuitos». Son más lentos y cambian a menudo.</string>
     <string name="icon_back_d">De un artículo de vuelta a la lista o a la traducción palabra por palabra.</string>
     <string name="page_of">%1$d–%2$d de %3$d</string>
-    <string name="unsave_q">¿Quitar «%1$s» de Mis palabras?</string>
+    <string name="unsave_q">¿Quitar «%1$s» de Notas?</string>
     <string name="forget_q">¿Quitar «%1$s» del historial?</string>
     <string name="clear_history_q">¿Borrar todo el historial?</string>
     <string name="lookup">Buscar en InkPeek</string>

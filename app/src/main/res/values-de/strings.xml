@@ -51,15 +51,15 @@
     <string name="preset_pick">Aus Vorlage übernehmen…</string>
     <string name="key_optional">Für einen Heimserver nicht nötig; Cloud-Dienste brauchen einen.</string>
     <string name="err_server">Der Server antwortet nicht: %1$s\nAdresse prüfen und ob der Server läuft.</string>
-    <string name="tab_words">Meine Wörter</string>
+    <string name="tab_words">Notizen</string>
     <string name="list_words">Wörter</string>
     <string name="list_phrases">Phrasen</string>
     <string name="list_history">Verlauf</string>
     <string name="list_empty_saved">Noch nichts gespeichert: tippen Sie in der Karte auf ☆.</string>
     <string name="list_empty_history">Noch nichts nachgeschlagen.</string>
     <string name="clear_history">Verlauf löschen</string>
-    <string name="save_word">Zu meinen Wörtern</string>
-    <string name="unsave_word">Aus meinen Wörtern entfernen</string>
+    <string name="save_word">In Notizen speichern</string>
+    <string name="unsave_word">Aus Notizen entfernen</string>
     <string name="a_analysis">Analyse</string>
     <string name="a_analysis_d">Grammatik der Form oder Phrase und ihre Regel; schwere Wörter oder Synonyme.</string>
     <string name="a_context">Kontext</string>
@@ -67,8 +67,8 @@
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
     <string name="icon_dict_d">Pakete und andere Wörterbücher; eine Phrase: Wort für Wort. Offline.</string>
-    <string name="icon_save_d">Speichert in Meine Wörter; ein voller Stern: schon gespeichert.</string>
-    <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen, auch in den Einstellungen.</string>
+    <string name="icon_save_d">Speichert in Notizen; ein voller Stern: schon gespeichert.</string>
+    <string name="icon_words_d">Gespeicherte Wörter, Phrasen und der Verlauf, auch in den Einstellungen.</string>
     <string name="tab_translate">Übersetzen</string>
     <string name="icon_translate_d">KI, wenn sie antworten kann, sonst die Offline-Übersetzung.</string>
     <string name="mt_missing">Für die Offline-Übersetzung braucht es ein Sprachpaket: InkPeek-Einstellungen → Sprachen.</string>
@@ -108,7 +108,7 @@
     <string name="look_bar">Symbolleiste</string>
     <string name="look_bar_d">Aus: nur die offene Seite; Zurück oder Tippen daneben schließt die Karte.</string>
     <string name="look_save">Wörter speichern</string>
-    <string name="look_save_d">Die Symbole ☆ und Meine Wörter; der Verlauf wird immer geführt.</string>
+    <string name="look_save_d">Die Symbole ☆ und Notizen; der Verlauf wird immer geführt.</string>
     <string name="look_theme">Design</string>
     <string name="look_theme_d">Hell, dunkel (weiß auf schwarz) oder wie der Nachtmodus von Android.</string>
     <string name="theme_light">Hell</string>
@@ -131,7 +131,7 @@
     <string name="folder_found">%1$s nutzen</string>
     <string name="folder_empty">In %1$s noch keine StarDict-Wörterbücher</string>
     <string name="get_title">Herunterladen</string>
-    <string name="get_dicts">Wörterbücher wählen…</string>
+    <string name="get_dicts">Wörterbücher laden…</string>
     <string name="no_sources">Alle Quellen sind aus</string>
     <string name="cat_wikdict">Kurze Übersetzungen, Wortart und Genus; Formen führen zur Grundform (ging → gehen).</string>
     <string name="cat_wiktionary">Volle Wiktionary-Artikel: Aussprache, alle Bedeutungen, Beispiele.</string>
@@ -165,7 +165,7 @@
     <string name="packs_update">Pakete aktualisieren (%1$d MB)</string>
     <string name="packs_source">GitHub · kafeg/inkpeek</string>
     <string name="packs_source_d">Die Pakete des Projekts: aus Wiktionary, WikDict und Mozillas Modellen gebaut.</string>
-    <string name="packs_get">Pakete wählen…</string>
+    <string name="packs_get">Pakete laden…</string>
     <string name="packs_page">InkPeek-Sprachpakete</string>
     <string name="packs_page_d">Tippen Sie ein Paar an: Wörterbuch, Grammatik und Offline-Übersetzung.</string>
     <string name="pack_installed">installiert</string>
@@ -221,7 +221,7 @@
     <string name="aih_free">OpenRouter hat kostenlose Modelle: Modellliste öffnen und «nur kostenlose» wählen. Sie sind langsamer und wechseln oft.</string>
     <string name="icon_back_d">Vom Artikel zurück zur Liste oder zur Wort-für-Wort-Übersetzung.</string>
     <string name="page_of">%1$d–%2$d von %3$d</string>
-    <string name="unsave_q">«%1$s» aus Meine Wörter entfernen?</string>
+    <string name="unsave_q">«%1$s» aus Notizen entfernen?</string>
     <string name="forget_q">«%1$s» aus dem Verlauf entfernen?</string>
     <string name="clear_history_q">Den ganzen Verlauf löschen?</string>
     <string name="lookup">In InkPeek nachschlagen</string>
