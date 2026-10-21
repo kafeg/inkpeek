@@ -33,6 +33,12 @@ object Ink {
         isClickable = true; isFocusable = true
     }
 
+    /** A tab button: one line, the text shrinks to fit a narrow screen (a phone) instead of breaking the word. */
+    fun tab(ctx: Context, label: String, sp: Float, onClick: (View) -> Unit) = button(ctx, label, sp, onClick).apply {
+        maxLines = 1 // the padding stays clear of the open tab's thick border; the text shrinks instead
+        setAutoSizeTextTypeUniformWithConfiguration(10, sp.toInt(), 1, TypedValue.COMPLEX_UNIT_SP)
+    }
+
     /** Second-level tabs: plain text, the open one bold over a thick line, so they differ from bordered buttons. */
     fun subTabs(ctx: Context, items: List<Pair<String, String>>, open: String, sp: Float, pick: (String) -> Unit) = horizontal(ctx).apply {
         items.forEach { (k, label) ->

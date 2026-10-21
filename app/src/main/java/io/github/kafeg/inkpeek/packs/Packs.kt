@@ -31,7 +31,8 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
         val json = http.newCall(Request.Builder().url(assets + "packs.json").build()).execute().use {
             if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()
         }
-        return parse(json).also { root.mkdirs(); write(listFile, json) }
+        // The copy for offline use is a convenience: no access to files yet (a fresh install) must not hide the list.
+        return parse(json).also { runCatching { root.mkdirs(); write(listFile, json) } }
     }
 
     fun cachedList(): List<Component>? = runCatching { parse(listFile.readText()) }.getOrNull()

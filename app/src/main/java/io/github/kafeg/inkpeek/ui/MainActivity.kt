@@ -78,7 +78,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val bar = Ink.horizontal(this)
         listOf(R.string.tab_dicts, R.string.tab_ai, R.string.tab_card, R.string.tab_words).forEachIndexed { i, t ->
             tabs[t] = Ink.vertical(this)
-            val b = Ink.button(this, getString(t), sp) { show(t) }
+            val b = Ink.tab(this, getString(t), sp) { show(t) }
             tabButtons[t] = b
             bar.addView(b, Ink.lp(0, weight = 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
         }
@@ -160,11 +160,15 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                 else -> getString(R.string.lang_not_installed, missing.sumOf { it.size } / 1_000_000)
             }
             langBox.addView(CheckBox(this).apply {
-                text = "${langName(pair.first)} → ${langName(pair.second)}  · $state"
+                // The pair, and under it its state in smaller type: no odd wrap on a narrow screen.
+                text = android.text.SpannableStringBuilder("${langName(pair.first)} → ${langName(pair.second)}\n").apply {
+                    val at = length; append(state)
+                    setSpan(android.text.style.RelativeSizeSpan(0.8f), at, length, android.text.Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                }
                 textSize = 16f; isChecked = pair in want; isEnabled = !working
                 setOnCheckedChangeListener { _, on -> if (on) want += pair else want -= pair
                     prefs.pairs = want.map { "${it.first}-${it.second}" }.toSet(); refreshLanguages(); refreshDicts() }
-            })
+            }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 4) })
         }
         val needed = P.needed(manifest, want)
         val missing = needed.filter { installed[it.id] != it.sha256 }
