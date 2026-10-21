@@ -158,5 +158,14 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
                 if (pairs.isEmpty()) emptyList() else listOf("langid")
             return cs.filter { it.id in ids.toSet() }
         }
+
+        /** What removing [pair] frees: its parts no other installed pair needs (shared models and langid stay). */
+        fun freed(cs: List<Component>, installed: Collection<Pair<String, String>>, pair: Pair<String, String>): List<Component> {
+            val keep = needed(cs, installed - pair).map { it.id }.toSet()
+            return needed(cs, listOf(pair)).filter { it.id !in keep }
+        }
+
+        /** Installed parts whose file in the release is newer. */
+        fun updates(cs: List<Component>, installed: Map<String, String>) = cs.filter { installed[it.id].let { s -> s != null && s != it.sha256 } }
     }
 }

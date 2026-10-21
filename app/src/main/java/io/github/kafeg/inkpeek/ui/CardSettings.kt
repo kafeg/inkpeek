@@ -1,0 +1,64 @@
+package io.github.kafeg.inkpeek.ui
+
+import android.widget.LinearLayout
+import io.github.kafeg.inkpeek.Prefs
+import io.github.kafeg.inkpeek.R
+import io.github.kafeg.inkpeek.ai.Action
+
+/** Card: Main (language, phrases, which icons), Window (size, place, text, theme), Icons (what each one does). */
+class CardSettings(private val a: MainActivity) {
+    private val prefs get() = a.prefs
+
+    fun build(t: LinearLayout) {
+        val main = Ink.vertical(a); val look = Ink.vertical(a); val icons = Ink.vertical(a)
+        Rows.subTabs(a, t, listOf(Triple("main", a.getString(R.string.card_main), main), Triple("look", a.getString(R.string.card_look), look),
+            Triple("icons", a.getString(R.string.card_icons), icons)), a.open["card"] ?: "main") { a.open["card"] = it }
+        buildMain(main); buildLook(look); buildIcons(icons)
+    }
+
+    private fun first(v: android.view.View) = v.apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) }
+
+    private fun buildMain(t: LinearLayout) {
+        val codes = listOf("") + Prefs.ANSWERS
+        val names = listOf(a.getString(R.string.ui_lang_system)) + Prefs.ANSWERS.map { c ->
+            java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
+        t.addView(first(Rows.choice(a, a.getString(R.string.ui_lang), a.getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) {
+            prefs.uiLang = codes[it]; a.recreate() }))
+        t.addView(Rows.check(a, a.getString(R.string.phrase_ai), a.getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
+        t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
+        t.addView(Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it })
+        t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
+    }
+
+    private fun buildLook(t: LinearLayout) {
+        val heights = listOf(0, 50, 60, 70, 80, 90)
+        t.addView(first(Rows.choice(a, a.getString(R.string.look_height), a.getString(R.string.look_height_d),
+            heights.map { if (it == 0) a.getString(R.string.look_height_auto) else "$it %" }, heights.indexOf(prefs.cardHeight).coerceAtLeast(0)) { prefs.cardHeight = heights[it] }))
+        val widths = listOf(70, 80, 92, 100)
+        t.addView(Rows.choice(a, a.getString(R.string.look_width), a.getString(R.string.look_width_d), widths.map { "$it %" },
+            widths.indexOf(prefs.cardWidth).coerceAtLeast(0)) { prefs.cardWidth = widths[it] })
+        val places = listOf("center", "top", "bottom", "reader")
+        t.addView(Rows.choice(a, a.getString(R.string.look_place), a.getString(R.string.look_place_d),
+            listOf(R.string.place_center, R.string.place_top, R.string.place_bottom, R.string.place_reader).map { a.getString(it) },
+            places.indexOf(prefs.cardPlace).coerceAtLeast(0)) { prefs.cardPlace = places[it] })
+        val sizes = listOf(16, 18, 20, 22, 24, 26)
+        t.addView(Rows.choice(a, a.getString(R.string.look_text), a.getString(R.string.look_text_d), sizes.map { "$it" },
+            sizes.indexOf(prefs.cardText).coerceAtLeast(0)) { prefs.cardText = sizes[it] })
+        val themes = listOf("light", "dark", "system")
+        t.addView(Rows.choice(a, a.getString(R.string.look_theme), a.getString(R.string.look_theme_d),
+            listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { a.getString(it) },
+            themes.indexOf(prefs.cardTheme).coerceAtLeast(0)) { prefs.cardTheme = themes[it] })
+    }
+
+    /** Help: each icon of the card, what it does. */
+    private fun buildIcons(t: LinearLayout) {
+        val rows = listOf(Triple(R.drawable.ic_dictionary, a.getString(R.string.tab_dictionary), a.getString(R.string.icon_dict_d)),
+            Triple(R.drawable.ic_translate, a.getString(R.string.tab_translate), a.getString(R.string.icon_translate_d))) +
+            Action.ALL.map { x -> Triple(if (x.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(a, x) + " · AI", Ink.description(a, x)) } +
+            listOf(Triple(R.drawable.ic_star, a.getString(R.string.save_word), a.getString(R.string.icon_save_d)),
+                Triple(R.drawable.ic_words, a.getString(R.string.tab_words), a.getString(R.string.icon_words_d)),
+                Triple(R.drawable.ic_back, a.getString(R.string.back), a.getString(R.string.icon_back_d)),
+                Triple(R.drawable.ic_close, a.getString(R.string.close), a.getString(R.string.icon_close_d)))
+        rows.forEachIndexed { i, (icon, title, about) -> t.addView(Rows.info(a, icon, title, about).let { if (i == 0) first(it) else it }) }
+    }
+}

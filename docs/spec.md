@@ -236,7 +236,21 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       translation on, its AI tab only with AI on; no Translate icon with neither; when the text's language (fastText) has
       a published pair into the app's language that is not installed, the Offline tab names that InkPeek pack. AI: a
       list whose first entry is "Off" (no AI icons, no AI hints) instead of the switch.
-   4. **Settings in one style**: a switch or a box on the left, its title and one small line under it (like the icon list).
+   4. **Settings in one style.** Every section has three tabs — the main one, a second one, help: Languages (InkPeek ·
+      Other dictionaries · Help), AI (Main · Prompts · Help), Card (Main · Window · Icons), My words (Words · Phrases ·
+      History). One row everywhere: a box, an icon or nothing on the left; a title in one line; an explanation of at most
+      two lines (texts written to fit, ~80 characters, in every language); a drop-down a little apart from its text.
+      Every delete asks first. Help tabs are rows of the same kind, no small print.
+      - **Languages → InkPeek** looks like Other dictionaries: "Your packs" (installed pairs: a box — the card uses it,
+        ✕ — remove it; an update line when the release has newer files), "What to take from the packs", "Download":
+        the source (GitHub, kafeg/inkpeek) and a button to a page listing the published pairs (tap → size → download).
+      - **Other dictionaries: one folder** (default `InkPeek/dicts`, can be another, e.g. KOReader's `koreader/data/dict`;
+        found ones offered): read from it, downloads and imports go into it, ✕ deletes from it (the dialog says where).
+      - **Card → Main**: language, phrases on Translate, the icon bar, the AI icons (there only when AI is chosen), the
+        save icons. **Icons**: what each icon does (help).
+      - **AI → Prompts**: each request's parts (the meaning of every answer key, the general style) can be edited and
+        reset; the keys and the JSON format stay fixed. Answers saved with an older text are kept, not asked again.
+      - **My words**: 50 per page, the pager and "Clear history" under the list.
    5. Readers: Librera (selection menu → "+" → InkPeek) checked and in the README.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the

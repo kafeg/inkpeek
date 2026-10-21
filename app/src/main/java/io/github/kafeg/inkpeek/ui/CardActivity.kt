@@ -72,7 +72,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** "←" in the icon bar: shown while a word's article is open from the list or the gloss. */
     private lateinit var backButton: View
     private lateinit var starButton: ImageView
-    private val actions get() = if (prefs.aiOn) Action.ALL else emptyList()
+    private val actions get() = if (prefs.aiOn && prefs.cardAi) Action.ALL else emptyList()
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -83,7 +83,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         // Static hooks: they hold the application's preferences, not this activity.
-        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) } }
+        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) } }
         if (query.isEmpty()) { finish(); return }
         launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()

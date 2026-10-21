@@ -26,6 +26,8 @@ class Prefs(private val ctx: Context) {
     /** "light", "dark" or "system" (Android's night mode). */
     var cardTheme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
+    /** The card's AI icons (Analysis, Context) while AI is on. */
+    var cardAi: Boolean get() = sp.getBoolean("card_ai", true); set(v) = sp.edit().putBoolean("card_ai", v).apply()
     /** The card's ☆ and My words icons; the history is kept either way. */
     var cardSave: Boolean get() = sp.getBoolean("card_save", true); set(v) = sp.edit().putBoolean("card_save", v).apply()
     var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
@@ -56,6 +58,10 @@ class Prefs(private val ctx: Context) {
     }
     private fun read(f: File) = runCatching { f.readText().trim() }.getOrDefault("")
 
+    /** An edited part of an AI prompt ("analysis.grammar", "system"); null — the original. */
+    fun prompt(key: String): String? = sp.getString("prompt_$key", null)
+    fun setPrompt(key: String, v: String?) = sp.edit().apply { if (v == null) remove("prompt_$key") else putString("prompt_$key", v) }.apply()
+
     /** Which "no reasoning" request variant a (host, model) accepts, see Ai. */
     fun variant(key: String): Int? = sp.getInt("rv_$key", -1).takeIf { it >= 0 }
     fun setVariant(key: String, v: Int) { if (variant(key) != v) sp.edit().putInt("rv_$key", v).apply() }
@@ -77,17 +83,16 @@ class Prefs(private val ctx: Context) {
     var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()
     /** Own dictionaries switched off, by id. */
     var dictsOff: Set<String> get() = sp.getStringSet("dicts_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("dicts_off", v).apply()
-    /** Folders whose StarDict dictionaries are used where they are (KOReader's data/dict). */
-    var folders: Set<String> get() = sp.getStringSet("dict_folders", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("dict_folders", v).apply()
     /** Download sources switched off (Catalog.SOURCES ids). */
     var sourcesOff: Set<String> get() = sp.getStringSet("sources_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("sources_off", v).apply()
-    /** Imported and downloaded dictionaries. */
-    val dictsDir: File get() = File(home, "dicts")
+    /** The other dictionaries' one folder: read from it, downloads and imports go into it (can be KOReader's). */
+    var dictsDir: File get() = sp.getString("dicts_dir", null)?.let(::File) ?: File(home, "dicts")
+        set(v) = sp.edit().putString("dicts_dir", v.path).apply()
 
     /** The packs' dictionaries and the own ones (imported, downloaded, folders). */
     fun library(): Library = lib ?: sp.let { p ->
         // Shared by every screen: it reads the switches from the preferences, not from this object.
-        Library(packs.dicts, listOf(dictsDir) + folders.map(::File), File(ctx.filesDir, "index")) { d, pack ->
+        Library(packs.dicts, listOf(dictsDir), File(ctx.filesDir, "index")) { d, pack ->
             if (pack) p.getBoolean("pack_dicts", true) && ticked(p, d)
             else d.id !in p.getStringSet("dicts_off", emptySet())!!
         }
@@ -98,7 +103,7 @@ class Prefs(private val ctx: Context) {
 
     private fun ticked(p: android.content.SharedPreferences, d: StarDict) = p.getStringSet("pairs", null)?.contains("${d.book}-${d.answer}") ?: true
 
-    /** After installing or removing packs, adding or removing a folder. */
+    /** After installing or removing packs, changing the dictionaries' folder. */
     fun reload() { lib = null }
 
     companion object {

@@ -40,3 +40,18 @@ class PacksInstallTest {
         home.deleteRecursively()
     }
 }
+
+/** Removing a pair frees only what no other installed pair needs; updates are the parts with a newer file. */
+class PacksPlanTest {
+    private fun c(id: String, kind: String, from: String = "", to: String = "", sha: String = "1") = Component(id, kind, from, to, "$id.zip", 1, sha)
+    private val cs = listOf(c("dict-de-ru", "dict", "de", "ru"), c("dict-en-ru", "dict", "en", "ru"), c("model-de-en", "model", "de", "en"),
+        c("model-en-ru", "model", "en", "ru"), c("langid", "langid"))
+
+    @Test fun freedAndUpdates() {
+        val both = listOf("de" to "ru", "en" to "ru")
+        // de→ru goes through English: en→ru's model stays for the other pair.
+        org.junit.Assert.assertEquals(listOf("dict-de-ru", "model-de-en"), Packs.freed(cs, both, "de" to "ru").map { it.id })
+        org.junit.Assert.assertEquals(listOf("dict-en-ru", "model-en-ru", "langid"), Packs.freed(cs, listOf("en" to "ru"), "en" to "ru").map { it.id })
+        org.junit.Assert.assertEquals(listOf("langid"), Packs.updates(cs, mapOf("dict-de-ru" to "1", "langid" to "0")).map { it.id })
+    }
+}

@@ -42,3 +42,17 @@ class ImporterTest {
         assertEquals(false, File(tmp.parentFile, "evil.ifo").exists())
     }
 }
+
+/** Deleting from a shared folder (KOReader's) never takes other dictionaries with it. */
+class DeleteTest {
+    @Test fun ownFolderOrOnlyItsFiles() {
+        val root = Files.createTempDirectory("dict").toFile()
+        File(root, "a").mkdirs(); listOf("a/x.ifo", "a/x.idx", "y.ifo", "y.dict.dz", "z.ifo", "z.idx").forEach { File(root, it).writeText("-") }
+        Importer.delete(File(root, "y.ifo"), root)
+        assertEquals(listOf("a", "z.idx", "z.ifo"), root.list()!!.sorted())
+        Importer.delete(File(root, "a/x.ifo"), root)
+        assertEquals(listOf("z.idx", "z.ifo"), root.list()!!.sorted())
+        Importer.delete(File(root.parentFile, "elsewhere/q.ifo"), root) // outside the folder: nothing
+        assertEquals(true, root.exists())
+    }
+}

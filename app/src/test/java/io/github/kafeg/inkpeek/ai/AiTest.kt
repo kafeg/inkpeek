@@ -44,4 +44,11 @@ class AiTest {
             assertEquals(listOf(false), seen) // remembered: one call
         } finally { ss.close() }
     }
+
+    @Test fun editedPromptKeepsKeysAndVersion() {
+        val v = Ask.ANALYSIS.version
+        val p = Ask.ANALYSIS.prompt { if (it == "analysis.grammar") "only the verb" else null }
+        org.junit.Assert.assertTrue(p.contains("\n- grammar: only the verb\n- words: a phrase or a passage"))
+        org.junit.Assert.assertEquals(v, Ask.ANALYSIS.version) // saved answers stay
+    }
 }

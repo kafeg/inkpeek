@@ -45,7 +45,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         info = Ink.text(this, getString(R.string.loading_lists), 16f)
         filter = EditText(this).apply { hint = getString(R.string.catalog_filter); textSize = 18f; setSingleLine() }
         list = ListView(this)
-        col.addView(Ink.text(this, getString(R.string.get_dicts), 24f, bold = true))
+        col.addView(Ink.text(this, getString(R.string.lang_own), 24f, bold = true))
         col.addView(filter); col.addView(Ink.text(this, getString(R.string.cat_recommended), 14f)); col.addView(info)
         col.addView(list, Ink.lp(h = 0, weight = 1f))
         setContentView(col)

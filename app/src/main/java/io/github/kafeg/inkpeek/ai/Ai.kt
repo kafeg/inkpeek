@@ -67,55 +67,59 @@ data class Action(val id: String) {
     companion object { val ALL = listOf(Action("analysis"), Action("context")) }
 }
 
+/** One key of an AI answer: its [name] and JSON type are fixed, [about] (what to write there) can be edited. */
+data class Key(val name: String, val type: String, val about: String)
+
 /**
  * The AI requests, each answered as one JSON object: [QUICK] for Translate (head facts + translation), [ANALYSIS] and
- * [CONTEXT] for their tabs; opening any AI tab sends all three at once. Placeholders: {text}, {lang}.
+ * [CONTEXT] for their tabs; opening any AI tab sends all three at once. Placeholders: {text}, {lang}. The prompt is
+ * [intro], one "- key: about" line per key, [tail]; settings may replace the abouts (AI → Prompts).
  */
-enum class Ask(val prompt: String, val fields: Map<String, Any>, val maxTokens: Long) {
-    QUICK("Selected text: «{text}». Answer with one JSON object, these keys only:\n" +
-        "- base: the dictionary form in the text's own language (Häusern → Haus, went → go, ging → gehen); \"\" for a phrase or passage.\n" +
-        "- article: the article of the base that shows its gender where the language has one (German der/die/das, " +
-        "French le/la, Spanish el/la…); \"\" otherwise or for non-nouns.\n" +
-        "- plural: a noun's plural in the text's language, with the article for German (die Häuser); else \"\".\n" +
-        "- pos: part of speech in {lang}, short; for a noun add the gender of the ORIGINAL word, not of its translation.\n" +
-        "- forms: a verb's principal parts in the text's language — German: infinitive · 3rd person singular present · " +
-        "Präteritum · Perfekt with its auxiliary (\"gehen · geht · ging · ist gegangen\"); English: \"go · went · gone\"; " +
-        "an adjective with irregular comparison: \"gut · besser · am besten\"; else \"\".\n" +
-        "- irregular: true for an irregular or strong verb (or irregular comparison), else false.\n" +
-        "- form_of: when the selected word is an inflected form, which form, in {lang} (plural, dative; past tense…); else \"\".\n" +
-        "- meanings: 1–3 main meanings in {lang}, a few words each; [] for a phrase or passage.\n" +
-        "- translation: a phrase or passage: a natural translation into {lang} that keeps the sentence type (a question " +
-        "stays a question); \"\" for a single word.\n" +
-        "Grammar, examples and comments do not belong here: other tabs give them.",
-        mapOf("base" to "s", "article" to "s", "plural" to "s", "pos" to "s", "forms" to "s", "irregular" to "b",
-            "form_of" to "s", "meanings" to "a", "translation" to "s"), 1024),
+enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val maxTokens: Long) {
+    QUICK("Answer with one JSON object, these keys only:", listOf(
+        Key("base", "s", "the dictionary form in the text's own language (Häusern → Haus, went → go, ging → gehen); \"\" for a phrase or passage."),
+        Key("article", "s", "the article of the base that shows its gender where the language has one (German der/die/das, " +
+            "French le/la, Spanish el/la…); \"\" otherwise or for non-nouns."),
+        Key("plural", "s", "a noun's plural in the text's language, with the article for German (die Häuser); else \"\"."),
+        Key("pos", "s", "part of speech in {lang}, short; for a noun add the gender of the ORIGINAL word, not of its translation."),
+        Key("forms", "s", "a verb's principal parts in the text's language — German: infinitive · 3rd person singular present · " +
+            "Präteritum · Perfekt with its auxiliary (\"gehen · geht · ging · ist gegangen\"); English: \"go · went · gone\"; " +
+            "an adjective with irregular comparison: \"gut · besser · am besten\"; else \"\"."),
+        Key("irregular", "b", "true for an irregular or strong verb (or irregular comparison), else false."),
+        Key("form_of", "s", "when the selected word is an inflected form, which form, in {lang} (plural, dative; past tense…); else \"\"."),
+        Key("meanings", "a", "1–3 main meanings in {lang}, a few words each; [] for a phrase or passage."),
+        Key("translation", "s", "a phrase or passage: a natural translation into {lang} that keeps the sentence type (a question " +
+            "stays a question); \"\" for a single word.")),
+        "Grammar, examples and comments do not belong here: other tabs give them.", 1024),
     // The two AI tabs, one request each; the parts as in the separate tabs before (v0.2), the app adds the headings.
-    ANALYSIS("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
-        "(**bold**, *italic*, \"- \" lists), no headings: the app adds them.\n" +
-        "- grammar: at most 7 short lines, the words you talk about in **bold**. A single word: which form of which " +
-        "**base form** it is, how it is built, and the forms a learner of this language needs to use it correctly. A " +
-        "phrase: how it is built and why — the constructions that matter in this language (word order, agreement, which " +
-        "word requires which form, tense, aspect or mood) and the rule behind them. A passage: every construction that " +
-        "matters, up to 10 lines.\n" +
-        "- words: a phrase or a passage: the words a learner may not know, \"**base form** — short meaning\" each (at most " +
-        "20 for a passage), very common words skipped; a single word: its **base form**, 2–3 synonyms and related words, " +
-        "each \"**word** — short meaning\".",
-        mapOf("grammar" to "s", "words" to "a"), 3000),
-    CONTEXT("Selected text: «{text}». Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
-        "(**bold**, *italic*), no headings: the app adds them.\n" +
-        "- explanation: what it means here, register, idioms and nuances; a passage: what happens and what is implied, " +
-        "briefly.\n" +
-        "- examples: a word or phrase: 3 short everyday sentences in the text's own language with it in **bold**, each " +
-        "with its translation into {lang}; [] for a passage.",
-        mapOf("explanation" to "s", "examples" to "e"), 3000);
+    ANALYSIS("Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
+        "(**bold**, *italic*, \"- \" lists), no headings: the app adds them.", listOf(
+        Key("grammar", "s", "at most 7 short lines, the words you talk about in **bold**. A single word: which form of which " +
+            "**base form** it is, how it is built, and the forms a learner of this language needs to use it correctly. A " +
+            "phrase: how it is built and why — the constructions that matter in this language (word order, agreement, which " +
+            "word requires which form, tense, aspect or mood) and the rule behind them. A passage: every construction that " +
+            "matters, up to 10 lines."),
+        Key("words", "a", "a phrase or a passage: the words a learner may not know, \"**base form** — short meaning\" each (at most " +
+            "20 for a passage), very common words skipped; a single word: its **base form**, 2–3 synonyms and related words, " +
+            "each \"**word** — short meaning\".")), "", 3000),
+    CONTEXT("Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
+        "(**bold**, *italic*), no headings: the app adds them.", listOf(
+        Key("explanation", "s", "what it means here, register, idioms and nuances; a passage: what happens and what is implied, " +
+            "briefly."),
+        Key("examples", "e", "a word or phrase: 3 short everyday sentences in the text's own language with it in **bold**, each " +
+            "with its translation into {lang}; [] for a passage.")), "", 3000);
 
-    /** Changes with the prompt, so saved answers of an older prompt are not shown. */
-    val version: Int get() = prompt.hashCode()
+    /** The prompt with the edited abouts ([edited]: "analysis.grammar" → text, null — the original). */
+    fun prompt(edited: (String) -> String? = { null }): String = "Selected text: «{text}». $intro\n" +
+        keys.joinToString("\n") { k -> "- ${k.name}: " + (edited("$section.${k.name}") ?: k.about) } + if (tail.isEmpty()) "" else "\n$tail"
+
+    /** The original prompt's: saved answers stay when a prompt is edited (the owner's choice), they change with a new app. */
+    val version: Int get() = prompt().hashCode()
     val section: String get() = name.lowercase()
 
     /** JSON Schema for structured outputs: every key required, no others. */
-    fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to fields.keys.toList(),
-        "properties" to fields.mapValues { (_, t) -> when (t) { "b" -> mapOf("type" to "boolean")
+    fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to keys.map { it.name },
+        "properties" to keys.associate { k -> k.name to when (k.type) { "b" -> mapOf("type" to "boolean")
             "a" -> mapOf("type" to "array", "items" to mapOf("type" to "string"))
             "e" -> mapOf("type" to "array", "items" to mapOf("type" to "object", "additionalProperties" to false, "required" to listOf("text", "translation"),
                 "properties" to mapOf("text" to mapOf("type" to "string"), "translation" to mapOf("type" to "string"))))
@@ -129,12 +133,16 @@ data class ModelInfo(val id: String, val name: String = id, val free: Boolean = 
                      val publisher: String = id.substringBefore('/', ""), val created: Long = 0, val context: Int = 0)
 
 object Ai {
-    private fun system(lang: String) = "You are a concise dictionary and language tutor inside an e-book reader on an " +
-        "e-ink screen. Write every answer in $lang only. If the text is already in $lang, answer like an explanatory " +
-        "dictionary of $lang instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
+    /** The general style of every answer; {lang} is the answer language. Editable (AI → Prompts) as "system". */
+    const val SYSTEM = "You are a concise dictionary and language tutor inside an e-book reader on an " +
+        "e-ink screen. Write every answer in {lang} only. If the text is already in {lang}, answer like an explanatory " +
+        "dictionary of {lang} instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +
         "lists inside JSON string values. No headings, tables or code. Keep each part under 120 words unless it needs " +
         "more. You see only the selected text, " +
         "not the sentence around it: do not guess a context (a preposition, a speaker) that is not in the text."
+    /** Edited prompt parts ("system", "analysis.grammar"); set by the app from its settings. */
+    var edited: (String) -> String? = { null }
+    private fun system(lang: String) = (edited("system") ?: SYSTEM).replace("{lang}", lang)
     // The answer comes in one piece, so the read timeout must cover the whole generation.
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()
     /** A model on a home computer can take a while, the first answer also loads the model. */
@@ -157,7 +165,7 @@ object Ai {
         val kind = Kind.of(text)
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
             Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
-        val prompt = "The selection is $what.\n" + ask.prompt.replace("{text}", text).replace("{lang}", lang)
+        val prompt = "The selection is $what.\n" + ask.prompt(edited).replace("{text}", text).replace("{lang}", lang)
         val t0 = System.currentTimeMillis()
         val raw = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang), ask) else openAi(p, url, key, model, prompt, system(lang), ask)).trim()
         Log.i("InkPeek", "ai ${p.name} $model ${ask.section} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${raw.length} chars")

@@ -26,11 +26,11 @@ class WordsPage(private val card: CardActivity) {
             items.forEach { e ->
                 p.addView(WordsList.row(card, e, card.size * 0.85f, { card.startActivity(WordsList.card(card, e.text)) }) {
                     // The activity's scope: this coroutine is over by the time of the tap.
-                    card.launch {
+                    Rows.confirm(card, card.getString(R.string.unsave_q, e.text)) { card.launch {
                         withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }
                         if (e.text == card.query) card.starred(false)
                         fill(p)
-                    }
+                    } }
                 })
             }
         }
