@@ -88,8 +88,9 @@ copy other entries from
 ### Other readers
 | reader | how |
 |---|---|
-| Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict** |
-| Moon+ Reader | Dictionary → **ColorDict** |
+| AlReaderX | Settings → General settings → **Dictionary for single words** → **GoldenDict/ColorDict 3**; select a word or a passage (Text selection) → the translate icon |
+| Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict**. On Onyx Boox Cool Reader does not offer it (its list there is Onyx's own); Share → InkPeek works, but Cool Reader adds the author and the title to the shared text |
+| Moon+ Reader | Dictionary → **ColorDict** (not tested by us) |
 | any app | text selection menu → **Look up in InkPeek**, or Share → InkPeek |
 
 If another dictionary app answers the same request, Android asks which one to use: choose InkPeek → Always.
