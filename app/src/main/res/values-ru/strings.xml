@@ -39,7 +39,7 @@
     <string name="ui_lang">Язык приложения и ответов</string>
     <string name="ui_lang_system">Как в системе</string>
     <string name="offline">Нет сети: AI-вкладки работают через интернет, словари — офлайн.</string>
-    <string name="gloss_title">Подстрочник по вашим словарям (работает офлайн; нажмите на слово — откроется статья):</string>
+    <string name="gloss_title">Перевод по словам (работает офлайн; нажмите на слово — откроется статья):</string>
     <string name="err_offline">Нет сети. AI нужен интернет; вкладка «Словарь» работает офлайн.</string>
     <string name="err_unreachable">Сервер AI не отвечает. Проверьте интернет или VPN.</string>
     <string name="err_region">Сервис AI отклонил запрос. Проверьте сеть или VPN и ключ API.</string>
@@ -70,7 +70,7 @@
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icons_title">Значки в карточке</string>
-    <string name="icon_dict_d">Статьи из языковых пакетов; для фразы — подстрочник. Работает офлайн.</string>
+    <string name="icon_dict_d">Статьи из языковых пакетов; фраза — перевод по словам. Работает офлайн.</string>
     <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
     <string name="tab_translate">Перевод</string>

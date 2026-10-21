@@ -40,7 +40,7 @@
     <string name="ui_lang">Language of the app and the answers</string>
     <string name="ui_lang_system">As the system</string>
     <string name="offline">No network: AI tabs work online; dictionaries work offline.</string>
-    <string name="gloss_title">Word by word from your dictionaries (works offline; tap a word for its entry):</string>
+    <string name="gloss_title">Word by word (works offline; tap a word for its entry):</string>
     <string name="err_offline">No network. AI needs the internet; the Dictionary tab works offline.</string>
     <string name="err_unreachable">The AI server does not answer. Check the internet connection or VPN.</string>
     <string name="err_region">The AI service refused the request. Check the network or VPN and the API key.</string>
@@ -71,7 +71,7 @@
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icons_title">Icons in the card</string>
-    <string name="icon_dict_d">Entries from the language packs; a phrase gets a word-by-word gloss. Works offline.</string>
+    <string name="icon_dict_d">Entries from the language packs; a phrase is translated word by word. Works offline.</string>
     <string name="icon_save_d">Keeps the word or phrase in My words; a filled star means it is there.</string>
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="tab_translate">Translate</string>

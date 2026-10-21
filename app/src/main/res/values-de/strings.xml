@@ -39,7 +39,7 @@
     <string name="ui_lang">Sprache der App und der Antworten</string>
     <string name="ui_lang_system">Wie das System</string>
     <string name="offline">Kein Netz: KI-Tabs brauchen Internet, Wörterbücher gehen offline.</string>
-    <string name="gloss_title">Wort für Wort aus Ihren Wörterbüchern (auch offline; Wort antippen für den Eintrag):</string>
+    <string name="gloss_title">Wort für Wort (auch offline; Wort antippen für den Eintrag):</string>
     <string name="err_offline">Kein Netz. KI braucht Internet; der Wörterbuch-Tab geht offline.</string>
     <string name="err_unreachable">Der KI-Server antwortet nicht. Prüfen Sie die Internetverbindung oder das VPN.</string>
     <string name="err_region">Der KI-Dienst hat die Anfrage abgelehnt. Prüfen Sie Netzwerk oder VPN und den API-Schlüssel.</string>

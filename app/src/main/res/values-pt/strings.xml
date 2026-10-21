@@ -40,7 +40,7 @@
     <string name="ui_lang">Idioma do app e das respostas</string>
     <string name="ui_lang_system">Como o sistema</string>
     <string name="offline">Sem rede: as abas de IA funcionam online; os dicionários, offline.</string>
-    <string name="gloss_title">Palavra por palavra pelos seus dicionários (funciona offline; toque numa palavra para ver o verbete):</string>
+    <string name="gloss_title">Palavra por palavra (funciona offline; toque numa palavra para ver o verbete):</string>
     <string name="err_offline">Sem rede. A IA precisa de internet; a aba Dicionário funciona offline.</string>
     <string name="err_unreachable">O servidor de IA não responde. Verifique a conexão com a internet ou a VPN.</string>
     <string name="err_region">O serviço de IA recusou a solicitação. Verifique a rede ou a VPN e a chave de API.</string>

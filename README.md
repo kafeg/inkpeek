@@ -34,7 +34,7 @@ the rule behind it — and Words.</td>
 <tr>
 <td valign="top"><b>See it in use.</b> Context (AI): Explanation — what it means here, register, idioms — and
 Examples with a translation.</td>
-<td valign="top"><b>Word by word, offline.</b> A selected sentence gets a gloss from the language packs: each word with
+<td valign="top"><b>Word by word, offline.</b> A selected sentence is translated word by word from the language packs: each word with
 its base form and meaning. Tap a word to open its entry.</td>
 <td valign="top"><b>Choose your languages.</b> Tick the pairs you read; each pack brings a dictionary and offline
 translation. ☆ keeps a word or phrase in My words; the history keeps the rest.</td>
@@ -65,7 +65,7 @@ phrase, this setting is the fix.
 |---|---|
 | Long-tap the word, then the **translate** button (文A). | Long-tap, drag the handle to the end of the text, then **translate** (文A). |
 | <img src="docs/img/fbreader-word-select.png" width="240"> <img src="docs/img/card-dictionary.png" width="240"> | <img src="docs/img/fbreader-phrase-select.png" width="240"> <img src="docs/img/card-phrase.png" width="240"> |
-| The card opens on the dictionary. | The card opens on Translate (or on the gloss, without AI). |
+| The card opens on the dictionary. | The card opens on Translate (or on the word-by-word translation, without AI). |
 
 Tip: in **Settings → Dictionary**, set the long-tap action to **select single word, release to open dictionary**.
 Then one gesture opens a word.
