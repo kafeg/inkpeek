@@ -75,7 +75,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         if (Downloads.busy) dlg.show() else dlg.update()
     }
     override fun onPause() { Downloads.listener = null; super.onPause() }
-    override fun onDestroy() { cancel(); super.onDestroy() }
+    override fun onDestroy() { dlg.dismiss(); cancel(); super.onDestroy() }
 
     private val answer get() = prefs.answerCode
     private fun recommended(i: CatalogItem) = i.source == "wikdict" && i.to == answer

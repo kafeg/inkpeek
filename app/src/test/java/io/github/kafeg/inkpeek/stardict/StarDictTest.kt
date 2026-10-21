@@ -41,6 +41,23 @@ class StarDictTest {
         assertTrue(d.lookup("nope").isEmpty())
     }
 
+    @Test fun indexRebuiltWhenBrokenOrFilesChange() {
+        val tmp = Files.createTempDirectory("sd").toFile(); val work = File(tmp, "work")
+        val ifo = dict(tmp, gz = false)
+        val d = StarDict(ifo, work); d.prepare(); assertTrue(d.ready)
+        val index = work.walkTopDown().first { it.name == "index.ipk" }
+        // A cut index (the app killed while copying it): not ready, built again.
+        index.writeBytes(index.readBytes().copyOf(12)); assertTrue(!StarDict(ifo, work).ready)
+        StarDict(ifo, work).also { it.prepare(); assertTrue(it.ready) }
+        // A new edition in place with the old .ifo time: its articles, not the old offsets.
+        val t = ifo.lastModified(); File(tmp, "t.dict").appendText("x"); ifo.setLastModified(t)
+        assertTrue(!d.ready)
+        assertEquals("вечер", StarDict(ifo, work).lookup("abend").single().html)
+        // An index from an older app (no stamp) is kept while newer than the .ifo.
+        File(index.parentFile, "stamp").delete(); assertTrue(StarDict(ifo, work).ready)
+        assertTrue(File(index.parentFile, "stamp").exists())
+    }
+
     @Test fun plainDictAndQueryCleanup() {
         val tmp = Files.createTempDirectory("sd").toFile()
         val d = StarDict(dict(tmp, gz = false), File(tmp, "work"))

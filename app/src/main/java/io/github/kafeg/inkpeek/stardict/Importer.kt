@@ -70,7 +70,8 @@ object Importer {
         var dir = File(target, safe(name)); var i = 2
         while (dir.exists()) dir = File(target, safe(name) + "-" + i++)
         dir.mkdirs()
-        ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.forEach { f ->
+        // The .ifo last: a dictionary is found by it, so one cut short (the app killed) is never seen half.
+        ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.sortedBy { it == ifo }.forEach { f ->
             val dst = File(dir, f.name); if (!f.renameTo(dst)) { f.copyTo(dst, true); f.delete() }
         }
         return dir

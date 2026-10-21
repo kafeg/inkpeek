@@ -31,6 +31,9 @@ class ImporterTest {
             assertEquals(listOf("Demo_ de-ru"), target.list()!!.toList()) // nothing from outside the archive's folder
             // The same dictionary again is not added twice; one with the same name but other data gets its own folder.
             assertEquals(Imported(emptyList(), listOf("Demo: de-ru")), Importer.importStream(name, bytes.inputStream(), target, tmp))
+            val other = Files.createTempDirectory("other").toFile()
+            File(other, "demo.ifo").writeText(files.getValue("x/demo.ifo")); File(other, "demo.idx").writeText("12345678")
+            assertEquals(listOf("Demo_ de-ru-2"), Importer.collect(other, target).added.map { it.name })
         }
     }
 

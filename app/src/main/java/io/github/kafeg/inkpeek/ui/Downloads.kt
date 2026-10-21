@@ -23,12 +23,12 @@ import java.util.concurrent.TimeUnit
  * and whichever screen is open shows its [status] through [listener]; a second one cannot start meanwhile.
  */
 object Downloads {
-    private var job: Job? = null
+    @Volatile private var job: Job? = null
     private val main = Handler(Looper.getMainLooper())
     private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
     @Volatile var status = ""; private set
     /** The last run's outcome ("Added: …", "Already there: …", "Failed: …"), shown once by the screen that sees it. */
-    var result: String? = null
+    @Volatile var result: String? = null
     /** The open screen's refresh; called on the main thread on progress and at the end. */
     var listener: (() -> Unit)? = null
 
@@ -51,7 +51,7 @@ object Downloads {
             Prefs(app).reload(); status = ""
             result = r.getOrElse { if (it is java.util.concurrent.CancellationException) app.getString(R.string.cancelled)
                 else app.getString(R.string.failed, it.message ?: it.javaClass.simpleName) }
-            main.post { job = null; listener?.invoke() }
+            main.post { listener?.invoke() }
         }
         main.post { listener?.invoke() }
     }
@@ -60,7 +60,10 @@ object Downloads {
     fun packs(ctx: Context, install: List<Component>, remove: List<Component>, done: String) = run(ctx) { app, progress ->
         val packs = Prefs(app).packs
         remove.forEach { packs.remove(it) }
-        install.forEachIndexed { i, c ->
+        // Models loaded in memory would go on translating with the old files.
+        if ((install + remove).any { it.kind == "model" }) io.github.kafeg.inkpeek.mt.Engine.release()
+        // The dictionary last: a pair counts as installed by it, so a cancelled or broken download leaves no half pair.
+        install.sortedBy { it.kind == "dict" }.forEachIndexed { i, c ->
             packs.install(c) { got, all -> progress(app.getString(R.string.lang_working, i + 1, install.size, c.id, (got * 100 / all.coerceAtLeast(1)).toInt())) }
         }
         done

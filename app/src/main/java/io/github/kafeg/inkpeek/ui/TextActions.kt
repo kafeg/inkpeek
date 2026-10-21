@@ -30,9 +30,13 @@ object TextActions {
     fun outside(ev: android.view.MotionEvent) {
         val (tv, mode) = active ?: return
         if (ev.actionMasked != android.view.MotionEvent.ACTION_DOWN) return
+        // Both in the window's coordinates (the visible part, from its root): the card's window is not at 0, 0 of the screen.
         val r = Rect(); tv.getGlobalVisibleRect(r)
-        if (!r.contains(ev.rawX.toInt(), ev.rawY.toInt())) mode.finish()
+        if (!r.contains(ev.x.toInt(), ev.y.toInt())) mode.finish()
     }
+
+    /** The screen goes (paused, finished): its selection menu with it. */
+    fun end() { active?.second?.finish() }
 
     /**
      * A text you can select: the handles, our menu instead of Android's, moving with the handles. Double tap: a word;
@@ -41,28 +45,33 @@ object TextActions {
      */
     fun selectable(tv: TextView, row: ((CharSequence) -> Int)? = null) {
         tv.setTextIsSelectable(true)
-        var taps = 0; var lastUp = 0L; var focused = true
+        var taps = 0; var lastUp = 0L; var focused = true; var mine = false
         tv.setOnTouchListener { _, ev ->
             when (ev.actionMasked) {
                 android.view.MotionEvent.ACTION_DOWN -> {
                     taps = if (ev.eventTime - lastUp < 350) taps + 1 else 1; focused = tv.isFocused
-                    // The third tap selects the paragraph; Android would take it for a tap that ends the selection.
-                    if (taps == 3) { paragraph(tv, tv.getOffsetForPosition(ev.x, ev.y)); true } else false
+                    // The third tap selects the paragraph; Android would take it for a tap that ends the selection. The whole
+                    // gesture is ours, and the count starts again (a fourth tap is a first one).
+                    mine = taps == 3
+                    if (mine) { taps = 0; paragraph(tv, tv.getOffsetForPosition(ev.x, ev.y)) }
+                    mine
                 }
                 android.view.MotionEvent.ACTION_UP -> {
                     lastUp = ev.eventTime
                     // Selectable text takes the first tap for the focus, not as a click: a row would open on the second.
                     if (!focused && taps == 1 && tv.hasOnClickListeners() && ev.eventTime - ev.downTime < android.view.ViewConfiguration.getLongPressTimeout()
                         && tv.selectionStart == tv.selectionEnd) tv.post { tv.performClick() }
-                    taps >= 3
+                    mine
                 }
-                else -> taps >= 3
+                else -> mine
             }
         }
         tv.customSelectionActionModeCallback = object : ActionMode.Callback {
             // One menu per selection: Android may start a new one before it ends the old (a triple tap), and each menu
             // must go with its own.
             val pops = HashMap<ActionMode, PopupWindow>()
+            // Modes not yet ended: a menu posted for a mode that ended meanwhile is not shown (nothing would close it).
+            val live = HashSet<ActionMode>()
             // Android's own menu stays empty (so it is not shown, and it reports nothing): the selection is watched here.
             val watch = object : android.text.SpanWatcher {
                 override fun onSpanAdded(t: android.text.Spannable, what: Any, a: Int, b: Int) = moved(what)
@@ -73,19 +82,19 @@ object TextActions {
                 tv.post { val r = selection(tv) ?: return@post; pops.values.forEach { place(it, tv, r, false) } } }
             fun selected() = tv.text.subSequence(tv.selectionStart.coerceAtLeast(0), tv.selectionEnd.coerceAtLeast(0)).toString()
             override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-                menu.clear(); active?.second?.takeIf { it !== mode }?.finish(); active = tv to mode
+                menu.clear(); active?.second?.takeIf { it !== mode }?.finish(); active = tv to mode; live += mode
                 val text = tv.text as? android.text.Spannable
                 text?.setSpan(watch, 0, text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
                 if (row != null && taps < 2) tv.post { text?.let { android.text.Selection.setSelection(it, 0, row(it).coerceIn(1, it.length)) } }
-                tv.post { if (active?.second !== mode || mode in pops) return@post; val r = selection(tv) ?: return@post
-                    pops[mode] = show(tv, r, null, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
+                tv.post { if (mode !in live || mode in pops) return@post; val r = selection(tv) ?: return@post
+                    pops[mode] = show(tv, r, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
                         done = { mode.finish() }) }
                 return true
             }
             override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean { menu.clear(); return true }
             override fun onActionItemClicked(mode: ActionMode, item: MenuItem) = false
             override fun onDestroyActionMode(mode: ActionMode) {
-                pops.remove(mode)?.dismiss()
+                live -= mode; pops.remove(mode)?.dismiss()
                 if (pops.isEmpty()) (tv.text as? android.text.Spannable)?.removeSpan(watch)
                 if (active?.second === mode) active = null
             }
@@ -112,26 +121,21 @@ object TextActions {
         return inWindow(tv, Rect(left + dx, l.getLineTop(a) + dy, right + dx, l.getLineBottom(b) + dy))
     }
 
-    /**
-     * The menu over [at] (window coordinates; under it when there is no room above). [text] is the whole line; for a
-     * selection, [select] reads it at the moment of the tap and [all] selects all.
-     */
-    private fun show(anchor: View, at: Rect, text: String?, select: (() -> String)? = null, all: (() -> Unit)? = null,
-                     done: () -> Unit = {}): PopupWindow {
+    /** The menu over [at] (window coordinates); [select] reads the selection at the moment of the tap, [all] selects all. */
+    private fun show(anchor: View, at: Rect, select: () -> String, all: () -> Unit, done: () -> Unit): PopupWindow {
         val ctx = anchor.context
         val box = Ink.horizontal(ctx).apply { background = Ink.border(ctx, 3, 8); val q = Ink.dp(ctx, 5); setPadding(q, q, q, q) }
         // Over a selection it must not take the focus: the selection would end.
-        val pop = PopupWindow(box, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, select == null)
+        val pop = PopupWindow(box, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, false)
         fun item(icon: Int, label: Int, act: (String) -> Unit) = box.addView(Ink.icon(ctx, icon, ctx.getString(label), 44) {
-            act(select?.invoke() ?: text.orEmpty()); pop.dismiss(); done()
+            act(select()); pop.dismiss(); done()
         }, LinearLayout.LayoutParams(Ink.dp(ctx, 44), Ink.dp(ctx, 44)).apply { if (box.childCount > 0) leftMargin = Ink.dp(ctx, 6) })
         item(R.drawable.ic_copy, R.string.copy) { copy(ctx, it) }
         item(R.drawable.ic_share, R.string.share) { share(ctx, it) }
         item(R.drawable.ic_web, R.string.search_web) { web(ctx, it) }
-        if (all != null) box.addView(Ink.icon(ctx, R.drawable.ic_select_all, ctx.getString(R.string.select_all), 44) { all() },
+        box.addView(Ink.icon(ctx, R.drawable.ic_select_all, ctx.getString(R.string.select_all), 44) { all() },
             LinearLayout.LayoutParams(Ink.dp(ctx, 44), Ink.dp(ctx, 44)).apply { leftMargin = Ink.dp(ctx, 6) })
-        pop.isOutsideTouchable = select == null; pop.elevation = 0f
-        if (select == null) pop.setOnDismissListener { done() }
+        pop.elevation = 0f
         place(pop, anchor, at, true)
         return pop
     }

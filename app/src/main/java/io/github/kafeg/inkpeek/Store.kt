@@ -27,9 +27,15 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     override fun onDowngrade(db: SQLiteDatabase, from: Int, to: Int) {}
 
     override fun onUpgrade(db: SQLiteDatabase, from: Int, to: Int) {
-        if (from < 2) { db.execSQL("ALTER TABLE history ADD COLUMN meaning TEXT"); dropAnswers(db) }
+        // Only what is missing: an older app opening the file marks it with its own (lower) version but keeps the columns.
+        if (from < 2) { add(db, "history", "meaning"); dropAnswers(db) }
         // The language of a meaning: a list in another app language shows its own when there is one.
-        if (from < 3) { db.execSQL("ALTER TABLE saved ADD COLUMN lang TEXT"); db.execSQL("ALTER TABLE history ADD COLUMN lang TEXT") }
+        if (from < 3) { add(db, "saved", "lang"); add(db, "history", "lang") }
+    }
+
+    private fun add(db: SQLiteDatabase, table: String, column: String) {
+        val has = db.rawQuery("PRAGMA table_info($table)", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(1) else null }.any { it == column } }
+        if (!has) db.execSQL("ALTER TABLE $table ADD COLUMN $column TEXT")
     }
 
     /** Answers of texts that are neither in the history nor saved. */
@@ -66,7 +72,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         // No UPSERT: Android 8 and 9 ship SQLite older than 3.24.
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, 0, 0)", arrayOf(text, kind))
         db.execSQL("UPDATE history SET seen=?, count=count+1 WHERE text=?", arrayOf(System.currentTimeMillis(), text))
-        if (db.compileStatement("SELECT COUNT(*) FROM history").simpleQueryForLong() > HISTORY) {
+        if (android.database.DatabaseUtils.longForQuery(db, "SELECT COUNT(*) FROM history", null) > HISTORY) {
             db.execSQL("DELETE FROM history WHERE text NOT IN (SELECT text FROM history ORDER BY seen DESC LIMIT $HISTORY)")
             dropAnswers(db)
         }

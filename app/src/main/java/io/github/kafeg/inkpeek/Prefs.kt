@@ -104,13 +104,13 @@ class Prefs(private val ctx: Context) {
     var cardFull: Boolean get() = sp.getBoolean("card_full", false); set(v) = sp.edit().putBoolean("card_full", v).apply()
 
     /** The packs' dictionaries and the own ones (imported, downloaded, folders). */
-    fun library(): Library = lib ?: sp.let { p ->
+    fun library(): Library = lib ?: synchronized(Prefs::class) { lib ?: sp.let { p ->
         // Shared by every screen: it reads the switches from the preferences, not from this object.
         Library(packs.dicts, listOf(dictsDir), File(ctx.filesDir, "index"), { d, pack ->
             if (pack) p.getBoolean("pack_dicts", true) && ticked(p, d)
             else d.id !in p.getStringSet("dicts_off", emptySet())!!
         }) { p.getString("order", "")!!.split('\n').filter { it.isNotEmpty() } }
-    }.also { lib = it }
+    }.also { lib = it } }
 
     /** The ticked pairs' pack dictionaries, even when the card does not use them: they tell the text's language. */
     fun packDictionaries(): List<StarDict> = library().let { l -> l.found().filter { l.isPack(it) && ticked(sp, it) } }
@@ -121,7 +121,7 @@ class Prefs(private val ctx: Context) {
     fun reload() { lib = null }
 
     companion object {
-        private var lib: Library? = null
+        @Volatile private var lib: Library? = null
         /** App languages = the answer languages of the packs. */
         val ANSWERS = listOf("en", "ru", "de", "fr", "es", "it", "pt", "pl")
     }

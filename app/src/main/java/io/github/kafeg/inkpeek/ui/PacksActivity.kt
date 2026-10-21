@@ -57,15 +57,19 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         if (Downloads.busy) dlg.show() else dlg.update()
     }
     override fun onPause() { Downloads.listener = null; super.onPause() }
-    override fun onDestroy() { cancel(); super.onDestroy() }
+    override fun onDestroy() { dlg.dismiss(); cancel(); super.onDestroy() }
 
     private fun name(c: String) = java.util.Locale(c).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
     private fun title(p: Pair<String, String>) = "${name(p.first)} → ${name(p.second)}"
     /** What the pair still needs here: shared models and langid already installed are not downloaded again. */
     private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p)).filter { inst[it.id] != it.sha256 }
 
+    /** Installed pairs with every part here (a download stopped half-way leaves one to finish: it can be tapped). */
+    private fun complete(inst: Map<String, String> = prefs.packs.installed()) =
+        prefs.packs.installedPairs().filter { p -> Packs.needed(manifest, listOf(p)).all { it.id in inst } }.toSet()
+
     private fun show() {
-        val installed = prefs.packs.installedPairs().toSet(); val inst = prefs.packs.installed()
+        val inst = prefs.packs.installed(); val installed = complete(inst)
         pairs = Packs.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { name(it.first) }, { name(it.second) }))
         info.text = getString(R.string.n_of_m, pairs.count { it in installed }, pairs.size)
         list.adapter = Rows.adapter(this, pairs.map { p ->
@@ -74,7 +78,7 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private fun confirm(p: Pair<String, String>) {
-        if (p in prefs.packs.installedPairs()) { toast(getString(R.string.pack_installed)); return }
+        if (p in complete()) { toast(getString(R.string.pack_installed)); return }
         if (Downloads.busy) { dlg.show(); return }
         val need = missing(p)
         AlertDialog.Builder(this).setTitle(title(p)).setMessage(getString(R.string.pack_confirm, (need.sumOf { it.size } / 1_000_000).coerceAtLeast(1)))

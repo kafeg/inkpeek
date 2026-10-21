@@ -45,15 +45,43 @@ class StarDict(ifoFile: File, workRoot: File) {
     @Volatile private var map: MappedByteBuffer? = null
     @Volatile private var data: DictData? = null
 
-    val ready: Boolean get() = indexFile.exists() && indexFile.lastModified() >= ifo.lastModified()
+    private val stampFile = File(workDir, "stamp")
+    /** The stamp the index was last found good for; checked again when the files change. */
+    @Volatile private var good: String? = null
 
-    /** Builds the index if missing or older than the .ifo. Slow for big dictionaries: call off the main thread. */
-    @Synchronized fun prepare() {
+    /** The dictionary's files as they are now: names, sizes, times (a new edition in place keeps an old .ifo time). */
+    private fun stamp() = listOf(".ifo", ".idx", ".idx.gz", ".dict", ".dict.dz", ".syn", ".syn.dz").map { File(base + it) }
+        .filter { it.exists() }.joinToString("\n") { "${it.name} ${it.length()} ${it.lastModified()}" }
+
+    /** The index is there, whole (its header and length), and made from these very files. */
+    val ready: Boolean get() {
+        val now = stamp()
+        if (good == now) return true
+        val ok = runCatching { indexFile.exists() && whole() && (if (stampFile.exists()) stampFile.readText() == now else legacy(now)) }.getOrDefault(false)
+        // Files changed under an open dictionary (rebuilt by another Library): its old mapping must not be read.
+        if (ok) { map = null; data = null; good = now }
+        return ok
+    }
+
+    /** An index from 0.5.105 or older (no stamp): kept if newer than the .ifo, as then, so an update rebuilds nothing. */
+    private fun legacy(now: String) = (indexFile.lastModified() >= ifo.lastModified()).also { if (it) stampFile.writeText(now) }
+
+    private fun whole() = RandomAccessFile(indexFile, "r").use { f -> f.length() >= 8 && f.readInt() == MAGIC && f.length() >= 8 + 4L * f.readInt() }
+
+    /** Builds the index if missing, broken or from other files; once per dictionary in the process. Off the main thread. */
+    fun prepare() {
+        if (ready) return
+        synchronized(BUILDING.computeIfAbsent(id) { Any() }) { build() }
+    }
+
+    private fun build() {
         if (ready) return
         workDir.deleteRecursively(); workDir.mkdirs()
         File(workDir, "source").writeText(ifo.path)
+        val now = stamp()
         buildIndex()
-        map = null
+        stampFile.writeText(now)
+        map = null; data = null; good = null
     }
 
     private fun readMaybeGz(name: String): ByteArray? = File(name).takeIf { it.exists() }?.readBytes()
@@ -146,6 +174,7 @@ class StarDict(ifoFile: File, workRoot: File) {
 
     companion object {
         private const val MAGIC = 0x49504B32 // "IPK2"
+        private val BUILDING = java.util.concurrent.ConcurrentHashMap<String, Any>()
         fun sha1(s: String) = MessageDigest.getInstance("SHA-1").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
         /** Every .ifo below [root] (any depth). */
         fun scan(root: File): List<File> =
@@ -175,7 +204,7 @@ abstract class DictData {
             while (c < starts.size - 1 && c.toLong() * chunkLen < end) {
                 val comp = ByteArray((starts[c + 1] - starts[c]).toInt()); raf.seek(starts[c]); raf.readFully(comp)
                 val inf = java.util.zip.Inflater(true); inf.setInput(comp)
-                val buf = ByteArray(chunkLen); val got = inf.inflate(buf); inf.end()
+                val buf = ByteArray(chunkLen); val got = try { inf.inflate(buf) } finally { inf.end() }
                 out.write(buf, 0, got); c++
             }
             val all = out.toByteArray(); val from = (off - (off / chunkLen) * chunkLen).toInt()

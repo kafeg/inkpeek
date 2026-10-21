@@ -95,6 +95,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
+    override fun onPause() { TextActions.end(); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
     override fun onTrimMemory(level: Int) { super.onTrimMemory(level); if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) Engine.release() }
 

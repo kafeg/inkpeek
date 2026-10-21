@@ -96,6 +96,8 @@ class LanguagesSettings(private val a: MainActivity) {
     }
 
     private fun removePair(pair: Pair<String, String>) {
+        // One download at a time: the running one is shown, the pair stays as it is.
+        if (Downloads.busy) { a.showDownload(); return }
         val packs = prefs.packs; val all = packs.installedPairs()
         // Without the list (offline, first start) only the pair's dictionary is known to be its own.
         val freed = if (manifest.isEmpty()) listOf(Packs.stale("dict-${pair.first}-${pair.second}")) else Packs.freed(manifest, all, pair)

@@ -113,14 +113,19 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
     override fun onResume() {
         super.onResume()
-        Downloads.listener = { if (!isDestroyed) { download.update(); languages.refreshPacks(); refreshDicts() } }
+        resumed = true
+        // Every progress step updates the dialog and the packs' line; the dictionaries are read again only at the end.
+        Downloads.listener = { if (!isDestroyed) { download.update(); languages.refreshPacks(); if (!Downloads.busy) refreshDicts() } }
         if (Downloads.busy) download.show()
         languages.refreshPacks(); refreshDicts(); if (current == R.string.tab_words) words.refresh()
         // The daily update check (About), quietly: only the version line changes.
         if (Updates.due(this)) launch { withContext(Dispatchers.IO) { runCatching { Updates.check(this@MainActivity) } }; refreshStatus() }
     }
-    override fun onPause() { ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
-    override fun onDestroy() { cancel(); super.onDestroy() }
+    override fun onPause() { TextActions.end(); resumed = false; ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
+    override fun onDestroy() { download.dismiss(); cancel(); super.onDestroy() }
+
+    private var resumed = false
+    private val poll = Runnable { refreshDicts() }
 
     @Deprecated("Plain Activity result: no AndroidX dependency")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -136,7 +141,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
                 LanguagesSettings.KNOWN.map { File(Environment.getExternalStorageDirectory(), it) }.filter { StarDict.scan(it).isNotEmpty() } }
             languages.refreshOther(lib, found, known)
             refreshStatus()
-            if (lib.busy) ui.postDelayed({ refreshDicts() }, 3000)
+            // One poll while indexes are built, none after the screen is left.
+            ui.removeCallbacks(poll); if (lib.busy && resumed) ui.postDelayed(poll, 3000)
         }
     }
 

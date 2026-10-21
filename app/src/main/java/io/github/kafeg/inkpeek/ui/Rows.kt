@@ -143,7 +143,7 @@ object Rows {
             if (d?.isShowing == true) return
             text = Ink.text(a, Downloads.status, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
             d = AlertDialog.Builder(a).setView(text).setCancelable(false).setPositiveButton(R.string.hide, null)
-                .setNegativeButton(R.string.cancel_download) { _, _ -> Downloads.cancel() }.show()
+                .setNegativeButton(R.string.cancel_download, null).show()
             // Cancel keeps the dialog: it shows "Cancelled" when the download has stopped.
             d?.getButton(AlertDialog.BUTTON_NEGATIVE)?.setOnClickListener { Downloads.cancel(); it.isEnabled = false }
         }
@@ -153,11 +153,13 @@ object Rows {
             if (Downloads.busy) { text?.text = Downloads.status; return }
             val r = Downloads.result ?: return; Downloads.result = null
             // The outcome in a dialog of its own with one button: a hidden Cancel left an uneven frame.
-            if (d?.isShowing == true) { d?.dismiss(); d = null
-                AlertDialog.Builder(a).setView(Ink.text(a, r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
+            if (d?.isShowing == true) { d?.dismiss(); d = AlertDialog.Builder(a).setView(Ink.text(a, r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
                     .setPositiveButton(R.string.close, null).show()
             } else android.widget.Toast.makeText(a, r, android.widget.Toast.LENGTH_LONG).show()
         }
+
+        /** The screen goes: its dialogs with it (a dialog over a finished screen leaks its window). */
+        fun dismiss() { d?.dismiss(); d = null }
     }
 
     fun spinner(ctx: Context, items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(ctx).apply {

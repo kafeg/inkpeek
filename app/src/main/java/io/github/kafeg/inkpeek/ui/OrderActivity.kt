@@ -37,29 +37,37 @@ class OrderActivity : Activity(), CoroutineScope by MainScope() {
 
     override fun onDestroy() { cancel(); super.onDestroy() }
 
+    private var shown: List<StarDict> = emptyList()
+
     private fun refresh() = launch {
         val lib = prefs.library()
-        val dicts = withContext(Dispatchers.IO) { lib.all() }
+        shown = withContext(Dispatchers.IO) { lib.all() }
+        draw()
+    }
+
+    private fun draw() {
+        val lib = prefs.library(); val dicts = shown
         list.removeAllViews()
         dicts.forEachIndexed { i, d ->
-            val r = Ink.horizontal(this@OrderActivity).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
-            r.addView(Rows.texts(this@OrderActivity, title(d, lib.isPack(d)), if (lib.isPack(d)) getString(R.string.order_pack) else
+            val r = Ink.horizontal(this).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
+            r.addView(Rows.texts(this, title(d, lib.isPack(d)), if (lib.isPack(d)) getString(R.string.order_pack) else
                 (d.ifo.parentFile?.parentFile?.let { short(it) } ?: ""), 1), Ink.lp(0, weight = 1f))
-            val side = Ink.dp(this@OrderActivity, 44)
-            r.addView(Ink.icon(this@OrderActivity, R.drawable.ic_up, getString(R.string.up), 44) { move(dicts, i, -1) }.apply { alpha = if (i > 0) 1f else 0.3f },
+            val side = Ink.dp(this, 44)
+            r.addView(Ink.icon(this, R.drawable.ic_up, getString(R.string.up), 44) { move(i, -1) }.apply { alpha = if (i > 0) 1f else 0.3f },
                 LinearLayout.LayoutParams(side, side).apply { leftMargin = Ink.dp(this@OrderActivity, 8) })
-            r.addView(Ink.icon(this@OrderActivity, R.drawable.ic_down, getString(R.string.down), 44) { move(dicts, i, 1) }.apply { alpha = if (i < dicts.size - 1) 1f else 0.3f },
+            r.addView(Ink.icon(this, R.drawable.ic_down, getString(R.string.down), 44) { move(i, 1) }.apply { alpha = if (i < dicts.size - 1) 1f else 0.3f },
                 LinearLayout.LayoutParams(side, side).apply { leftMargin = Ink.dp(this@OrderActivity, 6) })
             list.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@OrderActivity, 12) })
         }
     }
 
-    /** The whole list as it is shown, with one step; ids of dictionaries not in use now keep their place after it. */
-    private fun move(dicts: List<StarDict>, i: Int, by: Int) {
-        val j = i + by; if (j !in dicts.indices) return
-        val ids = dicts.map { it.id }.toMutableList(); ids[i] = ids[j].also { ids[j] = ids[i] }
+    /** One step in the list as shown (at once: quick taps each move from the last one); others keep their place after it. */
+    private fun move(i: Int, by: Int) {
+        val j = i + by; if (i !in shown.indices || j !in shown.indices) return
+        shown = shown.toMutableList().apply { this[i] = this[j].also { this[j] = this[i] } }
+        val ids = shown.map { it.id }
         prefs.order = ids + prefs.order.filter { it !in ids }
-        refresh()
+        draw()
     }
 
     private fun title(d: StarDict, pack: Boolean): String {
