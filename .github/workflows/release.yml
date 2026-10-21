@@ -1,4 +1,6 @@
 name: Release
+# The title names the tag for a push and for a run by hand: scripts/release.sh finds its run by it.
+run-name: Release ${{ inputs.tag || github.ref_name }}
 # A tag "v<appVersion>.<commits>" (the version the build computes) builds a signed APK from that commit and attaches
 # it to a GitHub release; the notes are the version's section of CHANGELOG.md (the app's update shows them).
 # Normally run through scripts/release.sh.
@@ -11,6 +13,7 @@ on:
       tag: { description: "Tag to release, e.g. v0.5.112", required: true }
 permissions:
   contents: write
+concurrency: { group: "release-${{ inputs.tag || github.ref_name }}", cancel-in-progress: false }
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -32,9 +35,9 @@ jobs:
           echo "$KEYSTORE_BASE64" | base64 -d > release.jks
           printf 'storeFile=release.jks\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\n' \
             "$KEYSTORE_PASSWORD" "$KEY_ALIAS" "$KEY_PASSWORD" > keystore.properties
-      - run: ./gradlew --no-daemon testDebugUnitTest assembleRelease
       - name: The tag names the built version
         run: test "v$(sed -n 's/^appVersion=//p' gradle.properties).$(git rev-list --count HEAD)" = "$TAG"
+      - run: ./gradlew --no-daemon testDebugUnitTest assembleRelease
       - name: Name and checksum
         run: |
           cp app/build/outputs/apk/release/app-release.apk "inkpeek-${TAG}.apk"

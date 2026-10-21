@@ -13,14 +13,16 @@ in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of
 (manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
 `CardActivity` (window, header, icon bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`,
 `WordsPage`), `MainActivity` (settings shell) + one class per section (`LanguagesSettings`, `AiSettings`,
-`CardSettings`, `WordsSettings`), all built of `Rows` (the one row style); `PacksActivity` / `CatalogActivity` (choose
-packs / other dictionaries to download), `PackJob` (one pack download for the process).
+`CardSettings`, `WordsSettings`), all built of `Rows` (the one row style); `PacksActivity` / `CatalogActivity` (packs /
+other dictionaries to download), `OrderActivity` (dictionary order), `Downloads` (one download for the process: packs,
+dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `TextActions` (selection, our copy /
+share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run
 ```bash
 ./gradlew assembleDebug                 # app/build/outputs/apk/debug/app-debug.apk
-./gradlew test                          # stardict unit tests
+./gradlew testDebugUnitTest             # JVM unit tests
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell appops set io.github.kafeg.inkpeek MANAGE_EXTERNAL_STORAGE allow
 adb shell am start -a colordict.intent.action.SEARCH --es EXTRA_QUERY Haus   # open the card
@@ -30,14 +32,15 @@ Device tests run inside the installed release app (`testBuildType = "release"`, 
 `app/src/androidTest/assets/cases.tsv`, results in `adb logcat -s InkPeekTest`. A failing case is a finding about the
 packs or the code: fix the data or the code, never the expectation to make it pass. Boox: `adb exec-out screencap`
 prints a line before the PNG — use `screencap -p /sdcard/s.png` and `adb pull`.
-Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
+Android SDK: `local.properties` `sdk.dir` (here `~/Library/Android/sdk`) or `ANDROID_HOME`.
 Version: `appVersion` in `gradle.properties` + the git commit count (`<appVersion>.<commits>`; the count is also the
 version code; the app's update check compares it with the latest tag's last number).
-Release: `scripts/release.sh [--install]` only — it checks (main, clean, pushed, tests, a `CHANGELOG.md` section
-`## <appVersion>`), dates that section, tags, waits for `release.yml` (starts it by hand when GitHub lost the push),
-checks the APK's checksum and signing certificate and that it is the latest release; `--install` puts it on every
-connected device. Before it: the version's bullets in `CHANGELOG.md` (what changed for people who use the app — the
-release notes and the in-app update show them); a new minor version → `appVersion` and a new `## x.y — unreleased`.
+Release: `scripts/release.sh [--install]` only (macOS; after a failure run it again — it resumes) — it checks (main,
+clean, pushed, tests, a `CHANGELOG.md` section `## <appVersion>`), dates that section, tags, waits for `release.yml`
+(starts it by hand when GitHub lost the push), checks the APK's checksum and signing certificate and that it is the
+latest release; `--install` puts it on every connected device. Before it: the version's bullets in `CHANGELOG.md`
+(what changed for people who use the app — the release notes and the in-app update show them); a new minor version →
+`appVersion` and a new `## x.y — unreleased`.
 Layout checks and README pictures: `scripts/screens.sh` (every settings tab, page by page, on each connected device;
 `am start … --es open lang:other` opens a tab).
 Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,

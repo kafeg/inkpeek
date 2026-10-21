@@ -23,6 +23,13 @@ count, so every release has its own.
 - Back and page arrows as icons; "→" drawn in the middle of the line.
 - Notes and the history show each entry's line in the app's language when there is one (a saved line keeps its
   language).
+- Triple tap on the card's header selects it with the menu; a tap beside a selection in the card closes it.
+- A dictionary replaced in its folder by a new edition (or an index cut short) gets a new index; two screens never
+  build one at the same time.
+- A language pack download stopped half-way can be finished: the pair is not shown as installed until every part is
+  there.
+- Translate by AI failing (network, key) shows the word-by-word gloss under a phrase and asks again next time.
+- An update confirmed while InkPeek was in the background opens the installer when settings open.
 
 ## 0.4 — 2026-10-21
 - Other dictionaries: any StarDict dictionary (KOReader's format) — download from WikDict, Wiktionary (xxyzz) or

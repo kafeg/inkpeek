@@ -22,8 +22,8 @@ Close the card and you are back on the same page.
 | `android.intent.action.PROCESS_TEXT` | system text-selection menu | extra `EXTRA_PROCESS_TEXT` |
 | `android.intent.action.SEND` (`text/plain`) | "Share" | extra `EXTRA_TEXT` |
 
-- ColorDict extras `EXTRA_HEIGHT`, `EXTRA_GRAVITY` and `EXTRA_FULLSCREEN` are ignored (`EXTRA_FULLSCREEN`: some readers
-  send `true` when their status bar is hidden; InkPeek always opens the card).
+- ColorDict extras `EXTRA_GRAVITY` and `EXTRA_HEIGHT` place the card with Card → Appearance → Position → "Where the
+  reader asks"; `EXTRA_FULLSCREEN` is ignored (some readers send `true` when their status bar is hidden).
 - The activity is a dialog over the caller's task (`taskAffinity=""`, `excludeFromRecents`, no history). Back or a
   tap outside closes it.
 
@@ -32,7 +32,7 @@ Core works offline without AI; AI tabs are optional extras. Tabs: **Dictionary**
 **AI translation**, **Analysis**, **Context** — "AI" in the icon's corner, dimmed and a reason on tap when AI is off,
 has no key, or there is no network (a saved answer still opens). AI off in settings → no AI tabs. A tab keeps its
 content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told the kind.
-The card opens on Dictionary; a phrase opens on AI translation only with `phrase_auto_ai` (default off) and AI able
+The card opens on Dictionary; a phrase opens on Translate with `phrase_auto_ai` (default on since 0.4) and Translate able
 to answer. No AI request on card open.
 Header of a word from local data only: the article from WikDict's grammar mark ("das Gewitter"); the grammar pack
 (milestone 10) adds plural and verb forms.
@@ -52,22 +52,24 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
    has a slightly heavier border (4 vs 2); AI icons carry "AI" in their top-right corner, drawn smaller to leave
    room for it. Long press shows the name.
 - Notes in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
-- Size: 92% of screen width, 80% of height, centered. Body text 20 sp, header +30%. No settings for these: fewer
-  options (decided 21.10).
+- Size, place, text size and theme: Card → Appearance (milestone 14); the defaults are the 0.3 card (92% of the
+  width, 80% of the height, centred, text 20 sp, header +30%).
 - No colors, no shadows, no ripple. Thin black borders. Light dim behind the card.
 
 ## Dictionaries
 - Format: StarDict 3 — `.ifo`, `.idx` (or `.idx.gz`), `.dict` or `.dict.dz` (dictzip random access), optional `.syn`.
   `sametypesequence` `m`, `t`, `x`, `h`, `g` → plain text or simple HTML.
-- Library: the pack dictionaries only, `/sdcard/InkPeek/packs/dicts/<id>/` (Languages tab, milestone 12); no
-  import, no third-party lists. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
-- Order in the card: dictionaries into the app's language first.
+- Library: the pack dictionaries (`/sdcard/InkPeek/packs/dicts/<id>/`) and other StarDict dictionaries in one folder
+  (default `InkPeek/dicts`, or e.g. KOReader's); milestone 14. Needs `MANAGE_EXTERNAL_STORAGE` (the app is sideloaded).
+- Order in the card: Card → Main → Dictionary order (packs and others in one list); not ordered ones after them, the
+  packs first, by name.
 - Short line of an article: WikDict — the `<div>` translations of the first (or the AI's) part-of-speech block and
   its grammar mark ("noun, neutral"); Wiktionary — the first sense of the first `<ol>`; plain text (Mueller) — the
   first line without `[transcription]`, `_v.`, `1>` marks; always up to the first ";".
 - Own index per dictionary, built once (app files): every headword and `.syn` form, normalized (NFC, lower case, no
   soft hyphen), sorted, binary search over a memory-mapped file. Upstream `.idx` sort order does not matter.
-  `.dict.dz` is unpacked once into the app's files.
+  `.dict.dz` is read by dictzip chunks. The index is built again when it is cut or the dictionary's files change
+  (names, sizes, times); one build per dictionary at a time in the app.
 - Query normalization: trim, strip surrounding punctuation and quotes, collapse spaces; soft hyphen removed.
   The card and the AI get a phrase with its sentence end (`?!.…`) kept and stray edge quotes / brackets removed.
 - Rendering: HTML through `Html.fromHtml` into a `TextView` (no WebView, no JS); images ignored.
@@ -75,8 +77,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## AI
 - Providers: Claude (Anthropic Java SDK), OpenAI and OpenRouter (OpenAI-compatible `/chat/completions`, `/models`).
   Non-streaming (one e-ink refresh per answer); `<think>` blocks stripped; error shown in the card.
-- Key per provider in settings; Claude can also read a key file (default `/sdcard/koreader/settings/anthropic.key`,
-  shared with KOReader plugins). Never logged, never shown in full.
+- Key per provider in settings. Never logged, never shown in full.
 - Model per provider: free text or "Choose model…" from the provider's model list. Claude default `claude-sonnet-5-5` (Haiku 5.5 was faster but got grammar wrong).
 - Least reasoning each model allows. Claude: effort low; thinking `disabled`, except Sonnet 5.5 (`between_tools`)
   and Opus 5.5 / Fable (cannot be off); a 400 retries without these and is remembered. Refusal fallback
@@ -88,7 +89,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Network: "online" = a validated network; a VPN counts only with a real network under it. Offline → no request.
 - Errors: no network; server unreachable (internet or VPN); 403 / "location not supported" → a neutral "the service
   refused: check the network or VPN and the key"; 401 → key; 429; credits. A phrase or passage shows the offline gloss under the error.
-- Answer language: the app's language (en, ru, de; system language by default, English otherwise). No separate setting.
+- Answer language: the app's language (the answer languages of the packs; system language by default, English otherwise). No separate setting.
 - Two requests, each answered as one JSON object (Claude: structured outputs with a JSON Schema; OpenAI-compatible:
   `response_format: json_object`, then without it on 400/422; the reply is parsed from the first `{` to the last `}`).
   Prompts: `Ask` in `ai/Ai.kt`, placeholders `{text}`, `{lang}`.
@@ -101,7 +102,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   Markdown only (**bold**, *italic*, "- " lists) rendered in the card; brief; the model sees only the selection and
   must not guess its sentence.
 - OpenRouter default model `openrouter/free`.
-- Data sent: only the selected text and the prompt, only when an AI tab is opened. No telemetry.
+- Data sent: only the selected text and the prompt, only when an AI tab (or Translate with AI on) is opened. No telemetry.
 
 ## Storage
 - One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
@@ -118,17 +119,16 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
-Tabs: Languages (pack pairs, milestone 12) · AI (on/off, provider, key and its source, model picker with
-filter / maker / free only / sort) · Card
-(app language, a phrase opens on Translate, what each icon does) · Notes. UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system language
-by default. The app language is also the answer language.
+Four sections with three tabs each (milestone 14.4): Languages (InkPeek · Other dictionaries · Help), AI (Main ·
+Prompts · Help), Card (Main · Appearance · Icons), Notes (Words · Phrases · History). The status line on top, the
+version on its right (About). UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system
+language by default. The app language is also the answer language.
 
 ## Tech
 - Kotlin, Android Views (no Compose), minSdk 30, targetSdk 35, arm64. Libraries: anthropic-java, OkHttp,
-  kotlinx-coroutines, commons-compress + zstd-jni (pack archives). Native: Bergamot, fastText.
-- Packages: `stardict` (pure JVM: ifo/idx/syn/dict/dictzip readers, lookup), `ai` (Claude client, actions),
-  `ui` (card activity, settings).
-- Tests: JVM unit tests for `stardict` with a tiny generated dictionary.
+  kotlinx-coroutines, commons-compress + xz + zstd-jni (archives). Native: Bergamot, fastText.
+- Packages: `stardict` (pure JVM: readers, index, lookup, import, catalog), `packs`, `ai`, `mt`, `ui` (see CLAUDE.md).
+- Tests: JVM unit tests (`./gradlew testDebugUnitTest`); device tests of the packs (`scripts/device-test.sh`).
 - Build: Gradle wrapper; `./gradlew assembleDebug`; release signed with a local keystore (not in git).
 - License: MIT.
 
@@ -217,7 +217,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 
 14. **Version 0.4: readers' wishes** (from MobileRead, 21.10: own dictionaries, a smaller pop-up, a dark mode; no AI).
    New options only; the defaults stay as in 0.3 except "a phrase opens on Translate" (on by default).
-   1. **Card settings in three tabs**: Main (language, phrases), Window, Icons. **Window**: height — by content (a small pop-up, like KOReader's) or a share of the
+   1. **Card settings in three tabs** (the first plan; the final tabs are in 4): Main (language, phrases), Window
+      (Appearance since 0.5), Icons. **Window**: height — by content (a small pop-up, like KOReader's) or a share of the
       screen; width; position — top / centre / bottom, or where the reader asks (`EXTRA_GRAVITY`, `EXTRA_HEIGHT` of the
       ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
       light, dark (white on black) or as in the system (night mode). **Icons**: the icon bar on or off (off: the

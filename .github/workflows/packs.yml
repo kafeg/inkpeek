@@ -17,13 +17,16 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       WORK: /tmp/packs-work
+      # Inputs through the environment, not pasted into the scripts.
+      LANGS: ${{ inputs.langs }}
+      ANSWERS: ${{ inputs.answers }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: python3 -m unittest discover -s packs/tests
-      - run: python3 packs/build.py slices --langs "${{ inputs.langs }}" --answers "${{ inputs.answers }}" --work "$WORK"
-      - run: python3 packs/build.py all --langs "${{ inputs.langs }}" --answers "${{ inputs.answers }}" --work "$WORK" --out packs-out
+      - run: python3 packs/build.py slices --langs "$LANGS" --answers "$ANSWERS" --work "$WORK"
+      - run: python3 packs/build.py all --langs "$LANGS" --answers "$ANSWERS" --work "$WORK" --out packs-out
       - run: PACKS_OUT=packs-out python3 -m unittest discover -s packs/tests
       - if: ${{ inputs.publish }}
         run: python3 packs/build.py publish --work "$WORK" --out packs-out --release packs

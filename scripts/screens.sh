@@ -9,6 +9,7 @@ mkdir -p "$OUT"
 shot() { adb -s "$1" shell screencap -p /sdcard/inkpeek-shot.png && adb -s "$1" pull -q /sdcard/inkpeek-shot.png "$2" && adb -s "$1" shell rm /sdcard/inkpeek-shot.png; }
 # ANDROID_SERIAL set: that device only.
 for d in ${ANDROID_SERIAL:-$(adb devices | awk 'NR > 1 && $2 == "device" { print $1 }')}; do
+  rm -f "$OUT/$d"-*.png   # a tab now shorter must not keep its old last page
   size=$(adb -s "$d" shell wm size | awk '{ print $NF }' | tail -1); w=${size%x*}; h=${size#*x}
   for t in $TABS; do
     adb -s "$d" shell input keyevent KEYCODE_WAKEUP

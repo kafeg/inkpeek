@@ -50,7 +50,7 @@ Answers come in the app's language.</sub></p>
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
    files when it asks.
-2. **Choose your languages:** Languages → InkPeek → **Choose packs…** → tap the pairs of your books. Answers come in
+2. **Choose your languages:** Languages → InkPeek → **Download packs…** → tap the pairs of your books. Answers come in
    the app's language. Have dictionaries already? Languages → **Other dictionaries** (below).
 3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key. Without it InkPeek works fully
    offline.
@@ -126,13 +126,13 @@ If another dictionary app answers the same request, Android asks which one to us
   cover the word); text size; light, dark (white on black) or as in Android's night mode. Card → Main: the icon bar,
   the AI icons and the save icons can each be hidden; the dictionary as short lines or as full articles (◀ ▶ or a
   swipe between dictionaries); **Dictionary order** puts packs and other dictionaries in the order you want.
-- Built for e-ink: black on white, no animations. Every settings section has a Help tab.
+- Built for e-ink: black on white, no animations. Languages, AI and Card each have a Help tab.
 - The app is in English, Русский, Deutsch, Français, Español, Italiano, Português and Polski — exactly the answer
   languages of InkPeek's language packs; a new language comes with its packs. Answers come in the app's language.
 
 ### Languages
 Settings → Languages → **InkPeek**: your packs — the box says the card uses it, ✕ removes it (models shared with
-another pair stay); **Choose packs…** lists every pair InkPeek has, a tap downloads one. Packs come only from this
+another pair stay); **Download packs…** lists every pair InkPeek has, a tap downloads one. Packs come only from this
 project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs); when it has newer files, an
 update line appears. **What the card takes from the language packs**: words (articles and word by word), grammar (the
 header) and offline translation, each on or off — keep the grammar and the translation and take the words from your
@@ -284,8 +284,9 @@ facts — and the general style can be edited and reset; the answer's keys and f
 are kept.
 
 **Privacy:** only the selected text and the tab's request go to the provider you chose: when you open an AI tab, or
-Translate while AI is on and online. With AI off no text leaves the device; the daily update check (one request to
-GitHub, can be turned off) and downloads you start are the only other network use. No telemetry, no accounts.
+Translate while AI is on and online. With AI off no text leaves the device; the other network use is the list of
+packs (read from GitHub when settings open), the daily update check (one request to GitHub, can be turned off) and
+downloads you start. No telemetry, no accounts.
 
 ### Protocol
 | intent | text extra | notes |
@@ -306,7 +307,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 scripts/device-test.sh        # the language packs on a connected device: headers, forms, language, offline translation
 ```
 
-The version is `0.5.<number of commits>`; the same number is the version code. What changed: [CHANGELOG.md](CHANGELOG.md).
+The version is `<appVersion>.<number of commits>` (`appVersion` in `gradle.properties`, now 0.5); the commit count is also the version code. What changed: [CHANGELOG.md](CHANGELOG.md).
 
 **Updates:** the version is on the right of the settings' status line; a tap opens About. Once a day, when settings
 open, InkPeek asks GitHub for the latest release (one request; About → "Check once a day" turns it off). When a newer
