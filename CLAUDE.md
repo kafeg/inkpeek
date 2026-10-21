@@ -12,7 +12,9 @@ Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then 
 in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
 (manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
 `CardActivity` (window, header, icon bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`,
-`WordsPage`), `MainActivity` (settings), `CatalogActivity` (download other dictionaries).
+`WordsPage`), `MainActivity` (settings shell) + one class per section (`LanguagesSettings`, `AiSettings`,
+`CardSettings`, `WordsSettings`), all built of `Rows` (the one row style); `PacksActivity` / `CatalogActivity` (choose
+packs / other dictionaries to download), `PackJob` (one pack download for the process).
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run
