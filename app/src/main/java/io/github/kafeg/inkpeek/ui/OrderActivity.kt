@@ -72,7 +72,7 @@ class OrderActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun title(d: StarDict, pack: Boolean): String {
         if (!pack) return d.name
-        fun name(c: String?) = c?.let { java.util.Locale(it).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { ch -> ch.uppercase() } }
+        fun name(c: String?) = c?.let { Ink.lang(this, it) }
         return "InkPeek · " + listOfNotNull(name(d.book), name(d.answer)).joinToString(" → ")
     }
 

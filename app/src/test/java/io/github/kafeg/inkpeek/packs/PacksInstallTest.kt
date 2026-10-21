@@ -31,7 +31,7 @@ class PacksInstallTest {
         val sha = MessageDigest.getInstance("SHA-256").digest(zip).joinToString("") { "%02x".format(it) }
         val home = Files.createTempDirectory("fresh").toFile()
         serve(zip).use { ss ->
-            val packs = Packs(File(home, "InkPeek/packs"), File(home, "InkPeek/models"), "http://127.0.0.1:${ss.localPort}/")
+            val packs = Packs(File(home, "InkPeek/packs"), File(home, "InkPeek/models"), "http://127.0.0.1:${ss.localPort}/", okhttp3.OkHttpClient())
             packs.install(Component("dict-de-ru", "dict", "de", "ru", "dict-de-ru.zip", zip.size.toLong(), sha))
             assertTrue(File(packs.dicts, "dict-de-ru/dict-de-ru.ifo").exists())
             assertEquals(mapOf("dict-de-ru" to sha), packs.installed())

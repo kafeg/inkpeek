@@ -43,7 +43,8 @@ object LangId {
             top != null && top.second >= 0.5f && (best == null || best.value < words.size * 0.8) -> null to top.first
             best != null && best.value > 0 -> best.key to null
             top != null && top.first in books -> top.first to null
-            else -> books.first() to null
+            // No sign of any pack's language: not a guess (fastText's best, if any, is named).
+            else -> null to top?.first
         }
     }
 }

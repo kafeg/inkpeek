@@ -41,7 +41,12 @@ class TranslatePage(private val card: CardActivity) {
             val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
             when {
                 by == "ai" && aiOk -> with(card.ai) { await(out, Ask.QUICK) }.fold(
-                    { card.markdown(out, card.ai.render(CardActivity.TRANSLATE, it)) }, { out.text = aiError(card, card.prefs, card.online, it) })
+                    { card.markdown(out, card.ai.render(CardActivity.TRANSLATE, it)) }, { e ->
+                        // As in the AI tabs: the error, the offline gloss under a phrase, and a new try next time.
+                        out.text = if (e is io.github.kafeg.inkpeek.ai.Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
+                        card.forget(CardActivity.TRANSLATE)
+                        if (card.kind != Kind.WORD) card.dictionary.under(p, this@launch)
+                    })
                 // AI cannot answer now and there is no offline translation: say why.
                 by == "ai" -> { out.text = block?.let { card.getString(it) }.orEmpty(); if (card.kind != Kind.WORD) card.dictionary.under(p, this) }
                 else -> offline(p, out)
@@ -56,12 +61,11 @@ class TranslatePage(private val card: CardActivity) {
         val text = r.text
         if (text == null) {
             // Which InkPeek pack would translate it: the text's language (fastText) into the app's; or that there is none yet.
-            fun name(c: String) = Locale(c).getDisplayLanguage(locale).replaceFirstChar { it.uppercase() }
             val lang = r.other ?: r.from
             val offered = lang != null && withContext(Dispatchers.IO) { card.prefs.packs.cachedList() }?.let { io.github.kafeg.inkpeek.packs.Packs.pairs(it) }
                 ?.contains(lang to to) == true
             out.text = when {
-                lang != null && offered -> card.getString(R.string.lang_need_pack, name(lang), name(to))
+                lang != null && offered -> card.getString(R.string.lang_need_pack, Ink.lang(card, lang), Ink.lang(card, to))
                 r.other != null -> card.getString(R.string.lang_unsupported, Locale(r.other).getDisplayLanguage(locale))
                 else -> card.getString(R.string.mt_missing)
             }
@@ -70,7 +74,7 @@ class TranslatePage(private val card: CardActivity) {
         }
         // Which language and how, in small print at the card's bottom: the translation alone in the page.
         text.fold({ out.text = it; val from = r.from
-            if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Locale(from).getDisplayLanguage(locale).replaceFirstChar { c -> c.uppercase() } +
+            if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Ink.lang(card, from) +
                 if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
             { out.text = it.message ?: it.javaClass.simpleName })
     }

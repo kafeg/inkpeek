@@ -113,7 +113,7 @@ enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val max
     fun prompt(edited: (String) -> String? = { null }): String = "Selected text: «{text}». $intro\n" +
         keys.joinToString("\n") { k -> "- ${k.name}: " + (edited("$section.${k.name}") ?: k.about) } + if (tail.isEmpty()) "" else "\n$tail"
 
-    /** The original prompt's: saved answers stay when a prompt is edited (the owner's choice), they change with a new app. */
+    /** The original prompt's, without SYSTEM: an edit keeps the saved answers (the owner's choice); a new app's prompt asks again. */
     val version: Int get() = prompt().hashCode()
     val section: String get() = name.lowercase()
 

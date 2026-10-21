@@ -25,7 +25,7 @@ object About {
             state.text = when {
                 newer != null -> a.getString(R.string.update_new, newer.name) + Updates.brief(newer.notes).let { if (it.isEmpty()) "" else "\n$it" }
                 at > 0 -> a.getString(R.string.update_latest, android.text.format.DateFormat.getTimeFormat(a).format(java.util.Date(at)) +
-                    if (System.currentTimeMillis() - at > 86_400_000) " " + android.text.format.DateFormat.getDateFormat(a).format(java.util.Date(at)) else "")
+                    if (System.currentTimeMillis() - at > Updates.DAY) " " + android.text.format.DateFormat.getDateFormat(a).format(java.util.Date(at)) else "")
                 else -> a.getString(R.string.update_never)
             }
             action.text = newer?.let { a.getString(R.string.update_btn, (it.size / 1_000_000).toInt().coerceAtLeast(1)) } ?: a.getString(R.string.check_now)

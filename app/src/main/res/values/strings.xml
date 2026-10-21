@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">InkPeek</string>
+    <string name="app_name" translatable="false">InkPeek</string>
     <string name="tab_dicts">Languages</string>
     <string name="tab_ai">AI</string>
     <string name="tab_card">Card</string>

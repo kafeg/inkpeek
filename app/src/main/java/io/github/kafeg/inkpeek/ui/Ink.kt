@@ -14,9 +14,13 @@ import android.widget.TextView
 
 /** E-ink styling: black on white (or white on black: the dark card), thin borders, no ripples or colors. */
 object Ink {
-    /** Ink and paper of a screen: the card can be dark (Card → Window), the settings never are. */
+    /** Ink and paper of a screen: the card can be dark (Card → Appearance), the settings never are. */
     fun fg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.WHITE else Color.BLACK
     fun bg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.BLACK else Color.WHITE
+
+    /** A language's name in the app's language, capitalized: "Немецкий"; the code when Android has no name for it. */
+    fun lang(ctx: Context, code: String): String = java.util.Locale(code).getDisplayLanguage(ctx.resources.configuration.locales[0])
+        .takeIf { it.isNotBlank() && it != code }?.replaceFirstChar { it.uppercase() } ?: code
 
     fun dp(ctx: Context, v: Number) = (v.toFloat() * ctx.resources.displayMetrics.density).toInt()
 

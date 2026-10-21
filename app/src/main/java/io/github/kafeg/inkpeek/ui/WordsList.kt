@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.Gravity
 import io.github.kafeg.inkpeek.Store
 
-/** My words, in the app and in the card: one row per entry — the text and one line, tap opens it, ✕ removes it. */
+/** Notes, in the app and in the card: one row per entry — the text and one line, tap opens it, ✕ removes it. */
 object WordsList {
     fun row(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.horizontal(ctx).apply {
         gravity = Gravity.CENTER_VERTICAL

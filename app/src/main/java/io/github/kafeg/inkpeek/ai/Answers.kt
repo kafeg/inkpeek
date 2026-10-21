@@ -44,6 +44,6 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         }
     }
 
-    /** The quick answer if it is saved: one line for My words. */
+    /** The quick answer if it is saved: one line for Notes. */
     fun saved(): String? = store.answer(text, prefs.answerLang, Ask.QUICK.section, Ask.QUICK.version)?.let { Store.brief(it) }
 }

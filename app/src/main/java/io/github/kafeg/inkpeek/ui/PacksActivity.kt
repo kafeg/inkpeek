@@ -59,7 +59,7 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     override fun onPause() { Downloads.listener = null; super.onPause() }
     override fun onDestroy() { dlg.dismiss(); cancel(); super.onDestroy() }
 
-    private fun name(c: String) = java.util.Locale(c).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
+    private fun name(c: String) = Ink.lang(this, c)
     private fun title(p: Pair<String, String>) = "${name(p.first)} → ${name(p.second)}"
     /** What the pair still needs here: shared models and langid already installed are not downloaded again. */
     private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p)).filter { inst[it.id] != it.sha256 }

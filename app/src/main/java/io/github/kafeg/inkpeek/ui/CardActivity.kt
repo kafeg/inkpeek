@@ -45,7 +45,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
-    /** White on black (Card → Window: dark, or the system's night mode); [Ink] reads it for this screen. */
+    /** White on black (Card → Appearance: dark, or the system's night mode); [Ink] reads it for this screen. */
     val dark: Boolean get() = ::prefs.isInitialized && when (prefs.cardTheme) {
         "dark" -> true
         "system" -> resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK == android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -106,7 +106,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else -> i.getStringExtra("EXTRA_QUERY") ?: i.getStringExtra(Intent.EXTRA_TEXT)
     }
 
-    /** The card (header, body) with the icon bar at its bottom under a thin line: tabs · save, my words · close. */
+    /** The card (header, body) with the icon bar at its bottom under a thin line: tabs · save, Notes · close. */
     private fun build() {
         val pad = Ink.dp(this, 14)
         val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
@@ -135,7 +135,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate)).takeIf { canTranslate }) + actions.map { a ->
             Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
-        val n = tabs.size + if (prefs.cardSave) 4 else 2; val gap = Ink.dp(this, 5) // + save, my words, back, close
+        val n = tabs.size + if (prefs.cardSave) 4 else 2; val gap = Ink.dp(this, 5) // + save, Notes, back, close
         val side = minOf(Ink.dp(this, 44), (resources.displayMetrics.widthPixels * prefs.cardWidth / 100 - 2 * pad - gap * (n + 3)) / n)
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
@@ -191,7 +191,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /**
-     * Size and place from Card → Window. "Where the reader asks": ColorDict's EXTRA_GRAVITY (top or bottom, away from the
+     * Size and place from Card → Appearance. "Where the reader asks": ColorDict's EXTRA_GRAVITY (top or bottom, away from the
      * selected word) and EXTRA_HEIGHT (at most that tall), sent by Librera and FBReader.
      */
     private fun placeWindow() {
@@ -261,8 +261,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** A pack dictionary's languages: "Немецкий → Русский". */
     fun pairName(d: io.github.kafeg.inkpeek.stardict.StarDict): String {
-        val l = resources.configuration.locales[0]
-        fun name(c: String?) = c?.let { java.util.Locale(it).getDisplayLanguage(l).replaceFirstChar { ch -> ch.uppercase() } }
+        fun name(c: String?) = c?.let { Ink.lang(this, it) }
         return listOfNotNull(name(d.book), name(d.answer)).joinToString(" → ").ifBlank { d.name }
     }
 

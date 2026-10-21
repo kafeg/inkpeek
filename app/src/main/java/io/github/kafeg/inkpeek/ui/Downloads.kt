@@ -12,11 +12,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.FilterInputStream
 import java.io.InputStream
-import java.util.concurrent.TimeUnit
 
 /**
  * One download at a time for the whole process — a pack or another dictionary: it outlives the screen that started it,
@@ -25,7 +23,7 @@ import java.util.concurrent.TimeUnit
 object Downloads {
     @Volatile private var job: Job? = null
     private val main = Handler(Looper.getMainLooper())
-    private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
+    private val http = io.github.kafeg.inkpeek.Net.http
     @Volatile var status = ""; private set
     /** The last run's outcome ("Added: …", "Already there: …", "Failed: …"), shown once by the screen that sees it. */
     @Volatile var result: String? = null

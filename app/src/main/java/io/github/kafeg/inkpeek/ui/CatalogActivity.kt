@@ -19,13 +19,11 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.OkHttpClient
 import okhttp3.Request
-import java.util.concurrent.TimeUnit
 
 /** Dictionaries of the switched-on public sources: pairs into the app's language first, WikDict first among them. */
 class CatalogActivity : Activity(), CoroutineScope by MainScope() {
-    private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
+    private val http = io.github.kafeg.inkpeek.Net.http
     private lateinit var prefs: Prefs
     private var items: List<CatalogItem> = emptyList()
     private var shown: List<CatalogItem> = emptyList()
@@ -80,8 +78,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     private val answer get() = prefs.answerCode
     private fun recommended(i: CatalogItem) = i.source == "wikdict" && i.to == answer
     private fun title(i: CatalogItem) = Catalog.SOURCES.first { it.id == i.source }.title
-    private fun name(code: String) = java.util.Locale(code).getDisplayLanguage(resources.configuration.locales[0])
-        .takeIf { it.isNotBlank() && it != code }?.replaceFirstChar { it.uppercase() } ?: code
+    private fun name(code: String) = Ink.lang(this, code)
 
     private fun show() {
         val f = filter.text.toString().trim().lowercase()

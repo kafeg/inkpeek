@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** Settings in four sections (Languages, AI, Card, My words), each with three tabs; one class per section. */
+/** Settings in four sections (Languages, AI, Card, Notes), each with three tabs; one class per section. */
 class MainActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs
     private lateinit var status: TextView
@@ -117,6 +117,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         // Every progress step updates the dialog and the packs' line; the dictionaries are read again only at the end.
         Downloads.listener = { if (!isDestroyed) { download.update(); languages.refreshPacks(); if (!Downloads.busy) refreshDicts() } }
         if (Downloads.busy) download.show()
+        Updates.pending?.let { Updates.pending = null; runCatching { startActivity(it) } }
         languages.refreshPacks(); refreshDicts(); if (current == R.string.tab_words) words.refresh()
         // The daily update check (About), quietly: only the version line changes.
         if (Updates.due(this)) launch { withContext(Dispatchers.IO) { runCatching { Updates.check(this@MainActivity) } }; refreshStatus() }
@@ -169,7 +170,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val r = android.graphics.Rect(); v.getDrawingRect(r); scroll.offsetDescendantRectToMyCoords(v, r); scroll.scrollTo(0, r.top)
     }
 
-    fun langName(code: String) = java.util.Locale(code).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
+    fun langName(code: String) = Ink.lang(this, code)
 
     /** A path on shared storage as people see it: "koreader/data/dict". */
     fun short(f: File) = f.path.removePrefix(Environment.getExternalStorageDirectory().path + "/")

@@ -8,7 +8,6 @@ import org.apache.commons.compress.archivers.tar.TarArchiveInputStream
 import org.json.JSONObject
 import java.io.File
 import java.security.MessageDigest
-import java.util.concurrent.TimeUnit
 import java.util.zip.ZipInputStream
 
 /** One downloadable part of the language packs (see packs/README.md): dict, model or langid. */
@@ -20,7 +19,7 @@ data class Component(val id: String, val kind: String, val from: String, val to:
  * Layout under [root]: dicts/<id>/ (the card's dictionaries; the first line of an article is the header), langid.ftz,
  * installed.json (id → sha256); models go to [models]/<from><to>/ as the offline engine expects.
  */
-class Packs(val root: File, val models: File, private val assets: String = ASSETS) {
+class Packs(val root: File, val models: File, private val assets: String = ASSETS, private val http: OkHttpClient = io.github.kafeg.inkpeek.Net.http) {
     val dicts get() = File(root, "dicts")
     val langid get() = File(root, "langid.ftz")
     private val state get() = File(root, "installed.json")
@@ -138,7 +137,6 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
 
         /** An installed component the packs list no longer has, rebuilt from its id ("model-de-en") for removal. */
         fun stale(id: String) = id.split('-').let { Component(id, it[0], it.getOrElse(1) { "" }, it.getOrElse(2) { "" }, "", 0, "") }
-        private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
 
         fun parse(json: String): List<Component> {
             val a = JSONObject(json).getJSONArray("components")

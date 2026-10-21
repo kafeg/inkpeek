@@ -77,7 +77,12 @@ class DictionaryPage(private val card: CardActivity) {
         if (many) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (i < hits.size - 1) 1f else 0.3f },
             LinearLayout.LayoutParams(side, side))
         p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
-        list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)
+        entries(p, list, word)
+    }
+
+    /** The entries, each under its headword when that is another form than [word]. */
+    private fun entries(p: LinearLayout, list: List<Hit>, word: String) {
+        list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${Ink.escape(h.word)}</b><br>") + h.html, card.size, html = true)
             .also { TextActions.selectable(it) }) }
         card.scrollTop()
     }
@@ -87,9 +92,7 @@ class DictionaryPage(private val card: CardActivity) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(to); turn = null
         p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true).also { TextActions.selectable(it) }, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
-        list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)
-            .also { TextActions.selectable(it) }) }
-        card.scrollTop()
+        entries(p, list, word)
     }
 
     private fun gloss() {

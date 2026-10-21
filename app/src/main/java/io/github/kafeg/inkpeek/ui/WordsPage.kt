@@ -7,7 +7,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** My words in the card: saved words or phrases; tap opens one in the card, ✕ removes it. */
+/** Notes in the card: saved words or phrases; tap opens one in the card, ✕ removes it. */
 class WordsPage(private val card: CardActivity) {
     private var kind = "word"
     private var job: Job? = null

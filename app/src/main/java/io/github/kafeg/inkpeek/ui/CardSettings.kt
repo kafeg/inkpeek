@@ -5,7 +5,7 @@ import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Action
 
-/** Card: Main (language, phrases, which icons), Window (size, place, text, theme), Icons (what each one does). */
+/** Card: Main (language, dictionaries, phrases, icons), Appearance (size, place, text, theme), Icons (what each one does). */
 class CardSettings(private val a: MainActivity) {
     private val prefs get() = a.prefs
     private var aiRow: android.view.View? = null

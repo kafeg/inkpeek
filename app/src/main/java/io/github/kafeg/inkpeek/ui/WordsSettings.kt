@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** My words: saved words, saved phrases, the history; 50 per page, the pager and "Clear history" under the list. */
+/** Notes: saved words, saved phrases, the history; 50 per page, the pager and "Clear history" under the list. */
 class WordsSettings(private val a: MainActivity) {
     private lateinit var tabs: LinearLayout
     private lateinit var list: LinearLayout
@@ -32,7 +32,7 @@ class WordsSettings(private val a: MainActivity) {
         }.getOrNull() } ?: return@launch
         tabs.removeAllViews()
         tabs.addView(Ink.subTabs(a, listOf("word", "phrase", "history").zip(listOf(R.string.list_words, R.string.list_phrases, R.string.list_history))
-            .mapIndexed { i, (k, label) -> k to a.getString(label) + " (" + counts[i] + ")" }, now, 16f) { kind = it; page = 0; refresh() },
+            .mapIndexed { i, (k, label) -> k to a.getString(label) + " (" + counts[i] + ")" }, now, 16f) { kind = it; a.open["words"] = it; page = 0; refresh() },
             Ink.lp().apply { bottomMargin = Ink.dp(a, 6) })
         list.removeAllViews()
         if (items.isEmpty()) list.addView(Rows.note(a, a.getString(if (now == "history") R.string.list_empty_history else R.string.list_empty_saved)))
