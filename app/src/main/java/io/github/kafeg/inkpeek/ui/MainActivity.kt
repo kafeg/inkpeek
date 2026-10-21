@@ -75,7 +75,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         }, LinearLayout.LayoutParams(Ink.dp(this, 52), Ink.dp(this, 52)).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
         col.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
 
-        val bar = Ink.horizontal(this)
+        // Tabs with shrunk labels (a narrow screen) must not drop to a shared text baseline: their bottoms got cut.
+        val bar = Ink.horizontal(this).apply { isBaselineAligned = false }
         listOf(R.string.tab_dicts, R.string.tab_ai, R.string.tab_card, R.string.tab_words).forEachIndexed { i, t ->
             tabs[t] = Ink.vertical(this)
             val b = Ink.tab(this, getString(t), sp) { show(t) }
