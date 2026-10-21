@@ -90,7 +90,7 @@
     <string name="sec_words">Palabras</string>
     <string name="sec_explanation">Explicación</string>
     <string name="card_main">General</string>
-    <string name="card_look">Ventana</string>
+    <string name="card_look">Apariencia</string>
     <string name="ui_lang_d">Las respuestas llegan también en este idioma.</string>
     <string name="phrase_ai_d">Una frase o pasaje se abre en Traducir, no palabra por palabra.</string>
     <string name="look_height">Altura</string>
@@ -257,4 +257,15 @@
     <string name="checking">Comprobando…</string>
     <string name="update_confirm">Descargado: confirma la instalación.</string>
     <string name="install_failed">No se pudo instalar: %1$s</string>
+    <string name="card_dict_t">El diccionario en la tarjeta</string>
+    <string name="card_dict_d">Líneas cortas, un toque para el artículo; o artículos completos, ◀ ▶ entre diccionarios.</string>
+    <string name="dict_short">Líneas cortas</string>
+    <string name="dict_full">Artículos completos</string>
+    <string name="order_t">Orden de los diccionarios</string>
+    <string name="order_d">Paquetes y otros diccionarios en una lista.</string>
+    <string name="order_note">La tarjeta los muestra de arriba abajo. Los desactivados no están aquí.</string>
+    <string name="order_pack">paquete de idioma</string>
+    <string name="up">Subir</string>
+    <string name="down">Bajar</string>
+    <string name="prev">Anterior</string>
 </resources>

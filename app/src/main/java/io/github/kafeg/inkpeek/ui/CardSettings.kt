@@ -28,6 +28,10 @@ class CardSettings(private val a: MainActivity) {
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(first(Rows.choice(a, a.getString(R.string.ui_lang), a.getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) {
             if (prefs.uiLang != codes[it]) { prefs.uiLang = codes[it]; a.recreate() } }))
+        t.addView(Rows.choice(a, a.getString(R.string.card_dict_t), a.getString(R.string.card_dict_d),
+            listOf(a.getString(R.string.dict_short), a.getString(R.string.dict_full)), if (prefs.cardFull) 1 else 0) { prefs.cardFull = it == 1 })
+        t.addView(Rows.info(a, null, a.getString(R.string.order_t), a.getString(R.string.order_d), page = true) {
+            a.startActivity(android.content.Intent(a, OrderActivity::class.java)) })
         t.addView(Rows.check(a, a.getString(R.string.phrase_ai), a.getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
         t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
         aiRow = Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it }

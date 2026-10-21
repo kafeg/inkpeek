@@ -24,14 +24,14 @@ class LibraryTest {
         File(dir, "$id.ifo").writeText("StarDict's dict ifo file\nversion=3.0.0\nbookname=InkPeek $id\nwordcount=${words.size}\nsametypesequence=h\n")
     }
 
-    private fun library(own: (File) -> Unit = {}, use: (StarDict, Boolean) -> Boolean = { _, _ -> true }): Library {
+    private fun library(own: (File) -> Unit = {}, use: (StarDict, Boolean) -> Boolean = { _, _ -> true }, order: () -> List<String> = { emptyList() }): Library {
         val root = Files.createTempDirectory("packs").toFile()
         val mine = Files.createTempDirectory("own").toFile().also(own)
         pack(root, "dict-de-ru", mapOf("Haus" to "<b>das Haus</b> (Hauses, мн. Häuser) — дом, здание", "Gift" to "<b>das Gift</b> — яд",
             "Hund" to "<b>der Hund</b> — собака", "Er" to "<b>der Er</b> — мужчина", "er" to "<b>er</b> — он"), mapOf("Häuser" to "Haus"))
         pack(root, "dict-de-en", mapOf("Haus" to "<b>das Haus</b> (Hauses, pl. Häuser) — house", "Hund" to "<b>der Hund</b> — dog"), mapOf("Häuser" to "Haus"))
         pack(root, "dict-en-ru", mapOf("gift" to "<b>gift</b> — подарок", "die" to "<b>die</b> (died) — умирать"))
-        return Library(root, listOf(mine), File(root, "work"), use).also { lib -> lib.found().forEach { it.prepare() } }
+        return Library(root, listOf(mine), File(root, "work"), use, order).also { lib -> lib.found().forEach { it.prepare() } }
     }
 
     @Test fun headsPerBookLanguageAnswerFirst() {
@@ -72,9 +72,18 @@ class LibraryTest {
 
     @Test fun switchedOffDictionariesAreNotUsed() {
         // The packs' dictionaries off: only the own ones.
-        val lib = library(::mueller) { _, pack -> !pack }
+        val lib = library(::mueller, use = { _, pack -> !pack })
         assertEquals(listOf("Mueller"), lib.lookup("Haus", "ru").map { it.first.ifo.parentFile!!.name })
         assertEquals(4, lib.found().size)
         assertEquals(1, lib.all().size)
+    }
+
+    @Test fun theOrderIsThePersons() {
+        var order = emptyList<String>()
+        val lib = library(::mueller, order = { order })
+        assertEquals(listOf("dict-de-ru", "Mueller"), lib.lookup("Haus", "ru").map { it.first.ifo.parentFile!!.name })
+        // Mueller first: before the pack, the others after both in the old order.
+        order = listOf(lib.found().first { !lib.isPack(it) }.id)
+        assertEquals(listOf("Mueller", "dict-de-ru"), lib.lookup("Haus", "ru").map { it.first.ifo.parentFile!!.name })
     }
 }

@@ -90,7 +90,7 @@
     <string name="sec_words">Parole</string>
     <string name="sec_explanation">Spiegazione</string>
     <string name="card_main">Generale</string>
-    <string name="card_look">Finestra</string>
+    <string name="card_look">Aspetto</string>
     <string name="ui_lang_d">Anche le risposte arrivano in questa lingua.</string>
     <string name="phrase_ai_d">Una frase o un passo si apre su Traduci, non parola per parola.</string>
     <string name="look_height">Altezza</string>
@@ -257,4 +257,15 @@
     <string name="checking">Controllo…</string>
     <string name="update_confirm">Scaricato: conferma l\'installazione.</string>
     <string name="install_failed">Installazione non riuscita: %1$s</string>
+    <string name="card_dict_t">Il dizionario nella scheda</string>
+    <string name="card_dict_d">Righe brevi, un tocco per la voce; o voci complete, ◀ ▶ tra i dizionari.</string>
+    <string name="dict_short">Righe brevi</string>
+    <string name="dict_full">Voci complete</string>
+    <string name="order_t">Ordine dei dizionari</string>
+    <string name="order_d">Pacchetti e altri dizionari in un solo elenco.</string>
+    <string name="order_note">La scheda li mostra dall\'alto in basso. Quelli disattivati non ci sono.</string>
+    <string name="order_pack">pacchetto linguistico</string>
+    <string name="up">Su</string>
+    <string name="down">Giù</string>
+    <string name="prev">Precedente</string>
 </resources>

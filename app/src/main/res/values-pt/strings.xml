@@ -90,7 +90,7 @@
     <string name="sec_words">Palavras</string>
     <string name="sec_explanation">Explicação</string>
     <string name="card_main">Geral</string>
-    <string name="card_look">Janela</string>
+    <string name="card_look">Aparência</string>
     <string name="ui_lang_d">As respostas também vêm neste idioma.</string>
     <string name="phrase_ai_d">Uma frase ou passagem abre em Traduzir, não palavra a palavra.</string>
     <string name="look_height">Altura</string>
@@ -257,4 +257,15 @@
     <string name="checking">A verificar…</string>
     <string name="update_confirm">Transferido: confirme a instalação.</string>
     <string name="install_failed">Não foi possível instalar: %1$s</string>
+    <string name="card_dict_t">O dicionário no cartão</string>
+    <string name="card_dict_d">Linhas curtas, um toque para o artigo; ou artigos completos, ◀ ▶ entre dicionários.</string>
+    <string name="dict_short">Linhas curtas</string>
+    <string name="dict_full">Artigos completos</string>
+    <string name="order_t">Ordem dos dicionários</string>
+    <string name="order_d">Pacotes e outros dicionários numa só lista.</string>
+    <string name="order_note">O cartão mostra-os de cima para baixo. Os desligados não estão aqui.</string>
+    <string name="order_pack">pacote de idioma</string>
+    <string name="up">Subir</string>
+    <string name="down">Descer</string>
+    <string name="prev">Anterior</string>
 </resources>

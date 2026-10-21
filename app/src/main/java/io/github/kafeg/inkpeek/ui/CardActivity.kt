@@ -113,7 +113,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val head = FrameLayout(this)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
-            maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
+            // No "…": Android's selection goes wrong on ellipsized text (a double tap took it all, a triple missed a word).
+            maxLines = if (long) 2 else 3; setLineSpacing(0f, 1f)
             TextActions.selectable(this)
         }
         // Under the title: the selected form, the same word in another book language.
@@ -315,5 +316,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /** A tap beside a selection ends it and its menu. */
-    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); return super.dispatchTouchEvent(ev) }
+    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); swipe.onTouchEvent(ev); return super.dispatchTouchEvent(ev) }
+
+    /** Full articles: a swipe left or right turns to the next or previous dictionary. */
+    private val swipe by lazy { android.view.GestureDetector(this, object : android.view.GestureDetector.SimpleOnGestureListener() {
+        override fun onFling(e1: android.view.MotionEvent?, e2: android.view.MotionEvent, vx: Float, vy: Float): Boolean {
+            val turn = dictionary.turn ?: return false
+            if (shown != DICT || kotlin.math.abs(vx) < 2 * kotlin.math.abs(vy) || kotlin.math.abs(vx) < 500) return false
+            turn(if (vx < 0) 1 else -1); return true
+        }
+    }) }
 }

@@ -10,7 +10,7 @@ import java.util.concurrent.Executors
  * Indexes are built by one background thread, one dictionary at a time; [status] tells the UI what is going on.
  */
 class Library(private val packRoot: File, private val ownRoots: List<File>, private val workRoot: File,
-              private val use: (StarDict, Boolean) -> Boolean = { _, _ -> true }) {
+              private val use: (StarDict, Boolean) -> Boolean = { _, _ -> true }, private val order: () -> List<String> = { emptyList() }) {
     private val roots = listOf(packRoot) + ownRoots
     private val packPath = packRoot.canonicalPath + File.separator
     private var cache: Map<String, StarDict> = emptyMap()
@@ -19,7 +19,7 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
     /** id -> "indexing" | "error: …"; absent = ready or not yet looked at. */
     val status = ConcurrentHashMap<String, String>()
 
-    /** The dictionaries in use: the packs' first, then the own ones by name. */
+    /** The dictionaries in use, in the person's order (Card → Main); the others after them, the packs first, by name. */
     fun all(): List<StarDict> = found().filter { use(it, isPack(it)) }
 
     /** Every dictionary on disk, in use or not. */
@@ -32,7 +32,8 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
             val src = File(dir, "source").takeIf { it.exists() }?.readText()
             if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
         }
-        return cache.values.sortedWith(compareBy({ !isPack(it) }, { it.name }))
+        val rank = order().withIndex().associate { it.value to it.index }
+        return cache.values.sortedWith(compareBy({ rank[it.id] ?: Int.MAX_VALUE }, { !isPack(it) }, { it.name }))
     }
 
     fun isPack(d: StarDict) = d.ifo.path.startsWith(packPath)

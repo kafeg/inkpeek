@@ -93,7 +93,7 @@ copy other entries from
 ### Other readers
 | reader | how |
 |---|---|
-| Librera | select text → **+** in the selection menu → the first **InkPeek** in the list. Librera sends where the word is: with Card → Window → Position → **Where the reader asks** the card opens above or below it |
+| Librera | select text → **+** in the selection menu → the first **InkPeek** in the list. Librera sends where the word is: with Card → Appearance → Position → **Where the reader asks** the card opens above or below it |
 | AlReaderX | Settings → General settings → **Dictionary for single words** → **GoldenDict/ColorDict 3**; select a word or a passage (Text selection) → the translate icon |
 | Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict**. On Onyx Boox Cool Reader does not offer it (its list there is Onyx's own); Share → InkPeek works, but Cool Reader adds the author and the title to the shared text |
 | Moon+ Reader | Dictionary → **ColorDict** (not tested by us) |
@@ -121,10 +121,11 @@ If another dictionary app answers the same request, Android asks which one to us
   is selected whole (the handles narrow it); in a translation, an article or an AI answer select any part. A small menu
   of icons opens over it, like FBReader's.
 - **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page).
-- **The card's look** (Card → Window): height by content (a small card, like KOReader's) or a share of the screen;
+- **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; light, dark (white on black) or as in Android's night mode. Card → Main: the icon bar,
-  the AI icons and the save icons can each be hidden.
+  the AI icons and the save icons can each be hidden; the dictionary as short lines or as full articles (◀ ▶ or a
+  swipe between dictionaries); **Dictionary order** puts packs and other dictionaries in the order you want.
 - Built for e-ink: black on white, no animations. Every settings section has a Help tab.
 - The app is in English, Русский, Deutsch, Français, Español, Italiano, Português and Polski — exactly the answer
   languages of InkPeek's language packs; a new language comes with its packs. Answers come in the app's language.

@@ -90,7 +90,7 @@
     <string name="sec_words">Words</string>
     <string name="sec_explanation">Explanation</string>
     <string name="card_main">Main</string>
-    <string name="card_look">Window</string>
+    <string name="card_look">Appearance</string>
     <string name="ui_lang_d">The answers come in this language too.</string>
     <string name="phrase_ai_d">A phrase or passage opens on Translate, not on the word-by-word list.</string>
     <string name="look_height">Height</string>
@@ -257,4 +257,15 @@
     <string name="checking">Checking…</string>
     <string name="update_confirm">Downloaded: confirm the installation.</string>
     <string name="install_failed">Could not install: %1$s</string>
+    <string name="card_dict_t">The dictionary in the card</string>
+    <string name="card_dict_d">Short lines, a tap for the article; or full articles, ◀ ▶ between dictionaries.</string>
+    <string name="dict_short">Short lines</string>
+    <string name="dict_full">Full articles</string>
+    <string name="order_t">Dictionary order</string>
+    <string name="order_d">Packs and other dictionaries in one list.</string>
+    <string name="order_note">The card shows them top to bottom. Switched-off ones are not here.</string>
+    <string name="order_pack">language pack</string>
+    <string name="up">Up</string>
+    <string name="down">Down</string>
+    <string name="prev">Previous</string>
 </resources>

@@ -90,7 +90,7 @@
     <string name="sec_words">Słowa</string>
     <string name="sec_explanation">Wyjaśnienie</string>
     <string name="card_main">Ogólne</string>
-    <string name="card_look">Okno</string>
+    <string name="card_look">Wygląd</string>
     <string name="ui_lang_d">W tym języku przychodzą też odpowiedzi.</string>
     <string name="phrase_ai_d">Fraza lub fragment otwiera się w Tłumacz, nie słowo po słowie.</string>
     <string name="look_height">Wysokość</string>
@@ -257,4 +257,15 @@
     <string name="checking">Sprawdzam…</string>
     <string name="update_confirm">Pobrano: potwierdź instalację.</string>
     <string name="install_failed">Nie udało się zainstalować: %1$s</string>
+    <string name="card_dict_t">Słownik na karcie</string>
+    <string name="card_dict_d">Krótkie wiersze, dotknięcie otwiera hasło; albo pełne hasła, ◀ ▶ między słownikami.</string>
+    <string name="dict_short">Krótkie wiersze</string>
+    <string name="dict_full">Pełne hasła</string>
+    <string name="order_t">Kolejność słowników</string>
+    <string name="order_d">Pakiety i inne słowniki na jednej liście.</string>
+    <string name="order_note">Karta pokazuje je od góry do dołu. Wyłączonych tu nie ma.</string>
+    <string name="order_pack">pakiet językowy</string>
+    <string name="up">W górę</string>
+    <string name="down">W dół</string>
+    <string name="prev">Wstecz</string>
 </resources>

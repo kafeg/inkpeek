@@ -26,9 +26,17 @@ object Ink {
 
     fun text(ctx: Context, s: CharSequence, sp: Float, bold: Boolean = false, html: Boolean = false) = TextView(ctx).apply {
         setTextColor(fg(ctx)); setLinkTextColor(fg(ctx)); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
-        text = arrows(ctx, if (html) Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT) else s, textSize)
+        text = arrows(ctx, if (html) plain(Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT)) else s, textSize)
         if (bold) typeface = Typeface.DEFAULT_BOLD
         setLineSpacing(0f, 1.15f); setTextIsSelectable(false)
+    }
+
+    /** A dictionary's own colors (WikDict's green grammar, grey IPA) taken out: e-ink is black and white. */
+    private fun plain(t: CharSequence): CharSequence {
+        val out = t as? android.text.Spannable ?: android.text.SpannableString(t)
+        listOf(android.text.style.ForegroundColorSpan::class.java, android.text.style.BackgroundColorSpan::class.java)
+            .flatMap { out.getSpans(0, out.length, it).toList() }.forEach { out.removeSpan(it) }
+        return out
     }
 
     /** "→" as a drawn arrow in the middle of the line (the font's glyph sits low), as big as the text around it. */

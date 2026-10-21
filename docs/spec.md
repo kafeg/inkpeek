@@ -237,7 +237,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       a published pair into the app's language that is not installed, the Offline tab names that InkPeek pack. AI: a
       list whose first entry is "Off" (no AI icons, no AI hints) instead of the switch.
    4. **Settings in one style.** Every section has three tabs — the main one, a second one, help: Languages (InkPeek ·
-      Other dictionaries · Help), AI (Main · Prompts · Help), Card (Main · Window · Icons), Notes — formerly My words (Words ·
+      Other dictionaries · Help), AI (Main · Prompts · Help), Card (Main · Appearance · Icons), Notes — formerly My words (Words ·
       Phrases · History). One row everywhere: a box, an icon or nothing on the left; a title in one line; an explanation of at most
       two lines (texts written to fit, ~80 characters, in every language); a drop-down a little apart from its text.
       Every delete asks first. Help tabs are rows of the same kind, no small print.
@@ -261,9 +261,12 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       newer release is out. A tap opens About: what InkPeek is, the version and the update state, Check now, a daily
       check (on by default; when settings open, at most once a day; one request to GitHub), GitHub, the licenses.
       Update: the APK through the download dialog (progress, Cancel, Hide), then Android's installer.
-   3. **CHANGELOG.md**: what changed per version for people who use the app; a release's notes come from it, and the
+   3. **The card's dictionary** (MobileRead, 21.10): Card → Main — short lines (tap for the article) or full articles,
+      one dictionary per page, ◀ ▶ or a swipe; Dictionary order — one list of the packs and the other dictionaries in
+      use, ↑ ↓, the card follows it (new ones join at the end, the packs first). Card → Window becomes Appearance.
+   4. **CHANGELOG.md**: what changed per version for people who use the app; a release's notes come from it, and the
       update shows them.
-   4. Releases by `scripts/release.sh` (checks, changelog, tag, the build, the APK's checksum and signature, notes),
+   5. Releases by `scripts/release.sh` (checks, changelog, tag, the build, the APK's checksum and signature, notes),
       screenshots and layout checks by `scripts/screens.sh`.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the

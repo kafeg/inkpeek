@@ -54,7 +54,9 @@ object TextActions {
             }
         }
         tv.customSelectionActionModeCallback = object : ActionMode.Callback {
-            var pop: PopupWindow? = null
+            // One menu per selection: Android may start a new one before it ends the old (a triple tap), and each menu
+            // must go with its own.
+            val pops = HashMap<ActionMode, PopupWindow>()
             // Android's own menu stays empty (so it is not shown, and it reports nothing): the selection is watched here.
             val watch = object : android.text.SpanWatcher {
                 override fun onSpanAdded(t: android.text.Spannable, what: Any, a: Int, b: Int) = moved(what)
@@ -62,22 +64,23 @@ object TextActions {
                 override fun onSpanChanged(t: android.text.Spannable, what: Any, a: Int, b: Int, c: Int, d: Int) = moved(what)
             }
             fun moved(what: Any) { if (what === android.text.Selection.SELECTION_START || what === android.text.Selection.SELECTION_END)
-                tv.post { val p = pop; val r = selection(tv); if (p != null && r != null) place(p, tv, r, false) } }
+                tv.post { val r = selection(tv) ?: return@post; pops.values.forEach { place(it, tv, r, false) } } }
             fun selected() = tv.text.subSequence(tv.selectionStart.coerceAtLeast(0), tv.selectionEnd.coerceAtLeast(0)).toString()
             override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                 menu.clear(); active?.second?.takeIf { it !== mode }?.finish(); active = tv to mode
                 val text = tv.text as? android.text.Spannable
                 text?.setSpan(watch, 0, text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
                 if (row != null && taps < 2) tv.post { text?.let { android.text.Selection.setSelection(it, 0, row(it).coerceIn(1, it.length)) } }
-                tv.post { val r = selection(tv) ?: return@post
-                    pop = show(tv, r, null, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
+                tv.post { if (active?.second !== mode || mode in pops) return@post; val r = selection(tv) ?: return@post
+                    pops[mode] = show(tv, r, null, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
                         done = { mode.finish() }) }
                 return true
             }
             override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean { menu.clear(); return true }
             override fun onActionItemClicked(mode: ActionMode, item: MenuItem) = false
             override fun onDestroyActionMode(mode: ActionMode) {
-                (tv.text as? android.text.Spannable)?.removeSpan(watch); pop?.dismiss(); pop = null
+                pops.remove(mode)?.dismiss()
+                if (pops.isEmpty()) (tv.text as? android.text.Spannable)?.removeSpan(watch)
                 if (active?.second === mode) active = null
             }
         }

@@ -89,7 +89,7 @@
     <string name="sec_words">Слова</string>
     <string name="sec_explanation">Объяснение</string>
     <string name="card_main">Основные</string>
-    <string name="card_look">Окно</string>
+    <string name="card_look">Вид</string>
     <string name="ui_lang_d">На этом же языке приходят ответы.</string>
     <string name="phrase_ai_d">Фраза или отрывок открывается на «Переводе», а не на переводе по словам.</string>
     <string name="look_height">Высота</string>
@@ -256,4 +256,15 @@
     <string name="checking">Проверяю…</string>
     <string name="update_confirm">Скачано: подтвердите установку.</string>
     <string name="install_failed">Не удалось установить: %1$s</string>
+    <string name="card_dict_t">Словарь в карточке</string>
+    <string name="card_dict_d">Короткие строки, по нажатию — статья; или полные статьи, ◀ ▶ между словарями.</string>
+    <string name="dict_short">Короткие строки</string>
+    <string name="dict_full">Полные статьи</string>
+    <string name="order_t">Порядок словарей</string>
+    <string name="order_d">Пакеты и другие словари одним списком.</string>
+    <string name="order_note">Карточка показывает их сверху вниз. Выключенных здесь нет.</string>
+    <string name="order_pack">языковой пакет</string>
+    <string name="up">Выше</string>
+    <string name="down">Ниже</string>
+    <string name="prev">Назад</string>
 </resources>

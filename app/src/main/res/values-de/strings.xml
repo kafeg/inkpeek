@@ -89,7 +89,7 @@
     <string name="sec_words">Wörter</string>
     <string name="sec_explanation">Erklärung</string>
     <string name="card_main">Allgemein</string>
-    <string name="card_look">Fenster</string>
+    <string name="card_look">Darstellung</string>
     <string name="ui_lang_d">In dieser Sprache kommen auch die Antworten.</string>
     <string name="phrase_ai_d">Eine Phrase oder Passage öffnet beim Übersetzen, nicht Wort für Wort.</string>
     <string name="look_height">Höhe</string>
@@ -256,4 +256,15 @@
     <string name="checking">Prüfe…</string>
     <string name="update_confirm">Geladen: Installation bestätigen.</string>
     <string name="install_failed">Installation fehlgeschlagen: %1$s</string>
+    <string name="card_dict_t">Das Wörterbuch in der Karte</string>
+    <string name="card_dict_d">Kurze Zeilen, ein Tippen für den Artikel; oder volle Artikel, ◀ ▶ zwischen den Wörterbüchern.</string>
+    <string name="dict_short">Kurze Zeilen</string>
+    <string name="dict_full">Volle Artikel</string>
+    <string name="order_t">Reihenfolge der Wörterbücher</string>
+    <string name="order_d">Pakete und andere Wörterbücher in einer Liste.</string>
+    <string name="order_note">Die Karte zeigt sie von oben nach unten. Ausgeschaltete fehlen hier.</string>
+    <string name="order_pack">Sprachpaket</string>
+    <string name="up">Nach oben</string>
+    <string name="down">Nach unten</string>
+    <string name="prev">Zurück</string>
 </resources>

@@ -64,15 +64,20 @@ object Rows {
         layoutParams = gap(ctx)
     }
 
-    /** A help row: an icon (or none), the title, [lines] of text; [open] adds a ✎ on the right and makes the row a link. */
-    fun info(ctx: Context, icon: Int?, title: String, about: String, lines: Int = 2, open: (() -> Unit)? = null) = Ink.horizontal(ctx).apply {
+    /**
+     * A help row: an icon (or none), the title, [lines] of text; [open] makes the row a link with a ✎ on the right, or
+     * a › when it opens a page ([page]).
+     */
+    fun info(ctx: Context, icon: Int?, title: String, about: String, lines: Int = 2, page: Boolean = false, open: (() -> Unit)? = null) = Ink.horizontal(ctx).apply {
         isBaselineAligned = false
         if (icon != null) addView(ImageView(ctx).apply { setImageResource(icon) },
             LinearLayout.LayoutParams(Ink.dp(ctx, 28), Ink.dp(ctx, 28)).apply { rightMargin = Ink.dp(ctx, 12); topMargin = Ink.dp(ctx, 2) })
         addView(texts(ctx, title, about, lines), Ink.lp(0, weight = 1f))
         if (open != null) {
             isClickable = true; setOnClickListener { open() }
-            addView(Ink.button(ctx, "✎", 16f) { open() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
+            if (page) addView(Ink.icon(ctx, R.drawable.ic_next, title, 44) { open() },
+                LinearLayout.LayoutParams(Ink.dp(ctx, 44), Ink.dp(ctx, 44)).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
+            else addView(Ink.button(ctx, "✎", 16f) { open() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
         }
         layoutParams = gap(ctx)
     }

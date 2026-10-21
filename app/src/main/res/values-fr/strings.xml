@@ -90,7 +90,7 @@
     <string name="sec_words">Mots</string>
     <string name="sec_explanation">Explication</string>
     <string name="card_main">Général</string>
-    <string name="card_look">Fenêtre</string>
+    <string name="card_look">Apparence</string>
     <string name="ui_lang_d">Les réponses arrivent aussi dans cette langue.</string>
     <string name="phrase_ai_d">Une phrase ou un passage s\'ouvre sur Traduire, pas mot à mot.</string>
     <string name="look_height">Hauteur</string>
@@ -257,4 +257,15 @@
     <string name="checking">Vérification…</string>
     <string name="update_confirm">Téléchargé : confirmez l\'installation.</string>
     <string name="install_failed">Installation impossible : %1$s</string>
+    <string name="card_dict_t">Le dictionnaire de la fiche</string>
+    <string name="card_dict_d">Lignes courtes, un toucher pour l\'article ; ou articles complets, ◀ ▶ entre dictionnaires.</string>
+    <string name="dict_short">Lignes courtes</string>
+    <string name="dict_full">Articles complets</string>
+    <string name="order_t">Ordre des dictionnaires</string>
+    <string name="order_d">Packs et autres dictionnaires en une liste.</string>
+    <string name="order_note">La fiche les montre de haut en bas. Les désactivés n\'y sont pas.</string>
+    <string name="order_pack">pack de langue</string>
+    <string name="up">Monter</string>
+    <string name="down">Descendre</string>
+    <string name="prev">Précédent</string>
 </resources>

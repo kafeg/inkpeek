@@ -97,13 +97,19 @@ class Prefs(private val ctx: Context) {
     var dictsDir: File get() = sp.getString("dicts_dir", null)?.let(::File) ?: File(home, "dicts")
         set(v) = sp.edit().putString("dicts_dir", v.path).apply()
 
+    /** The order of the card's dictionaries (ids), packs and others together (Card → Main → Dictionary order). */
+    var order: List<String> get() = sp.getString("order", "")!!.split('\n').filter { it.isNotEmpty() }
+        set(v) = sp.edit().putString("order", v.joinToString("\n")).apply()
+    /** The card's Dictionary tab: full articles with ◀ ▶ between dictionaries (true) or short lines (false). */
+    var cardFull: Boolean get() = sp.getBoolean("card_full", false); set(v) = sp.edit().putBoolean("card_full", v).apply()
+
     /** The packs' dictionaries and the own ones (imported, downloaded, folders). */
     fun library(): Library = lib ?: sp.let { p ->
         // Shared by every screen: it reads the switches from the preferences, not from this object.
-        Library(packs.dicts, listOf(dictsDir), File(ctx.filesDir, "index")) { d, pack ->
+        Library(packs.dicts, listOf(dictsDir), File(ctx.filesDir, "index"), { d, pack ->
             if (pack) p.getBoolean("pack_dicts", true) && ticked(p, d)
             else d.id !in p.getStringSet("dicts_off", emptySet())!!
-        }
+        }) { p.getString("order", "")!!.split('\n').filter { it.isNotEmpty() } }
     }.also { lib = it }
 
     /** The ticked pairs' pack dictionaries, even when the card does not use them: they tell the text's language. */
