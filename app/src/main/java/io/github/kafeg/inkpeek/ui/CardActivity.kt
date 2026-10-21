@@ -90,7 +90,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         placeWindow()
         if (kind == Kind.WORD) head()
         // A phrase: the offline translation starts at once; it fills Translate and the history line.
-        else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t) } } } }
+        else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
         open(if (kind != Kind.WORD && prefs.phraseAutoAi && canTranslate) TRANSLATE else DICT)
     }
 
@@ -280,7 +280,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (!prefs.packGrammar) return@launch
         val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries()) }.getOrDefault(emptyList()) }
         val first = heads.firstOrNull() ?: return@launch
-        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line) } }
+        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
         titleView.text = first.header
         // The selected form, and the same word in another book language ("Gift" is German and English).
         val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.getOrNull(1)?.header).joinToString("\n")
@@ -298,7 +298,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             if (store.isSaved(query)) { store.unsave(query); false } else {
                 val line = answers.saved() ?: if (kind != Kind.WORD) mt.done() else prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries())
                     .firstOrNull()?.let { if (prefs.packGrammar) it.line else "${it.word} — ${it.meaning}" }
-                store.save(query, kindName, line.orEmpty()); true
+                store.save(query, kindName, line.orEmpty(), prefs.answerLang); true
             }
         }.getOrNull() } ?: return@launch
         starred(on)
@@ -313,4 +313,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4
     }
+
+    /** A tap beside a selection ends it and its menu. */
+    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); return super.dispatchTouchEvent(ev) }
 }

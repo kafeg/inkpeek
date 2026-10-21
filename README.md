@@ -117,6 +117,9 @@ If another dictionary app answers the same request, Android asks which one to us
   instantly; the answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence).
+- **Hold a text** to copy, share or search the web: a line of the dictionary list, word by word, Notes or the history
+  is selected whole (the handles narrow it); in a translation, an article or an AI answer select any part. A small menu
+  of icons opens over it, like FBReader's.
 - **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page).
 - **The card's look** (Card → Window): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
@@ -280,7 +283,8 @@ facts — and the general style can be edited and reset; the answer's keys and f
 are kept.
 
 **Privacy:** only the selected text and the tab's request go to the provider you chose: when you open an AI tab, or
-Translate while AI is on and online. With AI off nothing leaves the device. No telemetry, no accounts.
+Translate while AI is on and online. With AI off no text leaves the device; the daily update check (one request to
+GitHub, can be turned off) and downloads you start are the only other network use. No telemetry, no accounts.
 
 ### Protocol
 | intent | text extra | notes |
@@ -301,7 +305,12 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 scripts/device-test.sh        # the language packs on a connected device: headers, forms, language, offline translation
 ```
 
-The version is `0.4.<number of commits>`; the same number is the version code.
+The version is `0.5.<number of commits>`; the same number is the version code. What changed: [CHANGELOG.md](CHANGELOG.md).
+
+**Updates:** the version is on the right of the settings' status line; a tap opens About. Once a day, when settings
+open, InkPeek asks GitHub for the latest release (one request; About → "Check once a day" turns it off). When a newer
+one is out, the version line says so; Update downloads it in the app and Android's installer asks you to confirm (the
+first time also to allow InkPeek to install apps).
 
 Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engine is C++ built with the NDK:
 `git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).

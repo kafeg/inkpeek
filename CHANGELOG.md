@@ -4,8 +4,10 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.5 — unreleased
-- Copy, share or search the web from the card: hold a line (dictionary, word by word, history, notes) or select part
-  of a text (translation, article, AI answer, headers); a small menu opens over it.
+- Copy, share or search the web: hold a line of the dictionary list, word by word, Notes or the history (in the card
+  and in settings) — its text is selected, the handles narrow or widen it — or select in a translation, an article,
+  an AI answer or a header (double tap: a word, triple tap: the paragraph). A small menu of icons opens over it; a tap
+  beside it closes it.
 - The version in the settings header, with a link when a newer one is out; About: what InkPeek is, the version,
   "Check now", a daily check you can turn off, GitHub and the license.
 - Updates download inside the app with progress and Cancel, then Android's installer opens.
@@ -14,6 +16,8 @@ count, so every release has its own.
 - A dictionary already in the folder is not added again (downloaded or imported twice); the download page marks the
   ones you have.
 - Back and page arrows as icons; "→" drawn in the middle of the line.
+- Notes and the history show each entry's line in the app's language when there is one (a saved line keeps its
+  language).
 
 ## 0.4 — 2026-10-21
 - Other dictionaries: any StarDict dictionary (KOReader's format) — download from WikDict, Wiktionary (xxyzz) or

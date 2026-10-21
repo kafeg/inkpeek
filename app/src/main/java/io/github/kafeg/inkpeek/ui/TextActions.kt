@@ -23,22 +23,36 @@ import io.github.kafeg.inkpeek.R
  * press on a list row) or the selection in a long text. It floats over the page: nothing under it moves.
  */
 object TextActions {
-    /**
-     * A row made of several fields (Notes, history): a long press greys it as a selection is greyed and opens the menu
-     * for its whole [text].
-     */
-    fun line(row: View, text: () -> String) = row.setOnLongClickListener { v ->
-        val was = v.background
-        v.setBackgroundColor(0x40808080)
-        show(v, inWindow(v, Rect(0, 0, v.width, v.height)), text(), done = { v.background = was }); true
+    /** The selection being shown, so a tap beside it ends it ([outside]). */
+    private var active: Pair<TextView, ActionMode>? = null
+
+    /** A tap on an empty place of the screen ends the selection and its menu (a tap on text did already). */
+    fun outside(ev: android.view.MotionEvent) {
+        val (tv, mode) = active ?: return
+        if (ev.actionMasked != android.view.MotionEvent.ACTION_DOWN) return
+        val r = Rect(); tv.getGlobalVisibleRect(r)
+        if (!r.contains(ev.rawX.toInt(), ev.rawY.toInt())) mode.finish()
     }
 
     /**
-     * A long text: selection with its handles, our menu instead of Android's, moving with the handles. [whole]: a list
-     * row — a long press selects all of it, so what will be copied is seen, and the handles can narrow it.
+     * A text you can select: the handles, our menu instead of Android's, moving with the handles. Double tap: a word;
+     * triple tap: the paragraph. [row]: a list row — a long press selects its text up to where [row] says (not the
+     * source line under it), so what will be copied is seen; the handles narrow or widen it.
      */
-    fun selectable(tv: TextView, whole: Boolean = false) {
+    fun selectable(tv: TextView, row: ((CharSequence) -> Int)? = null) {
         tv.setTextIsSelectable(true)
+        var taps = 0; var lastUp = 0L
+        tv.setOnTouchListener { _, ev ->
+            when (ev.actionMasked) {
+                android.view.MotionEvent.ACTION_DOWN -> {
+                    taps = if (ev.eventTime - lastUp < 350) taps + 1 else 1
+                    // The third tap selects the paragraph; Android would take it for a tap that ends the selection.
+                    if (taps == 3) { paragraph(tv, tv.getOffsetForPosition(ev.x, ev.y)); true } else false
+                }
+                android.view.MotionEvent.ACTION_UP -> { lastUp = ev.eventTime; taps >= 3 }
+                else -> taps >= 3
+            }
+        }
         tv.customSelectionActionModeCallback = object : ActionMode.Callback {
             var pop: PopupWindow? = null
             // Android's own menu stays empty (so it is not shown, and it reports nothing): the selection is watched here.
@@ -51,11 +65,12 @@ object TextActions {
                 tv.post { val p = pop; val r = selection(tv); if (p != null && r != null) place(p, tv, r, false) } }
             fun selected() = tv.text.subSequence(tv.selectionStart.coerceAtLeast(0), tv.selectionEnd.coerceAtLeast(0)).toString()
             override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-                menu.clear()
-                (tv.text as? android.text.Spannable)?.setSpan(watch, 0, tv.text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                if (whole) tv.post { (tv.text as? android.text.Spannable)?.let { android.text.Selection.selectAll(it) } }
+                menu.clear(); active?.second?.takeIf { it !== mode }?.finish(); active = tv to mode
+                val text = tv.text as? android.text.Spannable
+                text?.setSpan(watch, 0, text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+                if (row != null && taps < 2) tv.post { text?.let { android.text.Selection.setSelection(it, 0, row(it).coerceIn(1, it.length)) } }
                 tv.post { val r = selection(tv) ?: return@post
-                    pop = show(tv, r, null, select = { selected() }, all = { (tv.text as? android.text.Spannable)?.let { android.text.Selection.selectAll(it) } },
+                    pop = show(tv, r, null, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
                         done = { mode.finish() }) }
                 return true
             }
@@ -63,8 +78,17 @@ object TextActions {
             override fun onActionItemClicked(mode: ActionMode, item: MenuItem) = false
             override fun onDestroyActionMode(mode: ActionMode) {
                 (tv.text as? android.text.Spannable)?.removeSpan(watch); pop?.dismiss(); pop = null
+                if (active?.second === mode) active = null
             }
         }
+    }
+
+    /** The paragraph around [at]: from the line break before it to the one after. */
+    private fun paragraph(tv: TextView, at: Int) {
+        val t = tv.text as? android.text.Spannable ?: return
+        val a = t.lastIndexOf('\n', (at - 1).coerceAtLeast(0)).let { if (it < 0 || it >= at) 0 else it + 1 }
+        val b = t.indexOf('\n', at).let { if (it < 0) t.length else it }
+        if (b > a) android.text.Selection.setSelection(t, a, b)
     }
 
     /** Where the selection of [tv] is, in its window: its first line to its last. */

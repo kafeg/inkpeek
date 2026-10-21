@@ -11,7 +11,7 @@ import java.io.File
  * One SQLite file in /sdcard/InkPeek (survives a reinstall): lookup history, saved words and phrases, and the answers
  * (AI, offline translation) of those texts: an answer lives as long as its text is in the history or saved.
  */
-class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 2) {
+class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 3) {
     /** [kind]: "word" or "phrase"; [meaning]: one short line, may be empty. */
     data class Entry(val text: String, val kind: String, val meaning: String, val time: Long)
 
@@ -19,8 +19,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE ai(text TEXT, lang TEXT, section TEXT, ver INTEGER, model TEXT, answer TEXT, created INTEGER, PRIMARY KEY(text, lang, section, ver))")
-        db.execSQL("CREATE TABLE saved(text TEXT PRIMARY KEY, kind TEXT, meaning TEXT, created INTEGER)")
-        db.execSQL("CREATE TABLE history(text TEXT PRIMARY KEY, kind TEXT, seen INTEGER, count INTEGER, meaning TEXT)")
+        db.execSQL("CREATE TABLE saved(text TEXT PRIMARY KEY, kind TEXT, meaning TEXT, created INTEGER, lang TEXT)")
+        db.execSQL("CREATE TABLE history(text TEXT PRIMARY KEY, kind TEXT, seen INTEGER, count INTEGER, meaning TEXT, lang TEXT)")
     }
 
     /** An older app over a newer file (debug ↔ release share it): keep the data, the extra columns do no harm. */
@@ -28,6 +28,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     override fun onUpgrade(db: SQLiteDatabase, from: Int, to: Int) {
         if (from < 2) { db.execSQL("ALTER TABLE history ADD COLUMN meaning TEXT"); dropAnswers(db) }
+        // The language of a meaning: a list in another app language shows its own when there is one.
+        if (from < 3) { db.execSQL("ALTER TABLE saved ADD COLUMN lang TEXT"); db.execSQL("ALTER TABLE history ADD COLUMN lang TEXT") }
     }
 
     /** Answers of texts that are neither in the history nor saved. */
@@ -46,16 +48,16 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     }
 
     fun isSaved(text: String) = readableDatabase.rawQuery("SELECT 1 FROM saved WHERE text=?", arrayOf(text)).use { it.moveToFirst() }
-    fun save(text: String, kind: String, meaning: String) {
+    fun save(text: String, kind: String, meaning: String, lang: String) {
         writableDatabase.insertWithOnConflict("saved", null, ContentValues().apply {
-            put("text", text); put("kind", kind); put("meaning", meaning); put("created", System.currentTimeMillis())
+            put("text", text); put("kind", kind); put("meaning", meaning); put("lang", lang); put("created", System.currentTimeMillis())
         }, SQLiteDatabase.CONFLICT_REPLACE)
     }
     fun unsave(text: String) { writableDatabase.run { delete("saved", "text=?", arrayOf(text)); dropAnswers(this) } }
 
-    /** Saved entries of [kind], newest first; an empty meaning comes from the history, else a cached AI answer in [lang]. */
-    fun saved(kind: String, lang: String): List<Entry> = list(
-        "SELECT s.text, s.kind, s.meaning, s.created, a.answer, h.meaning FROM saved s LEFT JOIN history h ON h.text=s.text " +
+    /** Saved entries of [kind], newest first, each with its line in [lang] where there is one (see [list]). */
+    fun saved(kind: String, lang: String): List<Entry> = list(lang,
+        "SELECT s.text, s.kind, s.meaning, s.created, a.answer, h.meaning, s.lang, h.lang FROM saved s LEFT JOIN history h ON h.text=s.text " +
             "LEFT JOIN ai a ON a.text=s.text AND a.lang=? AND a.section='quick' WHERE s.kind=? GROUP BY s.text ORDER BY s.created DESC", arrayOf(lang, kind))
 
     fun seen(text: String, kind: String) = writableDatabase.let { db -> db.beginTransaction(); try { seen(db, text, kind); db.setTransactionSuccessful() } finally { db.endTransaction() } }
@@ -70,13 +72,13 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         }
     }
     /** One short line for the history: the dictionary's first line of a word, the offline translation of a phrase. */
-    fun meaning(text: String, kind: String, meaning: String) {
+    fun meaning(text: String, kind: String, meaning: String, lang: String) {
         val db = writableDatabase
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
-        db.execSQL("UPDATE history SET meaning=? WHERE text=?", arrayOf(meaning, text))
+        db.execSQL("UPDATE history SET meaning=?, lang=? WHERE text=?", arrayOf(meaning, lang, text))
     }
-    fun history(lang: String): List<Entry> = list(
-        "SELECT h.text, h.kind, h.meaning, h.seen, a.answer, '' FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='quick' " +
+    fun history(lang: String): List<Entry> = list(lang,
+        "SELECT h.text, h.kind, '', h.seen, a.answer, h.meaning, '', h.lang FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='quick' " +
             "GROUP BY h.text ORDER BY h.seen DESC", arrayOf(lang))
     /** Removing a text from the history also removes its answers, unless it is saved. */
     fun forget(text: String) { writableDatabase.run { delete("history", "text=?", arrayOf(text)); dropAnswers(this) } }
@@ -84,9 +86,17 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     fun count(table: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table", null).use { it.moveToFirst(); it.getInt(0) }
     fun count(table: String, kind: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table WHERE kind=?", arrayOf(kind)).use { it.moveToFirst(); it.getInt(0) }
 
-    private fun list(sql: String, args: Array<String>) = readableDatabase.rawQuery(sql, args).use { c ->
-        generateSequence { if (c.moveToNext()) Entry(c.getString(0), c.getString(1),
-            c.getString(2).orEmpty().ifBlank { c.getString(5).orEmpty() }.ifBlank { brief(c.getString(4)) }, c.getLong(3)) else null }.toList()
+    /**
+     * Rows: text, kind, saved line, time, AI answer in [lang], history line, saved line's language, history line's.
+     * The line shown: one in [lang] (saved, history, the AI answer), else whichever there is (a list in a new app language).
+     */
+    private fun list(lang: String, sql: String, args: Array<String>) = readableDatabase.rawQuery(sql, args).use { c ->
+        generateSequence { if (!c.moveToNext()) null else {
+            val saved = c.getString(2).orEmpty(); val hist = c.getString(5).orEmpty(); val ai = brief(c.getString(4))
+            val line = listOf(saved.takeIf { c.getString(6) == lang }, hist.takeIf { c.getString(7) == lang }, ai, saved, hist)
+                .firstOrNull { !it.isNullOrBlank() }.orEmpty()
+            Entry(c.getString(0), c.getString(1), line, c.getLong(3))
+        } }.toList()
     }
 
     companion object {

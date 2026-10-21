@@ -38,7 +38,7 @@ object Ink {
         s.indices.filter { s[it] == '→' }.forEach { i ->
             // <small> and other relative sizes at that place: the arrow of a small caption is small too.
             val scale = out.getSpans(i, i + 1, android.text.style.RelativeSizeSpan::class.java).fold(1f) { k, sp -> k * sp.sizeChange }
-            val side = (px * scale * 0.8f).toInt()
+            val side = (px * scale * 0.9f).toInt()
             val d = ctx.getDrawable(io.github.kafeg.inkpeek.R.drawable.ic_forward)!!.mutate().apply { setTint(fg(ctx)); setBounds(0, 0, side, side) }
             out.setSpan(android.text.style.ImageSpan(d, android.text.style.DynamicDrawableSpan.ALIGN_CENTER), i, i + 1, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         }

@@ -184,4 +184,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+
+    /** A tap beside a selection ends it and its menu. */
+    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); return super.dispatchTouchEvent(ev) }
 }

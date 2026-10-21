@@ -1,12 +1,14 @@
 #!/bin/bash
 # Screenshots of every settings tab on each connected device, page by page (layout checks, README pictures).
 #   scripts/screens.sh [out dir]        — in the app's current language; set it in Card → Main first
+#   ANDROID_SERIAL=<serial> scripts/screens.sh   — one device
 set -eu
 OUT=${1:-build/screens}; PKG=io.github.kafeg.inkpeek
 TABS="lang:packs lang:other lang:help ai:main ai:prompts ai:help card:main card:look card:icons words:word words:phrase words:history"
 mkdir -p "$OUT"
 shot() { adb -s "$1" shell screencap -p /sdcard/inkpeek-shot.png && adb -s "$1" pull -q /sdcard/inkpeek-shot.png "$2" && adb -s "$1" shell rm /sdcard/inkpeek-shot.png; }
-for d in $(adb devices | awk 'NR > 1 && $2 == "device" { print $1 }'); do
+# ANDROID_SERIAL set: that device only.
+for d in ${ANDROID_SERIAL:-$(adb devices | awk 'NR > 1 && $2 == "device" { print $1 }')}; do
   size=$(adb -s "$d" shell wm size | awk '{ print $NF }' | tail -1); w=${size%x*}; h=${size#*x}
   for t in $TABS; do
     adb -s "$d" shell input keyevent KEYCODE_WAKEUP

@@ -10,8 +10,9 @@ object WordsList {
         gravity = Gravity.CENTER_VERTICAL
         addView(Ink.entry(ctx, e.text, e.meaning, sp).apply {
             val q = Ink.dp(ctx, 6); setPadding(0, q, q, q); setOnClickListener { open() }
-            // Held: copy, share or search the entry with its line.
-            TextActions.line(this) { if (e.meaning.isBlank()) e.text else "${e.text} — ${e.meaning}" }
+            // The text and its line: each selectable as a whole when held, a tap still opens the entry.
+            (0 until childCount).mapNotNull { getChildAt(it) as? android.widget.TextView }.forEach { tv ->
+                TextActions.selectable(tv) { it.length }; tv.setOnClickListener { open() } }
         }, Ink.lp(0, weight = 1f))
         addView(Ink.button(ctx, "✕", sp * 0.9f) { remove() })
     }
