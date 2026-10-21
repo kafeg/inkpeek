@@ -141,7 +141,6 @@
     <string name="loading_lists">Загружаю списки…</string>
     <string name="n_of_m">%1$d из %2$d</string>
     <string name="download">Скачать</string>
-    <string name="downloading">Скачиваю %1$s…</string>
     <string name="added">Добавлено: %1$s</string>
     <string name="importing">Импортирую…</string>
     <string name="imported">Импортировано: %1$d</string>
@@ -229,4 +228,13 @@
     <string name="aih_context">Объяснение: что значит здесь, стиль, идиомы, оттенки. Примеры: три бытовых предложения с переводом.</string>
     <string name="import_d">Импорт: файлы StarDict (.ifo вместе с .idx и .dict или .dict.dz — выбрать сразу все) или архив с ними.</string>
     <string name="size_mb">%1$s МБ</string>
+    <string name="downloading_pct">Скачиваю %1$s: %2$d%%</string>
+    <string name="already_there">Уже есть: %1$s</string>
+    <string name="pack_done">Готово: %1$s</string>
+    <string name="pack_removed">Удалено: %1$s</string>
+    <string name="got_mark">скачан</string>
+    <string name="hide">Скрыть</string>
+    <string name="cancel_download">Отменить</string>
+    <string name="cancelled">Отменено: ничего не установлено.</string>
+    <string name="next">Дальше</string>
 </resources>

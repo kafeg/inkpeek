@@ -49,8 +49,14 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    override fun onResume() { super.onResume(); PackJob.listener = { if (!isDestroyed) show() } }
-    override fun onPause() { PackJob.listener = null; super.onPause() }
+    private val dlg = Rows.JobDialog(this)
+
+    override fun onResume() {
+        super.onResume()
+        Downloads.listener = { if (!isDestroyed) { dlg.update(); if (!Downloads.busy) show() } }
+        if (Downloads.busy) dlg.show() else dlg.update()
+    }
+    override fun onPause() { Downloads.listener = null; super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
     private fun name(c: String) = java.util.Locale(c).getDisplayLanguage(resources.configuration.locales[0]).replaceFirstChar { it.uppercase() }
@@ -59,10 +65,9 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p)).filter { inst[it.id] != it.sha256 }
 
     private fun show() {
-        PackJob.error?.let { toast(getString(R.string.failed, it.message)); PackJob.error = null }
         val installed = prefs.packs.installedPairs().toSet(); val inst = prefs.packs.installed()
         pairs = Packs.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { name(it.first) }, { name(it.second) }))
-        info.text = if (PackJob.busy) PackJob.status.ifEmpty { "…" } else getString(R.string.n_of_m, pairs.count { it in installed }, pairs.size)
+        info.text = getString(R.string.n_of_m, pairs.count { it in installed }, pairs.size)
         list.adapter = Rows.adapter(this, pairs.map { p ->
             title(p) to if (p in installed) "✓ " + getString(R.string.pack_installed) else getString(R.string.pack_size, (missing(p, inst).sumOf { it.size } / 1_000_000).toInt())
         })
@@ -70,13 +75,13 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun confirm(p: Pair<String, String>) {
         if (p in prefs.packs.installedPairs()) { toast(getString(R.string.pack_installed)); return }
-        if (PackJob.busy) { toast(PackJob.status); return }
+        if (Downloads.busy) { dlg.show(); return }
         val need = missing(p)
         AlertDialog.Builder(this).setTitle(title(p)).setMessage(getString(R.string.pack_confirm, (need.sumOf { it.size } / 1_000_000).coerceAtLeast(1)))
             .setPositiveButton(R.string.download) { _, _ ->
                 // The new pair is in use at once.
                 prefs.pairs = prefs.pairs?.plus("${p.first}-${p.second}")
-                PackJob.run(this, need, emptyList())
+                Downloads.packs(this, need, emptyList(), getString(R.string.pack_done, title(p))); dlg.show()
             }.setNegativeButton(R.string.cancel, null).show()
     }
 

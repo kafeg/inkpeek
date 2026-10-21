@@ -123,8 +123,36 @@ object Rows {
     /** A page's header: ← (back to the settings; e-ink readers often have no back gesture) and its title. */
     fun header(a: android.app.Activity, title: String) = Ink.horizontal(a).apply {
         gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
-        addView(Ink.button(a, "←", BUTTON) { a.finish() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(a, 12) })
+        addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { a.finish() },
+            LinearLayout.LayoutParams(Ink.dp(a, 48), Ink.dp(a, 48)).apply { rightMargin = Ink.dp(a, 12) })
         addView(Ink.text(a, title, 22f, bold = true).apply { isSingleLine = true; ellipsize = TextUtils.TruncateAt.END }, Ink.lp(0, weight = 1f))
+    }
+
+    /** The running download in a dialog: its progress, then its outcome; closing it leaves the download running. */
+    class JobDialog(private val a: android.app.Activity) {
+        private var d: AlertDialog? = null
+        private var text: android.widget.TextView? = null
+
+        /** Cancel stops the download; Hide closes the dialog and leaves it running; at the end only Close stays. */
+        fun show() {
+            if (d?.isShowing == true) return
+            text = Ink.text(a, Downloads.status, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
+            d = AlertDialog.Builder(a).setView(text).setCancelable(false).setPositiveButton(R.string.hide, null)
+                .setNegativeButton(R.string.cancel_download) { _, _ -> Downloads.cancel() }.show()
+            // Cancel keeps the dialog: it shows "Cancelled" when the download has stopped.
+            d?.getButton(AlertDialog.BUTTON_NEGATIVE)?.setOnClickListener { Downloads.cancel(); it.isEnabled = false }
+        }
+
+        /** On every progress step; the outcome goes into the open dialog, else into a toast. */
+        fun update() {
+            if (Downloads.busy) { text?.text = Downloads.status; return }
+            val r = Downloads.result ?: return; Downloads.result = null
+            // The outcome in a dialog of its own with one button: a hidden Cancel left an uneven frame.
+            if (d?.isShowing == true) { d?.dismiss(); d = null
+                AlertDialog.Builder(a).setView(Ink.text(a, r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
+                    .setPositiveButton(R.string.close, null).show()
+            } else android.widget.Toast.makeText(a, r, android.widget.Toast.LENGTH_LONG).show()
+        }
     }
 
     fun spinner(ctx: Context, items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(ctx).apply {

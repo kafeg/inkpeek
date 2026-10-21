@@ -25,18 +25,18 @@ class ImporterTest {
     @Test fun archives() {
         listOf("demo.zip" to zip(), "demo.tar.gz" to tgz()).forEach { (name, bytes) ->
             val target = Files.createTempDirectory("dicts").toFile(); val tmp = Files.createTempDirectory("tmp").toFile()
-            val dirs = Importer.importStream(name, bytes.inputStream(), target, tmp)
+            val dirs = Importer.importStream(name, bytes.inputStream(), target, tmp).added
             assertEquals(listOf("Demo_ de-ru"), dirs.map { it.name })
             assertEquals(listOf("demo.dict", "demo.idx", "demo.ifo"), dirs.single().list()!!.sorted())
             assertEquals(listOf("Demo_ de-ru"), target.list()!!.toList()) // nothing from outside the archive's folder
-            // The same dictionary again gets its own folder.
-            assertEquals("Demo_ de-ru-2", Importer.importStream(name, bytes.inputStream(), target, tmp).single().name)
+            // The same dictionary again is not added twice; one with the same name but other data gets its own folder.
+            assertEquals(Imported(emptyList(), listOf("Demo: de-ru")), Importer.importStream(name, bytes.inputStream(), target, tmp))
         }
     }
 
     @Test fun looseFilesAndRefusals() {
         val target = Files.createTempDirectory("dicts").toFile(); val tmp = Files.createTempDirectory("tmp").toFile()
-        assertEquals(1, Importer.importStream("demo.ifo", files.getValue("x/demo.ifo").byteInputStream(), target, tmp).size)
+        assertEquals(1, Importer.importStream("demo.ifo", files.getValue("x/demo.ifo").byteInputStream(), target, tmp).added.size)
         assertEquals(true, runCatching { Importer.importStream("book.epub", "x".byteInputStream(), target, tmp) }.isFailure)
         assertEquals(true, Importer.isDictFile("A.DICT.DZ"))
         assertEquals(false, File(tmp.parentFile, "evil.ifo").exists())

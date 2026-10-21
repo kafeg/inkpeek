@@ -25,10 +25,28 @@ object Ink {
     }
 
     fun text(ctx: Context, s: CharSequence, sp: Float, bold: Boolean = false, html: Boolean = false) = TextView(ctx).apply {
-        text = if (html) Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT) else s
         setTextColor(fg(ctx)); setLinkTextColor(fg(ctx)); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
+        text = arrows(ctx, if (html) Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT) else s, textSize)
         if (bold) typeface = Typeface.DEFAULT_BOLD
         setLineSpacing(0f, 1.15f); setTextIsSelectable(false)
+    }
+
+    /** "→" as a drawn arrow in the middle of the line: the font's glyph sits low ("German → English"). */
+    fun arrows(ctx: Context, s: CharSequence, px: Float): CharSequence {
+        if (!s.contains('→')) return s
+        val out = android.text.SpannableStringBuilder(s); val side = px.toInt()
+        s.indices.filter { s[it] == '→' }.forEach { i ->
+            val d = ctx.getDrawable(io.github.kafeg.inkpeek.R.drawable.ic_forward)!!.mutate().apply { setTint(fg(ctx)); setBounds(0, 0, side, side) }
+            out.setSpan(android.text.style.ImageSpan(d, android.text.style.DynamicDrawableSpan.ALIGN_CENTER), i, i + 1, android.text.Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        }
+        return out
+    }
+
+    /** A bordered icon button, as in the card's bar. */
+    fun icon(ctx: Context, res: Int, label: String, sideDp: Int = 48, onClick: (View) -> Unit) = android.widget.ImageView(ctx).apply {
+        setImageResource(res); setColorFilter(fg(ctx)); background = border(ctx); val q = dp(ctx, sideDp) / 5; setPadding(q, q, q, q)
+        contentDescription = label; tooltipText = label; isClickable = true; setOnClickListener(onClick)
+        layoutParams = ViewGroup.LayoutParams(dp(ctx, sideDp), dp(ctx, sideDp))
     }
 
     fun button(ctx: Context, label: String, sp: Float, onClick: (View) -> Unit) = TextView(ctx).apply {

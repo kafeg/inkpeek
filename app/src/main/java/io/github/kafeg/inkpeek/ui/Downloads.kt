@@ -1,0 +1,88 @@
+package io.github.kafeg.inkpeek.ui
+
+import android.content.Context
+import android.os.Handler
+import android.os.Looper
+import io.github.kafeg.inkpeek.Prefs
+import io.github.kafeg.inkpeek.R
+import io.github.kafeg.inkpeek.packs.Component
+import io.github.kafeg.inkpeek.stardict.CatalogItem
+import io.github.kafeg.inkpeek.stardict.Importer
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.io.FilterInputStream
+import java.io.InputStream
+import java.util.concurrent.TimeUnit
+
+/**
+ * One download at a time for the whole process — a pack or another dictionary: it outlives the screen that started it,
+ * and whichever screen is open shows its [status] through [listener]; a second one cannot start meanwhile.
+ */
+object Downloads {
+    private var job: Job? = null
+    private val main = Handler(Looper.getMainLooper())
+    private val http = OkHttpClient.Builder().readTimeout(60, TimeUnit.SECONDS).build()
+    @Volatile var status = ""; private set
+    /** The last run's outcome ("Added: …", "Already there: …", "Failed: …"), shown once by the screen that sees it. */
+    var result: String? = null
+    /** The open screen's refresh; called on the main thread on progress and at the end. */
+    var listener: (() -> Unit)? = null
+
+    val busy: Boolean get() = job?.isActive == true
+    @Volatile private var stop = false
+
+    /** Stops the running download at its next chunk: the half-downloaded file is removed, nothing is installed. */
+    fun cancel() { stop = true }
+
+    private fun run(ctx: Context, work: suspend (Context, (String) -> Unit) -> String) {
+        if (busy) return
+        // In the app's language (Card → Main), not the system's: the texts go to the screens.
+        val app = Ink.localized(ctx.applicationContext); result = null; status = "…"; stop = false
+        job = CoroutineScope(Dispatchers.IO).launch {
+            var last = ""
+            // E-ink: redraw only when the text changes (whole percents).
+            val r = runCatching { work(app) { s ->
+                if (stop) throw java.util.concurrent.CancellationException()
+                if (s != last) { last = s; status = s; main.post { listener?.invoke() } } } }
+            Prefs(app).reload(); status = ""
+            result = r.getOrElse { if (it is java.util.concurrent.CancellationException) app.getString(R.string.cancelled)
+                else app.getString(R.string.failed, it.message ?: it.javaClass.simpleName) }
+            main.post { job = null; listener?.invoke() }
+        }
+        main.post { listener?.invoke() }
+    }
+
+    /** Installs and removes pack parts. */
+    fun packs(ctx: Context, install: List<Component>, remove: List<Component>, done: String) = run(ctx) { app, progress ->
+        val packs = Prefs(app).packs
+        remove.forEach { packs.remove(it) }
+        install.forEachIndexed { i, c ->
+            packs.install(c) { got, all -> progress(app.getString(R.string.lang_working, i + 1, install.size, c.id, (got * 100 / all.coerceAtLeast(1)).toInt())) }
+        }
+        done
+    }
+
+    /** Downloads another dictionary into the dictionaries' folder; one already there is not added again. */
+    fun dict(ctx: Context, item: CatalogItem, title: String) = run(ctx) { app, progress ->
+        val prefs = Prefs(app)
+        val got = http.newCall(Request.Builder().url(item.url).build()).execute().use { resp ->
+            if (!resp.isSuccessful) error("HTTP ${resp.code}")
+            val body = resp.body!!; val all = body.contentLength().takeIf { it > 0 } ?: item.size
+            val counted = object : FilterInputStream(body.byteStream()) {
+                var done = 0L
+                fun tick(n: Int) { if (n > 0) { done += n; progress(app.getString(R.string.downloading_pct, title, if (all > 0) (done * 100 / all).toInt() else 0)) } }
+                override fun read(): Int = super.read().also { if (it >= 0) tick(1) }
+                override fun read(b: ByteArray, off: Int, len: Int): Int = super.read(b, off, len).also { tick(it) }
+            }
+            Importer.importStream(item.url.substringAfterLast('/'), counted as InputStream, prefs.dictsDir, app.cacheDir)
+        }
+        // The address with the dictionaries it brought: the page marks it while one of them is in the folder.
+        prefs.got = prefs.got.filterNot { it.substringBefore('\t') == item.url }.toSet() + (listOf(item.url) + got.added.map { it.name } + got.already).joinToString("\t")
+        listOfNotNull(got.added.takeIf { it.isNotEmpty() }?.let { app.getString(R.string.added, it.joinToString { d -> d.name }) },
+            got.already.takeIf { it.isNotEmpty() }?.let { app.getString(R.string.already_there, it.joinToString()) }).joinToString("\n")
+    }
+}

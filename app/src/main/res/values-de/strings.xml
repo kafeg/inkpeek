@@ -141,7 +141,6 @@
     <string name="loading_lists">Listen werden geladen…</string>
     <string name="n_of_m">%1$d von %2$d</string>
     <string name="download">Herunterladen</string>
-    <string name="downloading">Lade %1$s…</string>
     <string name="added">Hinzugefügt: %1$s</string>
     <string name="importing">Importiere…</string>
     <string name="imported">Importiert: %1$d</string>
@@ -229,4 +228,13 @@
     <string name="aih_context">Erklärung: was es hier bedeutet, Stil, Redewendungen, Nuancen. Beispiele: drei Alltagssätze mit Übersetzung.</string>
     <string name="import_d">Import nimmt StarDict-Dateien (.ifo mit .idx und .dict oder .dict.dz, zusammen gewählt) oder ein Archiv damit.</string>
     <string name="size_mb">%1$s MB</string>
+    <string name="downloading_pct">Lade %1$s: %2$d%%</string>
+    <string name="already_there">Schon da: %1$s</string>
+    <string name="pack_done">Fertig: %1$s</string>
+    <string name="pack_removed">Entfernt: %1$s</string>
+    <string name="got_mark">geladen</string>
+    <string name="hide">Ausblenden</string>
+    <string name="cancel_download">Abbrechen</string>
+    <string name="cancelled">Abgebrochen: nichts installiert.</string>
+    <string name="next">Weiter</string>
 </resources>

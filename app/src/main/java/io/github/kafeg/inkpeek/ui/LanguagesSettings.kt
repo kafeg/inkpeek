@@ -66,7 +66,7 @@ class LanguagesSettings(private val a: MainActivity) {
 
     /** The installed pairs: a box (the card uses it), its size, ✕; an update line when the release has newer files. */
     fun refreshPacks() {
-        PackJob.error?.let { a.toast(a.getString(R.string.failed, it.message)); PackJob.error = null }
+        if (!Downloads.busy) Downloads.result?.let { a.toast(it); Downloads.result = null }
         packList.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()
         val pairs = packs.installedPairs().sortedWith(compareBy({ it.second != prefs.answerCode }, { a.langName(it.first) }, { a.langName(it.second) }))
@@ -83,12 +83,12 @@ class LanguagesSettings(private val a: MainActivity) {
             }) { on -> prefs.pairs = (prefs.pairs ?: ticked).let { if (on) it + "${pair.first}-${pair.second}" else it - "${pair.first}-${pair.second}" }; a.refreshStatus() })
         }
         val updates = Packs.updates(manifest, installed) + if (manifest.isEmpty()) emptyList() else installed.keys.filter { id -> manifest.none { it.id == id } }.map { Packs.stale(it) }
-        if (updates.isNotEmpty() && !PackJob.busy)
+        if (updates.isNotEmpty() && !Downloads.busy)
             packList.addView(Rows.buttons(a, a.getString(R.string.packs_update, (updates.sumOf { it.size } / 1_000_000).coerceAtLeast(1)) to {
                 // A part gone from the release (old grammar packs) is removed; the others are downloaded again.
-                PackJob.run(a, updates.filter { c -> manifest.any { it.id == c.id } }, updates.filter { c -> manifest.none { it.id == c.id } })
+                Downloads.packs(a, updates.filter { c -> manifest.any { it.id == c.id } }, updates.filter { c -> manifest.none { it.id == c.id } }, a.getString(R.string.pack_done, a.getString(R.string.packs_title)))
             }))
-        if (PackJob.busy) packList.addView(Rows.note(a, PackJob.status.ifEmpty { "…" }))
+        if (Downloads.busy) packList.addView(Rows.note(a, Downloads.status.ifEmpty { "…" }))
         manifestError?.let { e ->
             packList.addView(Rows.note(a, e))
             packList.addView(Rows.buttons(a, a.getString(R.string.lang_retry) to { loadManifest() }))
@@ -100,7 +100,7 @@ class LanguagesSettings(private val a: MainActivity) {
         // Without the list (offline, first start) only the pair's dictionary is known to be its own.
         val freed = if (manifest.isEmpty()) listOf(Packs.stale("dict-${pair.first}-${pair.second}")) else Packs.freed(manifest, all, pair)
         prefs.pairs = prefs.pairs?.minus("${pair.first}-${pair.second}")
-        PackJob.run(a, emptyList(), freed)
+        Downloads.packs(a, emptyList(), freed, a.getString(R.string.pack_removed, "${a.langName(pair.first)} → ${a.langName(pair.second)}"))
     }
 
     // --- Other dictionaries ---
@@ -173,17 +173,20 @@ class LanguagesSettings(private val a: MainActivity) {
                     // Loose .ifo/.idx/.dict files picked together make one dictionary; each archive is unpacked on its own.
                     val loose = File(a.cacheDir, "loose-" + System.nanoTime()).apply { mkdirs() }
                     try {
-                        uris.flatMap { u ->
+                        val all = uris.map { u ->
                             val name = displayName(u)
                             a.contentResolver.openInputStream(u)!!.use { input ->
-                                if (Importer.isDictFile(name)) { File(loose, name).outputStream().use { input.copyTo(it) }; emptyList() }
+                                if (Importer.isDictFile(name)) { File(loose, name).outputStream().use { input.copyTo(it) }; null }
                                 else Importer.importStream(name, input, target, a.cacheDir)
                             }
-                        } + Importer.collect(loose, target)
+                        }.filterNotNull() + Importer.collect(loose, target)
+                        all.flatMap { it.added } to all.flatMap { it.already }
                     } finally { loose.deleteRecursively() }
                 }
             }
-            r.fold({ a.toast(a.getString(R.string.imported, it.size)) }, { a.toast(a.getString(R.string.import_failed, it.message)) })
+            r.fold({ (added, already) -> a.toast(listOfNotNull(a.getString(R.string.imported, added.size),
+                already.takeIf { it.isNotEmpty() }?.let { a.getString(R.string.already_there, it.joinToString()) }).joinToString("\n")) },
+                { a.toast(a.getString(R.string.import_failed, it.message)) })
             a.refreshDicts()
         }
     }

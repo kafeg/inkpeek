@@ -10,14 +10,16 @@ import java.io.File
 import java.io.InputStream
 import java.util.zip.GZIPInputStream
 
-/** Unpacks an archive or loose StarDict files into [target]/<dictionary>/. */
+/** What an import brought: the new dictionaries' folders, and the names of those that were there already. */
+data class Imported(val added: List<File>, val already: List<String>)
+
+/** Unpacks an archive or loose StarDict files into [target]/<dictionary>/; a dictionary already there is not added twice. */
 object Importer {
     private val DICT_EXT = listOf(".ifo", ".idx", ".idx.gz", ".dict", ".dict.dz", ".syn", ".syn.dz")
 
     fun isDictFile(name: String) = DICT_EXT.any { name.lowercase().endsWith(it) }
 
-    /** Returns the imported dictionary folders. */
-    fun importStream(name: String, input: InputStream, target: File, tmpRoot: File): List<File> {
+    fun importStream(name: String, input: InputStream, target: File, tmpRoot: File): Imported {
         val tmp = File(tmpRoot, "import-" + System.nanoTime()).apply { mkdirs() }
         try {
             val n = name.lowercase()
@@ -41,21 +43,37 @@ object Importer {
                     out.parentFile?.mkdirs(); out.outputStream().use { a.copyTo(it) }
                 }
             }
-            return collect(tmp, target).ifEmpty { throw IllegalArgumentException("no StarDict dictionary (.ifo) in $name") }
+            return collect(tmp, target).also { if (it.added.isEmpty() && it.already.isEmpty()) throw IllegalArgumentException("no StarDict dictionary (.ifo) in $name") }
         } finally { tmp.deleteRecursively() }
     }
 
-    /** Moves every <base>.ifo with its sibling files from [from] into its own folder under [target]. */
-    fun collect(from: File, target: File): List<File> = StarDict.scan(from).map { ifo ->
-        val base = ifo.name.removeSuffix(".ifo")
-        val name = ifo.readLines().firstOrNull { it.startsWith("bookname=") }?.substringAfter('=')?.trim() ?: base
+    /**
+     * Moves every <base>.ifo with its sibling files from [from] into its own folder under [target]; one whose .ifo and
+     * index are already in [target] (downloaded or imported again) is left out.
+     */
+    fun collect(from: File, target: File): Imported {
+        val have = StarDict.scan(target).map { it.readText() to idxSize(it) }.toSet()
+        val added = ArrayList<File>(); val already = ArrayList<String>()
+        StarDict.scan(from).forEach { ifo ->
+            val base = ifo.name.removeSuffix(".ifo")
+            val name = ifo.readLines().firstOrNull { it.startsWith("bookname=") }?.substringAfter('=')?.trim() ?: base
+            if ((ifo.readText() to idxSize(ifo)) in have) { already += name; return@forEach }
+            added += place(ifo, base, name, target)
+        }
+        return Imported(added, already)
+    }
+
+    private fun idxSize(ifo: File) = listOf(".idx", ".idx.gz").map { File(ifo.parentFile, ifo.name.removeSuffix(".ifo") + it) }
+        .firstOrNull { it.exists() }?.length() ?: -1L
+
+    private fun place(ifo: File, base: String, name: String, target: File): File {
         var dir = File(target, safe(name)); var i = 2
         while (dir.exists()) dir = File(target, safe(name) + "-" + i++)
         dir.mkdirs()
         ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.forEach { f ->
             val dst = File(dir, f.name); if (!f.renameTo(dst)) { f.copyTo(dst, true); f.delete() }
         }
-        dir
+        return dir
     }
 
     /**

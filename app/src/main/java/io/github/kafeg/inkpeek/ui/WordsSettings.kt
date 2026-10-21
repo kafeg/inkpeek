@@ -49,10 +49,13 @@ class WordsSettings(private val a: MainActivity) {
         val bar = Ink.horizontal(a).apply { gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val wrap = ViewGroup.LayoutParams.WRAP_CONTENT
         if (pages > 1) {
-            bar.addView(Ink.button(a, "←", Rows.BUTTON) { if (page > 0) { page--; turn() } }.apply { alpha = if (page > 0) 1f else 0.3f }, Ink.lp(wrap))
+            val side = Ink.dp(a, 48)
+            bar.addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { if (page > 0) { page--; turn() } }.apply { alpha = if (page > 0) 1f else 0.3f },
+                android.widget.LinearLayout.LayoutParams(side, side))
             bar.addView(Ink.text(a, a.getString(R.string.page_of, page * PAGE + 1, minOf(items.size, (page + 1) * PAGE), items.size), 15f)
                 .apply { gravity = Gravity.CENTER }, Ink.lp(wrap).apply { leftMargin = Ink.dp(a, 10); rightMargin = Ink.dp(a, 10) })
-            bar.addView(Ink.button(a, "→", Rows.BUTTON) { if (page < pages - 1) { page++; turn() } }.apply { alpha = if (page < pages - 1) 1f else 0.3f }, Ink.lp(wrap))
+            bar.addView(Ink.icon(a, R.drawable.ic_forward, a.getString(R.string.next)) { if (page < pages - 1) { page++; turn() } }.apply { alpha = if (page < pages - 1) 1f else 0.3f },
+                android.widget.LinearLayout.LayoutParams(side, side))
         }
         bar.addView(android.view.View(a), Ink.lp(0, 1, 1f))
         if (now == "history" && items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.clear_history), 15f) {

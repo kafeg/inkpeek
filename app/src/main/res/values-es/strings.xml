@@ -142,7 +142,6 @@
     <string name="loading_lists">Cargando listas…</string>
     <string name="n_of_m">%1$d de %2$d</string>
     <string name="download">Descargar</string>
-    <string name="downloading">Descargando %1$s…</string>
     <string name="added">Añadido: %1$s</string>
     <string name="importing">Importando…</string>
     <string name="imported">Importados: %1$d</string>
@@ -230,4 +229,13 @@
     <string name="aih_context">Explicación: qué significa aquí, registro, modismos, matices. Ejemplos: tres frases cotidianas con traducción.</string>
     <string name="import_d">Importar acepta archivos StarDict (.ifo con .idx y .dict o .dict.dz, elegidos juntos) o un archivo comprimido con ellos.</string>
     <string name="size_mb">%1$s MB</string>
+    <string name="downloading_pct">Descargando %1$s: %2$d%%</string>
+    <string name="already_there">Ya está: %1$s</string>
+    <string name="pack_done">Listo: %1$s</string>
+    <string name="pack_removed">Eliminado: %1$s</string>
+    <string name="got_mark">descargado</string>
+    <string name="hide">Ocultar</string>
+    <string name="cancel_download">Cancelar</string>
+    <string name="cancelled">Cancelado: no se instaló nada.</string>
+    <string name="next">Siguiente</string>
 </resources>

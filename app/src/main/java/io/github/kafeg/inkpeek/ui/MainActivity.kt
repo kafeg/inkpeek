@@ -102,10 +102,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
     override fun onResume() {
         super.onResume()
-        PackJob.listener = { if (!isDestroyed) { languages.refreshPacks(); refreshDicts() } }
+        Downloads.listener = { if (!isDestroyed) { languages.refreshPacks(); refreshDicts() } }
         languages.refreshPacks(); refreshDicts(); if (current == R.string.tab_words) words.refresh()
     }
-    override fun onPause() { ui.removeCallbacksAndMessages(null); PackJob.listener = null; super.onPause() }
+    override fun onPause() { ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
     @Deprecated("Plain Activity result: no AndroidX dependency")

@@ -85,6 +85,8 @@ class Prefs(private val ctx: Context) {
     var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()
     /** Own dictionaries switched off, by id. */
     var dictsOff: Set<String> get() = sp.getStringSet("dicts_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("dicts_off", v).apply()
+    /** Other dictionaries downloaded from the sources: "address\tname\tname…"; the download page marks those still there. */
+    var got: Set<String> get() = sp.getStringSet("got", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("got", v).apply()
     /** Download sources switched off (Catalog.SOURCES ids). */
     var sourcesOff: Set<String> get() = sp.getStringSet("sources_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("sources_off", v).apply()
     /** The other dictionaries' one folder: read from it, downloads and imports go into it (can be KOReader's). */

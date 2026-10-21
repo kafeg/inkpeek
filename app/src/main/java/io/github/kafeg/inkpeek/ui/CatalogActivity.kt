@@ -13,7 +13,6 @@ import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.stardict.Catalog
 import io.github.kafeg.inkpeek.stardict.CatalogItem
-import io.github.kafeg.inkpeek.stardict.Importer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -33,6 +32,9 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var list: ListView
     private lateinit var info: TextView
     private lateinit var filter: EditText
+    private val dlg = Rows.JobDialog(this)
+    /** The names of the dictionaries in the folder now: a source's ✓ only while one it brought is there. */
+    private var present: Set<String> = emptySet()
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -62,10 +64,17 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
             val rank = Catalog.SOURCES.map { it.id }
             items = loaded.flatMap { it.second.getOrDefault(emptyList()) }
                 .sortedWith(compareBy({ it.to != answer }, { !recommended(it) }, { name(it.from) }, { rank.indexOf(it.source) }))
-            show()
+            marks()
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        // Progress goes to the dialog; the list (✓ marks) is redrawn once, at the end.
+        Downloads.listener = { if (!isDestroyed) { dlg.update(); if (!Downloads.busy) marks() } }
+        if (Downloads.busy) dlg.show() else dlg.update()
+    }
+    override fun onPause() { Downloads.listener = null; super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
 
     private val answer get() = prefs.answerCode
@@ -78,7 +87,15 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         val f = filter.text.toString().trim().lowercase()
         shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${title(it)} ${name(it.from)} ${name(it.to)}".lowercase().contains(f) }
         info.text = getString(R.string.n_of_m, shown.size, items.size)
-        list.adapter = Rows.adapter(this, shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}" to listOf(title(it), mb(it.size)).filter { s -> s.isNotEmpty() }.joinToString(" · ") })
+        val got = prefs.got.map { it.split('\t') }.filter { e -> e.drop(1).any { it in present } }.map { it.first() }.toSet()
+        list.adapter = Rows.adapter(this, shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}" to
+            (listOf(title(it), mb(it.size)) + if (it.url in got) "✓ " + getString(R.string.got_mark) else "").filter { s -> s.isNotEmpty() }.joinToString(" · ") })
+    }
+
+    /** Reads which dictionaries are in the folder, then redraws the list. */
+    private fun marks() = launch {
+        present = withContext(Dispatchers.IO) { runCatching { prefs.library().found().map { it.name }.toSet() }.getOrDefault(emptySet()) }
+        show()
     }
 
     private fun mb(b: Long) = if (b <= 0) "" else getString(R.string.size_mb, "%.1f".format(b / 1e6))
@@ -87,25 +104,14 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()
     }
 
-    private fun confirm(item: CatalogItem) = AlertDialog.Builder(this).setTitle("${title(item)}: ${name(item.from)} → ${name(item.to)}")
-        .setMessage(getString(when (item.source) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }) +
-            "\n\n${mb(item.size)} · ${item.license}\n${item.url}")
-        .setPositiveButton(R.string.download) { _, _ -> download(item) }.setNegativeButton(R.string.cancel, null).show()
-
-    private fun download(item: CatalogItem) {
-        info.text = getString(R.string.downloading, "${title(item)} ${item.from} → ${item.to}")
-        launch {
-            val r = withContext(Dispatchers.IO) {
-                runCatching {
-                    http.newCall(Request.Builder().url(item.url).build()).execute().use { resp ->
-                        if (!resp.isSuccessful) error("HTTP ${resp.code}")
-                        Importer.importStream(item.url.substringAfterLast('/'), resp.body!!.byteStream(), prefs.dictsDir, cacheDir)
-                    }
-                }
-            }
-            r.fold({ toast(getString(R.string.added, it.joinToString { d -> d.name })) }, { toast(getString(R.string.failed, it.message)) })
-            show()
-        }
+    /** One download at a time: while one runs, a tap shows its progress instead. */
+    private fun confirm(item: CatalogItem) {
+        if (Downloads.busy) { dlg.show(); return }
+        AlertDialog.Builder(this).setTitle("${title(item)}: ${name(item.from)} → ${name(item.to)}")
+            .setMessage(getString(when (item.source) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }) +
+                "\n\n${mb(item.size)} · ${item.license}" + (if (prefs.got.any { it.startsWith(item.url + "\t") && it.split('\t').drop(1).any { n -> n in present } }) "\n✓ " + getString(R.string.got_mark) else ""))
+            .setPositiveButton(R.string.download) { _, _ -> Downloads.dict(this, item, "${name(item.from)} → ${name(item.to)}"); dlg.show() }
+            .setNegativeButton(R.string.cancel, null).show()
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

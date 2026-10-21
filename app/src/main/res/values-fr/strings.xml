@@ -142,7 +142,6 @@
     <string name="loading_lists">Chargement des listes…</string>
     <string name="n_of_m">%1$d sur %2$d</string>
     <string name="download">Télécharger</string>
-    <string name="downloading">Téléchargement de %1$s…</string>
     <string name="added">Ajouté : %1$s</string>
     <string name="importing">Importation…</string>
     <string name="imported">Importés : %1$d</string>
@@ -230,4 +229,13 @@
     <string name="aih_context">Explication : ce que cela veut dire ici, registre, expressions, nuances. Exemples : trois phrases courantes avec leur traduction.</string>
     <string name="import_d">L\'import prend des fichiers StarDict (.ifo avec .idx et .dict ou .dict.dz, choisis ensemble) ou une archive qui les contient.</string>
     <string name="size_mb">%1$s Mo</string>
+    <string name="downloading_pct">Téléchargement de %1$s : %2$d %%</string>
+    <string name="already_there">Déjà là : %1$s</string>
+    <string name="pack_done">Terminé : %1$s</string>
+    <string name="pack_removed">Supprimé : %1$s</string>
+    <string name="got_mark">téléchargé</string>
+    <string name="hide">Masquer</string>
+    <string name="cancel_download">Annuler</string>
+    <string name="cancelled">Annulé : rien n\'a été installé.</string>
+    <string name="next">Suivant</string>
 </resources>
