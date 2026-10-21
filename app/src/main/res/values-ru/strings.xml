@@ -237,4 +237,23 @@
     <string name="cancel_download">Отменить</string>
     <string name="cancelled">Отменено: ничего не установлено.</string>
     <string name="next">Дальше</string>
+    <string name="copied">Скопировано</string>
+    <string name="copy">Копировать</string>
+    <string name="share">Поделиться</string>
+    <string name="search_web">Искать в интернете</string>
+    <string name="select_all">Выделить всё</string>
+    <string name="hold_t">Удержание текста</string>
+    <string name="hold_d">Строка или часть статьи, перевода, ответа AI: копировать, поделиться, искать в интернете.</string>
+    <string name="about_text">Всплывающий словарь и переводчик для читалок: языковые пакеты, свои словари StarDict, офлайн-перевод; AI — по желанию.</string>
+    <string name="update_latest">Последняя версия. Проверено в %1$s.</string>
+    <string name="update_never">Ещё не проверялось.</string>
+    <string name="update_new">Есть %1$s</string>
+    <string name="check_now">Проверить сейчас</string>
+    <string name="update_btn">Обновить (%1$d МБ)</string>
+    <string name="check_daily_t">Проверять раз в день</string>
+    <string name="check_daily_d">При открытии настроек; один запрос к GitHub.</string>
+    <string name="licenses">github.com/kafeg/inkpeek · MIT · пакеты: CC BY-SA, MPL</string>
+    <string name="checking">Проверяю…</string>
+    <string name="update_confirm">Скачано: подтвердите установку.</string>
+    <string name="install_failed">Не удалось установить: %1$s</string>
 </resources>

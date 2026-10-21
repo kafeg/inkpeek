@@ -38,7 +38,7 @@ class TranslatePage(private val card: CardActivity) {
                 if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = 0.35f
                 p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
             }
-            val out = Ink.text(card, "", card.size); p.addView(out)
+            val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
             when {
                 by == "ai" && aiOk -> with(card.ai) { await(out, Ask.QUICK) }.fold(
                     { card.markdown(out, card.ai.render(CardActivity.TRANSLATE, it)) }, { out.text = aiError(card, card.prefs, card.online, it) })

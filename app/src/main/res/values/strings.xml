@@ -238,4 +238,23 @@
     <string name="cancel_download">Cancel</string>
     <string name="cancelled">Cancelled: nothing was installed.</string>
     <string name="next">Next</string>
+    <string name="copied">Copied</string>
+    <string name="copy">Copy</string>
+    <string name="share">Share</string>
+    <string name="search_web">Search the web</string>
+    <string name="select_all">Select all</string>
+    <string name="hold_t">Hold a text</string>
+    <string name="hold_d">A line, or part of an article, a translation or an AI answer: copy, share, search the web.</string>
+    <string name="about_text">A pop-up dictionary and translator for e-book readers: language packs, your own StarDict dictionaries, offline translation; AI if you want it.</string>
+    <string name="update_latest">The latest version. Checked at %1$s.</string>
+    <string name="update_never">Not checked yet.</string>
+    <string name="update_new">%1$s is out</string>
+    <string name="check_now">Check now</string>
+    <string name="update_btn">Update (%1$d MB)</string>
+    <string name="check_daily_t">Check once a day</string>
+    <string name="check_daily_d">When settings open; one request to GitHub.</string>
+    <string name="licenses">github.com/kafeg/inkpeek · MIT · packs: CC BY-SA, MPL</string>
+    <string name="checking">Checking…</string>
+    <string name="update_confirm">Downloaded: confirm the installation.</string>
+    <string name="install_failed">Could not install: %1$s</string>
 </resources>

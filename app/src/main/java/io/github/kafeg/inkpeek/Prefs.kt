@@ -87,6 +87,10 @@ class Prefs(private val ctx: Context) {
     var dictsOff: Set<String> get() = sp.getStringSet("dicts_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("dicts_off", v).apply()
     /** Other dictionaries downloaded from the sources: "address\tname\tname…"; the download page marks those still there. */
     var got: Set<String> get() = sp.getStringSet("got", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("got", v).apply()
+    /** The daily update check (About); when it last ran; the latest release seen then (JSON, see Updates). */
+    var updateCheck: Boolean get() = sp.getBoolean("update_check", true); set(v) = sp.edit().putBoolean("update_check", v).apply()
+    var updateAt: Long get() = sp.getLong("update_at", 0); set(v) = sp.edit().putLong("update_at", v).apply()
+    var updateSeen: String get() = sp.getString("update_seen", "")!!; set(v) = sp.edit().putString("update_seen", v).apply()
     /** Download sources switched off (Catalog.SOURCES ids). */
     var sourcesOff: Set<String> get() = sp.getStringSet("sources_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("sources_off", v).apply()
     /** The other dictionaries' one folder: read from it, downloads and imports go into it (can be KOReader's). */

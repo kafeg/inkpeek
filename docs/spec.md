@@ -252,6 +252,19 @@ otherwise, with a plain note in the app and the README that it goes through Engl
         reset; the keys and the JSON format stay fixed. Answers saved with an older text are kept, not asked again.
       - **Notes**: 50 per page, the pager and "Clear history" under the list.
    5. Readers: Librera (selection menu → "+" → InkPeek) checked and in the README.
+15. **Version 0.5: copy and updates** (MobileRead, 21.10: "can't copy the output", "check for updates").
+   1. **Copy, share, search the web**: hold a line (the dictionary list, word by word, history, notes — in the card and
+      in settings) or select part of a long text (Translate, AI answers, an article, the headers). A small menu of our
+      icons opens over it (copy, share, search the web; select all for a text), like FBReader's: nothing on the page
+      moves. One card for every way in (a reader, the search field, Notes), so it works the same everywhere.
+   2. **Version and updates**: the settings' status line shows the version on the right, "0.5.112 → 0.5.118" when a
+      newer release is out. A tap opens About: what InkPeek is, the version and the update state, Check now, a daily
+      check (on by default; when settings open, at most once a day; one request to GitHub), GitHub, the licenses.
+      Update: the APK through the download dialog (progress, Cancel, Hide), then Android's installer.
+   3. **CHANGELOG.md**: what changed per version for people who use the app; a release's notes come from it, and the
+      update shows them.
+   4. Releases by `scripts/release.sh` (checks, changelog, tag, the build, the APK's checksum and signature, notes),
+      screenshots and layout checks by `scripts/screens.sh`.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

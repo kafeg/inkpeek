@@ -14,7 +14,7 @@ import org.json.JSONObject
 /** The AI tabs: Analysis (Grammar, Words) and Context (Explanation, Examples), under the app's own headings. */
 class AiPage(private val card: CardActivity) {
     fun fill(p: LinearLayout, tab: String) {
-        val out = Ink.text(card, "", card.size); p.addView(out)
+        val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
         card.launch {
             val r = await(out, ask(tab))
             r.fold({ card.markdown(out, render(tab, it)) }, { e ->

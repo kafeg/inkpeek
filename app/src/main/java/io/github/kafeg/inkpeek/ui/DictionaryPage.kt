@@ -53,6 +53,7 @@ class DictionaryPage(private val card: CardActivity) {
                 p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.source(dict))}</small>", card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
+                    TextActions.line(this) { text.toString() }
                 })
             }
         }
@@ -62,8 +63,9 @@ class DictionaryPage(private val card: CardActivity) {
     private fun article(dict: StarDict, list: List<Hit>, word: String, to: () -> Unit) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(to)
-        p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
-        list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)) }
+        p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true).also { TextActions.selectable(it) }, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+        list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)
+            .also { TextActions.selectable(it) }) }
         card.scrollTop()
     }
 
@@ -98,6 +100,7 @@ class DictionaryPage(private val card: CardActivity) {
                 p.addView(Ink.text(card, text, card.size, html = true).apply {
                     val q = Ink.dp(card, 4); setPadding(0, q, 0, q)
                     setOnClickListener { tap(x.base.ifBlank { x.word }) }
+                    TextActions.line(this) { text.toString() }
                 })
             }
         }

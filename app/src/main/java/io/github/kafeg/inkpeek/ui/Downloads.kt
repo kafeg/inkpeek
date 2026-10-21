@@ -66,6 +66,24 @@ object Downloads {
         done
     }
 
+    /** Downloads a newer InkPeek and hands it to Android's installer. */
+    fun app(ctx: Context, r: Updates.Release) = run(ctx) { app, progress ->
+        val apk = java.io.File(app.cacheDir, "update.apk")
+        try {
+            http.newCall(Request.Builder().url(r.apk).build()).execute().use { resp ->
+                if (!resp.isSuccessful) error("HTTP ${resp.code}")
+                val all = resp.body!!.contentLength().takeIf { it > 0 } ?: r.size
+                resp.body!!.byteStream().use { inp -> apk.outputStream().use { o ->
+                    val buf = ByteArray(1 shl 16); var done = 0L
+                    while (true) { val n = inp.read(buf); if (n < 0) break; o.write(buf, 0, n); done += n
+                        progress(app.getString(R.string.downloading_pct, "InkPeek ${r.name}", if (all > 0) (done * 100 / all).toInt() else 0)) }
+                } }
+            }
+            Updates.install(app, apk)
+        } finally { apk.delete() }
+        app.getString(R.string.update_confirm)
+    }
+
     /** Downloads another dictionary into the dictionaries' folder; one already there is not added again. */
     fun dict(ctx: Context, item: CatalogItem, title: String) = run(ctx) { app, progress ->
         val prefs = Prefs(app)

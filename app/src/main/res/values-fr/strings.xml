@@ -238,4 +238,23 @@
     <string name="cancel_download">Annuler</string>
     <string name="cancelled">Annulé : rien n\'a été installé.</string>
     <string name="next">Suivant</string>
+    <string name="copied">Copié</string>
+    <string name="copy">Copier</string>
+    <string name="share">Partager</string>
+    <string name="search_web">Chercher sur le web</string>
+    <string name="select_all">Tout sélectionner</string>
+    <string name="hold_t">Maintenir un texte</string>
+    <string name="hold_d">Une ligne, ou une partie d\'article, de traduction, de réponse IA : copier, partager, chercher sur le web.</string>
+    <string name="about_text">Dictionnaire et traducteur en pop-up pour liseuses : packs de langue, vos dictionnaires StarDict, traduction hors ligne ; l\'IA si vous voulez.</string>
+    <string name="update_latest">Dernière version. Vérifié à %1$s.</string>
+    <string name="update_never">Pas encore vérifié.</string>
+    <string name="update_new">%1$s est disponible</string>
+    <string name="check_now">Vérifier</string>
+    <string name="update_btn">Mettre à jour (%1$d Mo)</string>
+    <string name="check_daily_t">Vérifier chaque jour</string>
+    <string name="check_daily_d">À l\'ouverture des réglages ; une requête à GitHub.</string>
+    <string name="licenses">github.com/kafeg/inkpeek · MIT · packs : CC BY-SA, MPL</string>
+    <string name="checking">Vérification…</string>
+    <string name="update_confirm">Téléchargé : confirmez l\'installation.</string>
+    <string name="install_failed">Installation impossible : %1$s</string>
 </resources>

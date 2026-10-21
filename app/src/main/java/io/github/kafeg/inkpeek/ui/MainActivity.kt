@@ -30,6 +30,9 @@ import java.io.File
 class MainActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs
     private lateinit var status: TextView
+    private lateinit var version: TextView
+    /** The download dialog, for an app update started from About. */
+    private val download = Rows.JobDialog(this)
     private lateinit var scroll: ScrollView
     private val sections = LinkedHashMap<Int, LinearLayout>()
     private val sectionButtons = HashMap<Int, TextView>()
@@ -55,7 +58,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         col.requestFocus()
 
         col.addView(Ink.text(this, getString(R.string.app_name), 26f, bold = true))
-        status = Ink.text(this, "", 14f); col.addView(status)
+        // The status line, the version on its right (a tap opens About; "0.5.112 → 0.5.118" when a newer one is out).
+        status = Ink.text(this, "", 14f)
+        version = Ink.text(this, "", 14f).apply { setOnClickListener { About.show(this@MainActivity) }; val q = Ink.dp(this@MainActivity, 6); setPadding(q, q, 0, q) }
+        col.addView(Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL
+            addView(status, Ink.lp(0, weight = 1f)); addView(version, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT)) })
         val probe = edit(getString(R.string.try_hint), "")
         val tryRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         tryRow.addView(probe, Ink.lp(0, weight = 1f))
@@ -102,8 +109,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
     override fun onResume() {
         super.onResume()
-        Downloads.listener = { if (!isDestroyed) { languages.refreshPacks(); refreshDicts() } }
+        Downloads.listener = { if (!isDestroyed) { download.update(); languages.refreshPacks(); refreshDicts() } }
+        if (Downloads.busy) download.show()
         languages.refreshPacks(); refreshDicts(); if (current == R.string.tab_words) words.refresh()
+        // The daily update check (About), quietly: only the version line changes.
+        if (Updates.due(this)) launch { withContext(Dispatchers.IO) { runCatching { Updates.check(this@MainActivity) } }; refreshStatus() }
     }
     override fun onPause() { ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
@@ -128,6 +138,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
     fun aiChanged() = card.syncAi()
 
+    fun showDownload() = download.show()
+
     /** "Dictionaries: 9 · AI: Claude". */
     fun refreshStatus() {
         launch {
@@ -136,6 +148,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             val busy = lib.status.values.count { it == "indexing" }
             val ai = if (prefs.aiOn) prefs.provider.title else getString(R.string.ai_none)
             status.text = if (busy > 0) getString(R.string.status_busy, n, busy, ai) else getString(R.string.status, n, ai)
+            val newer = Updates.newer(this@MainActivity)
+            version.text = Updates.versionName(this@MainActivity).let { v -> if (newer == null) v
+                else android.text.SpannableString("$v → ${newer.name}").apply { setSpan(android.text.style.UnderlineSpan(), 0, length, 0) } }
+            version.text = Ink.arrows(this@MainActivity, version.text, version.textSize)
         }
     }
 

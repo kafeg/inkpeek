@@ -114,9 +114,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             maxLines = if (long) 2 else 3; ellipsize = android.text.TextUtils.TruncateAt.END; setLineSpacing(0f, 1f)
+            TextActions.selectable(this)
         }
         // Under the title: the selected form, the same word in another book language.
-        subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE }
+        subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE; TextActions.selectable(this) }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         card.addView(head)

@@ -10,6 +10,8 @@ object WordsList {
         gravity = Gravity.CENTER_VERTICAL
         addView(Ink.entry(ctx, e.text, e.meaning, sp).apply {
             val q = Ink.dp(ctx, 6); setPadding(0, q, q, q); setOnClickListener { open() }
+            // Held: copy, share or search the entry with its line.
+            TextActions.line(this) { if (e.meaning.isBlank()) e.text else "${e.text} — ${e.meaning}" }
         }, Ink.lp(0, weight = 1f))
         addView(Ink.button(ctx, "✕", sp * 0.9f) { remove() })
     }

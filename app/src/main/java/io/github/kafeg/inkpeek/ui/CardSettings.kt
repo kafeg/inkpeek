@@ -63,7 +63,8 @@ class CardSettings(private val a: MainActivity) {
             listOf(Triple(R.drawable.ic_star, a.getString(R.string.save_word), a.getString(R.string.icon_save_d)),
                 Triple(R.drawable.ic_words, a.getString(R.string.tab_words), a.getString(R.string.icon_words_d)),
                 Triple(R.drawable.ic_back, a.getString(R.string.back), a.getString(R.string.icon_back_d)),
-                Triple(R.drawable.ic_close, a.getString(R.string.close), a.getString(R.string.icon_close_d)))
+                Triple(R.drawable.ic_close, a.getString(R.string.close), a.getString(R.string.icon_close_d)),
+                Triple(R.drawable.ic_copy, a.getString(R.string.hold_t), a.getString(R.string.hold_d)))
         rows.forEachIndexed { i, (icon, title, about) -> t.addView(Rows.info(a, icon, title, about, lines = 3).let { if (i == 0) first(it) else it }) }
     }
 }
