@@ -131,8 +131,10 @@ object Rows {
         adapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, items)
         setSelection(selected)
         onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            private var first = true
-            override fun onItemSelected(a: AdapterView<*>?, v: View?, i: Int, id: Long) { if (first) { first = false; return }; onPick(i) }
+            // Only a real change: a recreated screen reports its selection again (the app language recreates the
+            // screen, and a repeated report looped it).
+            private var current = selected
+            override fun onItemSelected(a: AdapterView<*>?, v: View?, i: Int, id: Long) { if (i != current) { current = i; onPick(i) } }
             override fun onNothingSelected(a: AdapterView<*>?) {}
         }
     }
