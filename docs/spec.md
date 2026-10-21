@@ -215,5 +215,20 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 13. **App redesign** — settings grew from the card's widgets: a plan and a mockup first, standard controls sized
    for e-ink, sections, fewer options.
 
+14. **Version 0.4: readers' wishes** (from MobileRead, 21.10: own dictionaries, a smaller pop-up, a dark mode; no AI).
+   New options only; the defaults stay as in 0.3 except "a phrase opens on Translate" (on by default).
+   1. **Card look** (settings Card → Look): height — by content (a small pop-up, like KOReader's) or a share of the
+      screen; width; position — top / centre / bottom, or where the reader asks (`EXTRA_GRAVITY`, `EXTRA_HEIGHT` of the
+      ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; dark (white
+      on black); the icon bar on or off (off: the Dictionary tab only, tap outside closes).
+   2. **Own dictionaries** (Languages → Own): StarDict folders used in place (e.g. KOReader's `koreader/data/dict`) and
+      import of files / archives as in 0.2. Shown after the packs, each row signed with its source (packs: "InkPeek");
+      their short line from the article (0.2's short meaning), the card's header stays the selected word for them.
+   3. **What is there decides what shows**: Translate's Offline tab only with a pack installed, its AI tab only with AI
+      on; no Translate icon with neither; with no pack for the text's language (fastText) the Offline tab names the
+      InkPeek pack to install. AI: a list whose first entry is "Off" (no AI icons anywhere) instead of the switch.
+   4. **Settings in one style**: a switch or a box on the left, its title and one small line under it (like the icon list).
+   5. Readers: Librera (selection menu → "+" → InkPeek) checked and in the README.
+
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.
