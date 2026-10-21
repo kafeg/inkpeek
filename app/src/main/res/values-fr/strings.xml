@@ -111,4 +111,25 @@
     <string name="sec_grammar">Grammaire</string>
     <string name="sec_words">Mots</string>
     <string name="sec_explanation">Explication</string>
+    <string name="card_main">Général</string>
+    <string name="card_look">Apparence</string>
+    <string name="ui_lang_d">Les réponses arrivent aussi dans cette langue.</string>
+    <string name="phrase_ai_d">Une expression ou un passage sélectionné s\'ouvre sur Traduire, pas sur le mot à mot.</string>
+    <string name="look_height">Hauteur</string>
+    <string name="look_height_d">Selon le contenu : une petite fiche qui grandit avec le texte, jusqu\'à 80 % de l\'écran.</string>
+    <string name="look_height_auto">Selon le contenu</string>
+    <string name="look_width">Largeur</string>
+    <string name="look_width_d">Part de la largeur de l\'écran.</string>
+    <string name="look_place">Position</string>
+    <string name="look_place_d">Où s\'ouvre la fiche. « Où la liseuse le demande » laisse le mot sélectionné visible (Librera, FBReader).</string>
+    <string name="place_center">Au centre</string>
+    <string name="place_top">En haut</string>
+    <string name="place_bottom">En bas</string>
+    <string name="place_reader">Où la liseuse le demande</string>
+    <string name="look_text">Taille du texte</string>
+    <string name="look_text_d">Le texte de la fiche ; le titre un peu plus grand.</string>
+    <string name="look_dark">Fiche sombre</string>
+    <string name="look_dark_d">Texte blanc sur noir.</string>
+    <string name="look_bar">Barre d\'icônes</string>
+    <string name="look_bar_d">Désactivée : le dictionnaire seul ; Retour ou un appui à l\'extérieur ferme la fiche.</string>
 </resources>

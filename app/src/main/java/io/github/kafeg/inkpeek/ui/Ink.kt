@@ -12,23 +12,27 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 
-/** E-ink styling: black on white, thin borders, no ripples or colors. */
+/** E-ink styling: black on white (or white on black: the dark card), thin borders, no ripples or colors. */
 object Ink {
+    /** Ink and paper of a screen: the card can be dark (Card → Look), the settings never are. */
+    fun fg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.WHITE else Color.BLACK
+    fun bg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.BLACK else Color.WHITE
+
     fun dp(ctx: Context, v: Number) = (v.toFloat() * ctx.resources.displayMetrics.density).toInt()
 
-    fun border(ctx: Context, width: Int = 2, radius: Int = 6, fill: Int = Color.WHITE) = GradientDrawable().apply {
-        setColor(fill); setStroke(dp(ctx, width) / 2 + 1, Color.BLACK); cornerRadius = dp(ctx, radius).toFloat()
+    fun border(ctx: Context, width: Int = 2, radius: Int = 6) = GradientDrawable().apply {
+        setColor(bg(ctx)); setStroke(dp(ctx, width) / 2 + 1, fg(ctx)); cornerRadius = dp(ctx, radius).toFloat()
     }
 
     fun text(ctx: Context, s: CharSequence, sp: Float, bold: Boolean = false, html: Boolean = false) = TextView(ctx).apply {
         text = if (html) Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT) else s
-        setTextColor(Color.BLACK); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
+        setTextColor(fg(ctx)); setLinkTextColor(fg(ctx)); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
         if (bold) typeface = Typeface.DEFAULT_BOLD
         setLineSpacing(0f, 1.15f); setTextIsSelectable(false)
     }
 
     fun button(ctx: Context, label: String, sp: Float, onClick: (View) -> Unit) = TextView(ctx).apply {
-        text = label; setTextColor(Color.BLACK); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp); gravity = Gravity.CENTER
+        text = label; setTextColor(fg(ctx)); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp); gravity = Gravity.CENTER
         background = border(ctx); val p = dp(ctx, 10); setPadding(p, p, p, p); setOnClickListener(onClick)
         isClickable = true; isFocusable = true
     }
@@ -46,7 +50,7 @@ object Ink {
             addView(vertical(ctx).apply {
                 tag = k; isClickable = true; setOnClickListener { pick(k) }
                 addView(text(ctx, label, sp, bold = on).apply { gravity = Gravity.CENTER; val p = dp(ctx, 8); setPadding(0, p, 0, p) })
-                addView(View(ctx).apply { setBackgroundColor(Color.BLACK) }, lp(h = dp(ctx, if (on) 4 else 1)))
+                addView(View(ctx).apply { setBackgroundColor(fg(ctx)) }, lp(h = dp(ctx, if (on) 4 else 1)))
             }, lp(0, weight = 1f))
         }
     }

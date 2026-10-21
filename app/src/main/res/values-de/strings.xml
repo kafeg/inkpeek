@@ -110,4 +110,25 @@
     <string name="sec_grammar">Grammatik</string>
     <string name="sec_words">Wörter</string>
     <string name="sec_explanation">Erklärung</string>
+    <string name="card_main">Allgemein</string>
+    <string name="card_look">Aussehen</string>
+    <string name="ui_lang_d">In dieser Sprache kommen auch die Antworten.</string>
+    <string name="phrase_ai_d">Eine markierte Phrase oder ein Abschnitt öffnet sich mit „Übersetzung“, nicht Wort für Wort.</string>
+    <string name="look_height">Höhe</string>
+    <string name="look_height_d">Nach Inhalt: eine kleine Karte, die mit dem Text wächst, bis 80 % des Bildschirms.</string>
+    <string name="look_height_auto">Nach Inhalt</string>
+    <string name="look_width">Breite</string>
+    <string name="look_width_d">Anteil der Bildschirmbreite.</string>
+    <string name="look_place">Position</string>
+    <string name="look_place_d">Wo sich die Karte öffnet. „Wo der Reader es will“ lässt das markierte Wort sichtbar (Librera, FBReader).</string>
+    <string name="place_center">Mitte</string>
+    <string name="place_top">Oben</string>
+    <string name="place_bottom">Unten</string>
+    <string name="place_reader">Wo der Reader es will</string>
+    <string name="look_text">Textgröße</string>
+    <string name="look_text_d">Text der Karte; die Überschrift etwas größer.</string>
+    <string name="look_dark">Dunkle Karte</string>
+    <string name="look_dark_d">Weißer Text auf Schwarz.</string>
+    <string name="look_bar">Symbolleiste</string>
+    <string name="look_bar_d">Aus: nur das Wörterbuch; Zurück oder ein Tipp außerhalb schließt die Karte.</string>
 </resources>

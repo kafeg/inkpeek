@@ -44,7 +44,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     val kind get() = Kind.of(query)
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
-    val size = 20f
+    val size: Float get() = prefs.cardText.toFloat()
+    /** White on black (Card → Look); [Ink] reads it for this screen. */
+    val dark: Boolean get() = ::prefs.isInitialized && prefs.cardDark
     val online: Boolean get() = Net.online(this)
     val answers by lazy { Answers(prefs, store, query) { online } }
     val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) }
@@ -54,6 +56,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val words = WordsPage(this)
 
     private lateinit var scroll: ScrollView
+    private lateinit var root: LinearLayout
+    private var width = 0
+    private var maxHeight = 0
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, View>()
     private var shown = ""
@@ -100,6 +105,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun build() {
         val pad = Ink.dp(this, 14)
         val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
+        root = card
         val head = FrameLayout(this)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
@@ -112,6 +118,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         card.addView(head)
         scroll = ScrollView(this)
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
+        scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
         baseHint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
         hintView = Ink.text(this, "", size * 0.65f); showHint()
@@ -122,7 +129,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
         val n = tabs.size + 4; val gap = Ink.dp(this, 5) // + save, my words, back, close
-        val side = minOf(Ink.dp(this, 44), ((resources.displayMetrics.widthPixels * 0.92).toInt() - 2 * pad - gap * (n + 3)) / n)
+        val side = minOf(Ink.dp(this, 44), (resources.displayMetrics.widthPixels * prefs.cardWidth / 100 - 2 * pad - gap * (n + 3)) / n)
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
@@ -144,9 +151,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
 
-        card.addView(View(this).apply { setBackgroundColor(android.graphics.Color.BLACK) },
-            Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
-        card.addView(bar)
+        // No icon bar (Card → Look): the card is the open page only; Back or a tap outside closes it.
+        if (prefs.cardBar) {
+            card.addView(View(this).apply { setBackgroundColor(Ink.fg(this@CardActivity)) },
+                Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
+            card.addView(bar)
+        }
         setContentView(card)
     }
 
@@ -154,7 +164,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun iconButton(icon: Int, label: String, side: Int, ai: Boolean = false, click: () -> Unit): View {
         val q = side / 5
         // An AI icon is drawn a bit smaller: its top-right corner holds the "AI" label.
-        val img = ImageView(this).apply { setImageResource(icon); tag = "icon"
+        val img = ImageView(this).apply { setImageResource(icon); tag = "icon"; setColorFilter(Ink.fg(this@CardActivity))
             if (ai) setPadding(q, q + q / 2, q + q / 2, q) else setPadding(q, q, q, q) }
         val name = if (ai) "$label · AI" else label
         return Ink.vertical(this).apply {
@@ -171,12 +181,35 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
+    /**
+     * Size and place from Card → Look. "Where the reader asks": ColorDict's EXTRA_GRAVITY (top or bottom, away from the
+     * selected word) and EXTRA_HEIGHT (at most that tall), sent by Librera and FBReader.
+     */
     private fun placeWindow() {
         val dm = resources.displayMetrics
-        window.setLayout((dm.widthPixels * 0.92).toInt(), (dm.heightPixels * 0.8).toInt())
-        window.setGravity(Gravity.CENTER)
+        val reader = prefs.cardPlace == "reader"
+        val askedHeight = if (reader) intent.getIntExtra("EXTRA_HEIGHT", 0) else 0
+        width = dm.widthPixels * prefs.cardWidth / 100
+        maxHeight = dm.heightPixels * (if (prefs.cardHeight == 0) 80 else prefs.cardHeight) / 100
+        if (askedHeight > 0) maxHeight = minOf(maxHeight, askedHeight)
+        window.setLayout(width, if (prefs.cardHeight == 0) maxHeight / 2 else maxHeight)
+        val vertical = when (prefs.cardPlace) {
+            "top" -> Gravity.TOP; "bottom" -> Gravity.BOTTOM
+            "reader" -> (intent.getIntExtra("EXTRA_GRAVITY", Gravity.CENTER_VERTICAL) and Gravity.VERTICAL_GRAVITY_MASK).takeIf { it != 0 } ?: Gravity.CENTER_VERTICAL
+            else -> Gravity.CENTER_VERTICAL
+        }
+        window.setGravity(vertical or Gravity.CENTER_HORIZONTAL)
+        if (vertical != Gravity.CENTER_VERTICAL) window.attributes = window.attributes.apply { y = Ink.dp(this@CardActivity, 8) }
         window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); window.setDimAmount(0.25f)
         window.setWindowAnimations(0)
+    }
+
+    /** Height by content: the window follows the open page, between a small card and [maxHeight]. */
+    private fun fit() {
+        if (prefs.cardHeight != 0 || !::root.isInitialized) return
+        val page = scroll.getChildAt(0) ?: return
+        val target = (root.height - scroll.height + page.height).coerceIn(minOf(Ink.dp(this, 140), maxHeight), maxHeight)
+        if (kotlin.math.abs(window.attributes.height - target) > Ink.dp(this, 6)) window.setLayout(width, target)
     }
 
     /** A tab's page, filled the first time unless [fill] is false (the Dictionary tab opened on a word from elsewhere). */

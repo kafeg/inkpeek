@@ -14,7 +14,16 @@ class Prefs(private val ctx: Context) {
 
     /** "" = system, else a language code with resources (en, ru, de). */
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
-    var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", false); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
+    var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", true); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
+
+    /** The card's look (Card → Look); the defaults are the 0.3 card. Height 0 = by its content. */
+    var cardHeight: Int get() = sp.getInt("card_height", 80); set(v) = sp.edit().putInt("card_height", v).apply()
+    var cardWidth: Int get() = sp.getInt("card_width", 92); set(v) = sp.edit().putInt("card_width", v).apply()
+    /** "center", "top", "bottom" or "reader" (where the reader asks: ColorDict's EXTRA_GRAVITY / EXTRA_HEIGHT). */
+    var cardPlace: String get() = sp.getString("card_place", "center")!!; set(v) = sp.edit().putString("card_place", v).apply()
+    var cardText: Int get() = sp.getInt("card_text", 20); set(v) = sp.edit().putInt("card_text", v).apply()
+    var cardDark: Boolean get() = sp.getBoolean("card_dark", false); set(v) = sp.edit().putBoolean("card_dark", v).apply()
+    var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
     var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** The language of the answers is the app's language (setting or system), one of [ANSWERS]; English otherwise. */
     val answerCode: String get() = uiLang.ifBlank { java.util.Locale.getDefault().language }.let { if (it in ANSWERS) it else "en" }

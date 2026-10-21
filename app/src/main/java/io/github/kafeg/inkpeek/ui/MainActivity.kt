@@ -373,15 +373,22 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     // --- Card ---
+    /** Card: Main (language, phrases, what each icon does) and Look (size, place, text, dark, icon bar). */
     private fun buildCard(t: LinearLayout) {
+        val tabsBox = Ink.vertical(this); val main = Ink.vertical(this); val look = Ink.vertical(this)
+        t.addView(tabsBox); t.addView(main); t.addView(look)
+        fun open(k: String) {
+            main.visibility = if (k == "main") View.VISIBLE else View.GONE; look.visibility = if (k == "look") View.VISIBLE else View.GONE
+            tabsBox.removeAllViews()
+            tabsBox.addView(Ink.subTabs(this, listOf("main" to getString(R.string.card_main), "look" to getString(R.string.card_look)), k, 16f) { open(it) },
+                Ink.lp().apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
+        }
         val codes = listOf("") + io.github.kafeg.inkpeek.Prefs.ANSWERS
         val names = listOf(getString(R.string.ui_lang_system)) + io.github.kafeg.inkpeek.Prefs.ANSWERS.map { c ->
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
-        t.addView(Ink.text(this, getString(R.string.ui_lang), 14f))
-        t.addView(spinner(names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
-        // A core setting: Translate works offline, so it is here and not on the AI tab.
-        t.addView(switch(getString(R.string.phrase_ai), prefs.phraseAutoAi) { prefs.phraseAutoAi = it }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
-        t.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
+        main.addView(choice(getString(R.string.ui_lang), getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
+        main.addView(check(getString(R.string.phrase_ai), getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
+        main.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
         // What each icon of the card does: icon, name, one line.
         val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d)),
             Triple(R.drawable.ic_translate, getString(R.string.tab_translate), getString(R.string.icon_translate_d))) +
@@ -394,8 +401,43 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             val r = Ink.horizontal(this)
             r.addView(android.widget.ImageView(this).apply { setImageResource(icon) }, LinearLayout.LayoutParams(Ink.dp(this, 28), Ink.dp(this, 28)).apply { rightMargin = Ink.dp(this@MainActivity, 12) })
             r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b><br>" + Ink.escape(about), 15f, html = true), Ink.lp(0, weight = 1f))
-            t.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
+            main.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
         }
+
+        val heights = listOf(0, 50, 60, 70, 80, 90)
+        look.addView(choice(getString(R.string.look_height), getString(R.string.look_height_d),
+            heights.map { if (it == 0) getString(R.string.look_height_auto) else "$it %" }, heights.indexOf(prefs.cardHeight).coerceAtLeast(0)) { prefs.cardHeight = heights[it] })
+        val widths = listOf(70, 80, 92, 100)
+        look.addView(choice(getString(R.string.look_width), getString(R.string.look_width_d), widths.map { "$it %" },
+            widths.indexOf(prefs.cardWidth).coerceAtLeast(0)) { prefs.cardWidth = widths[it] })
+        val places = listOf("center", "top", "bottom", "reader")
+        look.addView(choice(getString(R.string.look_place), getString(R.string.look_place_d),
+            listOf(R.string.place_center, R.string.place_top, R.string.place_bottom, R.string.place_reader).map { getString(it) },
+            places.indexOf(prefs.cardPlace).coerceAtLeast(0)) { prefs.cardPlace = places[it] })
+        val sizes = listOf(16, 18, 20, 22, 24, 26)
+        look.addView(choice(getString(R.string.look_text), getString(R.string.look_text_d), sizes.map { "$it" },
+            sizes.indexOf(prefs.cardText).coerceAtLeast(0)) { prefs.cardText = sizes[it] })
+        look.addView(check(getString(R.string.look_dark), getString(R.string.look_dark_d), prefs.cardDark) { prefs.cardDark = it })
+        look.addView(check(getString(R.string.look_bar), getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
+        open("main")
+    }
+
+    /** A setting in the one style: a box on the left, its title and one small line on the right (a tap anywhere toggles). */
+    private fun check(title: String, about: String, on: Boolean, save: (Boolean) -> Unit) = Ink.horizontal(this).apply {
+        val box = CheckBox(this@MainActivity).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
+        addView(box, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(this@MainActivity, 6) })
+        addView(Ink.vertical(this@MainActivity).apply {
+            addView(Ink.text(this@MainActivity, title, 16f, bold = true)); addView(Ink.text(this@MainActivity, about, 13f))
+            setOnClickListener { box.toggle() }
+        }, Ink.lp(0, weight = 1f))
+        layoutParams = Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 14) }
+    }
+
+    /** A setting with a choice, in the one style: its title and one small line, the drop-down under them. */
+    private fun choice(title: String, about: String, items: List<String>, selected: Int, pick: (Int) -> Unit) = Ink.vertical(this).apply {
+        addView(Ink.text(this@MainActivity, title, 16f, bold = true)); addView(Ink.text(this@MainActivity, about, 13f))
+        addView(spinner(items, selected, pick))
+        layoutParams = Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 14) }
     }
 
     // --- helpers ---

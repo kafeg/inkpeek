@@ -111,4 +111,25 @@
     <string name="sec_grammar">Gramatyka</string>
     <string name="sec_words">Słowa</string>
     <string name="sec_explanation">Wyjaśnienie</string>
+    <string name="card_main">Ogólne</string>
+    <string name="card_look">Wygląd</string>
+    <string name="ui_lang_d">W tym języku przychodzą też odpowiedzi.</string>
+    <string name="phrase_ai_d">Zaznaczone wyrażenie lub fragment otwiera się na Tłumaczeniu, a nie słowo po słowie.</string>
+    <string name="look_height">Wysokość</string>
+    <string name="look_height_d">Według treści: mała karta, która rośnie z tekstem, do 80% ekranu.</string>
+    <string name="look_height_auto">Według treści</string>
+    <string name="look_width">Szerokość</string>
+    <string name="look_width_d">Część szerokości ekranu.</string>
+    <string name="look_place">Położenie</string>
+    <string name="look_place_d">Gdzie otwiera się karta. „Gdzie prosi czytnik” zostawia zaznaczone słowo widoczne (Librera, FBReader).</string>
+    <string name="place_center">Na środku</string>
+    <string name="place_top">U góry</string>
+    <string name="place_bottom">Na dole</string>
+    <string name="place_reader">Gdzie prosi czytnik</string>
+    <string name="look_text">Rozmiar tekstu</string>
+    <string name="look_text_d">Tekst karty; nagłówek nieco większy.</string>
+    <string name="look_dark">Ciemna karta</string>
+    <string name="look_dark_d">Biały tekst na czarnym.</string>
+    <string name="look_bar">Pasek ikon</string>
+    <string name="look_bar_d">Wyłączony: tylko słownik; Wstecz lub dotknięcie poza kartą ją zamyka.</string>
 </resources>

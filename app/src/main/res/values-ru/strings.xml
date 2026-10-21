@@ -110,4 +110,25 @@
     <string name="sec_grammar">Грамматика</string>
     <string name="sec_words">Слова</string>
     <string name="sec_explanation">Объяснение</string>
+    <string name="card_main">Основные</string>
+    <string name="card_look">Вид</string>
+    <string name="ui_lang_d">На этом же языке приходят ответы.</string>
+    <string name="phrase_ai_d">Выделенная фраза или отрывок открывается на «Переводе», а не на переводе по словам.</string>
+    <string name="look_height">Высота</string>
+    <string name="look_height_d">По содержимому: небольшая карточка растёт вместе с текстом, до 80% экрана.</string>
+    <string name="look_height_auto">По содержимому</string>
+    <string name="look_width">Ширина</string>
+    <string name="look_width_d">Доля ширины экрана.</string>
+    <string name="look_place">Положение</string>
+    <string name="look_place_d">Где открывается карточка. «Где просит читалка» не закрывает выделенное слово (Librera, FBReader).</string>
+    <string name="place_center">По центру</string>
+    <string name="place_top">Сверху</string>
+    <string name="place_bottom">Снизу</string>
+    <string name="place_reader">Где просит читалка</string>
+    <string name="look_text">Размер текста</string>
+    <string name="look_text_d">Текст карточки; заголовок чуть крупнее.</string>
+    <string name="look_dark">Тёмная карточка</string>
+    <string name="look_dark_d">Белый текст на чёрном.</string>
+    <string name="look_bar">Панель значков</string>
+    <string name="look_bar_d">Выключено: только словарь; закрыть — «Назад» или нажатие вне карточки.</string>
 </resources>

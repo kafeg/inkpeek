@@ -111,4 +111,25 @@
     <string name="sec_grammar">Grammatica</string>
     <string name="sec_words">Parole</string>
     <string name="sec_explanation">Spiegazione</string>
+    <string name="card_main">Generale</string>
+    <string name="card_look">Aspetto</string>
+    <string name="ui_lang_d">Anche le risposte arrivano in questa lingua.</string>
+    <string name="phrase_ai_d">Una frase o un passo selezionato si apre su Traduci, non parola per parola.</string>
+    <string name="look_height">Altezza</string>
+    <string name="look_height_d">Secondo il contenuto: una scheda piccola che cresce con il testo, fino all\'80% dello schermo.</string>
+    <string name="look_height_auto">Secondo il contenuto</string>
+    <string name="look_width">Larghezza</string>
+    <string name="look_width_d">Parte della larghezza dello schermo.</string>
+    <string name="look_place">Posizione</string>
+    <string name="look_place_d">Dove si apre la scheda. «Dove lo chiede il lettore» lascia visibile la parola selezionata (Librera, FBReader).</string>
+    <string name="place_center">Al centro</string>
+    <string name="place_top">In alto</string>
+    <string name="place_bottom">In basso</string>
+    <string name="place_reader">Dove lo chiede il lettore</string>
+    <string name="look_text">Dimensione del testo</string>
+    <string name="look_text_d">Il testo della scheda; il titolo un po\' più grande.</string>
+    <string name="look_dark">Scheda scura</string>
+    <string name="look_dark_d">Testo bianco su nero.</string>
+    <string name="look_bar">Barra delle icone</string>
+    <string name="look_bar_d">Disattivata: solo il dizionario; Indietro o un tocco fuori chiude la scheda.</string>
 </resources>

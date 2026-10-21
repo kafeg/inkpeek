@@ -111,4 +111,25 @@
     <string name="sec_grammar">Grammar</string>
     <string name="sec_words">Words</string>
     <string name="sec_explanation">Explanation</string>
+    <string name="card_main">Main</string>
+    <string name="card_look">Look</string>
+    <string name="ui_lang_d">The answers come in this language too.</string>
+    <string name="phrase_ai_d">A selected phrase or passage opens on Translate, not on the word-by-word list.</string>
+    <string name="look_height">Height</string>
+    <string name="look_height_d">By content: a small card that grows with its text, up to 80% of the screen.</string>
+    <string name="look_height_auto">By content</string>
+    <string name="look_width">Width</string>
+    <string name="look_width_d">Share of the screen width.</string>
+    <string name="look_place">Position</string>
+    <string name="look_place_d">Where the card opens. «Where the reader asks» keeps the selected word visible (Librera, FBReader).</string>
+    <string name="place_center">Centre</string>
+    <string name="place_top">Top</string>
+    <string name="place_bottom">Bottom</string>
+    <string name="place_reader">Where the reader asks</string>
+    <string name="look_text">Text size</string>
+    <string name="look_text_d">The card\'s text; the header is a little larger.</string>
+    <string name="look_dark">Dark card</string>
+    <string name="look_dark_d">White text on black.</string>
+    <string name="look_bar">Icon bar</string>
+    <string name="look_bar_d">Off: the dictionary only; Back or a tap outside closes the card.</string>
 </resources>
