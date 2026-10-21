@@ -41,15 +41,21 @@ object TextActions {
      */
     fun selectable(tv: TextView, row: ((CharSequence) -> Int)? = null) {
         tv.setTextIsSelectable(true)
-        var taps = 0; var lastUp = 0L
+        var taps = 0; var lastUp = 0L; var focused = true
         tv.setOnTouchListener { _, ev ->
             when (ev.actionMasked) {
                 android.view.MotionEvent.ACTION_DOWN -> {
-                    taps = if (ev.eventTime - lastUp < 350) taps + 1 else 1
+                    taps = if (ev.eventTime - lastUp < 350) taps + 1 else 1; focused = tv.isFocused
                     // The third tap selects the paragraph; Android would take it for a tap that ends the selection.
                     if (taps == 3) { paragraph(tv, tv.getOffsetForPosition(ev.x, ev.y)); true } else false
                 }
-                android.view.MotionEvent.ACTION_UP -> { lastUp = ev.eventTime; taps >= 3 }
+                android.view.MotionEvent.ACTION_UP -> {
+                    lastUp = ev.eventTime
+                    // Selectable text takes the first tap for the focus, not as a click: a row would open on the second.
+                    if (!focused && taps == 1 && tv.hasOnClickListeners() && ev.eventTime - ev.downTime < android.view.ViewConfiguration.getLongPressTimeout()
+                        && tv.selectionStart == tv.selectionEnd) tv.post { tv.performClick() }
+                    taps >= 3
+                }
                 else -> taps >= 3
             }
         }

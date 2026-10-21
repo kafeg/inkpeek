@@ -19,6 +19,7 @@ count, so every release has its own.
 - The dictionary in the card as short lines or as full articles, ◀ ▶ or a swipe between dictionaries (Card → Main).
 - Card → Window is now Card → Appearance (size, position, text, dark mode).
 - Articles are black and white: a dictionary's own colors (WikDict's green grammar, grey IPA) are removed.
+- Rows you can select (dictionary lines, Notes, the history) open on the first tap again, not the second.
 - Back and page arrows as icons; "→" drawn in the middle of the line.
 - Notes and the history show each entry's line in the app's language when there is one (a saved line keeps its
   language).
