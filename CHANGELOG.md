@@ -18,6 +18,7 @@ count, so every release has its own.
 - Dictionary order: packs and other dictionaries in one list, in the order you want (Card → Main).
 - The dictionary in the card as short lines or as full articles, ◀ ▶ or a swipe between dictionaries (Card → Main).
 - Card → Window is now Card → Appearance (size, position, text, dark mode).
+- Articles are black and white: a dictionary's own colors (WikDict's green grammar, grey IPA) are removed.
 - Back and page arrows as icons; "→" drawn in the middle of the line.
 - Notes and the history show each entry's line in the app's language when there is one (a saved line keeps its
   language).
