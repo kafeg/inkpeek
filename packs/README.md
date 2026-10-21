@@ -30,6 +30,9 @@ On a device the app itself is tested on the installed packs: `scripts/device-tes
 words and their forms per pair, language identification, offline translation; cases in
 `app/src/androidTest/assets/cases.tsv`).
 
+The table of pairs in the project's README (coverage of the 5,000 most frequent words, sources, models, sizes) is made
+from the published packs: `python3 packs/report.py --work /tmp/packs-report --readme README.md`.
+
 ## Release
 The `Packs` workflow (manual) takes the book languages and answer languages to build, e.g. `de,en` and `ru,en`:
 1. `slices` — per-language slices of the kaikki dumps come from release `packs-sources`; a dump is downloaded and
