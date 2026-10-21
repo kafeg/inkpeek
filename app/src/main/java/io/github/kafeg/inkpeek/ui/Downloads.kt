@@ -61,8 +61,17 @@ object Downloads {
         // Models loaded in memory would go on translating with the old files.
         if ((install + remove).any { it.kind == "model" }) io.github.kafeg.inkpeek.mt.Engine.release()
         // The dictionary last: a pair counts as installed by it, so a cancelled or broken download leaves no half pair.
-        install.sortedBy { it.kind == "dict" }.forEachIndexed { i, c ->
-            packs.install(c) { got, all -> progress(app.getString(R.string.lang_working, i + 1, install.size, c.id, (got * 100 / all.coerceAtLeast(1)).toInt())) }
+        val added = ArrayList<Component>()
+        try {
+            install.sortedBy { it.kind == "dict" }.forEachIndexed { i, c ->
+                packs.install(c) { got, all -> progress(app.getString(R.string.lang_working, i + 1, install.size, c.id, (got * 100 / all.coerceAtLeast(1)).toInt())) }
+                added += c
+            }
+        } catch (e: Throwable) {
+            // Stopped or failed: the parts it brought that no installed pair needs go again (nothing would show them).
+            val keep = io.github.kafeg.inkpeek.packs.Packs.needed(install, packs.installedPairs()).map { it.id }.toSet()
+            added.filter { it.id !in keep }.forEach { runCatching { packs.remove(it) } }
+            throw e
         }
         done
     }

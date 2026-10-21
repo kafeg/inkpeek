@@ -26,8 +26,8 @@ count, so every release has its own.
 - Triple tap on the card's header selects it with the menu; a tap beside a selection in the card closes it.
 - A dictionary replaced in its folder by a new edition (or an index cut short) gets a new index; two screens never
   build one at the same time.
-- A language pack download stopped half-way can be finished: the pair is not shown as installed until every part is
-  there.
+- Language packs: a cancelled or failed download leaves nothing behind; a pair left half-way by an older version is
+  not shown as installed and can be finished.
 - Translate by AI failing (network, key) shows the word-by-word gloss under a phrase and asks again next time.
 - An update confirmed while InkPeek was in the background opens the installer when settings open.
 
