@@ -70,7 +70,7 @@
     <string name="irregular">irrég.</string>
     <string name="close">Fermer</string>
     <string name="icons_title">Icônes de la fiche</string>
-    <string name="icon_dict_d">Articles des packs de langue ; une expression reçoit une traduction mot à mot. Fonctionne hors ligne.</string>
+    <string name="icon_dict_d">Articles des packs de langue et des autres dictionnaires ; une phrase — mot à mot. Fonctionne hors ligne.</string>
     <string name="icon_save_d">Garde le mot ou l\'expression dans Mes mots ; une étoile pleine indique qu\'il y est déjà.</string>
     <string name="icon_words_d">Vos mots et expressions enregistrés ; aussi dans les réglages de l\'app.</string>
     <string name="tab_translate">Traduire</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Mots</string>
     <string name="sec_explanation">Explication</string>
     <string name="card_main">Général</string>
-    <string name="card_look">Apparence</string>
+    <string name="card_look">Fenêtre</string>
     <string name="ui_lang_d">Les réponses arrivent aussi dans cette langue.</string>
     <string name="phrase_ai_d">Une expression ou un passage sélectionné s\'ouvre sur Traduire, pas sur le mot à mot.</string>
     <string name="look_height">Hauteur</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Grammaire</string>
     <string name="pack_gram_d">L\'en-tête de la carte : article, pluriel, formes du verbe (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traduction hors ligne</string>
-    <string name="pack_mt_d">L\'onglet Hors ligne de Traduire : les modèles de Mozilla sur l\'appareil.</string>
+    <string name="pack_mt_d">L\'onglet Hors ligne de Traduire : les modèles de Mozilla sur l\'appareil (l\'icône Traduire : Fiche → Icônes).</string>
     <string name="own_title">Vos dictionnaires</string>
     <string name="own_none">Aucun pour l\'instant : téléchargez-en, importez des fichiers ou utilisez un dossier (StarDict, comme dans KOReader).</string>
     <string name="import_file">Importer des fichiers</string>
@@ -176,7 +176,11 @@
     <string name="delete">Supprimer</string>
     <string name="st_indexing">construction de l\'index…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Facultatif : les icônes IA de la carte et l\'onglet IA de Traduire. Désactivé — tout fonctionne hors ligne avec les packs.</string>
+    <string name="ai_title_d">Facultatif : les onglets IA de la fiche (Analyse, Contexte, traduction IA ; voir Fiche → Icônes). Désactivé — tout fonctionne hors ligne avec les packs.</string>
     <string name="ai_none">Désactivé</string>
     <string name="lang_need_pack">La traduction hors ligne demande le pack InkPeek « %1$s → %2$s » : réglages d\'InkPeek → Langues.</string>
+    <string name="card_icons">Icônes</string>
+    <string name="icon_always">Toujours là.</string>
+    <string name="icon_when_translate">Là quand l\'IA est choisie (onglet IA) ou la traduction hors ligne activée (Langues → InkPeek).</string>
+    <string name="icon_when_ai">Là quand un fournisseur d\'IA est choisi (onglet IA).</string>
 </resources>

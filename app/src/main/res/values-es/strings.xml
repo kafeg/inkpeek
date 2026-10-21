@@ -70,7 +70,7 @@
     <string name="irregular">irreg.</string>
     <string name="close">Cerrar</string>
     <string name="icons_title">Iconos de la tarjeta</string>
-    <string name="icon_dict_d">Entradas de los paquetes de idioma; una frase recibe una traducción palabra por palabra. Funciona sin conexión.</string>
+    <string name="icon_dict_d">Artículos de los paquetes de idioma y de otros diccionarios; una frase — palabra por palabra. Funciona sin conexión.</string>
     <string name="icon_save_d">Guarda la palabra o la frase en Mis palabras; una estrella rellena indica que ya está.</string>
     <string name="icon_words_d">Tus palabras y frases guardadas; también en los ajustes de la app.</string>
     <string name="tab_translate">Traducir</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Palabras</string>
     <string name="sec_explanation">Explicación</string>
     <string name="card_main">General</string>
-    <string name="card_look">Aspecto</string>
+    <string name="card_look">Ventana</string>
     <string name="ui_lang_d">Las respuestas llegan también en este idioma.</string>
     <string name="phrase_ai_d">Una frase o un pasaje seleccionado se abre en Traducir, no palabra por palabra.</string>
     <string name="look_height">Altura</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Gramática</string>
     <string name="pack_gram_d">La cabecera de la tarjeta: artículo, plural, formas verbales (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traducción sin conexión</string>
-    <string name="pack_mt_d">La pestaña Sin conexión de Traducir: los modelos de Mozilla en el dispositivo.</string>
+    <string name="pack_mt_d">La pestaña Sin conexión de Traducir: los modelos de Mozilla en el dispositivo (el icono Traducir: Tarjeta → Iconos).</string>
     <string name="own_title">Tus diccionarios</string>
     <string name="own_none">Aún ninguno: descárgalos, importa archivos o usa una carpeta (StarDict, como en KOReader).</string>
     <string name="import_file">Importar archivos</string>
@@ -176,7 +176,11 @@
     <string name="delete">Eliminar</string>
     <string name="st_indexing">creando el índice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Opcional: los iconos de IA de la tarjeta y la pestaña IA de Traducir. Desactivado — todo funciona sin conexión con los paquetes.</string>
+    <string name="ai_title_d">Opcional: las pestañas de IA de la tarjeta (Análisis, Contexto, traducción IA; ver Tarjeta → Iconos). Desactivado — todo funciona sin conexión con los paquetes.</string>
     <string name="ai_none">Desactivado</string>
     <string name="lang_need_pack">La traducción sin conexión necesita el paquete de InkPeek «%1$s → %2$s»: ajustes de InkPeek → Idiomas.</string>
+    <string name="card_icons">Iconos</string>
+    <string name="icon_always">Siempre está.</string>
+    <string name="icon_when_translate">Está cuando la IA está elegida (pestaña IA) o la traducción sin conexión activada (Idiomas → InkPeek).</string>
+    <string name="icon_when_ai">Está cuando hay un proveedor de IA elegido (pestaña IA).</string>
 </resources>

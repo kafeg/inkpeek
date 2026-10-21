@@ -217,11 +217,13 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 
 14. **Version 0.4: readers' wishes** (from MobileRead, 21.10: own dictionaries, a smaller pop-up, a dark mode; no AI).
    New options only; the defaults stay as in 0.3 except "a phrase opens on Translate" (on by default).
-   1. **Card look** (settings Card → Look): height — by content (a small pop-up, like KOReader's) or a share of the
+   1. **Card settings in three tabs**: Main (language, phrases), Window, Icons. **Window**: height — by content (a small pop-up, like KOReader's) or a share of the
       screen; width; position — top / centre / bottom, or where the reader asks (`EXTRA_GRAVITY`, `EXTRA_HEIGHT` of the
       ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
-      light, dark (white on black) or as in the system (night mode); the icon bar on or off (off: the Dictionary tab
-      only, tap outside closes); the save icons (☆, My words) on or off — the history is kept either way.
+      light, dark (white on black) or as in the system (night mode). **Icons**: the icon bar on or off (off: the
+      Dictionary tab only, tap outside closes); each icon with what it does and when it is there (Translate: AI or
+      offline translation on; Analysis, Context: AI chosen); the save icons (☆, My words) on or off under them — the
+      history is kept either way.
    2. **Languages in two tabs.** "InkPeek": the pairs as in 0.3, then "what the card takes from the language packs" —
       words (articles, word-by-word), grammar (the header), offline translation; the text's language always comes from
       the packs (the ticked pairs, whatever is switched off). "Other dictionaries" (StarDict only, as in 0.2): download

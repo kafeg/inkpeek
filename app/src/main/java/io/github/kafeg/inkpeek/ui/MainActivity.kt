@@ -527,36 +527,40 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     // --- Card ---
-    /** Card: Main (language, phrases, what each icon does) and Look (size, place, text, dark, icon bar). */
+    /** Card: Main (language, phrases), Window (size, place, text, theme), Icons (the bar, what each icon does, when it is there). */
     private fun buildCard(t: LinearLayout) {
-        val tabsBox = Ink.vertical(this); val main = Ink.vertical(this); val look = Ink.vertical(this)
-        t.addView(tabsBox); t.addView(main); t.addView(look)
+        val tabsBox = Ink.vertical(this); val main = Ink.vertical(this); val look = Ink.vertical(this); val icons = Ink.vertical(this)
+        t.addView(tabsBox); t.addView(main); t.addView(look); t.addView(icons)
+        val pages = mapOf("main" to main, "look" to look, "icons" to icons)
         fun open(k: String) {
-            main.visibility = if (k == "main") View.VISIBLE else View.GONE; look.visibility = if (k == "look") View.VISIBLE else View.GONE
+            pages.forEach { (key, v) -> v.visibility = if (key == k) View.VISIBLE else View.GONE }
             tabsBox.removeAllViews()
-            tabsBox.addView(Ink.subTabs(this, listOf("main" to getString(R.string.card_main), "look" to getString(R.string.card_look)), k, 16f) { open(it) },
-                Ink.lp().apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
+            tabsBox.addView(Ink.subTabs(this, listOf("main" to getString(R.string.card_main), "look" to getString(R.string.card_look),
+                "icons" to getString(R.string.card_icons)), k, 16f) { open(it) }, Ink.lp().apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
         }
         val codes = listOf("") + io.github.kafeg.inkpeek.Prefs.ANSWERS
         val names = listOf(getString(R.string.ui_lang_system)) + io.github.kafeg.inkpeek.Prefs.ANSWERS.map { c ->
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         main.addView(choice(getString(R.string.ui_lang), getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) { prefs.uiLang = codes[it]; recreate() })
         main.addView(check(getString(R.string.phrase_ai), getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
-        main.addView(Ink.text(this, getString(R.string.icons_title), 18f, bold = true), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 18) })
-        // What each icon of the card does: icon, name, one line.
-        val icons = listOf(Triple(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d)),
-            Triple(R.drawable.ic_translate, getString(R.string.tab_translate), getString(R.string.icon_translate_d))) +
-            Action.ALL.map { a -> Triple(if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context,
-                Ink.label(this, a) + " · AI", Ink.description(this, a)) } +
-            listOf(Triple(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d)),
-                Triple(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d)),
-                Triple(R.drawable.ic_close, getString(R.string.close), getString(R.string.icon_close_d)))
-        icons.forEach { (icon, label, about) ->
+
+        // Each icon with what it does and when it is there: some are switched on by other settings (AI, offline translation).
+        icons.addView(check(getString(R.string.look_bar), getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it }
+            .apply { (layoutParams as LinearLayout.LayoutParams).topMargin = 0 })
+        fun icon(res: Int, label: String, about: String, `when`: String?) {
             val r = Ink.horizontal(this)
-            r.addView(android.widget.ImageView(this).apply { setImageResource(icon) }, LinearLayout.LayoutParams(Ink.dp(this, 28), Ink.dp(this, 28)).apply { rightMargin = Ink.dp(this@MainActivity, 12) })
-            r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b><br>" + Ink.escape(about), 15f, html = true), Ink.lp(0, weight = 1f))
-            main.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
+            r.addView(android.widget.ImageView(this).apply { setImageResource(res) }, LinearLayout.LayoutParams(Ink.dp(this, 28), Ink.dp(this, 28)).apply { rightMargin = Ink.dp(this@MainActivity, 12) })
+            r.addView(Ink.text(this, "<b>${Ink.escape(label)}</b><br>" + Ink.escape(about) + (`when`?.let { "<br><small><i>${Ink.escape(it)}</i></small>" } ?: ""), 15f, html = true), Ink.lp(0, weight = 1f))
+            icons.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 14) })
         }
+        icon(R.drawable.ic_dictionary, getString(R.string.tab_dictionary), getString(R.string.icon_dict_d), getString(R.string.icon_always))
+        icon(R.drawable.ic_translate, getString(R.string.tab_translate), getString(R.string.icon_translate_d), getString(R.string.icon_when_translate))
+        Action.ALL.forEach { a -> icon(if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a) + " · AI",
+            Ink.description(this, a), getString(R.string.icon_when_ai)) }
+        icon(R.drawable.ic_star, getString(R.string.save_word), getString(R.string.icon_save_d), null)
+        icon(R.drawable.ic_words, getString(R.string.tab_words), getString(R.string.icon_words_d), null)
+        icons.addView(check(getString(R.string.look_save), getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
+        icon(R.drawable.ic_close, getString(R.string.close), getString(R.string.icon_close_d), getString(R.string.icon_always))
 
         val heights = listOf(0, 50, 60, 70, 80, 90)
         look.addView(choice(getString(R.string.look_height), getString(R.string.look_height_d),
@@ -575,8 +579,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         look.addView(choice(getString(R.string.look_theme), getString(R.string.look_theme_d),
             listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { getString(it) },
             themes.indexOf(prefs.cardTheme).coerceAtLeast(0)) { prefs.cardTheme = themes[it] })
-        look.addView(check(getString(R.string.look_bar), getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
-        look.addView(check(getString(R.string.look_save), getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
         open("main")
     }
 

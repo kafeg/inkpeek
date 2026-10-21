@@ -69,7 +69,7 @@
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icons_title">Значки в карточке</string>
-    <string name="icon_dict_d">Статьи из языковых пакетов; фраза — перевод по словам. Работает офлайн.</string>
+    <string name="icon_dict_d">Статьи из языковых пакетов и других словарей; фраза — перевод по словам. Работает офлайн.</string>
     <string name="icon_save_d">Сохраняет слово или фразу в «Мои слова»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Ваши сохранённые слова и фразы; они же — в настройках приложения.</string>
     <string name="tab_translate">Перевод</string>
@@ -110,7 +110,7 @@
     <string name="sec_words">Слова</string>
     <string name="sec_explanation">Объяснение</string>
     <string name="card_main">Основные</string>
-    <string name="card_look">Вид</string>
+    <string name="card_look">Окно</string>
     <string name="ui_lang_d">На этом же языке приходят ответы.</string>
     <string name="phrase_ai_d">Выделенная фраза или отрывок открывается на «Переводе», а не на переводе по словам.</string>
     <string name="look_height">Высота</string>
@@ -145,7 +145,7 @@
     <string name="pack_gram_t">Грамматика</string>
     <string name="pack_gram_d">Заголовок карточки: род, множественное число, формы глагола (das Haus, мн. Häuser).</string>
     <string name="pack_mt_t">Офлайн-перевод</string>
-    <string name="pack_mt_d">Вкладка «Офлайн» в переводе: модели Mozilla на устройстве.</string>
+    <string name="pack_mt_d">Вкладка «Офлайн» в переводе: модели Mozilla на устройстве (значок «Перевод»: Карточка → Значки).</string>
     <string name="own_title">Ваши словари</string>
     <string name="own_none">Пока нет: скачайте, импортируйте файлы или подключите папку (StarDict, как в KOReader).</string>
     <string name="import_file">Импорт файлов</string>
@@ -175,7 +175,11 @@
     <string name="delete">Удалить</string>
     <string name="st_indexing">строю индекс…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Необязательно: значки AI в карточке и вкладка AI в переводе. «Выключено» — всё работает офлайн из паков.</string>
+    <string name="ai_title_d">Необязательно: AI-вкладки в карточке (Разбор, Контекст, AI-перевод; см. Карточка → Значки). «Выключено» — всё работает офлайн из пакетов.</string>
     <string name="ai_none">Выключено</string>
     <string name="lang_need_pack">Для офлайн-перевода нужен пак InkPeek «%1$s → %2$s»: настройки InkPeek → Языки.</string>
+    <string name="card_icons">Значки</string>
+    <string name="icon_always">Есть всегда.</string>
+    <string name="icon_when_translate">Есть, когда выбран AI (вкладка AI) или включён офлайн-перевод (Языки → InkPeek).</string>
+    <string name="icon_when_ai">Есть, когда выбран AI-провайдер (вкладка AI).</string>
 </resources>

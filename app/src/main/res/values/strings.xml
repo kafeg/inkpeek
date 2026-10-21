@@ -70,7 +70,7 @@
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icons_title">Icons in the card</string>
-    <string name="icon_dict_d">Entries from the language packs; a phrase is translated word by word. Works offline.</string>
+    <string name="icon_dict_d">Articles from the language packs and other dictionaries; a phrase — word by word. Works offline.</string>
     <string name="icon_save_d">Keeps the word or phrase in My words; a filled star means it is there.</string>
     <string name="icon_words_d">Your saved words and phrases; also in the app settings.</string>
     <string name="tab_translate">Translate</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Words</string>
     <string name="sec_explanation">Explanation</string>
     <string name="card_main">Main</string>
-    <string name="card_look">Look</string>
+    <string name="card_look">Window</string>
     <string name="ui_lang_d">The answers come in this language too.</string>
     <string name="phrase_ai_d">A selected phrase or passage opens on Translate, not on the word-by-word list.</string>
     <string name="look_height">Height</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Grammar</string>
     <string name="pack_gram_d">The card\'s header: article, plural, verb forms (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Offline translation</string>
-    <string name="pack_mt_d">The Offline tab of Translate: Mozilla\'s models on the device.</string>
+    <string name="pack_mt_d">The Offline tab of Translate: Mozilla\'s models on the device (the Translate icon: Card → Icons).</string>
     <string name="own_title">Your dictionaries</string>
     <string name="own_none">None yet: download them, import files or use a folder (StarDict, as in KOReader).</string>
     <string name="import_file">Import files</string>
@@ -176,7 +176,11 @@
     <string name="delete">Delete</string>
     <string name="st_indexing">building the index…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Optional: the AI icons in the card and the AI tab of Translate. Off — everything works offline from the packs.</string>
+    <string name="ai_title_d">Optional: AI tabs in the card (Analysis, Context, AI translation; see Card → Icons). Off — everything works offline from the packs.</string>
     <string name="ai_none">Off</string>
     <string name="lang_need_pack">Offline translation needs the InkPeek pack «%1$s → %2$s»: InkPeek settings → Languages.</string>
+    <string name="card_icons">Icons</string>
+    <string name="icon_always">Always there.</string>
+    <string name="icon_when_translate">There when AI is on (AI tab) or offline translation is on (Languages → InkPeek).</string>
+    <string name="icon_when_ai">There when an AI provider is chosen (AI tab).</string>
 </resources>

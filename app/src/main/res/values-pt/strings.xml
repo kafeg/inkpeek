@@ -70,7 +70,7 @@
     <string name="irregular">irreg.</string>
     <string name="close">Fechar</string>
     <string name="icons_title">Ícones no cartão</string>
-    <string name="icon_dict_d">Verbetes dos pacotes de idioma; uma frase recebe uma tradução palavra por palavra. Funciona offline.</string>
+    <string name="icon_dict_d">Artigos dos pacotes de idioma e de outros dicionários; uma frase — palavra a palavra. Funciona offline.</string>
     <string name="icon_save_d">Guarda a palavra ou frase em Minhas palavras; a estrela preenchida indica que ela já está lá.</string>
     <string name="icon_words_d">Suas palavras e frases salvas; também nas configurações do app.</string>
     <string name="tab_translate">Traduzir</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Palavras</string>
     <string name="sec_explanation">Explicação</string>
     <string name="card_main">Geral</string>
-    <string name="card_look">Aparência</string>
+    <string name="card_look">Janela</string>
     <string name="ui_lang_d">As respostas também vêm neste idioma.</string>
     <string name="phrase_ai_d">Uma frase ou um trecho selecionado abre em Traduzir, não palavra por palavra.</string>
     <string name="look_height">Altura</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Gramática</string>
     <string name="pack_gram_d">O cabeçalho do cartão: artigo, plural, formas verbais (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Tradução offline</string>
-    <string name="pack_mt_d">O separador Offline de Traduzir: os modelos da Mozilla no dispositivo.</string>
+    <string name="pack_mt_d">O separador Offline de Traduzir: os modelos da Mozilla no dispositivo (o ícone Traduzir: Cartão → Ícones).</string>
     <string name="own_title">Os seus dicionários</string>
     <string name="own_none">Ainda nenhum: transfira, importe ficheiros ou use uma pasta (StarDict, como no KOReader).</string>
     <string name="import_file">Importar ficheiros</string>
@@ -176,7 +176,11 @@
     <string name="delete">Apagar</string>
     <string name="st_indexing">a criar o índice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Opcional: os ícones de IA do cartão e o separador IA de Traduzir. Desligado — tudo funciona offline com os pacotes.</string>
+    <string name="ai_title_d">Opcional: os separadores de IA do cartão (Análise, Contexto, tradução IA; ver Cartão → Ícones). Desligado — tudo funciona offline com os pacotes.</string>
     <string name="ai_none">Desligado</string>
     <string name="lang_need_pack">A tradução offline precisa do pacote InkPeek «%1$s → %2$s»: definições do InkPeek → Idiomas.</string>
+    <string name="card_icons">Ícones</string>
+    <string name="icon_always">Sempre presente.</string>
+    <string name="icon_when_translate">Presente quando a IA está escolhida (separador IA) ou a tradução offline ligada (Idiomas → InkPeek).</string>
+    <string name="icon_when_ai">Presente quando um fornecedor de IA está escolhido (separador IA).</string>
 </resources>

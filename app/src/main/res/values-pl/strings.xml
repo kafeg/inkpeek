@@ -70,7 +70,7 @@
     <string name="irregular">nieregul.</string>
     <string name="close">Zamknij</string>
     <string name="icons_title">Ikony na karcie</string>
-    <string name="icon_dict_d">Hasła z pakietów językowych; wyrażenie dostaje tłumaczenie słowo po słowie. Działa offline.</string>
+    <string name="icon_dict_d">Hasła z pakietów językowych i innych słowników; fraza — słowo po słowie. Działa offline.</string>
     <string name="icon_save_d">Zapisuje słowo lub wyrażenie w Moich słowach; pełna gwiazdka oznacza, że już tam jest.</string>
     <string name="icon_words_d">Twoje zapisane słowa i wyrażenia; także w ustawieniach aplikacji.</string>
     <string name="tab_translate">Tłumaczenie</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Słowa</string>
     <string name="sec_explanation">Wyjaśnienie</string>
     <string name="card_main">Ogólne</string>
-    <string name="card_look">Wygląd</string>
+    <string name="card_look">Okno</string>
     <string name="ui_lang_d">W tym języku przychodzą też odpowiedzi.</string>
     <string name="phrase_ai_d">Zaznaczone wyrażenie lub fragment otwiera się na Tłumaczeniu, a nie słowo po słowie.</string>
     <string name="look_height">Wysokość</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Gramatyka</string>
     <string name="pack_gram_d">Nagłówek karty: rodzajnik, liczba mnoga, formy czasownika (das Haus, lm. Häuser).</string>
     <string name="pack_mt_t">Tłumaczenie offline</string>
-    <string name="pack_mt_d">Karta Offline w Tłumacz: modele Mozilli na urządzeniu.</string>
+    <string name="pack_mt_d">Karta Offline w Tłumacz: modele Mozilli na urządzeniu (ikona Tłumacz: Karta → Ikony).</string>
     <string name="own_title">Twoje słowniki</string>
     <string name="own_none">Jeszcze brak: pobierz je, zaimportuj pliki lub użyj folderu (StarDict, jak w KOReader).</string>
     <string name="import_file">Importuj pliki</string>
@@ -176,7 +176,11 @@
     <string name="delete">Usuń</string>
     <string name="st_indexing">budowanie indeksu…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Opcjonalnie: ikony AI na karcie i karta AI w Tłumacz. Wyłączone — wszystko działa offline z pakietów.</string>
+    <string name="ai_title_d">Opcjonalnie: karty AI na karcie (Analiza, Kontekst, tłumaczenie AI; zob. Karta → Ikony). Wyłączone — wszystko działa offline z pakietów.</string>
     <string name="ai_none">Wyłączone</string>
     <string name="lang_need_pack">Tłumaczenie offline wymaga pakietu InkPeek „%1$s → %2$s”: ustawienia InkPeek → Języki.</string>
+    <string name="card_icons">Ikony</string>
+    <string name="icon_always">Zawsze jest.</string>
+    <string name="icon_when_translate">Jest, gdy wybrano AI (karta AI) lub włączono tłumaczenie offline (Języki → InkPeek).</string>
+    <string name="icon_when_ai">Jest, gdy wybrano dostawcę AI (karta AI).</string>
 </resources>

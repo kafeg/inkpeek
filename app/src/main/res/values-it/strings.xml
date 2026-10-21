@@ -70,7 +70,7 @@
     <string name="irregular">irreg.</string>
     <string name="close">Chiudi</string>
     <string name="icons_title">Icone nella scheda</string>
-    <string name="icon_dict_d">Voci dai pacchetti linguistici; una frase riceve una traduzione parola per parola. Funziona offline.</string>
+    <string name="icon_dict_d">Voci dei pacchetti linguistici e di altri dizionari; una frase — parola per parola. Funziona offline.</string>
     <string name="icon_save_d">Salva la parola o la frase in Le mie parole; una stella piena indica che c\'è già.</string>
     <string name="icon_words_d">Le tue parole e frasi salvate; anche nelle impostazioni dell\'app.</string>
     <string name="tab_translate">Traduci</string>
@@ -111,7 +111,7 @@
     <string name="sec_words">Parole</string>
     <string name="sec_explanation">Spiegazione</string>
     <string name="card_main">Generale</string>
-    <string name="card_look">Aspetto</string>
+    <string name="card_look">Finestra</string>
     <string name="ui_lang_d">Anche le risposte arrivano in questa lingua.</string>
     <string name="phrase_ai_d">Una frase o un passo selezionato si apre su Traduci, non parola per parola.</string>
     <string name="look_height">Altezza</string>
@@ -146,7 +146,7 @@
     <string name="pack_gram_t">Grammatica</string>
     <string name="pack_gram_d">L\'intestazione della scheda: articolo, plurale, forme verbali (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traduzione offline</string>
-    <string name="pack_mt_d">La scheda Offline di Traduci: i modelli di Mozilla sul dispositivo.</string>
+    <string name="pack_mt_d">La scheda Offline di Traduci: i modelli di Mozilla sul dispositivo (l\'icona Traduci: Scheda → Icone).</string>
     <string name="own_title">I tuoi dizionari</string>
     <string name="own_none">Ancora nessuno: scaricali, importa file o usa una cartella (StarDict, come in KOReader).</string>
     <string name="import_file">Importa file</string>
@@ -176,7 +176,11 @@
     <string name="delete">Elimina</string>
     <string name="st_indexing">creazione dell\'indice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Facoltativo: le icone IA della scheda e la scheda IA di Traduci. Disattivato — tutto funziona offline con i pacchetti.</string>
+    <string name="ai_title_d">Facoltativo: le schede IA della scheda (Analisi, Contesto, traduzione IA; vedi Scheda → Icone). Disattivato — tutto funziona offline con i pacchetti.</string>
     <string name="ai_none">Disattivato</string>
     <string name="lang_need_pack">La traduzione offline richiede il pacchetto InkPeek «%1$s → %2$s»: impostazioni di InkPeek → Lingue.</string>
+    <string name="card_icons">Icone</string>
+    <string name="icon_always">Sempre presente.</string>
+    <string name="icon_when_translate">Presente quando l\'IA è scelta (scheda IA) o la traduzione offline è attiva (Lingue → InkPeek).</string>
+    <string name="icon_when_ai">Presente quando è scelto un fornitore di IA (scheda IA).</string>
 </resources>

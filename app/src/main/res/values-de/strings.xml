@@ -69,7 +69,7 @@
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
     <string name="icons_title">Symbole in der Karte</string>
-    <string name="icon_dict_d">Einträge aus den Sprachpaketen; eine Phrase bekommt eine Wort-für-Wort-Übersetzung. Funktioniert offline.</string>
+    <string name="icon_dict_d">Artikel aus den Sprachpaketen und anderen Wörterbüchern; eine Phrase — Wort für Wort. Funktioniert offline.</string>
     <string name="icon_save_d">Speichert das Wort oder die Phrase in Meine Wörter; ein gefüllter Stern heißt: schon gespeichert.</string>
     <string name="icon_words_d">Ihre gespeicherten Wörter und Phrasen; auch in den App-Einstellungen.</string>
     <string name="tab_translate">Übersetzen</string>
@@ -110,7 +110,7 @@
     <string name="sec_words">Wörter</string>
     <string name="sec_explanation">Erklärung</string>
     <string name="card_main">Allgemein</string>
-    <string name="card_look">Aussehen</string>
+    <string name="card_look">Fenster</string>
     <string name="ui_lang_d">In dieser Sprache kommen auch die Antworten.</string>
     <string name="phrase_ai_d">Eine markierte Phrase oder ein Abschnitt öffnet sich mit „Übersetzung“, nicht Wort für Wort.</string>
     <string name="look_height">Höhe</string>
@@ -145,7 +145,7 @@
     <string name="pack_gram_t">Grammatik</string>
     <string name="pack_gram_d">Der Kopf der Karte: Artikel, Plural, Verbformen (das Haus, Pl. Häuser).</string>
     <string name="pack_mt_t">Offline-Übersetzung</string>
-    <string name="pack_mt_d">Der Reiter Offline beim Übersetzen: Mozillas Modelle auf dem Gerät.</string>
+    <string name="pack_mt_d">Der Reiter Offline beim Übersetzen: Mozillas Modelle auf dem Gerät (das Symbol Übersetzen: Karte → Symbole).</string>
     <string name="own_title">Ihre Wörterbücher</string>
     <string name="own_none">Noch keine: herunterladen, Dateien importieren oder einen Ordner nutzen (StarDict, wie in KOReader).</string>
     <string name="import_file">Dateien importieren</string>
@@ -175,7 +175,11 @@
     <string name="delete">Löschen</string>
     <string name="st_indexing">Index wird erstellt…</string>
     <string name="ai_title">KI</string>
-    <string name="ai_title_d">Optional: die KI-Symbole der Karte und der KI-Reiter beim Übersetzen. Aus — alles läuft offline aus den Paketen.</string>
+    <string name="ai_title_d">Optional: KI-Reiter der Karte (Analyse, Kontext, KI-Übersetzung; siehe Karte → Symbole). Aus — alles läuft offline aus den Paketen.</string>
     <string name="ai_none">Aus</string>
     <string name="lang_need_pack">Für die Offline-Übersetzung braucht es das InkPeek-Paket «%1$s → %2$s»: InkPeek-Einstellungen → Sprachen.</string>
+    <string name="card_icons">Symbole</string>
+    <string name="icon_always">Immer da.</string>
+    <string name="icon_when_translate">Da, wenn KI gewählt ist (Reiter KI) oder die Offline-Übersetzung an ist (Sprachen → InkPeek).</string>
+    <string name="icon_when_ai">Da, wenn ein KI-Anbieter gewählt ist (Reiter KI).</string>
 </resources>
