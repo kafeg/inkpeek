@@ -3,7 +3,7 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
-## 0.5 — unreleased
+## 0.5 — 2026-10-21
 - Copy, share or search the web: hold a line of the dictionary list, word by word, Notes or the history (in the card
   and in settings) — its text is selected, the handles narrow or widen it — or select in a translation, an article,
   an AI answer or a header (double tap: a word, triple tap: the paragraph). A small menu of icons opens over it; a tap
