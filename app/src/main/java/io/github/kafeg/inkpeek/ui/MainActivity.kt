@@ -417,7 +417,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         val sizes = listOf(16, 18, 20, 22, 24, 26)
         look.addView(choice(getString(R.string.look_text), getString(R.string.look_text_d), sizes.map { "$it" },
             sizes.indexOf(prefs.cardText).coerceAtLeast(0)) { prefs.cardText = sizes[it] })
-        look.addView(check(getString(R.string.look_dark), getString(R.string.look_dark_d), prefs.cardDark) { prefs.cardDark = it })
+        val themes = listOf("light", "dark", "system")
+        look.addView(choice(getString(R.string.look_theme), getString(R.string.look_theme_d),
+            listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { getString(it) },
+            themes.indexOf(prefs.cardTheme).coerceAtLeast(0)) { prefs.cardTheme = themes[it] })
         look.addView(check(getString(R.string.look_bar), getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
         open("main")
     }

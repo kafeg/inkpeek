@@ -127,8 +127,11 @@
     <string name="place_reader">Где просит читалка</string>
     <string name="look_text">Размер текста</string>
     <string name="look_text_d">Текст карточки; заголовок чуть крупнее.</string>
-    <string name="look_dark">Тёмная карточка</string>
-    <string name="look_dark_d">Белый текст на чёрном.</string>
     <string name="look_bar">Панель значков</string>
     <string name="look_bar_d">Выключено: только словарь; закрыть — «Назад» или нажатие вне карточки.</string>
+    <string name="look_theme">Тема</string>
+    <string name="look_theme_d">Светлая — чёрным по белому, тёмная — белым по чёрному, как в системе — по ночному режиму Android.</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_system">Как в системе</string>
 </resources>

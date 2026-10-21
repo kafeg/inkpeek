@@ -22,7 +22,8 @@ class Prefs(private val ctx: Context) {
     /** "center", "top", "bottom" or "reader" (where the reader asks: ColorDict's EXTRA_GRAVITY / EXTRA_HEIGHT). */
     var cardPlace: String get() = sp.getString("card_place", "center")!!; set(v) = sp.edit().putString("card_place", v).apply()
     var cardText: Int get() = sp.getInt("card_text", 20); set(v) = sp.edit().putInt("card_text", v).apply()
-    var cardDark: Boolean get() = sp.getBoolean("card_dark", false); set(v) = sp.edit().putBoolean("card_dark", v).apply()
+    /** "light", "dark" or "system" (Android's night mode). */
+    var cardTheme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
     var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** The language of the answers is the app's language (setting or system), one of [ANSWERS]; English otherwise. */

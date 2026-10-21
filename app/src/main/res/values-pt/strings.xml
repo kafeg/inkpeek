@@ -128,8 +128,11 @@
     <string name="place_reader">Onde o leitor pedir</string>
     <string name="look_text">Tamanho do texto</string>
     <string name="look_text_d">O texto do cartão; o título um pouco maior.</string>
-    <string name="look_dark">Cartão escuro</string>
-    <string name="look_dark_d">Texto branco no preto.</string>
     <string name="look_bar">Barra de ícones</string>
     <string name="look_bar_d">Desligada: só o dicionário; Voltar ou um toque fora fecha o cartão.</string>
+    <string name="look_theme">Tema</string>
+    <string name="look_theme_d">Claro: preto no branco; escuro: branco no preto; como o sistema: segue o modo noturno do Android.</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_dark">Escuro</string>
+    <string name="theme_system">Como o sistema</string>
 </resources>

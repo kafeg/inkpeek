@@ -128,8 +128,11 @@
     <string name="place_reader">Où la liseuse le demande</string>
     <string name="look_text">Taille du texte</string>
     <string name="look_text_d">Le texte de la fiche ; le titre un peu plus grand.</string>
-    <string name="look_dark">Fiche sombre</string>
-    <string name="look_dark_d">Texte blanc sur noir.</string>
     <string name="look_bar">Barre d\'icônes</string>
     <string name="look_bar_d">Désactivée : le dictionnaire seul ; Retour ou un appui à l\'extérieur ferme la fiche.</string>
+    <string name="look_theme">Thème</string>
+    <string name="look_theme_d">Clair : noir sur blanc ; sombre : blanc sur noir ; comme le système : suit le mode nuit d\'Android.</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="theme_system">Comme le système</string>
 </resources>

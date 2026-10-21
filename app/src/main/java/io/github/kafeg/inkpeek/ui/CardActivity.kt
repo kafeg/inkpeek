@@ -45,8 +45,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
-    /** White on black (Card → Look); [Ink] reads it for this screen. */
-    val dark: Boolean get() = ::prefs.isInitialized && prefs.cardDark
+    /** White on black (Card → Look: dark, or the system's night mode); [Ink] reads it for this screen. */
+    val dark: Boolean get() = ::prefs.isInitialized && when (prefs.cardTheme) {
+        "dark" -> true
+        "system" -> resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK == android.content.res.Configuration.UI_MODE_NIGHT_YES
+        else -> false
+    }
     val online: Boolean get() = Net.online(this)
     val answers by lazy { Answers(prefs, store, query) { online } }
     val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) }

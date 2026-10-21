@@ -127,8 +127,11 @@
     <string name="place_reader">Wo der Reader es will</string>
     <string name="look_text">Textgröße</string>
     <string name="look_text_d">Text der Karte; die Überschrift etwas größer.</string>
-    <string name="look_dark">Dunkle Karte</string>
-    <string name="look_dark_d">Weißer Text auf Schwarz.</string>
     <string name="look_bar">Symbolleiste</string>
     <string name="look_bar_d">Aus: nur das Wörterbuch; Zurück oder ein Tipp außerhalb schließt die Karte.</string>
+    <string name="look_theme">Design</string>
+    <string name="look_theme_d">Hell: Schwarz auf Weiß; dunkel: Weiß auf Schwarz; wie im System: folgt dem Nachtmodus von Android.</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_dark">Dunkel</string>
+    <string name="theme_system">Wie im System</string>
 </resources>

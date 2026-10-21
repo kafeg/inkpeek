@@ -219,11 +219,14 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    New options only; the defaults stay as in 0.3 except "a phrase opens on Translate" (on by default).
    1. **Card look** (settings Card → Look): height — by content (a small pop-up, like KOReader's) or a share of the
       screen; width; position — top / centre / bottom, or where the reader asks (`EXTRA_GRAVITY`, `EXTRA_HEIGHT` of the
-      ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; dark (white
-      on black); the icon bar on or off (off: the Dictionary tab only, tap outside closes).
+      ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
+      light, dark (white on black) or as in the system (night mode); the icon bar on or off (off: the Dictionary tab
+      only, tap outside closes).
    2. **Own dictionaries** (Languages → Own): StarDict folders used in place (e.g. KOReader's `koreader/data/dict`) and
       import of files / archives as in 0.2. Shown after the packs, each row signed with its source (packs: "InkPeek");
       their short line from the article (0.2's short meaning), the card's header stays the selected word for them.
+      A switch "dictionaries of the InkPeek packs": off keeps the packs' translation models and language identification
+      (the book languages then come from the ticked pairs, not from the dictionaries in use).
    3. **What is there decides what shows**: Translate's Offline tab only with a pack installed, its AI tab only with AI
       on; no Translate icon with neither; with no pack for the text's language (fastText) the Offline tab names the
       InkPeek pack to install. AI: a list whose first entry is "Off" (no AI icons anywhere) instead of the switch.

@@ -128,8 +128,11 @@
     <string name="place_reader">Where the reader asks</string>
     <string name="look_text">Text size</string>
     <string name="look_text_d">The card\'s text; the header is a little larger.</string>
-    <string name="look_dark">Dark card</string>
-    <string name="look_dark_d">White text on black.</string>
     <string name="look_bar">Icon bar</string>
     <string name="look_bar_d">Off: the dictionary only; Back or a tap outside closes the card.</string>
+    <string name="look_theme">Theme</string>
+    <string name="look_theme_d">Light: black on white; dark: white on black; as in the system: follows Android\'s night mode.</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">As in the system</string>
 </resources>
