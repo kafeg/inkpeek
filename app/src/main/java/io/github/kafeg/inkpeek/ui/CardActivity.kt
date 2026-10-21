@@ -91,7 +91,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (kind == Kind.WORD) head()
         // A phrase: the offline translation starts at once; it fills Translate and the history line.
         else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t) } } } }
-        open(if (kind != Kind.WORD && prefs.phraseAutoAi) TRANSLATE else DICT)
+        open(if (kind != Kind.WORD && prefs.phraseAutoAi && canTranslate) TRANSLATE else DICT)
     }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
@@ -124,15 +124,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
         scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
-        baseHint = when { !prefs.aiOn -> getString(R.string.ai_off); !online -> getString(R.string.offline); else -> null }
+        baseHint = if (prefs.aiOn && !online) getString(R.string.offline) else null
         hintView = Ink.text(this, "", size * 0.65f); showHint()
         card.addView(hintView, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
 
-        val tabs = listOf(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
-            Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate))) + actions.map { a ->
+        val tabs = listOfNotNull(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
+            Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate)).takeIf { canTranslate }) + actions.map { a ->
             Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
         }
-        val n = tabs.size + 4; val gap = Ink.dp(this, 5) // + save, my words, back, close
+        val n = tabs.size + if (prefs.cardSave) 4 else 2; val gap = Ink.dp(this, 5) // + save, my words, back, close
         val side = minOf(Ink.dp(this, 44), (resources.displayMetrics.widthPixels * prefs.cardWidth / 100 - 2 * pad - gap * (n + 3)) / n)
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
@@ -144,10 +144,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
         launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.ANALYSIS) }
             actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else 0.35f } }
-        bar.addView(View(this), Ink.lp(gap * 2, 1))
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
-        starButton = star.findViewWithTag("icon"); add(star)
-        add(iconButton(R.drawable.ic_words, getString(R.string.tab_words), side) { open(SAVED) }.also { tabButtons[SAVED] = it })
+        starButton = star.findViewWithTag("icon")
+        if (prefs.cardSave) {
+            bar.addView(View(this), Ink.lp(gap * 2, 1)); add(star)
+            add(iconButton(R.drawable.ic_words, getString(R.string.tab_words), side) { open(SAVED) }.also { tabButtons[SAVED] = it })
+        }
         bar.addView(View(this), Ink.lp(0, 1, weight = 1f))
         // "←" in the free space before Close: from an article back to the list or the gloss.
         backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { dictionary.back?.invoke() }.apply { visibility = View.GONE }
@@ -239,12 +241,20 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         shown = tab; showBack(); showHint()
     }
 
+    /** Offline translation: a pack's models are installed and its use is on (Languages → What the card takes). */
+    val offlineOk: Boolean by lazy { prefs.packMt && prefs.packs.installed().keys.any { it.startsWith("model-") } }
+    /** Translate is there when AI is on or offline translation can work; else no icon at all. */
+    val canTranslate: Boolean get() = prefs.aiOn || offlineOk
+
     /** The tab is filled again on its next opening (its AI request failed). */
     fun forget(tab: String) { pages.remove(tab) }
 
     fun scrollTop() = scroll.scrollTo(0, 0)
 
     fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null) View.VISIBLE else View.GONE }
+
+    /** Where a line comes from: a pack, "InkPeek · Немецкий → Русский", or another dictionary's name. */
+    fun source(d: io.github.kafeg.inkpeek.stardict.StarDict): String = if (prefs.library().isPack(d)) "InkPeek · " + pairName(d) else d.name
 
     /** A pack dictionary's languages: "Немецкий → Русский". */
     fun pairName(d: io.github.kafeg.inkpeek.stardict.StarDict): String {
@@ -266,7 +276,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** The word's header from the packs, offline: "das Haus (Hauses, мн. Häuser)"; its first line goes to the history. */
     private fun head() = launch {
-        val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode) }.getOrDefault(emptyList()) }
+        if (!prefs.packGrammar) return@launch
+        val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries()) }.getOrDefault(emptyList()) }
         val first = heads.firstOrNull() ?: return@launch
         launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line) } }
         titleView.text = first.header
@@ -284,7 +295,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun toggleSaved() = launch {
         val on = withContext(Dispatchers.IO) { runCatching {
             if (store.isSaved(query)) { store.unsave(query); false } else {
-                val line = answers.saved() ?: if (kind != Kind.WORD) mt.done() else prefs.library().heads(query, prefs.answerCode).firstOrNull()?.line
+                val line = answers.saved() ?: if (kind != Kind.WORD) mt.done() else prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries())
+                    .firstOrNull()?.let { if (prefs.packGrammar) it.line else "${it.word} — ${it.meaning}" }
                 store.save(query, kindName, line.orEmpty()); true
             }
         }.getOrNull() } ?: return@launch

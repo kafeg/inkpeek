@@ -9,12 +9,13 @@ import java.nio.file.Files
 
 /** The card's core over pack-like dictionaries (dict-<x>-<y>, first line in <p class="head">). */
 class LibraryTest {
-    private fun pack(root: File, id: String, articles: Map<String, String>, syn: Map<String, String> = emptyMap()) {
+    private fun pack(root: File, id: String, articles: Map<String, String>, syn: Map<String, String> = emptyMap(),
+                     article: (String) -> String = { "<p class=\"head\">$it</p><ol><li>…</li></ol>" }) {
         val dir = File(root, id).apply { mkdirs() }
         val words = articles.keys.sortedBy { normKey(it) }
         val data = ByteArrayOutputStream(); val idx = ByteArrayOutputStream(); val o = DataOutputStream(idx)
         words.forEach { w ->
-            val b = "<p class=\"head\">${articles.getValue(w)}</p><ol><li>…</li></ol>".toByteArray()
+            val b = article(articles.getValue(w)).toByteArray()
             o.write(w.toByteArray()); o.write(0); o.writeInt(data.size()); o.writeInt(b.size); data.write(b)
         }
         File(dir, "$id.idx").writeBytes(idx.toByteArray()); File(dir, "$id.dict").writeBytes(data.toByteArray())
@@ -23,13 +24,14 @@ class LibraryTest {
         File(dir, "$id.ifo").writeText("StarDict's dict ifo file\nversion=3.0.0\nbookname=InkPeek $id\nwordcount=${words.size}\nsametypesequence=h\n")
     }
 
-    private fun library(): Library {
+    private fun library(own: (File) -> Unit = {}, use: (StarDict, Boolean) -> Boolean = { _, _ -> true }): Library {
         val root = Files.createTempDirectory("packs").toFile()
+        val mine = Files.createTempDirectory("own").toFile().also(own)
         pack(root, "dict-de-ru", mapOf("Haus" to "<b>das Haus</b> (Hauses, мн. Häuser) — дом, здание", "Gift" to "<b>das Gift</b> — яд",
             "Hund" to "<b>der Hund</b> — собака", "Er" to "<b>der Er</b> — мужчина", "er" to "<b>er</b> — он"), mapOf("Häuser" to "Haus"))
         pack(root, "dict-de-en", mapOf("Haus" to "<b>das Haus</b> (Hauses, pl. Häuser) — house", "Hund" to "<b>der Hund</b> — dog"), mapOf("Häuser" to "Haus"))
         pack(root, "dict-en-ru", mapOf("gift" to "<b>gift</b> — подарок", "die" to "<b>die</b> (died) — умирать"))
-        return Library(listOf(root), File(root, "work")).also { lib -> lib.all().forEach { it.prepare() } }
+        return Library(root, listOf(mine), File(root, "work"), use).also { lib -> lib.found().forEach { it.prepare() } }
     }
 
     @Test fun headsPerBookLanguageAnswerFirst() {
@@ -51,5 +53,28 @@ class LibraryTest {
         // A sentence's first word is looked up in lower case first; inside a sentence the case stays.
         assertEquals("он", library().gloss("Er kam. Er ging", "ru").first().meaning)
         assertEquals("мужчина", library().gloss("Da kam der Er", "ru").first { it.word == "Er" }.meaning)
+    }
+
+    /** A KOReader-like dictionary: plain articles, no pack first line, no languages in its folder name. */
+    private fun mueller(dir: File) = pack(dir, "Mueller", mapOf("Haus" to "дом; здание", "Katze" to "кошка"), article = { "<b>Haus</b><br>1. $it" })
+
+    @Test fun ownDictionariesComeAfterThePacks() {
+        val lib = library(::mueller)
+        assertEquals(listOf("dict-de-ru", "Mueller"), lib.lookup("Haus", "ru").map { it.first.ifo.parentFile!!.name })
+        assertEquals(listOf(false, true), lib.lookup("Haus", "ru").map { !lib.isPack(it.first) })
+        // Not a pack: no languages, no header of its own.
+        assertEquals(null, lib.found().first { !lib.isPack(it) }.book)
+        assertEquals(listOf("das Haus (Hauses, мн. Häuser)"), lib.heads("Haus", "ru").map { it.header })
+        // The gloss takes an own dictionary's first meaning where no pack knows the word.
+        assertEquals("дом, здание", lib.gloss("Haus", "ru").first().meaning) // a pack first
+        assertEquals(Head("Katze", "Katze — кошка"), lib.gloss("Katze", "ru").first().head)
+    }
+
+    @Test fun switchedOffDictionariesAreNotUsed() {
+        // The packs' dictionaries off: only the own ones.
+        val lib = library(::mueller) { _, pack -> !pack }
+        assertEquals(listOf("Mueller"), lib.lookup("Haus", "ru").map { it.first.ifo.parentFile!!.name })
+        assertEquals(4, lib.found().size)
+        assertEquals(1, lib.all().size)
     }
 }

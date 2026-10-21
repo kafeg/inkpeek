@@ -7,13 +7,16 @@ import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.Gloss
 import io.github.kafeg.inkpeek.stardict.Hit
 import io.github.kafeg.inkpeek.stardict.StarDict
+import io.github.kafeg.inkpeek.stardict.shortMeaning
+import io.github.kafeg.inkpeek.stardict.Head
+import io.github.kafeg.inkpeek.stardict.headLine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** Dictionary tab: a word → one line per pack dictionary, tap for the article; a phrase → the word-by-word gloss. */
+/** Dictionary tab: a word → one line per dictionary (the packs first), tap for the article; a phrase → the word-by-word gloss. */
 class DictionaryPage(private val card: CardActivity) {
     private var page: LinearLayout? = null
     private var job: Job? = null
@@ -41,10 +44,13 @@ class DictionaryPage(private val card: CardActivity) {
             if (hits.isEmpty() && notReady.isEmpty()) card.note(p, card.getString(if (none) R.string.lang_no_packs else R.string.not_found))
             hits.forEach { (dict, list) ->
                 val h = list.first()
-                // The pack's first line as it is, "das Haus (Hauses, мн. Häuser) — дом, здание"; a form says which one it is.
-                val first = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1) ?: "<b>${Ink.escape(h.word)}</b>"
+                // The pack's first line as it is, "das Haus (Hauses, мн. Häuser) — дом, здание" (without the grammar when it
+                // is off: "Haus — дом, здание"); another dictionary's first meaning.
+                val packLine = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1)
+                val meaning = headLine(h.html)?.let { Head(h.word, it).meaning } ?: runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
+                val first = packLine?.takeIf { card.prefs.packGrammar } ?: ("<b>${Ink.escape(h.word)}</b>" + if (meaning.isBlank()) "" else " — " + Ink.escape(meaning))
                 val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)}: "
-                p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.pairName(dict))}</small>", card.size, html = true).apply {
+                p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.source(dict))}</small>", card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
                 })
@@ -56,7 +62,7 @@ class DictionaryPage(private val card: CardActivity) {
     private fun article(dict: StarDict, list: List<Hit>, word: String, to: () -> Unit) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(to)
-        p.addView(Ink.text(card, card.pairName(dict), card.size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+        p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         list.forEach { h -> p.addView(Ink.text(card, (if (h.word.equals(word, true)) "" else "<b>${h.word}</b><br>") + h.html, card.size, html = true)) }
         card.scrollTop()
     }
@@ -83,7 +89,7 @@ class DictionaryPage(private val card: CardActivity) {
             g.forEach { x ->
                 // The same first line as the header and the Dictionary tab: "der Hund (Hundes, мн. Hunde) — собака";
                 // a form names itself first: "schläft: schlafen (schläft, schlief, hat geschlafen) — спать".
-                val line = x.head?.line?.let { Ink.escape(it) }
+                val line = x.head?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") }
                 val text = when {
                     line == null -> "<b>${Ink.escape(x.word)}</b>"
                     x.base.equals(x.word, true) -> line

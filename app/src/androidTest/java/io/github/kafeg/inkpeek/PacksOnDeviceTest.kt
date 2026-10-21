@@ -5,6 +5,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import io.github.kafeg.inkpeek.mt.Engine
 import io.github.kafeg.inkpeek.mt.LangId
+import io.github.kafeg.inkpeek.stardict.Library
 import io.github.kafeg.inkpeek.stardict.headLine
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -13,8 +14,10 @@ import org.junit.runner.RunWith
 /** The installed language packs through the app's own code, on the device: `scripts/device-test.sh`. Cases: assets/cases.tsv. */
 @RunWith(AndroidJUnit4::class)
 class PacksOnDeviceTest {
-    private val prefs = Prefs(InstrumentationRegistry.getInstrumentation().targetContext)
-    private val lib = prefs.library()
+    private val ctx = InstrumentationRegistry.getInstrumentation().targetContext
+    private val prefs = Prefs(ctx)
+    // Every installed pack, whatever is ticked or switched on in the app.
+    private val lib = Library(prefs.packs.dicts, emptyList(), java.io.File(ctx.filesDir, "index"))
 
     @Test fun cases() {
         val cases = InstrumentationRegistry.getInstrumentation().context.assets.open("cases.tsv").bufferedReader().readLines()
@@ -40,7 +43,7 @@ class PacksOnDeviceTest {
         // As the card does: the whole library (forms → base across dictionaries), then this pair's dictionary.
         "head", "mean" -> lib.lookup(input, pair.substringAfter('-')).firstOrNull { (d, _) -> d.ifo.parentFile?.name == "dict-$pair" }
             ?.second?.firstNotNullOfOrNull { headLine(it.html) }?.let { if (kind == "head") it.substringBefore(" — ") else it.substringAfter(" — ") } ?: "(not found)"
-        "lang" -> LangId.source(input, pair, prefs.packs, lib).let { (book, other) -> book ?: "!$other" }
+        "lang" -> LangId.source(input, pair, prefs.packs, lib.all()).let { (book, other) -> book ?: "!$other" }
         "tr" -> pair.split('-').let { (x, y) -> Engine.translate(prefs.modelsDir, x, y, input, keep = true) }
         else -> error("Unknown case kind $kind")
     }

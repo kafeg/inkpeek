@@ -221,15 +221,19 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       screen; width; position — top / centre / bottom, or where the reader asks (`EXTRA_GRAVITY`, `EXTRA_HEIGHT` of the
       ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
       light, dark (white on black) or as in the system (night mode); the icon bar on or off (off: the Dictionary tab
-      only, tap outside closes).
-   2. **Own dictionaries** (Languages → Own): StarDict folders used in place (e.g. KOReader's `koreader/data/dict`) and
-      import of files / archives as in 0.2. Shown after the packs, each row signed with its source (packs: "InkPeek");
-      their short line from the article (0.2's short meaning), the card's header stays the selected word for them.
-      A switch "dictionaries of the InkPeek packs": off keeps the packs' translation models and language identification
-      (the book languages then come from the ticked pairs, not from the dictionaries in use).
-   3. **What is there decides what shows**: Translate's Offline tab only with a pack installed, its AI tab only with AI
-      on; no Translate icon with neither; with no pack for the text's language (fastText) the Offline tab names the
-      InkPeek pack to install. AI: a list whose first entry is "Off" (no AI icons anywhere) instead of the switch.
+      only, tap outside closes); the save icons (☆, My words) on or off — the history is kept either way.
+   2. **Languages in two tabs.** "InkPeek": the pairs as in 0.3, then "what the card takes from the language packs" —
+      words (articles, word-by-word), grammar (the header), offline translation; the text's language always comes from
+      the packs (the ticked pairs, whatever is switched off). "Other dictionaries" (StarDict only, as in 0.2): download
+      from public sources (WikDict, Wiktionary by xxyzz, FreeDict; each source on or off), import of files and archives
+      (zip, tar.gz/bz2/xz/zst) into `InkPeek/dicts`, folders used in place (KOReader's `koreader/data/dict`, found ones
+      offered); each dictionary on or off, imported ones can be deleted. In the card they come after the packs, each
+      line signed with its source ("InkPeek · German → Russian" or the dictionary's name), with their article's short
+      meaning; their header is the selected word.
+   3. **What is there decides what shows**: Translate's Offline tab only with a pack's models installed and offline
+      translation on, its AI tab only with AI on; no Translate icon with neither; when the text's language (fastText) has
+      a published pair into the app's language that is not installed, the Offline tab names that InkPeek pack. AI: a
+      list whose first entry is "Off" (no AI icons, no AI hints) instead of the switch.
    4. **Settings in one style**: a switch or a box on the left, its title and one small line under it (like the icon list).
    5. Readers: Librera (selection menu → "+" → InkPeek) checked and in the README.
 

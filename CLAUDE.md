@@ -5,12 +5,14 @@ Spec — `docs/spec.md` (source of truth). Public repo (MIT): no secrets, keys, 
 
 ## Stack
 Kotlin, Android Views, minSdk 30 / targetSdk 35, arm64 only. Libraries: anthropic-java (Claude), OkHttp (OpenAI /
-OpenRouter, downloads), coroutines, commons-compress + zstd-jni. Native: Bergamot (submodule
-`app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule `app/src/main/cpp/fasttext`) +
-JNI → `libinkpeek_mt.so`; CMake 3.22.1 and NDK from the SDK (Gradle installs them). Packages: `stardict` (pure JVM
-engine; `Library`: lookup, header, gloss by answer language — JVM-tested), `packs` (manifest, download, install), `ai`
-(requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`: `CardActivity` (window, header, icon
-bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`, `WordsPage`), `MainActivity` (settings).
+OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni (dictionary archives). Native: Bergamot
+(submodule `app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule
+`app/src/main/cpp/fasttext`) + JNI → `libinkpeek_mt.so`; CMake 3.22.1 and NDK from the SDK (Gradle installs them).
+Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then other ones (`InkPeek/dicts`, folders
+in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
+(manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
+`CardActivity` (window, header, icon bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`,
+`WordsPage`), `MainActivity` (settings), `CatalogActivity` (download other dictionaries).
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
 
 ## Build and run

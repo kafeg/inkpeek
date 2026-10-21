@@ -22,7 +22,6 @@ import android.widget.LinearLayout
 import android.widget.ListView
 import android.widget.ScrollView
 import android.widget.Spinner
-import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import io.github.kafeg.inkpeek.Prefs
@@ -54,6 +53,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this); screen = java.lang.ref.WeakReference(this)
+        langTab = savedInstanceState?.getString("langTab") ?: "packs"
         val pad = Ink.dp(this, 16)
         val col = Ink.vertical(this).apply {
             setPadding(pad, pad, pad, pad); isFocusableInTouchMode = true; setOnClickListener { hideKeyboard() }
@@ -100,7 +100,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (tab == R.string.tab_words) refreshWords()
     }
 
-    override fun onSaveInstanceState(out: Bundle) { super.onSaveInstanceState(out); out.putInt("tab", current) }
+    override fun onSaveInstanceState(out: Bundle) { super.onSaveInstanceState(out); out.putInt("tab", current); out.putString("langTab", langTab) }
     override fun onResume() { super.onResume(); refreshDicts(); if (current == R.string.tab_words) refreshWords() }
     override fun onPause() { ui.removeCallbacksAndMessages(null); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
@@ -112,15 +112,161 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private var wantPairs: MutableSet<Pair<String, String>>? = null
     private val working get() = install?.isActive == true
 
+    /** Languages: InkPeek's packs, and the own dictionaries (downloaded, imported, folders). */
     private fun buildDictionaries(t: LinearLayout) {
         if (!Environment.isExternalStorageManager())
             t.addView(Ink.button(this, getString(R.string.allow_files, prefs.home.path), sp) {
                 startActivity(Intent(Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:$packageName")))
             })
-        t.addView(Ink.text(this, getString(R.string.lang_about), 14f))
-        langBox = Ink.vertical(this); t.addView(langBox, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        val tabsBox = Ink.vertical(this); val packsBox = Ink.vertical(this); ownBox = Ink.vertical(this)
+        t.addView(tabsBox); t.addView(packsBox); t.addView(ownBox)
+        fun open(k: String) {
+            langTab = k
+            packsBox.visibility = if (k == "packs") View.VISIBLE else View.GONE; ownBox.visibility = if (k == "own") View.VISIBLE else View.GONE
+            tabsBox.removeAllViews()
+            tabsBox.addView(Ink.subTabs(this, listOf("packs" to getString(R.string.lang_packs), "own" to getString(R.string.lang_own)), k, 16f) { open(it) },
+                Ink.lp().apply { bottomMargin = Ink.dp(this@MainActivity, 8) })
+        }
+        packsBox.addView(Ink.text(this, getString(R.string.lang_about), 14f))
+        langBox = Ink.vertical(this); packsBox.addView(langBox, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        // What the card takes from the installed packs: another dictionary can replace their words, keeping grammar and translation.
+        packsBox.addView(heading(R.string.pack_use)); packsBox.addView(Ink.text(this, getString(R.string.pack_use_d), 13f))
+        packsBox.addView(check(getString(R.string.pack_dicts_t), getString(R.string.pack_dicts_d), prefs.packDicts) { prefs.packDicts = it; refreshDicts() })
+        packsBox.addView(check(getString(R.string.pack_gram_t), getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
+        packsBox.addView(check(getString(R.string.pack_mt_t), getString(R.string.pack_mt_d), prefs.packMt) { prefs.packMt = it })
+        howPacks(packsBox)
+        buildOwn(ownBox)
+        open(langTab)
         loadManifest()
     }
+
+    // --- Languages: own dictionaries ---
+    private lateinit var ownBox: LinearLayout
+    private lateinit var ownList: LinearLayout
+    private lateinit var folderList: LinearLayout
+    private var langTab = "packs"
+
+    private fun buildOwn(t: LinearLayout) {
+        t.addView(heading(R.string.own_title).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = 0 })
+        ownList = Ink.vertical(this); t.addView(ownList)
+        // Both buttons as tall as the taller one (a narrow screen wraps one label).
+        val row = Ink.horizontal(this).apply { isBaselineAligned = false }
+        val full = android.view.ViewGroup.LayoutParams.MATCH_PARENT
+        row.addView(Ink.button(this, getString(R.string.import_file), sp) { pickFiles() }.apply { gravity = Gravity.CENTER }, Ink.lp(0, full, weight = 1f))
+        row.addView(Ink.button(this, getString(R.string.add_folder), sp) { pickFolder() }.apply { gravity = Gravity.CENTER },
+            Ink.lp(0, full, weight = 1f).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
+        t.addView(row, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
+        folderList = Ink.vertical(this); t.addView(folderList)
+        t.addView(Ink.text(this, getString(R.string.own_formats, prefs.dictsDir.path), 13f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        t.addView(heading(R.string.get_title))
+        // Each source can be switched off: its dictionaries are not listed for download.
+        io.github.kafeg.inkpeek.stardict.Catalog.SOURCES.forEach { src ->
+            t.addView(check(src.title, getString(sourceAbout(src.id)), src.id !in prefs.sourcesOff) {
+                prefs.sourcesOff = if (it) prefs.sourcesOff - src.id else prefs.sourcesOff + src.id })
+        }
+        t.addView(Ink.button(this, getString(R.string.get_dicts), sp) {
+            if (io.github.kafeg.inkpeek.stardict.Catalog.SOURCES.all { it.id in prefs.sourcesOff }) toast(getString(R.string.no_sources))
+            else startActivity(Intent(this, CatalogActivity::class.java))
+        }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
+    }
+
+    private fun heading(title: Int) = Ink.text(this, getString(title), 18f, bold = true).apply {
+        layoutParams = Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 20) } }
+
+    /** The own dictionaries (each with a switch; imported and downloaded ones can be deleted) and the folders in use. */
+    private fun refreshOwn(lib: io.github.kafeg.inkpeek.stardict.Library, found: List<io.github.kafeg.inkpeek.stardict.StarDict>, known: List<java.io.File>) {
+        ownList.removeAllViews()
+        val own = found.filter { !lib.isPack(it) }
+        if (own.isEmpty()) ownList.addView(Ink.text(this, getString(R.string.own_none), 15f), Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        val mine = prefs.dictsDir.canonicalPath + java.io.File.separator
+        own.forEach { d ->
+            val dir = d.ifo.parentFile!!
+            val state = lib.status[d.id]?.let { if (it == "indexing") getString(R.string.st_indexing) else it }
+            // Where it lives (InkPeek/dicts, koreader/data/dict): its own folder name repeats the dictionary's.
+            val about = listOfNotNull(dir.parentFile?.path?.removePrefix(Environment.getExternalStorageDirectory().path + "/"), state).joinToString(" · ")
+            val r = Ink.horizontal(this).apply { isBaselineAligned = false }
+            r.addView(check(d.name, about, d.id !in prefs.dictsOff) { prefs.dictsOff = if (it) prefs.dictsOff - d.id else prefs.dictsOff + d.id },
+                Ink.lp(0, weight = 1f))
+            if (d.ifo.path.startsWith(mine)) r.addView(Ink.button(this, "✕", 16f) {
+                AlertDialog.Builder(this).setMessage(getString(R.string.delete_q, d.name))
+                    .setPositiveButton(R.string.delete) { _, _ -> dir.deleteRecursively(); refreshDicts() }.setNegativeButton(R.string.cancel, null).show()
+            }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(this@MainActivity, 8); gravity = Gravity.CENTER_VERTICAL })
+            ownList.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 10) })
+        }
+        folderList.removeAllViews()
+        prefs.folders.sorted().forEach { f ->
+            val r = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
+            r.addView(Ink.text(this, getString(R.string.folder_in_use, f), 15f), Ink.lp(0, weight = 1f))
+            r.addView(Ink.button(this, "✕", 16f) { setFolders(prefs.folders - f) },
+                Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
+            folderList.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        }
+        // Other readers' and dictionaries' folders found on this device: one tap uses them where they are.
+        val root = Environment.getExternalStorageDirectory()
+        known.filter { it.path !in prefs.folders }.forEach { f ->
+            folderList.addView(Ink.button(this, getString(R.string.folder_found, f.path.removePrefix(root.path + "/")), 15f) { setFolders(prefs.folders + f.path) },
+                Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        }
+    }
+
+    private fun setFolders(v: Set<String>) { prefs.folders = v; prefs.reload(); refreshDicts() }
+
+    private fun sourceAbout(id: String) = when (id) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }
+
+    private fun pickFiles() = startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE)
+        .setType("*/*").putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true), 1)
+
+    /** A folder from the system picker; without one (some readers' firmware), its path typed in. */
+    private fun pickFolder() = runCatching { startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE), 2) }.onFailure {
+        val path = edit(getString(R.string.folder_hint), Environment.getExternalStorageDirectory().path + "/")
+        AlertDialog.Builder(this).setTitle(R.string.add_folder).setView(path)
+            .setPositiveButton(android.R.string.ok) { _, _ -> addFolder(java.io.File(path.text.toString().trim())) }.setNegativeButton(R.string.cancel, null).show()
+    }
+
+    private fun addFolder(f: java.io.File) {
+        if (!f.isDirectory) { toast(getString(R.string.failed, f.path)); return }
+        setFolders(prefs.folders + f.path)
+        launch { if (withContext(Dispatchers.IO) { io.github.kafeg.inkpeek.stardict.StarDict.scan(f).isEmpty() }) toast(getString(R.string.folder_empty, f.path)) }
+    }
+
+    @Deprecated("Plain Activity result: no AndroidX dependency")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode != RESULT_OK || data == null) return
+        if (requestCode == 2) { data.data?.let { treePath(it) }?.let { addFolder(it) } ?: toast(getString(R.string.failed, data.data.toString())); return }
+        if (requestCode != 1) return
+        val uris = data.clipData?.let { c -> (0 until c.itemCount).map { c.getItemAt(it).uri } } ?: listOfNotNull(data.data)
+        status.text = getString(R.string.importing)
+        launch {
+            val r = withContext(Dispatchers.IO) {
+                runCatching {
+                    // Loose .ifo/.idx/.dict files picked together make one dictionary; each archive is unpacked on its own.
+                    val loose = java.io.File(cacheDir, "loose-" + System.nanoTime()).apply { mkdirs() }
+                    try {
+                        uris.flatMap { u ->
+                            val name = displayName(u)
+                            contentResolver.openInputStream(u)!!.use { input ->
+                                if (io.github.kafeg.inkpeek.stardict.Importer.isDictFile(name)) { java.io.File(loose, name).outputStream().use { input.copyTo(it) }; emptyList() }
+                                else io.github.kafeg.inkpeek.stardict.Importer.importStream(name, input, prefs.dictsDir, cacheDir)
+                            }
+                        } + io.github.kafeg.inkpeek.stardict.Importer.collect(loose, prefs.dictsDir)
+                    } finally { loose.deleteRecursively() }
+                }
+            }
+            r.fold({ toast(getString(R.string.imported, it.size)) }, { toast(getString(R.string.import_failed, it.message)) })
+            refreshDicts()
+        }
+    }
+
+    private fun displayName(u: Uri): String = contentResolver.query(u, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)
+        ?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: u.lastPathSegment.orEmpty()
+
+    /** A picked tree "primary:koreader/data/dict" as a path (the app reads shared storage directly). */
+    private fun treePath(u: Uri): java.io.File? = runCatching {
+        val id = android.provider.DocumentsContract.getTreeDocumentId(u)
+        val (vol, rel) = id.substringBefore(':') to id.substringAfter(':', "")
+        java.io.File(if (vol == "primary") Environment.getExternalStorageDirectory() else java.io.File("/storage", vol), rel)
+    }.getOrNull()
 
     private fun loadManifest() {
         refreshLanguages()
@@ -186,7 +332,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         langBox.addView(Ink.button(this, label, sp) { if (!working && (missing.isNotEmpty() || extra.isNotEmpty())) apply(missing, extra) }
             .apply { alpha = if (missing.isEmpty() && extra.isEmpty() || working) 0.4f else 1f }, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
         langBox.addView(status)
-        howPacks(langBox)
     }
 
     /** What is inside a pack and where it comes from. */
@@ -233,22 +378,25 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
     private var statusLine: TextView? = null
 
-    /** Builds the indexes of the pack dictionaries once (in the background) and shows the status line. */
+    /** Builds the indexes of the dictionaries once (in the background), shows the status line and the own ones. */
     private fun refreshDicts() {
         launch {
             val lib = prefs.library()
-            val all = withContext(Dispatchers.IO) { lib.all().also { lib.prepareAll() } }
+            val (all, found, known) = withContext(Dispatchers.IO) { lib.found().let { f -> lib.prepareAll()
+                Triple(lib.all(), f, KNOWN.map { java.io.File(Environment.getExternalStorageDirectory(), it) }
+                    .filter { io.github.kafeg.inkpeek.stardict.StarDict.scan(it).isNotEmpty() }) } }
+            refreshOwn(lib, found, known)
             val busy = lib.status.values.count { it == "indexing" }
-            status.text = if (busy > 0) getString(R.string.status_busy, all.size, busy, prefs.provider.title)
-                else getString(R.string.status, all.size, prefs.provider.title)
+            val ai = if (prefs.aiOn) prefs.provider.title else getString(R.string.ai_none)
+            status.text = if (busy > 0) getString(R.string.status_busy, all.size, busy, ai) else getString(R.string.status, all.size, ai)
             if (lib.busy) ui.postDelayed({ refreshDicts() }, 3000)
         }
     }
 
     // --- AI ---
     private fun buildAi(t: LinearLayout) {
-        t.addView(switch(getString(R.string.use_ai), prefs.aiOn) { prefs.aiOn = it })
         val providers = Provider.entries
+        val setup = Ink.vertical(this) // the provider's key, server and model: hidden while AI is off
         val keyInfo = Ink.text(this, "", 14f)
         val key = edit(getString(R.string.key_hint), "", secret = true)
         val model = Ink.button(this, "", sp) {}
@@ -272,17 +420,23 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             }
             model.text = getString(R.string.model, prefs.model(p).ifBlank { getString(R.string.model_choose) })
         }
-        t.addView(spinner(providers.map { it.title }, providers.indexOf(prefs.provider)) { prefs.provider = providers[it]; load(providers[it]); refreshDicts() })
-        t.addView(server)
-        t.addView(key)
-        t.addView(Ink.button(this, getString(R.string.save_key), sp) {
+        // "Off" first: no AI icons in the card and no AI tab in Translate.
+        t.addView(choice(getString(R.string.ai_title), getString(R.string.ai_title_d), listOf(getString(R.string.ai_none)) + providers.map { it.title },
+            if (prefs.aiOn) providers.indexOf(prefs.provider) + 1 else 0) { i ->
+            prefs.aiOn = i > 0; setup.visibility = if (i > 0) View.VISIBLE else View.GONE
+            if (i > 0) { prefs.provider = providers[i - 1]; load(providers[i - 1]) }; refreshDicts()
+        }.apply { (layoutParams as LinearLayout.LayoutParams).topMargin = 0 })
+        t.addView(setup); setup.visibility = if (prefs.aiOn) View.VISIBLE else View.GONE
+        setup.addView(server)
+        setup.addView(key)
+        setup.addView(Ink.button(this, getString(R.string.save_key), sp) {
             prefs.setKey(prefs.provider, key.text.toString())
             if (prefs.provider == Provider.CUSTOM) prefs.setUrl(Provider.CUSTOM, url.text.toString())
             load(prefs.provider); toast(getString(R.string.saved))
         })
-        t.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
+        setup.addView(keyInfo, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 6) })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
-        t.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
+        setup.addView(model, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) })
         load(prefs.provider)
     }
 
@@ -422,11 +576,13 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { getString(it) },
             themes.indexOf(prefs.cardTheme).coerceAtLeast(0)) { prefs.cardTheme = themes[it] })
         look.addView(check(getString(R.string.look_bar), getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
+        look.addView(check(getString(R.string.look_save), getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
         open("main")
     }
 
     /** A setting in the one style: a box on the left, its title and one small line on the right (a tap anywhere toggles). */
     private fun check(title: String, about: String, on: Boolean, save: (Boolean) -> Unit) = Ink.horizontal(this).apply {
+        isBaselineAligned = false
         val box = CheckBox(this@MainActivity).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
         addView(box, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(this@MainActivity, 6) })
         addView(Ink.vertical(this@MainActivity).apply {
@@ -453,10 +609,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             if (save != null) setOnFocusChangeListener { _, has -> if (!has) save(text.toString()) }
         }
 
-    private fun switch(label: String, value: Boolean, save: (Boolean) -> Unit) = Switch(this).apply {
-        text = label; textSize = sp; isChecked = value; setOnCheckedChangeListener { _, v -> save(v) }
-    }
-
     private fun spinner(items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(this).apply {
         adapter = ArrayAdapter(this@MainActivity, android.R.layout.simple_spinner_dropdown_item, items)
         setSelection(selected)
@@ -478,6 +630,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         private var install: kotlinx.coroutines.Job? = null
         @Volatile private var installStatus = ""
         private var screen: java.lang.ref.WeakReference<MainActivity>? = null
+        /** Where other apps keep StarDict dictionaries: KOReader, ColorDict, GoldenDict. */
+        private val KNOWN = listOf("koreader/data/dict", "dictdata", "GoldenDict")
     }
 
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()

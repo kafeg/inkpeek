@@ -5,18 +5,25 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
 /**
- * The language packs' dictionaries under [roots] (dict-<x>-<y> folders), those [use] lets in (the ticked pairs).
- * Indexes are built by one background thread,
- * one dictionary at a time; [status] tells the UI what is going on.
+ * The language packs' dictionaries under [packRoot] (dict-<x>-<y> folders), then the user's own under [ownRoots] (imported,
+ * downloaded, folders like KOReader's); the card uses those [use] lets in (a pack: its pair is ticked; own: switched on).
+ * Indexes are built by one background thread, one dictionary at a time; [status] tells the UI what is going on.
  */
-class Library(private val roots: List<File>, private val workRoot: File, private val use: (StarDict) -> Boolean = { true }) {
+class Library(private val packRoot: File, private val ownRoots: List<File>, private val workRoot: File,
+              private val use: (StarDict, Boolean) -> Boolean = { _, _ -> true }) {
+    private val roots = listOf(packRoot) + ownRoots
+    private val packPath = packRoot.canonicalPath + File.separator
     private var cache: Map<String, StarDict> = emptyMap()
     private val worker = Executors.newSingleThreadExecutor { r -> Thread(r, "inkpeek-index").apply { isDaemon = true } }
     private val queued = ConcurrentHashMap.newKeySet<String>()
     /** id -> "indexing" | "error: …"; absent = ready or not yet looked at. */
     val status = ConcurrentHashMap<String, String>()
 
-    @Synchronized fun all(): List<StarDict> {
+    /** The dictionaries in use: the packs' first, then the own ones by name. */
+    fun all(): List<StarDict> = found().filter { use(it, isPack(it)) }
+
+    /** Every dictionary on disk, in use or not. */
+    @Synchronized fun found(): List<StarDict> {
         val found = roots.flatMap { StarDict.scan(it) }.map { it.canonicalFile }.distinctBy { it.path }
         val byPath = cache.values.associateBy { it.ifo.path }
         cache = found.map { byPath[it.path] ?: StarDict(it, workRoot) }.associateBy { it.id }
@@ -25,8 +32,10 @@ class Library(private val roots: List<File>, private val workRoot: File, private
             val src = File(dir, "source").takeIf { it.exists() }?.readText()
             if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
         }
-        return cache.values.filter(use).sortedBy { it.name }
+        return cache.values.sortedWith(compareBy({ !isPack(it) }, { it.name }))
     }
+
+    fun isPack(d: StarDict) = d.ifo.path.startsWith(packPath)
 
     /** Queues index building for every dictionary that needs it. */
     fun prepareAll() = cache.values.filter { !it.ready }.forEach { prepareAsync(it) }
@@ -44,12 +53,13 @@ class Library(private val roots: List<File>, private val workRoot: File, private
     val busy: Boolean get() = queued.isNotEmpty()
 
     /**
-     * Hits per ready dictionary into [answer] (the app's language); the other dictionaries only when none of those
-     * knows the word (an Italian book with no Italian → Russian pack). Unready ones are queued and listed in [notReady].
+     * Hits per ready dictionary: the packs into [answer] (the app's language) and the own ones; the other packs only when
+     * none of those knows the word (an Italian book with no Italian → Russian pack). Unready ones are queued and listed
+     * in [notReady].
      */
-    fun lookup(query: String, answer: String, notReady: MutableList<StarDict>? = null): List<Pair<StarDict, List<Hit>>> {
+    fun lookup(query: String, answer: String, notReady: MutableList<StarDict>? = null, among: List<StarDict> = all()): List<Pair<StarDict, List<Hit>>> {
         val q = cleanQuery(query)
-        val dicts = all().filter { d ->
+        val dicts = among.filter { d ->
             d.ready.also { if (!it) { prepareAsync(d); if (status[d.id]?.startsWith("error") != true) notReady?.add(d) } }
         }
         val hits = dicts.associateWith { d -> runCatching { d.lookup(q) }.getOrDefault(emptyList()) }
@@ -59,20 +69,22 @@ class Library(private val roots: List<File>, private val workRoot: File, private
             // The base form named by another dictionary, as written: "go" (from "went") is not German "Go".
             val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()).filter { it.word == b } } }
             own.takeIf { it.isNotEmpty() }?.let { d to it }
-        }.let { all -> all.filter { (d, _) -> d.answer == answer }.ifEmpty { all } }
+        }.let { all -> all.filter { (d, _) -> !isPack(d) || d.answer == answer }.ifEmpty { all } }
     }
 
     /**
      * The word's header from the packs, one per book language (de→ru and de→en describe the same German word), the
-     * answer language's first: "das Haus (Hauses, мн. Häuser)".
+     * answer language's first: "das Haus (Hauses, мн. Häuser)". [among]: the packs to ask, in use or not.
      */
-    fun heads(query: String, answer: String): List<Head> = lookup(query, answer).distinctBy { (d, _) -> d.book }
+    fun heads(query: String, answer: String, among: List<StarDict> = all()): List<Head> =
+        lookup(query, answer, among = among.filter(::isPack)).distinctBy { (d, _) -> d.book }
         .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it) } } }
 
     /**
      * Word-by-word help for a phrase or passage: each distinct word with its base form's first line. Only
      * dictionaries that know most of the text count (so an English dictionary does not explain German "aus" as "AU");
-     * among them the one into [answer] wins, then the one that knows more words of this text.
+     * among them a pack into [answer] wins, then the one that knows more words of this text; an own dictionary gives its
+     * first meaning.
      */
     fun gloss(text: String, answer: String, limit: Int = 60): List<Gloss> {
         val all = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).toList()
@@ -87,7 +99,7 @@ class Library(private val roots: List<File>, private val workRoot: File, private
         val top = known.values.maxOrNull() ?: 0
         return words.map { w ->
             found.getValue(w).filter { (d, _) -> (known[d.id] ?: 0) * 2 >= top }
-                .mapNotNull { (d, hits) -> headLine(hits.first().html)?.let { d to Head(hits.first().word, it) } }
+                .mapNotNull { (d, hits) -> head(hits.first())?.let { d to it } }
                 .filter { it.second.meaning.isNotBlank() }
                 .sortedWith(compareBy({ it.first.answer != answer }, { -(known[it.first.id] ?: 0) }))
                 .firstOrNull()?.let { (_, h) -> Gloss(w, h) } ?: Gloss(w, null)
@@ -95,9 +107,14 @@ class Library(private val roots: List<File>, private val workRoot: File, private
     }
 }
 
-/** A pack dictionary's languages from its folder dict-<x>-<y>: the book's and the answers'. */
-val StarDict.book: String? get() = ifo.parentFile?.name?.split('-')?.getOrNull(1)
-val StarDict.answer: String? get() = ifo.parentFile?.name?.split('-')?.getOrNull(2)
+/** A pack dictionary's languages from its folder dict-<x>-<y>: the book's and the answers'; null for other dictionaries. */
+val StarDict.book: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(1)
+val StarDict.answer: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(2)
+private val PACK_DIR = Regex("dict-([a-z]{2,3})-([a-z]{2,3})")
+
+/** An article's first line: a pack's own, else "word — its first meaning" (other dictionaries). */
+fun head(h: Hit): Head? = headLine(h.html)?.let { Head(h.word, it) }
+    ?: runCatching { shortMeaning(h.html, h.word) }.getOrDefault("").takeIf { it.isNotBlank() }?.let { Head(h.word, "${h.word} — $it") }
 
 /** One line of an offline word-by-word gloss: the [word] of the text and its base form's first line, if any. */
 data class Gloss(val word: String, val head: Head?) {

@@ -17,7 +17,7 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
     fun start(scope: CoroutineScope): Deferred<Result> = job ?: scope.async(Dispatchers.IO) {
         runCatching {
             val root = prefs.modelsDir; val to = prefs.answerCode
-            val (from, other) = LangId.source(text, to, prefs.packs, prefs.library())
+            val (from, other) = LangId.source(text, to, prefs.packs, prefs.packDictionaries())
             when {
                 from == null || !Engine.ready(root, from, to) -> Result(from, other, null)
                 from == to -> Result(from, null, kotlin.Result.success(text))
