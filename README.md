@@ -118,10 +118,11 @@ Settings → **Languages**: every language pair InkPeek has; tick the ones you r
 the ticked pairs; "Remove unticked" frees the space of the others. For each pair InkPeek downloads its pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
 — nothing comes from other servers.
 
-Packs now — every pair, what is inside and how much of real text it knows. **Top-5,000 coverage** is the share of the
-book language's 5,000 most frequent words (subtitle frequency lists from
-[FrequencyWords](https://github.com/hermitdave/FrequencyWords), OpenSubtitles 2018) that the pair's dictionary
-knows, as a word or as one of its inflected forms. A pair is published at 85% or more and only when its golden words
+Packs now — every pair, what is inside and how much of real text it knows. **Top-5,000 coverage**: take the 5,000 most
+frequent words of the language you read (the pair's first language; frequency from a large corpus of subtitles,
+[FrequencyWords](https://github.com/hermitdave/FrequencyWords), OpenSubtitles 2018) and count how many of them the
+pair's dictionary knows, as a word or as one of its inflected forms. German → Russian at 89% knows 4,450 of the 5,000
+most frequent German words. A pair is published at 85% or more and only when its golden words
 pass; Russian → German is the one exception, below the bar (the German Wiktionary has few Russian articles), kept until a
 better source turns up.
 
