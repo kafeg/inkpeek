@@ -59,14 +59,16 @@ object Importer {
     }
 
     /**
-     * Deletes a dictionary from [root] (the dictionaries' folder): its own folder, or only its files when it lies
-     * loose in [root] itself next to other dictionaries.
+     * Deletes a dictionary in [root] (the dictionaries' folder, maybe KOReader's): only its own files, never a folder with
+     * anything else in it — its folder goes only when it is left empty.
      */
     fun delete(ifo: File, root: File) {
         val dir = ifo.parentFile ?: return
+        val r = root.canonicalPath
+        if (dir.canonicalPath != r && !dir.canonicalPath.startsWith(r + File.separator)) return
         val base = ifo.name.removeSuffix(".ifo")
-        if (dir.canonicalPath == root.canonicalPath) dir.listFiles()?.filter { f -> DICT_EXT.any { f.name == base + it } }?.forEach { it.delete() }
-        else if (dir.canonicalPath.startsWith(root.canonicalPath + File.separator)) dir.deleteRecursively()
+        dir.listFiles()?.filter { f -> DICT_EXT.any { f.name == base + it } }?.forEach { it.delete() }
+        if (dir.canonicalPath != r && dir.list()?.isEmpty() == true) dir.delete()
     }
 
     private fun safe(s: String) = s.replace(Regex("[\\\\/:*?\"<>|]"), "_").take(80).ifBlank { "dict" }

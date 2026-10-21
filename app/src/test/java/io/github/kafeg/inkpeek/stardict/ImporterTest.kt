@@ -54,5 +54,9 @@ class DeleteTest {
         assertEquals(listOf("z.idx", "z.ifo"), root.list()!!.sorted())
         Importer.delete(File(root.parentFile, "elsewhere/q.ifo"), root) // outside the folder: nothing
         assertEquals(true, root.exists())
+        // A dictionary next to others in a subfolder (KOReader's folder inside a broad one): the others stay.
+        File(root, "dict").mkdirs(); listOf("dict/p.ifo", "dict/p.idx", "dict/q.ifo", "dict/q.idx").forEach { File(root, it).writeText("-") }
+        Importer.delete(File(root, "dict/p.ifo"), root)
+        assertEquals(listOf("q.idx", "q.ifo"), File(root, "dict").list()!!.sorted())
     }
 }

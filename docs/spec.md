@@ -120,7 +120,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 ## Settings screen
 Tabs: Languages (pack pairs, milestone 12) · AI (on/off, provider, key and its source, model picker with
 filter / maker / free only / sort) · Card
-(app language, a phrase opens on Translate, what each icon does) · My words. UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system language
+(app language, a phrase opens on Translate, what each icon does) · Notes. UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system language
 by default. The app language is also the answer language.
 
 ## Tech
@@ -222,7 +222,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
       light, dark (white on black) or as in the system (night mode). **Icons**: the icon bar on or off (off: the
       Dictionary tab only, tap outside closes); each icon with what it does and when it is there (Translate: AI or
-      offline translation on; Analysis, Context: AI chosen); the save icons (☆, My words) on or off under them — the
+      offline translation on; Analysis, Context: AI chosen); the save icons (☆, Notes) on or off under them — the
       history is kept either way.
    2. **Languages in two tabs.** "InkPeek": the pairs as in 0.3, then "what the card takes from the language packs" —
       words (articles, word-by-word), grammar (the header), offline translation; the text's language always comes from
