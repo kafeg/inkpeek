@@ -5,7 +5,6 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.TextView
@@ -79,11 +78,10 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         val f = filter.text.toString().trim().lowercase()
         shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${title(it)} ${name(it.from)} ${name(it.to)}".lowercase().contains(f) }
         info.text = getString(R.string.n_of_m, shown.size, items.size)
-        list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1,
-            shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}   ${title(it)}   ${mb(it.size)}" })
+        list.adapter = Rows.adapter(this, shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}" to listOf(title(it), mb(it.size)).filter { s -> s.isNotEmpty() }.joinToString(" · ") })
     }
 
-    private fun mb(b: Long) = if (b <= 0) "" else "%.1f MB".format(b / 1e6)
+    private fun mb(b: Long) = if (b <= 0) "" else getString(R.string.size_mb, "%.1f".format(b / 1e6))
 
     private fun get(url: String): String = http.newCall(Request.Builder().url(url).build()).execute().use {
         if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()

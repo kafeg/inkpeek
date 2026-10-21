@@ -38,6 +38,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     val open = HashMap<String, String>()
     private lateinit var languages: LanguagesSettings
     private lateinit var words: WordsSettings
+    private lateinit var card: CardSettings
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -79,7 +80,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         sections.values.forEach { col.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
         languages = LanguagesSettings(this).also { it.build(sections.getValue(R.string.tab_dicts)) }
         AiSettings(this).build(sections.getValue(R.string.tab_ai))
-        CardSettings(this).build(sections.getValue(R.string.tab_card))
+        card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
         show(savedInstanceState?.getInt("tab") ?: R.string.tab_dicts)
     }
@@ -120,6 +121,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             if (lib.busy) ui.postDelayed({ refreshDicts() }, 3000)
         }
     }
+
+    fun aiChanged() = card.syncAi()
 
     /** "Dictionaries: 9 · AI: Claude". */
     fun refreshStatus() {

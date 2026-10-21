@@ -63,20 +63,20 @@ class AiSettings(private val a: MainActivity) {
         t.addView(Rows.choice(a, a.getString(R.string.ai_title), a.getString(R.string.ai_title_d), listOf(a.getString(R.string.ai_none)) + providers.map { it.title },
             if (prefs.aiOn) providers.indexOf(prefs.provider) + 1 else 0) { i ->
             prefs.aiOn = i > 0; setup.visibility = if (i > 0) View.VISIBLE else View.GONE
-            if (i > 0) { prefs.provider = providers[i - 1]; load(providers[i - 1]) }; a.refreshStatus()
+            if (i > 0) { prefs.provider = providers[i - 1]; load(providers[i - 1]) }; a.refreshStatus(); a.aiChanged()
         }.apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
         t.addView(setup); setup.visibility = if (prefs.aiOn) View.VISIBLE else View.GONE
         setup.addView(server)
         setup.addView(Ink.vertical(a).apply {
             addView(Rows.texts(a, a.getString(R.string.key_t), "")); addView(keyAbout); addView(key)
-            layoutParams = Ink.lp().apply { topMargin = Ink.dp(a, 14) }
+            layoutParams = Ink.lp().apply { topMargin = Ink.dp(a, 12) }
         })
         setup.addView(Rows.buttons(a, a.getString(R.string.save_key) to {
             prefs.setKey(prefs.provider, key.text.toString())
             if (prefs.provider == Provider.CUSTOM) prefs.setUrl(Provider.CUSTOM, url.text.toString())
             load(prefs.provider); a.toast(a.getString(R.string.saved))
         }))
-        setup.addView(Rows.texts(a, a.getString(R.string.model_t), a.getString(R.string.model_d)).apply { layoutParams = Ink.lp().apply { topMargin = Ink.dp(a, 14) } })
+        setup.addView(Rows.texts(a, a.getString(R.string.model_t), a.getString(R.string.model_d)).apply { layoutParams = Ink.lp().apply { topMargin = Ink.dp(a, 12) } })
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         setup.addView(model, Ink.lp().apply { topMargin = Ink.dp(a, 6) })
         load(prefs.provider)
@@ -130,10 +130,10 @@ class AiSettings(private val a: MainActivity) {
 
     // --- Help ---
     private fun buildHelp(t: LinearLayout) {
-        listOf(R.string.aih_what_t to R.string.aih_what, R.string.prompt_quick_t to R.string.aih_translate, R.string.a_analysis to R.string.a_analysis_d,
-            R.string.a_context to R.string.a_context_d, R.string.aih_send_t to R.string.aih_send, R.string.aih_keys_t to R.string.aih_keys,
+        listOf(R.string.aih_what_t to R.string.aih_what, R.string.prompt_quick_t to R.string.aih_translate, R.string.a_analysis to R.string.aih_analysis,
+            R.string.a_context to R.string.aih_context, R.string.aih_send_t to R.string.aih_send, R.string.aih_keys_t to R.string.aih_keys,
             R.string.aih_local_t to R.string.aih_local, R.string.aih_free_t to R.string.aih_free).forEachIndexed { i, (title, about) ->
-            t.addView(Rows.info(a, null, a.getString(title), a.getString(about)).apply { if (i == 0) (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
+            t.addView(Rows.info(a, null, a.getString(title), a.getString(about), lines = 6).apply { if (i == 0) (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
         }
     }
 

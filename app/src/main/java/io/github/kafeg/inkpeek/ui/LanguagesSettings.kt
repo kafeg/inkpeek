@@ -137,6 +137,7 @@ class LanguagesSettings(private val a: MainActivity) {
         folderBox.removeAllViews()
         folderBox.addView(Rows.info(a, null, where, a.getString(R.string.folder_d)))
         folderBox.addView(Rows.buttons(a, a.getString(R.string.change_folder) to { pickFolder() }, a.getString(R.string.import_file) to { pickFiles() }))
+        folderBox.addView(Rows.note(a, a.getString(R.string.import_d)).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 6) })
         known.filter { it.canonicalPath != folder.canonicalPath }.forEach { f ->
             folderBox.addView(Rows.buttons(a, a.getString(R.string.folder_found, a.short(f)) to { setFolder(f) }))
         }
@@ -202,7 +203,7 @@ class LanguagesSettings(private val a: MainActivity) {
         listOf(R.string.help_dict_t to R.string.help_dict, R.string.help_gram_t to R.string.help_gram, R.string.help_mt_t to R.string.help_mt,
             R.string.help_lid_t to R.string.help_lid, R.string.help_build_t to R.string.help_build, R.string.help_other_t to R.string.help_other,
             R.string.help_formats_t to R.string.help_formats, R.string.help_folder_t to R.string.help_folder).forEachIndexed { i, (title, about) ->
-            t.addView(Rows.info(a, null, a.getString(title), a.getString(about)).apply { if (i == 0) (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
+            t.addView(Rows.info(a, null, a.getString(title), a.getString(about), lines = 6).apply { if (i == 0) (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
         }
         t.addView(Rows.buttons(a, a.getString(R.string.how_more) to {
             runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kafeg/inkpeek/blob/main/packs/README.md"))) }

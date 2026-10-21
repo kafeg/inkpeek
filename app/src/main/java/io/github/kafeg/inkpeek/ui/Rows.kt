@@ -23,15 +23,23 @@ object Rows {
     private const val ABOUT = 13.5f
     const val BUTTON = 17f
 
-    private fun gap(ctx: Context) = Ink.lp().apply { topMargin = Ink.dp(ctx, 14) }
+    private fun gap(ctx: Context) = Ink.lp().apply { topMargin = Ink.dp(ctx, 12) }
 
     /**
-     * Title (one line) and explanation, both cut with "…". A setting's or help's explanation always takes two lines, so
-     * rows are of one height; a list item's ([item]) is its one status line.
+     * Title (one line) and explanation (at most [lines], cut with "…"): two for a setting, one for a list item's state,
+     * more for help.
      */
-    fun texts(ctx: Context, title: String, about: String, item: Boolean = false) = Ink.vertical(ctx).apply {
+    fun texts(ctx: Context, title: String, about: String, lines: Int = 2) = Ink.vertical(ctx).apply {
         addView(Ink.text(ctx, title, TITLE, bold = true).apply { isSingleLine = true; ellipsize = TextUtils.TruncateAt.END })
-        if (about.isNotEmpty()) addView(Ink.text(ctx, about, ABOUT).apply { if (item) isSingleLine = true else { minLines = 2; maxLines = 2 }; ellipsize = TextUtils.TruncateAt.END })
+        if (about.isNotEmpty()) addView(Ink.text(ctx, about, ABOUT).apply { maxLines = lines; ellipsize = TextUtils.TruncateAt.END },
+            Ink.lp().apply { topMargin = Ink.dp(ctx, 1) })
+    }
+
+    /** A row that depends on another setting: dimmed and untouchable while that one is off. */
+    fun enable(v: View, on: Boolean) {
+        v.alpha = if (on) 1f else 0.4f
+        fun walk(x: View) { x.isEnabled = on; (x as? ViewGroup)?.let { g -> (0 until g.childCount).forEach { walk(g.getChildAt(it)) } } }
+        walk(v)
     }
 
     /**
@@ -43,7 +51,7 @@ object Rows {
             isBaselineAligned = false
             val box = CheckBox(ctx).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
             addView(box, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(ctx, 6) })
-            addView(texts(ctx, title, about, item = remove != null).apply { setOnClickListener { box.toggle() } }, Ink.lp(0, weight = 1f))
+            addView(texts(ctx, title, about, if (remove != null) 1 else 2).apply { setOnClickListener { if (box.isEnabled) box.toggle() } }, Ink.lp(0, weight = 1f))
             if (remove != null) addView(Ink.button(ctx, "✕", 16f) { remove() },
                 Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
             layoutParams = gap(ctx)
@@ -52,16 +60,16 @@ object Rows {
     /** A setting with a choice: its title and explanation, the drop-down under them. */
     fun choice(ctx: Context, title: String, about: String, items: List<String>, selected: Int, pick: (Int) -> Unit) = Ink.vertical(ctx).apply {
         addView(texts(ctx, title, about))
-        addView(spinner(ctx, items, selected, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 6) })
+        addView(spinner(ctx, items, selected, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 4) })
         layoutParams = gap(ctx)
     }
 
-    /** A help row: an icon (or none), the title, two lines; [open] adds a ✎ on the right and makes the row a link. */
-    fun info(ctx: Context, icon: Int?, title: String, about: String, open: (() -> Unit)? = null) = Ink.horizontal(ctx).apply {
+    /** A help row: an icon (or none), the title, [lines] of text; [open] adds a ✎ on the right and makes the row a link. */
+    fun info(ctx: Context, icon: Int?, title: String, about: String, lines: Int = 2, open: (() -> Unit)? = null) = Ink.horizontal(ctx).apply {
         isBaselineAligned = false
         if (icon != null) addView(ImageView(ctx).apply { setImageResource(icon) },
             LinearLayout.LayoutParams(Ink.dp(ctx, 28), Ink.dp(ctx, 28)).apply { rightMargin = Ink.dp(ctx, 12); topMargin = Ink.dp(ctx, 2) })
-        addView(texts(ctx, title, about), Ink.lp(0, weight = 1f))
+        addView(texts(ctx, title, about, lines), Ink.lp(0, weight = 1f))
         if (open != null) {
             isClickable = true; setOnClickListener { open() }
             addView(Ink.button(ctx, "✎", 16f) { open() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
@@ -70,7 +78,7 @@ object Rows {
     }
 
     fun heading(ctx: Context, title: String, first: Boolean = false) = Ink.text(ctx, title, 18f, bold = true).apply {
-        layoutParams = Ink.lp().apply { topMargin = Ink.dp(ctx, if (first) 0 else 24) }
+        layoutParams = Ink.lp().apply { topMargin = Ink.dp(ctx, if (first) 0 else 22) }
     }
 
     /** A plain line (an empty list, a status). */
@@ -101,6 +109,15 @@ object Rows {
                 Ink.lp().apply { bottomMargin = Ink.dp(ctx, 6) })
         }
         show(pages.firstOrNull { it.first == open }?.first ?: pages.first().first)
+    }
+
+    /** A long list (the download pages) of rows in the same style: a title and one line under it. */
+    fun adapter(ctx: Context, items: List<Pair<String, String>>) = object : android.widget.BaseAdapter() {
+        override fun getCount() = items.size
+        override fun getItem(i: Int) = items[i]
+        override fun getItemId(i: Int) = i.toLong()
+        override fun getView(i: Int, old: View?, parent: ViewGroup?): View =
+            texts(ctx, items[i].first, items[i].second, 1).apply { val q = Ink.dp(ctx, 10); setPadding(0, q, 0, q) }
     }
 
     fun spinner(ctx: Context, items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(ctx).apply {

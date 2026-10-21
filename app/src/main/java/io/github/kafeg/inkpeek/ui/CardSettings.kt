@@ -8,6 +8,10 @@ import io.github.kafeg.inkpeek.ai.Action
 /** Card: Main (language, phrases, which icons), Window (size, place, text, theme), Icons (what each one does). */
 class CardSettings(private val a: MainActivity) {
     private val prefs get() = a.prefs
+    private var aiRow: android.view.View? = null
+
+    /** The AI icons' switch works only while an AI provider is chosen (AI tab). */
+    fun syncAi() { aiRow?.let { Rows.enable(it, prefs.aiOn) } }
 
     fun build(t: LinearLayout) {
         val main = Ink.vertical(a); val look = Ink.vertical(a); val icons = Ink.vertical(a)
@@ -26,7 +30,8 @@ class CardSettings(private val a: MainActivity) {
             prefs.uiLang = codes[it]; a.recreate() }))
         t.addView(Rows.check(a, a.getString(R.string.phrase_ai), a.getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
         t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
-        t.addView(Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it })
+        aiRow = Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it }
+        t.addView(aiRow); syncAi()
         t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
     }
 
@@ -59,6 +64,6 @@ class CardSettings(private val a: MainActivity) {
                 Triple(R.drawable.ic_words, a.getString(R.string.tab_words), a.getString(R.string.icon_words_d)),
                 Triple(R.drawable.ic_back, a.getString(R.string.back), a.getString(R.string.icon_back_d)),
                 Triple(R.drawable.ic_close, a.getString(R.string.close), a.getString(R.string.icon_close_d)))
-        rows.forEachIndexed { i, (icon, title, about) -> t.addView(Rows.info(a, icon, title, about).let { if (i == 0) first(it) else it }) }
+        rows.forEachIndexed { i, (icon, title, about) -> t.addView(Rows.info(a, icon, title, about, lines = 3).let { if (i == 0) first(it) else it }) }
     }
 }

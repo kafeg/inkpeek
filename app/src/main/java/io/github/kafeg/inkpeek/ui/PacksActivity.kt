@@ -3,7 +3,6 @@ package io.github.kafeg.inkpeek.ui
 import android.app.Activity
 import android.app.AlertDialog
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
@@ -64,8 +63,8 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         val installed = prefs.packs.installedPairs().toSet(); val inst = prefs.packs.installed()
         pairs = Packs.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { name(it.first) }, { name(it.second) }))
         info.text = if (PackJob.busy) PackJob.status.ifEmpty { "…" } else getString(R.string.n_of_m, pairs.count { it in installed }, pairs.size)
-        list.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, pairs.map { p ->
-            title(p) + "   " + if (p in installed) "✓ " + getString(R.string.pack_installed) else "%.0f MB".format(missing(p, inst).sumOf { it.size } / 1e6)
+        list.adapter = Rows.adapter(this, pairs.map { p ->
+            title(p) to if (p in installed) "✓ " + getString(R.string.pack_installed) else getString(R.string.pack_size, (missing(p, inst).sumOf { it.size } / 1_000_000).toInt())
         })
     }
 
