@@ -53,7 +53,7 @@ class DictionaryPage(private val card: CardActivity) {
                 p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.source(dict))}</small>", card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
-                    TextActions.line(this) { text.toString() }
+                    TextActions.selectable(this, whole = true)
                 })
             }
         }
@@ -100,7 +100,7 @@ class DictionaryPage(private val card: CardActivity) {
                 p.addView(Ink.text(card, text, card.size, html = true).apply {
                     val q = Ink.dp(card, 4); setPadding(0, q, 0, q)
                     setOnClickListener { tap(x.base.ifBlank { x.word }) }
-                    TextActions.line(this) { text.toString() }
+                    TextActions.selectable(this, whole = true)
                 })
             }
         }

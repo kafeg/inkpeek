@@ -49,6 +49,9 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         savedInstanceState?.getStringArray("open")?.forEach { open[it.substringBefore('=')] = it.substringAfter('=') }
+        // "lang:other", "card:look": a section and its tab straight away (scripts/screens.sh).
+        val asked = intent.getStringExtra("open")?.split(':')
+        asked?.getOrNull(1)?.let { open[asked[0]] = it }
         val pad = Ink.dp(this, 16)
         val col = Ink.vertical(this).apply {
             setPadding(pad, pad, pad, pad); isFocusableInTouchMode = true; setOnClickListener { hideKeyboard() }
@@ -93,7 +96,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         AiSettings(this).build(sections.getValue(R.string.tab_ai))
         card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
-        show(savedInstanceState?.getInt("tab") ?: R.string.tab_dicts)
+        val section = mapOf("lang" to R.string.tab_dicts, "ai" to R.string.tab_ai, "card" to R.string.tab_card, "words" to R.string.tab_words)
+        show(savedInstanceState?.getInt("tab") ?: asked?.let { section[it[0]] } ?: R.string.tab_dicts)
     }
 
     private var current = 0

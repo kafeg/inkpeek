@@ -51,8 +51,11 @@ object Updates {
     }
 
     /** The release notes as a few plain lines: "- Copy…" → "— Copy…". */
-    fun brief(notes: String, lines: Int = 6) = notes.lines().map { it.trim() }.filter { it.startsWith("- ") }.take(lines)
-        .joinToString("\n") { "— " + it.removePrefix("- ").replace(Regex("[*`]"), "") }
+    fun brief(notes: String, lines: Int = 6) = notes.lines().fold(mutableListOf<String>()) { items, l ->
+        // A bullet goes on over the indented lines under it.
+        if (l.startsWith("- ")) items += l.removePrefix("- ").trim() else if (l.startsWith("  ") && items.isNotEmpty()) items[items.size - 1] += " " + l.trim()
+        items
+    }.take(lines).joinToString("\n") { "— " + it.replace(Regex("[*`]"), "") }
 
     /** Hands a downloaded APK to Android's installer; it asks the person to confirm (and once to allow InkPeek). */
     fun install(ctx: Context, apk: File) {

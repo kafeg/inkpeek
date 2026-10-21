@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 class WordsSettings(private val a: MainActivity) {
     private lateinit var tabs: LinearLayout
     private lateinit var list: LinearLayout
-    private var kind = "word"
+    private var kind = a.open["words"] ?: "word"
     private var page = 0
 
     fun build(t: LinearLayout) {

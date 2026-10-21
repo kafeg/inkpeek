@@ -1,13 +1,14 @@
 name: Release
-# A tag "v0.3.<commits>" (the version the build computes: appVersion + git commit count) builds a signed APK from
-# that commit and attaches it to a GitHub release.
+# A tag "v<appVersion>.<commits>" (the version the build computes) builds a signed APK from that commit and attaches
+# it to a GitHub release; the notes are the version's section of CHANGELOG.md (the app's update shows them).
+# Normally run through scripts/release.sh.
 on:
   push:
     tags: ['v*']
-  # By hand when a tag's push event is lost (GitHub webhooks degraded): gh workflow run release.yml -f tag=v0.3.N
+  # By hand when a tag's push event is lost (GitHub webhooks degraded): gh workflow run release.yml -f tag=v0.5.N
   workflow_dispatch:
     inputs:
-      tag: { description: "Tag to release, e.g. v0.3.84", required: true }
+      tag: { description: "Tag to release, e.g. v0.5.112", required: true }
 permissions:
   contents: write
 jobs:
@@ -38,10 +39,15 @@ jobs:
         run: |
           cp app/build/outputs/apk/release/app-release.apk "inkpeek-${TAG}.apk"
           sha256sum "inkpeek-${TAG}.apk" > "inkpeek-${TAG}.apk.sha256"
+      - name: Notes from CHANGELOG.md
+        run: |
+          V=$(sed -n 's/^appVersion=//p' gradle.properties)
+          awk -v v="## $V" 'index($0, v) == 1 { f = 1; next } /^## / { f = 0 } f' CHANGELOG.md > notes.md
+          test -s notes.md
       - uses: softprops/action-gh-release@v2
         with:
           files: |
             inkpeek-*.apk
             inkpeek-*.apk.sha256
           tag_name: ${{ env.TAG }}
-          generate_release_notes: true
+          body_path: notes.md

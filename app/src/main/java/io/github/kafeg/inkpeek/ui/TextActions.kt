@@ -23,13 +23,21 @@ import io.github.kafeg.inkpeek.R
  * press on a list row) or the selection in a long text. It floats over the page: nothing under it moves.
  */
 object TextActions {
-    /** A list row: a long press opens the menu for its whole [text]. */
+    /**
+     * A row made of several fields (Notes, history): a long press greys it as a selection is greyed and opens the menu
+     * for its whole [text].
+     */
     fun line(row: View, text: () -> String) = row.setOnLongClickListener { v ->
-        show(v, inWindow(v, Rect(0, 0, v.width, v.height)), text()); true
+        val was = v.background
+        v.setBackgroundColor(0x40808080)
+        show(v, inWindow(v, Rect(0, 0, v.width, v.height)), text(), done = { v.background = was }); true
     }
 
-    /** A long text: selection with its handles, our menu instead of Android's, moving with the handles. */
-    fun selectable(tv: TextView) {
+    /**
+     * A long text: selection with its handles, our menu instead of Android's, moving with the handles. [whole]: a list
+     * row — a long press selects all of it, so what will be copied is seen, and the handles can narrow it.
+     */
+    fun selectable(tv: TextView, whole: Boolean = false) {
         tv.setTextIsSelectable(true)
         tv.customSelectionActionModeCallback = object : ActionMode.Callback {
             var pop: PopupWindow? = null
@@ -45,6 +53,7 @@ object TextActions {
             override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
                 menu.clear()
                 (tv.text as? android.text.Spannable)?.setSpan(watch, 0, tv.text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
+                if (whole) tv.post { (tv.text as? android.text.Spannable)?.let { android.text.Selection.selectAll(it) } }
                 tv.post { val r = selection(tv) ?: return@post
                     pop = show(tv, r, null, select = { selected() }, all = { (tv.text as? android.text.Spannable)?.let { android.text.Selection.selectAll(it) } },
                         done = { mode.finish() }) }
