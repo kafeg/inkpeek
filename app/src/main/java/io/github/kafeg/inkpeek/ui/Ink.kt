@@ -14,7 +14,7 @@ import android.widget.TextView
 
 /** E-ink styling: black on white (or white on black: the dark card), thin borders, no ripples or colors. */
 object Ink {
-    /** Ink and paper of a screen: the card can be dark (Card → Look), the settings never are. */
+    /** Ink and paper of a screen: the card can be dark (Card → Window), the settings never are. */
     fun fg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.WHITE else Color.BLACK
     fun bg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.BLACK else Color.WHITE
 

@@ -17,7 +17,7 @@ class Prefs(private val ctx: Context) {
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
     var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", true); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
 
-    /** The card's look (Card → Look); the defaults are the 0.3 card. Height 0 = by its content. */
+    /** The card's look (Card → Window); the defaults are the 0.3 card. Height 0 = by its content. */
     var cardHeight: Int get() = sp.getInt("card_height", 80); set(v) = sp.edit().putInt("card_height", v).apply()
     var cardWidth: Int get() = sp.getInt("card_width", 92); set(v) = sp.edit().putInt("card_width", v).apply()
     /** "center", "top", "bottom" or "reader" (where the reader asks: ColorDict's EXTRA_GRAVITY / EXTRA_HEIGHT). */
@@ -30,7 +30,9 @@ class Prefs(private val ctx: Context) {
     var cardAi: Boolean get() = sp.getBoolean("card_ai", true); set(v) = sp.edit().putBoolean("card_ai", v).apply()
     /** The card's ☆ and My words icons; the history is kept either way. */
     var cardSave: Boolean get() = sp.getBoolean("card_save", true); set(v) = sp.edit().putBoolean("card_save", v).apply()
-    var aiOn: Boolean get() = sp.getBoolean("ai_on", true); set(v) = sp.edit().putBoolean("ai_on", v).apply()
+    /** AI chosen (AI tab); never chosen yet — on only with a key or a server already there, so a fresh install starts without AI. */
+    var aiOn: Boolean get() = if (sp.contains("ai_on")) sp.getBoolean("ai_on", false) else effectiveKey(provider).isNotBlank() || url(Provider.CUSTOM).isNotBlank()
+        set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** The language of the answers is the app's language (setting or system), one of [ANSWERS]; English otherwise. */
     val answerCode: String get() = uiLang.ifBlank { java.util.Locale.getDefault().language }.let { if (it in ANSWERS) it else "en" }
     /** Its English name ("Russian"): what AI prompts and saved answers use. */

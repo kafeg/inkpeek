@@ -45,7 +45,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
-    /** White on black (Card → Look: dark, or the system's night mode); [Ink] reads it for this screen. */
+    /** White on black (Card → Window: dark, or the system's night mode); [Ink] reads it for this screen. */
     val dark: Boolean get() = ::prefs.isInitialized && when (prefs.cardTheme) {
         "dark" -> true
         "system" -> resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK == android.content.res.Configuration.UI_MODE_NIGHT_YES
@@ -157,7 +157,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
 
-        // No icon bar (Card → Look): the card is the open page only; Back or a tap outside closes it.
+        // No icon bar (Card → Main): the card is the open page only; Back or a tap outside closes it.
         if (prefs.cardBar) {
             card.addView(View(this).apply { setBackgroundColor(Ink.fg(this@CardActivity)) },
                 Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
@@ -188,7 +188,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /**
-     * Size and place from Card → Look. "Where the reader asks": ColorDict's EXTRA_GRAVITY (top or bottom, away from the
+     * Size and place from Card → Window. "Where the reader asks": ColorDict's EXTRA_GRAVITY (top or bottom, away from the
      * selected word) and EXTRA_HEIGHT (at most that tall), sent by Librera and FBReader.
      */
     private fun placeWindow() {

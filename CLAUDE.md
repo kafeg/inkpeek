@@ -31,8 +31,9 @@ Device tests run inside the installed release app (`testBuildType = "release"`, 
 packs or the code: fix the data or the code, never the expectation to make it pass. Boox: `adb exec-out screencap`
 prints a line before the PNG — use `screencap -p /sdcard/s.png` and `adb pull`.
 Android SDK: `ANDROID_HOME` (macOS brew: `android-commandlinetools`).
-Version: `appVersion` in `gradle.properties` + the git commit count (`0.3.<commits>`; the count is also the version
-code). Release: tag `v0.3.$(git rev-list --count HEAD)` and push it; `release.yml` builds and signs the APK.
+Version: `appVersion` in `gradle.properties` + the git commit count (`<appVersion>.<commits>`; the count is also the
+version code). Release: tag `v<appVersion>.$(git rev-list --count HEAD)` and push it; `release.yml` builds and signs the
+APK (a tag the webhook missed: `gh workflow run release.yml -f tag=<tag>`).
 Release build on a device with the release installed: `keystore.properties` (gitignored: storeFile, storePassword,
 keyAlias, keyPassword), `./gradlew assembleRelease`, `adb install -r` keeps the settings (a debug build needs an
 uninstall). Two devices on adb: `ANDROID_SERIAL=<serial>` for every command. AI timings: `adb logcat -s InkPeek` (`ai … ms`). Boox screenshots turn white

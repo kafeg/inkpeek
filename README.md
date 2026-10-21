@@ -8,6 +8,9 @@ Tap a word or select a sentence in your e-book reader. A calm black-and-white ca
 dictionary entry, a translation that fits the context, and short explanations from an AI tutor. Close the card and
 you are back on the same line.
 
+It is also a plain offline pop-up dictionary when you want one: your own StarDict dictionaries (KOReader's folder
+works as it is), a small card at the edge of the page, white on black if you like, and no AI at all.
+
 Made for Android e-ink readers (Onyx Boox and others); works on any Android device.
 
 ## What you can do
@@ -36,8 +39,8 @@ the rule behind it — and Words.</td>
 Examples with a translation.</td>
 <td valign="top"><b>Word by word, offline.</b> A selected sentence is translated word by word from the language packs: each word with
 its base form and meaning. Tap a word to open its entry.</td>
-<td valign="top"><b>Choose your languages.</b> Tick the pairs you read; each pack brings a dictionary and offline
-translation. ☆ keeps a word or phrase in My words; the history keeps the rest.</td>
+<td valign="top"><b>Choose your languages.</b> Download the pairs you read: each pack brings a dictionary, grammar and
+offline translation. Add your own StarDict dictionaries next to them.</td>
 </tr>
 </table>
 
@@ -47,8 +50,10 @@ Answers come in the app's language.</sub></p>
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
    files when it asks.
-2. **Choose your languages:** Languages → tick the pairs of your books → Download. Answers come in the app's language.
-3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key.
+2. **Choose your languages:** Languages → InkPeek → **Choose packs…** → tap the pairs of your books. Answers come in
+   the app's language. Have dictionaries already? Languages → **Other dictionaries** (below).
+3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key. Without it InkPeek works fully
+   offline.
 4. **Connect your reader** (below). In FBReader this is two settings.
 
 ## Connect your reader
@@ -65,7 +70,7 @@ phrase, this setting is the fix.
 |---|---|
 | Long-tap the word, then the **translate** button (文A). | Long-tap, drag the handle to the end of the text, then **translate** (文A). |
 | <img src="docs/img/fbreader-word-select.png" width="240"> <img src="docs/img/card-dictionary.png" width="240"> | <img src="docs/img/fbreader-phrase-select.png" width="240"> <img src="docs/img/card-phrase.png" width="240"> |
-| The card opens on the dictionary. | The card opens on Translate (or on the word-by-word translation, without AI). |
+| The card opens on the dictionary. | The card opens on Translate (or on the word-by-word translation when there is no translation: no pack, no AI). |
 
 Tip: in **Settings → Dictionary**, set the long-tap action to **select single word, release to open dictionary**.
 Then one gesture opens a word.
@@ -88,6 +93,7 @@ copy other entries from
 ### Other readers
 | reader | how |
 |---|---|
+| Librera | select text → **+** in the selection menu → the first **InkPeek** in the list. Librera sends where the word is: with Card → Window → Position → **Where the reader asks** the card opens above or below it |
 | AlReaderX | Settings → General settings → **Dictionary for single words** → **GoldenDict/ColorDict 3**; select a word or a passage (Text selection) → the translate icon |
 | Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict**. On Onyx Boox Cool Reader does not offer it (its list there is Onyx's own); Share → InkPeek works, but Cool Reader adds the author and the title to the shared text |
 | Moon+ Reader | Dictionary → **ColorDict** (not tested by us) |
@@ -99,24 +105,34 @@ If another dictionary app answers the same request, Android asks which one to us
 
 ### The card
 - **Dictionary** comes first. For a word: the header from the packs — "das Haus (Hauses, мн. Häuser)", "go (went, gone)
-  неправ." — then one line per dictionary, those into the app's language first; tap a line for the full entry. For a
+  неправ." — then one short line per dictionary, signed with its source: the packs first ("InkPeek · German →
+  Russian"), then your other dictionaries by name. Tap a line for that dictionary's full entry, ← goes back. For a
   sentence: the word-by-word gloss.
 - **Translate**: by AI when it can answer (set up and online), offline on the device otherwise — both are tabs, the
-  available one first. Which language it was and how sits in small print at the card's bottom.
-- **AI tabs** (marked "AI", dimmed when AI cannot answer): Analysis — Grammar and Words; Context — Explanation and
-  Examples. Opening any AI tab asks for all of them at once (the open one first), so the others open instantly; the
-  answers are kept with the history entry and go when you remove that entry.
+  available one first. Each is there only when it can work: Offline with a pack installed, AI with a provider chosen;
+  with neither there is no Translate icon. When a text's language has a pack you have not installed, the Offline tab
+  names it.
+- **AI tabs** (marked "AI", dimmed when AI cannot answer right now): Analysis — Grammar and Words; Context —
+  Explanation and Examples. Opening any AI tab asks for all of them at once (the open one first), so the others open
+  instantly; the answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence).
 - **My words**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line.
-- Built for e-ink: black on white, large text, no animations, few settings.
+- **The card's look** (Card → Window): height by content (a small card, like KOReader's) or a share of the screen;
+  width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
+  cover the word); text size; light, dark (white on black) or as in Android's night mode. Card → Main: the icon bar,
+  the AI icons and the save icons can each be hidden.
+- Built for e-ink: black on white, no animations. Every settings section has a Help tab.
 - The app is in English, Русский, Deutsch, Français, Español, Italiano, Português and Polski — exactly the answer
   languages of InkPeek's language packs; a new language comes with its packs. Answers come in the app's language.
 
 ### Languages
-Settings → **Languages**: every language pair InkPeek has; tick the ones you read (or all of them). The card uses only
-the ticked pairs; "Remove unticked" frees the space of the others. For each pair InkPeek downloads its pack from this project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs)
-— nothing comes from other servers.
+Settings → Languages → **InkPeek**: your packs — the box says the card uses it, ✕ removes it (models shared with
+another pair stay); **Choose packs…** lists every pair InkPeek has, a tap downloads one. Packs come only from this
+project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs); when it has newer files, an
+update line appears. **What the card takes from the language packs**: words (articles and word by word), grammar (the
+header) and offline translation, each on or off — keep the grammar and the translation and take the words from your
+own dictionaries, if you like. The text's language is always told by the packs.
 
 Packs now — every pair, what is inside and how much of real text it knows. **Top-5,000 coverage**: take the 5,000 most
 frequent words of the language you read (the pair's first language; frequency from a large corpus of subtitles,
@@ -194,6 +210,21 @@ from open data, test it and publish it.
   published; `scripts/device-test.sh` checks the app itself on a device — headers, meanings, language identification
   and offline translation of real words and sentences.
 
+### Other dictionaries
+Settings → Languages → **Other dictionaries**: any StarDict dictionary, the format of KOReader, GoldenDict and
+ColorDict. They live in one folder — `InkPeek/dicts` unless you choose another; choose KOReader's
+(`koreader/data/dict`) and both apps share the same dictionaries (InkPeek offers the folders of KOReader, ColorDict and
+GoldenDict it finds). Downloads and imports go into that folder; each dictionary can be switched off or deleted.
+
+- **Download** from public sources, each of which can be switched off: [WikDict](https://www.wikdict.com) (short
+  translations, part of speech and gender — ★ marks the ones into the app's language),
+  [Wiktionary by xxyzz](https://github.com/xxyzz/wiktionary_stardict) (full articles) and
+  [FreeDict](https://freedict.org). Their licenses are their own.
+- **Import**: pick a dictionary's files together (`.ifo`, `.idx` or `.idx.gz`, `.dict` or `.dict.dz`, `.syn` if any)
+  or an archive with them: zip, tar, tar.gz, tar.bz2, tar.xz, tar.zst.
+- In the card they come after the packs, each line with the dictionary's name and its first meaning; for them the
+  header is the selected word itself.
+
 ### Offline translation
 The Translate tab works without the internet: the Bergamot engine runs the models of the language packs on the device. The language of the selection is found by fastText (when it is
 unsure — a word or two — by the pack dictionary that knows more of the words); a text in a language without a pack
@@ -207,7 +238,8 @@ On a Boox Go 6 (Snapdragon 662, 2 GB) a sentence takes 0.1–0.9 s with the pair
 1–2 s when free memory is short and InkPeek loads one model at a time; the models leave memory after 3 idle minutes.
 
 ### AI
-Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
+AI is optional: the AI tab's first choice is **Off** (a fresh install starts there unless a key is already in
+`InkPeek/keys`). Providers: **Claude** (Anthropic), **OpenAI**, **OpenRouter** (hundreds of models, some free), and **any
 OpenAI-compatible server** — your own or a cloud one. The model list has a search, a maker filter, "free only" and
 sorting. For your own server, pick a preset and change the address if needed; a local server needs no key.
 
@@ -243,13 +275,17 @@ Put the key in settings, or in a file:
 adb push openrouter.txt /sdcard/InkPeek/keys/openrouter.key
 ```
 
+**Prompts** (AI → Prompts): what each part of an answer asks for — Grammar, Words, Explanation, the translation's
+facts — and the general style can be edited and reset; the answer's keys and format stay fixed. Answers already saved
+are kept.
+
 **Privacy:** only the selected text and the tab's request go to the provider you chose: when you open an AI tab, or
 Translate while AI is on and online. With AI off nothing leaves the device. No telemetry, no accounts.
 
 ### Protocol
 | intent | text extra | notes |
 |---|---|---|
-| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | the ColorDict / GoldenDict protocol; `EXTRA_GRAVITY`, `EXTRA_HEIGHT` and `EXTRA_FULLSCREEN` are ignored |
+| `colordict.intent.action.SEARCH` | `EXTRA_QUERY` | the ColorDict / GoldenDict protocol; `EXTRA_GRAVITY` and `EXTRA_HEIGHT` place the card with Position → Where the reader asks; `EXTRA_FULLSCREEN` is ignored |
 | `android.intent.action.PROCESS_TEXT` | `EXTRA_PROCESS_TEXT` | system selection menu, KOReader |
 | `android.intent.action.SEND` (`text/plain`) | `EXTRA_TEXT` | Share |
 
@@ -265,13 +301,13 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 scripts/device-test.sh        # the language packs on a connected device: headers, forms, language, offline translation
 ```
 
-The version is `0.3.<number of commits>`; the same number is the version code.
+The version is `0.4.<number of commits>`; the same number is the version code.
 
 Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engine is C++ built with the NDK:
 `git clone --recurse-submodules` (or `git submodule update --init --recursive`). Design notes: [docs/spec.md](docs/spec.md).
 
 ## License
-MIT. Language packs: dictionaries and grammar CC BY-SA 4.0 (Wiktionary contributors, Wiktextract/kaikki.org, WikDict), translation models MPL-2.0 (Mozilla), language identification CC BY-SA 3.0 (fastText).
+MIT. Other dictionaries you download or import keep their own licenses. Language packs: dictionaries and grammar CC BY-SA 4.0 (Wiktionary contributors, Wiktextract/kaikki.org, WikDict), translation models MPL-2.0 (Mozilla), language identification CC BY-SA 3.0 (fastText).
 
 Third-party code and data: [Bergamot translator](https://github.com/browsermt/bergamot-translator) with marian
 (MPL-2.0; the Android build from [RTranslator](https://github.com/niedev/RTranslator)'s fork); the JNI bridge
