@@ -61,39 +61,18 @@ class CardSettings(private val a: MainActivity) {
         fontRow(t)
     }
 
-    /** The card's font: Android's three, the fonts found on the device, "Choose a file…" (copied to InkPeek/fonts). */
-    private fun fontRow(t: LinearLayout) {
-        // The font in use is always listed, even when another folder has one of the same name.
-        val files = Fonts.found().map { it.path }.let { f -> if ('/' in prefs.cardFont && prefs.cardFont !in f && java.io.File(prefs.cardFont).exists()) f + prefs.cardFont else f }
-        val ids = listOf("", "serif", "monospace") + files
-        val names = listOf(R.string.font_sans, R.string.font_serif, R.string.font_mono).map { a.getString(it) } +
-            files.map { Fonts.name(java.io.File(it)) } + a.getString(R.string.font_file)
-        val now = ids.indexOf(prefs.cardFont).coerceAtLeast(0)
-        lateinit var row: android.view.View
-        row = Rows.choice(a, a.getString(R.string.look_font), a.getString(R.string.look_font_d), names, now,
-            ids.map { Fonts.face(it) ?: android.graphics.Typeface.SANS_SERIF } + listOf(null)) { i ->
-            if (i < ids.size) { prefs.cardFont = ids[i]; return@choice }
-            // "Choose a file…" is not a font: the list goes back to the one in use, the file comes in onResult.
-            row.findViewWithTag<android.widget.Spinner>("spinner")?.setSelection(ids.indexOf(prefs.cardFont).coerceAtLeast(0))
-            runCatching { a.startActivityForResult(android.content.Intent(android.content.Intent.ACTION_OPEN_DOCUMENT)
-                .addCategory(android.content.Intent.CATEGORY_OPENABLE).setType("*/*"), FONT) }
-        }
-        t.addView(row)
-    }
+    private lateinit var fontBox: LinearLayout
 
-    /** A font file chosen in "Choose a file…": copied, chosen, the list made again. */
-    fun onResult(requestCode: Int, data: android.content.Intent) {
-        if (requestCode != FONT) return
-        val uri = data.data ?: return
-        val name = a.contentResolver.query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c ->
-            if (c.moveToFirst()) c.getString(0) else null } ?: "font.ttf"
-        if (name.substringAfterLast('.').lowercase() !in setOf("ttf", "otf")) { a.toast(a.getString(R.string.font_bad, name)); return }
-        val f = runCatching { a.contentResolver.openInputStream(uri)!!.use { Fonts.keep(prefs.home, name, it) } }.getOrElse { a.toast(a.getString(R.string.failed, it.message)); return }
-        if (Fonts.face(f.path) == null) { f.delete(); a.toast(a.getString(R.string.font_bad, name)); return }
-        prefs.cardFont = f.path; a.recreate()
-    }
+    /** The card's font: its name here, the choice on its own page (FontActivity). */
+    private fun fontRow(t: LinearLayout) { fontBox = Ink.vertical(a); t.addView(fontBox); refreshFont() }
 
-    companion object { const val FONT = 3 }
+    /** After the font page: the name of the one in use. */
+    fun refreshFont() {
+        if (!::fontBox.isInitialized) return
+        fontBox.removeAllViews()
+        fontBox.addView(Rows.info(a, null, a.getString(R.string.look_font), Fonts.label(prefs.cardFont, a.getString(R.string.font_default)), page = true) {
+            a.startActivity(android.content.Intent(a, FontActivity::class.java)) })
+    }
 
     /** Help: each icon of the card, what it does. */
     private fun buildIcons(t: LinearLayout) {

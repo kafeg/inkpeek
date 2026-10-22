@@ -124,8 +124,8 @@ If another dictionary app answers the same request, Android asks which one to us
   the card and in settings).
 - **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
-  cover the word); text size; the font — Android's sans, serif or monospace, or your own `.ttf` / `.otf` (found in
-  `fonts/` and `koreader/fonts`, or chosen as a file). Card → Main: the theme of the whole app — light, dark (white on
+  cover the word); text size; the font, on a page of its own with a sample — Android's fonts that have the letters
+  the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a file). Card → Main: the theme of the whole app — light, dark (white on
   black) or as in Android's night mode; the icon bar,
   the AI icons and the save icons can each be hidden; the dictionary as short lines or as full articles (◀ ▶ or a
   swipe between dictionaries); **Dictionary order** puts packs and other dictionaries in the order you want.

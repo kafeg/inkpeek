@@ -268,10 +268,15 @@
     <string name="down">Ниже</string>
     <string name="prev">Назад</string>
     <string name="look_font">Шрифт</string>
-    <string name="look_font_d">Текст карточки; свои — из fonts/, koreader/fonts или файлом.</string>
-    <string name="font_sans">Без засечек</string>
-    <string name="font_serif">С засечками</string>
-    <string name="font_mono">Моноширинный</string>
+    <string name="look_font_d">Текст карточки: шрифты Android или свои .ttf / .otf.</string>
     <string name="font_file">Выбрать файл…</string>
     <string name="font_bad">Этот шрифт InkPeek прочитать не может: %1$s</string>
+    <string name="font_t">Шрифт карточки</string>
+    <string name="font_device">На устройстве</string>
+    <string name="font_default">Как в Android</string>
+    <string name="font_default_d">по умолчанию</string>
+    <string name="font_yours">Ваши</string>
+    <string name="font_none">Пока нет: шрифты из fonts/, koreader/fonts или выберите файл.</string>
+    <string name="font_missing">нет %1$s</string>
+    <string name="font_delete_q">Удалить шрифт «%1$s» из InkPeek/fonts?</string>
 </resources>

@@ -269,10 +269,15 @@
     <string name="down">Down</string>
     <string name="prev">Previous</string>
     <string name="look_font">Font</string>
-    <string name="look_font_d">The card\'s text; your own from fonts/, koreader/fonts or a file.</string>
-    <string name="font_sans">Sans serif</string>
-    <string name="font_serif">Serif</string>
-    <string name="font_mono">Monospace</string>
+    <string name="look_font_d">The card\'s text: Android\'s fonts or your own .ttf / .otf.</string>
     <string name="font_file">Choose a file…</string>
     <string name="font_bad">Not a font InkPeek can read: %1$s</string>
+    <string name="font_t">Card font</string>
+    <string name="font_device">On the device</string>
+    <string name="font_default">As in Android</string>
+    <string name="font_default_d">the default</string>
+    <string name="font_yours">Yours</string>
+    <string name="font_none">None yet: fonts from fonts/, koreader/fonts, or choose a file.</string>
+    <string name="font_missing">no %1$s</string>
+    <string name="font_delete_q">Delete the font «%1$s» from InkPeek/fonts?</string>
 </resources>

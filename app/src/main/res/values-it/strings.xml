@@ -268,10 +268,15 @@
     <string name="down">Giù</string>
     <string name="prev">Precedente</string>
     <string name="look_font">Carattere</string>
-    <string name="look_font_d">Il testo della scheda; i tuoi da fonts/, koreader/fonts o da un file.</string>
-    <string name="font_sans">Senza grazie</string>
-    <string name="font_serif">Con grazie</string>
-    <string name="font_mono">Monospaziato</string>
+    <string name="look_font_d">Il testo della scheda: caratteri di Android o i tuoi (.ttf / .otf).</string>
     <string name="font_file">Scegli un file…</string>
     <string name="font_bad">InkPeek non può leggere questo carattere: %1$s</string>
+    <string name="font_t">Carattere della scheda</string>
+    <string name="font_device">Sul dispositivo</string>
+    <string name="font_default">Come Android</string>
+    <string name="font_default_d">predefinito</string>
+    <string name="font_yours">I tuoi</string>
+    <string name="font_none">Ancora nessuno: caratteri da fonts/, koreader/fonts o scegli un file.</string>
+    <string name="font_missing">senza %1$s</string>
+    <string name="font_delete_q">Eliminare il carattere «%1$s» da InkPeek/fonts?</string>
 </resources>

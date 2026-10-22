@@ -268,10 +268,15 @@
     <string name="down">Descendre</string>
     <string name="prev">Précédent</string>
     <string name="look_font">Police</string>
-    <string name="look_font_d">Le texte de la fiche ; les vôtres depuis fonts/, koreader/fonts ou un fichier.</string>
-    <string name="font_sans">Sans empattement</string>
-    <string name="font_serif">Avec empattement</string>
-    <string name="font_mono">Chasse fixe</string>
+    <string name="look_font_d">Le texte de la fiche : polices d\'Android ou les vôtres (.ttf / .otf).</string>
     <string name="font_file">Choisir un fichier…</string>
     <string name="font_bad">Police illisible pour InkPeek : %1$s</string>
+    <string name="font_t">Police de la fiche</string>
+    <string name="font_device">Sur l\'appareil</string>
+    <string name="font_default">Comme Android</string>
+    <string name="font_default_d">par défaut</string>
+    <string name="font_yours">Les vôtres</string>
+    <string name="font_none">Aucune : polices de fonts/, koreader/fonts, ou choisissez un fichier.</string>
+    <string name="font_missing">sans %1$s</string>
+    <string name="font_delete_q">Supprimer la police « %1$s » de InkPeek/fonts ?</string>
 </resources>

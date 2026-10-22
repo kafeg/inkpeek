@@ -268,10 +268,15 @@
     <string name="down">Nach unten</string>
     <string name="prev">Zurück</string>
     <string name="look_font">Schrift</string>
-    <string name="look_font_d">Text der Karte; eigene aus fonts/, koreader/fonts oder als Datei.</string>
-    <string name="font_sans">Serifenlos</string>
-    <string name="font_serif">Mit Serifen</string>
-    <string name="font_mono">Festbreite</string>
+    <string name="look_font_d">Text der Karte: Schriften von Android oder eigene .ttf / .otf.</string>
     <string name="font_file">Datei wählen…</string>
     <string name="font_bad">Keine Schrift, die InkPeek lesen kann: %1$s</string>
+    <string name="font_t">Schrift der Karte</string>
+    <string name="font_device">Auf dem Gerät</string>
+    <string name="font_default">Wie in Android</string>
+    <string name="font_default_d">Standard</string>
+    <string name="font_yours">Eigene</string>
+    <string name="font_none">Noch keine: Schriften aus fonts/, koreader/fonts oder eine Datei wählen.</string>
+    <string name="font_missing">ohne %1$s</string>
+    <string name="font_delete_q">Die Schrift «%1$s» aus InkPeek/fonts löschen?</string>
 </resources>

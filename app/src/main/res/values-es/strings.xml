@@ -268,10 +268,15 @@
     <string name="down">Bajar</string>
     <string name="prev">Anterior</string>
     <string name="look_font">Fuente</string>
-    <string name="look_font_d">El texto de la tarjeta; las tuyas de fonts/, koreader/fonts o un archivo.</string>
-    <string name="font_sans">Sin serifa</string>
-    <string name="font_serif">Con serifa</string>
-    <string name="font_mono">Monoespaciada</string>
+    <string name="look_font_d">El texto de la tarjeta: fuentes de Android o las tuyas (.ttf / .otf).</string>
     <string name="font_file">Elegir un archivo…</string>
     <string name="font_bad">InkPeek no puede leer esta fuente: %1$s</string>
+    <string name="font_t">Fuente de la tarjeta</string>
+    <string name="font_device">En el dispositivo</string>
+    <string name="font_default">Como Android</string>
+    <string name="font_default_d">predeterminada</string>
+    <string name="font_yours">Tuyas</string>
+    <string name="font_none">Aún ninguna: fuentes de fonts/, koreader/fonts o elige un archivo.</string>
+    <string name="font_missing">sin %1$s</string>
+    <string name="font_delete_q">¿Borrar la fuente «%1$s» de InkPeek/fonts?</string>
 </resources>

@@ -268,10 +268,15 @@
     <string name="down">W dół</string>
     <string name="prev">Wstecz</string>
     <string name="look_font">Czcionka</string>
-    <string name="look_font_d">Tekst karty; własne z fonts/, koreader/fonts lub z pliku.</string>
-    <string name="font_sans">Bezszeryfowa</string>
-    <string name="font_serif">Szeryfowa</string>
-    <string name="font_mono">O stałej szerokości</string>
+    <string name="look_font_d">Tekst karty: czcionki Androida lub własne .ttf / .otf.</string>
     <string name="font_file">Wybierz plik…</string>
     <string name="font_bad">InkPeek nie może odczytać tej czcionki: %1$s</string>
+    <string name="font_t">Czcionka karty</string>
+    <string name="font_device">Na urządzeniu</string>
+    <string name="font_default">Jak w Androidzie</string>
+    <string name="font_default_d">domyślna</string>
+    <string name="font_yours">Twoje</string>
+    <string name="font_none">Jeszcze brak: czcionki z fonts/, koreader/fonts lub wybierz plik.</string>
+    <string name="font_missing">bez %1$s</string>
+    <string name="font_delete_q">Usunąć czcionkę «%1$s» z InkPeek/fonts?</string>
 </resources>

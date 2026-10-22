@@ -118,7 +118,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         Downloads.listener = { if (!isDestroyed) { download.update(); languages.refreshPacks(); if (!Downloads.busy) refreshDicts() } }
         if (Downloads.busy) download.show()
         Updates.pending?.let { Updates.pending = null; runCatching { startActivity(it) } }
-        languages.refreshPacks(); refreshDicts(); if (current == R.string.tab_words) words.refresh()
+        languages.refreshPacks(); refreshDicts(); card.refreshFont(); if (current == R.string.tab_words) words.refresh()
         // The daily update check (About), quietly: only the version line changes.
         if (Updates.due(this)) launch { withContext(Dispatchers.IO) { runCatching { Updates.check(this@MainActivity) } }; refreshStatus() }
     }
@@ -131,7 +131,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     @Deprecated("Plain Activity result: no AndroidX dependency")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && data != null) { languages.onResult(requestCode, data); card.onResult(requestCode, data) }
+        if (resultCode == RESULT_OK && data != null) languages.onResult(requestCode, data)
     }
 
     /** Builds the dictionaries' indexes (in the background), the status line and the Other dictionaries list. */

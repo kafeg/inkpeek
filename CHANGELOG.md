@@ -30,8 +30,9 @@ count, so every release has its own.
   not shown as installed and can be finished.
 - Translate by AI failing (network, key) shows the word-by-word gloss under a phrase and asks again next time.
 - An update confirmed while InkPeek was in the background opens the installer when settings open.
-- The card's font (Card → Appearance → Font): sans, serif, monospace, or your own .ttf / .otf from `fonts/`,
-  `koreader/fonts` or a file; bold and italic files of the family are used with it.
+- The card's font (Card → Appearance → Font): a page with a sample, Android's fonts that have your letters, and your
+  own .ttf / .otf from `fonts/`, `koreader/fonts` or a file; bold and italic files of the family are used with it.
+- Dialogs and messages follow the theme too (Boox drew Android's own white).
 - Dark theme for the whole app, settings too (Card → Main → Theme).
 - Notes in the card: 50 per page, like in settings.
 - "→" in AI answers and offline translations drawn in the middle of the line; dimmed buttons (the first page's ◀)

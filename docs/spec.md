@@ -269,10 +269,12 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       update shows them.
    5. Releases by `scripts/release.sh` (checks, changelog, tag, the build, the APK's checksum and signature, notes),
       screenshots and layout checks by `scripts/screens.sh`.
-   6. **Font and theme** (MobileRead, 22.10): Card → Appearance → Font — the card's text (header, lines, articles,
-      answers) in Android's sans / serif / monospace or a `.ttf` / `.otf` from `fonts/`, `koreader/fonts` or a chosen
-      file (copied to `InkPeek/fonts`); a family's Bold / Italic files are used with it; missing letters come from
-      Android's font. The list shows each font in itself. Settings keep Android's font. Card → Main → Theme (moved from
+   6. **Font and theme** (MobileRead, 22.10): Card → Appearance → Font › opens a page (like Dictionary order): a sample
+      on top; "On the device" — Android's default and the families in `/system/fonts` whose character map has the
+      letters the card needs (äß é ł дж); "Yours" — `.ttf` / `.otf` from `fonts/`, `koreader/fonts`, `InkPeek/fonts`
+      (the letters a font lacks are named), "Choose a file…" copies one to `InkPeek/fonts` (✕ deletes only those). Each
+      font is shown in itself, ✓ on the one in use. The card's text (header, lines, articles, answers) uses it with
+      the family's Bold / Italic files; missing letters come from Android's font. Settings keep Android's font. Card → Main → Theme (moved from
       Appearance) is for the whole app: settings, pages, dialogs and lists white on black too.
    7. Notes in the card: 50 per page with the pager, as in settings.
 

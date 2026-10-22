@@ -26,7 +26,7 @@ class Prefs(private val ctx: Context) {
     /** "light", "dark" or "system" (Android's night mode). */
     /** light | dark | system, for the whole app (the key is from when only the card had it). */
     var theme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()
-    /** The card's font: "" (Android's sans), "serif", "monospace" or a font file's path. */
+    /** The card's font: "" (Android's) or a font file's path. */
     var cardFont: String get() = sp.getString("card_font", "")!!; set(v) = sp.edit().putString("card_font", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
     /** The card's AI icons (Analysis, Context) while AI is on. */
