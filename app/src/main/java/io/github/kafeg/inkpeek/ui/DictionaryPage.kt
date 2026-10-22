@@ -47,6 +47,10 @@ class DictionaryPage(private val card: CardActivity) {
     var turn: ((Int) -> Unit)? = null; private set
     /** "←" and Back: from an article to the list, from a word to the gloss; null at the top. */
     var back: (() -> Unit)? = null; private set
+    /** What the tab shows: "" the list, "a:<dictionary id>" its article, "p:<n>" the n-th of the full articles. */
+    var place = ""; private set
+    /** A place to open once the lookup is done (coming back to this word in the card). */
+    var restore: String? = null
 
     fun fill(p: LinearLayout) { page = p; if (card.kind == Kind.WORD) articles(card.query, null) else gloss() }
 
@@ -66,7 +70,12 @@ class DictionaryPage(private val card: CardActivity) {
             val (hits, none) = res.getOrElse { card.note(p, card.getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) card.note(p, card.getString(R.string.preparing, notReady.joinToString { it.name }))
             if (hits.isEmpty() && notReady.isEmpty()) card.note(p, card.getString(if (none) R.string.lang_no_packs else R.string.not_found))
+            val r = restore; restore = null
+            r?.removePrefix("p:")?.toIntOrNull()?.takeIf { r.startsWith("p:") && it in hits.indices }?.let { pages(hits, word, it, to); card.scrollBack(); return@launch }
+            r?.takeIf { it.startsWith("a:") }?.let { id -> hits.firstOrNull { it.first.id == id.removePrefix("a:") } }
+                ?.let { (dict, list) -> article(dict, list, word) { articles(word, to) }; card.scrollBack(); return@launch }
             if (card.prefs.cardFull && hits.isNotEmpty() && notReady.isEmpty()) { pages(hits, word, 0, to); return@launch }
+            place = ""
             hits.forEach { (dict, list) ->
                 p.addView(Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
@@ -74,6 +83,7 @@ class DictionaryPage(private val card: CardActivity) {
                     TextActions.selectable(this) { t -> t.lastIndexOf('\n').takeIf { it > 0 } ?: t.length } // not the source line
                 })
             }
+            card.scrollBack()
         }
     }
 
@@ -82,6 +92,7 @@ class DictionaryPage(private val card: CardActivity) {
         val p = page ?: return
         p.removeAllViews(); up(to)
         turn = { d -> if (i + d in hits.indices) pages(hits, word, i + d, to) }
+        place = "p:$i"
         val (dict, list) = hits[i]
         val bar = Ink.horizontal(card).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val side = Ink.dp(card, 40); val many = hits.size > 1
@@ -105,7 +116,7 @@ class DictionaryPage(private val card: CardActivity) {
     /** A dictionary's full entries for [word]; "←" (or Back) returns to the list. */
     private fun article(dict: StarDict, list: List<Hit>, word: String, to: () -> Unit) {
         val p = page ?: return
-        job?.cancel(); p.removeAllViews(); up(to); turn = null
+        job?.cancel(); p.removeAllViews(); up(to); turn = null; place = "a:${dict.id}"
         p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true).also { TextActions.selectable(it) }, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         entries(p, list, word)
     }

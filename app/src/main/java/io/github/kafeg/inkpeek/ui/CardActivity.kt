@@ -43,6 +43,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     var query = ""; private set
     /** The words looked up before this one in this card ("Look up" from a text, an entry of Notes); ← returns to them. */
     private var before: List<String> = emptyList()
+    /** Where the card was on each of them: "tab|place in the dictionary|scroll" (see [at]). */
+    private var beforeAt: List<String> = emptyList()
+    /** The scroll to come back to once the restored page has its content. */
+    var restoreScroll = -1; private set
     val kind get() = Kind.of(query)
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
@@ -83,14 +87,24 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) } }
         if (query.isEmpty()) { finish(); return }
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
+        beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
+        val back = intent.getStringExtra(AT)?.split('|')
         launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
         placeWindow()
         if (kind == Kind.WORD) head()
         // A phrase: the offline translation starts at once; it fills Translate and the history line.
         else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
-        open(if (kind != Kind.WORD && prefs.phraseAutoAi && canTranslate) TRANSLATE else DICT)
+        // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
+        if (back != null && back.size == 3 && back[0] in tabButtons) {
+            dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1
+            open(back[0])
+            if (back[0] != DICT && restoreScroll >= 0) scroll.postDelayed({ scrollBack() }, 400)
+        } else open(if (kind != Kind.WORD && prefs.phraseAutoAi && canTranslate) TRANSLATE else DICT)
     }
+
+    /** The scroll a returned-to page was left at, once. */
+    fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { scroll.scrollTo(0, y) } } }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
@@ -256,13 +270,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null || before.isNotEmpty()) View.VISIBLE else View.GONE }
 
     /** [text] in this card, this word kept to come back to. */
-    fun lookUp(text: String) = startActivity(WordsList.card(this, text).putStringArrayListExtra(BEFORE, ArrayList(before + query)))
+    fun lookUp(text: String) = startActivity(WordsList.card(this, text).putStringArrayListExtra(BEFORE, ArrayList(before + query))
+        .putStringArrayListExtra(BEFORE_AT, ArrayList(beforeAt + "$shown|${dictionary.place}|${scroll.scrollY}")))
 
     /** ←: from an article to its list, else to the word looked up before; false when there is nothing to go back to. */
     private fun back(): Boolean {
         if (shown == DICT && dictionary.back != null) { dictionary.back?.invoke(); return true }
         val prev = before.lastOrNull() ?: return false
-        startActivity(WordsList.card(this, prev).putStringArrayListExtra(BEFORE, ArrayList(before.dropLast(1)))); return true
+        startActivity(WordsList.card(this, prev).putStringArrayListExtra(BEFORE, ArrayList(before.dropLast(1)))
+            .putStringArrayListExtra(BEFORE_AT, ArrayList(beforeAt.dropLast(1))).putExtra(AT, beforeAt.lastOrNull().orEmpty())); return true
     }
 
     /** Where a line comes from: a pack, "InkPeek · Немецкий → Русский", or another dictionary's name. */
@@ -314,7 +330,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         (getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager).getMemoryInfo(it) }.availMem > 1_500_000_000L
 
     companion object {
-        private const val BEFORE = "inkpeek.before"
+        private const val BEFORE = "inkpeek.before"; private const val BEFORE_AT = "inkpeek.before.at"; private const val AT = "inkpeek.at"
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4
