@@ -19,8 +19,8 @@ object Fonts {
     /** A font of the list: [id] is what the card keeps ("" = Android's, or a file's path). */
     data class Item(val id: String, val name: String, val where: String, val missing: String)
 
-    private fun fontFiles(dir: File, depth: Int) = dir.walkTopDown().maxDepth(depth).filter { it.isFile && it.extension.lowercase() in setOf("ttf", "otf") }
-        .filter { !STYLED.containsMatchIn(it.nameWithoutExtension) }.toList()
+    private fun fontFiles(dir: File, depth: Int, styled: Boolean = false) = dir.walkTopDown().maxDepth(depth)
+        .filter { it.isFile && it.extension.lowercase() in setOf("ttf", "otf") && (styled || !STYLED.containsMatchIn(it.nameWithoutExtension)) }.toList()
 
     /** Android's own families that have every letter the card needs (most of them are for other scripts). */
     fun system(): List<Item> = systemList ?: fontFiles(File("/system/fonts"), 1)
@@ -31,7 +31,9 @@ object Fonts {
 
     /** People's fonts, one per family; those without some letters say which. */
     fun yours(): List<Item> = DIRS.map { it to File(Environment.getExternalStorageDirectory(), it) }.filter { it.second.isDirectory }
-        .flatMap { (where, d) -> fontFiles(d, 3).map { Item(it.path, name(it), where, missing(it)) } }.sortedBy { it.name.lowercase() }
+        // A file chosen in the app is listed even when it is a Bold or Italic face: it was picked on purpose.
+        .flatMap { (where, d) -> fontFiles(d, 3, styled = where == "InkPeek/fonts").map { Item(it.path, name(it), where, missing(it)) } }
+        .sortedBy { it.name.lowercase() }
 
     /** "Literata-Regular" → "Literata", "NotoSerif" → "Noto Serif". */
     fun name(f: File) = f.nameWithoutExtension.replace(Regex("[-_ ]?(Regular|Book|Roman)$", RegexOption.IGNORE_CASE), "")
