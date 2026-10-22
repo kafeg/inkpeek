@@ -319,4 +319,22 @@
     <string name="sec_forms_d">Le tableau des formes et l\'API.</string>
     <string name="sec_ety">Origine</string>
     <string name="sec_ety_d">D\'où vient le mot (étymologie).</string>
+    <string name="ai_answers">Réponses</string>
+    <string name="ak_note">Ce que les onglets Analyse et Contexte demandent à l\'IA. Plus de parties — réponse plus longue, un peu plus lente et chère ; les réponses enregistrées restent tant que les parties ne changent pas.</string>
+    <string name="ak_grammar">Grammaire</string>
+    <string name="ak_grammar_d">La forme et sa construction ; pour une phrase, ses constructions et la règle.</string>
+    <string name="ak_words">Mots</string>
+    <string name="ak_words_d">Les mots difficiles d\'une phrase ; pour un mot, synonymes et mots apparentés.</string>
+    <string name="ak_related">Mots apparentés</string>
+    <string name="ak_related_d">Mots de même racine : verbes à préfixe, verbes à particule, dérivés.</string>
+    <string name="ak_synonyms">Synonymes et antonymes</string>
+    <string name="ak_synonyms_d">Ce qui distingue les mots proches, contraires marqués ≠.</string>
+    <string name="ak_explanation">Explication</string>
+    <string name="ak_explanation_d">Ce que cela veut dire ici, registre, nuances.</string>
+    <string name="ak_examples">Exemples</string>
+    <string name="ak_examples_d">Trois phrases courantes avec leur traduction.</string>
+    <string name="ak_idioms">Expressions et proverbes</string>
+    <string name="ak_idioms_d">Locutions et expressions avec le mot et leur sens.</string>
+    <string name="ak_origin">Origine</string>
+    <string name="ak_origin_d">D\'où vient le mot, avec un moyen de le retenir.</string>
 </resources>

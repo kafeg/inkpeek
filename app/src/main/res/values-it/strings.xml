@@ -319,4 +319,22 @@
     <string name="sec_forms_d">La tabella delle forme e l\'IPA.</string>
     <string name="sec_ety">Origine</string>
     <string name="sec_ety_d">Da dove viene la parola (etimologia).</string>
+    <string name="ai_answers">Risposte</string>
+    <string name="ak_note">Cosa chiedono all\'IA le schede Analisi e Contesto. Più parti: risposta più lunga, un po\' più lenta e cara; le risposte salvate restano finché le parti non cambiano.</string>
+    <string name="ak_grammar">Grammatica</string>
+    <string name="ak_grammar_d">La forma e come è costruita; per una frase, le costruzioni e la regola.</string>
+    <string name="ak_words">Parole</string>
+    <string name="ak_words_d">Le parole difficili di una frase; per una parola, sinonimi e affini.</string>
+    <string name="ak_related">Parole affini</string>
+    <string name="ak_related_d">Parole della stessa radice: verbi con prefisso, phrasal verbs, derivati.</string>
+    <string name="ak_synonyms">Sinonimi e contrari</string>
+    <string name="ak_synonyms_d">In cosa differiscono le parole vicine, contrari con ≠.</string>
+    <string name="ak_explanation">Spiegazione</string>
+    <string name="ak_explanation_d">Cosa significa qui, registro, sfumature.</string>
+    <string name="ak_examples">Esempi</string>
+    <string name="ak_examples_d">Tre frasi quotidiane con la traduzione.</string>
+    <string name="ak_idioms">Espressioni e proverbi</string>
+    <string name="ak_idioms_d">Locuzioni e modi di dire con la parola e il loro senso.</string>
+    <string name="ak_origin">Origine</string>
+    <string name="ak_origin_d">Da dove viene la parola, con un aggancio per ricordarla.</string>
 </resources>

@@ -319,4 +319,22 @@
     <string name="sec_forms_d">Die Formentabelle und die Lautschrift (IPA).</string>
     <string name="sec_ety">Herkunft</string>
     <string name="sec_ety_d">Woher das Wort kommt (Etymologie).</string>
+    <string name="ai_answers">Antworten</string>
+    <string name="ak_note">Was die Tabs Analyse und Kontext von der KI erfragen. Mehr Teile — längere Antwort, etwas langsamer und teurer; gespeicherte Antworten bleiben, bis sich die Teile ändern.</string>
+    <string name="ak_grammar">Grammatik</string>
+    <string name="ak_grammar_d">Die Form und ihr Aufbau; bei einer Wendung ihre Konstruktionen und die Regel.</string>
+    <string name="ak_words">Wörter</string>
+    <string name="ak_words_d">Schwierige Wörter einer Wendung; bei einem Wort Synonyme und Verwandtes.</string>
+    <string name="ak_related">Verwandte Wörter</string>
+    <string name="ak_related_d">Wörter desselben Stamms: Präfixverben, Phrasal Verbs, Ableitungen.</string>
+    <string name="ak_synonyms">Synonyme und Antonyme</string>
+    <string name="ak_synonyms_d">Wie sich ähnliche Wörter unterscheiden, Gegenteile mit ≠.</string>
+    <string name="ak_explanation">Erklärung</string>
+    <string name="ak_explanation_d">Was es hier bedeutet, Stil, Nuancen.</string>
+    <string name="ak_examples">Beispiele</string>
+    <string name="ak_examples_d">Drei Alltagssätze mit Übersetzung.</string>
+    <string name="ak_idioms">Wendungen und Sprichwörter</string>
+    <string name="ak_idioms_d">Feste Wendungen und Redensarten mit dem Wort und ihre Bedeutung.</string>
+    <string name="ak_origin">Herkunft</string>
+    <string name="ak_origin_d">Woher das Wort kommt, mit einer Merkhilfe.</string>
 </resources>

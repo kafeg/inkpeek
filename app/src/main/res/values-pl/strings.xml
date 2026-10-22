@@ -319,4 +319,22 @@
     <string name="sec_forms_d">Tabela form i IPA.</string>
     <string name="sec_ety">Pochodzenie</string>
     <string name="sec_ety_d">Skąd pochodzi słowo (etymologia).</string>
+    <string name="ai_answers">Odpowiedzi</string>
+    <string name="ak_note">O co karty Analiza i Kontekst pytają AI. Więcej części — dłuższa odpowiedź, trochę wolniej i drożej; zapisane odpowiedzi zostają, dopóki części się nie zmienią.</string>
+    <string name="ak_grammar">Gramatyka</string>
+    <string name="ak_grammar_d">Forma i jej budowa; dla frazy jej konstrukcje i reguła.</string>
+    <string name="ak_words">Słowa</string>
+    <string name="ak_words_d">Trudne słowa frazy; dla słowa synonimy i wyrazy pokrewne.</string>
+    <string name="ak_related">Wyrazy pokrewne</string>
+    <string name="ak_related_d">Słowa o tym samym rdzeniu: czasowniki z przedrostkiem, phrasal verbs, derywaty.</string>
+    <string name="ak_synonyms">Synonimy i antonimy</string>
+    <string name="ak_synonyms_d">Czym różnią się bliskie słowa, przeciwieństwa z ≠.</string>
+    <string name="ak_explanation">Wyjaśnienie</string>
+    <string name="ak_explanation_d">Co znaczy tutaj, rejestr, niuanse.</string>
+    <string name="ak_examples">Przykłady</string>
+    <string name="ak_examples_d">Trzy codzienne zdania z tłumaczeniem.</string>
+    <string name="ak_idioms">Wyrażenia i przysłowia</string>
+    <string name="ak_idioms_d">Związki frazeologiczne i idiomy ze słowem i ich znaczenie.</string>
+    <string name="ak_origin">Pochodzenie</string>
+    <string name="ak_origin_d">Skąd pochodzi słowo, z podpowiedzią do zapamiętania.</string>
 </resources>

@@ -320,4 +320,22 @@
     <string name="sec_forms_d">The table of forms and the IPA.</string>
     <string name="sec_ety">Origin</string>
     <string name="sec_ety_d">Where the word comes from (etymology).</string>
+    <string name="ai_answers">Answers</string>
+    <string name="ak_note">What the Analysis and Context tabs ask the AI for. More parts — a longer answer, a little slower and dearer; answers saved before stay until a part changes.</string>
+    <string name="ak_grammar">Grammar</string>
+    <string name="ak_grammar_d">The form and how it is built; for a phrase, its constructions and the rule.</string>
+    <string name="ak_words">Words</string>
+    <string name="ak_words_d">Harder words of a phrase; for a word, its synonyms and related words.</string>
+    <string name="ak_related">Related words</string>
+    <string name="ak_related_d">Words of the same root: prefixed verbs, phrasal verbs, derived words.</string>
+    <string name="ak_synonyms">Synonyms and antonyms</string>
+    <string name="ak_synonyms_d">How the close words differ, opposites marked ≠.</string>
+    <string name="ak_explanation">Explanation</string>
+    <string name="ak_explanation_d">What it means here, register, nuances.</string>
+    <string name="ak_examples">Examples</string>
+    <string name="ak_examples_d">Three everyday sentences with their translation.</string>
+    <string name="ak_idioms">Expressions and proverbs</string>
+    <string name="ak_idioms_d">Set phrases and idioms with the word and their meaning.</string>
+    <string name="ak_origin">Origin</string>
+    <string name="ak_origin_d">Where the word comes from, with a link to remember it.</string>
 </resources>

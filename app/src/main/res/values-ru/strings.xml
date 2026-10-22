@@ -319,4 +319,22 @@
     <string name="sec_forms_d">Таблица форм и транскрипция (IPA).</string>
     <string name="sec_ety">Происхождение</string>
     <string name="sec_ety_d">Откуда слово (этимология).</string>
+    <string name="ai_answers">Ответы</string>
+    <string name="ak_note">Что вкладки «Разбор» и «Контекст» просят у ИИ. Больше частей — длиннее ответ, чуть медленнее и дороже; сохранённые ответы остаются, пока набор частей не изменится.</string>
+    <string name="ak_grammar">Грамматика</string>
+    <string name="ak_grammar_d">Форма и как она устроена; для фразы — конструкции и правило.</string>
+    <string name="ak_words">Слова</string>
+    <string name="ak_words_d">Трудные слова фразы; для слова — синонимы и родственные.</string>
+    <string name="ak_related">Однокоренные</string>
+    <string name="ak_related_d">Слова того же корня: глаголы с приставками, фразовые глаголы, производные.</string>
+    <string name="ak_synonyms">Синонимы и антонимы</string>
+    <string name="ak_synonyms_d">Чем близкие слова отличаются, антонимы с ≠.</string>
+    <string name="ak_explanation">Пояснение</string>
+    <string name="ak_explanation_d">Что значит здесь, стиль, оттенки.</string>
+    <string name="ak_examples">Примеры</string>
+    <string name="ak_examples_d">Три бытовых предложения с переводом.</string>
+    <string name="ak_idioms">Выражения и пословицы</string>
+    <string name="ak_idioms_d">Устойчивые обороты и идиомы со словом и их смысл.</string>
+    <string name="ak_origin">Происхождение</string>
+    <string name="ak_origin_d">Откуда слово, с зацепкой для запоминания.</string>
 </resources>

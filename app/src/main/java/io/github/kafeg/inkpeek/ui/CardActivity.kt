@@ -84,7 +84,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         // Static hooks: they hold the application's preferences, not this activity.
-        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) } }
+        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) }; Ai.picked = { p.aiKey(it) } }
         if (query.isEmpty()) { finish(); return }
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }

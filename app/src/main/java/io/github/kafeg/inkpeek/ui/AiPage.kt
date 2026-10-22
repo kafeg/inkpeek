@@ -40,12 +40,14 @@ class AiPage(private val card: CardActivity) {
     /** Markdown of a tab from its answer. */
     fun render(tab: String, j: JSONObject): String {
         val kind = card.kind; val s = { id: Int -> card.getString(id) }
+        fun list(k: String) = j.optJSONArray(k)?.let { a -> (0 until a.length()).joinToString("\n") { "- " + a.optString(it).trim().removePrefix("- ") } }.orEmpty()
+        fun pairs(k: String) = j.optJSONArray(k)?.let { a -> (0 until a.length()).mapNotNull { a.optJSONObject(it) }
+            .joinToString("\n") { e -> "- " + e.str("text") + "\n*" + e.str("translation") + "*" } }.orEmpty()
         return when (tab) {
             "analysis" -> sections(s(R.string.sec_grammar) to j.str("grammar"),
-                s(R.string.sec_words) to j.optJSONArray("words")?.let { a -> (0 until a.length()).joinToString("\n") { "- " + a.optString(it).trim().removePrefix("- ") } }.orEmpty())
+                s(R.string.sec_words) to list("words"), s(R.string.sec_rel) to list("related"), s(R.string.sec_syn) to list("synonyms"))
             "context" -> sections(s(R.string.sec_explanation) to j.str("explanation"),
-                s(R.string.sec_examples) to j.optJSONArray("examples")?.let { a -> (0 until a.length()).mapNotNull { a.optJSONObject(it) }
-                    .joinToString("\n") { e -> "- " + e.str("text") + "\n*" + e.str("translation") + "*" } }.orEmpty())
+                s(R.string.sec_examples) to pairs("examples"), s(R.string.sec_expr) to pairs("idioms"), s(R.string.sec_ety) to j.str("origin"))
             else -> {
                 // Translate by AI: its view of the word ("das Haus · die Häuser", the verb's forms, irregular), the translation.
                 val facts = if (kind != Kind.WORD) "" else j.str("forms").ifBlank {

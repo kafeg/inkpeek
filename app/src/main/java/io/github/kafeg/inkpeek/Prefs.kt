@@ -88,6 +88,8 @@ class Prefs(private val ctx: Context) {
     var packDicts: Boolean get() = sp.getBoolean("pack_dicts", true); set(v) = sp.edit().putBoolean("pack_dicts", v).apply()
     var packGrammar: Boolean get() = sp.getBoolean("pack_grammar", true); set(v) = sp.edit().putBoolean("pack_grammar", v).apply()
     /** The rows under a pack's article (milestone 17): rel, syn, expr, forms on; origin off. */
+    fun aiKey(k: String): Boolean? = if (sp.contains("ai_key_$k")) sp.getBoolean("ai_key_$k", true) else null
+    fun setAiKey(k: String, on: Boolean) = sp.edit().putBoolean("ai_key_$k", on).apply()
     fun packSection(k: String) = sp.getBoolean("pack_sec_$k", k != "ety")
     fun setPackSection(k: String, on: Boolean) = sp.edit().putBoolean("pack_sec_$k", on).apply()
     var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()

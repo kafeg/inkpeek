@@ -28,7 +28,7 @@ class AiSettings(private val a: MainActivity) {
     fun build(t: LinearLayout) {
         val main = Ink.vertical(a); val prompts = Ink.vertical(a); val help = Ink.vertical(a)
         Rows.subTabs(a, t, listOf(Triple("main", a.getString(R.string.card_main), main), Triple("prompts", a.getString(R.string.ai_prompts), prompts),
-            Triple("help", a.getString(R.string.tab_help), help)), a.open["ai"] ?: "main") { a.open["ai"] = it }
+            Triple("help", a.getString(R.string.ai_answers), help)), a.open["ai"] ?: "main") { a.open["ai"] = it }
         buildMain(main); promptList = prompts; refreshPrompts(); buildHelp(help)
     }
 
@@ -128,6 +128,16 @@ class AiSettings(private val a: MainActivity) {
 
     // --- Help ---
     private fun buildHelp(t: LinearLayout) {
+        // What the AI tabs ask for: a key per row, its explanation under it.
+        t.addView(Rows.note(a, a.getString(R.string.ak_note)))
+        listOf(Ask.ANALYSIS to R.string.a_analysis, Ask.CONTEXT to R.string.a_context).forEach { (ask, title) ->
+            t.addView(Ink.text(a, a.getString(title), 17f, bold = true), Ink.lp().apply { topMargin = Ink.dp(a, 12) })
+            ask.keys.forEach { k ->
+                val id = "${ask.section}.${k.name}"
+                val (title, about) = KEYS[k.name] ?: return@forEach
+                t.addView(Rows.check(a, a.getString(title), a.getString(about), prefs.aiKey(id) ?: !k.extra) { prefs.setAiKey(id, it) })
+            }
+        }
         listOf(R.string.aih_what_t to R.string.aih_what, R.string.prompt_quick_t to R.string.aih_translate, R.string.a_analysis to R.string.aih_analysis,
             R.string.a_context to R.string.aih_context, R.string.aih_send_t to R.string.aih_send, R.string.aih_keys_t to R.string.aih_keys,
             R.string.aih_local_t to R.string.aih_local, R.string.aih_free_t to R.string.aih_free).forEachIndexed { i, (title, about) ->
@@ -185,5 +195,13 @@ class AiSettings(private val a: MainActivity) {
         })
         freeOnly.setOnCheckedChangeListener { _, _ -> apply() }
         list.setOnItemClickListener { _, _, i, _ -> prefs.setModel(p, shown[i].id); dlg.dismiss(); done() }
+    }
+
+    companion object {
+        /** An answer key's title and explanation (AI → Answers). */
+        private val KEYS = mapOf("grammar" to (R.string.ak_grammar to R.string.ak_grammar_d), "words" to (R.string.ak_words to R.string.ak_words_d),
+            "related" to (R.string.ak_related to R.string.ak_related_d), "synonyms" to (R.string.ak_synonyms to R.string.ak_synonyms_d),
+            "explanation" to (R.string.ak_explanation to R.string.ak_explanation_d), "examples" to (R.string.ak_examples to R.string.ak_examples_d),
+            "idioms" to (R.string.ak_idioms to R.string.ak_idioms_d), "origin" to (R.string.ak_origin to R.string.ak_origin_d))
     }
 }

@@ -67,8 +67,8 @@ data class Action(val id: String) {
     companion object { val ALL = listOf(Action("analysis"), Action("context")) }
 }
 
-/** One key of an AI answer: its [name] and JSON type are fixed, [about] (what to write there) can be edited. */
-data class Key(val name: String, val type: String, val about: String)
+/** One key of an AI answer: its [name] and JSON type are fixed, [about] (what to write there) can be edited; [extra]: off until picked. */
+data class Key(val name: String, val type: String, val about: String, val extra: Boolean = false)
 
 /**
  * The AI requests, each answered as one JSON object: [QUICK] for Translate (head facts + translation), [ANALYSIS] and
@@ -101,25 +101,37 @@ enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val max
             "matters, up to 10 lines."),
         Key("words", "a", "a phrase or a passage: the words a learner may not know, \"**base form** — short meaning\" each (at most " +
             "20 for a passage), very common words skipped; a single word: its **base form**, 2–3 synonyms and related words, " +
-            "each \"**word** — short meaning\".")), "", 3000),
+            "each \"**word** — short meaning\"."),
+        Key("related", "a", "words of the same root in the text's own language, the most useful first (German: prefixed verbs " +
+            "like anmachen, zumachen; English: phrasal verbs, derived words), at most 8, \"**word** — short meaning\" each; " +
+            "[] for a passage.", extra = true),
+        Key("synonyms", "a", "synonyms, then antonyms marked \"≠\", in the text's own language, at most 6, \"**word** — how it " +
+            "differs\" each; [] for a passage.", extra = true)), "", 3000),
     CONTEXT("Answer with one JSON object, these keys only; text in {lang} with light Markdown " +
         "(**bold**, *italic*), no headings: the app adds them.", listOf(
         Key("explanation", "s", "what it means here, register, idioms and nuances; a passage: what happens and what is implied, " +
             "briefly."),
         Key("examples", "e", "a word or phrase: 3 short everyday sentences in the text's own language with it in **bold**, each " +
-            "with its translation into {lang}; [] for a passage.")), "", 3000);
+            "with its translation into {lang}; [] for a passage."),
+        Key("idioms", "e", "set expressions, idioms and proverbs with the word in the text's own language, the common ones, at " +
+            "most 5, with **the word** in bold, each with its meaning in {lang}; [] for a passage.", extra = true),
+        Key("origin", "s", "where the word comes from, in 1–3 sentences, and a memorable link to a word the reader may know; " +
+            "\"\" for a passage.", extra = true)), "", 3000);
+
+    /** The keys asked now: the picked ones (AI → Answers), the default ones when none is picked. */
+    val active: List<Key> get() = keys.filter { k -> Ai.picked("$section.${k.name}") ?: !k.extra }.ifEmpty { keys.filter { !it.extra } }
 
     /** The prompt with the edited abouts ([edited]: "analysis.grammar" → text, null — the original). */
     fun prompt(edited: (String) -> String? = { null }): String = "Selected text: «{text}». $intro\n" +
-        keys.joinToString("\n") { k -> "- ${k.name}: " + (edited("$section.${k.name}") ?: k.about) } + if (tail.isEmpty()) "" else "\n$tail"
+        active.joinToString("\n") { k -> "- ${k.name}: " + (edited("$section.${k.name}") ?: k.about) } + if (tail.isEmpty()) "" else "\n$tail"
 
-    /** The original prompt's, without SYSTEM: an edit keeps the saved answers (the owner's choice); a new app's prompt asks again. */
+    /** The original prompt's, without SYSTEM: an edit keeps the saved answers (the owner's choice); a new app's prompt or other picked keys ask again. */
     val version: Int get() = prompt().hashCode()
     val section: String get() = name.lowercase()
 
     /** JSON Schema for structured outputs: every key required, no others. */
-    fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to keys.map { it.name },
-        "properties" to keys.associate { k -> k.name to when (k.type) { "b" -> mapOf("type" to "boolean")
+    fun schema(): Map<String, Any> = mapOf("type" to "object", "additionalProperties" to false, "required" to active.map { it.name },
+        "properties" to active.associate { k -> k.name to when (k.type) { "b" -> mapOf("type" to "boolean")
             "a" -> mapOf("type" to "array", "items" to mapOf("type" to "string"))
             "e" -> mapOf("type" to "array", "items" to mapOf("type" to "object", "additionalProperties" to false, "required" to listOf("text", "translation"),
                 "properties" to mapOf("text" to mapOf("type" to "string"), "translation" to mapOf("type" to "string"))))
@@ -142,6 +154,8 @@ object Ai {
         "not the sentence around it: do not guess a context (a preposition, a speaker) that is not in the text."
     /** Edited prompt parts ("system", "analysis.grammar"); set by the app from its settings. */
     var edited: (String) -> String? = { null }
+    /** Whether an answer key is picked ("analysis.related"), null — its default; set by the app from its settings. */
+    var picked: (String) -> Boolean? = { null }
     private fun system(lang: String) = (edited("system") ?: SYSTEM).replace("{lang}", lang)
     // The answer comes in one piece, so the read timeout must cover the whole generation.
     private val http = OkHttpClient.Builder().callTimeout(45, TimeUnit.SECONDS).readTimeout(45, TimeUnit.SECONDS).build()
