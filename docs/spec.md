@@ -119,8 +119,9 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
-Four sections with three tabs each (milestone 14.4): Languages (InkPeek · Other dictionaries · Help), AI (Main ·
-Prompts · Help), Card (Main · Appearance · Icons), Notes (Words · Phrases · History). The status line on top, the
+Four sections with three tabs each (milestone 14.4), in the order of setting up: Languages (InkPeek · Other
+dictionaries · Help), Card (Main: language, theme, dictionary view and order, phrases · Appearance: size, place, text,
+font › · Icons: which are shown, what each does), AI (Main · Prompts · Help), Notes (Words · Phrases · History). The status line on top, the
 version on its right (About). UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system
 language by default. The app language is also the answer language.
 

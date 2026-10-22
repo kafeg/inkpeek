@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** Settings in four sections (Languages, AI, Card, Notes), each with three tabs; one class per section. */
+/** Settings in four sections (Languages, Card, AI, Notes), each with three tabs; one class per section. */
 class MainActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs
     private lateinit var status: TextView
@@ -80,7 +80,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
         // Tabs with shrunk labels (a narrow screen) must not drop to a shared text baseline: their bottoms got cut.
         val bar = Ink.horizontal(this).apply { isBaselineAligned = false }
-        listOf(R.string.tab_dicts, R.string.tab_ai, R.string.tab_card, R.string.tab_words).forEachIndexed { i, t ->
+        listOf(R.string.tab_dicts, R.string.tab_card, R.string.tab_ai, R.string.tab_words).forEachIndexed { i, t ->
             sections[t] = Ink.vertical(this)
             val b = Ink.tab(this, getString(t), 18f) { show(t) }
             sectionButtons[t] = b
