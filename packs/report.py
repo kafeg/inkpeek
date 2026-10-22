@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""The README's table of language packs, from what is published: packs.json and the dictionaries of release "packs".
+"""The table of language packs (docs/languages.md), from what is published: packs.json and the dictionaries of release "packs".
 
   python3 packs/report.py --work /tmp/packs-report            # prints the table
-  python3 packs/report.py --work /tmp/packs-report --readme README.md   # rewrites it between the markers
+  python3 packs/report.py --work /tmp/packs-report --readme docs/languages.md   # rewrites it between the markers
 
 Coverage: the share of the book language's 5,000 most frequent words (FrequencyWords, OpenSubtitles 2018, letters only)
 that the pair's dictionary knows, as a headword or an inflected form.
@@ -95,12 +95,13 @@ def table(work):
             src.append(f"{st['wiktionary']:,} from {NAMES[y]} Wiktionary")
         if st.get("wikdict"):
             src.append(f"{st['wikdict']:,} from WikDict")
-        rows.append(f"| {NAMES[x]} → {NAMES[y]} | **{cover * 100:.0f}%** | {st.get('words', 0):,} words, {st.get('forms', 0):,} forms "
+        label = "full" if cover >= 0.85 and all(models) else "basic" if cover >= 0.6 else "experimental"
+        rows.append(f"| {NAMES[x]} → {NAMES[y]} | **{cover * 100:.0f}%** {label} | {st.get('words', 0):,} words, {st.get('forms', 0):,} forms "
                     f"| {'; '.join(src)} | {route} ({kinds}) | {mb(size)} |")
-    head = ("| pair (book → answers) | top-5,000 coverage | dictionary | where the articles come from | offline translation "
+    head = ("| pair (book → answers) | top-5,000 coverage, label | dictionary | where the articles come from | offline translation "
             "(Mozilla model) | download |\n|---|---|---|---|---|---|")
     return head + "\n" + "\n".join(rows) + f"\n\n<sub>Packs of {manifest.get('generated', '?')}; table made by "\
-        "[`packs/report.py`](packs/report.py). Download: the dictionary, the models of the route (shared between pairs) and "\
+        "[`packs/report.py`](../packs/report.py). Download: the dictionary, the models of the route (shared between pairs) and "\
         "language identification (1 MB).</sub>"
 
 

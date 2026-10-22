@@ -32,8 +32,8 @@ On a device the app itself is tested on the installed packs: `scripts/device-tes
 words and their forms per pair, language identification, offline translation; cases in
 `app/src/androidTest/assets/cases.tsv`).
 
-The table of pairs in the project's README (coverage of the 5,000 most frequent words, sources, models, sizes) is made
-from the published packs: `python3 packs/report.py --work /tmp/packs-report --readme README.md`.
+The table of pairs in `docs/languages.md` (coverage of the 5,000 most frequent words, sources, models, sizes) is made
+from the published packs: `python3 packs/report.py --work /tmp/packs-report --readme docs/languages.md`.
 
 ## Translation models
 `.github/workflows/mt.yml` (manual): builds marian-conv and the bergamot CLI from the app's Bergamot (int8 packing is
