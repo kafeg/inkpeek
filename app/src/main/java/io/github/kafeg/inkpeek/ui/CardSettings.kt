@@ -63,7 +63,8 @@ class CardSettings(private val a: MainActivity) {
 
     /** The card's font: Android's three, the fonts found on the device, "Choose a file…" (copied to InkPeek/fonts). */
     private fun fontRow(t: LinearLayout) {
-        val files = Fonts.found().map { it.path }
+        // The font in use is always listed, even when another folder has one of the same name.
+        val files = Fonts.found().map { it.path }.let { f -> if ('/' in prefs.cardFont && prefs.cardFont !in f && java.io.File(prefs.cardFont).exists()) f + prefs.cardFont else f }
         val ids = listOf("", "serif", "monospace") + files
         val names = listOf(R.string.font_sans, R.string.font_serif, R.string.font_mono).map { a.getString(it) } +
             files.map { Fonts.name(java.io.File(it)) } + a.getString(R.string.font_file)

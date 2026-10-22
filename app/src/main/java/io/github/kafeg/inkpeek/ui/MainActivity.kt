@@ -176,8 +176,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     /** A path on shared storage as people see it: "koreader/data/dict". */
     fun short(f: File) = f.path.removePrefix(Environment.getExternalStorageDirectory().path + "/")
 
-    fun edit(hint: String, value: String, secret: Boolean = false, save: ((String) -> Unit)? = null) =
-        EditText(this).apply {
+    fun edit(hint: String, value: String, secret: Boolean = false, ctx: android.content.Context = this, save: ((String) -> Unit)? = null) =
+        EditText(ctx).apply {
             this.hint = hint; setText(value); textSize = 17f; setSingleLine()
             imeOptions = android.view.inputmethod.EditorInfo.IME_ACTION_DONE
             setOnEditorActionListener { v, _, _ -> save?.invoke(text.toString()); hideKeyboard(); v.clearFocus(); true }

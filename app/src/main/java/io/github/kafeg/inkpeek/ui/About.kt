@@ -15,9 +15,10 @@ object About {
     private const val GITHUB = "https://github.com/kafeg/inkpeek"
 
     fun show(a: MainActivity) {
-        val box = Ink.vertical(a).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
-        val state = Ink.text(a, "", 15f)
-        val action = Ink.button(a, "", Rows.BUTTON) {}
+        val p = Ink.paper(a)
+        val box = Ink.vertical(p).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
+        val state = Ink.text(p, "", 15f)
+        val action = Ink.button(p, "", Rows.BUTTON) {}
         var dlg: AlertDialog? = null
         fun fill() {
             val newer = Updates.newer(a)
@@ -40,14 +41,14 @@ object About {
                 }
             }
         }
-        box.addView(Ink.text(a, "InkPeek " + Updates.versionName(a), 20f, bold = true))
-        box.addView(Ink.text(a, a.getString(R.string.about_text), 15f), Ink.lp().apply { topMargin = Ink.dp(a, 6) })
+        box.addView(Ink.text(p, "InkPeek " + Updates.versionName(a), 20f, bold = true))
+        box.addView(Ink.text(p, a.getString(R.string.about_text), 15f), Ink.lp().apply { topMargin = Ink.dp(a, 6) })
         box.addView(state, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
         box.addView(action, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
-        box.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), a.prefs.updateCheck) { a.prefs.updateCheck = it })
-        box.addView(Ink.text(a, a.getString(R.string.licenses), 13.5f), Ink.lp().apply { topMargin = Ink.dp(a, 14) })
+        box.addView(Rows.check(p, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), a.prefs.updateCheck) { a.prefs.updateCheck = it })
+        box.addView(Ink.text(p, a.getString(R.string.licenses), 13.5f), Ink.lp().apply { topMargin = Ink.dp(a, 14) })
         fill()
-        dlg = AlertDialog.Builder(a).setView(ScrollView(a).apply { addView(box) })
+        dlg = AlertDialog.Builder(a).setView(ScrollView(p).apply { addView(box) })
             .setNeutralButton("GitHub") { _, _ -> runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB))) } }
             .setPositiveButton(R.string.close, null).show()
     }

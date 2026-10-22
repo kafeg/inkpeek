@@ -142,7 +142,7 @@ object Rows {
         /** Cancel stops the download; Hide closes the dialog and leaves it running; at the end only Close stays. */
         fun show() {
             if (d?.isShowing == true) return
-            text = Ink.text(a, Downloads.status, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
+            text = Ink.text(Ink.paper(a), Downloads.status, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
             d = AlertDialog.Builder(a).setView(text).setCancelable(false).setPositiveButton(R.string.hide, null)
                 .setNegativeButton(R.string.cancel_download, null).show()
             // Cancel keeps the dialog: it shows "Cancelled" when the download has stopped.
@@ -154,7 +154,7 @@ object Rows {
             if (Downloads.busy) { text?.text = Downloads.status; return }
             val r = Downloads.result ?: return; Downloads.result = null
             // The outcome in a dialog of its own with one button: a hidden Cancel left an uneven frame.
-            if (d?.isShowing == true) { d?.dismiss(); d = AlertDialog.Builder(a).setView(Ink.text(a, r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
+            if (d?.isShowing == true) { d?.dismiss(); d = AlertDialog.Builder(a).setView(Ink.text(Ink.paper(a), r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
                     .setPositiveButton(R.string.close, null).show()
             } else android.widget.Toast.makeText(a, r, android.widget.Toast.LENGTH_LONG).show()
         }

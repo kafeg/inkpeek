@@ -17,7 +17,7 @@ import android.widget.TextView
 /** E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples or colors. */
 object Ink {
     /** White on black (Card → Main → Theme: dark, or the system's night mode), for the whole app. */
-    fun dark(ctx: Context) = when (Prefs(ctx).theme) {
+    fun dark(ctx: Context) = ctx !is Paper && when (Prefs(ctx).theme) {
         "dark" -> true
         "system" -> ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
         else -> false
@@ -27,6 +27,10 @@ object Ink {
 
     fun fg(ctx: Context) = if (dark(ctx)) Color.WHITE else Color.BLACK
     fun bg(ctx: Context) = if (dark(ctx)) Color.BLACK else Color.WHITE
+
+    /** Black on white whatever the theme: dialog content (Boox draws every dialog's frame white, ignoring the app's theme). */
+    class Paper(base: Context) : android.view.ContextThemeWrapper(base, io.github.kafeg.inkpeek.R.style.Theme_InkPeek)
+    fun paper(ctx: Context) = Paper(ctx)
 
     /** A screen in the theme: called before its onCreate. */
     fun theme(a: android.app.Activity, card: Boolean = false) = a.setTheme(when {

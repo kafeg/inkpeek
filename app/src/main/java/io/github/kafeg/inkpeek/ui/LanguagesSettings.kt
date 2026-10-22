@@ -157,7 +157,7 @@ class LanguagesSettings(private val a: MainActivity) {
 
     /** A folder from the system picker; without one (some readers' firmware), its path typed in. */
     private fun pickFolder() = runCatching { a.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE), FOLDER) }.onFailure {
-        val path = a.edit(a.getString(R.string.folder_hint), prefs.dictsDir.path)
+        val path = a.edit(a.getString(R.string.folder_hint), prefs.dictsDir.path, ctx = Ink.paper(a))
         AlertDialog.Builder(a).setTitle(R.string.change_folder).setView(path)
             .setPositiveButton(android.R.string.ok) { _, _ -> File(path.text.toString().trim()).let { f -> if (f.isDirectory) setFolder(f) else a.toast(a.getString(R.string.failed, f.path)) } }
             .setNegativeButton(R.string.cancel, null).show()
