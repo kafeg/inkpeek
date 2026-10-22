@@ -110,7 +110,7 @@
     <string name="look_save">Salvare parole</string>
     <string name="look_save_d">Le icone ☆ e Note; la cronologia resta comunque.</string>
     <string name="look_theme">Tema</string>
-    <string name="look_theme_d">Chiaro, scuro (bianco su nero) o come la modalità notte di Android.</string>
+    <string name="look_theme_d">Chiaro, scuro (bianco su nero) o come la modalità notte di Android: la scheda e le impostazioni.</string>
     <string name="theme_light">Chiaro</string>
     <string name="theme_dark">Scuro</string>
     <string name="theme_system">Come il sistema</string>
@@ -267,4 +267,11 @@
     <string name="up">Su</string>
     <string name="down">Giù</string>
     <string name="prev">Precedente</string>
+    <string name="look_font">Carattere</string>
+    <string name="look_font_d">Il testo della scheda; i tuoi da fonts/, koreader/fonts o da un file.</string>
+    <string name="font_sans">Senza grazie</string>
+    <string name="font_serif">Con grazie</string>
+    <string name="font_mono">Monospaziato</string>
+    <string name="font_file">Scegli un file…</string>
+    <string name="font_bad">InkPeek non può leggere questo carattere: %1$s</string>
 </resources>

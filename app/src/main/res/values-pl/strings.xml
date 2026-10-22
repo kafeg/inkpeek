@@ -110,7 +110,7 @@
     <string name="look_save">Zapisywanie słów</string>
     <string name="look_save_d">Ikony ☆ i Notatki; historia jest prowadzona zawsze.</string>
     <string name="look_theme">Motyw</string>
-    <string name="look_theme_d">Jasny, ciemny (biały na czarnym) lub jak tryb nocny Androida.</string>
+    <string name="look_theme_d">Jasny, ciemny (biały na czarnym) lub jak tryb nocny Androida: karta i ustawienia.</string>
     <string name="theme_light">Jasny</string>
     <string name="theme_dark">Ciemny</string>
     <string name="theme_system">Jak w systemie</string>
@@ -267,4 +267,11 @@
     <string name="up">W górę</string>
     <string name="down">W dół</string>
     <string name="prev">Wstecz</string>
+    <string name="look_font">Czcionka</string>
+    <string name="look_font_d">Tekst karty; własne z fonts/, koreader/fonts lub z pliku.</string>
+    <string name="font_sans">Bezszeryfowa</string>
+    <string name="font_serif">Szeryfowa</string>
+    <string name="font_mono">O stałej szerokości</string>
+    <string name="font_file">Wybierz plik…</string>
+    <string name="font_bad">InkPeek nie może odczytać tej czcionki: %1$s</string>
 </resources>

@@ -35,7 +35,7 @@ class TranslatePage(private val card: CardActivity) {
                     if (k == "ai" && !aiOk) block?.let { card.toast(card.getString(it)) }
                     else { by = k; fill(p) }
                 }
-                if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = 0.35f
+                if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = Ink.OFF
                 p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
             }
             val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
@@ -64,16 +64,16 @@ class TranslatePage(private val card: CardActivity) {
             val lang = r.other ?: r.from
             val offered = lang != null && withContext(Dispatchers.IO) { card.prefs.packs.cachedList() }?.let { io.github.kafeg.inkpeek.packs.Packs.pairs(it) }
                 ?.contains(lang to to) == true
-            out.text = when {
+            out.text = Ink.arrows(card, when {
                 lang != null && offered -> card.getString(R.string.lang_need_pack, Ink.lang(card, lang), Ink.lang(card, to))
                 r.other != null -> card.getString(R.string.lang_unsupported, Locale(r.other).getDisplayLanguage(locale))
                 else -> card.getString(R.string.mt_missing)
-            }
+            }, out.textSize)
             if (card.kind != Kind.WORD) card.dictionary.under(p, this)
             return
         }
         // Which language and how, in small print at the card's bottom: the translation alone in the page.
-        text.fold({ out.text = it; val from = r.from
+        text.fold({ out.text = Ink.arrows(card, it, out.textSize); val from = r.from
             if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Ink.lang(card, from) +
                 if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
             { out.text = it.message ?: it.javaClass.simpleName })

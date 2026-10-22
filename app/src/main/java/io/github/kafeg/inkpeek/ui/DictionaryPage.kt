@@ -70,11 +70,11 @@ class DictionaryPage(private val card: CardActivity) {
         val (dict, list) = hits[i]
         val bar = Ink.horizontal(card).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val side = Ink.dp(card, 40); val many = hits.size > 1
-        if (many) bar.addView(Ink.icon(card, R.drawable.ic_prev, card.getString(R.string.prev), 40) { turn?.invoke(-1) }.apply { alpha = if (i > 0) 1f else 0.3f },
+        if (many) bar.addView(Ink.icon(card, R.drawable.ic_prev, card.getString(R.string.prev), 40) { turn?.invoke(-1) }.apply { alpha = if (i > 0) 1f else Ink.OFF },
             LinearLayout.LayoutParams(side, side))
         bar.addView(Ink.text(card, (if (many) "${i + 1} / ${hits.size} · " else "") + card.source(dict), card.size * 0.72f, bold = true)
             .apply { gravity = android.view.Gravity.CENTER; maxLines = 2 }, Ink.lp(0, weight = 1f).apply { leftMargin = Ink.dp(card, 8); rightMargin = Ink.dp(card, 8) })
-        if (many) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (i < hits.size - 1) 1f else 0.3f },
+        if (many) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (i < hits.size - 1) 1f else Ink.OFF },
             LinearLayout.LayoutParams(side, side))
         p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         entries(p, list, word)

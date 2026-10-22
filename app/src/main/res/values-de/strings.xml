@@ -110,7 +110,7 @@
     <string name="look_save">Wörter speichern</string>
     <string name="look_save_d">Die Symbole ☆ und Notizen; der Verlauf wird immer geführt.</string>
     <string name="look_theme">Design</string>
-    <string name="look_theme_d">Hell, dunkel (weiß auf schwarz) oder wie der Nachtmodus von Android.</string>
+    <string name="look_theme_d">Hell, dunkel (weiß auf schwarz) oder wie der Nachtmodus von Android: Karte und Einstellungen.</string>
     <string name="theme_light">Hell</string>
     <string name="theme_dark">Dunkel</string>
     <string name="theme_system">Wie im System</string>
@@ -267,4 +267,11 @@
     <string name="up">Nach oben</string>
     <string name="down">Nach unten</string>
     <string name="prev">Zurück</string>
+    <string name="look_font">Schrift</string>
+    <string name="look_font_d">Text der Karte; eigene aus fonts/, koreader/fonts oder als Datei.</string>
+    <string name="font_sans">Serifenlos</string>
+    <string name="font_serif">Mit Serifen</string>
+    <string name="font_mono">Festbreite</string>
+    <string name="font_file">Datei wählen…</string>
+    <string name="font_bad">Keine Schrift, die InkPeek lesen kann: %1$s</string>
 </resources>

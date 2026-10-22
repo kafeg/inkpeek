@@ -45,12 +45,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
-    /** White on black (Card → Appearance: dark, or the system's night mode); [Ink] reads it for this screen. */
-    val dark: Boolean get() = ::prefs.isInitialized && when (prefs.cardTheme) {
-        "dark" -> true
-        "system" -> resources.configuration.uiMode and android.content.res.Configuration.UI_MODE_NIGHT_MASK == android.content.res.Configuration.UI_MODE_NIGHT_YES
-        else -> false
-    }
     val online: Boolean get() = Net.online(this)
     val answers by lazy { Answers(prefs, store, query) { online } }
     val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) }
@@ -77,6 +71,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Ink.theme(this, card = true)
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
@@ -146,7 +141,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
         launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.ANALYSIS) }
-            actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else 0.35f } }
+            actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else Ink.OFF } }
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
         starButton = star.findViewWithTag("icon")
         if (prefs.cardSave) {
@@ -183,7 +178,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 addView(img, FrameLayout.LayoutParams(side, side))
                 // Clear of the border even when thick (the open tab): 6 dp from the box corner.
                 val m = Ink.dp(this@CardActivity, 6)
-                addView(Ink.text(this@CardActivity, "AI", 9f, bold = true).apply { includeFontPadding = false },
+                addView(Ink.text(this@CardActivity, "AI", 9f, bold = true).apply { includeFontPadding = false; typeface = android.graphics.Typeface.DEFAULT_BOLD },
                     FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.TOP or Gravity.END)
                         .apply { topMargin = m; rightMargin = m })
             }, LinearLayout.LayoutParams(side, side))
@@ -272,7 +267,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
 
-    fun markdown(out: TextView, md: String) { out.text = android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT) }
+    /** An AI answer: its "→" drawn in the middle of the line, as everywhere in the card. */
+    fun markdown(out: TextView, md: String) { out.text = Ink.arrows(this, android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT), out.textSize) }
 
     fun toast(s: String) = android.widget.Toast.makeText(this, s, android.widget.Toast.LENGTH_LONG).show()
 

@@ -58,9 +58,10 @@ object Rows {
         }
 
     /** A setting with a choice: its title and explanation, the drop-down under them. */
-    fun choice(ctx: Context, title: String, about: String, items: List<String>, selected: Int, pick: (Int) -> Unit) = Ink.vertical(ctx).apply {
+    fun choice(ctx: Context, title: String, about: String, items: List<String>, selected: Int, faces: List<android.graphics.Typeface?>? = null,
+               pick: (Int) -> Unit) = Ink.vertical(ctx).apply {
         addView(texts(ctx, title, about))
-        addView(spinner(ctx, items, selected, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 4) })
+        addView(spinner(ctx, items, selected, faces, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 4) })
         layoutParams = gap(ctx)
     }
 
@@ -70,7 +71,7 @@ object Rows {
      */
     fun info(ctx: Context, icon: Int?, title: String, about: String, lines: Int = 2, page: Boolean = false, open: (() -> Unit)? = null) = Ink.horizontal(ctx).apply {
         isBaselineAligned = false
-        if (icon != null) addView(ImageView(ctx).apply { setImageResource(icon) },
+        if (icon != null) addView(ImageView(ctx).apply { setImageResource(icon); setColorFilter(Ink.fg(ctx)) },
             LinearLayout.LayoutParams(Ink.dp(ctx, 28), Ink.dp(ctx, 28)).apply { rightMargin = Ink.dp(ctx, 12); topMargin = Ink.dp(ctx, 2) })
         addView(texts(ctx, title, about, lines), Ink.lp(0, weight = 1f))
         if (open != null) {
@@ -162,8 +163,20 @@ object Rows {
         fun dismiss() { d?.dismiss(); d = null }
     }
 
-    fun spinner(ctx: Context, items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(ctx).apply {
-        adapter = ArrayAdapter(ctx, android.R.layout.simple_spinner_dropdown_item, items)
+    /** A drop-down list; [faces]: each item in its own font (the card's font list), the open list with a sample. */
+    fun spinner(ctx: Context, items: List<String>, selected: Int, faces: List<android.graphics.Typeface?>? = null, onPick: (Int) -> Unit) = Spinner(ctx).apply {
+        adapter = object : ArrayAdapter<String>(ctx, android.R.layout.simple_spinner_dropdown_item, items) {
+            // Our ink and paper, not the system's item box (white on white in the dark theme).
+            fun styled(v: View, i: Int, sample: Boolean) = v.also { t -> (t as? android.widget.TextView)?.let { tv ->
+                tv.setTextColor(Ink.fg(ctx)); tv.background = Ink.border(ctx, 2, if (sample) 0 else 2)
+                if (faces == null) return@let
+                tv.typeface = faces.getOrNull(i) ?: android.graphics.Typeface.DEFAULT
+                if (sample && faces.getOrNull(i) != null) tv.text = items[i] + " · Haus, дом"
+            } }
+            override fun getView(i: Int, v: View?, p: ViewGroup) = styled(super.getView(i, v, p), i, false)
+            override fun getDropDownView(i: Int, v: View?, p: ViewGroup) = styled(super.getDropDownView(i, v, p), i, true)
+        }
+        tag = "spinner"; setPopupBackgroundDrawable(Ink.border(ctx, 3, 2))
         setSelection(selected)
         onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             // Only a real change: a recreated screen reports its selection again (the app language recreates the

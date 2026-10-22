@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 /** Notes in the card: saved words or phrases; tap opens one in the card, ✕ removes it. */
 class WordsPage(private val card: CardActivity) {
     private var kind = "word"
+    private var page = 0
     private var job: Job? = null
 
     fun fill(p: LinearLayout) {
@@ -20,10 +21,13 @@ class WordsPage(private val card: CardActivity) {
                 store.saved(now, lang) to listOf(store.count("saved", "word"), store.count("saved", "phrase"))
             }.getOrNull() } ?: return@launch
             p.addView(Ink.subTabs(card, listOf("word" to card.getString(R.string.list_words) + " (" + counts[0] + ")",
-                "phrase" to card.getString(R.string.list_phrases) + " (" + counts[1] + ")"), now, card.size * 0.75f) { kind = it; fill(p) },
+                "phrase" to card.getString(R.string.list_phrases) + " (" + counts[1] + ")"), now, card.size * 0.75f) { kind = it; page = 0; fill(p) },
                 Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
             if (items.isEmpty()) card.note(p, card.getString(R.string.list_empty_saved))
-            items.forEach { e ->
+            // 50 per page, the pager under them (as in the settings).
+            val pages = (items.size + WordsList.PAGE - 1) / WordsList.PAGE
+            page = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
+            items.drop(page * WordsList.PAGE).take(WordsList.PAGE).forEach { e ->
                 p.addView(WordsList.row(card, e, card.size * 0.85f, { card.startActivity(WordsList.card(card, e.text)) }) {
                     // The activity's scope: this coroutine is over by the time of the tap.
                     Rows.confirm(card, card.getString(R.string.unsave_q, e.text)) { card.launch {
@@ -33,6 +37,8 @@ class WordsPage(private val card: CardActivity) {
                     } }
                 })
             }
+            if (pages > 1) p.addView(WordsList.pager(card, page, items.size, card.size * 0.75f) { page = it; fill(p); card.scrollTop() },
+                Ink.lp().apply { topMargin = Ink.dp(card, 10) })
         }
     }
 }

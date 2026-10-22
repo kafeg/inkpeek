@@ -110,7 +110,7 @@
     <string name="look_save">Сохранение слов</string>
     <string name="look_save_d">Значки ☆ и «Записи»; история ведётся в любом случае.</string>
     <string name="look_theme">Тема</string>
-    <string name="look_theme_d">Светлая, тёмная (белым по чёрному) или как ночной режим Android.</string>
+    <string name="look_theme_d">Светлая, тёмная (белым по чёрному) или как ночной режим Android: карточка и настройки.</string>
     <string name="theme_light">Светлая</string>
     <string name="theme_dark">Тёмная</string>
     <string name="theme_system">Как в системе</string>
@@ -267,4 +267,11 @@
     <string name="up">Выше</string>
     <string name="down">Ниже</string>
     <string name="prev">Назад</string>
+    <string name="look_font">Шрифт</string>
+    <string name="look_font_d">Текст карточки; свои — из fonts/, koreader/fonts или файлом.</string>
+    <string name="font_sans">Без засечек</string>
+    <string name="font_serif">С засечками</string>
+    <string name="font_mono">Моноширинный</string>
+    <string name="font_file">Выбрать файл…</string>
+    <string name="font_bad">Этот шрифт InkPeek прочитать не может: %1$s</string>
 </resources>

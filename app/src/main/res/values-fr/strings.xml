@@ -110,7 +110,7 @@
     <string name="look_save">Enregistrer des mots</string>
     <string name="look_save_d">Les icônes ☆ et Notes ; l\'historique est gardé dans tous les cas.</string>
     <string name="look_theme">Thème</string>
-    <string name="look_theme_d">Clair, sombre (blanc sur noir) ou selon le mode nuit d\'Android.</string>
+    <string name="look_theme_d">Clair, sombre (blanc sur noir) ou selon le mode nuit d\'Android : la fiche et les réglages.</string>
     <string name="theme_light">Clair</string>
     <string name="theme_dark">Sombre</string>
     <string name="theme_system">Comme le système</string>
@@ -267,4 +267,11 @@
     <string name="up">Monter</string>
     <string name="down">Descendre</string>
     <string name="prev">Précédent</string>
+    <string name="look_font">Police</string>
+    <string name="look_font_d">Le texte de la fiche ; les vôtres depuis fonts/, koreader/fonts ou un fichier.</string>
+    <string name="font_sans">Sans empattement</string>
+    <string name="font_serif">Avec empattement</string>
+    <string name="font_mono">Chasse fixe</string>
+    <string name="font_file">Choisir un fichier…</string>
+    <string name="font_bad">Police illisible pour InkPeek : %1$s</string>
 </resources>

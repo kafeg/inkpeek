@@ -111,7 +111,7 @@
     <string name="look_save">Saving words</string>
     <string name="look_save_d">The ☆ and Notes icons; the history is kept either way.</string>
     <string name="look_theme">Theme</string>
-    <string name="look_theme_d">Light, dark (white on black) or as Android\'s night mode.</string>
+    <string name="look_theme_d">Light, dark (white on black) or as Android\'s night mode: the card and the settings.</string>
     <string name="theme_light">Light</string>
     <string name="theme_dark">Dark</string>
     <string name="theme_system">As in the system</string>
@@ -268,4 +268,11 @@
     <string name="up">Up</string>
     <string name="down">Down</string>
     <string name="prev">Previous</string>
+    <string name="look_font">Font</string>
+    <string name="look_font_d">The card\'s text; your own from fonts/, koreader/fonts or a file.</string>
+    <string name="font_sans">Sans serif</string>
+    <string name="font_serif">Serif</string>
+    <string name="font_mono">Monospace</string>
+    <string name="font_file">Choose a file…</string>
+    <string name="font_bad">Not a font InkPeek can read: %1$s</string>
 </resources>

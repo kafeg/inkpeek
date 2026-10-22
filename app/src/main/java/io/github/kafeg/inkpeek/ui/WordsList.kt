@@ -17,6 +17,20 @@ object WordsList {
         addView(Ink.button(ctx, "✕", sp * 0.9f) { remove() })
     }
 
+    const val PAGE = 50
+
+    /** ◀ "51–100 of 230" ▶ under a long list; [turn] gets the new page. */
+    fun pager(ctx: Context, page: Int, total: Int, sp: Float, turn: (Int) -> Unit) = Ink.horizontal(ctx).apply {
+        gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
+        val pages = (total + PAGE - 1) / PAGE; val side = Ink.dp(ctx, 48)
+        addView(Ink.icon(ctx, io.github.kafeg.inkpeek.R.drawable.ic_prev, ctx.getString(io.github.kafeg.inkpeek.R.string.prev)) { if (page > 0) turn(page - 1) }
+            .apply { alpha = if (page > 0) 1f else Ink.OFF }, android.widget.LinearLayout.LayoutParams(side, side))
+        addView(Ink.text(ctx, ctx.getString(io.github.kafeg.inkpeek.R.string.page_of, page * PAGE + 1, minOf(total, (page + 1) * PAGE), total), sp)
+            .apply { gravity = Gravity.CENTER }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 10); rightMargin = Ink.dp(ctx, 10) })
+        addView(Ink.icon(ctx, io.github.kafeg.inkpeek.R.drawable.ic_next, ctx.getString(io.github.kafeg.inkpeek.R.string.next)) { if (page < pages - 1) turn(page + 1) }
+            .apply { alpha = if (page < pages - 1) 1f else Ink.OFF }, android.widget.LinearLayout.LayoutParams(side, side))
+    }
+
     /** The card for [text]. */
     fun card(ctx: Context, text: String) = android.content.Intent(ctx, CardActivity::class.java)
         .setAction("colordict.intent.action.SEARCH").putExtra("EXTRA_QUERY", text)

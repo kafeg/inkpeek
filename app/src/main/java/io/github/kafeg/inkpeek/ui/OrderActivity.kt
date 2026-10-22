@@ -24,6 +24,7 @@ class OrderActivity : Activity(), CoroutineScope by MainScope() {
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Ink.theme(this)
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         val pad = Ink.dp(this, 16)
@@ -53,9 +54,9 @@ class OrderActivity : Activity(), CoroutineScope by MainScope() {
             r.addView(Rows.texts(this, title(d, lib.isPack(d)), if (lib.isPack(d)) getString(R.string.order_pack) else
                 (d.ifo.parentFile?.parentFile?.let { short(it) } ?: ""), 1), Ink.lp(0, weight = 1f))
             val side = Ink.dp(this, 44)
-            r.addView(Ink.icon(this, R.drawable.ic_up, getString(R.string.up), 44) { move(i, -1) }.apply { alpha = if (i > 0) 1f else 0.3f },
+            r.addView(Ink.icon(this, R.drawable.ic_up, getString(R.string.up), 44) { move(i, -1) }.apply { alpha = if (i > 0) 1f else Ink.OFF },
                 LinearLayout.LayoutParams(side, side).apply { leftMargin = Ink.dp(this@OrderActivity, 8) })
-            r.addView(Ink.icon(this, R.drawable.ic_down, getString(R.string.down), 44) { move(i, 1) }.apply { alpha = if (i < dicts.size - 1) 1f else 0.3f },
+            r.addView(Ink.icon(this, R.drawable.ic_down, getString(R.string.down), 44) { move(i, 1) }.apply { alpha = if (i < dicts.size - 1) 1f else Ink.OFF },
                 LinearLayout.LayoutParams(side, side).apply { leftMargin = Ink.dp(this@OrderActivity, 6) })
             list.addView(r, Ink.lp().apply { topMargin = Ink.dp(this@OrderActivity, 12) })
         }

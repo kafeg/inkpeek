@@ -46,6 +46,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Ink.theme(this)
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         savedInstanceState?.getStringArray("open")?.forEach { open[it.substringBefore('=')] = it.substringAfter('=') }
@@ -73,7 +74,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         probe.setOnEditorActionListener { _, _, _ -> hideKeyboard(); openCard(); true }
         // A magnifier, like any search field: it opens the card for the text (Enter does the same).
         tryRow.addView(ImageView(this).apply {
-            setImageResource(R.drawable.ic_search); background = Ink.border(this@MainActivity); val q = Ink.dp(this@MainActivity, 10); setPadding(q, q, q, q)
+            setImageResource(R.drawable.ic_search); setColorFilter(Ink.fg(this@MainActivity)); background = Ink.border(this@MainActivity); val q = Ink.dp(this@MainActivity, 10); setPadding(q, q, q, q)
             contentDescription = getString(R.string.look_up); tooltipText = contentDescription; setOnClickListener { openCard() }
         }, LinearLayout.LayoutParams(Ink.dp(this, 52), Ink.dp(this, 52)).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
         col.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
@@ -131,7 +132,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     @Deprecated("Plain Activity result: no AndroidX dependency")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && data != null) languages.onResult(requestCode, data)
+        if (resultCode == RESULT_OK && data != null) { languages.onResult(requestCode, data); card.onResult(requestCode, data) }
     }
 
     /** Builds the dictionaries' indexes (in the background), the status line and the Other dictionaries list. */

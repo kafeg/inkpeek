@@ -37,6 +37,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Ink.theme(this)
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         val pad = Ink.dp(this, 16)

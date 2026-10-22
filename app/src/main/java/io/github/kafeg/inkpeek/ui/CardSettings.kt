@@ -5,7 +5,7 @@ import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Action
 
-/** Card: Main (language, dictionaries, phrases, icons), Appearance (size, place, text, theme), Icons (what each one does). */
+/** Card: Main (language, theme, dictionaries, phrases, icons), Appearance (size, place, text, font), Icons (what each one does). */
 class CardSettings(private val a: MainActivity) {
     private val prefs get() = a.prefs
     private var aiRow: android.view.View? = null
@@ -28,6 +28,11 @@ class CardSettings(private val a: MainActivity) {
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(first(Rows.choice(a, a.getString(R.string.ui_lang), a.getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) {
             if (prefs.uiLang != codes[it]) { prefs.uiLang = codes[it]; a.recreate() } }))
+        // The theme of the whole app: the settings are made again in it.
+        val themes = listOf("light", "dark", "system")
+        t.addView(Rows.choice(a, a.getString(R.string.look_theme), a.getString(R.string.look_theme_d),
+            listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { a.getString(it) },
+            themes.indexOf(prefs.theme).coerceAtLeast(0)) { if (prefs.theme != themes[it]) { prefs.theme = themes[it]; a.recreate() } })
         t.addView(Rows.choice(a, a.getString(R.string.card_dict_t), a.getString(R.string.card_dict_d),
             listOf(a.getString(R.string.dict_short), a.getString(R.string.dict_full)), if (prefs.cardFull) 1 else 0) { prefs.cardFull = it == 1 })
         t.addView(Rows.info(a, null, a.getString(R.string.order_t), a.getString(R.string.order_d), page = true) {
@@ -53,11 +58,41 @@ class CardSettings(private val a: MainActivity) {
         val sizes = listOf(16, 18, 20, 22, 24, 26)
         t.addView(Rows.choice(a, a.getString(R.string.look_text), a.getString(R.string.look_text_d), sizes.map { "$it" },
             sizes.indexOf(prefs.cardText).coerceAtLeast(0)) { prefs.cardText = sizes[it] })
-        val themes = listOf("light", "dark", "system")
-        t.addView(Rows.choice(a, a.getString(R.string.look_theme), a.getString(R.string.look_theme_d),
-            listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { a.getString(it) },
-            themes.indexOf(prefs.cardTheme).coerceAtLeast(0)) { prefs.cardTheme = themes[it] })
+        fontRow(t)
     }
+
+    /** The card's font: Android's three, the fonts found on the device, "Choose a file…" (copied to InkPeek/fonts). */
+    private fun fontRow(t: LinearLayout) {
+        val files = Fonts.found().map { it.path }
+        val ids = listOf("", "serif", "monospace") + files
+        val names = listOf(R.string.font_sans, R.string.font_serif, R.string.font_mono).map { a.getString(it) } +
+            files.map { Fonts.name(java.io.File(it)) } + a.getString(R.string.font_file)
+        val now = ids.indexOf(prefs.cardFont).coerceAtLeast(0)
+        lateinit var row: android.view.View
+        row = Rows.choice(a, a.getString(R.string.look_font), a.getString(R.string.look_font_d), names, now,
+            ids.map { Fonts.face(it) ?: android.graphics.Typeface.SANS_SERIF } + listOf(null)) { i ->
+            if (i < ids.size) { prefs.cardFont = ids[i]; return@choice }
+            // "Choose a file…" is not a font: the list goes back to the one in use, the file comes in onResult.
+            row.findViewWithTag<android.widget.Spinner>("spinner")?.setSelection(ids.indexOf(prefs.cardFont).coerceAtLeast(0))
+            runCatching { a.startActivityForResult(android.content.Intent(android.content.Intent.ACTION_OPEN_DOCUMENT)
+                .addCategory(android.content.Intent.CATEGORY_OPENABLE).setType("*/*"), FONT) }
+        }
+        t.addView(row)
+    }
+
+    /** A font file chosen in "Choose a file…": copied, chosen, the list made again. */
+    fun onResult(requestCode: Int, data: android.content.Intent) {
+        if (requestCode != FONT) return
+        val uri = data.data ?: return
+        val name = a.contentResolver.query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c ->
+            if (c.moveToFirst()) c.getString(0) else null } ?: "font.ttf"
+        if (name.substringAfterLast('.').lowercase() !in setOf("ttf", "otf")) { a.toast(a.getString(R.string.font_bad, name)); return }
+        val f = runCatching { a.contentResolver.openInputStream(uri)!!.use { Fonts.keep(prefs.home, name, it) } }.getOrElse { a.toast(a.getString(R.string.failed, it.message)); return }
+        if (Fonts.face(f.path) == null) { f.delete(); a.toast(a.getString(R.string.font_bad, name)); return }
+        prefs.cardFont = f.path; a.recreate()
+    }
+
+    companion object { const val FONT = 3 }
 
     /** Help: each icon of the card, what it does. */
     private fun buildIcons(t: LinearLayout) {

@@ -120,10 +120,13 @@ If another dictionary app answers the same request, Android asks which one to us
 - **Hold a text** to copy, share or search the web: a line of the dictionary list, word by word, Notes or the history
   is selected whole (the handles narrow it); in a translation, an article or an AI answer select any part. A small menu
   of icons opens over it, like FBReader's.
-- **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page).
+- **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page, in
+  the card and in settings).
 - **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
-  cover the word); text size; light, dark (white on black) or as in Android's night mode. Card → Main: the icon bar,
+  cover the word); text size; the font — Android's sans, serif or monospace, or your own `.ttf` / `.otf` (found in
+  `fonts/` and `koreader/fonts`, or chosen as a file). Card → Main: the theme of the whole app — light, dark (white on
+  black) or as in Android's night mode; the icon bar,
   the AI icons and the save icons can each be hidden; the dictionary as short lines or as full articles (◀ ▶ or a
   swipe between dictionaries); **Dictionary order** puts packs and other dictionaries in the order you want.
 - Built for e-ink: black on white, no animations. Languages, AI and Card each have a Help tab.

@@ -110,7 +110,7 @@
     <string name="look_save">Guardar palavras</string>
     <string name="look_save_d">Os ícones ☆ e Notas; o histórico é sempre guardado.</string>
     <string name="look_theme">Tema</string>
-    <string name="look_theme_d">Claro, escuro (branco sobre preto) ou como o modo noturno do Android.</string>
+    <string name="look_theme_d">Claro, escuro (branco sobre preto) ou como o modo noturno do Android: o cartão e as definições.</string>
     <string name="theme_light">Claro</string>
     <string name="theme_dark">Escuro</string>
     <string name="theme_system">Como o sistema</string>
@@ -267,4 +267,11 @@
     <string name="up">Subir</string>
     <string name="down">Descer</string>
     <string name="prev">Anterior</string>
+    <string name="look_font">Fonte</string>
+    <string name="look_font_d">O texto do cartão; as suas de fonts/, koreader/fonts ou de um ficheiro.</string>
+    <string name="font_sans">Sem serifa</string>
+    <string name="font_serif">Com serifa</string>
+    <string name="font_mono">Monoespaçada</string>
+    <string name="font_file">Escolher um ficheiro…</string>
+    <string name="font_bad">O InkPeek não consegue ler esta fonte: %1$s</string>
 </resources>

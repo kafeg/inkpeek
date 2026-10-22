@@ -1,6 +1,8 @@
 package io.github.kafeg.inkpeek.ui
 
 import android.content.Context
+import android.content.res.Configuration
+import io.github.kafeg.inkpeek.Prefs
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
@@ -12,11 +14,25 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 
-/** E-ink styling: black on white (or white on black: the dark card), thin borders, no ripples or colors. */
+/** E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples or colors. */
 object Ink {
-    /** Ink and paper of a screen: the card can be dark (Card → Appearance), the settings never are. */
-    fun fg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.WHITE else Color.BLACK
-    fun bg(ctx: Context) = if ((ctx as? CardActivity)?.dark == true) Color.BLACK else Color.WHITE
+    /** White on black (Card → Main → Theme: dark, or the system's night mode), for the whole app. */
+    fun dark(ctx: Context) = when (Prefs(ctx).theme) {
+        "dark" -> true
+        "system" -> ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
+        else -> false
+    }
+    /** A control that does nothing now (the first page's ◀): dimmed, still seen on e-ink. */
+    const val OFF = 0.45f
+
+    fun fg(ctx: Context) = if (dark(ctx)) Color.WHITE else Color.BLACK
+    fun bg(ctx: Context) = if (dark(ctx)) Color.BLACK else Color.WHITE
+
+    /** A screen in the theme: called before its onCreate. */
+    fun theme(a: android.app.Activity, card: Boolean = false) = a.setTheme(when {
+        card -> if (dark(a)) io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card_Dark else io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card
+        else -> if (dark(a)) io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Dark else io.github.kafeg.inkpeek.R.style.Theme_InkPeek
+    })
 
     /** A language's name in the app's language, capitalized: "Немецкий"; the code when Android has no name for it. */
     fun lang(ctx: Context, code: String): String = java.util.Locale(code).getDisplayLanguage(ctx.resources.configuration.locales[0])
@@ -31,7 +47,9 @@ object Ink {
     fun text(ctx: Context, s: CharSequence, sp: Float, bold: Boolean = false, html: Boolean = false) = TextView(ctx).apply {
         setTextColor(fg(ctx)); setLinkTextColor(fg(ctx)); setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
         text = arrows(ctx, if (html) plain(Html.fromHtml(s.toString(), Html.FROM_HTML_MODE_COMPACT)) else s, textSize)
-        if (bold) typeface = Typeface.DEFAULT_BOLD
+        // The card's text in the font chosen for it (Card → Appearance); the settings in the system's.
+        val face = if (ctx is CardActivity) Fonts.face(ctx.prefs.cardFont) else null
+        if (bold) typeface = Typeface.create(face ?: Typeface.DEFAULT, Typeface.BOLD) else if (face != null) typeface = face
         setLineSpacing(0f, 1.15f); setTextIsSelectable(false)
     }
 
