@@ -14,7 +14,6 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
-import android.widget.Toast
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.stardict.StarDict
@@ -176,8 +175,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     /** A path on shared storage as people see it: "koreader/data/dict". */
     fun short(f: File) = f.path.removePrefix(Environment.getExternalStorageDirectory().path + "/")
 
-    fun edit(hint: String, value: String, secret: Boolean = false, ctx: android.content.Context = this, save: ((String) -> Unit)? = null) =
-        EditText(ctx).apply {
+    fun edit(hint: String, value: String, secret: Boolean = false, save: ((String) -> Unit)? = null) =
+        EditText(this).apply {
             this.hint = hint; setText(value); textSize = 17f; setSingleLine()
             imeOptions = android.view.inputmethod.EditorInfo.IME_ACTION_DONE
             setOnEditorActionListener { v, _, _ -> save?.invoke(text.toString()); hideKeyboard(); v.clearFocus(); true }
@@ -191,7 +190,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         currentFocus?.clearFocus(); window.decorView.findFocus()?.clearFocus()
     }
 
-    fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+    fun toast(s: String) = Ink.toast(this, s)
 
     /** A tap beside a selection ends it and its menu. */
     override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); return super.dispatchTouchEvent(ev) }

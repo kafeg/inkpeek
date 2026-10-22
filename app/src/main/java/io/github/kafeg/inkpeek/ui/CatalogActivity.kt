@@ -1,14 +1,12 @@
 package io.github.kafeg.inkpeek.ui
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.stardict.Catalog
@@ -105,12 +103,11 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     /** One download at a time: while one runs, a tap shows its progress instead. */
     private fun confirm(item: CatalogItem) {
         if (Downloads.busy) { dlg.show(); return }
-        AlertDialog.Builder(this).setTitle("${title(item)}: ${name(item.from)} → ${name(item.to)}")
-            .setMessage(getString(when (item.source) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }) +
+        InkDialog(this).title("${title(item)}: ${name(item.from)} → ${name(item.to)}")
+            .message(getString(when (item.source) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }) +
                 "\n\n${mb(item.size)} · ${item.license}" + (if (prefs.got.any { it.startsWith(item.url + "\t") && it.split('\t').drop(1).any { n -> n in present } }) "\n✓ " + getString(R.string.got_mark) else ""))
-            .setPositiveButton(R.string.download) { _, _ -> Downloads.dict(this, item, "${name(item.from)} → ${name(item.to)}"); dlg.show() }
-            .setNegativeButton(R.string.cancel, null).show()
+            .button(R.string.cancel).button(R.string.download) { Downloads.dict(this, item, "${name(item.from)} → ${name(item.to)}"); dlg.show() }.show()
     }
 
-    private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+    private fun toast(s: String) = Ink.toast(this, s)
 }

@@ -1,11 +1,9 @@
 package io.github.kafeg.inkpeek.ui
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.ListView
 import android.widget.TextView
-import android.widget.Toast
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.packs.Component
@@ -82,13 +80,13 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         if (p in complete()) { toast(getString(R.string.pack_installed)); return }
         if (Downloads.busy) { dlg.show(); return }
         val need = missing(p)
-        AlertDialog.Builder(this).setTitle(title(p)).setMessage(getString(R.string.pack_confirm, (need.sumOf { it.size } / 1_000_000).coerceAtLeast(1)))
-            .setPositiveButton(R.string.download) { _, _ ->
+        InkDialog(this).title(title(p)).message(getString(R.string.pack_confirm, (need.sumOf { it.size } / 1_000_000).coerceAtLeast(1)))
+            .button(R.string.cancel).button(R.string.download) {
                 // The new pair is in use at once.
                 prefs.pairs = prefs.pairs?.plus("${p.first}-${p.second}")
                 Downloads.packs(this, need, emptyList(), getString(R.string.pack_done, title(p))); dlg.show()
-            }.setNegativeButton(R.string.cancel, null).show()
+            }.show()
     }
 
-    private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+    private fun toast(s: String) = Ink.toast(this, s)
 }

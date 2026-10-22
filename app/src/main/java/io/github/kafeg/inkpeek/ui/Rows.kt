@@ -1,6 +1,5 @@
 package io.github.kafeg.inkpeek.ui
 
-import android.app.AlertDialog
 import android.content.Context
 import android.text.TextUtils
 import android.view.Gravity
@@ -101,7 +100,7 @@ object Rows {
 
     /** Every delete asks first. */
     fun confirm(ctx: Context, message: String, yes: Int = R.string.delete, action: () -> Unit) {
-        AlertDialog.Builder(ctx).setMessage(message).setPositiveButton(yes) { _, _ -> action() }.setNegativeButton(R.string.cancel, null).show()
+        InkDialog(ctx).message(message).button(R.string.cancel).button(yes) { action() }.show()
     }
 
     /** Three sub-tabs over [pages]; [open] remembers the choice. */
@@ -136,34 +135,32 @@ object Rows {
 
     /** The running download in a dialog: its progress, then its outcome; closing it leaves the download running. */
     class JobDialog(private val a: android.app.Activity) {
-        private var d: AlertDialog? = null
+        private var d: InkDialog? = null
         private var text: android.widget.TextView? = null
 
         /** Cancel stops the download; Hide closes the dialog and leaves it running; at the end only Close stays. */
         fun show() {
             if (d?.isShowing == true) return
-            text = Ink.text(Ink.paper(a), Downloads.status, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) }
-            d = AlertDialog.Builder(a).setView(text).setCancelable(false).setPositiveButton(R.string.hide, null)
-                .setNegativeButton(R.string.cancel_download, null).show()
+            text = Ink.text(a, Downloads.status, 17f)
             // Cancel keeps the dialog: it shows "Cancelled" when the download has stopped.
-            d?.getButton(AlertDialog.BUTTON_NEGATIVE)?.setOnClickListener { Downloads.cancel(); it.isEnabled = false }
+            d = InkDialog(a).view(text!!).cancelable(false)
+                .button(R.string.cancel_download, keep = true) { it.views[0].isEnabled = false; it.views[0].alpha = Ink.OFF; Downloads.cancel() }
+                .button(R.string.hide).show()
         }
 
         /** On every progress step; the outcome goes into the open dialog, else into a toast. */
         fun update() {
             if (Downloads.busy) { text?.text = Downloads.status; return }
             val r = Downloads.result ?: return; Downloads.result = null
-            // The outcome in a dialog of its own with one button: a hidden Cancel left an uneven frame.
-            if (d?.isShowing == true) { d?.dismiss(); d = AlertDialog.Builder(a).setView(Ink.text(Ink.paper(a), r, 17f).apply { val q = Ink.dp(a, 20); setPadding(q, q, q, q / 2) })
-                    .setPositiveButton(R.string.close, null).show()
-            } else android.widget.Toast.makeText(a, r, android.widget.Toast.LENGTH_LONG).show()
+            // The outcome in a dialog of its own with one button.
+            if (d?.isShowing == true) { d?.dismiss(); d = InkDialog(a).message(r).button(R.string.close).show() }
+            else Ink.toast(a, r)
         }
 
         /** The screen goes: its dialogs with it (a dialog over a finished screen leaks its window). */
         fun dismiss() { d?.dismiss(); d = null }
     }
 
-    /** A drop-down list; [faces]: each item in its own font (the card's font list), the open list with a sample. */
     fun spinner(ctx: Context, items: List<String>, selected: Int, faces: List<android.graphics.Typeface?>? = null, onPick: (Int) -> Unit) = Spinner(ctx).apply {
         adapter = object : ArrayAdapter<String>(ctx, android.R.layout.simple_spinner_dropdown_item, items) {
             // Our ink and paper, not the system's item box (white on white in the dark theme).

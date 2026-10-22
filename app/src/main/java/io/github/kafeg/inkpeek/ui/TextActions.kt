@@ -15,7 +15,6 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
-import android.widget.Toast
 import io.github.kafeg.inkpeek.R
 
 /**
@@ -155,7 +154,7 @@ object TextActions {
 
     private fun copy(ctx: Context, s: String) {
         (ctx.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).setPrimaryClip(ClipData.newPlainText("InkPeek", s))
-        Toast.makeText(ctx, ctx.getString(R.string.copied), Toast.LENGTH_SHORT).show()
+        Ink.toast(ctx, ctx.getString(R.string.copied), long = false)
     }
 
     private fun share(ctx: Context, s: String) = runCatching {
@@ -165,5 +164,5 @@ object TextActions {
     /** The system's web search; without one, the browser on a search page. */
     private fun web(ctx: Context, s: String) = runCatching { ctx.startActivity(Intent(Intent.ACTION_WEB_SEARCH).putExtra(SearchManager.QUERY, s)) }
         .recoverCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://duckduckgo.com/?q=" + Uri.encode(s)))) }
-        .onFailure { Toast.makeText(ctx, ctx.getString(R.string.failed, it.message), Toast.LENGTH_LONG).show() }
+        .onFailure { Ink.toast(ctx, ctx.getString(R.string.failed, it.message)) }
 }

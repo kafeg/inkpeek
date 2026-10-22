@@ -270,7 +270,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** An AI answer: its "→" drawn in the middle of the line, as everywhere in the card. */
     fun markdown(out: TextView, md: String) { out.text = Ink.arrows(this, android.text.Html.fromHtml(Ink.markdown(md), android.text.Html.FROM_HTML_MODE_COMPACT), out.textSize) }
 
-    fun toast(s: String) = android.widget.Toast.makeText(this, s, android.widget.Toast.LENGTH_LONG).show()
+    fun toast(s: String) = Ink.toast(this, s)
 
     /** The word's header from the packs, offline: "das Haus (Hauses, мн. Häuser)"; its first line goes to the history. */
     private fun head() = launch {

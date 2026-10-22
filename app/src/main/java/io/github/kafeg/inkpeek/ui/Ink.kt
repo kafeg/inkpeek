@@ -17,7 +17,7 @@ import android.widget.TextView
 /** E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples or colors. */
 object Ink {
     /** White on black (Card → Main → Theme: dark, or the system's night mode), for the whole app. */
-    fun dark(ctx: Context) = ctx !is Paper && when (Prefs(ctx).theme) {
+    fun dark(ctx: Context) = when (Prefs(ctx).theme) {
         "dark" -> true
         "system" -> ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
         else -> false
@@ -28,10 +28,6 @@ object Ink {
     fun fg(ctx: Context) = if (dark(ctx)) Color.WHITE else Color.BLACK
     fun bg(ctx: Context) = if (dark(ctx)) Color.BLACK else Color.WHITE
 
-    /** Black on white whatever the theme: dialog content (Boox draws every dialog's frame white, ignoring the app's theme). */
-    class Paper(base: Context) : android.view.ContextThemeWrapper(base, io.github.kafeg.inkpeek.R.style.Theme_InkPeek)
-    fun paper(ctx: Context) = Paper(ctx)
-
     /** A screen in the theme: called before its onCreate. */
     fun theme(a: android.app.Activity, card: Boolean = false) = a.setTheme(when {
         card -> if (dark(a)) io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card_Dark else io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card
@@ -41,6 +37,13 @@ object Ink {
     /** A language's name in the app's language, capitalized: "Немецкий"; the code when Android has no name for it. */
     fun lang(ctx: Context, code: String): String = java.util.Locale(code).getDisplayLanguage(ctx.resources.configuration.locales[0])
         .takeIf { it.isNotBlank() && it != code }?.replaceFirstChar { it.uppercase() } ?: code
+
+    /** A short message at the bottom in the app's theme (Android's own toast is white on Boox whatever the theme). */
+    @Suppress("DEPRECATION")
+    fun toast(ctx: Context, s: CharSequence, long: Boolean = true) = android.widget.Toast(ctx).apply {
+        duration = if (long) android.widget.Toast.LENGTH_LONG else android.widget.Toast.LENGTH_SHORT
+        view = text(ctx, s, 16f).apply { background = border(ctx, 3, 8); val q = dp(ctx, 12); setPadding(q, q, q, q) }
+    }.show()
 
     fun dp(ctx: Context, v: Number) = (v.toFloat() * ctx.resources.displayMetrics.density).toInt()
 
