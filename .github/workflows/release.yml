@@ -2,7 +2,8 @@ name: Release
 # The title names the tag for a push and for a run by hand: scripts/release.sh finds its run by it.
 run-name: Release ${{ inputs.tag || github.ref_name }}
 # A tag "v<appVersion>.<commits>" (the version the build computes) builds a signed APK from that commit and attaches
-# it to a GitHub release; the notes are the version's section of CHANGELOG.md (the app's update shows them).
+# it to a GitHub release; the notes are the commit subjects since the previous tag (the app's update shows them),
+# CHANGELOG.md's section of the version stays the summary per minor version.
 # Normally run through scripts/release.sh.
 on:
   push:
@@ -43,10 +44,20 @@ jobs:
         run: |
           cp app/build/outputs/apk/release/app-release.apk "inkpeek-${TAG}.apk"
           sha256sum "inkpeek-${TAG}.apk" > "inkpeek-${TAG}.apk.sha256"
-      - name: Notes from CHANGELOG.md
+      - name: Notes of this build
         run: |
           V=$(sed -n 's/^appVersion=//p' gradle.properties)
-          awk -v v="## $V" 'index($0, v) == 1 { f = 1; next } /^## / { f = 0 } f' CHANGELOG.md > notes.md
+          PREV=$(git describe --tags --abbrev=0 --match 'v*' "$TAG^" 2>/dev/null || true)
+          {
+            if [ -n "$PREV" ]; then
+              echo "Changes since $PREV:"; echo
+              git log --no-merges --format='- %s' "$PREV..$TAG" | grep -v -E '^- (CHANGELOG|CI|Docs?)\b' || true
+              echo
+              echo "Everything in $V: [CHANGELOG.md](https://github.com/${{ github.repository }}/blob/main/CHANGELOG.md)"
+            else
+              awk -v v="## $V" 'index($0, v) == 1 { f = 1; next } /^## / { f = 0 } f' CHANGELOG.md
+            fi
+          } > notes.md
           test -s notes.md
       - uses: softprops/action-gh-release@v2
         with:

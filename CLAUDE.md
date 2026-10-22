@@ -39,7 +39,8 @@ Release: `scripts/release.sh [--install]` only (macOS; after a failure run it ag
 clean, pushed, tests, a `CHANGELOG.md` section `## <appVersion>`), dates that section, tags, waits for `release.yml`
 (starts it by hand when GitHub lost the push), checks the APK's checksum and signing certificate and that it is the
 latest release; `--install` puts it on every connected device. Before it: the version's bullets in `CHANGELOG.md`
-(what changed for people who use the app — the release notes and the in-app update show them); a new minor version →
+(what changed for people who use the app, per minor version); a build's release notes and the in-app update show the commit subjects
+since the previous tag (minus `CHANGELOG`/`CI`/`Docs` ones), so write subjects for people; a new minor version →
 `appVersion` and a new `## x.y — unreleased`.
 Layout checks and README pictures: `scripts/screens.sh` (every settings tab, page by page, on each connected device;
 `am start … --es open lang:other` opens a tab).
