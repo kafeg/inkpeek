@@ -12,9 +12,6 @@ import sqlite3
 import subprocess
 import zipfile
 
-import numpy as np
-import yaml
-
 URL = "https://object.pouta.csc.fi/Tatoeba-MT-models/"
 LEADERBOARD = "https://raw.githubusercontent.com/Helsinki-NLP/OPUS-MT-leaderboard/master/"
 ISO3 = {"de": "deu", "en": "eng", "ru": "rus", "fr": "fra", "es": "spa", "it": "ita", "pt": "por", "pl": "pol"}
@@ -59,7 +56,9 @@ def files_of(folder):
 
 def remap(npz_in, vocab_yml, src_spm, trg_spm, out, targets):
     """Writes out/model.npz (embeddings by spm ids), out/srcvocab.spm (+ target tags), out/trgvocab.spm; returns the tags."""
+    import numpy as np
     import sentencepiece as spm
+    import yaml
     from sentencepiece import sentencepiece_model_pb2 as pb
     os.makedirs(out, exist_ok=True)
     vocab = {k: int(v) for k, v in yaml.load(open(vocab_yml, encoding="utf-8"), Loader=yaml.BaseLoader).items()}
