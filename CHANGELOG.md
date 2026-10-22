@@ -39,6 +39,7 @@ count, so every release has its own.
 - Settings sections in the order of setting up: Languages, Card, AI, Notes.
 - Look up from any text in the card: select a word in an article or an answer, 📖 opens it, ← returns.
 - Export of Notes (words, phrases or the history) as a TSV file for Anki or a spreadsheet, with Share.
+- The page behind the card is no longer dimmed (a grey layer on e-ink); Card → Appearance → Dim the page brings it back.
 - "→" in AI answers and offline translations drawn in the middle of the line; dimmed buttons (the first page's ◀)
   easier to see.
 

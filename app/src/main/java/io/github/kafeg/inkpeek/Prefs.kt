@@ -23,6 +23,8 @@ class Prefs(private val ctx: Context) {
     /** "center", "top", "bottom" or "reader" (where the reader asks: ColorDict's EXTRA_GRAVITY / EXTRA_HEIGHT). */
     var cardPlace: String get() = sp.getString("card_place", "center")!!; set(v) = sp.edit().putString("card_place", v).apply()
     var cardText: Int get() = sp.getInt("card_text", 20); set(v) = sp.edit().putInt("card_text", v).apply()
+    /** How much the page behind the card is dimmed, %; 0 = not at all (default: e-ink shows a dim as a grey layer). */
+    var cardDim: Int get() = sp.getInt("card_dim", 0); set(v) = sp.edit().putInt("card_dim", v).apply()
     /** "light", "dark" or "system" (Android's night mode). */
     /** light | dark | system, for the whole app (the key is from when only the card had it). */
     var theme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()

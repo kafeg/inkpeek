@@ -207,7 +207,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         window.setGravity(vertical or Gravity.CENTER_HORIZONTAL)
         if (vertical != Gravity.CENTER_VERTICAL) window.attributes = window.attributes.apply { y = Ink.dp(this@CardActivity, 8) }
-        window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); window.setDimAmount(0.25f)
+        if (prefs.cardDim > 0) { window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND); window.setDimAmount(prefs.cardDim / 100f) }
+        else window.clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
         window.setWindowAnimations(0)
     }
 

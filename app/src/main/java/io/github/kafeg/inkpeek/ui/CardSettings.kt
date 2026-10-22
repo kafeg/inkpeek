@@ -54,6 +54,9 @@ class CardSettings(private val a: MainActivity) {
         val sizes = listOf(16, 18, 20, 22, 24, 26)
         t.addView(Rows.choice(a, a.getString(R.string.look_text), a.getString(R.string.look_text_d), sizes.map { "$it" },
             sizes.indexOf(prefs.cardText).coerceAtLeast(0)) { prefs.cardText = sizes[it] })
+        val dims = listOf(0, 10, 25, 40, 60)
+        t.addView(Rows.choice(a, a.getString(R.string.look_dim), a.getString(R.string.look_dim_d), dims.map { if (it == 0) a.getString(R.string.dim_off) else "$it %" },
+            dims.indexOf(prefs.cardDim).coerceAtLeast(0)) { prefs.cardDim = dims[it] })
         fontRow(t)
     }
 

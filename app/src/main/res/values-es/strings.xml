@@ -285,4 +285,7 @@
     <string name="icons_what">Qué hace cada icono</string>
     <string name="export">Exportar</string>
     <string name="exported">Guardado: %1$s (%2$d)</string>
+    <string name="look_dim">Oscurecer la página</string>
+    <string name="look_dim_d">Desactivado por defecto: en e-ink se ve como una capa gris.</string>
+    <string name="dim_off">No</string>
 </resources>

@@ -54,7 +54,8 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 - Notes in the card: Words / Phrases with counts; tap opens the entry in the card, ✕ removes. No history here.
 - Size, place, text size and theme: Card → Appearance (milestone 14); the defaults are the 0.3 card (92% of the
   width, 80% of the height, centred, text 20 sp, header +30%).
-- No colors, no shadows, no ripple. Thin black borders. Light dim behind the card.
+- No colors, no shadows, no ripple. Thin black borders. The page behind the card is not dimmed unless Card → Appearance
+  → Dim the page behind says so (10–60 %; e-ink shows a dim as a grey layer).
 
 ## Dictionaries
 - Format: StarDict 3 — `.ifo`, `.idx` (or `.idx.gz`), `.dict` or `.dict.dz` (dictzip random access), optional `.syn`.
@@ -283,6 +284,27 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    9. **Export** under the Notes list: the open tab (Words, Phrases, History) as TSV in `Download/InkPeek` via MediaStore —
       text, meaning (the line shown), saved AI translation, the meaning's language, date — then Share. Readers send only
       the selection, so no sentence column.
+
+16. **Offline translation methods** (22.10; research in the owner's notes: Mozilla through English loses du/Sie, gender,
+   idioms; measured on a phone and a Boox Go 6). One method for all pairs, Languages → InkPeek → Offline translation ›:
+   - **Fast · Mozilla** (Bergamot, through English, ~31 MB per direction) — every device, the default, and the fallback
+     for a pair the chosen method has no model for or cannot run now.
+   - **Direct · OPUS-MT** (Helsinki-NLP, CC-BY-4.0 / Apache-2.0): group models (e.g. de/en/es/fr/pt → ru/pl), 8 cover the
+     56 directions of the 8 languages within 2 chrF of the best one (FLORES-200). Converted by `packs/` in CI: Marian
+     zip → vocab remapped to the two SentencePiece models (+ target tags `>>rus<<` as pieces) → int8 (`marian-conv`,
+     x86) → a check translation → release `packs`, kind `opus`, with the directions it covers. Run by Bergamot without a
+     shortlist; the target tag before every sentence. Measured de→ru: ~243 MB, 0.5 s per phrase and 1.6 GB on a 6 GB
+     phone; on a 2 GB Go 6 it does not fit (the system restarted) → needs 4 GB.
+   - **AI model · Hy-MT2-1.8B** (Tencent, Apache-2.0, GGUF Q4_K_M 1.13 GB, 33 languages directly): llama.cpp in its own
+     library `libinkpeek_llm.so`, loaded only on a device with int8 dot product (`asimddp`) and ≥ 6 GB; weights mapped,
+     not repacked (1.2 GB, 0.4 s to load, ~1.8 s per phrase on a Snapdragon 860); the prompt names both languages (from
+     the pack / fastText). Kind `llm`; more models later by the manifest (file, prompt template, requirements).
+   - The page: the three methods with what each is, size, requirements; one this device cannot run is shown dimmed with
+     the reason (memory, CPU); after a download a test phrase gives "≈ N s per phrase". The app downloads the models the
+     installed pairs need (a new pair → its model too) and removes one no pair needs. Heavy models are freed when the
+     app goes to the background and after a few idle minutes.
+   - The card: Offline's hint names the method ("German · OPUS-MT", "… · through English").
+   - Card → Appearance → **Dim the page behind**: off by default (e-ink shows a dim as a grey layer), 10–60 %.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

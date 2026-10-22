@@ -285,4 +285,7 @@
     <string name="icons_what">Was jedes Symbol tut</string>
     <string name="export">Exportieren</string>
     <string name="exported">Gespeichert: %1$s (%2$d)</string>
+    <string name="look_dim">Seite abdunkeln</string>
+    <string name="look_dim_d">Standardmäßig aus: E-Ink zeigt das Abdunkeln als grauen Schleier.</string>
+    <string name="dim_off">Aus</string>
 </resources>
