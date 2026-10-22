@@ -4,12 +4,16 @@
   build.py all --langs de,en --answers ru,en --work W --out O   # grammar, pair dictionaries, models, langid
   build.py grammar X | dict X Y | models | langid             # one step (same --work / --out)
   build.py publish --out O --release packs                    # upload O's assets, merge packs.json in the release
-Inputs: kaikki.org dumps (sliced per language), WikDict, Mozilla's models, fastText's language identification."""
+  build.py opus [model ...] --marian-conv CMD --bergamot CMD  # OPUS-MT models of opus.json, converted for Bergamot
+  build.py llm                                                # AI translation models of llm.json (GGUF, mirrored)
+Inputs: kaikki.org dumps (sliced per language), WikDict, Mozilla's models, fastText's language identification,
+OPUS-MT (Helsinki-NLP), Hy-MT2 (Tencent)."""
 import argparse
 import datetime
 import hashlib
 import json
 import os
+import shlex
 import shutil
 import subprocess
 import sys
@@ -17,7 +21,7 @@ import urllib.request
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from inkpeek_packs import dictionary, grammar, kaikki, models, stardict  # noqa: E402
+from inkpeek_packs import dictionary, grammar, kaikki, models, opus, stardict  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCES = json.load(open(os.path.join(HERE, "sources.json"), encoding="utf-8"))
@@ -122,7 +126,7 @@ def cmd_publish(a):
         old = json.load(open(os.path.join(tmp, "packs.json"), encoding="utf-8"))["components"] if r.returncode == 0 else []
     ids = {c["id"] for c in mine["components"]}
     # Only what the app downloads (grammar is a build input since 21.10); stale assets go from the release too.
-    kinds = {"dict", "model", "langid"}
+    kinds = {"dict", "model", "langid", "opus", "llm"}
     merged = sorted([c for c in old if c["id"] not in ids and c["kind"] in kinds] + mine["components"], key=lambda c: c["id"])
     for c in old:
         if c["kind"] not in kinds:
@@ -235,6 +239,60 @@ def cmd_models(a, directions):
     return out
 
 
+def cmd_opus(a, only):
+    """Each model of opus.json: download, vocab remapped to SentencePiece, int8, a check translation per direction."""
+    out = []
+    for e in json.load(open(os.path.join(HERE, "opus.json"), encoding="utf-8")):
+        cid = "opus-" + e["model"].split("/")[0].replace("+", "_")  # "+" in a release asset name is not kept by GitHub
+        if only and cid not in only and e["model"].split("/")[0] not in only:
+            continue
+        work = os.path.join(a.work, "opus", e["model"].split("/")[0])
+        src = os.path.join(work, "src")
+        if not os.path.isdir(src):
+            zp = fetch(opus.URL + e["model"] + ".zip", os.path.join(work, "model.zip"))
+            zipfile.ZipFile(zp).extractall(src)
+            os.remove(zp)
+        folder = os.path.join(work, cid)
+        shutil.rmtree(folder, ignore_errors=True)
+        targets = sorted({d.split("-")[1] for d in e["covers"]})
+        tags = opus.remap(*opus.files_of(src), folder, targets)
+        opus.quantize(folder, a.marian_conv)
+        got = opus.check(folder, a.bergamot, e["covers"], tags)
+        print(f"{cid}: {len(e['covers'])} directions, tags {tags}; {got.get('de-ru') or next(iter(got.values()))}", flush=True)
+        lic = open(os.path.join(src, "LICENSE"), encoding="utf-8", errors="replace").read() if os.path.exists(os.path.join(src, "LICENSE")) else ""
+        license_id = "Apache-2.0" if "Apache License" in lic else "CC-BY-4.0"
+        attribution = (f"OPUS-MT, Helsinki-NLP: {e['model']} ({opus.URL}{e['model']}.zip). Changed by InkPeek packs: "
+                       f"vocabulary mapped to SentencePiece, weights quantized to int8. License: {license_id}.")
+        open(os.path.join(folder, "ATTRIBUTION"), "w", encoding="utf-8").write(attribution + "\n")
+        if lic:
+            open(os.path.join(folder, "LICENSE"), "w", encoding="utf-8").write(lic)
+        path = os.path.join(a.out, cid + ".tar.zst")
+        subprocess.run(f"tar -C {shlex.quote(work)} -cf - {shlex.quote(cid)} | zstd -q -19 -T0 -f -o {shlex.quote(path)}", shell=True, check=True)
+        out.append({"id": cid, "kind": "opus", "from": "", "to": "", "covers": e["covers"], "tags": tags, "chrf": e["chrf"],
+                    "ram_mb": 3500, "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
+                    "license": license_id, "attribution": attribution})
+        shutil.rmtree(folder); shutil.rmtree(src)  # ~2 GB per model: a CI runner has room for one at a time
+    return out
+
+
+def cmd_llm(a):
+    """AI translation models of llm.json: the GGUF as published (checked against the Hub's sha256), mirrored."""
+    out = []
+    for e in json.load(open(os.path.join(HERE, "llm.json"), encoding="utf-8")):
+        url = f"https://huggingface.co/{e['repo']}/resolve/{e['revision']}/{e['file']}"
+        tree = json.load(urllib.request.urlopen(f"https://huggingface.co/api/models/{e['repo']}/tree/{e['revision']}", timeout=60))
+        want = next(f["lfs"]["oid"] for f in tree if f["path"] == e["file"])
+        name = e["id"] + ".gguf"
+        path = fetch(url, os.path.join(a.out, name))
+        if sha256(path) != want:
+            raise ValueError(f"{e['file']}: sha256 differs from the Hub")
+        out.append({"id": e["id"], "kind": "llm", "from": "", "to": "", "name": e["name"], "covers": e["covers"],
+                    "template": e["template"], "names": e["names"], "ram_mb": e["ram_mb"], "cpu": e["cpu"], "mirror": url,
+                    "file": {"name": name, "size": os.path.getsize(path), "sha256": want},
+                    "license": e["license"], "attribution": e["attribution"]})
+    return out
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("cmd")
@@ -246,6 +304,8 @@ def main():
     p.add_argument("--date", default=datetime.date.today().isoformat())
     p.add_argument("--release", default="packs")
     p.add_argument("--sources-release", default="packs-sources")
+    p.add_argument("--marian-conv", default="marian-conv", help="command that runs marian-conv (x86: int8 packing)")
+    p.add_argument("--bergamot", default="bergamot", help="command that runs the bergamot CLI (check translations)")
     a = p.parse_args()
     a.langs, a.answers = a.langs.split(","), a.answers.split(",")
     os.makedirs(a.out, exist_ok=True)
@@ -265,6 +325,10 @@ def main():
         comps += cmd_models(a, dirs)
     if a.cmd in ("all", "langid"):
         comps.append(cmd_langid(a))
+    if a.cmd == "opus":
+        comps += cmd_opus(a, set(a.args))
+    if a.cmd == "llm":
+        comps += cmd_llm(a)
     if comps:
         manifest = os.path.join(a.out, "packs.json")
         old = json.load(open(manifest, encoding="utf-8"))["components"] if os.path.exists(manifest) else []

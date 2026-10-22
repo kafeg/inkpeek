@@ -1,0 +1,170 @@
+[
+ {
+  "model": "ine-deu+eng+fra+por+spa/opusTCv20230926max50+bt+jhubc_transformer-big_2024-05-30",
+  "covers": [
+   "de-en",
+   "de-es",
+   "de-pt",
+   "en-de",
+   "en-es",
+   "en-pt",
+   "es-de",
+   "es-en",
+   "es-fr",
+   "es-pt",
+   "fr-es",
+   "fr-pt",
+   "it-de",
+   "it-en",
+   "it-es",
+   "it-fr",
+   "it-pt",
+   "pl-de",
+   "pl-en",
+   "pl-es",
+   "pl-fr",
+   "pl-pt",
+   "pt-de",
+   "pt-es",
+   "pt-fr",
+   "ru-de",
+   "ru-en",
+   "ru-es",
+   "ru-fr",
+   "ru-pt"
+  ],
+  "chrf": {
+   "de-en": 67.0,
+   "de-es": 52.3,
+   "de-pt": 60.5,
+   "en-de": 64.3,
+   "en-es": 55.3,
+   "en-pt": 70.3,
+   "es-de": 52.9,
+   "es-en": 58.3,
+   "es-fr": 57.2,
+   "es-pt": 56.0,
+   "fr-es": 52.9,
+   "fr-pt": 62.4,
+   "it-de": 55.3,
+   "it-en": 61.0,
+   "it-es": 52.5,
+   "it-fr": 60.5,
+   "it-pt": 58.1,
+   "pl-de": 52.2,
+   "pl-en": 57.0,
+   "pl-es": 48.7,
+   "pl-fr": 55.6,
+   "pl-pt": 53.5,
+   "pt-de": 58.5,
+   "pt-es": 53.6,
+   "pt-fr": 64.5,
+   "ru-de": 54.7,
+   "ru-en": 60.7,
+   "ru-es": 50.2,
+   "ru-fr": 58.5,
+   "ru-pt": 57.0
+  }
+ },
+ {
+  "model": "deu+eng+fra+por+spa-sla/opusTCv20230926max50+bt+jhubc_transformer-big_2024-05-30",
+  "covers": [
+   "de-pl",
+   "de-ru",
+   "en-pl",
+   "en-ru",
+   "es-pl",
+   "es-ru",
+   "fr-pl",
+   "fr-ru",
+   "pt-pl",
+   "pt-ru"
+  ],
+  "chrf": {
+   "de-pl": 49.6,
+   "de-ru": 54.4,
+   "en-pl": 52.3,
+   "en-ru": 58.9,
+   "es-pl": 47.4,
+   "es-ru": 49.6,
+   "fr-pl": 49.9,
+   "fr-ru": 54.3,
+   "pt-pl": 49.2,
+   "pt-ru": 54.5
+  }
+ },
+ {
+  "model": "deu+eng+fra+por+spa-itc/opusTCv20230926max50+bt+jhubc_transformer-big_2024-05-30",
+  "covers": [
+   "de-fr",
+   "de-it",
+   "en-fr",
+   "en-it",
+   "es-it",
+   "fr-it",
+   "pt-it"
+  ],
+  "chrf": {
+   "de-fr": 63.6,
+   "de-it": 55.9,
+   "en-fr": 71.7,
+   "en-it": 59.4,
+   "es-it": 53.4,
+   "fr-it": 57.1,
+   "pt-it": 56.7
+  }
+ },
+ {
+  "model": "ine-deu+eng+nld/opusTCv20230926max50+bt+jhubc_transformer-big_2024-08-18",
+  "covers": [
+   "fr-de",
+   "fr-en",
+   "pt-en"
+  ],
+  "chrf": {
+   "fr-de": 58.7,
+   "fr-en": 68.0,
+   "pt-en": 70.9
+  }
+ },
+ {
+  "model": "sla-itc/opusTCv20210807_transformer-big_2022-09-15",
+  "covers": [
+   "pl-it",
+   "ru-it"
+  ],
+  "chrf": {
+   "pl-it": 50.2,
+   "ru-it": 51.9
+  }
+ },
+ {
+  "model": "sla-sla/opusTCv20210807_transformer-big_2022-09-15",
+  "covers": [
+   "pl-ru",
+   "ru-pl"
+  ],
+  "chrf": {
+   "pl-ru": 48.1,
+   "ru-pl": 47.3
+  }
+ },
+ {
+  "model": "mul-mul/opusTCv20230926+bt+jhubc_transformer-big_2024-08-17",
+  "covers": [
+   "it-pl"
+  ],
+  "chrf": {
+   "it-pl": 42.0
+  }
+ },
+ {
+  "model": "ita-zle/opusTCv20210807_transformer-big_2022-03-19",
+  "covers": [
+   "it-ru"
+  ],
+  "chrf": {
+   "it-ru": 50.4
+  }
+ }
+]
