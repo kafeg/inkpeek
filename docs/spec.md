@@ -278,6 +278,11 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       the family's Bold / Italic files; missing letters come from Android's font. Settings keep Android's font. Card → Main → Theme (moved from
       Appearance) is for the whole app: settings, pages, dialogs and lists white on black too.
    7. Notes in the card: 50 per page with the pager, as in settings.
+   8. **Look up** in the selection menu (first icon): the selected text in the card; the words before are kept, ← and
+      Back return to them; entries of Notes in the card open the same way. From settings it opens a card.
+   9. **Export** under the Notes list: the open tab (Words, Phrases, History) as TSV in `Download/InkPeek` via MediaStore —
+      text, meaning (the line shown), saved AI translation, the meaning's language, date — then Share. Readers send only
+      the selection, so no sentence column.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

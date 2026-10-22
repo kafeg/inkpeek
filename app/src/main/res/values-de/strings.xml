@@ -283,4 +283,6 @@
     <string name="font_device_d">Schriften von Android mit allen Buchstaben der Karte: ä ß é ł д ж.</string>
     <string name="font_yours_d">Aus fonts/, koreader/fonts und InkPeek/fonts; ✕ löscht eine gewählte Datei.</string>
     <string name="icons_what">Was jedes Symbol tut</string>
+    <string name="export">Exportieren</string>
+    <string name="exported">Gespeichert: %1$s (%2$d)</string>
 </resources>

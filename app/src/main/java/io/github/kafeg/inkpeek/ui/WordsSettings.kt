@@ -50,12 +50,36 @@ class WordsSettings(private val a: MainActivity) {
         val wrap = ViewGroup.LayoutParams.WRAP_CONTENT
         if (pages > 1) bar.addView(WordsList.pager(a, page, items.size, 15f) { page = it; turn() }, Ink.lp(wrap))
         bar.addView(android.view.View(a), Ink.lp(0, 1, 1f))
+        if (items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.export), 15f) { export(now, items) },
+            Ink.lp(wrap).apply { rightMargin = Ink.dp(a, 8) })
         if (now == "history" && items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.clear_history), 15f) {
             Rows.confirm(a, a.getString(R.string.clear_history_q), R.string.clear_history) {
                 a.launch { withContext(Dispatchers.IO) { runCatching { Store.get(a).clearHistory() } }; refresh() }
             }
         }, Ink.lp(wrap))
         if (bar.childCount > 1) list.addView(bar, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
+    }
+
+    /** The open list as TSV in Download/InkPeek (text, meaning, AI translation, language, date: Anki takes it as is), then Share. */
+    private fun export(kind: String, items: List<io.github.kafeg.inkpeek.Store.Entry>) = a.launch {
+        val day = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US)
+        fun cell(s: String) = s.replace(Regex("[\t\r\n]+"), " ").trim()
+        val tsv = items.joinToString("\n", postfix = "\n") { e ->
+            listOf(e.text, e.meaning, e.ai, a.prefs.answerCode, day.format(java.util.Date(e.time))).joinToString("\t") { cell(it) } }
+        val name = "inkpeek-$kind-${day.format(java.util.Date())}.tsv"
+        val uri = withContext(Dispatchers.IO) { runCatching {
+            val values = android.content.ContentValues().apply {
+                put(android.provider.MediaStore.MediaColumns.DISPLAY_NAME, name)
+                put(android.provider.MediaStore.MediaColumns.MIME_TYPE, "text/tab-separated-values")
+                put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS + "/InkPeek")
+            }
+            val r = a.contentResolver
+            r.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)!!.also { u -> r.openOutputStream(u)!!.use { it.write(tsv.toByteArray()) } }
+        } }.getOrElse { a.toast(a.getString(R.string.failed, it.message)); return@launch }
+        a.toast(a.getString(R.string.exported, "Download/InkPeek/$name", items.size))
+        runCatching { a.startActivity(android.content.Intent.createChooser(android.content.Intent(android.content.Intent.ACTION_SEND)
+            .setType("text/tab-separated-values").putExtra(android.content.Intent.EXTRA_STREAM, uri)
+            .addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION), null)) }
     }
 
     /** Another page starts at its top. */

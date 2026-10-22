@@ -283,4 +283,6 @@
     <string name="font_device_d">Caratteri di Android con tutte le lettere della scheda: ä ß é ł д ж.</string>
     <string name="font_yours_d">Da fonts/, koreader/fonts e InkPeek/fonts; ✕ elimina un file scelto.</string>
     <string name="icons_what">Cosa fa ogni icona</string>
+    <string name="export">Esporta</string>
+    <string name="exported">Salvato: %1$s (%2$d)</string>
 </resources>

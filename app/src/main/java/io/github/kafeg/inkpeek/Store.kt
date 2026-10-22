@@ -13,7 +13,8 @@ import java.io.File
  */
 class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 3) {
     /** [kind]: "word" or "phrase"; [meaning]: one short line, may be empty. */
-    data class Entry(val text: String, val kind: String, val meaning: String, val time: Long)
+    /** [meaning]: the line shown (in the app's language when there is one); [ai]: the saved AI translation, if any. */
+    data class Entry(val text: String, val kind: String, val meaning: String, val time: Long, val ai: String = "")
 
     init { setWriteAheadLoggingEnabled(false) } // shared storage: no -shm memory map
 
@@ -101,7 +102,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
             val saved = c.getString(2).orEmpty(); val hist = c.getString(5).orEmpty(); val ai = brief(c.getString(4))
             val line = listOf(saved.takeIf { c.getString(6) == lang }, hist.takeIf { c.getString(7) == lang }, ai, saved, hist)
                 .firstOrNull { !it.isNullOrBlank() }.orEmpty()
-            Entry(c.getString(0), c.getString(1), line, c.getLong(3))
+            Entry(c.getString(0), c.getString(1), line, c.getLong(3), ai.orEmpty())
         } }.toList()
     }
 

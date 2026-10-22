@@ -37,6 +37,8 @@ count, so every release has its own.
 - Notes in the card: 50 per page, like in settings.
 - Card → Icons: which icons the card shows on top, what each one does below.
 - Settings sections in the order of setting up: Languages, Card, AI, Notes.
+- Look up from any text in the card: select a word in an article or an answer, 📖 opens it, ← returns.
+- Export of Notes (words, phrases or the history) as a TSV file for Anki or a spreadsheet, with Share.
 - "→" in AI answers and offline translations drawn in the middle of the line; dimmed buttons (the first page's ◀)
   easier to see.
 

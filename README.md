@@ -121,7 +121,10 @@ If another dictionary app answers the same request, Android asks which one to us
   is selected whole (the handles narrow it); in a translation, an article or an AI answer select any part. A small menu
   of icons opens over it, like FBReader's.
 - **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page, in
-  the card and in settings).
+  the card and in settings). **Export** saves the open list as a TSV file in `Download/InkPeek` (text, meaning, AI
+  translation, language, date — Anki imports it as is) and offers Share.
+- **Look up from any text**: select a word in an article, a translation or an AI answer — the menu's 📖 opens it in the
+  same card, ← returns to the word before.
 - **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; the font, on a page of its own with a sample — Android's fonts that have the letters

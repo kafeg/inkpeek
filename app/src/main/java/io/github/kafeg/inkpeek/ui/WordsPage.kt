@@ -28,7 +28,7 @@ class WordsPage(private val card: CardActivity) {
             val pages = (items.size + WordsList.PAGE - 1) / WordsList.PAGE
             page = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
             items.drop(page * WordsList.PAGE).take(WordsList.PAGE).forEach { e ->
-                p.addView(WordsList.row(card, e, card.size * 0.85f, { card.startActivity(WordsList.card(card, e.text)) }) {
+                p.addView(WordsList.row(card, e, card.size * 0.85f, { card.lookUp(e.text) }) {
                     // The activity's scope: this coroutine is over by the time of the tap.
                     Rows.confirm(card, card.getString(R.string.unsave_q, e.text)) { card.launch {
                         withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }

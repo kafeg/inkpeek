@@ -129,6 +129,9 @@ object TextActions {
         fun item(icon: Int, label: Int, act: (String) -> Unit) = box.addView(Ink.icon(ctx, icon, ctx.getString(label), 44) {
             act(select()); pop.dismiss(); done()
         }, LinearLayout.LayoutParams(Ink.dp(ctx, 44), Ink.dp(ctx, 44)).apply { if (box.childCount > 0) leftMargin = Ink.dp(ctx, 6) })
+        // The selection in InkPeek itself: in the card ← returns to the word before.
+        item(R.drawable.ic_dictionary, R.string.look_up) { s -> s.trim().take(4000).takeIf { it.isNotEmpty() }?.let {
+            (ctx as? CardActivity)?.lookUp(it) ?: ctx.startActivity(WordsList.card(ctx, it)) } }
         item(R.drawable.ic_copy, R.string.copy) { copy(ctx, it) }
         item(R.drawable.ic_share, R.string.share) { share(ctx, it) }
         item(R.drawable.ic_web, R.string.search_web) { web(ctx, it) }

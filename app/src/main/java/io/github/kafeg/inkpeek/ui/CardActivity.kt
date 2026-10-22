@@ -41,6 +41,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs; private set
     val store by lazy { Store.get(this) }
     var query = ""; private set
+    /** The words looked up before this one in this card ("Look up" from a text, an entry of Notes); ← returns to them. */
+    private var before: List<String> = emptyList()
     val kind get() = Kind.of(query)
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
@@ -80,6 +82,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // Static hooks: they hold the application's preferences, not this activity.
         Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) } }
         if (query.isEmpty()) { finish(); return }
+        before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
         placeWindow()
@@ -150,7 +153,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
         bar.addView(View(this), Ink.lp(0, 1, weight = 1f))
         // "←" in the free space before Close: from an article back to the list or the gloss.
-        backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { dictionary.back?.invoke() }.apply { visibility = View.GONE }
+        backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { back() }.apply { visibility = View.GONE }
         add(backButton)
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
@@ -249,14 +252,24 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     fun scrollTop() = scroll.scrollTo(0, 0)
 
-    fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null) View.VISIBLE else View.GONE }
+    fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null || before.isNotEmpty()) View.VISIBLE else View.GONE }
+
+    /** [text] in this card, this word kept to come back to. */
+    fun lookUp(text: String) = startActivity(WordsList.card(this, text).putStringArrayListExtra(BEFORE, ArrayList(before + query)))
+
+    /** ←: from an article to its list, else to the word looked up before; false when there is nothing to go back to. */
+    private fun back(): Boolean {
+        if (shown == DICT && dictionary.back != null) { dictionary.back?.invoke(); return true }
+        val prev = before.lastOrNull() ?: return false
+        startActivity(WordsList.card(this, prev).putStringArrayListExtra(BEFORE, ArrayList(before.dropLast(1)))); return true
+    }
 
     /** Where a line comes from: a pack, "InkPeek · Немецкий → Русский", or another dictionary's name. */
     fun source(d: io.github.kafeg.inkpeek.stardict.StarDict): String = DictionaryPage.source(this, prefs.library(), d)
 
     /** System Back from a word's article returns to the list or the gloss first. */
     @Deprecated("Activity API") override fun onBackPressed() {
-        if (shown == DICT && dictionary.back != null) dictionary.back?.invoke() else @Suppress("DEPRECATION") super.onBackPressed()
+        if (!back()) @Suppress("DEPRECATION") super.onBackPressed()
     }
 
     fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
@@ -300,6 +313,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         (getSystemService(ACTIVITY_SERVICE) as android.app.ActivityManager).getMemoryInfo(it) }.availMem > 1_500_000_000L
 
     companion object {
+        private const val BEFORE = "inkpeek.before"
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4
