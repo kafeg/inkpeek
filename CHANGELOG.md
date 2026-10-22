@@ -12,6 +12,9 @@ count, so every release has its own.
   proverbs, forms with pronunciation and the word's origin — each a row, a tap opens the list, frequent words first,
   page by page, a tap on a word looks it up. Which ones: Languages → InkPeek.
 - Word by word: the same list style.
+- Ukrainian as a book language (into English and Russian).
+- The packs page labels each pair: full, basic or experimental, with the share of the 5,000 most frequent words its
+  dictionary knows.
 - AI → Answers (was Help): what Analysis and Context ask for — grammar, words, related words, synonyms, explanation,
   examples, expressions, origin; the explanations below.
 

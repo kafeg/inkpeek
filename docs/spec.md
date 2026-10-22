@@ -323,5 +323,11 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      synonyms; explanation, examples, expressions, origin; the new ones off by default) — a key not asked is not in the
      request, and a changed set asks again; the explanations below.
 
+18. **More languages, labelled** (23.10). Every pack is published with its coverage of the book language's 5,000 most
+   frequent words; the packs page shows it with a label — **full** (≥ 85 % and offline translation), **basic** (≥ 60 %),
+   **experimental** (below) — instead of leaving a weaker pair out. First Ukrainian (→ en, ru); then by the data
+   (research): cs, bg, fi, hu → sr/hr → sv, da, ro → be, kk, az as experimental. Each by `packs/README.md` → "Adding a
+   language".
+
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

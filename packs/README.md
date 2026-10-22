@@ -47,8 +47,8 @@ A language is one of two roles, often both: a **book language** (the text you re
 app's language, the dictionaries' and translations' target). Do every step that applies, in this order; nothing is
 added by hand on a device.
 1. **Is there enough data?** `packs/report.py` and `research` notes: kaikki edition of the language (its own Wiktionary
-   or en.wiktionary), WikDict pairs, top-5,000 coverage of the pairs you plan. A pair below ~60 % coverage is not worth
-   a pack yet.
+   or en.wiktionary), WikDict pairs, top-5,000 coverage of the pairs you plan. Every pack is published with its coverage (`stats.coverage`); the
+   app labels it: **full** (≥ 85 % and offline translation), **basic** (≥ 60 %), **experimental** (below).
 2. **Sources:** `sources.json` → `kaikki` (the language's own wiktextract dump, if any) and `languages` (its English
    name). Grammar comes only from data (`grammar.py`: genders, plurals, verb forms of that edition); no endings rules —
    fixes go to `overrides/<x>.tsv`.
