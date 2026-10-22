@@ -288,4 +288,24 @@
     <string name="look_dim">Przyciemnij stronę</string>
     <string name="look_dim_d">Domyślnie wył.: na e-ink wygląda jak szara warstwa.</string>
     <string name="dim_off">Wył.</string>
+    <string name="mt_t">Metoda tłumaczenia offline</string>
+    <string name="mt_this">To urządzenie: %1$s GB pamięci; przyspieszenie int8: %2$s.</string>
+    <string name="mt_yes">tak</string>
+    <string name="mt_no">nie</string>
+    <string name="mt_fast_t">Szybka · Mozilla</string>
+    <string name="mt_fast_d">Przez angielski: sens przechodzi, a ty/Pan, rodzaj i idiomy giną. Działa wszędzie.</string>
+    <string name="mt_direct_t">Bezpośrednia · OPUS-MT</string>
+    <string name="mt_direct_d">Wprost z języka na język, bez angielskiego: dokładniej, zna idiomy. Modele Helsinki, ~170 MB każdy; 4 GB pamięci.</string>
+    <string name="mt_llm_t">Model AI · Hy-MT2</string>
+    <string name="mt_llm_d">AI Tencent na urządzeniu, wprost między językami: 1,1 GB; 6 GB pamięci i przyspieszenie int8.</string>
+    <string name="mt_need">Dla twoich par: modeli %1$d, %2$d MB</string>
+    <string name="mt_have">pobrano</string>
+    <string name="mt_none_for">Brak modelu dla %1$s: tłumaczy je Mozilla.</string>
+    <string name="mt_cannot_mem">Potrzeba %1$s GB pamięci; urządzenie ma %2$s GB.</string>
+    <string name="mt_cannot_cpu">Potrzebny procesor z przyspieszeniem int8 (dot product).</string>
+    <string name="mt_speed">≈ %1$s s na zdanie na tym urządzeniu</string>
+    <string name="mt_get">Pobierz %1$d MB.</string>
+    <string name="mt_drop">Modele poprzedniej metody (%1$d MB) zostaną usunięte.</string>
+    <string name="mt_done">Metoda tłumaczenia: %1$s</string>
+    <string name="mt_no_models">Jeszcze nie ma na liście pakietów.</string>
 </resources>

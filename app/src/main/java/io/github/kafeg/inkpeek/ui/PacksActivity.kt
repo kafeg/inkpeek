@@ -61,11 +61,11 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     private fun name(c: String) = Ink.lang(this, c)
     private fun title(p: Pair<String, String>) = "${name(p.first)} → ${name(p.second)}"
     /** What the pair still needs here: shared models and langid already installed are not downloaded again. */
-    private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p)).filter { inst[it.id] != it.sha256 }
+    private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p), prefs.mtMethod).filter { inst[it.id] != it.sha256 }
 
     /** Installed pairs with every part here (a download stopped half-way leaves one to finish: it can be tapped). */
     private fun complete(inst: Map<String, String> = prefs.packs.installed()) =
-        prefs.packs.installedPairs().filter { p -> Packs.needed(manifest, listOf(p)).all { it.id in inst } }.toSet()
+        prefs.packs.installedPairs().filter { p -> Packs.needed(manifest, listOf(p), prefs.mtMethod).all { it.id in inst } }.toSet()
 
     private fun show() {
         val inst = prefs.packs.installed(); val installed = complete(inst)

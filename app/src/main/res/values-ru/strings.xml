@@ -288,4 +288,24 @@
     <string name="look_dim">Затемнение страницы</string>
     <string name="look_dim_d">По умолчанию выкл.: на e-ink затемнение выглядит серым слоем на странице.</string>
     <string name="dim_off">Выкл.</string>
+    <string name="mt_t">Метод перевода</string>
+    <string name="mt_this">Это устройство: %1$s ГБ памяти; ускорение int8: %2$s.</string>
+    <string name="mt_yes">есть</string>
+    <string name="mt_no">нет</string>
+    <string name="mt_fast_t">Быстрый · Mozilla</string>
+    <string name="mt_fast_d">Через английский: смысл передаёт, а «ты/вы», род и обороты теряет. Работает везде.</string>
+    <string name="mt_direct_t">Прямой · OPUS-MT</string>
+    <string name="mt_direct_d">Напрямую, без английского: точнее, понимает обороты. Модели Helsinki, ~170 МБ каждая; нужно 4 ГБ памяти.</string>
+    <string name="mt_llm_t">ИИ-модель · Hy-MT2</string>
+    <string name="mt_llm_d">Офлайн-ИИ Tencent, напрямую между языками: 1,1 ГБ; нужно 6 ГБ памяти и ускорение int8.</string>
+    <string name="mt_need">Для ваших пар: моделей %1$d, %2$d МБ</string>
+    <string name="mt_have">скачано</string>
+    <string name="mt_none_for">Нет модели для %1$s: их переводит Mozilla.</string>
+    <string name="mt_cannot_mem">Нужно %1$s ГБ памяти, у устройства %2$s ГБ.</string>
+    <string name="mt_cannot_cpu">Нужен процессор с ускорением int8 (dot product).</string>
+    <string name="mt_speed">≈ %1$s с на фразу на этом устройстве</string>
+    <string name="mt_get">Скачать %1$d МБ.</string>
+    <string name="mt_drop">Модели прежнего метода (%1$d МБ) будут удалены.</string>
+    <string name="mt_done">Метод перевода: %1$s</string>
+    <string name="mt_no_models">Пока нет в списке пакетов.</string>
 </resources>

@@ -75,7 +75,8 @@ class TranslatePage(private val card: CardActivity) {
         // Which language and how, in small print at the card's bottom: the translation alone in the page.
         text.fold({ out.text = Ink.arrows(card, it, out.textSize); val from = r.from
             if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Ink.lang(card, from) +
-                if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
+                // The model that translated: "German · OPUS-MT", or Mozilla's "German · through English".
+                if (r.by.isNotEmpty()) " · " + r.by else if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
             { out.text = it.message ?: it.javaClass.simpleName })
     }
 }

@@ -289,4 +289,24 @@
     <string name="look_dim">Dim the page behind</string>
     <string name="look_dim_d">Off by default: e-ink shows a dim as a grey layer over the page.</string>
     <string name="dim_off">Off</string>
+    <string name="mt_t">Offline translation method</string>
+    <string name="mt_this">This device: %1$s GB of memory; int8 acceleration: %2$s.</string>
+    <string name="mt_yes">yes</string>
+    <string name="mt_no">no</string>
+    <string name="mt_fast_t">Fast · Mozilla</string>
+    <string name="mt_fast_d">Through English: the meaning comes through; du/Sie, gender and idioms get lost. Works everywhere.</string>
+    <string name="mt_direct_t">Direct · OPUS-MT</string>
+    <string name="mt_direct_d">Straight from language to language, no English: more accurate, knows idioms. Helsinki models, ~170 MB each; needs 4 GB of memory.</string>
+    <string name="mt_llm_t">AI model · Hy-MT2</string>
+    <string name="mt_llm_d">Tencent\'s AI on the device, straight between languages: 1.1 GB; needs 6 GB of memory and int8 acceleration.</string>
+    <string name="mt_need">For your pairs: %1$d model(s), %2$d MB</string>
+    <string name="mt_have">downloaded</string>
+    <string name="mt_none_for">No model for %1$s: Mozilla translates them.</string>
+    <string name="mt_cannot_mem">Needs %1$s GB of memory; this device has %2$s GB.</string>
+    <string name="mt_cannot_cpu">Needs a processor with int8 acceleration (dot product).</string>
+    <string name="mt_speed">≈ %1$s s per phrase on this device</string>
+    <string name="mt_get">Download %1$d MB.</string>
+    <string name="mt_drop">The previous method\'s models (%1$d MB) will be removed.</string>
+    <string name="mt_done">Translation method: %1$s</string>
+    <string name="mt_no_models">Not in the packs list yet.</string>
 </resources>

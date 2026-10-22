@@ -4,3 +4,6 @@
 [submodule "app/src/main/cpp/fasttext"]
 	path = app/src/main/cpp/fasttext
 	url = https://github.com/facebookresearch/fastText.git
+[submodule "app/src/main/cpp/llama"]
+	path = app/src/main/cpp/llama
+	url = https://github.com/ggml-org/llama.cpp

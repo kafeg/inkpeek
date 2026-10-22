@@ -288,4 +288,24 @@
     <string name="look_dim">Seite abdunkeln</string>
     <string name="look_dim_d">Standardmäßig aus: E-Ink zeigt das Abdunkeln als grauen Schleier.</string>
     <string name="dim_off">Aus</string>
+    <string name="mt_t">Methode der Offline-Übersetzung</string>
+    <string name="mt_this">Dieses Gerät: %1$s GB Speicher; int8-Beschleunigung: %2$s.</string>
+    <string name="mt_yes">ja</string>
+    <string name="mt_no">nein</string>
+    <string name="mt_fast_t">Schnell · Mozilla</string>
+    <string name="mt_fast_d">Über Englisch: der Sinn kommt an, du/Sie, Geschlecht und Wendungen gehen verloren. Läuft überall.</string>
+    <string name="mt_direct_t">Direkt · OPUS-MT</string>
+    <string name="mt_direct_d">Direkt von Sprache zu Sprache, ohne Englisch: genauer, kennt Wendungen. Modelle von Helsinki, je ~170 MB; braucht 4 GB Speicher.</string>
+    <string name="mt_llm_t">KI-Modell · Hy-MT2</string>
+    <string name="mt_llm_d">KI von Tencent auf dem Gerät, direkt zwischen Sprachen: 1,1 GB; braucht 6 GB Speicher und int8-Beschleunigung.</string>
+    <string name="mt_need">Für Ihre Paare: %1$d Modell(e), %2$d MB</string>
+    <string name="mt_have">geladen</string>
+    <string name="mt_none_for">Kein Modell für %1$s: Mozilla übersetzt sie.</string>
+    <string name="mt_cannot_mem">Braucht %1$s GB Speicher, das Gerät hat %2$s GB.</string>
+    <string name="mt_cannot_cpu">Braucht einen Prozessor mit int8-Beschleunigung (Dot Product).</string>
+    <string name="mt_speed">≈ %1$s s pro Satz auf diesem Gerät</string>
+    <string name="mt_get">%1$d MB herunterladen.</string>
+    <string name="mt_drop">Die Modelle der vorigen Methode (%1$d MB) werden entfernt.</string>
+    <string name="mt_done">Übersetzungsmethode: %1$s</string>
+    <string name="mt_no_models">Noch nicht in der Paketliste.</string>
 </resources>

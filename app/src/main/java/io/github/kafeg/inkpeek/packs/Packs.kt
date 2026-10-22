@@ -10,9 +10,16 @@ import java.io.File
 import java.security.MessageDigest
 import java.util.zip.ZipInputStream
 
-/** One downloadable part of the language packs (see packs/README.md): dict, model or langid. */
+/**
+ * One downloadable part of the language packs (see packs/README.md): dict, model (Mozilla), langid, opus (OPUS-MT) or
+ * llm (an AI translation model). [covers]: the directions an opus / llm model translates ("de-ru"); [tags]: the token a
+ * multi-target OPUS-MT model needs before a sentence, by target; [ramMb] / [cpu]: what a device must have; [mirror]: the
+ * original file, tried before the release.
+ */
 data class Component(val id: String, val kind: String, val from: String, val to: String, val file: String,
-                     val size: Long, val sha256: String)
+                     val size: Long, val sha256: String, val covers: List<String> = emptyList(), val tags: Map<String, String> = emptyMap(),
+                     val ramMb: Int = 0, val cpu: List<String> = emptyList(), val template: String = "", val names: Map<String, String> = emptyMap(),
+                     val mirror: String = "", val name: String = "")
 
 /**
  * InkPeek's language packs from this project's release "packs" — the only source the app downloads them from.
@@ -56,8 +63,8 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     fun install(c: Component, progress: (Long, Long) -> Unit = { _, _ -> }) {
         root.mkdirs(); File(root, "tmp").deleteRecursively()
         // The download, the unpacked files and the old version side by side at the peak.
-        val free = root.usableSpace
-        if (free < c.size * 3) error("Not enough free space for ${c.file}: ${c.size * 3 / 1_000_000} MB needed, ${free / 1_000_000} MB free")
+        val free = root.usableSpace; val need = if (c.kind == "llm") c.size + c.size / 10 else c.size * 3
+        if (free < need) error("Not enough free space for ${c.file}: ${need / 1_000_000} MB needed, ${free / 1_000_000} MB free")
         val tmp = File(root, c.file + ".part")
         try { download(c, tmp, progress) } catch (e: Throwable) { tmp.delete(); throw e }
         try {
@@ -65,14 +72,26 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
                 "dict" -> unzip(tmp, File(dicts, c.id))
                 "model" -> untar(tmp, File(models, c.from + c.to))
                 "langid" -> { langid.delete(); if (!tmp.renameTo(langid)) error("Cannot move ${langid.name}") }
+                "opus" -> untar(tmp, opusDir(c.id))
+                "llm" -> llmFile(c.id).let { f -> f.parentFile?.mkdirs(); f.delete(); if (!tmp.renameTo(f)) error("Cannot move ${f.name}") }
                 else -> error("Unknown pack kind ${c.kind}")
             }
         } finally { tmp.delete(); File(root, "tmp").deleteRecursively() }
         mark(c.id, c.sha256)
     }
 
+    /** The original file first when there is one (a big model off our release), the release if that fails. */
     private fun download(c: Component, tmp: File, progress: (Long, Long) -> Unit) {
-        http.newCall(Request.Builder().url(assets + c.file).build()).execute().use { r ->
+        if (c.mirror.isNotBlank()) {
+            val first = runCatching { download(c, c.mirror, tmp, progress) }
+            if (first.isSuccess) return
+            if (first.exceptionOrNull() is java.util.concurrent.CancellationException) throw first.exceptionOrNull()!!
+        }
+        download(c, assets + c.file, tmp, progress)
+    }
+
+    private fun download(c: Component, url: String, tmp: File, progress: (Long, Long) -> Unit) {
+        http.newCall(Request.Builder().url(url).build()).execute().use { r ->
             if (!r.isSuccessful) error("HTTP ${r.code}: ${c.file}")
             val md = MessageDigest.getInstance("SHA-256")
             r.body!!.byteStream().use { inp -> tmp.outputStream().use { o ->
@@ -89,9 +108,15 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
             "grammar" -> File(root, "grammar").deleteRecursively() // old builds installed grammar packs
             "model" -> if (c.from.isNotBlank() && c.to.isNotBlank()) File(models, c.from + c.to).deleteRecursively()
             "langid" -> langid.delete()
+            "opus" -> opusDir(c.id).deleteRecursively()
+            "llm" -> llmFile(c.id).delete()
         }
         mark(c.id, null)
     }
+
+    /** An OPUS-MT model's folder and an AI model's file, next to the Mozilla models. */
+    fun opusDir(id: String) = File(models, "opus/$id")
+    fun llmFile(id: String) = File(models, "llm/$id.gguf")
 
     /** Installed pairs (from → to). */
     fun installedPairs(): List<Pair<String, String>> = installed().keys.filter { it.startsWith("dict-") }
@@ -142,25 +167,33 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
             val a = JSONObject(json).getJSONArray("components")
             return (0 until a.length()).map { a.getJSONObject(it) }.map { c ->
                 val f = c.getJSONObject("file")
+                fun list(k: String) = c.optJSONArray(k)?.let { a -> (0 until a.length()).map { a.getString(it) } }.orEmpty()
+                fun map(k: String) = c.optJSONObject(k)?.let { o -> o.keys().asSequence().associateWith { o.getString(it) } }.orEmpty()
                 Component(c.getString("id"), c.getString("kind"), c.optString("from"), c.optString("to"),
-                    f.getString("name"), f.getLong("size"), f.getString("sha256"))
+                    f.getString("name"), f.getLong("size"), f.getString("sha256"), list("covers"), map("tags"),
+                    c.optInt("ram_mb"), list("cpu"), c.optString("template"), map("names"), c.optString("mirror"), c.optString("name"))
             }
         }
 
         /** The language pairs offered: one per dictionary. */
         fun pairs(cs: List<Component>) = cs.filter { it.kind == "dict" }.map { it.from to it.to }
 
-        /** Everything the chosen pairs need: their dictionaries, the models (through English), langid. */
-        fun needed(cs: List<Component>, pairs: Collection<Pair<String, String>>): List<Component> {
+        /**
+         * Everything the chosen pairs need: their dictionaries, the models (through English, always: the fallback), langid,
+         * and the model of the translation [method] ("direct": OPUS-MT, "llm": an AI model) that covers each pair.
+         */
+        fun needed(cs: List<Component>, pairs: Collection<Pair<String, String>>, method: String = "fast"): List<Component> {
             val ids = pairs.flatMap { (x, y) -> listOf("dict-$x-$y") + Engine.steps(x, y).map { (a, b) -> "model-$a-$b" } } +
                 if (pairs.isEmpty()) emptyList() else listOf("langid")
-            return cs.filter { it.id in ids.toSet() }
+            val kind = when (method) { "direct" -> "opus"; "llm" -> "llm"; else -> null }
+            val extra = if (kind == null) emptyList() else pairs.mapNotNull { (x, y) -> cs.firstOrNull { it.kind == kind && "$x-$y" in it.covers }?.id }
+            return cs.filter { it.id in (ids + extra).toSet() }
         }
 
         /** What removing [pair] frees: its parts no other installed pair needs (shared models and langid stay). */
-        fun freed(cs: List<Component>, installed: Collection<Pair<String, String>>, pair: Pair<String, String>): List<Component> {
-            val keep = needed(cs, installed - pair).map { it.id }.toSet()
-            return needed(cs, listOf(pair)).filter { it.id !in keep }
+        fun freed(cs: List<Component>, installed: Collection<Pair<String, String>>, pair: Pair<String, String>, method: String = "fast"): List<Component> {
+            val keep = needed(cs, installed - pair, method).map { it.id }.toSet()
+            return needed(cs, listOf(pair), method).filter { it.id !in keep }
         }
 
         /** Installed parts whose file in the release is newer. */

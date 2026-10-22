@@ -88,6 +88,11 @@ class Prefs(private val ctx: Context) {
     var packDicts: Boolean get() = sp.getBoolean("pack_dicts", true); set(v) = sp.edit().putBoolean("pack_dicts", v).apply()
     var packGrammar: Boolean get() = sp.getBoolean("pack_grammar", true); set(v) = sp.edit().putBoolean("pack_grammar", v).apply()
     var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()
+    /** Offline translation method: fast (Mozilla, through English) | direct (OPUS-MT) | llm (an AI model on the device). */
+    var mtMethod: String get() = sp.getString("mt_method", "fast")!!; set(v) = sp.edit().putString("mt_method", v).apply()
+    /** A method's measured time per phrase on this device, ms (0: not measured). */
+    fun mtSpeed(method: String) = sp.getInt("mt_speed_$method", 0)
+    fun setMtSpeed(method: String, ms: Int) = sp.edit().putInt("mt_speed_$method", ms).apply()
     /** Own dictionaries switched off, by id. */
     var dictsOff: Set<String> get() = sp.getStringSet("dicts_off", emptySet())!!.toSet(); set(v) = sp.edit().putStringSet("dicts_off", v).apply()
     /** Other dictionaries downloaded from the sources: "address\tname\tname…"; the download page marks those still there. */

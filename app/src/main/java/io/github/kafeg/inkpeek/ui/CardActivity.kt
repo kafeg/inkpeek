@@ -49,7 +49,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     val size: Float get() = prefs.cardText.toFloat()
     val online: Boolean get() = Net.online(this)
     val answers by lazy { Answers(prefs, store, query) { online } }
-    val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) }
+    val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy) { io.github.kafeg.inkpeek.mt.Device.of(this) } }
     val dictionary = DictionaryPage(this)
     val ai = AiPage(this)
     private val translate = TranslatePage(this)

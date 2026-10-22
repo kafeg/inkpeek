@@ -45,6 +45,7 @@ class LanguagesSettings(private val a: MainActivity) {
         t.addView(Rows.check(a, a.getString(R.string.pack_dicts_t), a.getString(R.string.pack_dicts_d), prefs.packDicts) { prefs.packDicts = it; a.refreshStatus() })
         t.addView(Rows.check(a, a.getString(R.string.pack_gram_t), a.getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
         t.addView(Rows.check(a, a.getString(R.string.pack_mt_t), a.getString(R.string.pack_mt_d), prefs.packMt) { prefs.packMt = it })
+        methodBox = Ink.vertical(a); t.addView(methodBox)
         t.addView(Rows.heading(a, a.getString(R.string.get_title)))
         t.addView(Rows.info(a, null, a.getString(R.string.packs_source), a.getString(R.string.packs_source_d)))
         t.addView(Rows.buttons(a, a.getString(R.string.packs_get) to { a.startActivity(Intent(a, PacksActivity::class.java)) }))
@@ -63,8 +64,20 @@ class LanguagesSettings(private val a: MainActivity) {
         }
     }
 
+    private lateinit var methodBox: LinearLayout
+
+    /** The offline translation method in use, a page to change it. */
+    private fun refreshMethod() {
+        if (!::methodBox.isInitialized) return
+        methodBox.removeAllViews()
+        val name = a.getString(when (prefs.mtMethod) { "direct" -> R.string.mt_direct_t; "llm" -> R.string.mt_llm_t; else -> R.string.mt_fast_t })
+        methodBox.addView(Rows.info(a, null, a.getString(R.string.mt_t), name, page = true) {
+            a.startActivity(android.content.Intent(a, TranslationActivity::class.java)) })
+    }
+
     /** The installed pairs: a box (the card uses it), its size, ✕; an update line when the release has newer files. */
     fun refreshPacks() {
+        refreshMethod()
         if (!Downloads.busy) Downloads.result?.let { a.toast(it); Downloads.result = null }
         packList.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()
@@ -99,7 +112,7 @@ class LanguagesSettings(private val a: MainActivity) {
         if (Downloads.busy) { a.showDownload(); return }
         val packs = prefs.packs; val all = packs.installedPairs()
         // Without the list (offline, first start) only the pair's dictionary is known to be its own.
-        val freed = if (manifest.isEmpty()) listOf(Packs.stale("dict-${pair.first}-${pair.second}")) else Packs.freed(manifest, all, pair)
+        val freed = if (manifest.isEmpty()) listOf(Packs.stale("dict-${pair.first}-${pair.second}")) else Packs.freed(manifest, all, pair, prefs.mtMethod)
         prefs.pairs = prefs.pairs?.minus("${pair.first}-${pair.second}")
         Downloads.packs(a, emptyList(), freed, a.getString(R.string.pack_removed, "${a.langName(pair.first)} → ${a.langName(pair.second)}"))
     }

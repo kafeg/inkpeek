@@ -22,3 +22,14 @@ list(FILTER FASTTEXT_SOURCES EXCLUDE REGEX ".*/main\\.cc$")
 add_library(inkpeek_mt SHARED translator_jni.cpp langid_jni.cpp ${FASTTEXT_SOURCES})
 target_include_directories(inkpeek_mt PRIVATE fasttext/src)
 target_link_libraries(inkpeek_mt bergamot-translator android log)
+
+# AI translation (an optional pack): llama.cpp (MIT) in its own library. Its kernels use int8 dot product, so the app
+# loads it only on a CPU that has it (Device: asimddp); the weights are mapped as they are, not repacked.
+set(GGML_NATIVE OFF CACHE BOOL "" FORCE)
+set(GGML_CPU_ARM_ARCH "armv8.2-a+dotprod" CACHE STRING "" FORCE)
+foreach(opt GGML_OPENMP GGML_LLAMAFILE GGML_BACKEND_DL GGML_CPU_KLEIDIAI LLAMA_CURL LLAMA_OPENSSL LLAMA_BUILD_TESTS LLAMA_BUILD_EXAMPLES LLAMA_BUILD_TOOLS LLAMA_BUILD_SERVER LLAMA_BUILD_COMMON)
+  set(${opt} OFF CACHE BOOL "" FORCE)
+endforeach()
+add_subdirectory(llama EXCLUDE_FROM_ALL)
+add_library(inkpeek_llm SHARED llm_jni.cpp)
+target_link_libraries(inkpeek_llm llama log)

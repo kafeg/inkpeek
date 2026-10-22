@@ -19,6 +19,7 @@
         <activity android:name=".ui.PacksActivity" android:exported="false" />
         <activity android:name=".ui.OrderActivity" android:exported="false" />
         <activity android:name=".ui.FontActivity" android:exported="false" />
+        <activity android:name=".ui.TranslationActivity" android:exported="false" />
         <activity android:name=".ui.CatalogActivity" android:exported="false" android:windowSoftInputMode="stateHidden" />
         <activity android:name=".ui.MainActivity" android:exported="true" android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>

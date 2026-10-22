@@ -22,16 +22,39 @@ object Engine {
 
     fun ready(root: File, from: String, to: String) = steps(from, to).all { (a, b) -> Models.installed(root, a, b) }
 
-    /** The pair whose models are held in memory: only one at a time, models of other pairs would add up (killed by Android). */
-    private var held: Pair<String, String>? = null
+    /** What is held in memory (a Mozilla pair or an OPUS-MT model): one at a time, others would add up (killed by Android). */
+    private var held: String? = null
+
+    private fun hold(key: String, keep: Boolean) {
+        Llm.release() // an AI model is not kept next to these
+        if (held != null && held != key) { releaseNative(); held = null }
+        if (keep) held = key
+        freeing?.cancel(false)
+    }
+
+    private fun idleLater(keep: Boolean) { if (keep) freeing = idle.schedule({ release() }, 3, java.util.concurrent.TimeUnit.MINUTES) }
+
+    private fun run(dir: File, text: String, keep: Boolean) = String(translateNative(config(dir), text.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8)
 
     /** Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use. */
     @Synchronized fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = native.let {
-        if (held != null && held != from to to) { releaseNative(); held = null }
-        if (keep) held = from to to
-        freeing?.cancel(false)
-        steps(from, to).fold(text) { t, (a, b) -> String(translateNative(config(Models.dir(root, a, b)), t.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8) }
-            .also { if (keep) freeing = idle.schedule({ release() }, 3, java.util.concurrent.TimeUnit.MINUTES) }
+        hold("$from-$to", keep)
+        steps(from, to).fold(text) { t, (a, b) -> run(Models.dir(root, a, b), t, keep) }.also { idleLater(keep) }
+    }
+
+    /**
+     * Blocking, with an OPUS-MT model ([dir]): straight [from] → target. A multi-target model needs its [tag] (">>rus<<")
+     * before every sentence, so the text goes sentence by sentence (Android's sentence breaks for [from]).
+     */
+    @Synchronized fun translateDirect(dir: File, from: String, tag: String?, text: String, keep: Boolean): String = native.let {
+        hold(dir.path, keep)
+        val parts = if (tag == null) listOf(text) else sentences(text, from)
+        parts.joinToString(" ") { s -> if (s.isBlank()) s else run(dir, if (tag == null) s else "$tag $s", keep) }.trim().also { idleLater(keep) }
+    }
+
+    private fun sentences(text: String, lang: String): List<String> {
+        val b = java.text.BreakIterator.getSentenceInstance(java.util.Locale(lang)).apply { setText(text) }
+        return generateSequence(b.first()) { b.next().takeIf { it != java.text.BreakIterator.DONE } }.zipWithNext { a, c -> text.substring(a, c).trim() }.toList()
     }
 
     @Synchronized fun release() { native; releaseNative(); held = null }
@@ -40,13 +63,15 @@ object Engine {
     fun config(d: File): String {
         val fs = d.listFiles().orEmpty()
         fun f(p: (String) -> Boolean) = fs.firstOrNull { p(it.name) }?.path ?: error("Missing model file in ${d.path}")
-        val model = f { it.startsWith("model.") }; val lex = f { it.startsWith("lex.") }
+        val model = f { it.startsWith("model.") }
+        // Mozilla's models have a lexical shortlist; OPUS-MT's have none (slower, still fine on a phone).
+        val lex = fs.firstOrNull { it.name.startsWith("lex.") }?.path
         val src = fs.firstOrNull { it.name.startsWith("srcvocab.") }?.path ?: f { it.startsWith("vocab.") }
         val trg = fs.firstOrNull { it.name.startsWith("trgvocab.") }?.path ?: src
         return """
             models: [$model]
             vocabs: [$src, $trg]
-            shortlist: [$lex, false]
+            ${if (lex != null) "shortlist: [$lex, false]" else ""}
             beam-size: 1
             normalize: 1.0
             word-penalty: 0

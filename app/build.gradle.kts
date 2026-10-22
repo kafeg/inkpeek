@@ -26,7 +26,7 @@ android {
         ndk { abiFilters += listOf("arm64-v8a") } // e-ink readers are 64-bit ARM; the engine is built for it only
         externalNativeBuild { cmake {
             arguments += listOf("-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions")
-            targets += "inkpeek_mt" // only the JNI library, not marian's command-line tools
+            targets += listOf("inkpeek_mt", "inkpeek_llm") // the JNI libraries only, not marian's or llama's tools
         } }
     }
     ndkVersion = "27.3.13750724"

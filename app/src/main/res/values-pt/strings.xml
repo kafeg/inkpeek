@@ -288,4 +288,24 @@
     <string name="look_dim">Escurecer a página</string>
     <string name="look_dim_d">Desligado por defeito: no e-ink aparece como uma camada cinzenta.</string>
     <string name="dim_off">Não</string>
+    <string name="mt_t">Método de tradução offline</string>
+    <string name="mt_this">Este dispositivo: %1$s GB de memória; aceleração int8: %2$s.</string>
+    <string name="mt_yes">sim</string>
+    <string name="mt_no">não</string>
+    <string name="mt_fast_t">Rápido · Mozilla</string>
+    <string name="mt_fast_d">Pelo inglês: o sentido chega; tu/você, o género e as expressões perdem-se. Funciona em todos.</string>
+    <string name="mt_direct_t">Direto · OPUS-MT</string>
+    <string name="mt_direct_d">De língua para língua, sem inglês: mais preciso, conhece expressões. Modelos Helsinki, ~170 MB cada; 4 GB de memória.</string>
+    <string name="mt_llm_t">Modelo IA · Hy-MT2</string>
+    <string name="mt_llm_d">IA da Tencent no dispositivo, direta entre línguas: 1,1 GB; 6 GB de memória e aceleração int8.</string>
+    <string name="mt_need">Para os seus pares: %1$d modelo(s), %2$d MB</string>
+    <string name="mt_have">transferido</string>
+    <string name="mt_none_for">Sem modelo para %1$s: o Mozilla traduz.</string>
+    <string name="mt_cannot_mem">Precisa de %1$s GB de memória; o dispositivo tem %2$s GB.</string>
+    <string name="mt_cannot_cpu">Precisa de um processador com aceleração int8 (dot product).</string>
+    <string name="mt_speed">≈ %1$s s por frase neste dispositivo</string>
+    <string name="mt_get">Transferir %1$d MB.</string>
+    <string name="mt_drop">Os modelos do método anterior (%1$d MB) serão removidos.</string>
+    <string name="mt_done">Método de tradução: %1$s</string>
+    <string name="mt_no_models">Ainda não está na lista de pacotes.</string>
 </resources>
