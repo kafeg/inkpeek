@@ -282,4 +282,5 @@
     <string name="font_loading">Lecture des polices…</string>
     <string name="font_device_d">Polices d\'Android qui ont toutes les lettres de la fiche : ä ß é ł д ж.</string>
     <string name="font_yours_d">De fonts/, koreader/fonts et InkPeek/fonts ; ✕ supprime un fichier choisi.</string>
+    <string name="icons_what">Ce que fait chaque icône</string>
 </resources>

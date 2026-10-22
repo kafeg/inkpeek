@@ -282,4 +282,5 @@
     <string name="font_loading">Wczytywanie czcionek…</string>
     <string name="font_device_d">Czcionki Androida ze wszystkimi literami karty: ä ß é ł д ж.</string>
     <string name="font_yours_d">Z fonts/, koreader/fonts i InkPeek/fonts; ✕ usuwa wybrany plik.</string>
+    <string name="icons_what">Co robi każda ikona</string>
 </resources>

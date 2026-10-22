@@ -282,4 +282,5 @@
     <string name="font_loading">Lettura dei caratteri…</string>
     <string name="font_device_d">Caratteri di Android con tutte le lettere della scheda: ä ß é ł д ж.</string>
     <string name="font_yours_d">Da fonts/, koreader/fonts e InkPeek/fonts; ✕ elimina un file scelto.</string>
+    <string name="icons_what">Cosa fa ogni icona</string>
 </resources>

@@ -38,10 +38,6 @@ class CardSettings(private val a: MainActivity) {
         t.addView(Rows.info(a, null, a.getString(R.string.order_t), a.getString(R.string.order_d), page = true) {
             a.startActivity(android.content.Intent(a, OrderActivity::class.java)) })
         t.addView(Rows.check(a, a.getString(R.string.phrase_ai), a.getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
-        t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
-        aiRow = Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it }
-        t.addView(aiRow); syncAi()
-        t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
     }
 
     private fun buildLook(t: LinearLayout) {
@@ -75,7 +71,13 @@ class CardSettings(private val a: MainActivity) {
     }
 
     /** Help: each icon of the card, what it does. */
+    /** Which icons the card shows, then what each one does (help). */
     private fun buildIcons(t: LinearLayout) {
+        t.addView(first(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it }))
+        aiRow = Rows.check(a, a.getString(R.string.card_ai_t), a.getString(R.string.card_ai_d), prefs.cardAi) { prefs.cardAi = it }
+        t.addView(aiRow); syncAi()
+        t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
+        t.addView(Rows.heading(a, a.getString(R.string.icons_what)))
         val rows = listOf(Triple(R.drawable.ic_dictionary, a.getString(R.string.tab_dictionary), a.getString(R.string.icon_dict_d)),
             Triple(R.drawable.ic_translate, a.getString(R.string.tab_translate), a.getString(R.string.icon_translate_d))) +
             Action.ALL.map { x -> Triple(if (x.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(a, x) + " · AI", Ink.description(a, x)) } +
@@ -84,6 +86,6 @@ class CardSettings(private val a: MainActivity) {
                 Triple(R.drawable.ic_back, a.getString(R.string.back), a.getString(R.string.icon_back_d)),
                 Triple(R.drawable.ic_close, a.getString(R.string.close), a.getString(R.string.icon_close_d)),
                 Triple(R.drawable.ic_copy, a.getString(R.string.hold_t), a.getString(R.string.hold_d)))
-        rows.forEachIndexed { i, (icon, title, about) -> t.addView(Rows.info(a, icon, title, about, lines = 3).let { if (i == 0) first(it) else it }) }
+        rows.forEach { (icon, title, about) -> t.addView(Rows.info(a, icon, title, about, lines = 3)) }
     }
 }

@@ -282,4 +282,5 @@
     <string name="font_loading">A ler as fontes…</string>
     <string name="font_device_d">Fontes do Android com todas as letras do cartão: ä ß é ł д ж.</string>
     <string name="font_yours_d">De fonts/, koreader/fonts e InkPeek/fonts; ✕ apaga um ficheiro escolhido.</string>
+    <string name="icons_what">O que faz cada ícone</string>
 </resources>

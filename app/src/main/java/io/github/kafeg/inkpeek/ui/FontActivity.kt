@@ -39,7 +39,9 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         col.addView(Rows.header(this, getString(R.string.font_t)))
         // How the card's text looks in the chosen font, at the card's text size.
         sample = Ink.text(this, "", prefs.cardText.toFloat(), html = true).apply {
-            background = Ink.border(this@FontActivity, 3, 8); val q = Ink.dp(this@FontActivity, 12); setPadding(q, q, q, q) }
+            background = Ink.border(this@FontActivity, 3, 8); val q = Ink.dp(this@FontActivity, 12); setPadding(q, q, q, q)
+            // A tap: the real card with this font.
+            setOnClickListener { startActivity(WordsList.card(this@FontActivity, "Häuser")) } }
         col.addView(sample, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 6) })
         tabs = Ink.vertical(this); col.addView(tabs, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 10) })
         list = Ink.vertical(this)

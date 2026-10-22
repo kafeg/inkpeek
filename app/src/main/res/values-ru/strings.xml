@@ -282,4 +282,5 @@
     <string name="font_loading">Читаю шрифты…</string>
     <string name="font_device_d">Шрифты Android, в которых есть все буквы карточки: ä ß é ł д ж.</string>
     <string name="font_yours_d">Из fonts/, koreader/fonts и InkPeek/fonts; ✕ удаляет выбранный файлом.</string>
+    <string name="icons_what">Что делает каждый значок</string>
 </resources>

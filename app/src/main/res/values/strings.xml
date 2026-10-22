@@ -283,4 +283,5 @@
     <string name="font_loading">Reading the fonts…</string>
     <string name="font_device_d">Android\'s fonts that have every letter the card needs: ä ß é ł д ж.</string>
     <string name="font_yours_d">From fonts/, koreader/fonts and InkPeek/fonts; ✕ deletes a chosen file.</string>
+    <string name="icons_what">What each icon does</string>
 </resources>
