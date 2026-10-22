@@ -279,4 +279,7 @@
     <string name="font_none">Пока нет: шрифты из fonts/, koreader/fonts или выберите файл.</string>
     <string name="font_missing">нет %1$s</string>
     <string name="font_delete_q">Удалить шрифт «%1$s» из InkPeek/fonts?</string>
+    <string name="font_loading">Читаю шрифты…</string>
+    <string name="font_device_d">Шрифты Android, в которых есть все буквы карточки: ä ß é ł д ж.</string>
+    <string name="font_yours_d">Из fonts/, koreader/fonts и InkPeek/fonts; ✕ удаляет выбранный файлом.</string>
 </resources>

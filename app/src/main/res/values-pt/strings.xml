@@ -279,4 +279,7 @@
     <string name="font_none">Ainda nenhuma: fontes de fonts/, koreader/fonts ou escolha um ficheiro.</string>
     <string name="font_missing">sem %1$s</string>
     <string name="font_delete_q">Apagar a fonte «%1$s» de InkPeek/fonts?</string>
+    <string name="font_loading">A ler as fontes…</string>
+    <string name="font_device_d">Fontes do Android com todas as letras do cartão: ä ß é ł д ж.</string>
+    <string name="font_yours_d">De fonts/, koreader/fonts e InkPeek/fonts; ✕ apaga um ficheiro escolhido.</string>
 </resources>

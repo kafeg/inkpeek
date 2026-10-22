@@ -279,4 +279,7 @@
     <string name="font_none">Jeszcze brak: czcionki z fonts/, koreader/fonts lub wybierz plik.</string>
     <string name="font_missing">bez %1$s</string>
     <string name="font_delete_q">Usunąć czcionkę «%1$s» z InkPeek/fonts?</string>
+    <string name="font_loading">Wczytywanie czcionek…</string>
+    <string name="font_device_d">Czcionki Androida ze wszystkimi literami karty: ä ß é ł д ж.</string>
+    <string name="font_yours_d">Z fonts/, koreader/fonts i InkPeek/fonts; ✕ usuwa wybrany plik.</string>
 </resources>

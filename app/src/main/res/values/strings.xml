@@ -280,4 +280,7 @@
     <string name="font_none">None yet: fonts from fonts/, koreader/fonts, or choose a file.</string>
     <string name="font_missing">no %1$s</string>
     <string name="font_delete_q">Delete the font «%1$s» from InkPeek/fonts?</string>
+    <string name="font_loading">Reading the fonts…</string>
+    <string name="font_device_d">Android\'s fonts that have every letter the card needs: ä ß é ł д ж.</string>
+    <string name="font_yours_d">From fonts/, koreader/fonts and InkPeek/fonts; ✕ deletes a chosen file.</string>
 </resources>

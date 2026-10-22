@@ -17,11 +17,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** The card's font (Card → Appearance): a sample on top, Android's fonts, the person's own; each shown in itself. */
+/** The card's font (Card → Appearance): the sample and two tabs stay on top (Android's fonts, yours), the list scrolls. */
 class FontActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
     private lateinit var sample: TextView
     private lateinit var list: LinearLayout
+    private lateinit var tabs: LinearLayout
+    private var tab = ""
+    private var loaded = false
     private var system: List<Fonts.Item> = emptyList()
     private var yours: List<Fonts.Item> = emptyList()
 
@@ -38,8 +41,13 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         sample = Ink.text(this, "", prefs.cardText.toFloat(), html = true).apply {
             background = Ink.border(this@FontActivity, 3, 8); val q = Ink.dp(this@FontActivity, 12); setPadding(q, q, q, q) }
         col.addView(sample, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 6) })
-        list = Ink.vertical(this); col.addView(list)
-        setContentView(ScrollView(this).apply { addView(col) })
+        tabs = Ink.vertical(this); col.addView(tabs, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 10) })
+        list = Ink.vertical(this)
+        col.addView(ScrollView(this).apply { addView(list) }, Ink.lp(h = 0, weight = 1f))
+        setContentView(col)
+        // The tab of the font in use: one of yours opens on Yours.
+        tab = if (prefs.cardFont.isNotEmpty() && !prefs.cardFont.startsWith("/system/")) "yours" else "device"
+        draw()
         showSample(); refresh()
     }
 
@@ -48,20 +56,27 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
     /** The fonts are read off the main thread: checking each one's letters opens its file. */
     private fun refresh() = launch {
         withContext(Dispatchers.IO) { system = Fonts.system(); yours = Fonts.yours() }
-        draw()
+        loaded = true; draw()
     }
 
     private fun draw() {
         val now = prefs.cardFont
         showSample()
+        tabs.removeAllViews()
+        tabs.addView(Ink.subTabs(this, listOf("device" to getString(R.string.font_device), "yours" to getString(R.string.font_yours)), tab, 16f) {
+            tab = it; draw() })
         list.removeAllViews()
-        list.addView(Rows.heading(this, getString(R.string.font_device)))
-        row(Fonts.Item("", getString(R.string.font_default), getString(R.string.font_default_d), ""), now)
-        system.forEach { row(it, now) }
-        list.addView(Rows.heading(this, getString(R.string.font_yours)))
-        if (yours.isEmpty()) list.addView(Rows.note(this, getString(R.string.font_none)))
-        yours.forEach { row(it, now) }
-        list.addView(Rows.buttons(this, getString(R.string.font_file) to { pick() }))
+        // Reading the fonts takes a moment the first time (each one's letters are checked).
+        if (!loaded) { list.addView(Rows.note(this, getString(R.string.font_loading))); return }
+        if (tab == "device") {
+            list.addView(Rows.note(this, getString(R.string.font_device_d)))
+            row(Fonts.Item("", getString(R.string.font_default), getString(R.string.font_default_d), ""), now)
+            system.forEach { row(it, now) }
+        } else {
+            list.addView(Rows.note(this, getString(if (yours.isEmpty()) R.string.font_none else R.string.font_yours_d)))
+            yours.forEach { row(it, now) }
+            list.addView(Rows.buttons(this, getString(R.string.font_file) to { pick() }))
+        }
     }
 
     private fun showSample() {
