@@ -128,7 +128,7 @@ def quantize(folder, marian_conv):
 def check(folder, bergamot, covers, tags):
     """Each covered direction translates its CHECK sentence: not empty, not the input, in the target's script."""
     cfg = os.path.join(folder, "check.yml")
-    open(cfg, "w").write(CONFIG)
+    open(cfg, "w").write(CONFIG.replace("quiet: true\n", "quiet: false\n"))  # errors and their reasons in the log
     out = {}
     try:
         for d in covers:
