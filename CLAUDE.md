@@ -18,6 +18,7 @@ other dictionaries to download), `OrderActivity` (dictionary order), `Downloads`
 dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `TextActions` (selection, our copy /
 share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`.
+New language (book or answer) or translation model: `packs/README.md` → "Adding a language" — every step, in order.
 
 ## Build and run
 ```bash

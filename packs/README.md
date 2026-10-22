@@ -42,6 +42,31 @@ x86-only), then `build.py opus` (download the Marian zip, remap, quantize, one c
 `--marian-conv "docker run --platform linux/amd64 …"`. The plan is regenerated from the OPUS-MT leaderboard with
 `opus.plan()` (scores/chrf_scores.db, released-models.txt).
 
+## Adding a language
+A language is one of two roles, often both: a **book language** (the text you read) and an **answer language** (the
+app's language, the dictionaries' and translations' target). Do every step that applies, in this order; nothing is
+added by hand on a device.
+1. **Is there enough data?** `packs/report.py` and `research` notes: kaikki edition of the language (its own Wiktionary
+   or en.wiktionary), WikDict pairs, top-5,000 coverage of the pairs you plan. A pair below ~60 % coverage is not worth
+   a pack yet.
+2. **Sources:** `sources.json` → `kaikki` (the language's own wiktextract dump, if any) and `languages` (its English
+   name). Grammar comes only from data (`grammar.py`: genders, plurals, verb forms of that edition); no endings rules —
+   fixes go to `overrides/<x>.tsv`.
+3. **Mozilla models:** a book language needs `x→en`, an answer language `en→y` at Mozilla (`models.json`; the build
+   prints "none at Mozilla" otherwise — then the pair has no offline translation).
+4. **OPUS-MT:** add the language to `opus.ISO3`, regenerate `opus.json` with `opus.plan()` (OPUS-MT leaderboard: the
+   new directions get their models; check the coverage list it prints), run the *Translation models* workflow.
+5. **Hy-MT2 (`llm.json`):** if the model knows the language (its card lists 33), add its English name to `names` and
+   the new directions to `covers`; the workflow republishes the entry.
+6. **Golden words:** `tests/golden/<x>.tsv` (book) and `tests/golden/<x>-<y>.tsv` (pairs) — real words and forms that
+   must come out right; device cases in `app/src/androidTest/assets/cases.tsv`.
+7. **Build and publish:** the *Packs* workflow with the book and answer languages, then `scripts/device-test.sh` on a
+   device with the new pair installed.
+8. **App, answer language only:** `Prefs.ANSWERS`, `values-<y>/strings.xml` with every key of `values/strings.xml`
+   (the CI test of string keys fails otherwise), the language in the README's list; `Fonts.LETTERS` gets its letters if
+   they are new (the font page shows only fonts that have them).
+9. **README:** the pairs table (`report.py --readme`), CHANGELOG.
+
 ## Release
 The `Packs` workflow (manual) takes the book languages and answer languages to build, e.g. `de,en` and `ru,en`:
 1. `slices` — per-language slices of the kaikki dumps come from release `packs-sources`; a dump is downloaded and
