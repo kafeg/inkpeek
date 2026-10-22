@@ -241,6 +241,9 @@ def cmd_dict(a, x, y):
     with open(os.path.join(folder, f"dict-{x}-{y}.rel"), "w", encoding="utf-8") as f:
         f.write("\n".join(rel) + "\n")
     st["related"] = len(rel)
+    # The share of the book language's 5,000 most frequent words the pair knows (headword or form): the pack's label.
+    known = {w.lower() for w in articles} | {f.lower() for f, h in syn if h in articles}
+    st["coverage"] = related.coverage(known, fetch(FREQ.format(x=x), os.path.join(a.work, "freq", f"{x}.txt")))
     print(f"dict-{x}-{y}: {st}", flush=True)
     return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),
             "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}

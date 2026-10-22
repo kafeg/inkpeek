@@ -8,7 +8,7 @@ import unittest
 import zlib
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from inkpeek_packs import dictionary, grammar, stardict  # noqa: E402
+from inkpeek_packs import dictionary, grammar, related, stardict  # noqa: E402
 
 
 class StarDictTest(unittest.TestCase):
@@ -121,8 +121,13 @@ if __name__ == "__main__":
 
 class RelatedTest(unittest.TestCase):
     """Related words, synonyms, expressions: from both editions, frequent first, only words a reader meets."""
+    def test_coverage(self):
+        import tempfile
+        with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as f:
+            f.write("the 9\n, 8\nhouse 7\n123 6\ngo 5\n")
+        self.assertEqual(related.coverage({"the", "go"}, f.name, n=3), 66.7)
+
     def test_collect_and_order(self):
-        from inkpeek_packs import related
         native = [{"word": "machen", "derived": [{"word": "zumachen"}, {"word": "aufmachen"}, {"word": "Machenschaft"}],
                    "expressions": [{"word": "das macht nichts"}], "synonyms": [{"word": "tun"}], "antonyms": [{"word": "unterlassen"}],
                    "sounds": [{"ipa": "[ˈmaxn̩]"}], "etymology_texts": ["althochdeutsch mahhōn"],

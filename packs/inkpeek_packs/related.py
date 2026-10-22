@@ -69,6 +69,21 @@ def rank(freq_path):
     return out
 
 
+WORD = re.compile(r"[^\W\d_]+(['’-][^\W\d_]+)*")
+
+
+def coverage(known, freq_path, n=5000):
+    """The share (0–100) of the [n] most frequent words (letters only) that [known] (lower case) has."""
+    top = []
+    for line in open(freq_path, encoding="utf-8"):
+        w = line.split(" ", 1)[0]
+        if WORD.fullmatch(w):
+            top.append(w.lower())
+            if len(top) == n:
+                break
+    return round(100 * sum(w in known for w in top) / max(len(top), 1), 1)
+
+
 def _order(items, ranks):
     """Frequent first; a phrase counts as its rarest word; unknown ones keep their order after the known."""
     big = len(ranks) + 1
