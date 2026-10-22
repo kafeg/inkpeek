@@ -17,7 +17,7 @@ count, so every release has its own.
   ones you have.
 - Dictionary order: packs and other dictionaries in one list, in the order you want (Card → Main).
 - The dictionary in the card as short lines or as full articles, ◀ ▶ or a swipe between dictionaries (Card → Main).
-- Card → Window is now Card → Appearance (size, position, text, dark mode).
+- Card → Window is now Card → Appearance (size, position, text, font).
 - Articles are black and white: a dictionary's own colors (WikDict's green grammar, grey IPA) are removed.
 - Rows you can select (dictionary lines, Notes, the history) open on the first tap again, not the second.
 - Back and page arrows as icons; "→" drawn in the middle of the line.
@@ -35,6 +35,8 @@ count, so every release has its own.
 - Dialogs and messages follow the theme too (Boox drew Android's own white).
 - Dark theme for the whole app, settings too (Card → Main → Theme).
 - Notes in the card: 50 per page, like in settings.
+- Card → Icons: which icons the card shows on top, what each one does below.
+- Settings sections in the order of setting up: Languages, Card, AI, Notes.
 - "→" in AI answers and offline translations drawn in the middle of the line; dimmed buttons (the first page's ◀)
   easier to see.
 
