@@ -120,7 +120,7 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         val f = runCatching { contentResolver.openInputStream(uri)!!.use { Fonts.keep(prefs.home, name, it) } }
             .getOrElse { Ink.toast(this, getString(R.string.failed, it.message)); return }
         if (Fonts.face(f.path) == null) { f.delete(); Ink.toast(this, getString(R.string.font_bad, name)); return }
-        prefs.cardFont = f.path; refresh()
+        prefs.cardFont = f.path; tab = "yours"; refresh()
     }
 
     companion object {
