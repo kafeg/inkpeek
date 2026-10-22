@@ -1,21 +1,22 @@
 name: Translation models
-# Direct offline translation for release "packs": OPUS-MT models of packs/opus.json converted for Bergamot (vocab
-# remapped to SentencePiece, int8 by marian-conv — x86 only, hence here), checked by a translation per direction;
-# AI models of packs/llm.json mirrored (the app downloads them from the Hub first, from here if that fails).
+# Direct offline translation for release "packs": OPUS-MT models of packs/opus.json converted for Bergamot — vocab
+# remapped to SentencePiece and int8 by marian-conv on x86 (its packing is x86-only); then on ARM, the app's own code
+# path, a check translation per direction and the packing; AI models of packs/llm.json mirrored (the app downloads
+# them from the Hub first, from here if that fails).
 on:
   workflow_dispatch:
     inputs:
-      models: { description: "OPUS-MT model ids (empty: all of opus.json)", default: "" }
+      models: { description: "OPUS-MT model ids (empty: all of opus.json; '-': none)", default: "" }
       llm: { description: "Mirror the AI models of llm.json", type: boolean, default: true }
       publish: { description: "Upload to release 'packs'", type: boolean, default: true }
 permissions:
   contents: write
 jobs:
-  build:
+  convert:
+    if: ${{ inputs.models != '-' }}
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:
-      GH_TOKEN: ${{ github.token }}
       WORK: /tmp/mt-work
       MODELS: ${{ inputs.models }}
     steps:
@@ -24,16 +25,44 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install numpy sentencepiece protobuf pyyaml
-      - name: marian-conv and the bergamot CLI (the app's Bergamot, built for x86)
+      - name: marian-conv (the app's Bergamot sources, x86)
+        run: |
+          sudo apt-get install -y -qq ninja-build >/dev/null
+          cmake -S app/src/main/cpp/bergamot -B /tmp/berg -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+            -DCOMPILE_CUDA=OFF -DUSE_TCMALLOC=OFF -DCOMPILE_TESTS=OFF -DUSE_WASM_COMPATIBLE_SOURCE=OFF -DCOMPILE_LIBRARY_ONLY=OFF \
+            -DSSPLIT_USE_INTERNAL_PCRE2=ON -DUSE_MKL=OFF -DBUILD_ARCH=x86-64
+          CMAKE_POLICY_VERSION_MINIMUM=3.5 ninja -C /tmp/berg marian-conv
+      - run: python3 packs/build.py opus-convert $MODELS --work "$WORK" --out mt-out --marian-conv /tmp/berg/marian-conv
+      - uses: actions/upload-artifact@v4
+        with: { name: opus-converted, path: mt-out/opus, retention-days: 1 }
+  finish:
+    needs: convert
+    if: ${{ always() && (needs.convert.result == 'success' || needs.convert.result == 'skipped') }}
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+      WORK: /tmp/mt-work
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install numpy sentencepiece protobuf pyyaml
+      - run: python3 -m unittest discover -s packs/tests
+      - name: The bergamot CLI (ARM, as in the app)
+        if: ${{ inputs.models != '-' }}
         run: |
           sudo apt-get install -y -qq ninja-build zstd >/dev/null
           cmake -S app/src/main/cpp/bergamot -B /tmp/berg -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
             -DCOMPILE_CUDA=OFF -DUSE_TCMALLOC=OFF -DCOMPILE_TESTS=OFF -DUSE_WASM_COMPATIBLE_SOURCE=OFF -DCOMPILE_LIBRARY_ONLY=OFF \
-            -DSSPLIT_USE_INTERNAL_PCRE2=ON -DUSE_MKL=OFF -DBUILD_ARCH=x86-64
-          CMAKE_POLICY_VERSION_MINIMUM=3.5 ninja -C /tmp/berg marian-conv bergamot
-      - run: python3 -m unittest discover -s packs/tests
+            -DSSPLIT_USE_INTERNAL_PCRE2=ON -DUSE_MKL=OFF -DBUILD_ARCH=armv8-a
+          CMAKE_POLICY_VERSION_MINIMUM=3.5 ninja -C /tmp/berg bergamot
       - if: ${{ inputs.models != '-' }}
-        run: python3 packs/build.py opus $MODELS --work "$WORK" --out mt-out --marian-conv /tmp/berg/marian-conv --bergamot /tmp/berg/app/bergamot
+        uses: actions/download-artifact@v4
+        with: { name: opus-converted, path: mt-out/opus }
+      - if: ${{ inputs.models != '-' }}
+        run: python3 packs/build.py opus-finish --work "$WORK" --out mt-out --bergamot /tmp/berg/app/bergamot
       - if: ${{ inputs.llm }}
         run: python3 packs/build.py llm --work "$WORK" --out mt-out
       - if: ${{ inputs.publish }}

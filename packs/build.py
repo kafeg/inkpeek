@@ -5,6 +5,7 @@
   build.py grammar X | dict X Y | models | langid             # one step (same --work / --out)
   build.py publish --out O --release packs                    # upload O's assets, merge packs.json in the release
   build.py opus [model ...] --marian-conv CMD --bergamot CMD  # OPUS-MT models of opus.json, converted for Bergamot
+  build.py opus-convert [model ...] | opus-finish              # the same in two steps: x86 (int8), then ARM (check, pack)
   build.py llm                                                # AI translation models of llm.json (GGUF, mirrored)
 Inputs: kaikki.org dumps (sliced per language), WikDict, Mozilla's models, fastText's language identification,
 OPUS-MT (Helsinki-NLP), Hy-MT2 (Tencent)."""
@@ -239,26 +240,23 @@ def cmd_models(a, directions):
     return out
 
 
-def cmd_opus(a, only):
-    """Each model of opus.json: download, vocab remapped to SentencePiece, int8, a check translation per direction."""
-    out = []
+def cmd_opus_convert(a, only):
+    """Each model of opus.json: download, vocab remapped to SentencePiece, int8 (x86) → <out>/opus/<id>/ with meta.json."""
     for e in json.load(open(os.path.join(HERE, "opus.json"), encoding="utf-8")):
-        cid = "opus-" + e["model"].split("/")[0].replace("+", "_")  # "+" in a release asset name is not kept by GitHub
-        if only and cid not in only and e["model"].split("/")[0] not in only:
+        name = e["model"].split("/")[0]
+        cid = "opus-" + name.replace("+", "_")  # "+" in a release asset name is not kept by GitHub
+        if only and cid not in only and name not in only:
             continue
-        work = os.path.join(a.work, "opus", e["model"].split("/")[0])
+        work = os.path.join(a.work, "opus", name)
         src = os.path.join(work, "src")
         if not os.path.isdir(src):
             zp = fetch(opus.URL + e["model"] + ".zip", os.path.join(work, "model.zip"))
             zipfile.ZipFile(zp).extractall(src)
             os.remove(zp)
-        folder = os.path.join(work, cid)
+        folder = os.path.join(a.out, "opus", cid)
         shutil.rmtree(folder, ignore_errors=True)
-        targets = sorted({d.split("-")[1] for d in e["covers"]})
-        tags = opus.remap(*opus.files_of(src), folder, targets)
+        tags = opus.remap(*opus.files_of(src), folder, sorted({d.split("-")[1] for d in e["covers"]}))
         opus.quantize(folder, a.marian_conv)
-        got = opus.check(folder, a.bergamot, e["covers"], tags)
-        print(f"{cid}: {len(e['covers'])} directions, tags {tags}; {got.get('de-ru') or next(iter(got.values()))}", flush=True)
         lic = open(os.path.join(src, "LICENSE"), encoding="utf-8", errors="replace").read() if os.path.exists(os.path.join(src, "LICENSE")) else ""
         license_id = "Apache-2.0" if "Apache License" in lic else "CC-BY-4.0"
         attribution = (f"OPUS-MT, Helsinki-NLP: {e['model']} ({opus.URL}{e['model']}.zip). Changed by InkPeek packs: "
@@ -266,12 +264,28 @@ def cmd_opus(a, only):
         open(os.path.join(folder, "ATTRIBUTION"), "w", encoding="utf-8").write(attribution + "\n")
         if lic:
             open(os.path.join(folder, "LICENSE"), "w", encoding="utf-8").write(lic)
+        json.dump({"id": cid, "covers": e["covers"], "tags": tags, "chrf": e["chrf"], "license": license_id, "attribution": attribution},
+                  open(os.path.join(folder, "meta.json"), "w", encoding="utf-8"), ensure_ascii=False)
+        shutil.rmtree(src)  # ~1 GB per model: a CI runner has room for one at a time
+        print(f"{cid}: converted, tags {tags}", flush=True)
+
+
+def cmd_opus_finish(a):
+    """Converted models (<out>/opus/*): a check translation per direction (on ARM, the app's code path), then packed."""
+    out = []
+    root = os.path.join(a.out, "opus")
+    for cid in sorted(os.listdir(root)) if os.path.isdir(root) else []:
+        folder = os.path.join(root, cid)
+        meta = json.load(open(os.path.join(folder, "meta.json"), encoding="utf-8"))
+        got = opus.check(folder, a.bergamot, meta["covers"], meta["tags"])
+        print(f"{cid}: {len(got)} directions checked; {got.get('de-ru') or next(iter(got.values()))}", flush=True)
+        os.remove(os.path.join(folder, "meta.json"))
         path = os.path.join(a.out, cid + ".tar.zst")
-        subprocess.run(f"tar -C {shlex.quote(work)} -cf - {shlex.quote(cid)} | zstd -q -19 -T0 -f -o {shlex.quote(path)}", shell=True, check=True)
-        out.append({"id": cid, "kind": "opus", "from": "", "to": "", "covers": e["covers"], "tags": tags, "chrf": e["chrf"],
+        subprocess.run(f"tar -C {shlex.quote(root)} -cf - {shlex.quote(cid)} | zstd -q -19 -T0 -f -o {shlex.quote(path)}", shell=True, check=True)
+        out.append({"id": cid, "kind": "opus", "from": "", "to": "", "covers": meta["covers"], "tags": meta["tags"], "chrf": meta["chrf"],
                     "ram_mb": 3500, "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
-                    "license": license_id, "attribution": attribution})
-        shutil.rmtree(folder); shutil.rmtree(src)  # ~2 GB per model: a CI runner has room for one at a time
+                    "license": meta["license"], "attribution": meta["attribution"]})
+        shutil.rmtree(folder)
     return out
 
 
@@ -325,8 +339,10 @@ def main():
         comps += cmd_models(a, dirs)
     if a.cmd in ("all", "langid"):
         comps.append(cmd_langid(a))
-    if a.cmd == "opus":
-        comps += cmd_opus(a, set(a.args))
+    if a.cmd in ("opus", "opus-convert"):
+        cmd_opus_convert(a, set(a.args))
+    if a.cmd in ("opus", "opus-finish"):
+        comps += cmd_opus_finish(a)
     if a.cmd == "llm":
         comps += cmd_llm(a)
     if comps:
