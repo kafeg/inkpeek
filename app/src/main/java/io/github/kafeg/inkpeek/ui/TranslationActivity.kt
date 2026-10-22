@@ -143,6 +143,6 @@ class TranslationActivity : Activity(), CoroutineScope by MainScope() {
             "en" to "He takes her right hand and carefully puts it on the racket.", "ru" to "Он берёт её правую руку и осторожно кладёт на ракетку.",
             "fr" to "Il prend sa main droite et la pose doucement sur la raquette.", "es" to "Toma su mano derecha y la pone con cuidado sobre la raqueta.",
             "it" to "Prende la sua mano destra e la appoggia con cura sulla racchetta.", "pt" to "Ele pega a mão direita dela e a coloca com cuidado na raquete.",
-            "pl" to "Bierze jej prawą rękę i ostrożnie kładzie ją na rakiecie.")
+            "pl" to "Bierze jej prawą rękę i ostrożnie kładzie ją na rakiecie.", "uk" to "Він бере її праву руку і обережно кладе на ракетку.")
     }
 }

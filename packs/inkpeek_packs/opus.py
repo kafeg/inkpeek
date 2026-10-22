@@ -14,11 +14,12 @@ import zipfile
 
 URL = "https://object.pouta.csc.fi/Tatoeba-MT-models/"
 LEADERBOARD = "https://raw.githubusercontent.com/Helsinki-NLP/OPUS-MT-leaderboard/master/"
-ISO3 = {"de": "deu", "en": "eng", "ru": "rus", "fr": "fra", "es": "spa", "it": "ita", "pt": "por", "pl": "pol"}
+ISO3 = {"de": "deu", "en": "eng", "ru": "rus", "fr": "fra", "es": "spa", "it": "ita", "pt": "por", "pl": "pol", "uk": "ukr"}
+CYRILLIC = {"ru", "uk"}
 # One short sentence per source language: the converted model must translate it (not echo it, not stay empty).
 CHECK = {"de": "Das Haus ist groß und alt.", "en": "The house is big and old.", "ru": "Дом большой и старый.",
          "fr": "La maison est grande et vieille.", "es": "La casa es grande y vieja.", "it": "La casa è grande e vecchia.",
-         "pt": "A casa é grande e velha.", "pl": "Dom jest duży i stary."}
+         "pt": "A casa é grande e velha.", "pl": "Dom jest duży i stary.", "uk": "Будинок великий і старий."}
 
 
 def plan(db_path, released_path, langs, tolerance=0.02):
@@ -137,8 +138,8 @@ def check(folder, bergamot, covers, tags):
             if r.returncode != 0:
                 raise RuntimeError(f"{d}: bergamot failed ({r.returncode}): {r.stderr[-1500:]} {r.stdout[-500:]}")
             got = r.stdout.strip()
-            cyr = any("а" <= ch.lower() <= "я" for ch in got)
-            if not got or got == CHECK[s] or cyr != (t == "ru"):
+            cyr = any("а" <= ch.lower() <= "я" or ch.lower() in "іїєґ" for ch in got)
+            if not got or got == CHECK[s] or cyr != (t in CYRILLIC):
                 raise ValueError(f"{d}: bad check translation {got!r}")
             out[d] = got
     finally:

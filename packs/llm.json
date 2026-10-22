@@ -63,7 +63,23 @@
    "pl-fr",
    "pl-es",
    "pl-it",
-   "pl-pt"
+   "pl-pt",
+   "de-uk",
+   "en-uk",
+   "ru-uk",
+   "fr-uk",
+   "es-uk",
+   "it-uk",
+   "pt-uk",
+   "pl-uk",
+   "uk-de",
+   "uk-en",
+   "uk-ru",
+   "uk-fr",
+   "uk-es",
+   "uk-it",
+   "uk-pt",
+   "uk-pl"
   ],
   "template": "<｜hy_begin▁of▁sentence｜><｜hy_User｜>Translate the following {from} text into {to}. Note that you should only output the translated result without any additional explanation:\n\n{text}<｜hy_Assistant｜>",
   "names": {
@@ -74,7 +90,8 @@
    "es": "Spanish",
    "it": "Italian",
    "pt": "Portuguese",
-   "pl": "Polish"
+   "pl": "Polish",
+   "uk": "Ukrainian"
   },
   "ram_mb": 5000,
   "cpu": [

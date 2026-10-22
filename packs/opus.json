@@ -31,7 +31,12 @@
    "ru-en",
    "ru-es",
    "ru-fr",
-   "ru-pt"
+   "ru-pt",
+   "uk-de",
+   "uk-en",
+   "uk-es",
+   "uk-fr",
+   "uk-pt"
   ],
   "chrf": {
    "de-en": 67.0,
@@ -63,7 +68,12 @@
    "ru-en": 60.7,
    "ru-es": 50.2,
    "ru-fr": 58.5,
-   "ru-pt": 57.0
+   "ru-pt": 57.0,
+   "uk-de": 55.9,
+   "uk-en": 63.1,
+   "uk-es": 50.5,
+   "uk-fr": 59.7,
+   "uk-pt": 58.0
   }
  },
  {
@@ -71,14 +81,19 @@
   "covers": [
    "de-pl",
    "de-ru",
+   "de-uk",
    "en-pl",
    "en-ru",
+   "en-uk",
    "es-pl",
    "es-ru",
+   "es-uk",
    "fr-pl",
    "fr-ru",
+   "fr-uk",
    "pt-pl",
-   "pt-ru"
+   "pt-ru",
+   "pt-uk"
   ],
   "chrf": {
    "de-pl": 49.6,
@@ -90,7 +105,12 @@
    "fr-pl": 49.9,
    "fr-ru": 54.3,
    "pt-pl": 49.2,
-   "pt-ru": 54.5
+   "pt-ru": 54.5,
+   "de-uk": 53.8,
+   "en-uk": 59.4,
+   "es-uk": 48.5,
+   "fr-uk": 53.7,
+   "pt-uk": 54.4
   }
  },
  {
@@ -131,22 +151,32 @@
   "model": "sla-itc/opusTCv20210807_transformer-big_2022-09-15",
   "covers": [
    "pl-it",
-   "ru-it"
+   "ru-it",
+   "uk-it"
   ],
   "chrf": {
    "pl-it": 50.2,
-   "ru-it": 51.9
+   "ru-it": 51.9,
+   "uk-it": 51.9
   }
  },
  {
   "model": "sla-sla/opusTCv20210807_transformer-big_2022-09-15",
   "covers": [
    "pl-ru",
-   "ru-pl"
+   "pl-uk",
+   "ru-pl",
+   "ru-uk",
+   "uk-pl",
+   "uk-ru"
   ],
   "chrf": {
    "pl-ru": 48.1,
-   "ru-pl": 47.3
+   "ru-pl": 47.3,
+   "pl-uk": 47.3,
+   "ru-uk": 55.3,
+   "uk-pl": 47.3,
+   "uk-ru": 55.7
   }
  },
  {
@@ -161,10 +191,12 @@
  {
   "model": "ita-zle/opusTCv20210807_transformer-big_2022-03-19",
   "covers": [
-   "it-ru"
+   "it-ru",
+   "it-uk"
   ],
   "chrf": {
-   "it-ru": 50.4
+   "it-ru": 50.4,
+   "it-uk": 47.8
   }
  }
 ]
