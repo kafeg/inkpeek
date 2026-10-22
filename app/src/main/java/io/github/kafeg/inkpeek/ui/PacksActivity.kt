@@ -7,6 +7,7 @@ import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.packs.Component
+import io.github.kafeg.inkpeek.packs.Level
 import io.github.kafeg.inkpeek.packs.Packs
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -67,12 +68,21 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     private fun complete(inst: Map<String, String> = prefs.packs.installed()) =
         prefs.packs.installedPairs().filter { p -> Packs.needed(manifest, listOf(p), prefs.mtMethod).all { it.id in inst } }.toSet()
 
+    /** "full · 92 % of frequent words": the pair's label and its coverage. */
+    private fun quality(p: Pair<String, String>): String? {
+        val l = Packs.level(manifest, p) ?: return null
+        val cover = manifest.first { it.kind == "dict" && it.from == p.first && it.to == p.second }.coverage
+        return getString(when (l) { Level.FULL -> R.string.lvl_full; Level.BASIC -> R.string.lvl_basic; Level.EXPERIMENTAL -> R.string.lvl_exp }) +
+            " · " + getString(R.string.pack_cover, cover.toInt())
+    }
+
     private fun show() {
         val inst = prefs.packs.installed(); val installed = complete(inst)
         pairs = Packs.pairs(manifest).sortedWith(compareBy({ it.second != prefs.answerCode }, { name(it.first) }, { name(it.second) }))
         info.text = getString(R.string.n_of_m, pairs.count { it in installed }, pairs.size)
         list.adapter = Rows.adapter(this, pairs.map { p ->
-            title(p) to if (p in installed) "✓ " + getString(R.string.pack_installed) else getString(R.string.pack_size, (missing(p, inst).sumOf { it.size } / 1_000_000).toInt())
+            val state = if (p in installed) "✓ " + getString(R.string.pack_installed) else getString(R.string.pack_size, (missing(p, inst).sumOf { it.size } / 1_000_000).toInt())
+            title(p) to listOfNotNull(state, quality(p)).joinToString(" · ")
         })
     }
 

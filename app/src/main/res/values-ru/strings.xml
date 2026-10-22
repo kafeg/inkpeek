@@ -337,4 +337,8 @@
     <string name="ak_idioms_d">Устойчивые обороты и идиомы со словом и их смысл.</string>
     <string name="ak_origin">Происхождение</string>
     <string name="ak_origin_d">Откуда слово, с зацепкой для запоминания.</string>
+    <string name="lvl_full">полный</string>
+    <string name="lvl_basic">базовый</string>
+    <string name="lvl_exp">экспериментальный</string>
+    <string name="pack_cover">%1$d%% частых слов</string>
 </resources>

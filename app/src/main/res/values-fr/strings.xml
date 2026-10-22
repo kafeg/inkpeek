@@ -337,4 +337,8 @@
     <string name="ak_idioms_d">Locutions et expressions avec le mot et leur sens.</string>
     <string name="ak_origin">Origine</string>
     <string name="ak_origin_d">D\'où vient le mot, avec un moyen de le retenir.</string>
+    <string name="lvl_full">complet</string>
+    <string name="lvl_basic">de base</string>
+    <string name="lvl_exp">expérimental</string>
+    <string name="pack_cover">%1$d%% des mots fréquents</string>
 </resources>

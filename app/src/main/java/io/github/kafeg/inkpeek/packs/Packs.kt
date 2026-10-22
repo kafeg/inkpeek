@@ -14,12 +14,14 @@ import java.util.zip.ZipInputStream
  * One downloadable part of the language packs (see packs/README.md): dict, model (Mozilla), langid, opus (OPUS-MT) or
  * llm (an AI translation model). [covers]: the directions an opus / llm model translates ("de-ru"); [tags]: the token a
  * multi-target OPUS-MT model needs before a sentence, by target; [ramMb] / [cpu]: what a device must have; [mirror]: the
- * original file, tried before the release.
+ * original file, tried before the release; [coverage]: a dictionary's share of the book language's 5,000 most frequent words (0: unknown).
  */
 data class Component(val id: String, val kind: String, val from: String, val to: String, val file: String,
                      val size: Long, val sha256: String, val covers: List<String> = emptyList(), val tags: Map<String, String> = emptyMap(),
                      val ramMb: Int = 0, val cpu: List<String> = emptyList(), val template: String = "", val names: Map<String, String> = emptyMap(),
-                     val mirror: String = "", val name: String = "")
+                     val mirror: String = "", val name: String = "", val coverage: Double = 0.0)
+
+enum class Level { FULL, BASIC, EXPERIMENTAL }
 
 /**
  * InkPeek's language packs from this project's release "packs" — the only source the app downloads them from.
@@ -171,8 +173,18 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
                 fun map(k: String) = c.optJSONObject(k)?.let { o -> o.keys().asSequence().associateWith { o.getString(it) } }.orEmpty()
                 Component(c.getString("id"), c.getString("kind"), c.optString("from"), c.optString("to"),
                     f.getString("name"), f.getLong("size"), f.getString("sha256"), list("covers"), map("tags"),
-                    c.optInt("ram_mb"), list("cpu"), c.optString("template"), map("names"), c.optString("mirror"), c.optString("name"))
+                    c.optInt("ram_mb"), list("cpu"), c.optString("template"), map("names"), c.optString("mirror"), c.optString("name"),
+                    c.optJSONObject("stats")?.optDouble("coverage", 0.0) ?: 0.0)
             }
+        }
+
+        /** A pair's label: full (≥ 85 % of the frequent words and offline translation), basic (≥ 60 %), else experimental; null: unknown. */
+        fun level(cs: List<Component>, p: Pair<String, String>): Level? {
+            val d = cs.firstOrNull { it.kind == "dict" && it.from == p.first && it.to == p.second } ?: return null
+            if (d.coverage <= 0) return null
+            val steps = if ("en" in listOf(p.first, p.second)) listOf(p) else listOf(p.first to "en", "en" to p.second)
+            val mt = steps.all { (a, b) -> cs.any { it.id == "model-$a-$b" } }
+            return when { d.coverage >= 85 && mt -> Level.FULL; d.coverage >= 60 -> Level.BASIC; else -> Level.EXPERIMENTAL }
         }
 
         /** The language pairs offered: one per dictionary. */

@@ -337,4 +337,8 @@
     <string name="ak_idioms_d">Związki frazeologiczne i idiomy ze słowem i ich znaczenie.</string>
     <string name="ak_origin">Pochodzenie</string>
     <string name="ak_origin_d">Skąd pochodzi słowo, z podpowiedzią do zapamiętania.</string>
+    <string name="lvl_full">pełny</string>
+    <string name="lvl_basic">podstawowy</string>
+    <string name="lvl_exp">eksperymentalny</string>
+    <string name="pack_cover">%1$d%% częstych słów</string>
 </resources>

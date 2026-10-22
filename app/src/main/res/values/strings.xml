@@ -338,4 +338,8 @@
     <string name="ak_idioms_d">Set phrases and idioms with the word and their meaning.</string>
     <string name="ak_origin">Origin</string>
     <string name="ak_origin_d">Where the word comes from, with a link to remember it.</string>
+    <string name="lvl_full">full</string>
+    <string name="lvl_basic">basic</string>
+    <string name="lvl_exp">experimental</string>
+    <string name="pack_cover">%1$d%% of frequent words</string>
 </resources>

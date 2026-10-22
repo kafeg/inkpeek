@@ -337,4 +337,8 @@
     <string name="ak_idioms_d">Feste Wendungen und Redensarten mit dem Wort und ihre Bedeutung.</string>
     <string name="ak_origin">Herkunft</string>
     <string name="ak_origin_d">Woher das Wort kommt, mit einer Merkhilfe.</string>
+    <string name="lvl_full">vollständig</string>
+    <string name="lvl_basic">grundlegend</string>
+    <string name="lvl_exp">experimentell</string>
+    <string name="pack_cover">%1$d%% der häufigen Wörter</string>
 </resources>
