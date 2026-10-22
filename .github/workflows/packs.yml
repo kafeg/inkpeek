@@ -33,4 +33,4 @@ jobs:
       # A dry run keeps its packs even when golden words fail: they are what gets measured.
       - if: ${{ always() && !inputs.publish }}
         uses: actions/upload-artifact@v4
-        with: { name: packs-out, path: "packs-out/*.*" }
+        with: { name: packs-out, path: "packs-out/*.*", retention-days: 14 }
