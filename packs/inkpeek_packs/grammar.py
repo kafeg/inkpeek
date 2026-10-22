@@ -13,6 +13,9 @@ SKIP_FORM = {"table-tags", "inflection-template", "class", "romanization", "auxi
 RELATED = {"relational", "possessive", "abstract-noun", "noun-from-verb"}
 ASPECT = {"perfective", "imperfective", "semelfactive", "iterative", "dated", "infinitive"}
 SKIP_SENSE = {"obsolete", "archaic", "misspelling", "nonstandard", "dialectal", "rare"}
+# de.wiktionary's noun tables have an article column: where a form is missing ("keine -"), the cell is the article alone.
+DE_ARTICLES = {"der", "die", "das", "den", "dem", "des", "ein", "eine", "einen", "einem", "einer", "eines",
+               "kein", "keine", "keinen", "keinem", "keiner", "keines"}
 PRONOUN = re.compile(r"^(ich|du|er/sie/es|wir|ihr|sie|Sie)\s+")
 CLASS_WORDS = ("irregular", "strong", "weak", "mixed")
 # Wiktionary marks stress in Russian and Ukrainian forms (до́ма); books do not.
@@ -98,7 +101,7 @@ def from_dewiktionary(records, g):
         L.gender |= {GENDER[t] for t in tags if t in GENDER}
         for f in r.get("forms", []):
             t, x = set(f.get("tags", [])), f.get("form", "")
-            if not x or t & {"obsolete", "archaic"}:
+            if not x or t & {"obsolete", "archaic"} or (x in DE_ARTICLES and pos in ("noun", "phrase", "name")):
                 continue
             if pos == "noun":
                 if {"nominative", "plural"} <= t:

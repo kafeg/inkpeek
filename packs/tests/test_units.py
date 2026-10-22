@@ -121,6 +121,12 @@ if __name__ == "__main__":
 
 class RelatedTest(unittest.TestCase):
     """Related words, synonyms, expressions: from both editions, frequent first, only words a reader meets."""
+    def test_dewiktionary_article_cell_is_not_a_form(self):
+        g = grammar.Grammar("de")
+        grammar.from_dewiktionary([{"word": "zweite Lautverschiebung", "pos": "phrase", "forms": [
+            {"form": "keine -", "tags": ["nominative", "plural"]}, {"form": "keine", "tags": ["accusative", "plural"]}]}], g)
+        self.assertNotIn("keine", g.forms)
+
     def test_coverage(self):
         import tempfile
         with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as f:
