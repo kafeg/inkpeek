@@ -320,7 +320,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - The word-by-word gloss of a phrase uses the same list rows (clearly separated, one source line on top).
    - Languages → InkPeek → What the card takes: a box per section (origin off by default).
    - AI → the third tab becomes **Answers**: boxes for what Analysis and Context ask for (grammar, words, related words,
-     synonyms, expressions; explanation, examples) — a key not asked is not in the request; the explanations below.
+     synonyms; explanation, examples, expressions, origin; the new ones off by default) — a key not asked is not in the
+     request, and a changed set asks again; the explanations below.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

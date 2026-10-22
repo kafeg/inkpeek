@@ -3,6 +3,18 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
+## 0.6 — unreleased
+- Offline translation method for all pairs (Languages → InkPeek → Translation method): Mozilla (fast, through English
+  between two other languages), OPUS-MT (direct between two languages, no English in the middle) or the Hy-MT2 AI
+  model (best quality, needs 6 GB of memory and a newer processor). The app downloads what your pairs need; a method
+  this device cannot run is dimmed with the reason; after the download it shows the speed on this device.
+- Under a pack's article: related words (anmachen, zumachen…; make up…), synonyms and antonyms, expressions and
+  proverbs, forms with pronunciation and the word's origin — each a row, a tap opens the list, frequent words first,
+  page by page, a tap on a word looks it up. Which ones: Languages → InkPeek.
+- Word by word: the same list style.
+- AI → Answers (was Help): what Analysis and Context ask for — grammar, words, related words, synonyms, explanation,
+  examples, expressions, origin; the explanations below.
+
 ## 0.5 — 2026-10-21
 - Copy, share or search the web: hold a line of the dictionary list, word by word, Notes or the history (in the card
   and in settings) — its text is selected, the handles narrow or widen it — or select in a translation, an article,
