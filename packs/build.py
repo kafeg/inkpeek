@@ -22,7 +22,7 @@ import urllib.request
 import zipfile
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from inkpeek_packs import dictionary, grammar, kaikki, models, opus, stardict  # noqa: E402
+from inkpeek_packs import dictionary, grammar, kaikki, models, opus, related, stardict  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SOURCES = json.load(open(os.path.join(HERE, "sources.json"), encoding="utf-8"))
@@ -63,8 +63,26 @@ def remote_stamp(url):
 
 
 def editions(a):
-    """The Wiktionary editions this run reads: en (grammar of every language), de (German grammar), each answer's."""
-    return sorted({"en"} | ({"de"} if "de" in a.langs else set()) | {y for y in a.answers if y in SOURCES["kaikki"]})
+    """The Wiktionary editions this run reads: en (grammar of every language), each answer's, each book language's own
+    (German grammar; related words, synonyms, expressions of every book language)."""
+    return sorted({"en"} | {y for y in a.answers + a.langs if y in SOURCES["kaikki"]})
+
+
+FREQ = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/{x}/{x}_50k.txt"
+_related = {}
+
+
+def related_lines(a, x):
+    """The .rel lines of book language [x]: its own Wiktionary first, then en.wiktionary; built once per run."""
+    if x not in _related:
+        data = {}
+        if x in SOURCES["kaikki"] and x != "en":
+            related.collect(kaikki.records(slice_file(a, x, x), x), data)
+        related.collect(kaikki.records(slice_file(a, "en", x), x), data)
+        ranks = related.rank(fetch(FREQ.format(x=x), os.path.join(a.work, "freq", f"{x}.txt")))
+        _related[x] = related.lines(data, ranks)
+        print(f"related-{x}: {len(_related[x])} words", flush=True)
+    return _related[x]
 
 
 def cmd_slices(a):
@@ -218,6 +236,11 @@ def cmd_dict(a, x, y):
     shutil.rmtree(folder, ignore_errors=True)
     st.update(stardict.write(os.path.join(folder, f"dict-{x}-{y}"), articles, syn, types="h",
                              bookname=f"InkPeek {x} → {y}", description=ATTRIBUTION))
+    # Related words, synonyms, expressions, forms, IPA, origin of the book language's words (the card's article rows).
+    rel = related_lines(a, x)
+    with open(os.path.join(folder, f"dict-{x}-{y}.rel"), "w", encoding="utf-8") as f:
+        f.write("\n".join(rel) + "\n")
+    st["related"] = len(rel)
     print(f"dict-{x}-{y}: {st}", flush=True)
     return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),
             "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}

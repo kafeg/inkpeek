@@ -117,3 +117,30 @@ class TablesTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RelatedTest(unittest.TestCase):
+    """Related words, synonyms, expressions: from both editions, frequent first, only words a reader meets."""
+    def test_collect_and_order(self):
+        from inkpeek_packs import related
+        native = [{"word": "machen", "derived": [{"word": "zumachen"}, {"word": "aufmachen"}, {"word": "Machenschaft"}],
+                   "expressions": [{"word": "das macht nichts"}], "synonyms": [{"word": "tun"}], "antonyms": [{"word": "unterlassen"}],
+                   "sounds": [{"ipa": "[ˈmaxn̩]"}], "etymology_texts": ["althochdeutsch mahhōn"],
+                   "forms": [{"form": "macht", "tags": ["present"]}, {"form": "weak", "tags": ["table-tags"]}]},
+                  {"word": "Rarität", "derived": [{"word": "x"}]}]
+        en = [{"word": "machen", "derived": [{"word": "aufmachen"}, {"word": "Kleider machen Leute"}],
+               "senses": [{"synonyms": [{"word": "herstellen"}]}]}]
+        data = {}
+        related.collect(native, data); related.collect(en, data)
+        ranks = {"machen": 1, "aufmachen": 5, "zumachen": 9, "tun": 2, "kleider": 300, "leute": 40, "das": 0, "macht": 3, "nichts": 4}
+        lines = related.lines(data, ranks)
+        self.assertEqual(1, len(lines))  # "Rarität" is not a word a reader meets
+        word, rel, syn, ant, expr, ipa, ety, forms = lines[0].split("\t")
+        self.assertEqual("machen", word)
+        self.assertEqual(["aufmachen", "zumachen", "Machenschaft"], rel.split("|"))  # frequent first, unknown last
+        self.assertEqual(["tun", "herstellen"], syn.split("|"))
+        self.assertEqual("unterlassen", ant)
+        self.assertEqual(["das macht nichts", "Kleider machen Leute"], expr.split("|"))
+        self.assertEqual("[ˈmaxn̩]", ipa)
+        self.assertEqual("althochdeutsch mahhōn", ety)
+        self.assertEqual("macht:present", forms)

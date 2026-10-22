@@ -306,5 +306,21 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - The card: Offline's hint names the method ("German · OPUS-MT", "… · through English").
    - Card → Appearance → **Dim the page behind**: off by default (e-ink shows a dim as a grey layer), 10–60 %.
 
+17. **Word families and more from Wiktionary** (23.10). The book language's own words, so from its richest edition
+   (native: de.wiktionary for German, ru.wiktionary for Russian…; else en.wiktionary), merged with en.wiktionary:
+   - **Related words** (`derived`, `related`: prefixed verbs anmachen / zumachen, phrasal verbs make up, сделать…),
+     **synonyms and antonyms**, **expressions and proverbs** (multi-word `derived` of en.wiktionary counts as one),
+     **forms and pronunciation** (the full forms table, IPA), **origin** (etymology, one paragraph).
+   - Lists are sorted by frequency (FrequencyWords, OpenSubtitles 2018), unknown words after; all kept, paged in the card.
+   - In the pack: `<id>.rel` next to the StarDict files, one sorted line per word (old apps ignore it). The card looks
+     a word up by binary search, never loads the file.
+   - The card: under a pack's full article, one full-width row per section (a preview line, the caption "Related ·
+     133 ›"); a tap opens the list in the card — the word bold, its first meaning from the same dictionary, 20 per page
+     with ◀ ▶; a tap on a word looks it up (← returns to the list). Forms, pronunciation and origin open as text.
+   - The word-by-word gloss of a phrase uses the same list rows (clearly separated, one source line on top).
+   - Languages → InkPeek → What the card takes: a box per section (origin off by default).
+   - AI → the third tab becomes **Answers**: boxes for what Analysis and Context ask for (grammar, words, related words,
+     synonyms, expressions; explanation, examples) — a key not asked is not in the request; the explanations below.
+
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.
