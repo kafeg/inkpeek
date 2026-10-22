@@ -7,6 +7,8 @@ import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.stardict.Gloss
 import io.github.kafeg.inkpeek.stardict.Hit
 import io.github.kafeg.inkpeek.stardict.StarDict
+import io.github.kafeg.inkpeek.stardict.answer
+import io.github.kafeg.inkpeek.stardict.book
 import io.github.kafeg.inkpeek.stardict.shortMeaning
 import io.github.kafeg.inkpeek.stardict.Head
 import io.github.kafeg.inkpeek.stardict.headLine
@@ -18,6 +20,26 @@ import kotlinx.coroutines.withContext
 
 /** Dictionary tab: a word → one line per dictionary (the packs first), tap for the article; a phrase → the word-by-word gloss. */
 class DictionaryPage(private val card: CardActivity) {
+    companion object {
+        /**
+         * A dictionary's short line for [word]: the pack's first line as it is, "das Haus (Hauses, мн. Häuser) — дом, здание"
+         * (without the grammar when it is off), another dictionary's first meaning; the source under it. Also the font page's sample.
+         */
+        fun line(prefs: io.github.kafeg.inkpeek.Prefs, dict: StarDict, h: Hit, word: String, source: String): String {
+            val packLine = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1)
+            val first = packLine?.takeIf { prefs.packGrammar } ?: ("<b>${Ink.escape(h.word)}</b>" + meaning(h).let { if (it.isBlank()) "" else " — " + Ink.escape(it) })
+            val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)}: "
+            return "$form$first<br><small>${Ink.escape(source)}</small>"
+        }
+
+        /** The first meaning of an entry: "дом, здание". */
+        fun meaning(h: Hit): String = headLine(h.html)?.let { Head(h.word, it).meaning } ?: runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
+
+        /** Where a line comes from: "InkPeek · Немецкий → Русский", or another dictionary's name. */
+        fun source(ctx: android.content.Context, lib: io.github.kafeg.inkpeek.stardict.Library, d: StarDict): String =
+            if (lib.isPack(d)) "InkPeek · " + listOfNotNull(d.book, d.answer).joinToString(" → ") { Ink.lang(ctx, it) }.ifBlank { d.name } else d.name
+    }
+
     private var page: LinearLayout? = null
     private var job: Job? = null
     private var glossCache: List<Gloss>? = null
@@ -46,14 +68,7 @@ class DictionaryPage(private val card: CardActivity) {
             if (hits.isEmpty() && notReady.isEmpty()) card.note(p, card.getString(if (none) R.string.lang_no_packs else R.string.not_found))
             if (card.prefs.cardFull && hits.isNotEmpty() && notReady.isEmpty()) { pages(hits, word, 0, to); return@launch }
             hits.forEach { (dict, list) ->
-                val h = list.first()
-                // The pack's first line as it is, "das Haus (Hauses, мн. Häuser) — дом, здание" (without the grammar when it
-                // is off: "Haus — дом, здание"); another dictionary's first meaning.
-                val packLine = Regex("""<p class="head">(.*?)</p>""").find(h.html)?.groupValues?.get(1)
-                val meaning = headLine(h.html)?.let { Head(h.word, it).meaning } ?: runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
-                val first = packLine?.takeIf { card.prefs.packGrammar } ?: ("<b>${Ink.escape(h.word)}</b>" + if (meaning.isBlank()) "" else " — " + Ink.escape(meaning))
-                val form = if (h.word.equals(word, true)) "" else "${Ink.escape(word)}: "
-                p.addView(Ink.text(card, "$form$first<br><small>${Ink.escape(card.source(dict))}</small>", card.size, html = true).apply {
+                p.addView(Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
                     TextActions.selectable(this) { t -> t.lastIndexOf('\n').takeIf { it > 0 } ?: t.length } // not the source line

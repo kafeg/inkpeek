@@ -9,6 +9,8 @@ import android.widget.ScrollView
 import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
+import io.github.kafeg.inkpeek.stardict.book
+import io.github.kafeg.inkpeek.stardict.answer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -17,10 +19,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** The card's font (Card → Appearance): the sample and two tabs stay on top (Android's fonts, yours), the list scrolls. */
+/** The card's font (Card → Appearance): a real lookup as the sample and two tabs on top (Android's fonts, yours), the list scrolls. */
 class FontActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
-    private lateinit var sample: TextView
+    private lateinit var sample: LinearLayout
+    /** The sample: a common word of the first pack into the app's language, looked up as the card does. */
+    private var word = "Haus"
+    private var lines: List<String> = emptyList()
+    private var meaning = ""
     private lateinit var list: LinearLayout
     private lateinit var tabs: LinearLayout
     private var tab = ""
@@ -38,10 +44,10 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         val col = Ink.vertical(this).apply { setPadding(pad, pad, pad, pad) }
         col.addView(Rows.header(this, getString(R.string.font_t)))
         // How the card's text looks in the chosen font, at the card's text size.
-        sample = Ink.text(this, "", prefs.cardText.toFloat(), html = true).apply {
+        sample = Ink.vertical(this).apply {
             background = Ink.border(this@FontActivity, 3, 8); val q = Ink.dp(this@FontActivity, 12); setPadding(q, q, q, q)
             // A tap: the real card with this font.
-            setOnClickListener { startActivity(WordsList.card(this@FontActivity, "Häuser")) } }
+            setOnClickListener { startActivity(WordsList.card(this@FontActivity, word)) } }
         col.addView(sample, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 6) })
         tabs = Ink.vertical(this); col.addView(tabs, Ink.lp().apply { topMargin = Ink.dp(this@FontActivity, 10) })
         list = Ink.vertical(this)
@@ -57,7 +63,14 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
 
     /** The fonts are read off the main thread: checking each one's letters opens its file. */
     private fun refresh() = launch {
-        withContext(Dispatchers.IO) { system = Fonts.system(); yours = Fonts.yours() }
+        withContext(Dispatchers.IO) {
+            val lib = prefs.library(); val to = prefs.answerCode
+            word = WORDS[prefs.packDictionaries().firstOrNull { it.answer == to }?.book] ?: word
+            val hits = runCatching { lib.lookup(word, to) }.getOrDefault(emptyList()).take(2)
+            lines = hits.map { (d, l) -> DictionaryPage.line(prefs, d, l.first(), word, DictionaryPage.source(this@FontActivity, lib, d)) }
+            meaning = hits.firstOrNull()?.second?.first()?.let { DictionaryPage.meaning(it) }.orEmpty().substringBefore(',')
+            system = Fonts.system(); yours = Fonts.yours()
+        }
         loaded = true; draw()
     }
 
@@ -81,17 +94,22 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
+    /** The lines the card would show for [word], in the chosen font at the card's size; a tap opens that card. */
     private fun showSample() {
-        sample.text = Ink.text(this, SAMPLE, prefs.cardText.toFloat(), html = true).text
-        sample.typeface = Fonts.face(prefs.cardFont) ?: android.graphics.Typeface.DEFAULT
+        val face = Fonts.face(prefs.cardFont) ?: android.graphics.Typeface.DEFAULT
+        sample.removeAllViews()
+        (lines.ifEmpty { listOf(if (loaded) "<b>$word</b>" else "…") }).forEachIndexed { i, l ->
+            sample.addView(Ink.text(this, l, prefs.cardText.toFloat(), html = true).apply { typeface = face; isClickable = false },
+                Ink.lp().apply { if (i > 0) topMargin = Ink.dp(this@FontActivity, 6) })
+        }
     }
 
-    /** A font in itself with "Haus, дом", where it is from (and the letters it lacks); ✓ on the one in use; ✕ for a copied one. */
+    /** A font in itself with a few words in the app's language, where it is from (and the letters it lacks); ✓ on the one in use; ✕ for a copied one. */
     private fun row(f: Fonts.Item, now: String) {
         val face = Fonts.face(f.id) ?: android.graphics.Typeface.DEFAULT
         val r = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val texts = Ink.vertical(this)
-        texts.addView(Ink.text(this, (if (f.id == now) "✓ " else "") + f.name + " · Haus, дом", 19f).apply { typeface = face })
+        texts.addView(Ink.text(this, (if (f.id == now) "✓ " else "") + f.name + " · " + word + if (meaning.isEmpty()) "" else " — $meaning", 19f).apply { typeface = face })
         val about = listOfNotNull(f.where, f.missing.takeIf { it.isNotEmpty() }?.let { getString(R.string.font_missing, it) }).joinToString(" · ")
         texts.addView(Ink.text(this, about, 13f))
         r.addView(texts, Ink.lp(0, weight = 1f))
@@ -125,6 +143,7 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
 
     companion object {
         private const val FILE = 1
-        private const val SAMPLE = "<b>das Haus</b> (Häuser) — дом, здание; house, building<br><i>In dem Haus haben wir gewohnt.</i>"
+        /** A word every pack has, by the pack's book language. */
+        private val WORDS = mapOf("de" to "Haus", "en" to "house", "ru" to "дом", "fr" to "maison", "es" to "casa", "it" to "casa", "pt" to "casa", "pl" to "dom")
     }
 }

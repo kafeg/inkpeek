@@ -57,10 +57,9 @@ object Rows {
         }
 
     /** A setting with a choice: its title and explanation, the drop-down under them. */
-    fun choice(ctx: Context, title: String, about: String, items: List<String>, selected: Int, faces: List<android.graphics.Typeface?>? = null,
-               pick: (Int) -> Unit) = Ink.vertical(ctx).apply {
+    fun choice(ctx: Context, title: String, about: String, items: List<String>, selected: Int, pick: (Int) -> Unit) = Ink.vertical(ctx).apply {
         addView(texts(ctx, title, about))
-        addView(spinner(ctx, items, selected, faces, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 4) })
+        addView(spinner(ctx, items, selected, pick), Ink.lp().apply { topMargin = Ink.dp(ctx, 4) })
         layoutParams = gap(ctx)
     }
 
@@ -161,17 +160,13 @@ object Rows {
         fun dismiss() { d?.dismiss(); d = null }
     }
 
-    fun spinner(ctx: Context, items: List<String>, selected: Int, faces: List<android.graphics.Typeface?>? = null, onPick: (Int) -> Unit) = Spinner(ctx).apply {
+    /** A drop-down list in our ink and paper (Android's item box is white on white in the dark theme). */
+    fun spinner(ctx: Context, items: List<String>, selected: Int, onPick: (Int) -> Unit) = Spinner(ctx).apply {
         adapter = object : ArrayAdapter<String>(ctx, android.R.layout.simple_spinner_dropdown_item, items) {
-            // Our ink and paper, not the system's item box (white on white in the dark theme).
-            fun styled(v: View, i: Int, sample: Boolean) = v.also { t -> (t as? android.widget.TextView)?.let { tv ->
-                tv.setTextColor(Ink.fg(ctx)); tv.background = Ink.border(ctx, 2, if (sample) 0 else 2)
-                if (faces == null) return@let
-                tv.typeface = faces.getOrNull(i) ?: android.graphics.Typeface.DEFAULT
-                if (sample && faces.getOrNull(i) != null) tv.text = items[i] + " · Haus, дом"
-            } }
-            override fun getView(i: Int, v: View?, p: ViewGroup) = styled(super.getView(i, v, p), i, false)
-            override fun getDropDownView(i: Int, v: View?, p: ViewGroup) = styled(super.getDropDownView(i, v, p), i, true)
+            fun styled(v: View, open: Boolean) = v.also { (it as? android.widget.TextView)?.run {
+                setTextColor(Ink.fg(ctx)); background = Ink.border(ctx, 2, if (open) 0 else 2) } }
+            override fun getView(i: Int, v: View?, p: ViewGroup) = styled(super.getView(i, v, p), false)
+            override fun getDropDownView(i: Int, v: View?, p: ViewGroup) = styled(super.getDropDownView(i, v, p), true)
         }
         tag = "spinner"; setPopupBackgroundDrawable(Ink.border(ctx, 3, 2))
         setSelection(selected)

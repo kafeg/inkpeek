@@ -252,13 +252,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     fun showBack() { backButton.visibility = if (shown == DICT && dictionary.back != null) View.VISIBLE else View.GONE }
 
     /** Where a line comes from: a pack, "InkPeek · Немецкий → Русский", or another dictionary's name. */
-    fun source(d: io.github.kafeg.inkpeek.stardict.StarDict): String = if (prefs.library().isPack(d)) "InkPeek · " + pairName(d) else d.name
-
-    /** A pack dictionary's languages: "Немецкий → Русский". */
-    fun pairName(d: io.github.kafeg.inkpeek.stardict.StarDict): String {
-        fun name(c: String?) = c?.let { Ink.lang(this, it) }
-        return listOfNotNull(name(d.book), name(d.answer)).joinToString(" → ").ifBlank { d.name }
-    }
+    fun source(d: io.github.kafeg.inkpeek.stardict.StarDict): String = DictionaryPage.source(this, prefs.library(), d)
 
     /** System Back from a word's article returns to the list or the gloss first. */
     @Deprecated("Activity API") override fun onBackPressed() {
