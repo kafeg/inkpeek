@@ -134,8 +134,9 @@ def check(folder, bergamot, covers, tags):
         for d in covers:
             s, t = d.split("-")
             src = (tags.get(t, "") + " " + CHECK[s]).strip()
-            r = subprocess.run(shlex.split(bergamot) + ["--model-config-paths", cfg], input=src + "\n",
-                               capture_output=True, text=True, check=True)
+            r = subprocess.run(shlex.split(bergamot) + ["--model-config-paths", cfg], input=src + "\n", capture_output=True, text=True)
+            if r.returncode != 0:
+                raise RuntimeError(f"{d}: bergamot failed ({r.returncode}): {r.stderr[-1500:]}")
             got = r.stdout.strip()
             cyr = any("а" <= ch.lower() <= "я" for ch in got)
             if not got or got == CHECK[s] or cyr != (t == "ru"):
