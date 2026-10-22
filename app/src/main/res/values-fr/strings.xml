@@ -308,4 +308,15 @@
     <string name="mt_drop">Les modèles de la méthode précédente (%1$d Mo) seront supprimés.</string>
     <string name="mt_done">Méthode de traduction : %1$s</string>
     <string name="mt_no_models">Pas encore dans la liste des packs.</string>
+    <string name="sec_rel">Mots apparentés</string>
+    <string name="sec_rel_d">Même racine : verbes à préfixe (anmachen, zumachen), verbes à particule (make up), dérivés.</string>
+    <string name="sec_syn">Synonymes</string>
+    <string name="sec_syn_d">Synonymes et antonymes, les fréquents d\'abord.</string>
+    <string name="sec_ant">antonymes</string>
+    <string name="sec_expr">Expressions et proverbes</string>
+    <string name="sec_expr_d">Locutions et expressions avec le mot, tirées du dictionnaire.</string>
+    <string name="sec_forms">Formes et prononciation</string>
+    <string name="sec_forms_d">Le tableau des formes et l\'API.</string>
+    <string name="sec_ety">Origine</string>
+    <string name="sec_ety_d">D\'où vient le mot (étymologie).</string>
 </resources>

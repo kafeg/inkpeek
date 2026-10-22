@@ -309,4 +309,15 @@
     <string name="mt_drop">The previous method\'s models (%1$d MB) will be removed.</string>
     <string name="mt_done">Translation method: %1$s</string>
     <string name="mt_no_models">Not in the packs list yet.</string>
+    <string name="sec_rel">Related words</string>
+    <string name="sec_rel_d">Same root: prefixed verbs (anmachen, zumachen), phrasal verbs (make up), derived words.</string>
+    <string name="sec_syn">Synonyms</string>
+    <string name="sec_syn_d">Synonyms and antonyms, the frequent ones first.</string>
+    <string name="sec_ant">antonyms</string>
+    <string name="sec_expr">Expressions and proverbs</string>
+    <string name="sec_expr_d">Set phrases and idioms with the word, from the dictionary.</string>
+    <string name="sec_forms">Forms and pronunciation</string>
+    <string name="sec_forms_d">The table of forms and the IPA.</string>
+    <string name="sec_ety">Origin</string>
+    <string name="sec_ety_d">Where the word comes from (etymology).</string>
 </resources>

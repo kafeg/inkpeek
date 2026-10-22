@@ -308,4 +308,15 @@
     <string name="mt_drop">Модели прежнего метода (%1$d МБ) будут удалены.</string>
     <string name="mt_done">Метод перевода: %1$s</string>
     <string name="mt_no_models">Пока нет в списке пакетов.</string>
+    <string name="sec_rel">Однокоренные</string>
+    <string name="sec_rel_d">Тот же корень: глаголы с приставками (anmachen, zumachen), фразовые (make up), производные.</string>
+    <string name="sec_syn">Синонимы</string>
+    <string name="sec_syn_d">Синонимы и антонимы, частые сначала.</string>
+    <string name="sec_ant">антонимы</string>
+    <string name="sec_expr">Выражения и пословицы</string>
+    <string name="sec_expr_d">Устойчивые обороты и идиомы со словом, из словаря.</string>
+    <string name="sec_forms">Формы и произношение</string>
+    <string name="sec_forms_d">Таблица форм и транскрипция (IPA).</string>
+    <string name="sec_ety">Происхождение</string>
+    <string name="sec_ety_d">Откуда слово (этимология).</string>
 </resources>

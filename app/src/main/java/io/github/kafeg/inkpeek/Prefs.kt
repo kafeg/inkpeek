@@ -87,6 +87,9 @@ class Prefs(private val ctx: Context) {
     /** What the card takes from the packs: words (articles, gloss), grammar (the header), offline translation; language id always. */
     var packDicts: Boolean get() = sp.getBoolean("pack_dicts", true); set(v) = sp.edit().putBoolean("pack_dicts", v).apply()
     var packGrammar: Boolean get() = sp.getBoolean("pack_grammar", true); set(v) = sp.edit().putBoolean("pack_grammar", v).apply()
+    /** The rows under a pack's article (milestone 17): rel, syn, expr, forms on; origin off. */
+    fun packSection(k: String) = sp.getBoolean("pack_sec_$k", k != "ety")
+    fun setPackSection(k: String, on: Boolean) = sp.edit().putBoolean("pack_sec_$k", on).apply()
     var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()
     /** Offline translation method: fast (Mozilla, through English) | direct (OPUS-MT) | llm (an AI model on the device). */
     var mtMethod: String get() = sp.getString("mt_method", "fast")!!; set(v) = sp.edit().putString("mt_method", v).apply()

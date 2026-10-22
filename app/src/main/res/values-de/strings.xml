@@ -308,4 +308,15 @@
     <string name="mt_drop">Die Modelle der vorigen Methode (%1$d MB) werden entfernt.</string>
     <string name="mt_done">Übersetzungsmethode: %1$s</string>
     <string name="mt_no_models">Noch nicht in der Paketliste.</string>
+    <string name="sec_rel">Verwandte Wörter</string>
+    <string name="sec_rel_d">Gleicher Stamm: Präfixverben (anmachen, zumachen), Phrasal Verbs (make up), Ableitungen.</string>
+    <string name="sec_syn">Synonyme</string>
+    <string name="sec_syn_d">Synonyme und Antonyme, häufige zuerst.</string>
+    <string name="sec_ant">Antonyme</string>
+    <string name="sec_expr">Wendungen und Sprichwörter</string>
+    <string name="sec_expr_d">Feste Wendungen und Redensarten mit dem Wort, aus dem Wörterbuch.</string>
+    <string name="sec_forms">Formen und Aussprache</string>
+    <string name="sec_forms_d">Die Formentabelle und die Lautschrift (IPA).</string>
+    <string name="sec_ety">Herkunft</string>
+    <string name="sec_ety_d">Woher das Wort kommt (Etymologie).</string>
 </resources>

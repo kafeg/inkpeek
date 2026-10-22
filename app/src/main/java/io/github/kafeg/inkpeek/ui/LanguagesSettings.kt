@@ -46,6 +46,11 @@ class LanguagesSettings(private val a: MainActivity) {
         t.addView(Rows.check(a, a.getString(R.string.pack_gram_t), a.getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
         t.addView(Rows.check(a, a.getString(R.string.pack_mt_t), a.getString(R.string.pack_mt_d), prefs.packMt) { prefs.packMt = it })
         methodBox = Ink.vertical(a); t.addView(methodBox)
+        // The rows under a pack's article: related words, synonyms, expressions, forms, origin.
+        listOf(Triple("rel", R.string.sec_rel, R.string.sec_rel_d), Triple("syn", R.string.sec_syn, R.string.sec_syn_d),
+            Triple("expr", R.string.sec_expr, R.string.sec_expr_d), Triple("forms", R.string.sec_forms, R.string.sec_forms_d),
+            Triple("ety", R.string.sec_ety, R.string.sec_ety_d)).forEach { (k, title, about) ->
+            t.addView(Rows.check(a, a.getString(title), a.getString(about), prefs.packSection(k)) { prefs.setPackSection(k, it) }) }
         t.addView(Rows.heading(a, a.getString(R.string.get_title)))
         t.addView(Rows.info(a, null, a.getString(R.string.packs_source), a.getString(R.string.packs_source_d)))
         t.addView(Rows.buttons(a, a.getString(R.string.packs_get) to { a.startActivity(Intent(a, PacksActivity::class.java)) }))

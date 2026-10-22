@@ -308,4 +308,15 @@
     <string name="mt_drop">I modelli del metodo precedente (%1$d MB) saranno rimossi.</string>
     <string name="mt_done">Metodo di traduzione: %1$s</string>
     <string name="mt_no_models">Non ancora nell\'elenco dei pacchetti.</string>
+    <string name="sec_rel">Parole affini</string>
+    <string name="sec_rel_d">Stessa radice: verbi con prefisso (anmachen, zumachen), phrasal verbs (make up), derivati.</string>
+    <string name="sec_syn">Sinonimi</string>
+    <string name="sec_syn_d">Sinonimi e contrari, prima i frequenti.</string>
+    <string name="sec_ant">contrari</string>
+    <string name="sec_expr">Espressioni e proverbi</string>
+    <string name="sec_expr_d">Locuzioni e modi di dire con la parola, dal dizionario.</string>
+    <string name="sec_forms">Forme e pronuncia</string>
+    <string name="sec_forms_d">La tabella delle forme e l\'IPA.</string>
+    <string name="sec_ety">Origine</string>
+    <string name="sec_ety_d">Da dove viene la parola (etimologia).</string>
 </resources>

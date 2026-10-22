@@ -18,14 +18,16 @@ object WordsList {
     }
 
     const val PAGE = 50
+    /** A list in the card's dictionary tab: fewer at a time, each with a meaning. */
+    const val PAGE_SHORT = 20
 
     /** ◀ "51–100 of 230" ▶ under a long list; [turn] gets the new page. */
-    fun pager(ctx: Context, page: Int, total: Int, sp: Float, turn: (Int) -> Unit) = Ink.horizontal(ctx).apply {
+    fun pager(ctx: Context, page: Int, total: Int, sp: Float, size: Int = PAGE, turn: (Int) -> Unit) = Ink.horizontal(ctx).apply {
         gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
-        val pages = (total + PAGE - 1) / PAGE; val side = Ink.dp(ctx, 48)
+        val pages = (total + size - 1) / size; val side = Ink.dp(ctx, 48)
         addView(Ink.icon(ctx, io.github.kafeg.inkpeek.R.drawable.ic_prev, ctx.getString(io.github.kafeg.inkpeek.R.string.prev)) { if (page > 0) turn(page - 1) }
             .apply { alpha = if (page > 0) 1f else Ink.OFF }, android.widget.LinearLayout.LayoutParams(side, side))
-        addView(Ink.text(ctx, ctx.getString(io.github.kafeg.inkpeek.R.string.page_of, page * PAGE + 1, minOf(total, (page + 1) * PAGE), total), sp)
+        addView(Ink.text(ctx, ctx.getString(io.github.kafeg.inkpeek.R.string.page_of, page * size + 1, minOf(total, (page + 1) * size), total), sp)
             .apply { gravity = Gravity.CENTER }, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 10); rightMargin = Ink.dp(ctx, 10) })
         addView(Ink.icon(ctx, io.github.kafeg.inkpeek.R.drawable.ic_next, ctx.getString(io.github.kafeg.inkpeek.R.string.next)) { if (page < pages - 1) turn(page + 1) }
             .apply { alpha = if (page < pages - 1) 1f else Ink.OFF }, android.widget.LinearLayout.LayoutParams(side, side))

@@ -71,6 +71,9 @@ class DictionaryPage(private val card: CardActivity) {
             if (notReady.isNotEmpty()) card.note(p, card.getString(R.string.preparing, notReady.joinToString { it.name }))
             if (hits.isEmpty() && notReady.isEmpty()) card.note(p, card.getString(if (none) R.string.lang_no_packs else R.string.not_found))
             val r = restore; restore = null
+            // A section's list (r:<dictionary>:<section>:<page>:<word>): opened over the article it came from.
+            r?.takeIf { it.startsWith("r:") }?.split(':', limit = 5)?.takeIf { it.size == 5 }?.let { (_, id, k, n, w) ->
+                hits.firstOrNull { it.first.id == id }?.let { (dict, _) -> section(dict, w, k, n.toIntOrNull() ?: 0); return@launch } }
             r?.removePrefix("p:")?.toIntOrNull()?.takeIf { r.startsWith("p:") && it in hits.indices }?.let { pages(hits, word, it, to); card.scrollBack(); return@launch }
             r?.takeIf { it.startsWith("a:") }?.let { id -> hits.firstOrNull { it.first.id == id.removePrefix("a:") } }
                 ?.let { (dict, list) -> article(dict, list, word) { articles(word, to) }; card.scrollBack(); return@launch }
@@ -104,6 +107,7 @@ class DictionaryPage(private val card: CardActivity) {
             LinearLayout.LayoutParams(side, side))
         p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         entries(p, list, word)
+        sections(p, dict, list.first().word)
     }
 
     /** The entries, each under its headword when that is another form than [word]. */
@@ -119,6 +123,7 @@ class DictionaryPage(private val card: CardActivity) {
         job?.cancel(); p.removeAllViews(); up(to); turn = null; place = "a:${dict.id}"
         p.addView(Ink.text(card, card.source(dict), card.size * 0.72f, bold = true).also { TextActions.selectable(it) }, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         entries(p, list, word)
+        sections(p, dict, list.first().word)
     }
 
     private fun gloss() {
@@ -129,6 +134,76 @@ class DictionaryPage(private val card: CardActivity) {
 
     /** The gloss under another tab's text (offline, or when AI fails), in that tab's [scope]; a tap opens the word here. */
     fun under(p: LinearLayout, scope: CoroutineScope): Job { p.addView(View(card), Ink.lp(h = Ink.dp(card, 12))); return rows(p, scope) { show(it) } }
+
+    /** One row of a word list (the gloss, related words): its text, a thin line under it; a tap does [tap]. */
+    private fun listRow(p: LinearLayout, html: String, tap: () -> Unit) {
+        p.addView(Ink.text(card, html, card.size, html = true).apply {
+            val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
+            setOnClickListener { tap() }
+            TextActions.selectable(this) { it.length }
+        })
+        p.addView(View(card).apply { setBackgroundColor(Ink.fg(card)); alpha = 0.35f }, Ink.lp(h = 1))
+    }
+
+    /** Under a pack's article: a row per section it has (Languages → What the card takes) — a preview, its caption ›. */
+    private fun sections(p: LinearLayout, dict: StarDict, word: String) {
+        val e = runCatching { dict.related?.of(word) }.getOrNull() ?: return
+        val prefs = card.prefs
+        fun row(k: String, preview: String, caption: String) {
+            if (!prefs.packSection(k) || preview.isBlank()) return
+            p.addView(View(card).apply { setBackgroundColor(Ink.fg(card)); alpha = 0.35f }, Ink.lp(h = 1).apply { topMargin = Ink.dp(card, 10) })
+            p.addView(Ink.text(card, "${Ink.escape(preview)}<br><small>${Ink.escape(caption)} ›</small>", card.size * 0.9f, html = true).apply {
+                val q = Ink.dp(card, 7); setPadding(0, q, 0, q); maxLines = 4
+                setOnClickListener { section(dict, word, k, 0) }
+            })
+        }
+        fun few(xs: List<String>, sep: String = ", ") = xs.take(10).joinToString(sep) + if (xs.size > 10) " …" else ""
+        row("rel", few(e.rel), "${card.getString(R.string.sec_rel)} · ${e.rel.size}")
+        row("syn", few(e.syn) + if (e.ant.isEmpty()) "" else " ≠ " + few(e.ant), card.getString(R.string.sec_syn) + " · ${e.syn.size}" +
+            if (e.ant.isEmpty()) "" else " · " + card.getString(R.string.sec_ant) + " ${e.ant.size}")
+        row("expr", few(e.expr, "; "), "${card.getString(R.string.sec_expr)} · ${e.expr.size}")
+        row("forms", few(e.forms.map { it.first }), card.getString(R.string.sec_forms) + if (e.ipa.isEmpty()) "" else " · " + e.ipa.joinToString(", "))
+        row("ety", e.origin.take(120) + if (e.origin.length > 120) " …" else "", card.getString(R.string.sec_ety))
+    }
+
+    /**
+     * A section of [word] in [dict] on the page: words with their first meaning from the same dictionary, 20 per page with
+     * ◀ ▶ (a tap looks one up; ← returns here); forms and origin as text. "←" goes back to the article.
+     */
+    private fun section(dict: StarDict, word: String, k: String, n: Int) {
+        val p = page ?: return
+        val e = runCatching { dict.related?.of(word) }.getOrNull() ?: return
+        val hits = runCatching { dict.lookup(word) }.getOrDefault(emptyList())
+        job?.cancel(); p.removeAllViews(); turn = null; place = "r:${dict.id}:$k:$n:$word"
+        up { if (hits.isNotEmpty()) article(dict, hits, word) { articles(card.query, null) } else articles(card.query, null) }
+        val title = card.getString(when (k) { "rel" -> R.string.sec_rel; "syn" -> R.string.sec_syn; "expr" -> R.string.sec_expr; "forms" -> R.string.sec_forms; else -> R.string.sec_ety })
+        p.addView(Ink.text(card, "${Ink.escape(word)} · ${Ink.escape(title)}", card.size * 0.8f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 6) })
+        when (k) {
+            "forms" -> {
+                if (e.ipa.isNotEmpty()) p.addView(Ink.text(card, e.ipa.joinToString(", "), card.size).also { TextActions.selectable(it) })
+                e.forms.forEach { (f, tags) -> listRow(p, "<b>${Ink.escape(f)}</b> <small>${Ink.escape(tags)}</small>") { card.lookUp(f) } }
+            }
+            "ety" -> p.addView(Ink.text(card, e.origin, card.size).also { TextActions.selectable(it) })
+            else -> {
+                val all = when (k) { "rel" -> e.rel; "syn" -> e.syn + e.ant.map { "≠ $it" }; else -> e.expr }
+                val pages = (all.size + WordsList.PAGE_SHORT - 1) / WordsList.PAGE_SHORT
+                val at = n.coerceIn(0, (pages - 1).coerceAtLeast(0))
+                val slice = all.drop(at * WordsList.PAGE_SHORT).take(WordsList.PAGE_SHORT)
+                val box = Ink.vertical(card); p.addView(box)
+                job = card.launch {
+                    // The first meaning of each word from the same pack, off the main thread.
+                    val lines = withContext(Dispatchers.IO) { slice.map { x -> val w = x.removePrefix("≠ ")
+                        x to if (k == "expr") "" else runCatching { dict.lookup(w).firstOrNull()?.let { meaning(it) } }.getOrNull().orEmpty() } }
+                    lines.forEach { (x, m) -> val w = x.removePrefix("≠ ")
+                        listRow(box, "<b>${Ink.escape(x)}</b>" + if (m.isBlank()) "" else " — " + Ink.escape(m)) { card.lookUp(w) } }
+                    if (pages > 1) box.addView(WordsList.pager(card, at, all.size, card.size * 0.75f, WordsList.PAGE_SHORT) { section(dict, word, k, it) },
+                        Ink.lp().apply { topMargin = Ink.dp(card, 10) })
+                    card.scrollBack()
+                }
+            }
+        }
+        if (k == "forms" || k == "ety") card.scrollBack()
+    }
 
     /** Word by word from the packs, offline: base form and first meanings; [tap] opens a word. */
     private fun rows(p: LinearLayout, scope: CoroutineScope = card, tap: (String) -> Unit): Job {
@@ -149,11 +224,7 @@ class DictionaryPage(private val card: CardActivity) {
                     x.base.equals(x.word, true) -> line
                     else -> "<b>${Ink.escape(x.word)}</b>: $line"
                 }
-                p.addView(Ink.text(card, text, card.size, html = true).apply {
-                    val q = Ink.dp(card, 4); setPadding(0, q, 0, q)
-                    setOnClickListener { tap(x.base.ifBlank { x.word }) }
-                    TextActions.selectable(this) { it.length }
-                })
+                listRow(p, text) { tap(x.base.ifBlank { x.word }) }
             }
         }
     }

@@ -138,6 +138,9 @@ class StarDict(ifoFile: File, workRoot: File) {
         it.channel.map(FileChannel.MapMode.READ_ONLY, 0, it.length())
     }.also { map = it }
 
+    /** A pack's related words, synonyms, expressions, forms, IPA, origin (packs/ writes <id>.rel); other dictionaries have none. */
+    val related: Related? by lazy { File("$base.rel").takeIf { it.exists() }?.let { Related(it) } }
+
     private fun dict(): DictData = data ?: DictData.open(File("$base.dict"), File("$base.dict.dz")).also { data = it }
 
     fun lookup(query: String): List<Hit> {
