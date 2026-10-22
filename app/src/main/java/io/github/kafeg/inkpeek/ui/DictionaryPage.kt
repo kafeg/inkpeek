@@ -152,8 +152,10 @@ class DictionaryPage(private val card: CardActivity) {
         fun row(k: String, preview: String, caption: String) {
             if (!prefs.packSection(k) || preview.isBlank()) return
             p.addView(View(card).apply { setBackgroundColor(Ink.fg(card)); alpha = 0.35f }, Ink.lp(h = 1).apply { topMargin = Ink.dp(card, 10) })
-            p.addView(Ink.text(card, "${Ink.escape(preview)}<br><small>${Ink.escape(caption)} ›</small>", card.size * 0.9f, html = true).apply {
-                val q = Ink.dp(card, 7); setPadding(0, q, 0, q); maxLines = 4
+            p.addView(Ink.vertical(card).apply {
+                val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
+                addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 3; ellipsize = android.text.TextUtils.TruncateAt.END })
+                addView(Ink.text(card, "$caption ›", card.size * 0.65f))
                 setOnClickListener { section(dict, word, k, 0) }
             })
         }
@@ -193,7 +195,7 @@ class DictionaryPage(private val card: CardActivity) {
                 job = card.launch {
                     // The first meaning of each word from the same pack, off the main thread.
                     val lines = withContext(Dispatchers.IO) { slice.map { x -> val w = x.removePrefix("≠ ")
-                        x to if (k == "expr") "" else runCatching { dict.lookup(w).firstOrNull()?.let { meaning(it) } }.getOrNull().orEmpty() } }
+                        x to if (k == "expr") "" else runCatching { dict.lookup(w).let { hs -> hs.firstOrNull { it.word == w } ?: hs.firstOrNull { it.word.equals(w, true) } }?.let { meaning(it) } }.getOrNull().orEmpty() } }
                     lines.forEach { (x, m) -> val w = x.removePrefix("≠ ")
                         listRow(box, "<b>${Ink.escape(x)}</b>" + if (m.isBlank()) "" else " — " + Ink.escape(m)) { card.lookUp(w) } }
                     if (pages > 1) box.addView(WordsList.pager(card, at, all.size, card.size * 0.75f, WordsList.PAGE_SHORT) { section(dict, word, k, it) },
