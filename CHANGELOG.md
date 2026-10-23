@@ -3,7 +3,7 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
-## 0.6 — unreleased
+## 0.6 — 2026-10-23
 - Offline translation method for all pairs (Languages → InkPeek → Translation method): Mozilla (fast, through English
   between two other languages), OPUS-MT (direct between two languages, no English in the middle) or the Hy-MT2 AI
   model (best quality, needs 6 GB of memory and a newer processor). The app downloads what your pairs need; a method
