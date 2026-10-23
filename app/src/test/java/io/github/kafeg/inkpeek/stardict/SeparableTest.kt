@@ -22,7 +22,7 @@ class SeparableTest {
         }
     }
 
-    private fun verbs(s: String) = Separable.find(s, { forms[it].orEmpty() }, { particles[it] }).joinToString(", ") { it.verb }.ifEmpty { "(none)" }
+    private fun verbs(s: String) = Separable.find(s, { forms[it].orEmpty() }, { particles[it] }).map { it.verb }.sorted().joinToString(", ").ifEmpty { "(none)" }
 
     @Test fun cases() {
         assertEquals(cases.joinToString("\n") { "${it.first} → ${it.second}" }, cases.joinToString("\n") { "${it.first} → ${verbs(it.first)}" })

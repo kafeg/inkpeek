@@ -44,7 +44,7 @@ class PacksOnDeviceTest {
         "head", "mean" -> lib.lookup(input, pair.substringAfter('-')).firstOrNull { (d, _) -> d.ifo.parentFile?.name == "dict-$pair" }
             ?.second?.firstNotNullOfOrNull { headLine(it.html) }?.let { if (kind == "head") it.substringBefore(" — ") else it.substringAfter(" — ") } ?: "(not found)"
         "lang" -> LangId.source(input, pair, prefs.packs, lib.all()).let { (book, other) -> book ?: "!$other" }
-        "sep" -> lib.separable(input, pair.substringAfter('-')).joinToString(", ") { it.first.verb }.ifEmpty { "(none)" }
+        "sep" -> lib.separable(input, pair.substringAfter('-')).map { it.first.verb }.sorted().joinToString(", ").ifEmpty { "(none)" }
         "tr" -> pair.split('-').let { (x, y) -> Engine.translate(prefs.modelsDir, x, y, input, keep = true) }
         else -> error("Unknown case kind $kind")
     }

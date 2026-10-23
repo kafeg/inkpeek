@@ -335,8 +335,10 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      when the pack says so (.rel: the particle of a verb its tables write apart). The particle closes its clause (a
      punctuation mark, the end, a coordinating conjunction after it); the verb is the nearest word before it that makes
      one; a capitalised word inside a clause is a noun. Measured on de.wiktionary's 381,000 examples: ≈ 95 % of finds
-     right, ≈ 3 of 4 separated uses found. Tests: the "sep" cases on the device and the same cases on the built pack's
-     data in a unit test (`scripts/separable-fixture.py`).
+     right, ≈ 3 of 4 separated uses found. Tests: 121 "sep" cases (100 of them labelled by hand from Wiktionary's
+     sentences: 70 with separated verbs, 30 traps) on the device and on the built pack's data in a unit test
+     (`scripts/separable-fixture.py`); 9 known gaps: a particle with words after it ("fing an zu essen", "zurück in
+     Deckung") and two homographs or missing verbs.
    - ☆ saves a word's base form from the packs (also "das Haus" → Haus when the pack's header starts so).
    - Under the header: the frequency band (.rel: the rank) and "looked up N times" across the word's forms (history:
      each look's base form).
