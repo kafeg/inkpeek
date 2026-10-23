@@ -93,8 +93,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         build()
         placeWindow()
         if (kind == Kind.WORD) head()
-        // A phrase: the offline translation starts at once; it fills Translate and the history line.
-        else launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
+        // A phrase: word by word and the offline translation start at once; the translation fills Translate and the history line.
+        else {
+            dictionary.warm()
+            launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
+        }
         // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
         if (back != null && back.size == 3 && back[0] in tabButtons) {
             dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1

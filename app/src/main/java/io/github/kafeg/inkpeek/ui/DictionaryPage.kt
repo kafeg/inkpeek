@@ -12,8 +12,11 @@ import io.github.kafeg.inkpeek.stardict.book
 import io.github.kafeg.inkpeek.stardict.shortMeaning
 import io.github.kafeg.inkpeek.stardict.Head
 import io.github.kafeg.inkpeek.stardict.headLine
+import io.github.kafeg.inkpeek.stardict.Separable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -42,8 +45,15 @@ class DictionaryPage(private val card: CardActivity) {
 
     private var page: LinearLayout? = null
     private var job: Job? = null
-    private var glossCache: List<Gloss>? = null
-    private var sepCache: List<Pair<io.github.kafeg.inkpeek.stardict.Separable.Find, io.github.kafeg.inkpeek.stardict.Head?>>? = null
+    /** Word by word and the verbs written apart, worked out once per card (from its start for a phrase). */
+    private var glossJob: Deferred<Pair<List<Gloss>, List<Pair<Separable.Find, Head?>>>>? = null
+
+    /** Starts word by word in the background: ready when the Dictionary tab or the gloss under an answer opens. */
+    fun warm() = glossJob ?: card.async(Dispatchers.IO) {
+        val lib = card.prefs.library()
+        runCatching { lib.gloss(card.query, card.prefs.answerCode) }.getOrDefault(emptyList()) to
+            runCatching { lib.separable(card.query, card.prefs.answerCode) }.getOrDefault(emptyList())
+    }.also { glossJob = it }
     /** Full articles (Card → Main): to the next (+1) or previous (-1) dictionary; null in the other views. */
     var turn: ((Int) -> Unit)? = null; private set
     /** "←" and Back: from an article to the list, from a word to the gloss; null at the top. */
@@ -213,13 +223,10 @@ class DictionaryPage(private val card: CardActivity) {
     private fun rows(p: LinearLayout, scope: CoroutineScope = card, tap: (String) -> Unit): Job {
         val wait = Ink.text(card, "…", card.size); p.addView(wait)
         return scope.launch {
-            val g = glossCache ?: withContext(Dispatchers.IO) {
-                runCatching { card.prefs.library().gloss(card.query, card.prefs.answerCode) }.getOrDefault(emptyList())
-            }.also { glossCache = it }
-            val apart = sepCache ?: withContext(Dispatchers.IO) {
-                runCatching { card.prefs.library().separable(card.query, card.prefs.answerCode) }.getOrDefault(emptyList())
-            }.also { sepCache = it }
+            val t0 = System.currentTimeMillis()
+            val (g, apart) = warm().await()
             p.removeView(wait)
+            android.util.Log.i("InkPeek", "gloss ${g.size} words, ${apart.size} apart: ${System.currentTimeMillis() - t0} ms")
             card.note(p, card.getString(R.string.gloss_title))
             if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
             // A verb written apart first: "mache … zu: zumachen (macht zu, …) — закрывать".
