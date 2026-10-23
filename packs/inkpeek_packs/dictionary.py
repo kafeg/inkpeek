@@ -72,11 +72,15 @@ def _unparen(s):
     return s.replace("(", "").replace(")", "").strip(" ;,.")
 
 
+SUB = " — "
+
+
 def _short(glosses, limit=60):
     """The first meanings for the first line: unique items in order (tables repeat a word for every sense)."""
     out = []
     for gl in glosses:
-        for item in re.split(r"\s*[;,]\s*", _unparen(gl)):
+        # A sub-sense ("book — collection of sheets of paper") counts as its parent meaning here.
+        for item in re.split(r"\s*[;,]\s*", _unparen(gl.split(SUB, 1)[0])):
             if item and item not in out:
                 if out and len(", ".join(out + [item])) > limit:
                     return ", ".join(out)
@@ -90,7 +94,9 @@ def senses(record):
     for s in record.get("senses", []):
         if "form_of" in s or "alt_of" in s:
             continue
-        gl = (s.get("glosses") or [""])[-1].strip()
+        gs = [g.strip() for g in s.get("glosses") or [] if g.strip()]
+        # en.wiktionary nests senses: ["book:", "collection of sheets of paper"] — the parent is the meaning.
+        gl = gs[0].rstrip(":") + SUB + gs[-1] if len(gs) > 1 and gs[0].endswith(":") else (gs[-1] if gs else "")
         if not gl:
             continue
         ex = []

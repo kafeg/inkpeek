@@ -127,6 +127,13 @@ class RelatedTest(unittest.TestCase):
             {"form": "keine -", "tags": ["nominative", "plural"]}, {"form": "keine", "tags": ["accusative", "plural"]}]}], g)
         self.assertNotIn("keine", g.forms)
 
+    def test_nested_sense_keeps_its_parent(self):
+        r = {"word": "bok", "senses": [{"glosses": ["book:", "collection of sheets of paper"]}, {"glosses": ["book:", "a work of literature"]},
+                                        {"glosses": ["beech"]}]}
+        ss = dictionary.senses(r)
+        self.assertEqual(ss[0][0], "book — collection of sheets of paper")
+        self.assertEqual(dictionary._short([g for g, _ in ss]), "book, beech")
+
     def test_coverage(self):
         import tempfile
         with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as f:
