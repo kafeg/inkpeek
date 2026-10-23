@@ -20,30 +20,32 @@ download page: **full** — 85 % or more and offline translation; **basic** — 
 Wiktionary has few Russian articles); **experimental** — below, for a language with little open data.
 
 <!-- packs:begin -->
-| pair (book → answers) | top-5,000 coverage | dictionary | where the articles come from | offline translation (Mozilla model) | download |
+| pair (book → answers) | top-5,000 coverage, label | dictionary | where the articles come from | offline translation (Mozilla model) | download |
 |---|---|---|---|---|---|
-| German → English | **93%** | 124,522 words, 380,350 forms | 90,302 from English Wiktionary; 34,220 from WikDict | German → English (base-memory 3.0) | 34 MB |
-| Spanish → English | **93%** | 111,167 words, 1,037,106 forms | 107,552 from English Wiktionary; 3,615 from WikDict | Spanish → English (base-memory 3.0) | 35 MB |
-| French → English | **92%** | 165,040 words, 327,505 forms | 92,890 from English Wiktionary; 72,150 from WikDict | French → English (base-memory 3.0) | 34 MB |
-| Italian → English | **89%** | 157,246 words, 821,142 forms | 154,580 from English Wiktionary; 2,666 from WikDict | Italian → English (base-memory 3.0) | 34 MB |
-| Dutch → English | **90%** | 86,014 words, 122,655 forms | 67,235 from English Wiktionary; 18,779 from WikDict | Dutch → English (base-memory 3.0) | 30 MB |
-| Polish → English | **93%** | 104,285 words, 853,709 forms | 90,234 from English Wiktionary; 14,051 from WikDict | Polish → English (base-memory 3.0) | 33 MB |
-| Portuguese → English | **88%** | 74,816 words, 343,230 forms | 72,750 from English Wiktionary; 2,066 from WikDict | Portuguese → English (base-memory 3.0) | 30 MB |
-| Russian → English | **92%** | 76,888 words, 503,478 forms | 57,053 from English Wiktionary; 19,835 from WikDict | Russian → English (base-memory 3.1) | 32 MB |
-| English → German | **94%** | 71,889 words, 61,983 forms | 67,486 from English Wiktionary's translation tables; 3,951 from German Wiktionary; 452 from WikDict | English → German (base-memory 3.0) | 31 MB |
-| Russian → German | **68%** | 24,360 words, 137,381 forms | 1,497 from German Wiktionary; 22,863 from WikDict | Russian → English → German (base-memory 3.0, base-memory 3.1) | 51 MB |
-| English → Spanish | **97%** | 68,351 words, 61,857 forms | 62,673 from English Wiktionary's translation tables; 5,054 from Spanish Wiktionary; 624 from WikDict | English → Spanish (base-memory 3.0) | 30 MB |
-| English → French | **98%** | 131,487 words, 83,361 forms | 71,679 from English Wiktionary's translation tables; 59,429 from French Wiktionary; 379 from WikDict | English → French (base-memory 3.0) | 35 MB |
-| English → Italian | **94%** | 61,047 words, 56,631 forms | 51,208 from English Wiktionary's translation tables; 9,371 from Italian Wiktionary; 468 from WikDict | English → Italian (base-memory 3.0) | 30 MB |
-| English → Polish | **99%** | 109,446 words, 82,152 forms | 65,558 from English Wiktionary's translation tables; 43,689 from Polish Wiktionary; 199 from WikDict | English → Polish (base-memory 3.0) | 32 MB |
-| English → Portuguese | **93%** | 57,733 words, 54,244 forms | 52,544 from English Wiktionary's translation tables; 4,032 from Portuguese Wiktionary; 1,157 from WikDict | English → Portuguese (base-memory 3.0) | 30 MB |
-| German → Russian | **89%** | 93,836 words, 321,072 forms | 83,779 from Russian Wiktionary; 10,057 from WikDict | German → English → Russian (base 3.0, base-memory 3.0) | 63 MB |
-| English → Russian | **98%** | 94,485 words, 77,116 forms | 59,033 from English Wiktionary's translation tables; 35,008 from Russian Wiktionary; 444 from WikDict | English → Russian (base 3.0) | 40 MB |
-| Spanish → Russian | **86%** | 21,857 words, 233,388 forms | 15,667 from Russian Wiktionary; 6,190 from WikDict | Spanish → English → Russian (base 3.0, base-memory 3.0) | 60 MB |
-| French → Russian | **86%** | 36,217 words, 109,603 forms | 20,817 from Russian Wiktionary; 15,400 from WikDict | French → English → Russian (base 3.0, base-memory 3.0) | 60 MB |
-| Polish → Russian | **89%** | 37,609 words, 258,327 forms | 18,764 from Russian Wiktionary; 18,845 from WikDict | Polish → English → Russian (base 3.0, base-memory 3.0) | 59 MB |
+| German → English | **93%** full | 124,694 words, 380,477 forms | 90,522 from English Wiktionary; 34,172 from WikDict | German → English (base-memory 3.0) | 38 MB |
+| Spanish → English | **93%** full | 111,500 words, 1,042,160 forms | 107,891 from English Wiktionary; 3,609 from WikDict | Spanish → English (base-memory 3.0) | 37 MB |
+| French → English | **92%** full | 165,254 words, 328,414 forms | 93,159 from English Wiktionary; 72,095 from WikDict | French → English (base-memory 3.0) | 37 MB |
+| Italian → English | **89%** full | 157,482 words, 821,421 forms | 154,817 from English Wiktionary; 2,665 from WikDict | Italian → English (base-memory 3.0) | 37 MB |
+| Dutch → English | **90%** full | 86,166 words, 122,932 forms | 67,407 from English Wiktionary; 18,759 from WikDict | Dutch → English (base-memory 3.0) | 33 MB |
+| Polish → English | **93%** full | 104,434 words, 854,814 forms | 90,389 from English Wiktionary; 14,045 from WikDict | Polish → English (base-memory 3.0) | 36 MB |
+| Portuguese → English | **88%** full | 75,078 words, 344,218 forms | 73,017 from English Wiktionary; 2,061 from WikDict | Portuguese → English (base-memory 3.0) | 32 MB |
+| Russian → English | **92%** full | 77,198 words, 505,749 forms | 57,406 from English Wiktionary; 19,792 from WikDict | Russian → English (base-memory 3.1) | 38 MB |
+| Ukrainian → English | **58%** experimental | 29,497 words, 267,928 forms | 29,497 from English Wiktionary | Ukrainian → English (tiny 3.0) | 19 MB |
+| English → German | **94%** full | 72,130 words, 62,185 forms | 67,705 from English Wiktionary's translation tables; 3,950 from German Wiktionary; 475 from WikDict | English → German (base-memory 3.0) | 38 MB |
+| Russian → German | **68%** basic | 24,360 words, 137,673 forms | 1,497 from German Wiktionary; 22,863 from WikDict | Russian → English → German (base-memory 3.0, base-memory 3.1) | 57 MB |
+| English → Spanish | **97%** full | 68,557 words, 62,046 forms | 62,872 from English Wiktionary's translation tables; 5,047 from Spanish Wiktionary; 638 from WikDict | English → Spanish (base-memory 3.0) | 37 MB |
+| English → French | **98%** full | 131,822 words, 83,642 forms | 72,059 from English Wiktionary's translation tables; 59,371 from French Wiktionary; 392 from WikDict | English → French (base-memory 3.0) | 42 MB |
+| English → Italian | **94%** full | 61,305 words, 56,844 forms | 51,462 from English Wiktionary's translation tables; 9,365 from Italian Wiktionary; 478 from WikDict | English → Italian (base-memory 3.0) | 37 MB |
+| English → Polish | **99%** full | 110,727 words, 82,691 forms | 67,298 from English Wiktionary's translation tables; 43,215 from Polish Wiktionary; 214 from WikDict | English → Polish (base-memory 3.0) | 39 MB |
+| English → Portuguese | **93%** full | 57,902 words, 54,405 forms | 52,706 from English Wiktionary's translation tables; 4,028 from Portuguese Wiktionary; 1,168 from WikDict | English → Portuguese (base-memory 3.0) | 37 MB |
+| German → Russian | **89%** full | 93,836 words, 321,070 forms | 83,779 from Russian Wiktionary; 10,057 from WikDict | German → English → Russian (base 3.0, base-memory 3.0) | 67 MB |
+| English → Russian | **98%** full | 94,664 words, 77,351 forms | 59,260 from English Wiktionary's translation tables; 34,942 from Russian Wiktionary; 462 from WikDict | English → Russian (base 3.0) | 47 MB |
+| Spanish → Russian | **86%** full | 21,857 words, 233,408 forms | 15,667 from Russian Wiktionary; 6,190 from WikDict | Spanish → English → Russian (base 3.0, base-memory 3.0) | 61 MB |
+| French → Russian | **86%** full | 36,217 words, 109,621 forms | 20,817 from Russian Wiktionary; 15,400 from WikDict | French → English → Russian (base 3.0, base-memory 3.0) | 63 MB |
+| Polish → Russian | **89%** full | 37,609 words, 258,593 forms | 18,764 from Russian Wiktionary; 18,845 from WikDict | Polish → English → Russian (base 3.0, base-memory 3.0) | 62 MB |
+| Ukrainian → Russian | **43%** experimental | 36,025 words, 105,002 forms | 36,025 from Russian Wiktionary | Ukrainian → English → Russian (base 3.0, tiny 3.0) | 49 MB |
 
-<sub>Packs of 2026-10-20; table made by [`packs/report.py`](../packs/report.py). Download: the dictionary, the models of the route (shared between pairs) and language identification (1 MB).</sub>
+<sub>Packs of 2026-10-22; table made by [`packs/report.py`](../packs/report.py). Download: the dictionary, the models of the route (shared between pairs) and language identification (1 MB).</sub>
 <!-- packs:end -->
 
 Grammar of the book languages (the first line of every article and the forms that lead to it):
@@ -52,7 +54,7 @@ Grammar of the book languages (the first line of every article and the forms tha
 |---|---|---|
 | German | German Wiktionary; strong / weak from English Wiktionary | der / die / das, genitive and plural; verbs: 3rd person, Präteritum, Perfekt with *haben* or *sein*, strong or irregular |
 | English | English Wiktionary | plural; verbs: past and participle, irregular |
-| Russian | English Wiktionary | gender and plural; irregular verbs |
+| Russian, Ukrainian | English Wiktionary | gender and plural; irregular verbs |
 | French, Spanish, Italian, Portuguese, Dutch, Polish | English Wiktionary | gender (with the article: le / la, el / la, il / la, o / a, de / het), plural; verb forms where Wiktionary's tables have them |
 
 In every language each inflected form in Wiktionary's tables leads to its word (the "forms" column above): *Häusern* →
