@@ -74,11 +74,18 @@ class WordsSettings(private val a: MainActivity) {
                 put(android.provider.MediaStore.MediaColumns.DISPLAY_NAME, name)
                 put(android.provider.MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
                 put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS + "/InkPeek")
+                put(android.provider.MediaStore.MediaColumns.IS_PENDING, 1)
             }
             val r = a.contentResolver
-            r.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)!!.let { u -> r.openOutputStream(u)!!.use { o -> tmp.inputStream().use { it.copyTo(o) } } }
-            tmp.delete()
-        } }.onSuccess { a.toast(a.getString(R.string.backup_done, "Download/InkPeek/$name")) }
+            // Pending until it is whole: a failed copy leaves no half file in Download.
+            val u = r.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)!!
+            try {
+                r.openOutputStream(u)!!.use { o -> tmp.inputStream().use { it.copyTo(o) } }
+                r.update(u, android.content.ContentValues().apply { put(android.provider.MediaStore.MediaColumns.IS_PENDING, 0) }, null, null)
+            } catch (e: Exception) { r.delete(u, null, null); throw e } finally { tmp.delete() }
+            // The name MediaStore gave it (a second backup the same day gets a number).
+            r.query(u, arrayOf(android.provider.MediaStore.MediaColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: name
+        } }.onSuccess { a.toast(a.getString(R.string.backup_done, "Download/InkPeek/$it")) }
             .onFailure { a.toast(a.getString(R.string.failed, it.message)) }
     }
 

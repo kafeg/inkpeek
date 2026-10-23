@@ -81,10 +81,10 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
      */
     fun heads(query: String, answer: String, among: List<StarDict> = all()): List<Head> =
         lookup(query, answer, among = among.filter(::isPack)).distinctBy { (d, _) -> d.book }
-        .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it) } } }
+        .mapNotNull { (d, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it, d.book.orEmpty()) } } }
 
-    /** A word's rank in its language's frequency list from the packs (1: the most frequent), 0 when unknown. */
-    fun rank(word: String): Int = all().filter { isPack(it) && it.ready }
+    /** A word's rank in the frequency list of [book] (its language) from the packs (1: the most frequent), 0 when unknown. */
+    fun rank(word: String, book: String): Int = all().filter { isPack(it) && it.ready && it.book == book }
         .firstNotNullOfOrNull { d -> runCatching { d.related?.of(word)?.rank }.getOrNull()?.takeIf { it > 0 } } ?: 0
 
     /**
@@ -149,7 +149,7 @@ data class Gloss(val word: String, val head: Head?) {
 }
 
 /** A pack article's first line: [word] is the headword, [line] "das Haus (Hauses, мн. Häuser) — дом, здание". */
-data class Head(val word: String, val line: String) {
+data class Head(val word: String, val line: String, val book: String = "") {
     val header: String get() = line.substringBefore(" — ").trim()
     val meaning: String get() = line.substringAfter(" — ", "").trim()
 }

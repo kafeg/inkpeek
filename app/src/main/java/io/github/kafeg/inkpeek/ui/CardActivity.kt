@@ -48,6 +48,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** The scroll to come back to once the restored page has its content. */
     var restoreScroll = -1; private set
     val kind get() = Kind.of(query)
+    /** This look counted in the history: the count under the header waits for it. */
+    private var seenJob: kotlinx.coroutines.Job? = null
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
@@ -89,7 +91,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
         val back = intent.getStringExtra(AT)?.split('|')
-        launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
+        seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
         build()
         placeWindow()
         if (kind == Kind.WORD) head()
@@ -173,7 +175,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { back() }.apply { visibility = View.GONE }
         add(backButton)
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
-        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(saveKey().first) }.getOrDefault(false) }) starred(true) }
+        launch { if (withContext(Dispatchers.IO) { runCatching { isSaved() }.getOrDefault(false) }) starred(true) }
 
         // No icon bar (Card → Main): the card is the open page only; Back or a tap outside closes it.
         if (prefs.cardBar) {
@@ -307,8 +309,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
         titleView.text = first.header
         // How common the word is and how often it was looked up here, in any of its forms.
+        seenJob?.join()
         val (rank, looks) = withContext(Dispatchers.IO) { runCatching {
-            prefs.library().rank(first.word) to store.run { base(query, kindName, first.word); looks(first.word) }
+            prefs.library().rank(first.word, first.book) to store.run { base(query, kindName, first.word); looks(first.word) }
         }.getOrDefault(0 to 0) }
         val facts = listOfNotNull(Facts.frequency(this@CardActivity, rank), Facts.looks(this@CardActivity, looks)).joinToString(" · ")
         // The selected form, and the same word in another book language ("Gift" is German and English).
@@ -335,14 +338,17 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         return query to kindName
     }
 
+    /** Saved as its base form, or as the selection itself (by an older version, or while the packs were indexed). */
+    private fun isSaved() = store.isSaved(saveKey().first) || store.isSaved(query)
+
     /** ☆ saves the selection (a word as its base form) with one short line: the saved AI translation, else the dictionary's first line or the offline translation; ★ removes it. */
     private fun toggleSaved() = launch {
         val on = withContext(Dispatchers.IO) { runCatching {
             val (key, keyKind) = saveKey()
-            if (store.isSaved(key)) { store.unsave(key); false } else {
+            if (isSaved()) { store.unsave(key); store.unsave(query); false } else {
                 val line = answers.saved() ?: if (keyKind != "word") mt.done() else prefs.library().heads(key, prefs.answerCode, prefs.packDictionaries())
                     .firstOrNull()?.let { if (prefs.packGrammar) it.line else "${it.word} — ${it.meaning}" }
-                store.save(key, keyKind, line.orEmpty(), prefs.answerLang); true
+                store.save(key, keyKind, line.orEmpty(), prefs.answerLang, from = query); true
             }
         }.getOrNull() } ?: return@launch
         starred(on)

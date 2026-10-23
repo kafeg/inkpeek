@@ -54,13 +54,23 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
             put("text", text); put("lang", lang); put("section", section); put("ver", ver); put("model", model)
             put("answer", answer); put("created", System.currentTimeMillis())
         }, SQLiteDatabase.CONFLICT_REPLACE)
+        // An answer that comes after the word was saved as its base form goes with the saved word too.
+        writableDatabase.execSQL("INSERT OR REPLACE INTO ai(text, lang, section, ver, model, answer, created) " +
+            "SELECT h.base, a.lang, a.section, a.ver, a.model, a.answer, a.created FROM ai a JOIN history h ON h.text=a.text " +
+            "WHERE a.text=? AND a.lang=? AND a.section=? AND a.ver=? AND h.base IS NOT NULL AND h.base<>a.text AND h.base IN (SELECT text FROM saved)",
+            arrayOf(text, lang, section, ver))
     }
 
     fun isSaved(text: String) = readableDatabase.rawQuery("SELECT 1 FROM saved WHERE text=?", arrayOf(text)).use { it.moveToFirst() }
-    fun save(text: String, kind: String, meaning: String, lang: String) {
-        writableDatabase.insertWithOnConflict("saved", null, ContentValues().apply {
-            put("text", text); put("kind", kind); put("meaning", meaning); put("lang", lang); put("created", System.currentTimeMillis())
-        }, SQLiteDatabase.CONFLICT_REPLACE)
+    /** Saves [text]; a word saved as its base form ([from]: the form looked up) takes that form's answers with it. */
+    fun save(text: String, kind: String, meaning: String, lang: String, from: String = text) {
+        writableDatabase.run {
+            insertWithOnConflict("saved", null, ContentValues().apply {
+                put("text", text); put("kind", kind); put("meaning", meaning); put("lang", lang); put("created", System.currentTimeMillis())
+            }, SQLiteDatabase.CONFLICT_REPLACE)
+            if (from != text) execSQL("INSERT OR IGNORE INTO ai(text, lang, section, ver, model, answer, created) " +
+                "SELECT ?, lang, section, ver, model, answer, created FROM ai WHERE text=?", arrayOf(text, from))
+        }
     }
     fun unsave(text: String) { writableDatabase.run { delete("saved", "text=?", arrayOf(text)); dropAnswers(this) } }
 
@@ -75,6 +85,11 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         // No UPSERT: Android 8 and 9 ship SQLite older than 3.24.
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, 0, 0)", arrayOf(text, kind))
         db.execSQL("UPDATE history SET seen=?, count=count+1 WHERE text=?", arrayOf(System.currentTimeMillis(), text))
+        trim(db)
+    }
+
+    /** The newest [HISTORY] looks stay, with their answers. */
+    private fun trim(db: SQLiteDatabase) {
         if (android.database.DatabaseUtils.longForQuery(db, "SELECT COUNT(*) FROM history", null) > HISTORY) {
             db.execSQL("DELETE FROM history WHERE text NOT IN (SELECT text FROM history ORDER BY seen DESC LIMIT $HISTORY)")
             dropAnswers(db)
@@ -103,7 +118,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     /**
      * Adds what the backup [file] has and this store does not (rows already here stay as they are), by the columns both
-     * have: a backup of an older app works too. Returns the rows added; throws if [file] is not a backup.
+     * have: a backup of an older app works too; the history keeps its newest [HISTORY]. Returns the rows added (after
+     * that); throws if [file] is not a backup.
      */
     fun restore(file: File): Int {
         val src = SQLiteDatabase.openDatabase(file.path, null, SQLiteDatabase.OPEN_READONLY)
@@ -128,9 +144,10 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
                         }
                     }
                 }
+                trim(db)
                 db.setTransactionSuccessful()
             } finally { db.endTransaction() }
-            tables.sumOf { count(it) } - before
+            (tables.sumOf { count(it) } - before).coerceAtLeast(0)
         }
     }
 

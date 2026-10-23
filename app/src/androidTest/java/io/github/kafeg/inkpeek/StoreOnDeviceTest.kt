@@ -44,6 +44,33 @@ class StoreOnDeviceTest {
         a.close(); b.close()
     }
 
+    @Test fun aWordSavedAsItsBaseFormKeepsItsAnswers() {
+        val s = fresh("t-keep.db")
+        s.seen("andere", "word"); s.base("andere", "word", "ander")
+        s.putAnswer("andere", "en", "quick", 1, "m", """{"translation":"other"}""")
+        s.save("ander", "word", "other", "en", from = "andere")
+        s.putAnswer("andere", "en", "analysis", 1, "m", "{}")      // answered after it was saved
+        s.clearHistory()
+        assertEquals("""{"translation":"other"}""", s.answer("ander", "en", "quick", 1))
+        assertEquals("{}", s.answer("ander", "en", "analysis", 1))
+        s.close()
+    }
+
+    @Test fun anImportKeepsTheHistoryLimit() {
+        val a = fresh("t-many.db")
+        a.writableDatabase.run { beginTransaction(); try {
+            for (i in 0 until Store.HISTORY) execSQL("INSERT INTO history(text, kind, seen, count) VALUES(?, 'word', ?, 1)", arrayOf("w$i", i))
+            setTransactionSuccessful() } finally { endTransaction() } }
+        val file = File(ctx.cacheDir, "t-many-backup.db").also { it.delete() }
+        a.backup(file)
+        val b = fresh("t-few.db")
+        repeat(5) { b.seen("mine$it", "word") }
+        b.restore(file)
+        assertEquals(Store.HISTORY, b.count("history"))
+        assertTrue(b.history("en").take(5).all { it.text.startsWith("mine") })   // the newest stay
+        a.close(); b.close()
+    }
+
     @Test(expected = IllegalArgumentException::class)
     fun aFileThatIsNotABackupIsRefused() {
         val other = File(ctx.cacheDir, "t-other.db").also { it.delete() }

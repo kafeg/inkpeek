@@ -48,11 +48,16 @@ class DictionaryPage(private val card: CardActivity) {
     /** Word by word and the verbs written apart, worked out once per card (from its start for a phrase). */
     private var glossJob: Deferred<Pair<List<Gloss>, List<Pair<Separable.Find, Head?>>>>? = null
 
-    /** Starts word by word in the background: ready when the Dictionary tab or the gloss under an answer opens. */
+    /**
+     * Starts word by word in the background: ready when the Dictionary tab or the gloss under an answer opens. Worked out
+     * while a dictionary is still being indexed, it is not kept: the next opening asks again.
+     */
     fun warm() = glossJob ?: card.async(Dispatchers.IO) {
         val lib = card.prefs.library()
-        runCatching { lib.gloss(card.query, card.prefs.answerCode) }.getOrDefault(emptyList()) to
-            runCatching { lib.separable(card.query, card.prefs.answerCode) }.getOrDefault(emptyList())
+        val ready = lib.all().all { it.ready }
+        (runCatching { lib.gloss(card.query, card.prefs.answerCode) }.getOrDefault(emptyList()) to
+            runCatching { lib.separable(card.query, card.prefs.answerCode) }.getOrDefault(emptyList()))
+            .also { if (!ready) withContext(Dispatchers.Main) { glossJob = null } }
     }.also { glossJob = it }
     /** Full articles (Card → Main): to the next (+1) or previous (-1) dictionary; null in the other views. */
     var turn: ((Int) -> Unit)? = null; private set
