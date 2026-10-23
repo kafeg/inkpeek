@@ -31,12 +31,13 @@ def main(pack):
         c = line.split("\t")
         if len(c) > 9 and c[9]:
             particle[c[0]] = c[9]
-    cases = [l.rstrip("\n").split("\t") for l in open(CASES, encoding="utf-8") if l.startswith("sep\t")]
+    # "?sep": a known gap of the data (checked and shown, does not fail), as on the device.
+    cases = [l.rstrip("\n").split("\t") for l in open(CASES, encoding="utf-8") if l.startswith(("sep\t", "?sep\t"))]
     tokens = {t for _, _, s, _ in cases for t in re.findall(r"[^\W\d_]+", s)}
-    print(f"# From {pack.split('/')[-1]} by scripts/separable-fixture.py: \"?sentence\\texpected\" (the device cases), "
-          "\"form\\tlemmas\", \"=verb\\tparticle\"")
-    for _, _, s, e in cases:
-        print(f"?{s}\t{e}")
+    print(f"# From {pack.split('/')[-1]} by scripts/separable-fixture.py: \"?sentence\\texpected\" (the device cases; "
+          "\"~\" a known gap), \"form\\tlemmas\", \"=verb\\tparticle\"")
+    for k, _, s, e in cases:
+        print(f"{'~' if k.startswith('?') else '?'}{s}\t{e}")
     need = set()
     for t in sorted({t.lower() for t in tokens}):
         if t in forms:

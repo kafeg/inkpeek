@@ -36,7 +36,7 @@ class LibraryTest {
 
     @Test fun headsPerBookLanguageAnswerFirst() {
         val lib = library()
-        assertEquals(listOf(Head("Haus", "das Haus (Hauses, мн. Häuser) — дом, здание")), lib.heads("Häuser", "ru"))
+        assertEquals(listOf(Head("Haus", "das Haus (Hauses, мн. Häuser) — дом, здание", "de")), lib.heads("Häuser", "ru"))
         assertEquals("das Haus (Hauses, pl. Häuser)", lib.heads("Häuser", "en").first().header)
         // "Gift" is German and English: the German header first for Russian answers, the English one under it.
         assertEquals(listOf("das Gift", "gift"), lib.heads("Gift", "ru").map { it.header })

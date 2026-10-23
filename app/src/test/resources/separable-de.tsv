@@ -1,38 +1,139 @@
-# From de.wiktionary (kaikki): "form\tlemmas" lines, then "=verb\tparticle" for separable verbs
+# From dict-de-en.zip by scripts/separable-fixture.py: "?sentence\texpected" (the device cases; "~" a known gap), "form\tlemmas", "=verb\tparticle"
+?Ich mache die Tür zu.	zumachen
+?Sie hörte nicht auf.	aufhören
+?Sie steht jeden Morgen um sechs Uhr auf.	aufstehen
+?Fährst du heute Abend noch bei deiner Mutter vorbei?	vorbeifahren
+?Tauschen Sie sich über dieses Thema aus!	austauschen
+?Ich rufe dich morgen an, wenn ich zu Hause bin.	anrufen
+?Die Himmelsboten, so stellte sich später heraus, waren Meteoriten vom Mars.	herausstellen
+?Die Russen marschierten an und besetzten Karlsbad.	anmarschieren
+?Er gab sein letztes Geld für Süßigkeiten aus.	ausgeben
+?Ich schätze meine Kollegen als sehr zuverlässig ein.	einschätzen
+?Ida zupfte die Spitzen der Fliege aus.	auszupfen
+?Ich mache das für dich zu Hause.	(none)
+?Wir durchfuhren einen Tunnel.	(none)
+?Er kommt aus Berlin.	(none)
+?Er hat einen braunen Burnus an und eine ungeheure Pelzmütze auf, wie ich sie bei Hirten gesehen habe.	anhaben, aufhaben
+?Bodo füllte das Glas mit Wasser auf und trank es mit einem Zug aus.	auffüllen, austrinken
+~Die Raupe hängt sich an einem Faden auf und puppt sich im Hängen ein.	aufhängen, einpuppen
+?Franz teilt sich sein Taschengeld ein.	einteilen
+?Wenn man die Maden mit Wasser besprüht, krümmen sie sich zusammen.	zusammenkrümmen
+?Er drückte ihnen sein Beileid aus.	ausdrücken
+?Er kam spät an und ging schlafen.	ankommen
+abend	Abend
+als	Als|als
+an	an
+auf	auf
+aus	Aus|aus
+bei	bei
+beileid	Beileid
+berlin	Berlin
+besetzten	besetzen|besetzt
 besprüht	besprühen
 bin	sein
+bodo	Bodo
+braunen	Brauner|braun
+burnus	Burnus
+das	das|der|dessen|die
+deiner	dein|deiner|dich|dir|du|euch|euer|ihr
+der	der|die
+dich	dich|dir|du|euch|euer|ihr
+die	der|dessen|die
+dieses	dies|dieser
 drückte	drücken
-eine	einen
-einen	einen
-fliege	fliegen
+du	Du|dich|dir|du|euch|euer|ihr
+durchfuhren	durchfahren
+ein	ein|einen
+eine	ein|einen
+einem	ein
+einen	ein|einen
+er	Er|er
+es	E|Es|e|er|es|ihm|ihn|ihnen|sie
+faden	Faden|fad|fade
+fliege	Fliege|fliegen
+franz	Franz
 fährst	fahren
 füllte	füllen
+für	für
 gab	geben
+geld	Geld
+gesehen	sehen
 ging	gehen
-habe	haben
+glas	Glas
+habe	Habe|haben
 hat	haben
-hause	hausen
-heute	heuen
-hängen	hängen
+hause	Haus|hausen
+heraus	heraus
+heute	Heute|heuen|heute
+hirten	Hirt|Hirte
+hängen	Hang|Hängen|hängen
 hängt	hängen
 hörte	hören
+ich	Ich|ich|mir|uns|unser|wir
+ida	Ida
+ihnen	Sie|er|es|ihm|ihn|ihnen|sie
+im	im
+jeden	jeder
 kam	kommen
+karlsbad	Karlsbad
+kollegen	Kollege
 kommt	kommen
-krümmen	krümmen
-mache	machen
-meine	meinen
-puppt	puppen
-rufe	rufen
-schlafen	schlafen
-schätze	schätzen
-sein	sein
-spitzen	spitzen
+krümmen	Krümme|krümmen
+letztes	letzte
+mache	Mache|machen
+maden	Made
+man	Man|man
+mars	Mars
+marschierten	marschieren
+meine	mein|meinen|mir
+meteoriten	Meteorit
+mit	MIT|mit
+morgen	Morgen|morgen
+mutter	Mutter
+nicht	nicht
+noch	noch
+pelzmütze	Pelzmütze
+raupe	Raupe
+rufe	Ruf|rufen
+russen	Russe
+schlafen	Schlafen|schlafen
+schätze	Schatz|schätzen
+sechs	Sech|Sechs|sechs
+sehr	sehr
+sein	Sein|sein
+sich	sich
+sie	Sie|er|es|ihm|ihn|ihnen|sie
+so	SO|so
+spitzen	Spitz|Spitze|spitz|spitzen
+spät	spät
+später	spät|später
 steht	stehen
 stellte	stellen
-tauschen	tauschen
+süßigkeiten	Süßigkeit
+taschengeld	Taschengeld
+tauschen	Tausch|tauschen
 teilt	teilen
-trank	trinken
+thema	Thema
+trank	Trank|trinken
+tunnel	Tunnel|tunneln
+tür	Tür
+uhr	Uhr
+um	um
+und	und
+ungeheure	ungeheuer
+vom	vom
+vorbei	vorbei
+waren	Ware|sein
+wasser	Wasser|wassern
+wenn	Wenn|wenn
+wie	Wie|wie
+wir	ich|mir|uns|unser|wir
+zu	zu
+zug	Zug
 zupfte	zupfen
+zusammen	zusammen
+zuverlässig	zuverlässig
+über	über
 =andrücken	an
 =anfahren	an
 =anfliegen	an
@@ -44,7 +145,9 @@ zupfte	zupfen
 =anhören	an
 =ankommen	an
 =anmachen	an
+=anmarschieren	an
 =anrufen	an
+=ansehen	an
 =anspitzen	an
 =anstehen	an
 =anstellen	an
@@ -60,7 +163,9 @@ zupfte	zupfen
 =aufhören	auf
 =aufkommen	auf
 =aufmachen	auf
+=aufmarschieren	auf
 =aufrufen	auf
+=aufsehen	auf
 =aufstehen	auf
 =aufstellen	auf
 =aufteilen	auf
@@ -73,8 +178,10 @@ zupfte	zupfen
 =aushängen	aus
 =auskommen	aus
 =ausmachen	aus
+=ausmarschieren	aus
 =ausrufen	aus
 =ausschlafen	aus
+=aussehen	aus
 =ausstehen	aus
 =ausstellen	aus
 =austauschen	aus
@@ -82,6 +189,7 @@ zupfte	zupfen
 =austrinken	aus
 =auszupfen	aus
 =beigeben	bei
+=beigehen	bei
 =beikommen	bei
 =beimachen	bei
 =beischlafen	bei
@@ -97,9 +205,10 @@ zupfte	zupfen
 =einhören	ein
 =einkommen	ein
 =einmachen	ein
-=einpuppen	ein
+=einmarschieren	ein
 =einschlafen	ein
 =einschätzen	ein
+=einsehen	ein
 =einstehen	ein
 =einstellen	ein
 =eintauschen	ein
@@ -110,6 +219,7 @@ zupfte	zupfen
 =herausgehen	heraus
 =heraushören	heraus
 =herauskommen	heraus
+=herausmarschieren	heraus
 =herausrufen	heraus
 =herausstellen	heraus
 =mitfahren	mit
@@ -119,6 +229,7 @@ zupfte	zupfen
 =mithören	mit
 =mitkommen	mit
 =mitmachen	mit
+=mitmarschieren	mit
 =mitmeinen	mit
 =mitteilen	mit
 =umfahren	um
@@ -130,6 +241,7 @@ zupfte	zupfen
 =umhängen	um
 =umhören	um
 =umkommen	um
+=umsehen	um
 =umstehen	um
 =umstellen	um
 =umtauschen	um
@@ -138,6 +250,7 @@ zupfte	zupfen
 =vorbeifliegen	vorbei
 =vorbeigehen	vorbei
 =vorbeikommen	vorbei
+=vorbeimarschieren	vorbei
 =zudrücken	zu
 =zufahren	zu
 =zufliegen	zu
@@ -149,9 +262,11 @@ zupfte	zupfen
 =zuhören	zu
 =zukommen	zu
 =zumachen	zu
+=zumarschieren	zu
 =zurufen	zu
 =zusammendrücken	zusammen
 =zusammenfahren	zusammen
+=zusammengeben	zusammen
 =zusammengehen	zusammen
 =zusammenhaben	zusammen
 =zusammenhängen	zusammen
@@ -160,6 +275,7 @@ zupfte	zupfen
 =zusammenrufen	zusammen
 =zusammenstehen	zusammen
 =zusammenstellen	zusammen
+=zusehen	zu
 =zuspitzen	zu
 =zustehen	zu
 =zustellen	zu
@@ -171,4 +287,5 @@ zupfte	zupfen
 =überhängen	über
 =überhören	über
 =überkommen	über
+=übersehen	über
 =überstehen	über
