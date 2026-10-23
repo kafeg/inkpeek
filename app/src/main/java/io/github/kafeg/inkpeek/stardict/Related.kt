@@ -8,9 +8,10 @@ import java.io.RandomAccessFile
  * sorted, tab-separated. Found by binary search over the file's bytes: the file is never loaded.
  */
 class Related(private val file: File) {
-    /** [rel], [syn], [ant], [expr]: frequent first; [forms]: "form" to its tags. */
+    /** [rel], [syn], [ant], [expr]: frequent first; [forms]: "form" to its tags; [rank]: in the frequency list (0: not
+     *  in it); [sep]: a separable verb's particle ("zumachen" → "zu"), else "". */
     data class Entry(val rel: List<String>, val syn: List<String>, val ant: List<String>, val expr: List<String>,
-                     val ipa: List<String>, val origin: String, val forms: List<Pair<String, String>>)
+                     val ipa: List<String>, val origin: String, val forms: List<Pair<String, String>>, val rank: Int = 0, val sep: String = "")
 
     @Synchronized fun of(word: String): Entry? = runCatching { RandomAccessFile(file, "r").use { find(it, word) } }.getOrNull()?.let(::parse)
 
@@ -60,6 +61,6 @@ class Related(private val file: File) {
         val c = line.split('\t')
         fun list(i: Int) = c.getOrNull(i)?.split('|')?.filter { it.isNotBlank() }.orEmpty()
         return Entry(list(1), list(2), list(3), list(4), list(5), c.getOrNull(6).orEmpty(),
-            list(7).map { it.substringBeforeLast(':') to it.substringAfterLast(':', "") })
+            list(7).map { it.substringBeforeLast(':') to it.substringAfterLast(':', "") }, c.getOrNull(8)?.toIntOrNull() ?: 0, c.getOrNull(9).orEmpty())
     }
 }

@@ -84,6 +84,19 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it) } } }
 
     /**
+     * Separable verbs written apart in [text] ("mache … zu" → zumachen) by the packs' data, each with its header line
+     * from the pack into [answer] where there is one.
+     */
+    fun separable(text: String, answer: String): List<Pair<Separable.Find, Head?>> {
+        val packs = all().filter { isPack(it) && it.ready && it.related != null }
+        if (packs.isEmpty()) return emptyList()
+        val finds = Separable.find(text,
+            { f -> packs.flatMap { d -> runCatching { d.lookup(f) }.getOrDefault(emptyList()).map { it.word } }.distinct() },
+            { v -> packs.firstNotNullOfOrNull { d -> runCatching { d.related?.of(v)?.sep }.getOrNull()?.takeIf { it.isNotEmpty() } } })
+        return finds.map { f -> f to heads(f.verb, answer, packs).firstOrNull() }
+    }
+
+    /**
      * Word-by-word help for a phrase or passage: each distinct word with its base form's first line. Only
      * dictionaries that know most of the text count (so an English dictionary does not explain German "aus" as "AU");
      * among them a pack into [answer] wins, then the one that knows more words of this text; an own dictionary gives its
