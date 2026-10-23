@@ -10,6 +10,8 @@ on:
       publish: { description: "Upload to release 'packs'", type: boolean, default: true }
 permissions:
   contents: write
+# Packs and Translation models both merge into release "packs" (packs.json): one run at a time, the next one waits.
+concurrency: { group: packs-release, cancel-in-progress: false }
 jobs:
   build:
     runs-on: ubuntu-latest
