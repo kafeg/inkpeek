@@ -12,7 +12,9 @@ count, so every release has its own.
   proverbs, forms with pronunciation and the word's origin — each a row, a tap opens the list, frequent words first,
   page by page, a tap on a word looks it up. Which ones: Languages → Article (was Help).
 - Word by word: the same list style.
-- Ukrainian as a book language (into English and Russian).
+- New book languages: Ukrainian (into English and Russian), Czech, Bulgarian, Finnish, Hungarian, Swedish, Danish
+  and Romanian (into English); Italian, Portuguese and Dutch into Russian.
+- Dictionary first lines keep a word's main meaning where Wiktionary splits it into sub-senses (Swedish bok — book).
 - The packs page labels each pair: full, basic or experimental, with the share of the 5,000 most frequent words its
   dictionary knows.
 - AI → Answers (was Help): what Analysis and Context ask for — grammar, words, related words, synonyms, explanation,
