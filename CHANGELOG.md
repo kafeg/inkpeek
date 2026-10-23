@@ -17,6 +17,10 @@ count, so every release has its own.
   dictionary knows.
 - AI → Answers (was Help): what Analysis and Context ask for — grammar, words, related words, synonyms, explanation,
   examples, expressions, origin; the explanations below.
+- Look up from any text in the card: select a word in an article or an answer, 📖 opens it, ← returns to where the
+  card was: its tab, the open article or list, the scroll.
+- Export of Notes (words, phrases or the history) as a TSV file for Anki or a spreadsheet, with Share.
+- The page behind the card is no longer dimmed (a grey layer on e-ink); Card → Appearance → Dim the page brings it back.
 
 ## 0.5 — 2026-10-21
 - Copy, share or search the web: hold a line of the dictionary list, word by word, Notes or the history (in the card
@@ -52,9 +56,6 @@ count, so every release has its own.
 - Notes in the card: 50 per page, like in settings.
 - Card → Icons: which icons the card shows on top, what each one does below.
 - Settings sections in the order of setting up: Languages, Card, AI, Notes.
-- Look up from any text in the card: select a word in an article or an answer, 📖 opens it, ← returns.
-- Export of Notes (words, phrases or the history) as a TSV file for Anki or a spreadsheet, with Share.
-- The page behind the card is no longer dimmed (a grey layer on e-ink); Card → Appearance → Dim the page brings it back.
 - "→" in AI answers and offline translations drawn in the middle of the line; dimmed buttons (the first page's ◀)
   easier to see.
 
