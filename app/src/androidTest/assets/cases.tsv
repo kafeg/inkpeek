@@ -133,9 +133,9 @@ sep	de-en	Franz teilt sich sein Taschengeld ein.	einteilen
 sep	de-en	Wenn man die Maden mit Wasser besprüht, krümmen sie sich zusammen.	zusammenkrümmen
 sep	de-en	Er drückte ihnen sein Beileid aus.	ausdrücken
 sep	de-en	Er kam spät an und ging schlafen.	ankommen
-head	de-ru	die	die — артикль der: ж. им./вин.
-head	de-ru	das	das — артикль der: ср. им./вин.
-head	de-en	dem	dem — article der: m. dat.
+mean	de-ru	die	артикль der: ж. им./вин.
+mean	de-ru	das	артикль der: ср. им./вин.
+mean	de-en	dem	article der: m. dat.
 sep	de-en	Eine große Menge scharte sich nahe der Kirche auf dem Marktplatz zusammen.	zusammenscharen
 sep	de-en	Er fingerte an seiner Krawatte herum.	herumfingern
 sep	de-en	Den ehemaligen Ministerpräsidenten lobte man nach Brüssel weg.	wegloben

@@ -12,6 +12,9 @@ count, so every release has its own.
 - Notes: Export and Import of everything at once (saved words and phrases, the history, AI answers) as one file in
   Download/InkPeek; an import adds what the device does not have. The list's own export is now TSV.
 - Lists look alike: a thin line between the dictionaries of a word and between notes.
+- German articles are described by their own table: *die* — article der: f. nom./acc., pl. nom./acc. (it showed
+  der's masculine meaning before).
+- Word by word is ready when its tab opens: a phrase's card works it out from the start.
 - Ukrainian → Russian is no longer offered: a pair without English is published only from 60 % of the frequent
   words (it had 43 %); Ukrainian → English stays.
 
