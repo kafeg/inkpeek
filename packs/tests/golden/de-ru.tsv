@@ -4,3 +4,7 @@ head	gehen	gehen (geht, ging, ist gegangen)
 mean	Haus	дом
 mean	gehen	идти
 mean	Gewitter	гроза
+head	die	die — артикль der: ж. им./вин.
+head	das	das — артикль der: ср. им./вин.
+head	dem	dem — артикль der: м. дат.
+head	der	der — определённый артикль

@@ -1,6 +1,7 @@
 """Unit tests on small inputs: run with `python3 -m unittest discover -s packs/tests`."""
 import gzip
 import os
+import re
 import struct
 import sys
 import tempfile
@@ -151,6 +152,23 @@ class RelatedTest(unittest.TestCase):
         self.assertEqual("1", lines["machen"][8]) if "machen" in lines else None
         self.assertNotIn("wiederholen", lines)                  # "ich wiederhole": a pronoun, not a particle
         self.assertNotIn("durchfahren", lines)                  # inseparable: one word in its table
+
+    def test_determiner_forms_are_described_by_their_table(self):
+        g = grammar.Grammar("de")
+        grammar.from_dewiktionary([{"word": "der", "pos": "det", "forms": [
+            {"form": "die", "tags": ["nominative", "singular", "feminine"]}, {"form": "die", "tags": ["accusative", "singular", "feminine"]},
+            {"form": "die", "tags": ["nominative", "plural"]}, {"form": "die", "tags": ["accusative", "plural"]},
+            {"form": "das", "tags": ["nominative", "singular", "neuter"]}, {"form": "das", "tags": ["accusative", "singular", "neuter"]},
+            {"form": "dem", "tags": ["dative", "singular", "masculine"]}, {"form": "dem", "tags": ["dative", "singular", "neuter"]}]}], g)
+        ru = [{"word": "der", "pos": "article", "senses": [{"glosses": ["определённый артикль мужского рода номинатива"]}]},
+              {"word": "das", "pos": "pron", "senses": [{"glosses": ["это"]}]}]
+        arts, _, _ = dictionary.build("de", "ru", ru, g)
+        first = lambda w: re.sub(r"<[^>]+>", "", re.search(r'<p class="head">(.*?)</p>', arts[w]).group(1))  # noqa: E731
+        self.assertEqual("die — артикль der: ж. им./вин., мн. им./вин.", first("die"))   # not der's masculine line
+        self.assertEqual("das — артикль der: ср. им./вин.", first("das"))               # first, before the pronoun
+        self.assertIn("это", arts["das"])
+        self.assertEqual("dem — артикль der: м. дат., ср. дат.", first("dem"))
+        self.assertTrue(first("der").startswith("der — определённый артикль"))          # its own article stays
 
     def test_coverage(self):
         import tempfile

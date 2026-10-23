@@ -9,18 +9,40 @@ ARTICLE = {"de": {"m": "der", "f": "die", "n": "das"}, "fr": {"m": "le", "f": "l
            "it": {"m": "il", "f": "la"}, "pt": {"m": "o", "f": "a"}, "nl": {"m": "de", "f": "de", "n": "het"}}
 # Labels in the answer language: plural, gender, verb class.
 LABELS = {
-    "ru": {"pl": "мн.", "m": "м.", "f": "ж.", "n": "ср.", "irregular": "неправ.", "strong": "сильн.", "weak": "слаб."},
-    "uk": {"pl": "мн.", "m": "ч.", "f": "ж.", "n": "с.", "irregular": "неправ.", "strong": "сильн.", "weak": "слаб."},
-    "en": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "strong", "weak": "weak"},
-    "de": {"pl": "Pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "unregelm.", "strong": "stark", "weak": "schwach"},
-    "fr": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irrég.", "strong": "fort", "weak": "faible"},
-    "es": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "fuerte", "weak": "débil"},
-    "it": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "forte", "weak": "debole"},
-    "pt": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "forte", "weak": "fraco"},
-    "pl": {"pl": "lm", "m": "m.", "f": "ż.", "n": "n.", "irregular": "nieregul.", "strong": "mocny", "weak": "słaby"},
-    "nl": {"pl": "mv.", "m": "m.", "f": "v.", "n": "o.", "irregular": "onregelm.", "strong": "sterk", "weak": "zwak"},
+    "ru": {"pl": "мн.", "m": "м.", "f": "ж.", "n": "ср.", "irregular": "неправ.", "strong": "сильн.", "weak": "слаб.", "article": "артикль", "nominative": "им.", "accusative": "вин.", "dative": "дат.", "genitive": "род."},
+    "uk": {"pl": "мн.", "m": "ч.", "f": "ж.", "n": "с.", "irregular": "неправ.", "strong": "сильн.", "weak": "слаб.", "article": "артикль", "nominative": "наз.", "accusative": "знах.", "dative": "дав.", "genitive": "род."},
+    "en": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "strong", "weak": "weak", "article": "article", "nominative": "nom.", "accusative": "acc.", "dative": "dat.", "genitive": "gen."},
+    "de": {"pl": "Pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "unregelm.", "strong": "stark", "weak": "schwach", "article": "Artikel", "nominative": "Nom.", "accusative": "Akk.", "dative": "Dat.", "genitive": "Gen."},
+    "fr": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irrég.", "strong": "fort", "weak": "faible", "article": "article", "nominative": "nom.", "accusative": "acc.", "dative": "dat.", "genitive": "gén."},
+    "es": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "fuerte", "weak": "débil", "article": "artículo", "nominative": "nom.", "accusative": "ac.", "dative": "dat.", "genitive": "gen."},
+    "it": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "forte", "weak": "debole", "article": "articolo", "nominative": "nom.", "accusative": "acc.", "dative": "dat.", "genitive": "gen."},
+    "pt": {"pl": "pl.", "m": "m.", "f": "f.", "n": "n.", "irregular": "irreg.", "strong": "forte", "weak": "fraco", "article": "artigo", "nominative": "nom.", "accusative": "ac.", "dative": "dat.", "genitive": "gen."},
+    "pl": {"pl": "lm", "m": "m.", "f": "ż.", "n": "n.", "irregular": "nieregul.", "strong": "mocny", "weak": "słaby", "article": "rodzajnik", "nominative": "M.", "accusative": "B.", "dative": "C.", "genitive": "D."},
+    "nl": {"pl": "mv.", "m": "m.", "f": "v.", "n": "o.", "irregular": "onregelm.", "strong": "sterk", "weak": "zwak", "article": "lidwoord", "nominative": "nom.", "accusative": "acc.", "dative": "dat.", "genitive": "gen."},
 }
+ABBREVIATIONS = {v.split("/")[-1].split()[-1] for lab in LABELS.values() for v in lab.values() if v.endswith(".")}
 PERFECT = {"sein": "ist", "haben": "hat"}  # German Perfekt: the auxiliary's 3rd person
+CASES = ("nominative", "accusative", "dative", "genitive")
+GENDERS = (("masculine", "m"), ("feminine", "f"), ("neuter", "n"))
+DETERMINERS = {"det", "article"}
+
+
+def determiner(tagged, x, y):
+    """A determiner's form described by its table, in the answer language: "артикль der: ж. им./вин., мн. им./вин.".
+    The answer Wiktionary's article of the lemma ("der") describes its masculine form, not this one."""
+    lab = LABELS.get(y, LABELS["en"])
+    lemmas = [lm for lm, _ in tagged]
+    lemma = ARTICLE.get(x, {}).get("m") if ARTICLE.get(x, {}).get("m") in lemmas else lemmas[0]
+    groups = {}
+    for lm, t in tagged:
+        key = "pl" if "plural" in t else next((c for g, c in GENDERS if g in t), None)
+        if lm == lemma and key:
+            groups.setdefault(key, set()).update(c for c in CASES if c in t)
+    segs = [f"{lab[k]} " + "/".join(lab[c] for c in CASES if c in groups[k]) for k in ("m", "f", "n", "pl") if groups.get(k)]
+    if not segs:
+        return None
+    kind = lab["article"] + " " if lemma in ARTICLE.get(x, {}).values() else ""
+    return f"{kind}{lemma}: {', '.join(segs)}"
 
 
 def header(word, lemma, x, y):
@@ -69,7 +91,10 @@ def _unparen(s):
     prev = None
     while prev != s:
         prev, s = s, re.sub(r"\s*\([^()]*\)", "", s)
-    return s.replace("(", "").replace(")", "").strip(" ;,.")
+    s = s.replace("(", "").replace(")", "").strip(" ;,")
+    # A sentence's full stop goes, the stop of our own abbreviations stays ("им./вин.").
+    last = s.split()[-1].split("/")[-1] if s.split() else ""
+    return s if last in ABBREVIATIONS else s.rstrip(".")
 
 
 SUB = " — "
@@ -167,6 +192,12 @@ def build(x, y, records, grammar, wikdict_base=None, tables=None):
                 pos = "noun" if gram.startswith("noun") else "verb" if gram.startswith("verb") else None
                 blocks[w] = [(pos, [(t, []) for t in tr[:8]])]
                 stats["wikdict"] += 1
+    # A determiner's form ("das", "dem") gets its own description first, unless its own article is one already.
+    for f, tagged in grammar.tagged.items():
+        if not any(p in DETERMINERS for p, _ in blocks.get(f, [])):
+            d = determiner(tagged, x, y)
+            if d:
+                blocks[f] = [("det", [(d, [])])] + blocks.get(f, [])
     articles, firsts = {}, []
     for w, bs in blocks.items():
         parts = []

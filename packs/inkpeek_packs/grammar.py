@@ -53,6 +53,7 @@ class Grammar:
         self.lang = lang
         self.lemmas = {}                      # (word, pos) → Lemma
         self.forms = defaultdict(list)        # form → lemmas, first the one whose own table lists the form
+        self.tagged = defaultdict(list)       # a determiner's form → (lemma, its tags): "das" → ("der", {nominative, neuter, …})
 
     def lemma(self, word, pos):
         word = self.plain(word)
@@ -130,6 +131,9 @@ def from_dewiktionary(records, g):
                 if "superlative" in t:
                     _add(L.sup, x)
                 g.form(re.sub(r"^am ", "", x), w)
+            elif pos == "det" and t:                # an article's table: a form for each gender, number and case
+                g.form(x, w)
+                g.tagged[x].append((w, frozenset(t)))
             elif t and not t & SKIP_FORM:
                 g.form(x, w)
 
