@@ -31,7 +31,7 @@ class LanguagesSettings(private val a: MainActivity) {
                 a.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:${a.packageName}")))
             }, Ink.lp().apply { bottomMargin = Ink.dp(a, 10) })
         val packs = Ink.vertical(a); val other = Ink.vertical(a); val help = Ink.vertical(a)
-        Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("other", a.getString(R.string.lang_own), other),
+        Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("other", a.getString(R.string.lang_own_tab), other),
             Triple("help", a.getString(R.string.lang_article), help)), a.open["lang"] ?: "packs") { a.open["lang"] = it }
         buildPacks(packs); buildOther(other); buildHelp(help)
         loadManifest()

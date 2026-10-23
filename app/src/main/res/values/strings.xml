@@ -344,4 +344,5 @@
     <string name="pack_cover">%1$d%% of frequent words</string>
     <string name="lang_article">Article</string>
     <string name="sec_note">Rows under a pack\'s full article, from Wiktionary: a tap opens the list, frequent words first.</string>
+    <string name="lang_own_tab">Other</string>
 </resources>

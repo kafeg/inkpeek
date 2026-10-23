@@ -343,4 +343,5 @@
     <string name="pack_cover">%1$d%% de las palabras frecuentes</string>
     <string name="lang_article">Artículo</string>
     <string name="sec_note">Filas bajo el artículo completo de un paquete, de Wiktionary: un toque abre la lista, primero las palabras frecuentes.</string>
+    <string name="lang_own_tab">Otros</string>
 </resources>

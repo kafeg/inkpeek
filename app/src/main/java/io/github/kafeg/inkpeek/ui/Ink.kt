@@ -107,7 +107,9 @@ object Ink {
             val on = k == open
             addView(vertical(ctx).apply {
                 tag = k; isClickable = true; setOnClickListener { pick(k) }
-                addView(text(ctx, label, sp, bold = on).apply { gravity = Gravity.CENTER; val p = dp(ctx, 8); setPadding(0, p, 0, p) })
+                // One line in every language: a long label shrinks instead of wrapping, the tabs keep one height.
+                addView(text(ctx, label, sp, bold = on).apply { gravity = Gravity.CENTER; val p = dp(ctx, 8); setPadding(dp(ctx, 2), p, dp(ctx, 2), p)
+                    maxLines = 1; setAutoSizeTextTypeUniformWithConfiguration(10, sp.toInt(), 1, android.util.TypedValue.COMPLEX_UNIT_SP) })
                 addView(View(ctx).apply { setBackgroundColor(fg(ctx)) }, lp(h = dp(ctx, if (on) 4 else 1)))
             }, lp(0, weight = 1f))
         }

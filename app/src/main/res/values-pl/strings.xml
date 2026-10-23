@@ -343,4 +343,5 @@
     <string name="pack_cover">%1$d%% częstych słów</string>
     <string name="lang_article">Artykuł</string>
     <string name="sec_note">Wiersze pod pełnym artykułem pakietu, z Wikisłownika: dotknięcie otwiera listę, częste słowa najpierw.</string>
+    <string name="lang_own_tab">Inne</string>
 </resources>
