@@ -12,6 +12,8 @@ count, so every release has its own.
 - Notes: Export and Import of everything at once (saved words and phrases, the history, AI answers) as one file in
   Download/InkPeek; an import adds what the device does not have. The list's own export is now TSV.
 - Lists look alike: a thin line between the dictionaries of a word and between notes.
+- Ukrainian → Russian is no longer offered: a pair without English is published only from 60 % of the frequent
+  words (it had 43 %); Ukrainian → English stays.
 
 ## 0.6 — 2026-10-23
 - Offline translation method for all pairs (Languages → InkPeek → Translation method): Mozilla (fast, through English
