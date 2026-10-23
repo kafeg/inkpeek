@@ -3,6 +3,16 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
+## 0.7 — unreleased
+- Word by word names a German verb written apart first: «Ich mache die Tür zu» → *mache … zu: zumachen*. Found by the
+  packs' data (the verb's tables write it apart); a particle after its clause's end is not taken.
+- ☆ saves a word as its base form: *andere* and *ander* are one note; *das Haus* is the word *Haus*.
+- Under the card's header: how common the word is (among the 1,000 / 5,000 / 20,000 most frequent) and how often you
+  looked it up, in any of its forms.
+- Notes: Export and Import of everything at once (saved words and phrases, the history, AI answers) as one file in
+  Download/InkPeek; an import adds what the device does not have. The list's own export is now TSV.
+- Lists look alike: a thin line between the dictionaries of a word and between notes.
+
 ## 0.6 — 2026-10-23
 - Offline translation method for all pairs (Languages → InkPeek → Translation method): Mozilla (fast, through English
   between two other languages), OPUS-MT (direct between two languages, no English in the middle) or the Hy-MT2 AI

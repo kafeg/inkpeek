@@ -50,7 +50,7 @@ class WordsSettings(private val a: MainActivity) {
         val wrap = ViewGroup.LayoutParams.WRAP_CONTENT
         if (pages > 1) bar.addView(WordsList.pager(a, page, items.size, 15f) { page = it; turn() }, Ink.lp(wrap))
         bar.addView(android.view.View(a), Ink.lp(0, 1, 1f))
-        if (items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.export), 15f) { export(now, items) },
+        if (items.isNotEmpty()) bar.addView(Ink.button(a, "TSV", 15f) { export(now, items) },
             Ink.lp(wrap).apply { rightMargin = Ink.dp(a, 8) })
         if (now == "history" && items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.clear_history), 15f) {
             Rows.confirm(a, a.getString(R.string.clear_history_q), R.string.clear_history) {
@@ -58,6 +58,39 @@ class WordsSettings(private val a: MainActivity) {
             }
         }, Ink.lp(wrap))
         if (bar.childCount > 1) list.addView(bar, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
+        // At the very bottom, for all three lists: the whole store (history, saved, AI answers) to a file and back.
+        list.addView(Rows.note(a, a.getString(R.string.backup_d)), Ink.lp().apply { topMargin = Ink.dp(a, 18) })
+        list.addView(Rows.buttons(a, a.getString(R.string.export) to { backup() }, a.getString(R.string.import_) to {
+            a.startActivityForResult(android.content.Intent(android.content.Intent.ACTION_OPEN_DOCUMENT)
+                .addCategory(android.content.Intent.CATEGORY_OPENABLE).setType("*/*"), RESTORE) }))
+    }
+
+    /** The whole store as one file in Download/InkPeek. */
+    private fun backup() = a.launch {
+        val name = "inkpeek-backup-${java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())}.db"
+        withContext(Dispatchers.IO) { runCatching {
+            val tmp = java.io.File(a.cacheDir, "backup.db").also { Store.get(a).backup(it) }
+            val values = android.content.ContentValues().apply {
+                put(android.provider.MediaStore.MediaColumns.DISPLAY_NAME, name)
+                put(android.provider.MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
+                put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS + "/InkPeek")
+            }
+            val r = a.contentResolver
+            r.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)!!.let { u -> r.openOutputStream(u)!!.use { o -> tmp.inputStream().use { it.copyTo(o) } } }
+            tmp.delete()
+        } }.onSuccess { a.toast(a.getString(R.string.backup_done, "Download/InkPeek/$name")) }
+            .onFailure { a.toast(a.getString(R.string.failed, it.message)) }
+    }
+
+    /** A backup picked in the system's file picker: what it has and this device does not is added. */
+    fun onResult(data: android.content.Intent) = a.launch {
+        val uri = data.data ?: return@launch
+        val added = withContext(Dispatchers.IO) { runCatching {
+            val tmp = java.io.File(a.cacheDir, "restore.db")
+            a.contentResolver.openInputStream(uri)!!.use { i -> tmp.outputStream().use { i.copyTo(it) } }
+            try { Store.get(a).restore(tmp) } finally { tmp.delete() }
+        } }.getOrElse { a.toast(a.getString(R.string.restore_bad)); return@launch }
+        a.toast(a.getString(R.string.restore_done, added)); refresh()
     }
 
     /** The open list as TSV in Download/InkPeek (text, meaning, AI translation, language, date: Anki takes it as is), then Share. */
@@ -86,4 +119,6 @@ class WordsSettings(private val a: MainActivity) {
     private fun turn() = a.launch { refresh().join(); a.scrollTo(tabs) }
 
     private val PAGE = WordsList.PAGE
+
+    companion object { const val RESTORE = 3 }
 }

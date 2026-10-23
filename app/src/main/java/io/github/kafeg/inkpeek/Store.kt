@@ -11,7 +11,7 @@ import java.io.File
  * One SQLite file in /sdcard/InkPeek (survives a reinstall): lookup history, saved words and phrases, and the answers
  * (AI, offline translation) of those texts: an answer lives as long as its text is in the history or saved.
  */
-class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 3) {
+class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 4) {
     /** [kind]: "word" or "phrase"; [meaning]: one short line, may be empty. */
     /** [meaning]: the line shown (in the app's language when there is one); [ai]: the saved AI translation, if any. */
     data class Entry(val text: String, val kind: String, val meaning: String, val time: Long, val ai: String = "")
@@ -21,7 +21,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE ai(text TEXT, lang TEXT, section TEXT, ver INTEGER, model TEXT, answer TEXT, created INTEGER, PRIMARY KEY(text, lang, section, ver))")
         db.execSQL("CREATE TABLE saved(text TEXT PRIMARY KEY, kind TEXT, meaning TEXT, created INTEGER, lang TEXT)")
-        db.execSQL("CREATE TABLE history(text TEXT PRIMARY KEY, kind TEXT, seen INTEGER, count INTEGER, meaning TEXT, lang TEXT)")
+        db.execSQL("CREATE TABLE history(text TEXT PRIMARY KEY, kind TEXT, seen INTEGER, count INTEGER, meaning TEXT, lang TEXT, base TEXT)")
     }
 
     /** An older app over a newer file (debug ↔ release share it): keep the data, the extra columns do no harm. */
@@ -32,6 +32,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         if (from < 2) { add(db, "history", "meaning"); dropAnswers(db) }
         // The language of a meaning: a list in another app language shows its own when there is one.
         if (from < 3) { add(db, "saved", "lang"); add(db, "history", "lang") }
+        // The base form of a looked-up form: a word's looks are counted across its forms.
+        if (from < 4) add(db, "history", "base")
     }
 
     private fun add(db: SQLiteDatabase, table: String, column: String) {
@@ -87,6 +89,54 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     fun history(lang: String): List<Entry> = list(lang,
         "SELECT h.text, h.kind, '', h.seen, a.answer, h.meaning, '', h.lang FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='quick' " +
             "GROUP BY h.text ORDER BY h.seen DESC", arrayOf(lang))
+    /** [text] (looked up) is a form of [base] ("andere" → "ander"); its row is made if the look is not counted yet. */
+    fun base(text: String, kind: String, base: String) = writableDatabase.run {
+        execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
+        execSQL("UPDATE history SET base=? WHERE text=?", arrayOf(base, text))
+    }
+    /** How many times a word was looked up, in any of its forms. */
+    fun looks(base: String): Int = readableDatabase.rawQuery("SELECT COALESCE(SUM(count), 0) FROM history WHERE COALESCE(base, text)=?", arrayOf(base))
+        .use { it.moveToFirst(); it.getInt(0) }
+
+    /** A consistent copy of the whole store (history, saved, answers) in [file]. */
+    fun backup(file: File) { file.delete(); writableDatabase.execSQL("VACUUM INTO ?", arrayOf(file.path)) }
+
+    /**
+     * Adds what the backup [file] has and this store does not (rows already here stay as they are), by the columns both
+     * have: a backup of an older app works too. Returns the rows added; throws if [file] is not a backup.
+     */
+    fun restore(file: File): Int {
+        val src = SQLiteDatabase.openDatabase(file.path, null, SQLiteDatabase.OPEN_READONLY)
+        return src.use { s ->
+            val db = writableDatabase
+            val tables = listOf("saved", "history", "ai")
+            require(tables.all { columns(s, it).isNotEmpty() }) { "not an InkPeek backup" }
+            val before = tables.sumOf { count(it) }
+            db.beginTransaction()
+            try {
+                for (t in tables) {
+                    val cols = columns(s, t).intersect(columns(db, t).toSet()).toList()
+                    s.rawQuery("SELECT ${cols.joinToString()} FROM $t", null).use { c ->
+                        while (c.moveToNext()) {
+                            val v = ContentValues()
+                            cols.forEachIndexed { i, k -> when (c.getType(i)) {
+                                android.database.Cursor.FIELD_TYPE_INTEGER -> v.put(k, c.getLong(i))
+                                android.database.Cursor.FIELD_TYPE_NULL -> v.putNull(k)
+                                else -> v.put(k, c.getString(i))
+                            } }
+                            db.insertWithOnConflict(t, null, v, SQLiteDatabase.CONFLICT_IGNORE)
+                        }
+                    }
+                }
+                db.setTransactionSuccessful()
+            } finally { db.endTransaction() }
+            tables.sumOf { count(it) } - before
+        }
+    }
+
+    private fun columns(db: SQLiteDatabase, table: String) =
+        db.rawQuery("PRAGMA table_info($table)", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(1) else null }.toList() }
+
     /** Removing a text from the history also removes its answers, unless it is saved. */
     fun forget(text: String) { writableDatabase.run { delete("history", "text=?", arrayOf(text)); dropAnswers(this) } }
     fun clearHistory() { writableDatabase.run { delete("history", null, null); dropAnswers(this) } }
@@ -108,6 +158,9 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     companion object {
         const val HISTORY = 1000
+
+        /** A store in [path], for tests. */
+        fun at(ctx: Context, path: String) = Store(ctx.applicationContext, path)
         @Volatile private var one: Store? = null
 
         /** On shared storage when the app may write there, else in the app's own files. */

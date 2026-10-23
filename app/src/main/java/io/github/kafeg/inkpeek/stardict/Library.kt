@@ -83,6 +83,10 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         lookup(query, answer, among = among.filter(::isPack)).distinctBy { (d, _) -> d.book }
         .mapNotNull { (_, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it) } } }
 
+    /** A word's rank in its language's frequency list from the packs (1: the most frequent), 0 when unknown. */
+    fun rank(word: String): Int = all().filter { isPack(it) && it.ready }
+        .firstNotNullOfOrNull { d -> runCatching { d.related?.of(word)?.rank }.getOrNull()?.takeIf { it > 0 } } ?: 0
+
     /**
      * Separable verbs written apart in [text] ("mache … zu" → zumachen) by the packs' data, each with its header line
      * from the pack into [answer] where there is one.

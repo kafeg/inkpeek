@@ -344,4 +344,16 @@
     <string name="lang_article">Artykuł</string>
     <string name="sec_note">Wiersze pod pełnym artykułem pakietu, z Wikisłownika: dotknięcie otwiera listę, częste słowa najpierw.</string>
     <string name="lang_own_tab">Inne</string>
+    <string name="freq_top">wśród %1$s najczęstszych słów</string>
+    <plurals name="looks">
+        <item quantity="one">sprawdzane %d raz</item>
+        <item quantity="few">sprawdzane %d razy</item>
+        <item quantity="many">sprawdzane %d razy</item>
+        <item quantity="other">sprawdzane %d razy</item>
+    </plurals>
+    <string name="import_">Import</string>
+    <string name="backup_d">Wszystko naraz — zapisane słowa i wyrażenia, historia i odpowiedzi AI — do pliku w Download/InkPeek i z powrotem: import dodaje to, czego na tym urządzeniu brak.</string>
+    <string name="backup_done">Zapisano: %1$s</string>
+    <string name="restore_done">Dodano: %1$d</string>
+    <string name="restore_bad">To nie jest kopia zapasowa InkPeek.</string>
 </resources>

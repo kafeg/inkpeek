@@ -170,7 +170,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { back() }.apply { visibility = View.GONE }
         add(backButton)
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
-        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(query) }.getOrDefault(false) }) starred(true) }
+        launch { if (withContext(Dispatchers.IO) { runCatching { store.isSaved(saveKey().first) }.getOrDefault(false) }) starred(true) }
 
         // No icon bar (Card → Main): the card is the open page only; Back or a tap outside closes it.
         if (prefs.cardBar) {
@@ -303,8 +303,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val first = heads.firstOrNull() ?: return@launch
         launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
         titleView.text = first.header
+        // How common the word is and how often it was looked up here, in any of its forms.
+        val (rank, looks) = withContext(Dispatchers.IO) { runCatching {
+            prefs.library().rank(first.word) to store.run { base(query, kindName, first.word); looks(first.word) }
+        }.getOrDefault(0 to 0) }
+        val facts = listOfNotNull(Facts.frequency(this@CardActivity, rank), Facts.looks(this@CardActivity, looks)).joinToString(" · ")
         // The selected form, and the same word in another book language ("Gift" is German and English).
-        val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.getOrNull(1)?.header).joinToString("\n")
+        val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.getOrNull(1)?.header,
+            facts.ifBlank { null }).joinToString("\n")
         subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
     }
 
@@ -313,13 +319,27 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         (starButton.parent as View).apply { contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word); tooltipText = contentDescription }
     }
 
-    /** ☆ saves the selection with one short line: the saved AI translation, else the dictionary's first line or the offline translation; ★ removes it. */
+    /**
+     * What ☆ saves: a word as its base form from the packs ("andere" → "ander"), also after its article ("das Haus" →
+     * "Haus": the pack's header starts so); else the selection as it is. Blocking. (text, kind)
+     */
+    private fun saveKey(): Pair<String, String> {
+        val lib = prefs.library(); val packs = prefs.packDictionaries()
+        if (kind == Kind.WORD) return (lib.heads(query, prefs.answerCode, packs).firstOrNull()?.word ?: query) to "word"
+        val w = query.trim().split(Regex("\\s+"))
+        if (w.size == 2) lib.heads(w[1], prefs.answerCode, packs).firstOrNull()?.takeIf { it.header.startsWith(query.trim(), ignoreCase = true) }
+            ?.let { return it.word to "word" }
+        return query to kindName
+    }
+
+    /** ☆ saves the selection (a word as its base form) with one short line: the saved AI translation, else the dictionary's first line or the offline translation; ★ removes it. */
     private fun toggleSaved() = launch {
         val on = withContext(Dispatchers.IO) { runCatching {
-            if (store.isSaved(query)) { store.unsave(query); false } else {
-                val line = answers.saved() ?: if (kind != Kind.WORD) mt.done() else prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries())
+            val (key, keyKind) = saveKey()
+            if (store.isSaved(key)) { store.unsave(key); false } else {
+                val line = answers.saved() ?: if (keyKind != "word") mt.done() else prefs.library().heads(key, prefs.answerCode, prefs.packDictionaries())
                     .firstOrNull()?.let { if (prefs.packGrammar) it.line else "${it.word} — ${it.meaning}" }
-                store.save(query, kindName, line.orEmpty(), prefs.answerLang); true
+                store.save(key, keyKind, line.orEmpty(), prefs.answerLang); true
             }
         }.getOrNull() } ?: return@launch
         starred(on)

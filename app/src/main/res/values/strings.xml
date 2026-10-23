@@ -345,4 +345,14 @@
     <string name="lang_article">Article</string>
     <string name="sec_note">Rows under a pack\'s full article, from Wiktionary: a tap opens the list, frequent words first.</string>
     <string name="lang_own_tab">Other</string>
+    <string name="freq_top">among the %1$s most frequent words</string>
+    <plurals name="looks">
+        <item quantity="one">looked up %d time</item>
+        <item quantity="other">looked up %d times</item>
+    </plurals>
+    <string name="import_">Import</string>
+    <string name="backup_d">Everything at once — saved words and phrases, the history and the AI answers — to a file in Download/InkPeek, and back: an import adds what this device does not have.</string>
+    <string name="backup_done">Saved: %1$s</string>
+    <string name="restore_done">Added: %1$d</string>
+    <string name="restore_bad">This is not an InkPeek backup.</string>
 </resources>

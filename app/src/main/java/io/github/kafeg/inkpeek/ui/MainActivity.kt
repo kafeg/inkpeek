@@ -131,7 +131,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     @Deprecated("Plain Activity result: no AndroidX dependency")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && data != null) languages.onResult(requestCode, data)
+        if (resultCode == RESULT_OK && data != null) { if (requestCode == WordsSettings.RESTORE) words.onResult(data) else languages.onResult(requestCode, data) }
     }
 
     /** Builds the dictionaries' indexes (in the background), the status line and the Other dictionaries list. */

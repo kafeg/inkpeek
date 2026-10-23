@@ -344,4 +344,16 @@
     <string name="lang_article">Статья</string>
     <string name="sec_note">Строки под полной статьёй пакета, из Wiktionary: нажатие открывает список, частые слова сначала.</string>
     <string name="lang_own_tab">Другие</string>
+    <string name="freq_top">в %1$s самых частых слов</string>
+    <plurals name="looks">
+        <item quantity="one">смотрели %d раз</item>
+        <item quantity="few">смотрели %d раза</item>
+        <item quantity="many">смотрели %d раз</item>
+        <item quantity="other">смотрели %d раза</item>
+    </plurals>
+    <string name="import_">Импорт</string>
+    <string name="backup_d">Всё сразу — сохранённые слова и фразы, история и ответы ИИ — в файл в Download/InkPeek и обратно: импорт добавляет то, чего на этом устройстве нет.</string>
+    <string name="backup_done">Сохранено: %1$s</string>
+    <string name="restore_done">Добавлено: %1$d</string>
+    <string name="restore_bad">Это не резервная копия InkPeek.</string>
 </resources>

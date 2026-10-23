@@ -344,4 +344,15 @@
     <string name="lang_article">Artigo</string>
     <string name="sec_note">Linhas sob o artigo completo de um pacote, do Wiktionary: um toque abre a lista, primeiro as palavras frequentes.</string>
     <string name="lang_own_tab">Outros</string>
+    <string name="freq_top">entre as %1$s palavras mais frequentes</string>
+    <plurals name="looks">
+        <item quantity="one">consultada %d vez</item>
+        <item quantity="many">consultada %d vezes</item>
+        <item quantity="other">consultada %d vezes</item>
+    </plurals>
+    <string name="import_">Importar</string>
+    <string name="backup_d">Tudo de uma vez — palavras e frases guardadas, o histórico e as respostas da IA — num ficheiro em Download/InkPeek, e de volta: uma importação acrescenta o que este dispositivo não tem.</string>
+    <string name="backup_done">Guardado: %1$s</string>
+    <string name="restore_done">Adicionado: %1$d</string>
+    <string name="restore_bad">Não é uma cópia de segurança do InkPeek.</string>
 </resources>

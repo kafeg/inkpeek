@@ -330,5 +330,18 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    60 % (basic). English into a new language needs it as an answer language (the app's language): later, on request.
    Next by the data: sr/hr; be, kk, az as experimental. Each by `packs/README.md` → "Adding a language".
 
+19. **Reading help from the packs** (23.10).
+   - **Separable verbs** in word by word: a finite form and a particle after it in the same clause make a separable verb
+     when the pack says so (.rel: the particle of a verb its tables write apart). The particle closes its clause (a
+     punctuation mark, the end, a coordinating conjunction after it); the verb is the nearest word before it that makes
+     one; a capitalised word inside a clause is a noun. Measured on de.wiktionary's 381,000 examples: ≈ 95 % of finds
+     right, ≈ 3 of 4 separated uses found. Tests: the "sep" cases on the device and the same cases on the built pack's
+     data in a unit test (`scripts/separable-fixture.py`).
+   - ☆ saves a word's base form from the packs (also "das Haus" → Haus when the pack's header starts so).
+   - Under the header: the frequency band (.rel: the rank) and "looked up N times" across the word's forms (history:
+     each look's base form).
+   - Notes → Export / Import: the whole store as one file (`VACUUM INTO`); an import adds missing rows by the columns
+     both have (an older backup works). The list's TSV export stays.
+
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.
