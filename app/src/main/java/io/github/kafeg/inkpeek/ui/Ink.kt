@@ -115,6 +115,9 @@ object Ink {
         }
     }
 
+    /** The thin line between the rows of a list (dictionaries, word by word, Notes). */
+    fun divider(ctx: Context) = View(ctx).apply { setBackgroundColor(fg(ctx)); alpha = 0.35f; layoutParams = lp(h = 1) }
+
     /** A list row: [title] in bold, one line of [meaning] under it ("—" when none); both cut with "…", rows keep their height. */
     fun entry(ctx: Context, title: String, meaning: String, sp: Float) = vertical(ctx).apply {
         addView(text(ctx, title, sp, bold = true).apply { isSingleLine = true; ellipsize = android.text.TextUtils.TruncateAt.END })

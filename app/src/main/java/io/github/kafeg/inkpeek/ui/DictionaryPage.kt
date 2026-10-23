@@ -79,7 +79,8 @@ class DictionaryPage(private val card: CardActivity) {
                 ?.let { (dict, list) -> article(dict, list, word) { articles(word, to) }; card.scrollBack(); return@launch }
             if (card.prefs.cardFull && hits.isNotEmpty() && notReady.isEmpty()) { pages(hits, word, 0, to); return@launch }
             place = ""
-            hits.forEach { (dict, list) ->
+            hits.forEachIndexed { i, (dict, list) ->
+                if (i > 0) p.addView(Ink.divider(card))
                 p.addView(Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
                     setOnClickListener { article(dict, list, word) { articles(word, to) } }
@@ -142,7 +143,7 @@ class DictionaryPage(private val card: CardActivity) {
             setOnClickListener { tap() }
             TextActions.selectable(this) { it.length }
         })
-        p.addView(View(card).apply { setBackgroundColor(Ink.fg(card)); alpha = 0.35f }, Ink.lp(h = 1))
+        p.addView(Ink.divider(card))
     }
 
     /** Under a pack's article: a row per section it has (Languages → What the card takes) — a preview, its caption ›. */
@@ -151,7 +152,7 @@ class DictionaryPage(private val card: CardActivity) {
         val prefs = card.prefs
         fun row(k: String, preview: String, caption: String) {
             if (!prefs.packSection(k) || preview.isBlank()) return
-            p.addView(View(card).apply { setBackgroundColor(Ink.fg(card)); alpha = 0.35f }, Ink.lp(h = 1).apply { topMargin = Ink.dp(card, 10) })
+            p.addView(Ink.divider(card).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(card, 10) })
             p.addView(Ink.vertical(card).apply {
                 val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
                 addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 3; ellipsize = android.text.TextUtils.TruncateAt.END })

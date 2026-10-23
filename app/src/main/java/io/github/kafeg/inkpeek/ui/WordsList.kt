@@ -6,7 +6,11 @@ import io.github.kafeg.inkpeek.Store
 
 /** Notes, in the app and in the card: one row per entry — the text and one line, tap opens it, ✕ removes it. */
 object WordsList {
-    fun row(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.horizontal(ctx).apply {
+    fun row(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.vertical(ctx).apply {
+        addView(line(ctx, e, sp, open, remove)); addView(Ink.divider(ctx))
+    }
+
+    private fun line(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.horizontal(ctx).apply {
         gravity = Gravity.CENTER_VERTICAL
         addView(Ink.entry(ctx, e.text, e.meaning, sp).apply {
             val q = Ink.dp(ctx, 6); setPadding(0, q, q, q); setOnClickListener { open() }
