@@ -3,7 +3,7 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
-## 0.7 — unreleased
+## 0.7 — 2026-10-23
 - Word by word names a German verb written apart first: «Ich mache die Tür zu» → *mache … zu: zumachen*. Found by the
   packs' data (the verb's tables write it apart); a particle after its clause's end is not taken.
 - ☆ saves a word as its base form: *andere* and *ander* are one note; *das Haus* is the word *Haus*.
