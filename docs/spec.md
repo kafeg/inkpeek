@@ -325,9 +325,10 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 
 18. **More languages, labelled** (23.10). Every pack is published with its coverage of the book language's 5,000 most
    frequent words; the packs page shows it with a label — **full** (≥ 85 % and offline translation), **basic** (≥ 60 %),
-   **experimental** (below) — instead of leaving a weaker pair out. First Ukrainian (→ en, ru); then by the data
-   (research): cs, bg, fi, hu → sr/hr → sv, da, ro → be, kk, az as experimental. Each by `packs/README.md` → "Adding a
-   language".
+   **experimental** (below) — instead of leaving a weaker pair out. Done: Ukrainian (→ en, ru); cs, bg, fi, hu, sv, da,
+   ro (→ en); it, pt, nl → ru. New book languages go into English first; a pair without English is published only from
+   60 % (basic). English into a new language needs it as an answer language (the app's language): later, on request.
+   Next by the data: sr/hr; be, kk, az as experimental. Each by `packs/README.md` → "Adding a language".
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.
