@@ -8,9 +8,12 @@
     "it": "https://kaikki.org/itwiktionary/raw-wiktextract-data.jsonl.gz",
     "pt": "https://kaikki.org/ptwiktionary/raw-wiktextract-data.jsonl.gz",
     "pl": "https://kaikki.org/plwiktionary/raw-wiktextract-data.jsonl.gz",
-    "nl": "https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz"
+    "nl": "https://kaikki.org/nlwiktionary/raw-wiktextract-data.jsonl.gz",
+    "cs": "https://kaikki.org/cswiktionary/raw-wiktextract-data.jsonl.gz"
   },
   "wikdict": "https://download.wikdict.com/dictionaries/stardict/wikdict-{x}-{y}.zip",
   "languages": {"en": "English", "ru": "Russian", "de": "German", "uk": "Ukrainian", "es": "Spanish", "fr": "French",
-                "it": "Italian", "pt": "Portuguese", "pl": "Polish", "nl": "Dutch"}
+                "it": "Italian", "pt": "Portuguese", "pl": "Polish", "nl": "Dutch",
+                "cs": "Czech", "bg": "Bulgarian", "fi": "Finnish", "hu": "Hungarian", "sv": "Swedish", "da": "Danish",
+                "ro": "Romanian"}
 }

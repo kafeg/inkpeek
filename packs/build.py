@@ -68,6 +68,7 @@ def editions(a):
     return sorted({"en"} | {y for y in a.answers + a.langs if y in SOURCES["kaikki"]})
 
 
+MIN_DIRECT = 60
 FREQ = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/{x}/{x}_50k.txt"
 _related = {}
 
@@ -245,6 +246,11 @@ def cmd_dict(a, x, y):
     known = {w.lower() for w in articles} | {f.lower() for f, h in syn if h in articles}
     st["coverage"] = related.coverage(known, fetch(FREQ.format(x=x), os.path.join(a.work, "freq", f"{x}.txt")))
     print(f"dict-{x}-{y}: {st}", flush=True)
+    # A pair without English is published only when it is at least basic: the reader has the pair through English too.
+    if "en" not in (x, y) and st["coverage"] < MIN_DIRECT:
+        print(f"dict-{x}-{y}: coverage {st['coverage']} < {MIN_DIRECT}, not published", flush=True)
+        shutil.rmtree(folder, ignore_errors=True)
+        return None
     return {"id": f"dict-{x}-{y}", "kind": "dict", "from": x, "to": y, "file": pack(a, f"dict-{x}-{y}", folder),
             "license": "CC-BY-SA-4.0", "attribution": ATTRIBUTION, "stats": st}
 

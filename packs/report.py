@@ -19,7 +19,8 @@ import zipfile
 ASSETS = "https://github.com/kafeg/inkpeek/releases/download/packs/"
 FREQ = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/{x}/{x}_50k.txt"
 NAMES = {"en": "English", "de": "German", "ru": "Russian", "fr": "French", "es": "Spanish", "it": "Italian",
-         "pt": "Portuguese", "pl": "Polish", "nl": "Dutch", "uk": "Ukrainian"}
+         "pt": "Portuguese", "pl": "Polish", "nl": "Dutch", "uk": "Ukrainian",
+         "cs": "Czech", "bg": "Bulgarian", "fi": "Finnish", "hu": "Hungarian", "sv": "Swedish", "da": "Danish", "ro": "Romanian"}
 BEGIN, END = "<!-- packs:begin -->", "<!-- packs:end -->"
 WORD = re.compile(r"[^\W\d_]+(['’-][^\W\d_]+)*")
 

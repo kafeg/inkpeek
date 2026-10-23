@@ -18,9 +18,9 @@ DE_ARTICLES = {"der", "die", "das", "den", "dem", "des", "ein", "eine", "einen",
                "kein", "keine", "keinen", "keinem", "keiner", "keines"}
 PRONOUN = re.compile(r"^(ich|du|er/sie/es|wir|ihr|sie|Sie)\s+")
 CLASS_WORDS = ("irregular", "strong", "weak", "mixed")
-# Wiktionary marks stress in Russian and Ukrainian forms (до́ма); books do not.
+# Wiktionary marks stress in Russian, Ukrainian and Bulgarian forms (до́ма); books do not.
 STRESS = re.compile("[\u0300\u0301]")
-UNSTRESS = {"ru", "uk"}
+UNSTRESS = {"ru", "uk", "bg"}
 
 
 class Lemma:
