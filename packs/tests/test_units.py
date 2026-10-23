@@ -134,6 +134,24 @@ class RelatedTest(unittest.TestCase):
         self.assertEqual(ss[0][0], "book — collection of sheets of paper")
         self.assertEqual(dictionary._short([g for g, _ in ss]), "book, beech")
 
+    def test_separable_verbs(self):
+        native = [{"word": "zumachen", "pos": "verb", "forms": [{"form": "mache zu", "tags": ["present", "singular"]},
+                                                                 {"form": "machte zu", "tags": ["past"]}]},
+                  {"word": "machen", "pos": "verb", "forms": [{"form": "würde machen", "tags": ["subjunctive-ii"]}]},
+                  {"word": "zusammenkrümmen", "pos": "verb", "forms": [{"form": "krümme mich zusammen", "tags": ["present"]}]},
+                  {"word": "krümmen", "pos": "verb"},
+                  {"word": "wiederholen", "pos": "verb", "forms": [{"form": "ich wiederhole", "tags": ["present"]}]},
+                  {"word": "durchfahren", "pos": "verb", "forms": [{"form": "durchfahre", "tags": ["present"]}]},
+                  {"word": "fahren", "pos": "verb"}]
+        data = {}
+        related.collect(native, data)
+        lines = {l.split("\t")[0]: l.split("\t") for l in related.lines(data, {"machen": 0})}
+        self.assertEqual("zu", lines["zumachen"][9])            # kept although not in the frequency list
+        self.assertEqual("zusammen", lines["zusammenkrümmen"][9])
+        self.assertEqual("1", lines["machen"][8]) if "machen" in lines else None
+        self.assertNotIn("wiederholen", lines)                  # "ich wiederhole": a pronoun, not a particle
+        self.assertNotIn("durchfahren", lines)                  # inseparable: one word in its table
+
     def test_coverage(self):
         import tempfile
         with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False, encoding="utf-8") as f:
@@ -153,7 +171,8 @@ class RelatedTest(unittest.TestCase):
         ranks = {"machen": 1, "aufmachen": 5, "zumachen": 9, "tun": 2, "kleider": 300, "leute": 40, "das": 0, "macht": 3, "nichts": 4}
         lines = related.lines(data, ranks)
         self.assertEqual(1, len(lines))  # "Rarität" is not a word a reader meets
-        word, rel, syn, ant, expr, ipa, ety, forms = lines[0].split("\t")
+        word, rel, syn, ant, expr, ipa, ety, forms, rank, sep = lines[0].split("\t")
+        self.assertEqual(("2", ""), (rank, sep))  # the list's second word; not separable
         self.assertEqual("machen", word)
         self.assertEqual(["aufmachen", "zumachen", "Machenschaft"], rel.split("|"))  # frequent first, unknown last
         self.assertEqual(["tun", "herstellen"], syn.split("|"))
