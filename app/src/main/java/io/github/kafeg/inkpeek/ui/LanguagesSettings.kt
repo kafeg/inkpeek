@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** Languages: InkPeek's packs, other dictionaries (one folder), help. Both lists look alike: a box, a name, ✕. */
+/** Languages: InkPeek's packs, other dictionaries (one folder), the article's rows and help. Both lists look alike: a box, a name, ✕. */
 class LanguagesSettings(private val a: MainActivity) {
     private val prefs get() = a.prefs
     private lateinit var packList: LinearLayout
@@ -32,7 +32,7 @@ class LanguagesSettings(private val a: MainActivity) {
             }, Ink.lp().apply { bottomMargin = Ink.dp(a, 10) })
         val packs = Ink.vertical(a); val other = Ink.vertical(a); val help = Ink.vertical(a)
         Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("other", a.getString(R.string.lang_own), other),
-            Triple("help", a.getString(R.string.tab_help), help)), a.open["lang"] ?: "packs") { a.open["lang"] = it }
+            Triple("help", a.getString(R.string.lang_article), help)), a.open["lang"] ?: "packs") { a.open["lang"] = it }
         buildPacks(packs); buildOther(other); buildHelp(help)
         loadManifest()
     }
@@ -46,11 +46,6 @@ class LanguagesSettings(private val a: MainActivity) {
         t.addView(Rows.check(a, a.getString(R.string.pack_gram_t), a.getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
         t.addView(Rows.check(a, a.getString(R.string.pack_mt_t), a.getString(R.string.pack_mt_d), prefs.packMt) { prefs.packMt = it })
         methodBox = Ink.vertical(a); t.addView(methodBox)
-        // The rows under a pack's article: related words, synonyms, expressions, forms, origin.
-        listOf(Triple("rel", R.string.sec_rel, R.string.sec_rel_d), Triple("syn", R.string.sec_syn, R.string.sec_syn_d),
-            Triple("expr", R.string.sec_expr, R.string.sec_expr_d), Triple("forms", R.string.sec_forms, R.string.sec_forms_d),
-            Triple("ety", R.string.sec_ety, R.string.sec_ety_d)).forEach { (k, title, about) ->
-            t.addView(Rows.check(a, a.getString(title), a.getString(about), prefs.packSection(k)) { prefs.setPackSection(k, it) }) }
         t.addView(Rows.heading(a, a.getString(R.string.get_title)))
         t.addView(Rows.info(a, null, a.getString(R.string.packs_source), a.getString(R.string.packs_source_d)))
         t.addView(Rows.buttons(a, a.getString(R.string.packs_get) to { a.startActivity(Intent(a, PacksActivity::class.java)) }))
@@ -221,6 +216,13 @@ class LanguagesSettings(private val a: MainActivity) {
 
     // --- Help ---
     private fun buildHelp(t: LinearLayout) {
+        // The rows under a pack's article: related words, synonyms, expressions, forms, origin; the help below.
+        t.addView(Rows.note(a, a.getString(R.string.sec_note)))
+        listOf(Triple("rel", R.string.sec_rel, R.string.sec_rel_d), Triple("syn", R.string.sec_syn, R.string.sec_syn_d),
+            Triple("expr", R.string.sec_expr, R.string.sec_expr_d), Triple("forms", R.string.sec_forms, R.string.sec_forms_d),
+            Triple("ety", R.string.sec_ety, R.string.sec_ety_d)).forEach { (k, title, about) ->
+            t.addView(Rows.check(a, a.getString(title), a.getString(about), prefs.packSection(k)) { prefs.setPackSection(k, it) }) }
+        t.addView(Rows.heading(a, a.getString(R.string.tab_help)))
         listOf(R.string.help_dict_t to R.string.help_dict, R.string.help_gram_t to R.string.help_gram, R.string.help_mt_t to R.string.help_mt,
             R.string.help_lid_t to R.string.help_lid, R.string.help_build_t to R.string.help_build, R.string.help_other_t to R.string.help_other,
             R.string.help_formats_t to R.string.help_formats, R.string.help_folder_t to R.string.help_folder).forEachIndexed { i, (title, about) ->

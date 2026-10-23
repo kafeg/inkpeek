@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Grammaire</string>
     <string name="pack_gram_d">L\'en-tête : article, pluriel, formes du verbe (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traduction hors ligne</string>
-    <string name="pack_mt_d">L\'onglet Hors ligne de Traduire : les modèles de Mozilla sur l\'appareil.</string>
+    <string name="pack_mt_d">L\'onglet Hors ligne de Traduire : sur l\'appareil, avec la méthode ci-dessous.</string>
     <string name="own_title">Vos dictionnaires</string>
     <string name="own_none">Aucun : téléchargez-en ou importez des fichiers (StarDict, comme KOReader).</string>
     <string name="import_file">Importer des fichiers</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Grammaire</string>
     <string name="help_gram">Genre, pluriel, formes verbales, irrégulier ou fort — d\'après les tableaux de flexion du Wiktionnaire. Chaque forme mène à son mot : Häusern → Haus, went → go. Seulement ce que dit le Wiktionnaire, rien de deviné.</string>
     <string name="help_mt_t">Traduction</string>
-    <string name="help_mt">Modèles Firefox Translations (Mozilla), le meilleur pour chaque direction, exécutés sur l\'appareil. Entre deux langues autres que l\'anglais, la traduction passe par l\'anglais : le sens est conservé, les nuances (tu/vous, genre) peuvent se perdre.</string>
+    <string name="help_mt">Sur l\'appareil, avec la méthode choisie (Méthode de traduction) : les modèles de Mozilla via l\'anglais — rapide, sur tout appareil, des nuances (tu/vous, genre) peuvent se perdre ; OPUS-MT directement entre les langues ; ou le modèle d\'IA Hy-MT2 (6 Go de mémoire).</string>
     <string name="help_lid_t">Langue du texte</string>
     <string name="help_lid">fastText (lid.176) ; s\'il hésite (un ou deux mots), le dictionnaire qui connaît le plus de ces mots décide.</string>
     <string name="help_build_t">Fabrication</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">de base</string>
     <string name="lvl_exp">expérimental</string>
     <string name="pack_cover">%1$d%% des mots fréquents</string>
+    <string name="lang_article">Article</string>
+    <string name="sec_note">Lignes sous l\'article complet d\'un pack, tirées du Wiktionnaire : un appui ouvre la liste, les mots fréquents d\'abord.</string>
 </resources>

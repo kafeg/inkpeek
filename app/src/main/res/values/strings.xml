@@ -124,7 +124,7 @@
     <string name="pack_gram_t">Grammar</string>
     <string name="pack_gram_d">The card\'s header: article, plural, verb forms (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Offline translation</string>
-    <string name="pack_mt_d">The Offline tab of Translate: Mozilla\'s models on the device.</string>
+    <string name="pack_mt_d">The Offline tab of Translate: on the device, by the method below.</string>
     <string name="own_title">Your dictionaries</string>
     <string name="own_none">None yet: download some or import files (StarDict, as in KOReader).</string>
     <string name="import_file">Import files</string>
@@ -180,7 +180,7 @@
     <string name="help_gram_t">Grammar</string>
     <string name="help_gram">Gender, plural, verb forms, irregular or strong — from Wiktionary\'s inflection tables. Every form leads to its word: Häusern → Haus, went → go. Only what Wiktionary says, no guessing.</string>
     <string name="help_mt_t">Translation</string>
-    <string name="help_mt">Firefox Translations models (Mozilla), the best one for each direction, running on the device. Between two languages other than English it goes through English: the meaning comes through, nuances (formal you, gender) may get lost.</string>
+    <string name="help_mt">On the device, by the method you choose (Translation method): Mozilla\'s models through English — fast, any device, nuances (formal you, gender) may get lost; OPUS-MT straight between the languages; or the Hy-MT2 AI model (6 GB of memory).</string>
     <string name="help_lid_t">Language of the text</string>
     <string name="help_lid">fastText (lid.176); when it is unsure (a word or two), the dictionary that knows more of the words decides.</string>
     <string name="help_build_t">Build</string>
@@ -342,4 +342,6 @@
     <string name="lvl_basic">basic</string>
     <string name="lvl_exp">experimental</string>
     <string name="pack_cover">%1$d%% of frequent words</string>
+    <string name="lang_article">Article</string>
+    <string name="sec_note">Rows under a pack\'s full article, from Wiktionary: a tap opens the list, frequent words first.</string>
 </resources>

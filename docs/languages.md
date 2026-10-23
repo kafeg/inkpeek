@@ -7,9 +7,9 @@ Settings → Languages → **InkPeek**: your packs — the box says the card use
 another pair stay); **Download packs…** lists every pair InkPeek has, a tap downloads one. Packs come only from this
 project's [`packs` release](https://github.com/kafeg/inkpeek/releases/tag/packs); when it has newer files, an
 update line appears. **What the card takes from the language packs**: words (articles and word by word), grammar (the
-header), offline translation and the rows under an article (related words, synonyms, expressions, forms, origin — origin
-off by default), each on or off — keep the grammar and the translation and take the words from your
-own dictionaries, if you like. The text's language is always told by the packs.
+header) and offline translation, each on or off — keep the grammar and the translation and take the words from your
+own dictionaries, if you like. The text's language is always told by the packs. **Languages → Article**: the rows under a pack's full article — related
+words, synonyms, expressions, forms, origin (origin off at first) — and the help.
 
 Packs now — every pair, what is inside and how much of real text it knows. **Top-5,000 coverage**: take the 5,000 most
 frequent words of the language you read (the pair's first language; frequency from a large corpus of subtitles,

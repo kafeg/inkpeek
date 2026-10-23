@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Грамматика</string>
     <string name="pack_gram_d">Заголовок карточки: род, мн. число, формы глагола (das Haus, мн. Häuser).</string>
     <string name="pack_mt_t">Офлайн-перевод</string>
-    <string name="pack_mt_d">Вкладка «Офлайн» в переводе: модели Mozilla на устройстве.</string>
+    <string name="pack_mt_d">Вкладка «Офлайн» в переводе: на устройстве, методом ниже.</string>
     <string name="own_title">Ваши словари</string>
     <string name="own_none">Пока нет: скачайте или импортируйте файлы (StarDict, как в KOReader).</string>
     <string name="import_file">Импорт файлов</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Грамматика</string>
     <string name="help_gram">Род, множественное число, формы глагола, неправильный или сильный — из таблиц словоизменения Викисловаря. Каждая форма ведёт к своему слову: Häusern → Haus, went → go. Только то, что есть в Викисловаре, без угадывания.</string>
     <string name="help_mt_t">Перевод</string>
-    <string name="help_mt">Модели Firefox Translations (Mozilla), лучшие для каждого направления, работают на устройстве. Между двумя неанглийскими языками — через английский: смысл передаётся, оттенки (ты/вы, род) могут теряться.</string>
+    <string name="help_mt">На устройстве, методом на выбор (Метод перевода): модели Mozilla через английский — быстро, на любом устройстве, оттенки (ты/вы, род) могут теряться; OPUS-MT напрямую между языками; или ИИ-модель Hy-MT2 (6 ГБ памяти).</string>
     <string name="help_lid_t">Язык текста</string>
     <string name="help_lid">fastText (lid.176); если он не уверен (одно-два слова), решает словарь, который знает больше слов.</string>
     <string name="help_build_t">Сборка</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">базовый</string>
     <string name="lvl_exp">экспериментальный</string>
     <string name="pack_cover">%1$d%% частых слов</string>
+    <string name="lang_article">Статья</string>
+    <string name="sec_note">Строки под полной статьёй пакета, из Wiktionary: нажатие открывает список, частые слова сначала.</string>
 </resources>

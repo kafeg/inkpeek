@@ -10,7 +10,7 @@ count, so every release has its own.
   this device cannot run is dimmed with the reason; after the download it shows the speed on this device.
 - Under a pack's article: related words (anmachen, zumachen…; make up…), synonyms and antonyms, expressions and
   proverbs, forms with pronunciation and the word's origin — each a row, a tap opens the list, frequent words first,
-  page by page, a tap on a word looks it up. Which ones: Languages → InkPeek.
+  page by page, a tap on a word looks it up. Which ones: Languages → Article (was Help).
 - Word by word: the same list style.
 - Ukrainian as a book language (into English and Russian).
 - The packs page labels each pair: full, basic or experimental, with the share of the 5,000 most frequent words its

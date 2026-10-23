@@ -10,7 +10,7 @@
 - **Under a pack's full article**, from Wiktionary: **related words** (*machen* → anmachen, zumachen, Macher; *make* →
   make up), **synonyms and antonyms**, **expressions and proverbs**, **forms and pronunciation** (IPA), **origin**. One
   row each with a preview; a tap opens the list — frequent words first, 20 per page, each with its first meaning — and
-  a tap on a word looks it up (← returns). Which ones: Languages → InkPeek → What the card takes.
+  a tap on a word looks it up (← returns). Which ones: Languages → Article.
 - **Translate**: by AI when it can answer (set up and online), offline on the device otherwise — both are tabs, the
   available one first. Each is there only when it can work: Offline with a pack installed, AI with a provider chosen;
   with neither there is no Translate icon. When a text's language has a pack you have not installed, the Offline tab

@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Gramática</string>
     <string name="pack_gram_d">La cabecera: artículo, plural, formas verbales (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traducción sin conexión</string>
-    <string name="pack_mt_d">La pestaña Sin conexión de Traducir: los modelos de Mozilla en el dispositivo.</string>
+    <string name="pack_mt_d">La pestaña Sin conexión de Traducir: en el dispositivo, con el método de abajo.</string>
     <string name="own_title">Tus diccionarios</string>
     <string name="own_none">Aún ninguno: descarga o importa archivos (StarDict, como en KOReader).</string>
     <string name="import_file">Importar archivos</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Gramática</string>
     <string name="help_gram">Género, plural, formas verbales, irregular o fuerte — de las tablas de flexión de Wikcionario. Cada forma lleva a su palabra: Häusern → Haus, went → go. Solo lo que dice Wikcionario, sin adivinar.</string>
     <string name="help_mt_t">Traducción</string>
-    <string name="help_mt">Modelos de Firefox Translations (Mozilla), el mejor para cada dirección, que se ejecutan en el dispositivo. Entre dos idiomas distintos del inglés pasa por el inglés: el sentido se mantiene, los matices (tú/usted, género) pueden perderse.</string>
+    <string name="help_mt">En el dispositivo, con el método elegido (Método de traducción): los modelos de Mozilla a través del inglés — rápido, en cualquier dispositivo, se pueden perder matices (tú/usted, género); OPUS-MT directo entre los idiomas; o el modelo de IA Hy-MT2 (6 GB de memoria).</string>
     <string name="help_lid_t">Idioma del texto</string>
     <string name="help_lid">fastText (lid.176); cuando duda (una o dos palabras), decide el diccionario que conoce más de esas palabras.</string>
     <string name="help_build_t">Compilación</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">básico</string>
     <string name="lvl_exp">experimental</string>
     <string name="pack_cover">%1$d%% de las palabras frecuentes</string>
+    <string name="lang_article">Artículo</string>
+    <string name="sec_note">Filas bajo el artículo completo de un paquete, de Wiktionary: un toque abre la lista, primero las palabras frecuentes.</string>
 </resources>

@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Grammatica</string>
     <string name="pack_gram_d">L\'intestazione: articolo, plurale, forme verbali (das Haus, pl. Häuser).</string>
     <string name="pack_mt_t">Traduzione offline</string>
-    <string name="pack_mt_d">La scheda Offline di Traduci: i modelli di Mozilla sul dispositivo.</string>
+    <string name="pack_mt_d">La scheda Offline di Traduci: sul dispositivo, con il metodo qui sotto.</string>
     <string name="own_title">I tuoi dizionari</string>
     <string name="own_none">Ancora nessuno: scaricali o importa file (StarDict, come in KOReader).</string>
     <string name="import_file">Importa file</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Grammatica</string>
     <string name="help_gram">Genere, plurale, forme verbali, irregolare o forte — dalle tabelle di flessione di Wikizionario. Ogni forma porta alla sua parola: Häusern → Haus, went → go. Solo ciò che dice Wikizionario, niente congetture.</string>
     <string name="help_mt_t">Traduzione</string>
-    <string name="help_mt">Modelli di Firefox Translations (Mozilla), il migliore per ogni direzione, eseguiti sul dispositivo. Tra due lingue diverse dall\'inglese si passa per l\'inglese: il senso arriva, le sfumature (tu/Lei, genere) possono perdersi.</string>
+    <string name="help_mt">Sul dispositivo, con il metodo scelto (Metodo di traduzione): i modelli di Mozilla tramite l\'inglese — veloce, su qualsiasi dispositivo, le sfumature (tu/Lei, genere) possono perdersi; OPUS-MT direttamente tra le lingue; o il modello IA Hy-MT2 (6 GB di memoria).</string>
     <string name="help_lid_t">Lingua del testo</string>
     <string name="help_lid">fastText (lid.176); quando non è sicuro (una o due parole), decide il dizionario che conosce più di quelle parole.</string>
     <string name="help_build_t">Compilazione</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">di base</string>
     <string name="lvl_exp">sperimentale</string>
     <string name="pack_cover">%1$d%% delle parole frequenti</string>
+    <string name="lang_article">Articolo</string>
+    <string name="sec_note">Righe sotto l\'articolo completo di un pacchetto, da Wiktionary: un tocco apre l\'elenco, prima le parole frequenti.</string>
 </resources>

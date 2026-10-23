@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Gramatyka</string>
     <string name="pack_gram_d">Nagłówek karty: rodzajnik, l. mnoga, formy czasownika (das Haus, lm. Häuser).</string>
     <string name="pack_mt_t">Tłumaczenie offline</string>
-    <string name="pack_mt_d">Karta Offline w Tłumacz: modele Mozilli na urządzeniu.</string>
+    <string name="pack_mt_d">Karta Offline w Tłumaczeniu: na urządzeniu, metodą poniżej.</string>
     <string name="own_title">Twoje słowniki</string>
     <string name="own_none">Jeszcze brak: pobierz lub zaimportuj pliki (StarDict, jak w KOReader).</string>
     <string name="import_file">Importuj pliki</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Gramatyka</string>
     <string name="help_gram">Rodzaj, liczba mnoga, formy czasownika, nieregularny czy mocny — z tabel odmiany Wikisłownika. Każda forma prowadzi do swojego słowa: Häusern → Haus, went → go. Tylko to, co jest w Wikisłowniku, bez zgadywania.</string>
     <string name="help_mt_t">Tłumaczenie</string>
-    <string name="help_mt">Modele Firefox Translations (Mozilla), najlepszy dla każdego kierunku, działają na urządzeniu. Między dwoma językami innymi niż angielski tłumaczenie idzie przez angielski: sens zostaje, niuanse (ty/Pan, rodzaj) mogą zginąć.</string>
+    <string name="help_mt">Na urządzeniu, wybraną metodą (Metoda tłumaczenia): modele Mozilli przez angielski — szybko, na każdym urządzeniu, niuanse (ty/Pan, rodzaj) mogą się gubić; OPUS-MT bezpośrednio między językami; lub model AI Hy-MT2 (6 GB pamięci).</string>
     <string name="help_lid_t">Język tekstu</string>
     <string name="help_lid">fastText (lid.176); gdy nie ma pewności (jedno, dwa słowa), decyduje słownik, który zna więcej z tych słów.</string>
     <string name="help_build_t">Budowanie</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">podstawowy</string>
     <string name="lvl_exp">eksperymentalny</string>
     <string name="pack_cover">%1$d%% częstych słów</string>
+    <string name="lang_article">Artykuł</string>
+    <string name="sec_note">Wiersze pod pełnym artykułem pakietu, z Wikisłownika: dotknięcie otwiera listę, częste słowa najpierw.</string>
 </resources>

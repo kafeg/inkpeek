@@ -318,7 +318,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      133 ›"); a tap opens the list in the card — the word bold, its first meaning from the same dictionary, 20 per page
      with ◀ ▶; a tap on a word looks it up (← returns to the list). Forms, pronunciation and origin open as text.
    - The word-by-word gloss of a phrase uses the same list rows (clearly separated, one source line on top).
-   - Languages → InkPeek → What the card takes: a box per section (origin off by default).
+   - Languages → the third tab becomes **Article**: a box per section (origin off by default), the help below.
    - AI → the third tab becomes **Answers**: boxes for what Analysis and Context ask for (grammar, words, related words,
      synonyms; explanation, examples, expressions, origin; the new ones off by default) — a key not asked is not in the
      request, and a changed set asks again; the explanations below.

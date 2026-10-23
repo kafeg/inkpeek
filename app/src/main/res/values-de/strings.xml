@@ -123,7 +123,7 @@
     <string name="pack_gram_t">Grammatik</string>
     <string name="pack_gram_d">Kopf der Karte: Artikel, Plural, Verbformen (das Haus, Pl. Häuser).</string>
     <string name="pack_mt_t">Offline-Übersetzung</string>
-    <string name="pack_mt_d">Der Reiter Offline beim Übersetzen: Mozillas Modelle auf dem Gerät.</string>
+    <string name="pack_mt_d">Der Tab Offline unter Übersetzen: auf dem Gerät, mit der Methode unten.</string>
     <string name="own_title">Ihre Wörterbücher</string>
     <string name="own_none">Noch keine: herunterladen oder Dateien importieren (StarDict, wie in KOReader).</string>
     <string name="import_file">Dateien importieren</string>
@@ -179,7 +179,7 @@
     <string name="help_gram_t">Grammatik</string>
     <string name="help_gram">Genus, Plural, Verbformen, unregelmäßig oder stark — aus den Flexionstabellen des Wiktionary. Jede Form führt zu ihrem Wort: Häusern → Haus, went → go. Nur was im Wiktionary steht, nichts geraten.</string>
     <string name="help_mt_t">Übersetzung</string>
-    <string name="help_mt">Modelle von Firefox Translations (Mozilla), das beste je Richtung, laufen auf dem Gerät. Zwischen zwei Sprachen außer Englisch geht es über Englisch: der Sinn kommt an, Nuancen (du/Sie, Genus) können verloren gehen.</string>
+    <string name="help_mt">Auf dem Gerät, mit der gewählten Methode (Übersetzungsmethode): Mozillas Modelle über Englisch — schnell, auf jedem Gerät, Nuancen (du/Sie, Geschlecht) können verloren gehen; OPUS-MT direkt zwischen den Sprachen; oder das KI-Modell Hy-MT2 (6 GB Speicher).</string>
     <string name="help_lid_t">Sprache des Textes</string>
     <string name="help_lid">fastText (lid.176); ist es unsicher (ein, zwei Wörter), entscheidet das Wörterbuch, das mehr der Wörter kennt.</string>
     <string name="help_build_t">Erstellung</string>
@@ -341,4 +341,6 @@
     <string name="lvl_basic">grundlegend</string>
     <string name="lvl_exp">experimentell</string>
     <string name="pack_cover">%1$d%% der häufigen Wörter</string>
+    <string name="lang_article">Artikel</string>
+    <string name="sec_note">Zeilen unter dem vollen Artikel eines Pakets, aus Wiktionary: ein Tipp öffnet die Liste, häufige Wörter zuerst.</string>
 </resources>
