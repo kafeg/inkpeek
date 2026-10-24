@@ -3,6 +3,17 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
+## 0.8 — unreleased
+- The language of the answers is a setting of its own (Card → Main): an English app with answers, dictionaries and
+  translations in German. By default it follows the app's language.
+- Translation method: downloaded models stay when you switch the method (switching back downloads nothing); the
+  list under the methods shows them with their size, ✕ removes one.
+- A word in word by word opens as a card of its own: its header, its ☆; ← comes back to the phrase.
+- Nothing runs for what is switched off: hidden AI tabs send no requests (Translate by AI asks only for the
+  translation), offline translation that is off does not start, an AI model starts only when its tab opens, and
+  switched-off dictionaries are not indexed.
+- Fixed: the download dialog could stay at Cancel / Hide without saying it was done.
+
 ## 0.7 — 2026-10-23
 - Word by word names a German verb written apart first: «Ich mache die Tür zu» → *mache … zu: zumachen*. Found by the
   packs' data (the verb's tables write it apart); a particle after its clause's end is not taken.
