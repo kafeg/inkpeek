@@ -27,7 +27,7 @@ class TranslatePage(private val card: CardActivity) {
     fun fill(p: LinearLayout) {
         job?.cancel(); p.removeAllViews(); card.hint(CardActivity.TRANSLATE, null)
         job = card.launch {
-            val aiOn = card.prefs.aiOn
+            val aiOn = card.aiTranslate
             val block = if (aiOn) withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) } else null
             val aiOk = aiOn && block == null
             if (by.isEmpty()) by = if (card.offlineOk) "offline" else "ai"

@@ -102,8 +102,8 @@ object Rows {
         InkDialog(ctx).message(message).button(R.string.cancel).button(yes) { action() }.show()
     }
 
-    /** Three sub-tabs over [pages]; [open] remembers the choice. */
-    fun subTabs(ctx: Context, box: LinearLayout, pages: List<Triple<String, String, View>>, open: String, picked: (String) -> Unit) {
+    /** Up to three sub-tabs over [pages]; [open] remembers the choice. Returns what shows one (Help's "Open in settings"). */
+    fun subTabs(ctx: Context, box: LinearLayout, pages: List<Triple<String, String, View>>, open: String, picked: (String) -> Unit): (String) -> Unit {
         val bar = Ink.vertical(ctx); box.addView(bar)
         pages.forEach { box.addView(it.third) }
         fun show(k: String) {
@@ -113,6 +113,7 @@ object Rows {
                 Ink.lp().apply { bottomMargin = Ink.dp(ctx, 6) })
         }
         show(pages.firstOrNull { it.first == open }?.first ?: pages.first().first)
+        return { k -> show(k); picked(k) }
     }
 
     /** A long list (the download pages) of rows in the same style: a title and one line under it. */

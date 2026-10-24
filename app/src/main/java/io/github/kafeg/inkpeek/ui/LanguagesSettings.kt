@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Environment
 import android.widget.LinearLayout
+import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.packs.Component
 import io.github.kafeg.inkpeek.packs.Packs
@@ -16,7 +17,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** Languages: InkPeek's packs, other dictionaries (one folder), the article's rows and help. Both lists look alike: a box, a name, ✕. */
+/** Languages: InkPeek's language packs, translation (the answers' language, the offline method), StarDict dictionaries (one folder). */
 class LanguagesSettings(private val a: MainActivity) {
     private val prefs get() = a.prefs
     private lateinit var packList: LinearLayout
@@ -30,24 +31,31 @@ class LanguagesSettings(private val a: MainActivity) {
             t.addView(Ink.button(a, a.getString(R.string.allow_files, prefs.home.path), Rows.BUTTON) {
                 a.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:${a.packageName}")))
             }, Ink.lp().apply { bottomMargin = Ink.dp(a, 10) })
-        val packs = Ink.vertical(a); val other = Ink.vertical(a); val help = Ink.vertical(a)
-        Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("other", a.getString(R.string.lang_own_tab), other),
-            Triple("help", a.getString(R.string.lang_article), help)), a.open["lang"] ?: "packs") { a.open["lang"] = it }
-        buildPacks(packs); buildOther(other); buildHelp(help)
+        val packs = Ink.vertical(a); val translation = Ink.vertical(a); val other = Ink.vertical(a)
+        a.tabPick["lang"] = Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("translation", a.getString(R.string.lang_translation), translation),
+            Triple("other", a.getString(R.string.lang_own_tab), other)), a.open["lang"] ?: "packs") { a.open["lang"] = it }
+        buildPacks(packs); buildTranslation(translation); buildOther(other)
         loadManifest()
     }
 
     // --- InkPeek ---
     private fun buildPacks(t: LinearLayout) {
         t.addView(Rows.heading(a, a.getString(R.string.packs_title), first = true))
+        t.addView(Rows.note(a, a.getString(R.string.packs_source_d)))
         packList = Ink.vertical(a); t.addView(packList)
-        t.addView(Rows.heading(a, a.getString(R.string.pack_use)))
-        t.addView(Rows.check(a, a.getString(R.string.pack_dicts_t), a.getString(R.string.pack_dicts_d), prefs.packDicts) { prefs.packDicts = it; a.refreshStatus() })
-        t.addView(Rows.check(a, a.getString(R.string.pack_gram_t), a.getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
-        methodBox = Ink.vertical(a); t.addView(methodBox)
-        t.addView(Rows.heading(a, a.getString(R.string.get_title)))
-        t.addView(Rows.info(a, null, a.getString(R.string.packs_source), a.getString(R.string.packs_source_d)))
         t.addView(Rows.buttons(a, a.getString(R.string.packs_get) to { a.startActivity(Intent(a, PacksActivity::class.java)) }))
+    }
+
+    /** The answers' language (as the app's by default) and the offline method with its models, on this tab. */
+    private fun buildTranslation(t: LinearLayout) {
+        val names = Prefs.ANSWERS.map { c -> java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
+        val answers = listOf("") + Prefs.ANSWERS
+        t.addView(Rows.choice(a, a.getString(R.string.ans_lang), a.getString(R.string.ans_lang_d),
+            listOf(a.getString(R.string.ans_lang_same)) + names, answers.indexOf(prefs.answerPick).coerceAtLeast(0)) {
+            if (prefs.answerPick != answers[it]) { prefs.answerPick = answers[it]; a.refreshStatus(); refreshPacks() } }.apply {
+            (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
+        t.addView(Rows.heading(a, a.getString(R.string.mt_t)))
+        pane = MethodPane(a, Ink.vertical(a).also { t.addView(it) })
     }
 
     private fun loadManifest() {
@@ -63,16 +71,10 @@ class LanguagesSettings(private val a: MainActivity) {
         }
     }
 
-    private lateinit var methodBox: LinearLayout
+    private var pane: MethodPane? = null
 
-    /** The offline translation method in use, a page to change it. */
-    private fun refreshMethod() {
-        if (!::methodBox.isInitialized) return
-        methodBox.removeAllViews()
-        val name = a.getString(when (prefs.mtMethod) { "off" -> R.string.mt_off_t; "direct" -> R.string.mt_direct_t; "llm" -> R.string.mt_llm_t; else -> R.string.mt_fast_t })
-        methodBox.addView(Rows.info(a, null, a.getString(R.string.mt_t), name, page = true) {
-            a.startActivity(android.content.Intent(a, TranslationActivity::class.java)) })
-    }
+    /** The methods with what they need here; after a download, this device's speed. */
+    private fun refreshMethod() { pane?.let { it.manifest = manifest; it.show(); if (!Downloads.busy) it.measure() } }
 
     /** The installed pairs: a box (the card uses it), its size, ✕; an update line when the release has newer files. */
     fun refreshPacks() {
@@ -213,25 +215,6 @@ class LanguagesSettings(private val a: MainActivity) {
         File(if (vol == "primary") Environment.getExternalStorageDirectory() else File("/storage", vol), rel)
     }.getOrNull()
 
-    // --- Help ---
-    private fun buildHelp(t: LinearLayout) {
-        // The rows under a pack's article: related words, synonyms, expressions, forms, origin; the help below.
-        t.addView(Rows.note(a, a.getString(R.string.sec_note)))
-        listOf(Triple("rel", R.string.sec_rel, R.string.sec_rel_d), Triple("syn", R.string.sec_syn, R.string.sec_syn_d),
-            Triple("expr", R.string.sec_expr, R.string.sec_expr_d), Triple("forms", R.string.sec_forms, R.string.sec_forms_d),
-            Triple("ety", R.string.sec_ety, R.string.sec_ety_d)).forEach { (k, title, about) ->
-            t.addView(Rows.check(a, a.getString(title), a.getString(about), prefs.packSection(k)) { prefs.setPackSection(k, it) }) }
-        t.addView(Rows.heading(a, a.getString(R.string.tab_help)))
-        listOf(R.string.help_dict_t to R.string.help_dict, R.string.help_gram_t to R.string.help_gram, R.string.help_mt_t to R.string.help_mt,
-            R.string.help_lid_t to R.string.help_lid, R.string.help_build_t to R.string.help_build, R.string.help_other_t to R.string.help_other,
-            R.string.help_formats_t to R.string.help_formats, R.string.help_folder_t to R.string.help_folder).forEachIndexed { i, (title, about) ->
-            t.addView(Rows.info(a, null, a.getString(title), a.getString(about), lines = 6).apply { if (i == 0) (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
-        }
-        t.addView(Rows.buttons(a, a.getString(R.string.how_more) to {
-            runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/kafeg/inkpeek/blob/main/packs/README.md"))) }
-                .onFailure { a.toast(it.message ?: "") }
-        }))
-    }
 
     companion object {
         const val FILES = 1; const val FOLDER = 2

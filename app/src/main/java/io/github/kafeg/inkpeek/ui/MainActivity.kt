@@ -38,6 +38,13 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private val ui = Handler(Looper.getMainLooper())
     /** The open sub-tab of each section ("lang" → "other"), kept over a recreation. */
     val open = HashMap<String, String>()
+    /** Each section's sub-tab switch ("lang" → show("translation")): Help opens a setting's tab. */
+    val tabPick = HashMap<String, (String) -> Unit>()
+    /** The search, the sections and their tabs; hidden while a page (App, Help) is open. */
+    private lateinit var main: LinearLayout
+    private lateinit var pageBox: LinearLayout
+    private var page: String? = null
+    private var help: HelpPage? = null
     private lateinit var languages: LanguagesSettings
     private lateinit var words: WordsSettings
     private lateinit var card: CardSettings
@@ -61,11 +68,20 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         col.requestFocus()
 
         col.addView(Ink.text(this, getString(R.string.app_name), 26f, bold = true))
-        // The status line, the version on its right (a tap opens About; "0.5.112 → 0.5.118" when a newer one is out).
+        // The status line; on its right the version (a tap opens About; "0.5.112 → 0.5.118" when a newer one is out), the
+        // app's settings and help: plain icons, no frames.
         status = Ink.text(this, "", 14f)
-        version = Ink.text(this, "", 14f).apply { setOnClickListener { About.show(this@MainActivity) }; val q = Ink.dp(this@MainActivity, 6); setPadding(q, q, 0, q) }
+        version = Ink.text(this, "", 14f).apply { setOnClickListener { About.show(this@MainActivity) }; val q = Ink.dp(this@MainActivity, 6); setPadding(q, q, q, q) }
+        fun plain(res: Int, label: Int, go: () -> Unit) = ImageView(this).apply {
+            setImageResource(res); setColorFilter(Ink.fg(this@MainActivity)); val q = Ink.dp(this@MainActivity, 9); setPadding(q, q, q, q)
+            contentDescription = getString(label); tooltipText = contentDescription; setOnClickListener { go() }
+        }
         col.addView(Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL
-            addView(status, Ink.lp(0, weight = 1f)); addView(version, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT)) })
+            addView(status, Ink.lp(0, weight = 1f)); addView(version, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
+            addView(plain(R.drawable.ic_settings, R.string.app_t) { openPage("app") }, LinearLayout.LayoutParams(Ink.dp(this@MainActivity, 42), Ink.dp(this@MainActivity, 42)))
+            addView(plain(R.drawable.ic_help, R.string.help_t) { openPage("help") }, LinearLayout.LayoutParams(Ink.dp(this@MainActivity, 42), Ink.dp(this@MainActivity, 42))) })
+        main = Ink.vertical(this); pageBox = Ink.vertical(this).apply { visibility = View.GONE }
+        col.addView(main); col.addView(pageBox)
         val probe = edit(getString(R.string.try_hint), "")
         val tryRow = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         tryRow.addView(probe, Ink.lp(0, weight = 1f))
@@ -76,7 +92,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             setImageResource(R.drawable.ic_search); setColorFilter(Ink.fg(this@MainActivity)); background = Ink.border(this@MainActivity); val q = Ink.dp(this@MainActivity, 10); setPadding(q, q, q, q)
             contentDescription = getString(R.string.look_up); tooltipText = contentDescription; setOnClickListener { openCard() }
         }, LinearLayout.LayoutParams(Ink.dp(this, 52), Ink.dp(this, 52)).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
-        col.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
+        main.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
 
         // Tabs with shrunk labels (a narrow screen) must not drop to a shared text baseline: their bottoms got cut.
         val bar = Ink.horizontal(this).apply { isBaselineAligned = false }
@@ -87,17 +103,39 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             // All as tall as the tallest, the text in the middle: a shrunk label does not stick to the top.
             bar.addView(b, Ink.lp(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
         }
-        col.addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 16) })
+        main.addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 16) })
         // One text size for all four: the size the longest label shrank to on this screen.
         bar.post { val min = sectionButtons.values.minOf { it.textSize }
             sectionButtons.values.forEach { it.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE); it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, min) } }
-        sections.values.forEach { col.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
+        sections.values.forEach { main.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
         languages = LanguagesSettings(this).also { it.build(sections.getValue(R.string.tab_dicts)) }
         AiSettings(this).build(sections.getValue(R.string.tab_ai))
         card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
         val section = mapOf("lang" to R.string.tab_dicts, "ai" to R.string.tab_ai, "card" to R.string.tab_card, "words" to R.string.tab_words)
         show(savedInstanceState?.getInt("tab") ?: asked?.let { section[it[0]] } ?: R.string.tab_dicts)
+        open["page"]?.let { openPage(it) }
+    }
+
+    /** A page over the settings (App, Help) with ← back; the search and the sections wait under it. */
+    fun openPage(kind: String) {
+        page = kind; open["page"] = kind
+        main.visibility = View.GONE; pageBox.visibility = View.VISIBLE; pageBox.removeAllViews()
+        when (kind) { "app" -> AppPage(this).build(pageBox); else -> help = HelpPage(this, pageBox).also { it.list() } }
+        scroll.post { scroll.scrollTo(0, 0) }
+    }
+
+    fun closePage() {
+        page = null; open.remove("page"); help = null
+        pageBox.removeAllViews(); pageBox.visibility = View.GONE; main.visibility = View.VISIBLE
+    }
+
+    /** From Help: a section and its tab. */
+    fun goTo(section: Int, tab: String?) { closePage(); show(section); tab?.let { k -> tabPick.entries.firstOrNull { it.key == SECTION_KEYS[section] }?.value?.invoke(k) } }
+
+    /** Back: a help topic to the list, a page to the settings. */
+    @Deprecated("Activity API") override fun onBackPressed() {
+        when { help?.back() == true -> {}; page != null -> closePage(); else -> @Suppress("DEPRECATION") super.onBackPressed() }
     }
 
     private var current = 0
@@ -147,8 +185,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
-    fun aiChanged() = card.syncAi()
-
     fun showDownload() = download.show()
 
     /** "Dictionaries: 9 · AI: Claude". */
@@ -191,6 +227,10 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     fun toast(s: String) = Ink.toast(this, s)
+
+    companion object {
+        private val SECTION_KEYS = mapOf(R.string.tab_dicts to "lang", R.string.tab_card to "card", R.string.tab_ai to "ai", R.string.tab_words to "words")
+    }
 
     /** A tap beside a selection ends it and its menu. */
     override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); return super.dispatchTouchEvent(ev) }

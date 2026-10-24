@@ -13,6 +13,16 @@ import java.io.File
 class Prefs(private val ctx: Context) {
     private val sp = ctx.getSharedPreferences("inkpeek", Context.MODE_PRIVATE)
 
+    init {
+        // The old "AI icons" switch turned off: the AI modules start off (no part ticked), as the icons were hidden.
+        if (sp.contains("card_ai")) {
+            if (!sp.getBoolean("card_ai", true)) sp.edit().apply {
+                listOf(io.github.kafeg.inkpeek.ai.Ask.ANALYSIS, io.github.kafeg.inkpeek.ai.Ask.CONTEXT).forEach { a -> a.keys.forEach { putBoolean("ai_key_${a.section}.${it.name}", false) } }
+            }.apply()
+            sp.edit().remove("card_ai").apply()
+        }
+    }
+
     /** "" = system, else a language code with resources (Prefs.ANSWERS). */
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
     /** What a phrase opens on: "offline" (translation), "ai" (translation), "dict" (word by word), "analysis", "context". */
@@ -35,7 +45,8 @@ class Prefs(private val ctx: Context) {
     var cardFont: String get() = sp.getString("card_font", "")!!; set(v) = sp.edit().putString("card_font", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
     /** The card's AI icons (Analysis, Context) while AI is on. */
-    var cardAi: Boolean get() = sp.getBoolean("card_ai", true); set(v) = sp.edit().putBoolean("card_ai", v).apply()
+    /** AI translation in the Translate tab (AI → Modules). */
+    var aiTranslate: Boolean get() = sp.getBoolean("ai_translate", true); set(v) = sp.edit().putBoolean("ai_translate", v).apply()
     /** The card's ☆ and Notes icons; the history is kept either way. */
     var cardSave: Boolean get() = sp.getBoolean("card_save", true); set(v) = sp.edit().putBoolean("card_save", v).apply()
     /** AI chosen (AI tab); never chosen yet — on only with a key or a server already there, so a fresh install starts without AI. */

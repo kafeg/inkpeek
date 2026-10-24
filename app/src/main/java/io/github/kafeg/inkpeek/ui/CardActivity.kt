@@ -74,9 +74,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** "←" in the icon bar: shown while a word's article is open from the list or the gloss. */
     private lateinit var backButton: View
     private lateinit var starButton: ImageView
-    private val actions get() = if (prefs.aiOn && prefs.cardAi) Action.ALL else emptyList()
+    /** The AI tabs: a module with a part ticked (AI → Modules). */
+    private val actions get() = if (prefs.aiOn) Action.ALL.filter { ai.ask(it.id).active.isNotEmpty() } else emptyList()
     /** The AI requests this card can show: Translate by AI, and the AI tabs that are not hidden. */
-    val shownAsks: List<Ask> get() = if (!prefs.aiOn) emptyList() else listOf(Ask.QUICK) + actions.map { ai.ask(it.id) }
+    val shownAsks: List<Ask> get() = if (!prefs.aiOn) emptyList() else (if (prefs.aiTranslate) listOf(Ask.QUICK) else emptyList()) + actions.map { ai.ask(it.id) }
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -118,7 +119,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
      */
     private fun phraseTab(): String = when (val o = prefs.phraseOpen) {
         "offline" -> if (offlineOk) TRANSLATE.also { translate.by = "offline"; translate.auto = true } else DICT
-        "ai" -> if (prefs.aiOn) TRANSLATE.also { translate.by = "ai" } else DICT
+        "ai" -> if (aiTranslate) TRANSLATE.also { translate.by = "ai" } else DICT
         "analysis", "context" -> if (actions.any { it.id == o }) o else DICT
         else -> DICT
     }
@@ -280,7 +281,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** Offline translation: a pack's models are installed and its use is on (Languages → What the card takes). */
     val offlineOk: Boolean by lazy { prefs.mtMethod != "off" && prefs.packs.installed().keys.any { it.startsWith("model-") } }
     /** Translate is there when AI is on or offline translation can work; else no icon at all. */
-    val canTranslate: Boolean get() = prefs.aiOn || offlineOk
+    /** AI translation can be asked: AI on and its module on. */
+    val aiTranslate: Boolean get() = prefs.aiOn && prefs.aiTranslate
+    val canTranslate: Boolean get() = aiTranslate || offlineOk
 
     /** The tab is filled again on its next opening (its AI request failed). */
     fun forget(tab: String) { pages.remove(tab) }

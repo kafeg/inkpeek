@@ -4,7 +4,7 @@
 #   ANDROID_SERIAL=<serial> scripts/screens.sh   — one device
 set -eu
 OUT=${1:-build/screens}; PKG=io.github.kafeg.inkpeek
-TABS="lang:packs lang:other lang:help card:main card:look card:icons ai:main ai:prompts ai:help words:word words:phrase words:history"
+TABS="lang:packs lang:translation lang:other card:open card:article card:look ai:connect ai:modules words:word words:phrase words:history"
 mkdir -p "$OUT"
 shot() { adb -s "$1" shell screencap -p /sdcard/inkpeek-shot.png && adb -s "$1" pull -q /sdcard/inkpeek-shot.png "$2" && adb -s "$1" shell rm /sdcard/inkpeek-shot.png; }
 # ANDROID_SERIAL set: that device only.

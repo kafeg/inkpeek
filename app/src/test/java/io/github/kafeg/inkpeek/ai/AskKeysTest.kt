@@ -23,8 +23,8 @@ class AskKeysTest {
         assertNotEquals(before, Ask.ANALYSIS.version)
     }
 
-    @Test fun noneLeftFallsBackToDefaults() {
+    @Test fun noneTickedTurnsTheModuleOff() {
         Ai.picked = { false }
-        assertEquals(listOf("grammar", "words"), Ask.ANALYSIS.active.map { it.name })
+        assertEquals(emptyList<String>(), Ask.ANALYSIS.active.map { it.name })
     }
 }
