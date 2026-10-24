@@ -146,11 +146,12 @@ class DictionaryPage(private val card: CardActivity) {
     private fun gloss() {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(null); turn = null
-        job = rows(p) { w -> articles(w) { gloss() } }
+        // A word opens as a card of its own: its header, its ☆; ← comes back to this list.
+        job = rows(p) { w -> card.lookUp(w) }
     }
 
-    /** The gloss under another tab's text (offline, or when AI fails), in that tab's [scope]; a tap opens the word here. */
-    fun under(p: LinearLayout, scope: CoroutineScope): Job { p.addView(View(card), Ink.lp(h = Ink.dp(card, 12))); return rows(p, scope) { show(it) } }
+    /** The gloss under another tab's text (offline, or when AI fails), in that tab's [scope]; a tap opens the word's card. */
+    fun under(p: LinearLayout, scope: CoroutineScope): Job { p.addView(View(card), Ink.lp(h = Ink.dp(card, 12))); return rows(p, scope) { card.lookUp(it) } }
 
     /** One row of a word list (the gloss, related words): its text, a thin line under it; a tap does [tap]. */
     private fun listRow(p: LinearLayout, html: String, tap: () -> Unit) {

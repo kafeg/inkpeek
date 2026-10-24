@@ -75,6 +75,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var backButton: View
     private lateinit var starButton: ImageView
     private val actions get() = if (prefs.aiOn && prefs.cardAi) Action.ALL else emptyList()
+    /** The AI requests this card can show: Translate by AI, and the AI tabs that are not hidden. */
+    val shownAsks: List<Ask> get() = if (!prefs.aiOn) emptyList() else listOf(Ask.QUICK) + actions.map { ai.ask(it.id) }
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -95,10 +97,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         build()
         placeWindow()
         if (kind == Kind.WORD) head()
-        // A phrase: word by word and the offline translation start at once; the translation fills Translate and the history line.
+        // A phrase: word by word and the offline translation start at once; the translation fills Translate and the history
+        // line. Not when offline translation is off, nor with an AI model (heavy): that one starts when its tab opens.
         else {
             dictionary.warm()
-            launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
+            if (offlineOk && prefs.mtMethod != "llm")
+                launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
         }
         // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
         if (back != null && back.size == 3 && back[0] in tabButtons) {

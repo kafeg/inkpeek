@@ -33,7 +33,7 @@
     <string name="key_file_ok">Aus der Datei %1$s ✓</string>
     <string name="key_typed_ok">Unten eingegeben ✓</string>
     <string name="key_missing">Kein Schlüssel: unten eingeben oder in %1$s ablegen</string>
-    <string name="ui_lang">Sprache der App und der Antworten</string>
+    <string name="ui_lang">Sprache der App</string>
     <string name="ui_lang_system">Wie das System</string>
     <string name="offline">Kein Netz: KI-Tabs brauchen Internet, Wörterbücher gehen offline.</string>
     <string name="gloss_title">Wort für Wort (auch offline; Wort antippen für den Eintrag):</string>
@@ -90,7 +90,7 @@
     <string name="sec_explanation">Erklärung</string>
     <string name="card_main">Allgemein</string>
     <string name="card_look">Darstellung</string>
-    <string name="ui_lang_d">In dieser Sprache kommen auch die Antworten.</string>
+    <string name="ui_lang_d">Menüs und Einstellungen.</string>
     <string name="phrase_ai_d">Eine Phrase oder Passage öffnet beim Übersetzen, nicht Wort für Wort.</string>
     <string name="look_height">Höhe</string>
     <string name="look_height_d">Nach Inhalt: eine kleine Karte wächst mit dem Text, bis 80%.</string>
@@ -305,7 +305,6 @@
     <string name="mt_cannot_cpu">Braucht einen Prozessor mit int8-Beschleunigung (Dot Product).</string>
     <string name="mt_speed">≈ %1$s s pro Satz auf diesem Gerät</string>
     <string name="mt_get">%1$d MB herunterladen.</string>
-    <string name="mt_drop">Die Modelle der vorigen Methode (%1$d MB) werden entfernt.</string>
     <string name="mt_done">Übersetzungsmethode: %1$s</string>
     <string name="mt_no_models">Noch nicht in der Paketliste.</string>
     <string name="sec_rel">Verwandte Wörter</string>
@@ -354,4 +353,10 @@
     <string name="backup_done">Gespeichert: %1$s</string>
     <string name="restore_done">Hinzugefügt: %1$d</string>
     <string name="restore_bad">Das ist keine InkPeek-Sicherung.</string>
+    <string name="ans_lang">Sprache der Antworten</string>
+    <string name="ans_lang_d">In dieser Sprache kommen Wörterbücher, Übersetzungen und KI-Antworten; Pakete in diese Sprache zuerst.</string>
+    <string name="ans_lang_same">Wie die App</string>
+    <string name="mt_downloaded">Heruntergeladene Modelle</string>
+    <string name="mt_remove_q">Dieses Modell (%1$d MB) entfernen? Seine Methode übersetzt diese Paare mit Mozilla, bis es erneut geladen ist.</string>
+    <string name="mt_removed">Modell entfernt</string>
 </resources>

@@ -28,6 +28,11 @@ class CardSettings(private val a: MainActivity) {
             java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
         t.addView(first(Rows.choice(a, a.getString(R.string.ui_lang), a.getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) {
             if (prefs.uiLang != codes[it]) { prefs.uiLang = codes[it]; a.recreate() } }))
+        // The answers' language apart from the app's: an English app for a German reader of English books.
+        val answers = listOf("") + Prefs.ANSWERS
+        t.addView(Rows.choice(a, a.getString(R.string.ans_lang), a.getString(R.string.ans_lang_d),
+            listOf(a.getString(R.string.ans_lang_same)) + names.drop(1), answers.indexOf(prefs.answerPick).coerceAtLeast(0)) {
+            if (prefs.answerPick != answers[it]) { prefs.answerPick = answers[it]; a.refreshStatus() } })
         // The theme of the whole app: the settings are made again in it.
         val themes = listOf("light", "dark", "system")
         t.addView(Rows.choice(a, a.getString(R.string.look_theme), a.getString(R.string.look_theme_d),

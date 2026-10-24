@@ -19,7 +19,8 @@ import kotlinx.coroutines.withContext
 
 /**
  * The offline translation method for all pairs (Languages → InkPeek): Mozilla through English, OPUS-MT direct, an AI model.
- * The app downloads what the installed pairs need; a method this device cannot run is dimmed with the reason.
+ * The app downloads what the installed pairs need; a method this device cannot run is dimmed with the reason. Downloaded
+ * models stay when the method changes (switching back costs nothing); the list under the methods removes one.
  */
 class TranslationActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
@@ -99,22 +100,33 @@ class TranslationActivity : Activity(), CoroutineScope by MainScope() {
             }
             list.addView(box, Ink.lp().apply { topMargin = Ink.dp(this@TranslationActivity, 12) })
         }
+        // The models on this device, of every method: a ✕ frees the space (the method falls back to Mozilla for its pairs).
+        val have = manifest.filter { (it.kind == "opus" || it.kind == "llm") && it.id in installed }
+        if (have.isNotEmpty()) list.addView(Rows.heading(this, getString(R.string.mt_downloaded)))
+        have.forEach { c ->
+            list.addView(Rows.check(this, title(c), getString(R.string.pack_size, (c.size / 1_000_000).toInt()), true, remove = {
+                Rows.confirm(this, title(c) + "\n\n" + getString(R.string.mt_remove_q, (c.size / 1_000_000).toInt())) {
+                    if (Downloads.busy) dlg.show() else { Downloads.packs(this, emptyList(), listOf(c), getString(R.string.mt_removed)); dlg.show() } }
+            }) {}.apply { getChildAt(0).visibility = android.view.View.INVISIBLE })
+        }
     }
 
-    /** [method] for all pairs: its missing models downloaded, the previous heavy method's models removed (one dialog). */
+    /** "OPUS-MT · DE EN ES FR PT → PL RU", "Hy-MT2 1.8B": a model by what it translates. */
+    private fun title(c: Component): String = if (c.kind == "llm") c.name.ifBlank { c.id } else {
+        fun side(i: Int) = c.covers.map { it.split('-')[i].uppercase() }.distinct().sorted().joinToString(" ")
+        "OPUS-MT · ${side(0)} → ${side(1)}"
+    }
+
+    /** [method] for all pairs: its missing models downloaded (one dialog); the other methods' models stay. */
     private fun choose(method: String, title: String) {
         if (method == prefs.mtMethod) return
         if (Downloads.busy) { dlg.show(); return }
         val installed = prefs.packs.installed()
         val get = models(method).filter { installed[it.id] != it.sha256 }
-        val keep = models(method).map { it.id }.toSet()
-        val drop = manifest.filter { (it.kind == "opus" || it.kind == "llm") && it.id in installed && it.id !in keep }
-        if (get.isEmpty() && drop.isEmpty()) { prefs.mtMethod = method; show(); return }
-        val text = listOfNotNull(get.takeIf { it.isNotEmpty() }?.let { getString(R.string.mt_get, (it.sumOf { c -> c.size } / 1_000_000).toInt()) },
-            drop.takeIf { it.isNotEmpty() }?.let { getString(R.string.mt_drop, (it.sumOf { c -> c.size } / 1_000_000).toInt()) }).joinToString("\n")
-        InkDialog(this).title(title).message(text).button(R.string.cancel).button(R.string.download) {
+        if (get.isEmpty()) { prefs.mtMethod = method; show(); measure(); return }
+        InkDialog(this).title(title).message(getString(R.string.mt_get, (get.sumOf { c -> c.size } / 1_000_000).toInt())).button(R.string.cancel).button(R.string.download) {
             prefs.mtMethod = method; prefs.setMtSpeed(method, 0)
-            Downloads.packs(this, get, drop, getString(R.string.mt_done, title)); dlg.show()
+            Downloads.packs(this, get, emptyList(), getString(R.string.mt_done, title)); dlg.show()
         }.show()
     }
 

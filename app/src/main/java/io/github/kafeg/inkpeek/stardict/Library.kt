@@ -40,8 +40,9 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
 
     fun isPack(d: StarDict) = d.ifo.path.startsWith(packPath)
 
-    /** Queues index building for every dictionary that needs it. */
-    fun prepareAll() = cache.values.filter { !it.ready }.forEach { prepareAsync(it) }
+    /** Queues index building for the dictionaries in use and the packs (they tell the text's language): a switched-off
+     *  dictionary is indexed when it is switched on. */
+    fun prepareAll() = cache.values.filter { !it.ready && (isPack(it) || use(it, false)) }.forEach { prepareAsync(it) }
 
     fun prepareAsync(d: StarDict) {
         // A failed index is not retried on every lookup: the error stays in [status] until the app restarts.

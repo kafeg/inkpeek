@@ -38,8 +38,11 @@ class Prefs(private val ctx: Context) {
     /** AI chosen (AI tab); never chosen yet — on only with a key or a server already there, so a fresh install starts without AI. */
     var aiOn: Boolean get() = if (sp.contains("ai_on")) sp.getBoolean("ai_on", false) else effectiveKey(provider).isNotBlank() || url(Provider.CUSTOM).isNotBlank()
         set(v) = sp.edit().putBoolean("ai_on", v).apply()
-    /** The language of the answers is the app's language (setting or system), one of [ANSWERS]; English otherwise. */
-    val answerCode: String get() = uiLang.ifBlank { java.util.Locale.getDefault().language }.let { if (it in ANSWERS) it else "en" }
+    /** "" = as the app's language, else one of [ANSWERS]: an English app with answers in German. */
+    var answerPick: String get() = sp.getString("answer_lang", "")!!; set(v) = sp.edit().putString("answer_lang", v).apply()
+    /** The language of the answers (dictionaries, translations, AI): its own setting, else the app's language (setting or
+     *  system), one of [ANSWERS]; English otherwise. */
+    val answerCode: String get() = answerPick.ifBlank { uiLang.ifBlank { java.util.Locale.getDefault().language } }.let { if (it in ANSWERS) it else "en" }
     /** Its English name ("Russian"): what AI prompts and saved answers use. */
     val answerLang: String get() = java.util.Locale(answerCode).getDisplayLanguage(java.util.Locale.ENGLISH)
     var provider: Provider

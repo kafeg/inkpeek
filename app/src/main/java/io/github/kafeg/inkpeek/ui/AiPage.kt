@@ -30,7 +30,7 @@ class AiPage(private val card: CardActivity) {
 
     /** The answer, with "Thinking…" in [out] while it is asked; the other AI requests go out with it. */
     suspend fun CoroutineScope.await(out: TextView, ask: Ask): Result<JSONObject> {
-        val d = card.answers.all(card, ask)
+        val d = card.answers.all(card, ask, card.shownAsks)
         val dots = if (d.isCompleted) null else launch { var n = 0; while (true) { out.text = card.getString(R.string.thinking) + ".".repeat(n % 3 + 1); n++; delay(700) } }
         return d.await().also { dots?.cancel() }
     }

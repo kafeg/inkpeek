@@ -33,7 +33,7 @@
     <string name="key_file_ok">Из файла %1$s ✓</string>
     <string name="key_typed_ok">Введён ниже ✓</string>
     <string name="key_missing">Ключа нет: введите ниже или положите в %1$s</string>
-    <string name="ui_lang">Язык приложения и ответов</string>
+    <string name="ui_lang">Язык приложения</string>
     <string name="ui_lang_system">Как в системе</string>
     <string name="offline">Нет сети: AI-вкладки работают через интернет, словари — офлайн.</string>
     <string name="gloss_title">Перевод по словам (работает офлайн; нажмите на слово — откроется статья):</string>
@@ -90,7 +90,7 @@
     <string name="sec_explanation">Объяснение</string>
     <string name="card_main">Основные</string>
     <string name="card_look">Вид</string>
-    <string name="ui_lang_d">На этом же языке приходят ответы.</string>
+    <string name="ui_lang_d">Меню и настройки.</string>
     <string name="phrase_ai_d">Фраза или отрывок открывается на «Переводе», а не на переводе по словам.</string>
     <string name="look_height">Высота</string>
     <string name="look_height_d">По содержимому: небольшая карточка растёт с текстом, до 80% экрана.</string>
@@ -305,7 +305,6 @@
     <string name="mt_cannot_cpu">Нужен процессор с ускорением int8 (dot product).</string>
     <string name="mt_speed">≈ %1$s с на фразу на этом устройстве</string>
     <string name="mt_get">Скачать %1$d МБ.</string>
-    <string name="mt_drop">Модели прежнего метода (%1$d МБ) будут удалены.</string>
     <string name="mt_done">Метод перевода: %1$s</string>
     <string name="mt_no_models">Пока нет в списке пакетов.</string>
     <string name="sec_rel">Однокоренные</string>
@@ -356,4 +355,10 @@
     <string name="backup_done">Сохранено: %1$s</string>
     <string name="restore_done">Добавлено: %1$d</string>
     <string name="restore_bad">Это не резервная копия InkPeek.</string>
+    <string name="ans_lang">Язык ответов</string>
+    <string name="ans_lang_d">На этом языке приходят словари, переводы и ответы ИИ; пакеты на него — первыми.</string>
+    <string name="ans_lang_same">Как язык приложения</string>
+    <string name="mt_downloaded">Скачанные модели</string>
+    <string name="mt_remove_q">Удалить модель (%1$d МБ)? Её метод переводит эти пары через Mozilla, пока модель не скачана снова.</string>
+    <string name="mt_removed">Модель удалена</string>
 </resources>

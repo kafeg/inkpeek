@@ -34,7 +34,7 @@
     <string name="key_file_ok">From the file %1$s ✓</string>
     <string name="key_typed_ok">Typed below ✓</string>
     <string name="key_missing">No key: type it below or put it into %1$s</string>
-    <string name="ui_lang">Language of the app and the answers</string>
+    <string name="ui_lang">App language</string>
     <string name="ui_lang_system">As the system</string>
     <string name="offline">No network: AI tabs work online; dictionaries work offline.</string>
     <string name="gloss_title">Word by word (works offline; tap a word for its entry):</string>
@@ -91,7 +91,7 @@
     <string name="sec_explanation">Explanation</string>
     <string name="card_main">Main</string>
     <string name="card_look">Appearance</string>
-    <string name="ui_lang_d">The answers come in this language too.</string>
+    <string name="ui_lang_d">Menus and settings.</string>
     <string name="phrase_ai_d">A phrase or passage opens on Translate, not on the word-by-word list.</string>
     <string name="look_height">Height</string>
     <string name="look_height_d">By content: a small card that grows with its text, up to 80%.</string>
@@ -306,7 +306,6 @@
     <string name="mt_cannot_cpu">Needs a processor with int8 acceleration (dot product).</string>
     <string name="mt_speed">≈ %1$s s per phrase on this device</string>
     <string name="mt_get">Download %1$d MB.</string>
-    <string name="mt_drop">The previous method\'s models (%1$d MB) will be removed.</string>
     <string name="mt_done">Translation method: %1$s</string>
     <string name="mt_no_models">Not in the packs list yet.</string>
     <string name="sec_rel">Related words</string>
@@ -355,4 +354,10 @@
     <string name="backup_done">Saved: %1$s</string>
     <string name="restore_done">Added: %1$d</string>
     <string name="restore_bad">This is not an InkPeek backup.</string>
+    <string name="ans_lang">Language of the answers</string>
+    <string name="ans_lang_d">Dictionaries, translations and AI answers come in this language; the packs into it come first.</string>
+    <string name="ans_lang_same">As the app</string>
+    <string name="mt_downloaded">Downloaded models</string>
+    <string name="mt_remove_q">Remove this model (%1$d MB)? Its method uses Mozilla for these pairs until it is downloaded again.</string>
+    <string name="mt_removed">Model removed</string>
 </resources>

@@ -33,7 +33,7 @@
     <string name="key_file_ok">Del archivo %1$s ✓</string>
     <string name="key_typed_ok">Escrita abajo ✓</string>
     <string name="key_missing">Sin clave: escríbela abajo o ponla en %1$s</string>
-    <string name="ui_lang">Idioma de la app y de las respuestas</string>
+    <string name="ui_lang">Idioma de la app</string>
     <string name="ui_lang_system">Como el sistema</string>
     <string name="offline">Sin red: las pestañas de IA funcionan en línea; los diccionarios, sin conexión.</string>
     <string name="gloss_title">Palabra por palabra (funciona sin conexión; toca una palabra para ver su entrada):</string>
@@ -90,7 +90,7 @@
     <string name="sec_explanation">Explicación</string>
     <string name="card_main">General</string>
     <string name="card_look">Apariencia</string>
-    <string name="ui_lang_d">Las respuestas llegan también en este idioma.</string>
+    <string name="ui_lang_d">Menús y ajustes.</string>
     <string name="phrase_ai_d">Una frase o pasaje se abre en Traducir, no palabra por palabra.</string>
     <string name="look_height">Altura</string>
     <string name="look_height_d">Según el contenido: una tarjeta pequeña que crece con el texto, hasta 80%.</string>
@@ -305,7 +305,6 @@
     <string name="mt_cannot_cpu">Necesita un procesador con aceleración int8 (dot product).</string>
     <string name="mt_speed">≈ %1$s s por frase en este dispositivo</string>
     <string name="mt_get">Descargar %1$d MB.</string>
-    <string name="mt_drop">Se quitarán los modelos del método anterior (%1$d MB).</string>
     <string name="mt_done">Método de traducción: %1$s</string>
     <string name="mt_no_models">Aún no está en la lista de paquetes.</string>
     <string name="sec_rel">Palabras afines</string>
@@ -355,4 +354,10 @@
     <string name="backup_done">Guardado: %1$s</string>
     <string name="restore_done">Añadido: %1$d</string>
     <string name="restore_bad">No es una copia de seguridad de InkPeek.</string>
+    <string name="ans_lang">Idioma de las respuestas</string>
+    <string name="ans_lang_d">Diccionarios, traducciones y respuestas de la IA llegan en este idioma; primero los paquetes hacia él.</string>
+    <string name="ans_lang_same">Como la app</string>
+    <string name="mt_downloaded">Modelos descargados</string>
+    <string name="mt_remove_q">¿Quitar este modelo (%1$d MB)? Su método traduce estos pares con Mozilla hasta que se descargue de nuevo.</string>
+    <string name="mt_removed">Modelo quitado</string>
 </resources>

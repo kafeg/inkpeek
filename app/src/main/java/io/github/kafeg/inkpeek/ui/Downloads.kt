@@ -30,7 +30,9 @@ object Downloads {
     /** The open screen's refresh; called on the main thread on progress and at the end. */
     var listener: (() -> Unit)? = null
 
-    val busy: Boolean get() = job?.isActive == true
+    /** Set before the end is announced: the job itself is still active while it posts its last update. */
+    @Volatile private var running = false
+    val busy: Boolean get() = running
     @Volatile private var stop = false
 
     /** Stops the running download at its next chunk: the half-downloaded file is removed, nothing is installed. */
@@ -39,17 +41,21 @@ object Downloads {
     private fun run(ctx: Context, work: suspend (Context, (String) -> Unit) -> String) {
         if (busy) return
         // In the app's language (Card → Main), not the system's: the texts go to the screens.
-        val app = Ink.localized(ctx.applicationContext); result = null; status = "…"; stop = false
+        val app = Ink.localized(ctx.applicationContext); result = null; status = "…"; stop = false; running = true
         job = CoroutineScope(Dispatchers.IO).launch {
             var last = ""
             // E-ink: redraw only when the text changes (whole percents).
             val r = runCatching { work(app) { s ->
                 if (stop) throw java.util.concurrent.CancellationException()
                 if (s != last) { last = s; status = s; main.post { listener?.invoke() } } } }
-            Prefs(app).reload(); status = ""
-            result = r.getOrElse { if (it is java.util.concurrent.CancellationException) app.getString(R.string.cancelled)
-                else app.getString(R.string.failed, it.message ?: it.javaClass.simpleName) }
-            main.post { listener?.invoke() }
+            try {
+                runCatching { Prefs(app).reload() }; status = ""
+                result = r.getOrElse { if (it is java.util.concurrent.CancellationException) app.getString(R.string.cancelled)
+                    else app.getString(R.string.failed, it.message ?: it.javaClass.simpleName) }
+            } finally {
+                running = false
+                main.post { listener?.invoke() }
+            }
         }
         main.post { listener?.invoke() }
     }
