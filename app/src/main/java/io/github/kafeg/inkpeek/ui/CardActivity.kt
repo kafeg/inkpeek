@@ -109,7 +109,18 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1
             open(back[0])
             if (back[0] != DICT && restoreScroll >= 0) scroll.postDelayed({ scrollBack() }, 400)
-        } else open(if (kind != Kind.WORD && prefs.phraseAutoAi && canTranslate) TRANSLATE else DICT)
+        } else open(if (kind == Kind.WORD) DICT else phraseTab())
+    }
+
+    /**
+     * A phrase's first tab (Card → Opening): the offline translation, by AI (a setting chosen, so AI asks at once), word
+     * by word, or an AI tab; what cannot be shown now gives Dictionary (word by word).
+     */
+    private fun phraseTab(): String = when (val o = prefs.phraseOpen) {
+        "offline" -> if (offlineOk) TRANSLATE.also { translate.by = "offline"; translate.auto = true } else DICT
+        "ai" -> if (prefs.aiOn) TRANSLATE.also { translate.by = "ai" } else DICT
+        "analysis", "context" -> if (actions.any { it.id == o }) o else DICT
+        else -> DICT
     }
 
     /** The scroll a returned-to page was left at, once. */
@@ -267,7 +278,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /** Offline translation: a pack's models are installed and its use is on (Languages → What the card takes). */
-    val offlineOk: Boolean by lazy { prefs.packMt && prefs.packs.installed().keys.any { it.startsWith("model-") } }
+    val offlineOk: Boolean by lazy { prefs.mtMethod != "off" && prefs.packs.installed().keys.any { it.startsWith("model-") } }
     /** Translate is there when AI is on or offline translation can work; else no icon at all. */
     val canTranslate: Boolean get() = prefs.aiOn || offlineOk
 

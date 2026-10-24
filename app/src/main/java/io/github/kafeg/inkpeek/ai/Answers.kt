@@ -23,7 +23,7 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         return scope.async(Dispatchers.IO) { runCatching {
             store.answer(text, lang, ask.section, ask.version)?.let { return@runCatching JSONObject(it) }
             if (!online()) throw Offline()
-            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr))
+            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr), source())
                 .also { runCatching { store.putAnswer(text, lang, ask.section, ask.version, model, it.toString()) } }
         } }.also { started[ask] = it }
     }
@@ -31,7 +31,13 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
     /** [first], then the others the card shows ([shown]) at once: whichever AI tab opens, the others' answers are on their
      *  way and saved. A hidden tab's request is not sent. */
     fun all(scope: CoroutineScope, first: Ask, shown: Collection<Ask>): Deferred<Result<JSONObject>> =
-        get(scope, first).also { shown.filter { it != first }.forEach { a -> get(scope, a) } }
+        get(scope, first).also { if (prefs.aiPrefetch) shown.filter { it != first }.forEach { a -> get(scope, a) } }
+
+    /** The text's language as the offline side finds it (fastText, then the pack that knows more words), in English. */
+    private fun source(): String? = runCatching {
+        val (book, other) = io.github.kafeg.inkpeek.mt.LangId.source(text, prefs.answerCode, prefs.packs, prefs.packDictionaries())
+        (book ?: other)?.let { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
+    }.getOrNull()
 
     /** Why an AI tab cannot open now (a string id), or null. Blocking. */
     fun block(ask: Ask): Int? {

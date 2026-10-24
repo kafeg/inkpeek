@@ -42,7 +42,11 @@ class CardSettings(private val a: MainActivity) {
             listOf(a.getString(R.string.dict_short), a.getString(R.string.dict_full)), if (prefs.cardFull) 1 else 0) { prefs.cardFull = it == 1 })
         t.addView(Rows.info(a, null, a.getString(R.string.order_t), a.getString(R.string.order_d), page = true) {
             a.startActivity(android.content.Intent(a, OrderActivity::class.java)) })
-        t.addView(Rows.check(a, a.getString(R.string.phrase_ai), a.getString(R.string.phrase_ai_d), prefs.phraseAutoAi) { prefs.phraseAutoAi = it })
+        // What a phrase opens on: offline or AI translation, word by word, an AI tab (AI then asks on every opening).
+        val opens = listOf("offline" to R.string.open_offline, "ai" to R.string.open_ai, "dict" to R.string.open_dict,
+            "analysis" to R.string.a_analysis, "context" to R.string.a_context)
+        t.addView(Rows.choice(a, a.getString(R.string.phrase_open), a.getString(R.string.phrase_open_d), opens.map { a.getString(it.second) },
+            opens.indexOfFirst { it.first == prefs.phraseOpen }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
     }
 
     private fun buildLook(t: LinearLayout) {

@@ -18,10 +18,9 @@ class AiPage(private val card: CardActivity) {
         card.launch {
             val r = await(out, ask(tab))
             r.fold({ card.markdown(out, render(tab, it)) }, { e ->
-                // The error, and for a phrase or passage the offline gloss under it; the tab asks again next time.
+                // The error; the tab asks again next time.
                 out.text = if (e is Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
                 card.forget(tab)
-                if (card.kind != Kind.WORD) card.dictionary.under(p, this)
             })
         }
     }

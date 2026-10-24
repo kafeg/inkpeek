@@ -172,14 +172,16 @@ object Ai {
     var remember: (String, Int) -> Unit = { _, _ -> }
 
     /** Blocking; call off the main thread. The answer is the model's JSON object. */
-    fun ask(p: Provider, key: String, model: String, ask: Ask, text: String, lang: String, url: String = p.baseUrl): JSONObject {
+    /** [source]: the text's language as the packs tell it ("German"), a hint the model may overrule; null: none. */
+    fun ask(p: Provider, key: String, model: String, ask: Ask, text: String, lang: String, url: String = p.baseUrl, source: String? = null): JSONObject {
         if (p == Provider.CUSTOM && url.isBlank()) throw AiError("No server address")
         if (key.isBlank() && p != Provider.CUSTOM) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")
         val kind = Kind.of(text)
         val what = when (kind) { Kind.WORD -> "a single word"; Kind.PHRASE -> "a short phrase"
             Kind.PASSAGE -> "a passage of about ${Kind.words(text)} words" }
-        val prompt = "The selection is $what.\n" + ask.prompt(edited).replace("{text}", text).replace("{lang}", lang)
+        val prompt = "The selection is $what.\n" + (source?.let { "The text is probably $it.\n" } ?: "") +
+            ask.prompt(edited).replace("{text}", text).replace("{lang}", lang)
         val t0 = System.currentTimeMillis()
         val raw = stripThinking(if (p == Provider.ANTHROPIC) claude(key, model, prompt, system(lang), ask) else openAi(p, url, key, model, prompt, system(lang), ask)).trim()
         Log.i("InkPeek", "ai ${p.name} $model ${ask.section} ${kind.name} ${System.currentTimeMillis() - t0} ms, ${raw.length} chars")

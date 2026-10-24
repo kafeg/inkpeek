@@ -15,7 +15,10 @@ class Prefs(private val ctx: Context) {
 
     /** "" = system, else a language code with resources (Prefs.ANSWERS). */
     var uiLang: String get() = sp.getString("ui_lang", "")!!; set(v) = sp.edit().putString("ui_lang", v).apply()
-    var phraseAutoAi: Boolean get() = sp.getBoolean("phrase_auto_ai", true); set(v) = sp.edit().putBoolean("phrase_auto_ai", v).apply()
+    /** What a phrase opens on: "offline" (translation), "ai" (translation), "dict" (word by word), "analysis", "context". */
+    var phraseOpen: String get() = sp.getString("phrase_open", "offline")!!; set(v) = sp.edit().putString("phrase_open", v).apply()
+    /** Opening one AI tab asks for the card's other AI tabs at once (they open without waiting). */
+    var aiPrefetch: Boolean get() = sp.getBoolean("ai_prefetch", true); set(v) = sp.edit().putBoolean("ai_prefetch", v).apply()
 
     /** The card's look (Card → Appearance); the defaults are the 0.3 card. Height 0 = by its content. */
     var cardHeight: Int get() = sp.getInt("card_height", 80); set(v) = sp.edit().putInt("card_height", v).apply()
@@ -95,9 +98,11 @@ class Prefs(private val ctx: Context) {
     fun setAiKey(k: String, on: Boolean) = sp.edit().putBoolean("ai_key_$k", on).apply()
     fun packSection(k: String) = sp.getBoolean("pack_sec_$k", k != "ety")
     fun setPackSection(k: String, on: Boolean) = sp.edit().putBoolean("pack_sec_$k", on).apply()
-    var packMt: Boolean get() = sp.getBoolean("pack_mt", true); set(v) = sp.edit().putBoolean("pack_mt", v).apply()
+
     /** Offline translation method: fast (Mozilla, through English) | direct (OPUS-MT) | llm (an AI model on the device). */
-    var mtMethod: String get() = sp.getString("mt_method", "fast")!!; set(v) = sp.edit().putString("mt_method", v).apply()
+    /** Offline translation: "off", "fast" (Mozilla), "direct" (OPUS-MT), "llm"; "off" also for the old switch turned off. */
+    var mtMethod: String get() = sp.getString("mt_method", if (sp.getBoolean("pack_mt", true)) "fast" else "off")!!
+        set(v) = sp.edit().putString("mt_method", v).apply()
     /** A method's measured time per phrase on this device, ms (0: not measured). */
     fun mtSpeed(method: String) = sp.getInt("mt_speed_$method", 0)
     fun setMtSpeed(method: String, ms: Int) = sp.edit().putInt("mt_speed_$method", ms).apply()

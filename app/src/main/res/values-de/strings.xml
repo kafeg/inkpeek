@@ -8,7 +8,6 @@
     <string name="allow_files">Dateizugriff erlauben (nötig für %1$s)</string>
     <string name="status">%1$d Wörterbücher · KI: %2$s</string>
     <string name="status_busy">%1$d Wörterbücher · %2$d werden im Hintergrund indiziert… · KI: %3$s</string>
-    <string name="phrase_ai">Phrasen: gleich mit „Übersetzung“ öffnen</string>
     <string name="key_hint">API-Schlüssel (oder Schlüsseldatei)</string>
     <string name="save_key">Schlüssel speichern</string>
     <string name="saved">Gespeichert</string>
@@ -91,7 +90,6 @@
     <string name="card_main">Allgemein</string>
     <string name="card_look">Darstellung</string>
     <string name="ui_lang_d">Menüs und Einstellungen.</string>
-    <string name="phrase_ai_d">Eine Phrase oder Passage öffnet beim Übersetzen, nicht Wort für Wort.</string>
     <string name="look_height">Höhe</string>
     <string name="look_height_d">Nach Inhalt: eine kleine Karte wächst mit dem Text, bis 80%.</string>
     <string name="look_height_auto">Nach Inhalt</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Artikel im Reiter Wörterbuch und die Wort-für-Wort-Übersetzung.</string>
     <string name="pack_gram_t">Grammatik</string>
     <string name="pack_gram_d">Kopf der Karte: Artikel, Plural, Verbformen (das Haus, Pl. Häuser).</string>
-    <string name="pack_mt_t">Offline-Übersetzung</string>
-    <string name="pack_mt_d">Der Tab Offline unter Übersetzen: auf dem Gerät, mit der Methode unten.</string>
     <string name="own_title">Ihre Wörterbücher</string>
     <string name="own_none">Noch keine: herunterladen oder Dateien importieren (StarDict, wie in KOReader).</string>
     <string name="import_file">Dateien importieren</string>
@@ -359,4 +355,11 @@
     <string name="mt_downloaded">Heruntergeladene Modelle</string>
     <string name="mt_remove_q">Dieses Modell (%1$d MB) entfernen? Seine Methode übersetzt diese Paare mit Mozilla, bis es erneut geladen ist.</string>
     <string name="mt_removed">Modell entfernt</string>
+    <string name="phrase_open">Wendung öffnet mit</string>
+    <string name="phrase_open_d">Eine KI-Wahl fragt die KI bei jedem Öffnen.</string>
+    <string name="open_offline">Übersetzung, offline</string>
+    <string name="open_ai">Übersetzung, KI</string>
+    <string name="open_dict">Wörterbuch, Wort für Wort</string>
+    <string name="mt_off_t">Aus</string>
+    <string name="mt_off_d">Keine Offline-Übersetzung: im Tab Übersetzen nur KI.</string>
 </resources>

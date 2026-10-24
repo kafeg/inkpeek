@@ -8,7 +8,6 @@
     <string name="allow_files">Autoriser l\'accès aux fichiers (requis pour %1$s)</string>
     <string name="status">%1$d dictionnaires · IA : %2$s</string>
     <string name="status_busy">%1$d dictionnaires · indexation de %2$d en arrière-plan… · IA : %3$s</string>
-    <string name="phrase_ai">Expressions : ouvrir sur « Traduire »</string>
     <string name="key_hint">Clé API (ou fichier de clé)</string>
     <string name="save_key">Enregistrer la clé</string>
     <string name="saved">Enregistré</string>
@@ -91,7 +90,6 @@
     <string name="card_main">Général</string>
     <string name="card_look">Apparence</string>
     <string name="ui_lang_d">Menus et réglages.</string>
-    <string name="phrase_ai_d">Une phrase ou un passage s\'ouvre sur Traduire, pas mot à mot.</string>
     <string name="look_height">Hauteur</string>
     <string name="look_height_d">Selon le contenu : une petite fiche qui grandit avec le texte, jusqu\'à 80 %.</string>
     <string name="look_height_auto">Selon le contenu</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Les articles de l\'onglet Dictionnaire et la traduction mot à mot.</string>
     <string name="pack_gram_t">Grammaire</string>
     <string name="pack_gram_d">L\'en-tête : article, pluriel, formes du verbe (das Haus, pl. Häuser).</string>
-    <string name="pack_mt_t">Traduction hors ligne</string>
-    <string name="pack_mt_d">L\'onglet Hors ligne de Traduire : sur l\'appareil, avec la méthode ci-dessous.</string>
     <string name="own_title">Vos dictionnaires</string>
     <string name="own_none">Aucun : téléchargez-en ou importez des fichiers (StarDict, comme KOReader).</string>
     <string name="import_file">Importer des fichiers</string>
@@ -360,4 +356,11 @@
     <string name="mt_downloaded">Modèles téléchargés</string>
     <string name="mt_remove_q">Supprimer ce modèle (%1$d Mo) ? Sa méthode traduit ces paires avec Mozilla jusqu\'à un nouveau téléchargement.</string>
     <string name="mt_removed">Modèle supprimé</string>
+    <string name="phrase_open">Une phrase s\'ouvre sur</string>
+    <string name="phrase_open_d">Un choix IA interroge l\'IA à chaque ouverture.</string>
+    <string name="open_offline">Traduction, hors ligne</string>
+    <string name="open_ai">Traduction, IA</string>
+    <string name="open_dict">Dictionnaire, mot à mot</string>
+    <string name="mt_off_t">Désactivé</string>
+    <string name="mt_off_d">Pas de traduction hors ligne : l\'onglet Traduire est IA seulement.</string>
 </resources>

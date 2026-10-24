@@ -8,7 +8,6 @@
     <string name="allow_files">Разрешить доступ к файлам (нужно для %1$s)</string>
     <string name="status">Словарей: %1$d · AI: %2$s</string>
     <string name="status_busy">Словарей: %1$d · индексируется в фоне: %2$d… · AI: %3$s</string>
-    <string name="phrase_ai">Фразы: открывать сразу «Перевод»</string>
     <string name="key_hint">API-ключ (или файл ключа)</string>
     <string name="save_key">Сохранить ключ</string>
     <string name="saved">Сохранено</string>
@@ -91,7 +90,6 @@
     <string name="card_main">Основные</string>
     <string name="card_look">Вид</string>
     <string name="ui_lang_d">Меню и настройки.</string>
-    <string name="phrase_ai_d">Фраза или отрывок открывается на «Переводе», а не на переводе по словам.</string>
     <string name="look_height">Высота</string>
     <string name="look_height_d">По содержимому: небольшая карточка растёт с текстом, до 80% экрана.</string>
     <string name="look_height_auto">По содержимому</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Статьи во вкладке «Словарь» и перевод по словам.</string>
     <string name="pack_gram_t">Грамматика</string>
     <string name="pack_gram_d">Заголовок карточки: род, мн. число, формы глагола (das Haus, мн. Häuser).</string>
-    <string name="pack_mt_t">Офлайн-перевод</string>
-    <string name="pack_mt_d">Вкладка «Офлайн» в переводе: на устройстве, методом ниже.</string>
     <string name="own_title">Ваши словари</string>
     <string name="own_none">Пока нет: скачайте или импортируйте файлы (StarDict, как в KOReader).</string>
     <string name="import_file">Импорт файлов</string>
@@ -361,4 +357,11 @@
     <string name="mt_downloaded">Скачанные модели</string>
     <string name="mt_remove_q">Удалить модель (%1$d МБ)? Её метод переводит эти пары через Mozilla, пока модель не скачана снова.</string>
     <string name="mt_removed">Модель удалена</string>
+    <string name="phrase_open">Фраза открывается на</string>
+    <string name="phrase_open_d">Выбор с AI — запрос к AI при каждом открытии.</string>
+    <string name="open_offline">Перевод, офлайн</string>
+    <string name="open_ai">Перевод, AI</string>
+    <string name="open_dict">Словарь, перевод по словам</string>
+    <string name="mt_off_t">Выключено</string>
+    <string name="mt_off_d">Без офлайн-перевода: во вкладке «Перевод» только AI.</string>
 </resources>

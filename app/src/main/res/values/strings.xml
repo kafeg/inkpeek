@@ -9,7 +9,6 @@
     <string name="allow_files">Allow access to files (needed for %1$s)</string>
     <string name="status">%1$d dictionaries · AI: %2$s</string>
     <string name="status_busy">%1$d dictionaries · indexing %2$d in the background… · AI: %3$s</string>
-    <string name="phrase_ai">Phrases: open on Translate</string>
     <string name="key_hint">API key (or a key file)</string>
     <string name="save_key">Save key</string>
     <string name="saved">Saved</string>
@@ -92,7 +91,6 @@
     <string name="card_main">Main</string>
     <string name="card_look">Appearance</string>
     <string name="ui_lang_d">Menus and settings.</string>
-    <string name="phrase_ai_d">A phrase or passage opens on Translate, not on the word-by-word list.</string>
     <string name="look_height">Height</string>
     <string name="look_height_d">By content: a small card that grows with its text, up to 80%.</string>
     <string name="look_height_auto">By content</string>
@@ -123,8 +121,6 @@
     <string name="pack_dicts_d">Articles in the Dictionary tab and the word-by-word translation.</string>
     <string name="pack_gram_t">Grammar</string>
     <string name="pack_gram_d">The card\'s header: article, plural, verb forms (das Haus, pl. Häuser).</string>
-    <string name="pack_mt_t">Offline translation</string>
-    <string name="pack_mt_d">The Offline tab of Translate: on the device, by the method below.</string>
     <string name="own_title">Your dictionaries</string>
     <string name="own_none">None yet: download some or import files (StarDict, as in KOReader).</string>
     <string name="import_file">Import files</string>
@@ -360,4 +356,11 @@
     <string name="mt_downloaded">Downloaded models</string>
     <string name="mt_remove_q">Remove this model (%1$d MB)? Its method uses Mozilla for these pairs until it is downloaded again.</string>
     <string name="mt_removed">Model removed</string>
+    <string name="phrase_open">Phrase opens on</string>
+    <string name="phrase_open_d">An AI choice asks AI on every opening.</string>
+    <string name="open_offline">Translation, offline</string>
+    <string name="open_ai">Translation, AI</string>
+    <string name="open_dict">Dictionary, word by word</string>
+    <string name="mt_off_t">Off</string>
+    <string name="mt_off_d">No offline translation: the Translate tab is AI only.</string>
 </resources>

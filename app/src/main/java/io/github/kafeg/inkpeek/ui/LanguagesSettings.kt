@@ -44,7 +44,6 @@ class LanguagesSettings(private val a: MainActivity) {
         t.addView(Rows.heading(a, a.getString(R.string.pack_use)))
         t.addView(Rows.check(a, a.getString(R.string.pack_dicts_t), a.getString(R.string.pack_dicts_d), prefs.packDicts) { prefs.packDicts = it; a.refreshStatus() })
         t.addView(Rows.check(a, a.getString(R.string.pack_gram_t), a.getString(R.string.pack_gram_d), prefs.packGrammar) { prefs.packGrammar = it })
-        t.addView(Rows.check(a, a.getString(R.string.pack_mt_t), a.getString(R.string.pack_mt_d), prefs.packMt) { prefs.packMt = it })
         methodBox = Ink.vertical(a); t.addView(methodBox)
         t.addView(Rows.heading(a, a.getString(R.string.get_title)))
         t.addView(Rows.info(a, null, a.getString(R.string.packs_source), a.getString(R.string.packs_source_d)))
@@ -70,7 +69,7 @@ class LanguagesSettings(private val a: MainActivity) {
     private fun refreshMethod() {
         if (!::methodBox.isInitialized) return
         methodBox.removeAllViews()
-        val name = a.getString(when (prefs.mtMethod) { "direct" -> R.string.mt_direct_t; "llm" -> R.string.mt_llm_t; else -> R.string.mt_fast_t })
+        val name = a.getString(when (prefs.mtMethod) { "off" -> R.string.mt_off_t; "direct" -> R.string.mt_direct_t; "llm" -> R.string.mt_llm_t; else -> R.string.mt_fast_t })
         methodBox.addView(Rows.info(a, null, a.getString(R.string.mt_t), name, page = true) {
             a.startActivity(android.content.Intent(a, TranslationActivity::class.java)) })
     }

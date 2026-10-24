@@ -150,8 +150,6 @@ class DictionaryPage(private val card: CardActivity) {
         job = rows(p) { w -> card.lookUp(w) }
     }
 
-    /** The gloss under another tab's text (offline, or when AI fails), in that tab's [scope]; a tap opens the word's card. */
-    fun under(p: LinearLayout, scope: CoroutineScope): Job { p.addView(View(card), Ink.lp(h = Ink.dp(card, 12))); return rows(p, scope) { card.lookUp(it) } }
 
     /** One row of a word list (the gloss, related words): its text, a thin line under it; a tap does [tap]. */
     private fun listRow(p: LinearLayout, html: String, tap: () -> Unit) {

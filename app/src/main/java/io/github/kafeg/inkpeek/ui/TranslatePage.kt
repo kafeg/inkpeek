@@ -15,11 +15,13 @@ import kotlinx.coroutines.withContext
 import java.util.Locale
 
 /**
- * Translate: by AI when it can answer (on, set up, online) — its tab first; else offline on the device (through English
- * when neither side is English). Each tab only when it can be used: AI on, a pack's models installed.
+ * Translate: offline on the device first (through English when neither side is English), AI second and only when its
+ * tab is tapped (or chosen as what a phrase opens on). Each tab only when it can be used: a pack's models, AI on.
  */
 class TranslatePage(private val card: CardActivity) {
-    private var by = ""
+    var by = ""
+    /** Opened by the card itself: a text with no offline translation goes on to Dictionary (word by word). */
+    var auto = false
     private var job: Job? = null
 
     fun fill(p: LinearLayout) {
@@ -28,9 +30,9 @@ class TranslatePage(private val card: CardActivity) {
             val aiOn = card.prefs.aiOn
             val block = if (aiOn) withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) } else null
             val aiOk = aiOn && block == null
-            if (by.isEmpty()) by = if (aiOk || !card.offlineOk) "ai" else "offline"
+            if (by.isEmpty()) by = if (card.offlineOk) "offline" else "ai"
             if (aiOn && card.offlineOk) {
-                val tabs = listOf("ai" to "AI", "offline" to card.getString(R.string.mt_offline)).let { if (aiOk) it else it.reversed() }
+                val tabs = listOf("offline" to card.getString(R.string.mt_offline), "ai" to "AI")
                 val seg = Ink.subTabs(card, tabs, by, card.size * 0.75f) { k ->
                     if (k == "ai" && !aiOk) block?.let { card.toast(card.getString(it)) }
                     else { by = k; fill(p) }
@@ -42,13 +44,12 @@ class TranslatePage(private val card: CardActivity) {
             when {
                 by == "ai" && aiOk -> with(card.ai) { await(out, Ask.QUICK) }.fold(
                     { card.markdown(out, card.ai.render(CardActivity.TRANSLATE, it)) }, { e ->
-                        // As in the AI tabs: the error, the offline gloss under a phrase, and a new try next time.
+                        // The error, and a new try next time.
                         out.text = if (e is io.github.kafeg.inkpeek.ai.Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
                         card.forget(CardActivity.TRANSLATE)
-                        if (card.kind != Kind.WORD) card.dictionary.under(p, this@launch)
                     })
                 // AI cannot answer now and there is no offline translation: say why.
-                by == "ai" -> { out.text = block?.let { card.getString(it) }.orEmpty(); if (card.kind != Kind.WORD) card.dictionary.under(p, this) }
+                by == "ai" -> out.text = block?.let { card.getString(it) }.orEmpty()
                 else -> offline(p, out)
             }
         }
@@ -69,7 +70,8 @@ class TranslatePage(private val card: CardActivity) {
                 r.other != null -> card.getString(R.string.lang_unsupported, Locale(r.other).getDisplayLanguage(locale))
                 else -> card.getString(R.string.mt_missing)
             }, out.textSize)
-            if (card.kind != Kind.WORD) card.dictionary.under(p, this)
+            // Opened by the card itself: no translation for this text, so its words in Dictionary instead.
+            if (auto && card.kind != Kind.WORD) { auto = false; card.open(CardActivity.DICT) }
             return
         }
         // Which language and how, in small print at the card's bottom: the translation alone in the page.

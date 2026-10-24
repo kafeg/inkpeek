@@ -8,7 +8,6 @@
     <string name="allow_files">Permitir acceso a archivos (necesario para %1$s)</string>
     <string name="status">%1$d diccionarios · IA: %2$s</string>
     <string name="status_busy">%1$d diccionarios · indexando %2$d en segundo plano… · IA: %3$s</string>
-    <string name="phrase_ai">Frases: abrir en «Traducir»</string>
     <string name="key_hint">Clave de API (o un archivo de clave)</string>
     <string name="save_key">Guardar clave</string>
     <string name="saved">Guardado</string>
@@ -91,7 +90,6 @@
     <string name="card_main">General</string>
     <string name="card_look">Apariencia</string>
     <string name="ui_lang_d">Menús y ajustes.</string>
-    <string name="phrase_ai_d">Una frase o pasaje se abre en Traducir, no palabra por palabra.</string>
     <string name="look_height">Altura</string>
     <string name="look_height_d">Según el contenido: una tarjeta pequeña que crece con el texto, hasta 80%.</string>
     <string name="look_height_auto">Según el contenido</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Los artículos de la pestaña Diccionario y la traducción palabra por palabra.</string>
     <string name="pack_gram_t">Gramática</string>
     <string name="pack_gram_d">La cabecera: artículo, plural, formas verbales (das Haus, pl. Häuser).</string>
-    <string name="pack_mt_t">Traducción sin conexión</string>
-    <string name="pack_mt_d">La pestaña Sin conexión de Traducir: en el dispositivo, con el método de abajo.</string>
     <string name="own_title">Tus diccionarios</string>
     <string name="own_none">Aún ninguno: descarga o importa archivos (StarDict, como en KOReader).</string>
     <string name="import_file">Importar archivos</string>
@@ -360,4 +356,11 @@
     <string name="mt_downloaded">Modelos descargados</string>
     <string name="mt_remove_q">¿Quitar este modelo (%1$d MB)? Su método traduce estos pares con Mozilla hasta que se descargue de nuevo.</string>
     <string name="mt_removed">Modelo quitado</string>
+    <string name="phrase_open">Una frase se abre en</string>
+    <string name="phrase_open_d">Una opción de IA consulta a la IA en cada apertura.</string>
+    <string name="open_offline">Traducción, sin conexión</string>
+    <string name="open_ai">Traducción, IA</string>
+    <string name="open_dict">Diccionario, palabra por palabra</string>
+    <string name="mt_off_t">Desactivado</string>
+    <string name="mt_off_d">Sin traducción sin conexión: la pestaña Traducir es solo IA.</string>
 </resources>

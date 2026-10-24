@@ -77,7 +77,7 @@ class TranslationActivity : Activity(), CoroutineScope by MainScope() {
     private fun show() {
         list.removeAllViews()
         val installed = prefs.packs.installed(); val pairs = prefs.packs.installedPairs()
-        listOf(Triple("fast", R.string.mt_fast_t, R.string.mt_fast_d), Triple("direct", R.string.mt_direct_t, R.string.mt_direct_d),
+        listOf(Triple("off", R.string.mt_off_t, R.string.mt_off_d), Triple("fast", R.string.mt_fast_t, R.string.mt_fast_d), Triple("direct", R.string.mt_direct_t, R.string.mt_direct_d),
             Triple("llm", R.string.mt_llm_t, R.string.mt_llm_d)).forEach { (m, title, about) ->
             val why = cannot(m)
             val lines = mutableListOf(getString(about))

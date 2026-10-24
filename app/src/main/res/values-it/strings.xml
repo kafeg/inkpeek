@@ -8,7 +8,6 @@
     <string name="allow_files">Consenti l\'accesso ai file (serve per %1$s)</string>
     <string name="status">%1$d dizionari · IA: %2$s</string>
     <string name="status_busy">%1$d dizionari · indicizzazione di %2$d in background… · IA: %3$s</string>
-    <string name="phrase_ai">Frasi: apri su «Traduci»</string>
     <string name="key_hint">Chiave API (o un file con la chiave)</string>
     <string name="save_key">Salva chiave</string>
     <string name="saved">Salvato</string>
@@ -91,7 +90,6 @@
     <string name="card_main">Generale</string>
     <string name="card_look">Aspetto</string>
     <string name="ui_lang_d">Menu e impostazioni.</string>
-    <string name="phrase_ai_d">Una frase o un passo si apre su Traduci, non parola per parola.</string>
     <string name="look_height">Altezza</string>
     <string name="look_height_d">Secondo il contenuto: una scheda piccola che cresce col testo, fino all\'80%.</string>
     <string name="look_height_auto">Secondo il contenuto</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Le voci della scheda Dizionario e la traduzione parola per parola.</string>
     <string name="pack_gram_t">Grammatica</string>
     <string name="pack_gram_d">L\'intestazione: articolo, plurale, forme verbali (das Haus, pl. Häuser).</string>
-    <string name="pack_mt_t">Traduzione offline</string>
-    <string name="pack_mt_d">La scheda Offline di Traduci: sul dispositivo, con il metodo qui sotto.</string>
     <string name="own_title">I tuoi dizionari</string>
     <string name="own_none">Ancora nessuno: scaricali o importa file (StarDict, come in KOReader).</string>
     <string name="import_file">Importa file</string>
@@ -360,4 +356,11 @@
     <string name="mt_downloaded">Modelli scaricati</string>
     <string name="mt_remove_q">Rimuovere questo modello (%1$d MB)? Il suo metodo traduce queste coppie con Mozilla finché non viene riscaricato.</string>
     <string name="mt_removed">Modello rimosso</string>
+    <string name="phrase_open">Una frase si apre su</string>
+    <string name="phrase_open_d">Una scelta IA interroga l\'IA a ogni apertura.</string>
+    <string name="open_offline">Traduzione, offline</string>
+    <string name="open_ai">Traduzione, IA</string>
+    <string name="open_dict">Dizionario, parola per parola</string>
+    <string name="mt_off_t">Disattivato</string>
+    <string name="mt_off_d">Nessuna traduzione offline: la scheda Traduci è solo IA.</string>
 </resources>

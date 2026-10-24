@@ -8,7 +8,6 @@
     <string name="allow_files">Zezwól na dostęp do plików (potrzebny dla %1$s)</string>
     <string name="status">Słowniki: %1$d · AI: %2$s</string>
     <string name="status_busy">Słowniki: %1$d · indeksowanie w tle: %2$d… · AI: %3$s</string>
-    <string name="phrase_ai">Wyrażenia: otwieraj od razu „Tłumaczenie”</string>
     <string name="key_hint">Klucz API (lub plik z kluczem)</string>
     <string name="save_key">Zapisz klucz</string>
     <string name="saved">Zapisano</string>
@@ -91,7 +90,6 @@
     <string name="card_main">Ogólne</string>
     <string name="card_look">Wygląd</string>
     <string name="ui_lang_d">Menu i ustawienia.</string>
-    <string name="phrase_ai_d">Fraza lub fragment otwiera się w Tłumacz, nie słowo po słowie.</string>
     <string name="look_height">Wysokość</string>
     <string name="look_height_d">Według treści: mała karta rośnie z tekstem, do 80%.</string>
     <string name="look_height_auto">Według treści</string>
@@ -122,8 +120,6 @@
     <string name="pack_dicts_d">Hasła w karcie Słownik i tłumaczenie słowo po słowie.</string>
     <string name="pack_gram_t">Gramatyka</string>
     <string name="pack_gram_d">Nagłówek karty: rodzajnik, l. mnoga, formy czasownika (das Haus, lm. Häuser).</string>
-    <string name="pack_mt_t">Tłumaczenie offline</string>
-    <string name="pack_mt_d">Karta Offline w Tłumaczeniu: na urządzeniu, metodą poniżej.</string>
     <string name="own_title">Twoje słowniki</string>
     <string name="own_none">Jeszcze brak: pobierz lub zaimportuj pliki (StarDict, jak w KOReader).</string>
     <string name="import_file">Importuj pliki</string>
@@ -361,4 +357,11 @@
     <string name="mt_downloaded">Pobrane modele</string>
     <string name="mt_remove_q">Usunąć ten model (%1$d MB)? Jego metoda tłumaczy te pary przez Mozillę, dopóki nie zostanie pobrany ponownie.</string>
     <string name="mt_removed">Model usunięty</string>
+    <string name="phrase_open">Fraza otwiera się na</string>
+    <string name="phrase_open_d">Wybór z AI pyta AI przy każdym otwarciu.</string>
+    <string name="open_offline">Tłumaczenie, offline</string>
+    <string name="open_ai">Tłumaczenie, AI</string>
+    <string name="open_dict">Słownik, słowo po słowie</string>
+    <string name="mt_off_t">Wyłączone</string>
+    <string name="mt_off_d">Bez tłumaczenia offline: karta Tłumaczenie tylko z AI.</string>
 </resources>
