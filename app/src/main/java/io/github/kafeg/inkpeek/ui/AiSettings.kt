@@ -107,15 +107,15 @@ class AiSettings(private val a: MainActivity) {
         val t = modules; t.removeAllViews()
         t.addView(Rows.heading(a, a.getString(R.string.prompt_quick_t), first = true))
         val quickEdited = Ask.QUICK.keys.any { prefs.prompt("${Ask.QUICK.section}.${it.name}") != null }
-        t.addView(withEdit(Rows.check(a, a.getString(R.string.ai_tr_t), mark(quickEdited, a.getString(R.string.ai_tr_d)), prefs.aiTranslate) { prefs.aiTranslate = it }) {
-            edit(Ask.QUICK, a.getString(R.string.prompt_quick_t)) })
+        t.addView(Rows.check(a, a.getString(R.string.ai_tr_t), mark(quickEdited, a.getString(R.string.ai_tr_d)), prefs.aiTranslate,
+            edit = { edit(Ask.QUICK, a.getString(R.string.prompt_quick_t)) }) { prefs.aiTranslate = it })
         listOf(Ask.ANALYSIS to R.string.a_analysis, Ask.CONTEXT to R.string.a_context).forEach { (ask, title) ->
             t.addView(Rows.heading(a, a.getString(title)))
             ask.keys.forEach { k ->
                 val id = "${ask.section}.${k.name}"
                 val (name, about) = KEYS[k.name] ?: return@forEach
-                t.addView(withEdit(Rows.check(a, a.getString(name), mark(prefs.prompt(id) != null, a.getString(about)), prefs.aiKey(id) ?: !k.extra) { prefs.setAiKey(id, it) }) {
-                    editKey(ask, k, a.getString(name)) })
+                t.addView(Rows.check(a, a.getString(name), mark(prefs.prompt(id) != null, a.getString(about)), prefs.aiKey(id) ?: !k.extra,
+                    edit = { editKey(ask, k, a.getString(name)) }) { prefs.setAiKey(id, it) })
             }
         }
         t.addView(Rows.check(a, a.getString(R.string.prefetch_t), a.getString(R.string.prefetch_d), prefs.aiPrefetch) { prefs.aiPrefetch = it }.apply {

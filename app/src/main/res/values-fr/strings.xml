@@ -35,7 +35,7 @@
     <string name="ui_lang">Langue de l\'application</string>
     <string name="ui_lang_system">Comme le système</string>
     <string name="offline">Pas de réseau : les onglets IA fonctionnent en ligne, les dictionnaires hors ligne.</string>
-    <string name="gloss_title">Mot à mot (hors ligne ; touchez un mot pour voir son article) :</string>
+    <string name="gloss_title">Mot à mot (hors ligne ; › ouvre un mot) :</string>
     <string name="err_offline">Pas de réseau. L\'IA a besoin d\'Internet ; l\'onglet Dictionnaire fonctionne hors ligne.</string>
     <string name="err_unreachable">Le serveur IA ne répond pas. Vérifiez la connexion Internet ou le VPN.</string>
     <string name="err_region">Le service IA a refusé la requête. Vérifiez le réseau ou le VPN et la clé API.</string>

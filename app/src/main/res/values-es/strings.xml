@@ -35,7 +35,7 @@
     <string name="ui_lang">Idioma de la app</string>
     <string name="ui_lang_system">Como el sistema</string>
     <string name="offline">Sin red: las pestañas de IA funcionan en línea; los diccionarios, sin conexión.</string>
-    <string name="gloss_title">Palabra por palabra (funciona sin conexión; toca una palabra para ver su entrada):</string>
+    <string name="gloss_title">Palabra por palabra (funciona sin conexión; › abre una palabra):</string>
     <string name="err_offline">Sin red. La IA necesita internet; la pestaña Diccionario funciona sin conexión.</string>
     <string name="err_unreachable">El servidor de IA no responde. Revisa la conexión a internet o la VPN.</string>
     <string name="err_region">El servicio de IA rechazó la solicitud. Revisa la red o la VPN y la clave de API.</string>

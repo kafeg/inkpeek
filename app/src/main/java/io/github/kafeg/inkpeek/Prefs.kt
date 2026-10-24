@@ -53,7 +53,8 @@ class Prefs(private val ctx: Context) {
     var aiOn: Boolean get() = if (sp.contains("ai_on")) sp.getBoolean("ai_on", false) else effectiveKey(provider).isNotBlank() || url(Provider.CUSTOM).isNotBlank()
         set(v) = sp.edit().putBoolean("ai_on", v).apply()
     /** "" = as the app's language, else one of [ANSWERS]: an English app with answers in German. */
-    var answerPick: String get() = sp.getString("answer_lang", "")!!; set(v) = sp.edit().putString("answer_lang", v).apply()
+    var answerPick: String get() = sp.getString("answer_code", "")!!.takeIf { it.isEmpty() || it in ANSWERS }.orEmpty()
+        set(v) = sp.edit().putString("answer_code", v).apply() // not "answer_lang": v0.1 kept a language's name there
     /** The language of the answers (dictionaries, translations, AI): its own setting, else the app's language (setting or
      *  system), one of [ANSWERS]; English otherwise. */
     val answerCode: String get() = answerPick.ifBlank { uiLang.ifBlank { java.util.Locale.getDefault().language } }.let { if (it in ANSWERS) it else "en" }

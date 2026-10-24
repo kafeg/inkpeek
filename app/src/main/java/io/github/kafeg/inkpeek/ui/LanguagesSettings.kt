@@ -90,7 +90,8 @@ class LanguagesSettings(private val a: MainActivity) {
             val mb = (parts.filter { it.id in installed }.sumOf { it.size } / 1_000_000).toInt()
             val name = "${a.langName(pair.first)} → ${a.langName(pair.second)}"
             val newer = parts.any { installed[it.id].let { s -> s != null && s != it.sha256 } }
-            val about = if (manifest.isEmpty()) "" else a.getString(if (newer) R.string.pack_size_update else R.string.pack_size, mb)
+            val about = if (manifest.isEmpty()) "" else listOfNotNull(PacksActivity.quality(a, manifest, pair),
+                a.getString(if (newer) R.string.pack_size_update else R.string.pack_size, mb)).joinToString(" · ")
             packList.addView(Rows.check(a, name, about, "${pair.first}-${pair.second}" in ticked, remove = {
                 Rows.confirm(a, a.getString(R.string.pack_delete_q, name)) { removePair(pair) }
             }) { on -> prefs.pairs = (prefs.pairs ?: ticked).let { if (on) it + "${pair.first}-${pair.second}" else it - "${pair.first}-${pair.second}" }; a.refreshStatus() })

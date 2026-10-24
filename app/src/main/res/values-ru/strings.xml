@@ -35,7 +35,7 @@
     <string name="ui_lang">Язык приложения</string>
     <string name="ui_lang_system">Как в системе</string>
     <string name="offline">Нет сети: AI-вкладки работают через интернет, словари — офлайн.</string>
-    <string name="gloss_title">Перевод по словам (работает офлайн; нажмите на слово — откроется статья):</string>
+    <string name="gloss_title">Перевод по словам (работает офлайн; › открывает слово):</string>
     <string name="err_offline">Нет сети. AI нужен интернет; вкладка «Словарь» работает офлайн.</string>
     <string name="err_unreachable">Сервер AI не отвечает. Проверьте интернет или VPN.</string>
     <string name="err_region">Сервис AI отклонил запрос. Проверьте сеть или VPN и ключ API.</string>

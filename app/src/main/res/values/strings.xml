@@ -36,7 +36,7 @@
     <string name="ui_lang">App language</string>
     <string name="ui_lang_system">As the system</string>
     <string name="offline">No network: AI tabs work online; dictionaries work offline.</string>
-    <string name="gloss_title">Word by word (works offline; tap a word for its entry):</string>
+    <string name="gloss_title">Word by word (works offline; › opens a word):</string>
     <string name="err_offline">No network. AI needs the internet; the Dictionary tab works offline.</string>
     <string name="err_unreachable">The AI server does not answer. Check the internet connection or VPN.</string>
     <string name="err_region">The AI service refused the request. Check the network or VPN and the API key.</string>

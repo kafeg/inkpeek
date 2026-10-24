@@ -35,7 +35,7 @@
     <string name="ui_lang">Język aplikacji</string>
     <string name="ui_lang_system">Jak w systemie</string>
     <string name="offline">Brak sieci: karty AI działają online, słowniki — offline.</string>
-    <string name="gloss_title">Słowo po słowie (działa offline; dotknij słowa, aby zobaczyć hasło):</string>
+    <string name="gloss_title">Słowo po słowie (działa offline; › otwiera słowo):</string>
     <string name="err_offline">Brak sieci. AI potrzebuje internetu; karta Słownik działa offline.</string>
     <string name="err_unreachable">Serwer AI nie odpowiada. Sprawdź połączenie z internetem lub VPN.</string>
     <string name="err_region">Usługa AI odrzuciła żądanie. Sprawdź sieć lub VPN oraz klucz API.</string>

@@ -107,18 +107,23 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
     /** KOReader calls only the dictionary apps in koreader/dictionaries.lua: InkPeek is added there, its other entries stay. */
     private fun koreader() {
         val f = File(Environment.getExternalStorageDirectory(), "koreader/dictionaries.lua")
-        val entry = "    { \"InkPeek\", \"InkPeek\", false, \"io.github.kafeg.inkpeek\", \"text\" },"
         runCatching {
-            val old = if (f.exists()) f.readText() else null
-            when {
-                old != null && "io.github.kafeg.inkpeek" in old -> a.toast(a.getString(R.string.help_ko_have))
-                old == null -> { f.parentFile?.mkdirs(); f.writeText("return {\n$entry\n}\n"); a.toast(a.getString(R.string.help_ko_done)) }
-                else -> {
-                    val m = Regex("""return\s*\{""").find(old) ?: error("no \"return {\"")
-                    f.writeText(old.substring(0, m.range.last + 1) + "\n" + entry + old.substring(m.range.last + 1))
-                    a.toast(a.getString(R.string.help_ko_done))
-                }
-            }
+            val new = Koreader.withInkPeek(if (f.exists()) f.readText() else null)
+            if (new == null) a.toast(a.getString(R.string.help_ko_have))
+            else { f.parentFile?.mkdirs(); f.writeText(new); a.toast(a.getString(R.string.help_ko_done)) }
         }.onFailure { a.toast(a.getString(R.string.help_ko_fail, it.message ?: it.javaClass.simpleName)) }
+    }
+}
+
+/** KOReader's list of external dictionary apps (koreader/dictionaries.lua: "return { {…}, … }"). */
+object Koreader {
+    private const val ENTRY = "    { \"InkPeek\", \"InkPeek\", false, \"io.github.kafeg.inkpeek\", \"text\" },"
+
+    /** The file with InkPeek in its list, the others kept; a new file when there is none; null when InkPeek is there. */
+    fun withInkPeek(old: String?): String? = when {
+        old == null -> "return {\n$ENTRY\n}\n"
+        "io.github.kafeg.inkpeek" in old -> null
+        else -> Regex("""return\s*\{""").find(old)?.let { m -> old.substring(0, m.range.last + 1) + "\n" + ENTRY + old.substring(m.range.last + 1) }
+            ?: error("no \"return {\" in it")
     }
 }

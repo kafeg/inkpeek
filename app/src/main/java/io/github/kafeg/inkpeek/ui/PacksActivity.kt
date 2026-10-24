@@ -69,12 +69,7 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
         prefs.packs.installedPairs().filter { p -> Packs.needed(manifest, listOf(p), prefs.mtMethod).all { it.id in inst } }.toSet()
 
     /** "full · 92 % of frequent words": the pair's label and its coverage. */
-    private fun quality(p: Pair<String, String>): String? {
-        val l = Packs.level(manifest, p) ?: return null
-        val cover = manifest.first { it.kind == "dict" && it.from == p.first && it.to == p.second }.coverage
-        return getString(when (l) { Level.FULL -> R.string.lvl_full; Level.BASIC -> R.string.lvl_basic; Level.EXPERIMENTAL -> R.string.lvl_exp }) +
-            " · " + getString(R.string.pack_cover, cover.toInt())
-    }
+    private fun quality(p: Pair<String, String>) = quality(this, manifest, p)
 
     private fun show() {
         val inst = prefs.packs.installed(); val installed = complete(inst)
@@ -99,4 +94,14 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private fun toast(s: String) = Ink.toast(this, s)
+
+    companion object {
+        /** "full · 92 % of frequent words": a pair's label and its coverage; null without the packs list. */
+        fun quality(ctx: android.content.Context, manifest: List<io.github.kafeg.inkpeek.packs.Component>, p: Pair<String, String>): String? {
+            val l = Packs.level(manifest, p) ?: return null
+            val cover = manifest.first { it.kind == "dict" && it.from == p.first && it.to == p.second }.coverage
+            return ctx.getString(when (l) { Level.FULL -> R.string.lvl_full; Level.BASIC -> R.string.lvl_basic; Level.EXPERIMENTAL -> R.string.lvl_exp }) +
+                " · " + ctx.getString(R.string.pack_cover, cover.toInt())
+        }
+    }
 }

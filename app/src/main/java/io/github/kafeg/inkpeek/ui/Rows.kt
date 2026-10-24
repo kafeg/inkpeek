@@ -43,16 +43,16 @@ object Rows {
 
     /**
      * A setting that is on or off; a tap on the text toggles it too. [remove]: a ✕ on the right (it asks first) — a list
-     * item (a pack, a dictionary), whose second line is its state.
+     * item (a pack, a dictionary), whose second line is its state. [edit]: a ✎ there instead (a prompt of AI → Modules).
      */
-    fun check(ctx: Context, title: String, about: String, on: Boolean, remove: (() -> Unit)? = null, save: (Boolean) -> Unit) =
+    fun check(ctx: Context, title: String, about: String, on: Boolean, remove: (() -> Unit)? = null, edit: (() -> Unit)? = null, save: (Boolean) -> Unit) =
         Ink.horizontal(ctx).apply {
             isBaselineAligned = false
             val box = CheckBox(ctx).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
             addView(box, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(ctx, 6) })
             addView(texts(ctx, title, about, if (remove != null) 1 else 2).apply { setOnClickListener { if (box.isEnabled) box.toggle() } }, Ink.lp(0, weight = 1f))
-            if (remove != null) addView(Ink.button(ctx, "✕", 16f) { remove() },
-                Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
+            (remove?.let { "✕" to it } ?: edit?.let { "✎" to it })?.let { (mark, act) -> addView(Ink.button(ctx, mark, 16f) { act() },
+                Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL }) }
             layoutParams = gap(ctx)
         }
 
