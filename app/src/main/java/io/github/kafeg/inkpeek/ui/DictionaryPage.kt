@@ -97,11 +97,9 @@ class DictionaryPage(private val card: CardActivity) {
             place = ""
             hits.forEachIndexed { i, (dict, list) ->
                 if (i > 0) p.addView(Ink.divider(card))
-                p.addView(Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
-                    val q = Ink.dp(card, 6); setPadding(0, q, 0, q)
-                    setOnClickListener { article(dict, list, word) { articles(word, to) } }
-                    TextActions.selectable(this) { t -> t.lastIndexOf('\n').takeIf { it > 0 } ?: t.length } // not the source line
-                })
+                p.addView(Ink.opener(card, Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
+                    val q = Ink.dp(card, 6); setPadding(0, q, 0, q); TextActions.selectable(this)
+                }, { article(dict, list, word) { articles(word, to) } }))
             }
             card.scrollBack()
         }
@@ -153,11 +151,9 @@ class DictionaryPage(private val card: CardActivity) {
 
     /** One row of a word list (the gloss, related words): its text, a thin line under it; a tap does [tap]. */
     private fun listRow(p: LinearLayout, html: String, tap: () -> Unit) {
-        p.addView(Ink.text(card, html, card.size, html = true).apply {
-            val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
-            setOnClickListener { tap() }
-            TextActions.selectable(this) { it.length }
-        })
+        p.addView(Ink.opener(card, Ink.text(card, html, card.size, html = true).apply {
+            val q = Ink.dp(card, 7); setPadding(0, q, 0, q); TextActions.selectable(this)
+        }, tap))
         p.addView(Ink.divider(card))
     }
 
@@ -168,12 +164,11 @@ class DictionaryPage(private val card: CardActivity) {
         fun row(k: String, preview: String, caption: String) {
             if (!prefs.packSection(k) || preview.isBlank()) return
             p.addView(Ink.divider(card).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(card, 10) })
-            p.addView(Ink.vertical(card).apply {
+            p.addView(Ink.opener(card, Ink.vertical(card).apply {
                 val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
-                addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 3; ellipsize = android.text.TextUtils.TruncateAt.END })
-                addView(Ink.text(card, "$caption ›", card.size * 0.65f))
-                setOnClickListener { section(dict, word, k, 0) }
-            })
+                addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 3; ellipsize = android.text.TextUtils.TruncateAt.END; TextActions.selectable(this) })
+                addView(Ink.text(card, caption, card.size * 0.65f))
+            }, { section(dict, word, k, 0) }))
         }
         fun few(xs: List<String>, sep: String = ", ") = xs.take(10).joinToString(sep) + if (xs.size > 10) " …" else ""
         row("rel", few(e.rel), "${card.getString(R.string.sec_rel)} · ${e.rel.size}")

@@ -115,6 +115,21 @@ object Ink {
         }
     }
 
+    /**
+     * A list row: [content] (its text selectable like any other) and a small arrow at its end that opens it; the arrow's
+     * touch area is the row's height and wider than it looks. [end]: views after the arrow (a ✕).
+     */
+    fun opener(ctx: Context, content: View, open: () -> Unit, vararg end: View) = horizontal(ctx).apply {
+        gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
+        addView(content, lp(0, weight = 1f))
+        addView(android.widget.ImageView(ctx).apply {
+            setImageResource(io.github.kafeg.inkpeek.R.drawable.ic_next); setColorFilter(fg(ctx))
+            val h = dp(ctx, 14); val v = dp(ctx, 10); setPadding(h, v, h, v)
+            contentDescription = ctx.getString(io.github.kafeg.inkpeek.R.string.open_row); isClickable = true; setOnClickListener { open() }
+        }, LinearLayout.LayoutParams(dp(ctx, 48), ViewGroup.LayoutParams.MATCH_PARENT))
+        end.forEach { addView(it) }
+    }
+
     /** The thin line between the rows of a list (dictionaries, word by word, Notes). */
     fun divider(ctx: Context) = View(ctx).apply { setBackgroundColor(fg(ctx)); alpha = 0.35f; layoutParams = lp(h = 1) }
 

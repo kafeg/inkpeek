@@ -363,4 +363,5 @@
     <string name="open_dict">Diccionario, palabra por palabra</string>
     <string name="mt_off_t">Desactivado</string>
     <string name="mt_off_d">Sin traducción sin conexión: la pestaña Traducir es solo IA.</string>
+    <string name="open_row">Abrir</string>
 </resources>

@@ -39,10 +39,9 @@ object TextActions {
 
     /**
      * A text you can select: the handles, our menu instead of Android's, moving with the handles. Double tap: a word;
-     * triple tap: the paragraph. [row]: a list row — a long press selects its text up to where [row] says (not the
-     * source line under it), so what will be copied is seen; the handles narrow or widen it.
+     * triple tap: the paragraph; a list row is selected the same way (its arrow opens it).
      */
-    fun selectable(tv: TextView, row: ((CharSequence) -> Int)? = null) {
+    fun selectable(tv: TextView) {
         tv.setTextIsSelectable(true)
         var taps = 0; var lastUp = 0L; var focused = true; var mine = false
         tv.setOnTouchListener { _, ev ->
@@ -84,7 +83,6 @@ object TextActions {
                 menu.clear(); active?.second?.takeIf { it !== mode }?.finish(); active = tv to mode; live += mode
                 val text = tv.text as? android.text.Spannable
                 text?.setSpan(watch, 0, text.length, android.text.Spanned.SPAN_INCLUSIVE_INCLUSIVE)
-                if (row != null && taps < 2) tv.post { text?.let { android.text.Selection.setSelection(it, 0, row(it).coerceIn(1, it.length)) } }
                 tv.post { if (mode !in live || mode in pops) return@post; val r = selection(tv) ?: return@post
                     pops[mode] = show(tv, r, select = { selected() }, all = { text?.let { android.text.Selection.selectAll(it) } },
                         done = { mode.finish() }) }

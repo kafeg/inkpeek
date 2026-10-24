@@ -363,4 +363,5 @@
     <string name="open_dict">Dictionnaire, mot à mot</string>
     <string name="mt_off_t">Désactivé</string>
     <string name="mt_off_d">Pas de traduction hors ligne : l\'onglet Traduire est IA seulement.</string>
+    <string name="open_row">Ouvrir</string>
 </resources>

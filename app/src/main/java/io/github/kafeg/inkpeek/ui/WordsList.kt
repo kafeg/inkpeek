@@ -10,16 +10,11 @@ object WordsList {
         addView(line(ctx, e, sp, open, remove)); addView(Ink.divider(ctx))
     }
 
-    private fun line(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.horizontal(ctx).apply {
-        gravity = Gravity.CENTER_VERTICAL
-        addView(Ink.entry(ctx, e.text, e.meaning, sp).apply {
-            val q = Ink.dp(ctx, 6); setPadding(0, q, q, q); setOnClickListener { open() }
-            // The text and its line: each selectable as a whole when held, a tap still opens the entry.
-            (0 until childCount).mapNotNull { getChildAt(it) as? android.widget.TextView }.forEach { tv ->
-                TextActions.selectable(tv) { it.length }; tv.setOnClickListener { open() } }
-        }, Ink.lp(0, weight = 1f))
-        addView(Ink.button(ctx, "✕", sp * 0.9f) { remove() })
-    }
+    private fun line(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.opener(ctx,
+        Ink.entry(ctx, e.text, e.meaning, sp).apply {
+            val q = Ink.dp(ctx, 6); setPadding(0, q, q, q)
+            (0 until childCount).mapNotNull { getChildAt(it) as? android.widget.TextView }.forEach { TextActions.selectable(it) }
+        }, open, Ink.button(ctx, "✕", sp * 0.9f) { remove() })
 
     const val PAGE = 50
     /** A list in the card's dictionary tab: fewer at a time, each with a meaning. */

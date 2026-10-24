@@ -363,4 +363,5 @@
     <string name="open_dict">Dictionary, word by word</string>
     <string name="mt_off_t">Off</string>
     <string name="mt_off_d">No offline translation: the Translate tab is AI only.</string>
+    <string name="open_row">Open</string>
 </resources>
