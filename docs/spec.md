@@ -345,5 +345,29 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - Notes → Export / Import: the whole store as one file (`VACUUM INTO`); an import adds missing rows by the columns
      both have (an older backup works). The list's TSV export stays.
 
+20. **One way through settings and the card** (24.10). Rule: AI only on a person's action (or a setting they chose).
+   - **Header:** one line under the title — version · Settings (⚙) · Help (?) — plain clickable text, no frames.
+   - **⚙ App:** app language, theme (the whole app), updates (daily check, check now), file access.
+   - **? Help:** its own screen, one page per topic (connect a reader — with a button that adds InkPeek to KOReader's
+     dictionaries.lua without dropping its other entries —, card and controls, selection and menu, InkPeek language
+     packs, offline translation, StarDict dictionaries (after the packs by default; the order is a setting), AI, what
+     goes to the network, Notes (saved and history), about); each page ends with a button to its settings.
+   - **Languages:** Packs (InkPeek language packs) · Translation (answer language — as the app's by default; method:
+     Off, Fast, Direct, AI model; downloaded models with ✕) · Dictionaries (StarDict: list, folder, sources).
+   - **Card:** Opening (word opens: dictionary lines or articles; phrase opens: offline translation, AI translation,
+     dictionary (word by word), Analysis, Context — an AI choice asks AI on every opening, said under the list;
+     controls: icon bar, saving) · Article (dictionary order; from InkPeek language packs: words, grammar, related,
+     synonyms, expressions, forms, origin) · Look (height, width, position, text, font, dim).
+   - **AI:** Connection (provider, key, model, the answer language with a link to Languages → Translation, general
+     style ✎) · Modules (Translation, Analysis, Context: sections without boxes, parts with a box and ✎; a section with
+     no part ticked has no icon and sends nothing; "ask the other AI tabs at once" — on by default).
+   - **Notes:** Words · Phrases · History.
+   - Every setting is two lines: a title and one line of explanation.
+   - **Translate tab:** Offline first, AI second; AI asks only when its tab is tapped. A text with no offline translation
+     opens on Dictionary (word by word); the gloss is no longer under a translation.
+   - **List rows** (word by word, related words, dictionary lines, Notes): plain text with the usual selection (double
+     tap a word, triple a paragraph, hold and handles); a small arrow at the row's end (a wide touch area) opens it.
+   - **AI gets the text's language** when the packs tell it: "The text is probably German."
+
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.
