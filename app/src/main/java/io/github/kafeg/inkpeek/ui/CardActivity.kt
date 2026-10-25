@@ -122,15 +122,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
      * by word, or an AI tab; what cannot be shown now (AI off, no key, no network) gives the offline translation, else
      * Dictionary (word by word). Off the main thread ([Answers.block] reads the saved answers).
      */
-    private fun phraseTab(): String {
-        fun offline() = if (offlineOk) TRANSLATE.also { translate.by = "offline"; translate.auto = true } else DICT
-        return when (val o = prefs.phraseOpen) {
-            "offline" -> offline()
-            "ai" -> if (aiTranslate && answers.block(Ask.QUICK) == null) TRANSLATE.also { translate.by = "ai" } else offline()
-            "analysis", "context" -> if (actions.any { it.id == o } && answers.block(ai.ask(o)) == null) AI.also { ai.by = o } else offline()
+    private fun phraseTab(): String =
+        when (val o = Opening.pick(prefs.phraseOpen, Opening.choices(offlineOk, aiTranslate, aiModules)) { k ->
+            answers.block(if (k == "ai") Ask.QUICK else ai.ask(k)) != null }) {
+            "offline" -> TRANSLATE.also { translate.by = "offline"; translate.auto = true }
+            "ai" -> TRANSLATE.also { translate.by = "ai" }
+            "analysis", "context" -> AI.also { ai.by = o }
             else -> DICT
         }
-    }
 
     /**
      * A title longer than its lines is not selected or scrolled inside: its lines end in "…" and a tap shows the whole

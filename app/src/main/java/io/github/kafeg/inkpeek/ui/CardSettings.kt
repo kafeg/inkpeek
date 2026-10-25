@@ -35,14 +35,12 @@ class CardSettings(private val a: MainActivity) {
     fun refreshOpening() {
         if (!::openBox.isInitialized) return
         openBox.removeAllViews()
-        fun module(ask: io.github.kafeg.inkpeek.ai.Ask) = prefs.aiModule(ask)
-        val offline = prefs.offlineReady()
-        val opens = listOfNotNull("offline".takeIf { offline }?.let { it to a.getString(R.string.open_offline) },
-            "ai".takeIf { prefs.aiOn && prefs.aiTranslate }?.let { it to a.getString(R.string.open_ai) },
-            "dict" to a.getString(R.string.open_dict),
-            "analysis".takeIf { module(io.github.kafeg.inkpeek.ai.Ask.ANALYSIS) }?.let { it to a.getString(R.string.a_analysis) + " · AI" },
-            "context".takeIf { module(io.github.kafeg.inkpeek.ai.Ask.CONTEXT) }?.let { it to a.getString(R.string.a_context) + " · AI" })
-        if (opens.none { it.first == prefs.phraseOpen }) prefs.phraseOpen = if (offline) "offline" else "dict"
+        val modules = listOf(io.github.kafeg.inkpeek.ai.Ask.ANALYSIS, io.github.kafeg.inkpeek.ai.Ask.CONTEXT).filter { prefs.aiModule(it) }.map { it.section }
+        val choices = Opening.choices(prefs.offlineReady(), prefs.aiOn && prefs.aiTranslate, modules)
+        val names = mapOf("offline" to a.getString(R.string.open_offline), "ai" to a.getString(R.string.open_ai), "dict" to a.getString(R.string.open_dict),
+            "analysis" to a.getString(R.string.a_analysis) + " · AI", "context" to a.getString(R.string.a_context) + " · AI")
+        val opens = choices.map { it to names.getValue(it) }
+        prefs.phraseOpen = Opening.pick(prefs.phraseOpen, choices)
         openBox.addView(Rows.choice(a, a.getString(R.string.phrase_open), a.getString(R.string.phrase_open_d), opens.map { it.second },
             opens.indexOfFirst { it.first == prefs.phraseOpen }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
     }
