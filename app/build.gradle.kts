@@ -43,10 +43,7 @@ android {
     }
     buildTypes {
         release {
-            // R8: the libraries' unused code and resources out (rules: proguard-rules.pro).
-            isMinifyEnabled = true
-            isShrinkResources = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isMinifyEnabled = false // R8 saved 3 MB but broke the AI client's reflection: not worth the risk
             signingConfigs.findByName("release")?.let { signingConfig = it }
         }
     }

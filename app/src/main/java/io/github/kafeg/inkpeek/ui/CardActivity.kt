@@ -129,6 +129,19 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         }
     }
 
+    /**
+     * A title longer than its lines is not selected or scrolled inside: its lines end in "…" and a tap shows the whole
+     * text in a window, selectable there (a selection inside a cut text scrolls it and takes it all).
+     */
+    private fun fitTitle() = titleView.post {
+        val l = titleView.layout ?: return@post
+        if (l.lineCount <= titleView.maxLines) return@post
+        val full = titleView.text
+        titleView.apply { setTextIsSelectable(false); setOnTouchListener(null); ellipsize = android.text.TextUtils.TruncateAt.END; text = full
+            setOnClickListener { InkDialog(this@CardActivity).view(Ink.text(this@CardActivity, full, size).also { TextActions.selectable(it) })
+                .button(R.string.close).show() } }
+    }
+
     /** The scroll a returned-to page was left at, once. */
     fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { scroll.scrollTo(0, y) } } }
 
@@ -160,6 +173,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             maxLines = if (long) 2 else 3; setLineSpacing(0f, 1f)
             TextActions.selectable(this, paragraph = false)
         }
+        fitTitle()
         // Under the title: the selected form, the same word in another book language.
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE; TextActions.selectable(this) }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
@@ -333,7 +347,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries()) }.getOrDefault(emptyList()) }
         val first = heads.firstOrNull() ?: return@launch
         launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
-        titleView.text = first.header
+        titleView.text = first.header; fitTitle()
         // How common the word is and how often it was looked up here, in any of its forms.
         seenJob?.join()
         val (rank, looks) = withContext(Dispatchers.IO) { runCatching {

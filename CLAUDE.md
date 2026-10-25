@@ -9,8 +9,6 @@ OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni (dictionary
 (submodule `app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule
 `app/src/main/cpp/fasttext`) + JNI → `libinkpeek_mt.so`; llama.cpp (submodule `app/src/main/cpp/llama`) + JNI →
 `libinkpeek_llm.so` (the on-device AI translation model); CMake 3.22.1 and NDK from the SDK (Gradle installs them).
-Release builds use R8 (`app/proguard-rules.pro`): the libraries shrink, the app's own classes and Kotlin stay whole and
-named (device tests call them; readable crash traces).
 Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then other ones (`InkPeek/dicts`, folders
 in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
 (manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:

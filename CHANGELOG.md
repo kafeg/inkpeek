@@ -29,11 +29,12 @@ count, so every release has its own.
   top, like the dictionaries: ◀ the title and "21–40 of 125" ▶, or a swipe.
 - Help: more on the card, selection and its menu, the offline translation and AI; the button says where it goes
   ("Go to: Card → Opening").
+- A long header (a phrase, a passage) shows its first lines with "…" and is not scrolled inside; a tap shows the whole
+  text in a window, to select from there.
 - A double tap in the card's header selects a word (an e-ink double tap often arrives as three, and the third took the
   whole header).
 - A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the
   verbs verdammen, fertigen).
-- Smaller app: 12 MB instead of 15.
 - Notes are safer: a damaged notes file is put aside (inkpeek.db.corrupt-…), not deleted; notes made before file
   access was allowed are added to the shared file, not left behind; a cut-short pack update keeps the old version.
 - Fixed: two offline translations at once (a card and the speed test) could hang; the speed test ran on every visit to
