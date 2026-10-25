@@ -53,9 +53,12 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     }
 
     private fun add(db: SQLiteDatabase, table: String, column: String) {
-        val has = db.rawQuery("PRAGMA table_info($table)", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(1) else null }.any { it == column } }
-        if (!has) db.execSQL("ALTER TABLE $table ADD COLUMN $column TEXT")
+        if (column !in columns(db, table)) db.execSQL("ALTER TABLE $table ADD COLUMN $column TEXT")
     }
+
+    /** [text]'s history row, made if it is not there yet (not counted as a look). */
+    private fun row(db: SQLiteDatabase, text: String, kind: String, seen: Long) =
+        db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, seen))
 
     /** Answers of texts that are neither in the history nor saved. */
     private fun dropAnswers(db: SQLiteDatabase) =
@@ -102,7 +105,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     private fun seen(db: SQLiteDatabase, text: String, kind: String) {
         // No UPSERT: Android 8 and 9 ship SQLite older than 3.24.
-        db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, 0, 0)", arrayOf(text, kind))
+        row(db, text, kind, 0)
         db.execSQL("UPDATE history SET seen=?, count=count+1 WHERE text=?", arrayOf(System.currentTimeMillis(), text))
         trim(db)
     }
@@ -117,7 +120,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
     /** One short line for the history: the dictionary's first line of a word, the offline translation of a phrase. */
     fun meaning(text: String, kind: String, meaning: String, lang: String) {
         val db = writableDatabase
-        db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
+        row(db, text, kind, System.currentTimeMillis())
         db.execSQL("UPDATE history SET meaning=?, lang=? WHERE text=?", arrayOf(meaning, lang, text))
         trim(db)
     }
@@ -125,7 +128,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         "SELECT h.text, h.kind, '', h.seen, ${quick("h")}, h.meaning, '', h.lang FROM history h ORDER BY h.seen DESC", arrayOf(lang))
     /** [text] (looked up) is a form of [base] ("andere" → "ander"); its row is made if the look is not counted yet. */
     fun base(text: String, kind: String, base: String) = writableDatabase.run {
-        execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
+        row(this, text, kind, System.currentTimeMillis())
         execSQL("UPDATE history SET base=? WHERE text=?", arrayOf(base, text))
         trim(this)
     }

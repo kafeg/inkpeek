@@ -33,20 +33,14 @@ class WordsSettings(private val a: MainActivity) {
                 listOf(st.count("saved", "word"), st.count("saved", "phrase"), st.count("history"))
         }.getOrNull() } ?: return@launch
         tabs.removeAllViews()
-        tabs.addView(Ink.subTabs(a, listOf("word", "phrase", "history").zip(listOf(R.string.list_words, R.string.list_phrases, R.string.list_history))
-            .mapIndexed { i, (k, label) -> k to a.getString(label) + " (" + counts[i] + ")" }, now, 16f) { kind = it; a.open["words"] = it; page = 0; refresh() },
+        tabs.addView(WordsList.kinds(a, listOf("word", "phrase", "history"), counts, now, 16f) { kind = it; a.open["words"] = it; page = 0; refresh() },
             Ink.lp().apply { bottomMargin = Ink.dp(a, 6) })
         list.removeAllViews()
         if (items.isEmpty()) list.addView(Rows.note(a, a.getString(if (now == "history") R.string.list_empty_history else R.string.list_empty_saved)))
-        val pages = (items.size + PAGE - 1) / PAGE
-        page = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
-        if (pages > 1) list.addView(WordsList.pager(a, page, items.size, 15f) { page = it; turn() }, Ink.lp().apply { bottomMargin = Ink.dp(a, 6) })
-        items.drop(page * PAGE).take(PAGE).forEach { e ->
-            list.addView(WordsList.row(a, e, 16f, { a.startActivity(WordsList.card(a, e.text)) }) {
-                Rows.confirm(a, a.getString(if (now == "history") R.string.forget_q else R.string.unsave_q, e.text)) {
-                    a.launch { withContext(Dispatchers.IO) { runCatching { Store.get(a).run { if (now == "history") forget(e.text) else unsave(e.text) } } }; refresh() }
-                }
-            })
+        page = WordsList.fill(a, list, items, page, 16f, { page = it; turn() }, { e -> a.startActivity(WordsList.card(a, e.text)) }) { e ->
+            Rows.confirm(a, a.getString(if (now == "history") R.string.forget_q else R.string.unsave_q, e.text)) {
+                a.launch { withContext(Dispatchers.IO) { runCatching { Store.get(a).run { if (now == "history") forget(e.text) else unsave(e.text) } } }; refresh() }
+            }
         }
         // Under the list: TSV and, for the history, clearing it all.
         val bar = Ink.horizontal(a).apply { gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false }

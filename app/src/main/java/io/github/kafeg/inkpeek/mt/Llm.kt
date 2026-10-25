@@ -30,16 +30,11 @@ object Llm {
     /** Blocks while a translation runs: not on the main thread. */
     fun release() = synchronized(Engine.lock) { if (loaded) { native; releaseNative(); loaded = false } }
 
-    private fun chunks(text: String, lang: String): List<String> {
-        if (text.length <= 1200) return listOf(text)
-        val b = java.text.BreakIterator.getSentenceInstance(java.util.Locale(lang)).apply { setText(text) }
-        val out = mutableListOf<String>(); var cur = StringBuilder(); var a = b.first(); var e = b.next()
-        while (e != java.text.BreakIterator.DONE) {
-            val s = text.substring(a, e)
-            if (cur.length + s.length > 1200 && cur.isNotEmpty()) { out += cur.toString().trim(); cur = StringBuilder() }
-            cur.append(s); a = e; e = b.next()
+    /** Whole sentences, joined into pieces of at most [max] characters (a sentence longer than that is a piece of its own). */
+    internal fun chunks(text: String, lang: String, max: Int = 1200): List<String> {
+        if (text.length <= max) return listOf(text)
+        return Engine.sentences(text, lang).fold(mutableListOf<String>()) { out, s ->
+            if (out.isNotEmpty() && out.last().length + 1 + s.length <= max) out[out.size - 1] = out.last() + " " + s else out += s; out
         }
-        if (cur.isNotBlank()) out += cur.toString().trim()
-        return out
     }
 }

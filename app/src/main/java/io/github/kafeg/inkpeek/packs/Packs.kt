@@ -148,28 +148,17 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
             require(name.matches(c.from) && name.matches(c.to) && ".." !in c.from + c.to) { "Bad model ${c.id}" }
     }
 
-    private fun unzip(zip: File, dest: File) {
-        val tmp = staging(dest)
-        ZipInputStream(zip.inputStream().buffered()).use { z ->
-            while (true) {
-                val e = z.nextEntry ?: break
-                if (e.isDirectory) continue
-                val out = File(tmp, e.name.substringAfterLast('/')) // one folder per component: keep the file names only
-                out.outputStream().use { z.copyTo(it) }
-            }
-        }
-        place(tmp, dest)
-    }
+    private fun unzip(zip: File, dest: File) = ZipInputStream(zip.inputStream().buffered()).use { z ->
+        unpack(generateSequence { z.nextEntry }.filter { !it.isDirectory }.map { it.name }, z, dest) }
 
-    private fun untar(tarZst: File, dest: File) {
+    private fun untar(tarZst: File, dest: File) = TarArchiveInputStream(ZstdInputStream(tarZst.inputStream().buffered())).use { t ->
+        unpack(generateSequence { t.nextEntry }.filter { !it.isDirectory }.map { it.name }, t, dest) }
+
+    /** Each entry's bytes (read from [input] as [names] advance) into staging, then the folder to [dest]. */
+    private fun unpack(names: Sequence<String>, input: java.io.InputStream, dest: File) {
         val tmp = staging(dest)
-        TarArchiveInputStream(ZstdInputStream(tarZst.inputStream().buffered())).use { t ->
-            while (true) {
-                val e = t.nextEntry ?: break
-                if (e.isDirectory) continue
-                File(tmp, e.name.substringAfterLast('/')).outputStream().use { t.copyTo(it) }
-            }
-        }
+        // One folder per component: the file names only.
+        names.forEach { n -> File(tmp, n.substringAfterLast('/')).outputStream().use { input.copyTo(it) } }
         place(tmp, dest)
     }
 

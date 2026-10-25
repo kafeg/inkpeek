@@ -37,3 +37,14 @@ class ModelsTest {
         root.deleteRecursively()
     }
 }
+
+/** The AI model's context is small: long text goes in pieces of whole sentences, nothing lost. */
+class ChunksTest {
+    @Test fun longTextInWholeSentences() {
+        val s = (1..60).map { "Satz Nummer $it ist hier." }
+        val pieces = io.github.kafeg.inkpeek.mt.Llm.chunks(s.joinToString(" "), "de", max = 120)
+        org.junit.Assert.assertTrue(pieces.all { it.length <= 120 })
+        org.junit.Assert.assertEquals(s, pieces.flatMap { p -> Regex("Satz Nummer \\d+ ist hier\\.").findAll(p).map { it.value }.toList() })
+        org.junit.Assert.assertEquals(listOf("Kurz."), io.github.kafeg.inkpeek.mt.Llm.chunks("Kurz.", "de"))
+    }
+}

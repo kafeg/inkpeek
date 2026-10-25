@@ -59,7 +59,8 @@ object Engine {
         try { parts.joinToString(" ") { s -> if (s.isBlank()) s else run(dir, if (tag == null) s else "$tag $s", keep) }.trim() } finally { idleLater(keep) }
     }
 
-    private fun sentences(text: String, lang: String): List<String> {
+    /** [text] cut into sentences by Android's rules for [lang]. */
+    internal fun sentences(text: String, lang: String): List<String> {
         val b = java.text.BreakIterator.getSentenceInstance(java.util.Locale(lang)).apply { setText(text) }
         return generateSequence(b.first()) { b.next().takeIf { it != java.text.BreakIterator.DONE } }.zipWithNext { a, c -> text.substring(a, c).trim() }.toList()
     }

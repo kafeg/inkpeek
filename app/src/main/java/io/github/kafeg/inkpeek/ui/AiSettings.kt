@@ -98,18 +98,11 @@ class AiSettings(private val a: MainActivity) {
     /** The general style of every answer, ✎ to edit it. */
     private fun refreshStyle() {
         styleRow.removeAllViews()
-        styleRow.addView(withEdit(Rows.info(a, null, a.getString(R.string.prompt_system_t), mark(prefs.prompt("system") != null, a.getString(R.string.prompt_system_d)))) { editSystem() })
+        styleRow.addView(Rows.info(a, null, a.getString(R.string.prompt_system_t), mark(prefs.prompt("system") != null, a.getString(R.string.prompt_system_d))) {
+            prompts(a.getString(R.string.prompt_system_t), R.string.prompt_system_note, listOf(Triple("system", null, Ai.SYSTEM))) { refreshStyle() } })
     }
 
     private fun mark(edited: Boolean, s: String) = if (edited) a.getString(R.string.prompt_edited) + " · " + s else s
-
-    /** A row and its ✎ at the end. */
-    private fun withEdit(row: View, edit: () -> Unit) = Ink.horizontal(a).apply {
-        gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
-        addView(row, Ink.lp(0, weight = 1f))
-        addView(Ink.button(a, "✎", 16f) { edit() }.apply { contentDescription = a.getString(R.string.edit_prompt) },
-            Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(a, 8) })
-    }
 
     // --- Modules ---
     /** Translation, Analysis, Context: each part with its box (a section with none ticked is off) and ✎; asking ahead. */
@@ -118,58 +111,39 @@ class AiSettings(private val a: MainActivity) {
         t.addView(Rows.heading(a, a.getString(R.string.prompt_quick_t), first = true))
         val quickEdited = Ask.QUICK.keys.any { prefs.prompt("${Ask.QUICK.section}.${it.name}") != null }
         t.addView(Rows.check(a, a.getString(R.string.ai_tr_t), mark(quickEdited, a.getString(R.string.ai_tr_d)), prefs.aiTranslate,
-            edit = { edit(Ask.QUICK, a.getString(R.string.prompt_quick_t)) }) { prefs.aiTranslate = it })
+            edit = { prompts(a.getString(R.string.prompt_quick_t) + " · AI", R.string.prompt_keys,
+                Ask.QUICK.keys.map { Triple("${Ask.QUICK.section}.${it.name}", it.name, it.about) }) { refreshModules() } }) { prefs.aiTranslate = it })
         listOf(Ask.ANALYSIS to R.string.a_analysis, Ask.CONTEXT to R.string.a_context).forEach { (ask, title) ->
             t.addView(Rows.heading(a, a.getString(title)))
             ask.keys.forEach { k ->
                 val id = "${ask.section}.${k.name}"
                 val (name, about) = KEYS[k.name] ?: return@forEach
                 t.addView(Rows.check(a, a.getString(name), mark(prefs.prompt(id) != null, a.getString(about)), prefs.aiKey(id) ?: !k.extra,
-                    edit = { editKey(ask, k, a.getString(name)) }) { prefs.setAiKey(id, it) })
+                    edit = { prompts(a.getString(name) + " · AI", R.string.prompt_keys, listOf(Triple(id, null, k.about))) { refreshModules() } }) { prefs.setAiKey(id, it) })
             }
         }
         t.addView(Rows.check(a, a.getString(R.string.prefetch_t), a.getString(R.string.prefetch_d), prefs.aiPrefetch) { prefs.aiPrefetch = it }.apply {
             (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 22) })
     }
 
-    /** One part's prompt: what to write under its key. */
-    private fun editKey(ask: Ask, k: io.github.kafeg.inkpeek.ai.Key, title: String) {
-        val id = "${ask.section}.${k.name}"
+    /**
+     * A prompt editor: [fields] (setting id, a label over it or none, the original text), [note] on top; Reset puts the
+     * originals back; the original text is stored as "not edited", so a later app version can improve it.
+     */
+    private fun prompts(title: String, note: Int, fields: List<Triple<String, String?, String>>, done: () -> Unit) {
         val box = Ink.vertical(a).apply { val q = Ink.dp(a, 16); setPadding(q, q / 2, q, 0) }
-        box.addView(Ink.text(a, a.getString(R.string.prompt_keys), 13.5f))
-        val f = multiline(a, prefs.prompt(id) ?: k.about); box.addView(f, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
-        InkDialog(a).title("$title · AI").view(box)
-            .button(R.string.cancel)
-            .button(R.string.prompt_reset) { prefs.setPrompt(id, null); refreshModules() }
-            .button(R.string.save) { prefs.setPrompt(id, f.text.toString().trim().takeIf { it.isNotEmpty() && it != k.about }); refreshModules() }.show()
-    }
-
-    /** An editor of [ask]'s parts: each answer key keeps its name, only what to write there changes. */
-    private fun edit(ask: Ask, title: String) {
-        val box = Ink.vertical(a).apply { val q = Ink.dp(a, 16); setPadding(q, q / 2, q, 0) }
-        box.addView(Ink.text(a, a.getString(R.string.prompt_keys), 13.5f))
-        val fields = ask.keys.map { k ->
-            box.addView(Ink.text(a, k.name, 15f, bold = true), Ink.lp().apply { topMargin = Ink.dp(a, 12) })
-            multiline(a, prefs.prompt("${ask.section}.${k.name}") ?: k.about).also { box.addView(it) }
+        box.addView(Ink.text(a, a.getString(note), 13.5f))
+        val edits = fields.map { (id, label, original) ->
+            label?.let { box.addView(Ink.text(a, it, 15f, bold = true), Ink.lp().apply { topMargin = Ink.dp(a, 12) }) }
+            multiline(a, prefs.prompt(id) ?: original).also { box.addView(it, Ink.lp().apply { topMargin = Ink.dp(a, if (label == null) 8 else 0) }) }
         }
-        InkDialog(a).title("$title · AI").view(box)
+        InkDialog(a).title(title).view(box)
             .button(R.string.cancel)
-            .button(R.string.prompt_reset) { ask.keys.forEach { prefs.setPrompt("${ask.section}.${it.name}", null) }; refreshModules() }
+            .button(R.string.prompt_reset) { fields.forEach { prefs.setPrompt(it.first, null) }; done() }
             .button(R.string.save) {
-                // The original text is stored as "not edited", so a later app version can improve it.
-                ask.keys.zip(fields).forEach { (k, f) -> prefs.setPrompt("${ask.section}.${k.name}", f.text.toString().trim().takeIf { it.isNotEmpty() && it != k.about }) }
-                refreshModules()
+                fields.zip(edits).forEach { (f, e) -> prefs.setPrompt(f.first, e.text.toString().trim().takeIf { it.isNotEmpty() && it != f.third }) }
+                done()
             }.show()
-    }
-
-    private fun editSystem() {
-        val box = Ink.vertical(a).apply { val q = Ink.dp(a, 16); setPadding(q, q / 2, q, 0) }
-        box.addView(Ink.text(a, a.getString(R.string.prompt_system_note), 13.5f))
-        val f = multiline(a, prefs.prompt("system") ?: Ai.SYSTEM); box.addView(f, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
-        InkDialog(a).title(R.string.prompt_system_t).view(box)
-            .button(R.string.cancel)
-            .button(R.string.prompt_reset) { prefs.setPrompt("system", null); refreshStyle() }
-            .button(R.string.save) { prefs.setPrompt("system", f.text.toString().trim().takeIf { it.isNotEmpty() && it != Ai.SYSTEM }); refreshStyle() }.show()
     }
 
     private fun multiline(ctx: android.content.Context, text: String) = EditText(ctx).apply {

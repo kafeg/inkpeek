@@ -44,7 +44,8 @@ object Rows {
             val box = CheckBox(ctx).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
             addView(box, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(ctx, 6) })
             addView(texts(ctx, title, about, if (remove != null) 1 else 2).apply { setOnClickListener { if (box.isEnabled) box.toggle() } }, Ink.lp(0, weight = 1f))
-            (remove?.let { "✕" to it } ?: edit?.let { "✎" to it })?.let { (mark, act) -> addView(Ink.button(ctx, mark, 16f) { act() },
+            (remove?.let { "✕" to it } ?: edit?.let { "✎" to it })?.let { (mark, act) -> addView(Ink.button(ctx, mark, 16f) { act() }
+                .apply { contentDescription = ctx.getString(if (mark == "✕") R.string.delete else R.string.edit_prompt) },
                 Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL }) }
             layoutParams = gap(ctx)
         }
@@ -69,7 +70,7 @@ object Rows {
             isClickable = true; setOnClickListener { open() }
             if (page) addView(Ink.icon(ctx, R.drawable.ic_next, title, 44) { open() },
                 LinearLayout.LayoutParams(Ink.dp(ctx, 44), Ink.dp(ctx, 44)).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
-            else addView(Ink.button(ctx, "✎", 16f) { open() }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
+            else addView(Ink.button(ctx, "✎", 16f) { open() }.apply { contentDescription = ctx.getString(R.string.edit_prompt) }, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(ctx, 8); gravity = Gravity.CENTER_VERTICAL })
         }
         layoutParams = gap(ctx)
     }

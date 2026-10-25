@@ -16,6 +16,26 @@ object WordsList {
             (0 until childCount).mapNotNull { getChildAt(it) as? android.widget.TextView }.forEach { TextActions.selectable(it) }
         }, open, Ink.button(ctx, "✕", sp * 0.9f) { remove() })
 
+    /** The lists' sub-tabs with their counts: "Words (12)"; [pick] gets the key. */
+    fun kinds(ctx: Context, keys: List<String>, counts: List<Int>, now: String, sp: Float, pick: (String) -> Unit): android.view.View {
+        val names = mapOf("word" to io.github.kafeg.inkpeek.R.string.list_words, "phrase" to io.github.kafeg.inkpeek.R.string.list_phrases,
+            "history" to io.github.kafeg.inkpeek.R.string.list_history)
+        return Ink.subTabs(ctx, keys.zip(counts).map { (k, n) -> k to ctx.getString(names.getValue(k)) + " ($n)" }, now, sp, pick)
+    }
+
+    /**
+     * [items] into [box], [PAGE] at a time: the page bar on top, a row each (› opens it, ✕ removes it); [page] is kept
+     * within the pages, the one shown is returned; [turn] gets another.
+     */
+    fun fill(ctx: Context, box: android.widget.LinearLayout, items: List<Store.Entry>, page: Int, sp: Float, turn: (Int) -> Unit,
+             open: (Store.Entry) -> Unit, remove: (Store.Entry) -> Unit): Int {
+        val pages = (items.size + PAGE - 1) / PAGE
+        val at = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
+        if (pages > 1) box.addView(pager(ctx, at, items.size, sp * 0.9f, turn = turn), Ink.lp().apply { bottomMargin = Ink.dp(ctx, 6) })
+        items.drop(at * PAGE).take(PAGE).forEach { e -> box.addView(row(ctx, e, sp, { open(e) }) { remove(e) }) }
+        return at
+    }
+
     const val PAGE = 50
     /** A list in the card's dictionary tab: fewer at a time, each with a meaning. */
     const val PAGE_SHORT = 20
