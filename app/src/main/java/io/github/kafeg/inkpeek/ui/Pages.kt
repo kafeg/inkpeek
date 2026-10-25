@@ -9,23 +9,15 @@ import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import java.io.File
 
-/** A page's header over the settings: ← (to [back]) and its title. */
-private fun pageHeader(a: MainActivity, title: String, back: () -> Unit) = Ink.horizontal(a).apply {
-    gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
-    addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { back() },
-        LinearLayout.LayoutParams(Ink.dp(a, 48), Ink.dp(a, 48)).apply { rightMargin = Ink.dp(a, 12) })
-    addView(Ink.text(a, title, 22f, bold = true), Ink.lp(0, weight = 1f))
-}
-
 /** ⚙ The app: its language, the theme of the whole app, updates, file access. */
 class AppPage(private val a: MainActivity) {
     private val prefs get() = a.prefs
 
     fun build(t: LinearLayout) {
-        t.addView(pageHeader(a, a.getString(R.string.app_t)) { a.closePage() })
+        t.addView(Rows.header(a, a.getString(R.string.app_t)) { a.closePage() })
         val codes = listOf("") + Prefs.ANSWERS
         val names = listOf(a.getString(R.string.ui_lang_system)) + Prefs.ANSWERS.map { c ->
-            java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
+            Ink.ownName(c) }
         // A new language or theme makes the settings again (this page reopens).
         t.addView(Rows.choice(a, a.getString(R.string.ui_lang), a.getString(R.string.ui_lang_d), names, codes.indexOf(prefs.uiLang).coerceAtLeast(0)) {
             if (prefs.uiLang != codes[it]) { prefs.uiLang = codes[it]; a.recreate() } })
@@ -94,7 +86,7 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
 
     fun list() {
         inTopic = false; box.removeAllViews()
-        box.addView(pageHeader(a, a.getString(R.string.help_t)) { a.closePage() })
+        box.addView(Rows.header(a, a.getString(R.string.help_t)) { a.closePage() })
         topics.forEachIndexed { i, topic -> box.addView(Rows.info(a, null, a.getString(topic.title), "", lines = 1, page = true) { open(i) }) }
         box.addView(Rows.info(a, null, a.getString(R.string.ht_about), "", lines = 1, page = true) { About.show(a) })
     }
@@ -105,7 +97,7 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
     private fun open(i: Int) {
         inTopic = true; box.removeAllViews()
         val topic = topics[i]
-        box.addView(pageHeader(a, a.getString(topic.title)) { list() })
+        box.addView(Rows.header(a, a.getString(topic.title)) { list() })
         topic.body(this, box)
         topic.go?.let { (section, tab, name) -> val to = listOfNotNull(section, name).joinToString(" → ") { a.getString(it) }
             box.addView(Rows.buttons(a, a.getString(R.string.help_go, to) to { a.goTo(section, tab) })) }

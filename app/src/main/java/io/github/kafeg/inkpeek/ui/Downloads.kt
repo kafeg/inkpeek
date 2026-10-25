@@ -12,9 +12,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import okhttp3.Request
-import java.io.FilterInputStream
-import java.io.InputStream
 
 /**
  * One download at a time for the whole process — a pack or another dictionary: it outlives the screen that started it,
@@ -23,7 +20,6 @@ import java.io.InputStream
 object Downloads {
     @Volatile private var job: Job? = null
     private val main = Handler(Looper.getMainLooper())
-    private val http = io.github.kafeg.inkpeek.Net.http
     @Volatile var status = ""; private set
     /** The last run's outcome ("Added: …", "Already there: …", "Failed: …"), shown once by the screen that sees it. */
     @Volatile var result: String? = null
@@ -87,19 +83,14 @@ object Downloads {
         done
     }
 
+    private fun pct(done: Long, all: Long) = if (all > 0) (done * 100 / all).toInt() else 0
+
     /** Downloads a newer InkPeek and hands it to Android's installer. */
     fun app(ctx: Context, r: Updates.Release) = run(ctx) { app, progress ->
         val apk = java.io.File(app.cacheDir, "update.apk")
         try {
-            http.newCall(Request.Builder().url(r.apk).build()).execute().use { resp ->
-                if (!resp.isSuccessful) error("HTTP ${resp.code}")
-                val all = resp.body!!.contentLength().takeIf { it > 0 } ?: r.size
-                resp.body!!.byteStream().use { inp -> apk.outputStream().use { o ->
-                    val buf = ByteArray(1 shl 16); var done = 0L
-                    while (true) { val n = inp.read(buf); if (n < 0) break; o.write(buf, 0, n); done += n
-                        progress(app.getString(R.string.downloading_pct, "InkPeek ${r.name}", if (all > 0) (done * 100 / all).toInt() else 0)) }
-                } }
-            }
+            io.github.kafeg.inkpeek.Net.download(r.apk, r.size, { done, all -> progress(app.getString(R.string.downloading_pct, "InkPeek ${r.name}", pct(done, all))) }) { inp ->
+                apk.outputStream().use { inp.copyTo(it, 1 shl 16) } }
             Updates.install(app, apk)
         } finally { apk.delete() }
         app.getString(R.string.update_confirm)
@@ -108,17 +99,8 @@ object Downloads {
     /** Downloads another dictionary into the dictionaries' folder; one already there is not added again. */
     fun dict(ctx: Context, item: CatalogItem, title: String) = run(ctx) { app, progress ->
         val prefs = Prefs(app)
-        val got = http.newCall(Request.Builder().url(item.url).build()).execute().use { resp ->
-            if (!resp.isSuccessful) error("HTTP ${resp.code}")
-            val body = resp.body!!; val all = body.contentLength().takeIf { it > 0 } ?: item.size
-            val counted = object : FilterInputStream(body.byteStream()) {
-                var done = 0L
-                fun tick(n: Int) { if (n > 0) { done += n; progress(app.getString(R.string.downloading_pct, title, if (all > 0) (done * 100 / all).toInt() else 0)) } }
-                override fun read(): Int = super.read().also { if (it >= 0) tick(1) }
-                override fun read(b: ByteArray, off: Int, len: Int): Int = super.read(b, off, len).also { tick(it) }
-            }
-            Importer.importStream(item.url.substringAfterLast('/'), counted as InputStream, prefs.dictsDir, app.cacheDir)
-        }
+        val got = io.github.kafeg.inkpeek.Net.download(item.url, item.size, { done, all -> progress(app.getString(R.string.downloading_pct, title, pct(done, all))) }) { inp ->
+            Importer.importStream(item.url.substringAfterLast('/'), inp, prefs.dictsDir, app.cacheDir) }
         // The address with the dictionaries it brought: the page marks it while one of them is in the folder.
         prefs.got = prefs.got.filterNot { it.substringBefore('\t') == item.url }.toSet() + (listOf(item.url) + got.added.map { it.name } + got.already).joinToString("\t")
         listOfNotNull(got.added.takeIf { it.isNotEmpty() }?.let { app.getString(R.string.added, it.joinToString { d -> d.name }) },

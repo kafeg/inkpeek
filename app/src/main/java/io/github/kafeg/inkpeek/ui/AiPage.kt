@@ -3,7 +3,6 @@ package io.github.kafeg.inkpeek.ui
 import android.widget.LinearLayout
 import android.widget.TextView
 import io.github.kafeg.inkpeek.R
-import io.github.kafeg.inkpeek.ai.Answers
 import io.github.kafeg.inkpeek.ai.Ask
 import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.ai.Action
@@ -40,7 +39,7 @@ class AiPage(private val card: CardActivity) {
             val tab = by
             await(out, ask(tab)).fold({ card.markdown(out, render(tab, it)) }, { e ->
                 // The error; the tab asks again next time.
-                out.text = if (e is Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
+                out.text = aiError(card, card.prefs, card.online, e)
                 card.forget(CardActivity.AI)
             })
         }

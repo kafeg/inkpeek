@@ -29,10 +29,12 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         val byPath = cache.values.associateBy { it.ifo.path }
         // One unreadable .ifo (being rewritten by another app) is skipped, not the whole library.
         cache = found.mapNotNull { byPath[it.path] ?: runCatching { StarDict(it, workRoot) }.getOrNull() }.associateBy { it.id }
-        // Drop the index of a dictionary that is gone from disk (not merely unreadable right now).
+        // Drop the index of a dictionary that is gone from disk: its own folder is there and its file is not (a folder on
+        // a card not mounted now keeps its indexes).
+        val there = roots.filter { it.isDirectory }.mapNotNull { runCatching { it.canonicalPath + File.separator }.getOrNull() }
         workRoot.listFiles()?.filter { it.name !in cache }?.forEach { dir ->
             val src = File(dir, "source").takeIf { it.exists() }?.readText()
-            if (src == null || (roots.any { it.isDirectory } && !File(src).exists())) dir.deleteRecursively()
+            if (src == null || (there.any { src.startsWith(it) } && !File(src).exists())) dir.deleteRecursively()
         }
         val rank = order().withIndex().associate { it.value to it.index }
         return cache.values.sortedWith(compareBy({ rank[it.id] ?: Int.MAX_VALUE }, { !isPack(it) }, { it.name }))

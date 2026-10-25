@@ -48,7 +48,7 @@ class LanguagesSettings(private val a: MainActivity) {
 
     /** The answers' language (as the app's by default) and the offline method with its models, on this tab. */
     private fun buildTranslation(t: LinearLayout) {
-        val names = Prefs.ANSWERS.map { c -> java.util.Locale(c).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() } }
+        val names = Prefs.ANSWERS.map { Ink.ownName(it) }
         val answers = listOf("") + Prefs.ANSWERS
         t.addView(Rows.choice(a, a.getString(R.string.ans_lang), a.getString(R.string.ans_lang_d),
             listOf(a.getString(R.string.ans_lang_same)) + names, answers.indexOf(prefs.answerPick).coerceAtLeast(0)) {

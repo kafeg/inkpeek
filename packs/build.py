@@ -12,6 +12,7 @@ OPUS-MT (Helsinki-NLP), Hy-MT2 (Tencent)."""
 import argparse
 import datetime
 import hashlib
+import http.client
 import json
 import os
 import shlex
@@ -30,12 +31,18 @@ ATTRIBUTION = ("Wiktionary contributors (CC BY-SA 4.0); data extracted by Wiktex
                "WikDict (CC BY-SA 4.0, from DBnary). Built by InkPeek packs. License: CC BY-SA 4.0.")
 
 
-def fetch(url, path):
+def fetch(url, path, tries=4):
     if not os.path.exists(path):
         os.makedirs(os.path.dirname(path), exist_ok=True)
         req = urllib.request.Request(url, headers={"User-Agent": "InkPeek-packs"})
-        with urllib.request.urlopen(req, timeout=120) as r, open(path + ".part", "wb") as o:
-            shutil.copyfileobj(r, o, 1 << 20)
+        for i in range(tries):
+            try:
+                with urllib.request.urlopen(req, timeout=120) as r, open(path + ".part", "wb") as o:
+                    shutil.copyfileobj(r, o, 1 << 20)
+                break
+            except (OSError, http.client.HTTPException):
+                if i == tries - 1:
+                    raise
         os.replace(path + ".part", path)
     return path
 
@@ -48,11 +55,33 @@ def sha256(path):
     return h.hexdigest()
 
 
+def file_entry(path, digest=None):
+    """The manifest's file entry of [path]; [digest]: its sha256, when already known."""
+    return {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": digest or sha256(path)}
+
+
+def merge(old, new):
+    """Components of [old] that [new] does not replace, then [new]."""
+    ids = {c["id"] for c in new}
+    return [c for c in old if c["id"] not in ids] + new
+
+
+def write_manifest(path, date, components):
+    json.dump({"format": 1, "generated": date, "components": components}, open(path, "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1)
+
+
 LANGID_URL = "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz"
 
 
 def gh(*args, check=True):
     return subprocess.run(["gh", *args], check=check, capture_output=True, text=True)
+
+
+def release_assets(rel):
+    """Asset names of release [rel]; None when there is no such release."""
+    have = gh("release", "view", rel, "--json", "assets", "--jq", ".assets[].name", check=False)
+    return set(have.stdout.split()) if have.returncode == 0 else None
 
 
 def remote_stamp(url):
@@ -92,9 +121,9 @@ def cmd_slices(a):
     rel, d = a.sources_release, os.path.join(a.work, "slices")
     os.makedirs(d, exist_ok=True)
     langs = sorted(SOURCES["languages"])
-    have = gh("release", "view", rel, "--json", "assets", "--jq", ".assets[].name", check=False)
-    assets = set(have.stdout.split()) if have.returncode == 0 else set()
-    if have.returncode != 0:
+    assets = release_assets(rel)
+    if assets is None:
+        assets = set()
         gh("release", "create", rel, "--title", "Pack sources (kaikki slices)", "--notes",
            "Per-language slices of the kaikki.org Wiktionary dumps (CC BY-SA 4.0), used to build the packs.", "--prerelease")
     state = {}
@@ -112,8 +141,7 @@ def cmd_slices(a):
             print(f"slices {ed}: from {rel}", flush=True)
             continue
         print(f"slices {ed}: dump changed or slices missing — cutting", flush=True)
-        counts = kaikki.slice_dump(fetch(url, dump(a, ed)), langs, d, ed)
-        print(f"  {counts}", flush=True)
+        cut(a, ed, langs)
         os.remove(dump(a, ed))
         gh("release", "upload", rel, *[os.path.join(d, n) for n in names], "--clobber")
         state[ed] = stamp
@@ -125,15 +153,14 @@ def cmd_langid(a):
     """fastText's language identification model, mirrored (CC BY-SA 3.0)."""
     path = fetch(LANGID_URL, os.path.join(a.out, "langid-176.ftz"))
     return {"id": "langid", "kind": "langid", "version": "176",
-            "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
+            "file": file_entry(path),
             "license": "CC-BY-SA-3.0", "attribution": "fastText language identification (lid.176), Facebook AI Research"}
 
 
 def cmd_publish(a):
     """Upload this run's assets to the release and merge their entries into its packs.json."""
     mine = json.load(open(os.path.join(a.out, "packs.json"), encoding="utf-8"))
-    have = gh("release", "view", a.release, "--json", "assets", "--jq", ".assets[].name", check=False)
-    if have.returncode != 0:
+    if release_assets(a.release) is None:
         gh("release", "create", a.release, "--latest=false", "--title", "Language packs", "--notes",
            "InkPeek language packs: grammar, dictionaries (CC BY-SA 4.0: Wiktionary contributors, Wiktextract/kaikki.org, "
            "WikDict), translation models (MPL-2.0, Mozilla), language identification (CC BY-SA 3.0, fastText). "
@@ -147,12 +174,12 @@ def cmd_publish(a):
     ids = {c["id"] for c in mine["components"]}
     # Only what the app downloads (grammar is a build input since 21.10); stale assets go from the release too.
     kinds = {"dict", "model", "langid", "opus", "llm"}
-    merged = sorted([c for c in old if c["id"] not in ids and c["kind"] in kinds] + mine["components"], key=lambda c: c["id"])
+    merged = sorted(merge([c for c in old if c["kind"] in kinds], mine["components"]), key=lambda c: c["id"])
     for c in old:
         if c["kind"] not in kinds:
             gh("release", "delete-asset", a.release, c["file"]["name"], "--yes", check=False)
     path = os.path.join(a.out, "packs.json")
-    json.dump({"format": 1, "generated": a.date, "components": merged}, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    write_manifest(path, a.date, merged)
     files = [os.path.join(a.out, c["file"]["name"]) for c in mine["components"]]
     gh("release", "upload", a.release, *files, path, "--clobber")
     print(f"published {sorted(ids)} to {a.release}; {len(merged)} components in packs.json", flush=True)
@@ -160,6 +187,12 @@ def cmd_publish(a):
 
 def dump(a, edition):
     return os.path.join(a.work, "dl", f"kaikki-{edition}.jsonl.gz")
+
+
+def cut(a, edition, langs):
+    """Slices of [langs] cut from the [edition] dump (downloaded once) into W/slices."""
+    counts = kaikki.slice_dump(fetch(SOURCES["kaikki"][edition], dump(a, edition)), langs, os.path.join(a.work, "slices"), edition)
+    print(f"  {counts}", flush=True)
 
 
 def slice_file(a, edition, lang):
@@ -170,8 +203,7 @@ def slice_file(a, edition, lang):
             return p
     langs = sorted(set(a.langs) | {lang})
     print(f"slice {edition}: {','.join(langs)}", flush=True)
-    counts = kaikki.slice_dump(fetch(SOURCES["kaikki"][edition], dump(a, edition)), langs, os.path.join(a.work, "slices"), edition)
-    print(f"  {counts}", flush=True)
+    cut(a, edition, langs)
     return os.path.join(a.work, "slices", f"{edition}.{lang}.jsonl.gz")
 
 
@@ -204,7 +236,7 @@ def pack(a, cid, folder):
                 info.compress_type = zipfile.ZIP_DEFLATED
                 with open(os.path.join(root, f), "rb") as src:
                     z.writestr(info, src.read(), compresslevel=9)
-    return {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)}
+    return file_entry(path)
 
 
 def cmd_grammar(a, x):
@@ -267,7 +299,7 @@ def cmd_models(a, directions):
         models.build(m, path, os.path.join(a.work, "models", f"{s}{t}"))
         print(f"model-{s}-{t}: {m['version']} {m['arch']}", flush=True)
         out.append({"id": f"model-{s}-{t}", "kind": "model", "from": s, "to": t, "version": m["version"], "arch": m["arch"],
-                    "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
+                    "file": file_entry(path),
                     "license": "MPL-2.0", "attribution": "Mozilla Firefox Translations (github.com/mozilla/translations)"})
     return out
 
@@ -315,7 +347,7 @@ def cmd_opus_finish(a):
         path = os.path.join(a.out, cid + ".tar.zst")
         subprocess.run(f"tar -C {shlex.quote(root)} -cf - {shlex.quote(cid)} | zstd -q -19 -T0 -f -o {shlex.quote(path)}", shell=True, check=True)
         out.append({"id": cid, "kind": "opus", "from": "", "to": "", "covers": meta["covers"], "tags": meta["tags"], "chrf": meta["chrf"],
-                    "ram_mb": 3500, "file": {"name": os.path.basename(path), "size": os.path.getsize(path), "sha256": sha256(path)},
+                    "ram_mb": 3500, "file": file_entry(path),
                     "license": meta["license"], "attribution": meta["attribution"]})
         shutil.rmtree(folder)
     return out
@@ -334,7 +366,7 @@ def cmd_llm(a):
             raise ValueError(f"{e['file']}: sha256 differs from the Hub")
         out.append({"id": e["id"], "kind": "llm", "from": "", "to": "", "name": e["name"], "covers": e["covers"],
                     "template": e["template"], "names": e["names"], "ram_mb": e["ram_mb"], "cpu": e["cpu"], "mirror": url,
-                    "file": {"name": name, "size": os.path.getsize(path), "sha256": want},
+                    "file": file_entry(path, want),
                     "license": e["license"], "attribution": e["attribution"]})
     return out
 
@@ -380,9 +412,7 @@ def main():
     if comps:
         manifest = os.path.join(a.out, "packs.json")
         old = json.load(open(manifest, encoding="utf-8"))["components"] if os.path.exists(manifest) else []
-        ids = {c["id"] for c in comps}
-        json.dump({"format": 1, "generated": a.date, "components": [c for c in old if c["id"] not in ids] + comps},
-                  open(manifest, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        write_manifest(manifest, a.date, merge(old, comps))
 
 
 if __name__ == "__main__":

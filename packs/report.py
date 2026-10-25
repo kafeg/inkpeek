@@ -8,36 +8,18 @@ Coverage: the share of the book language's 5,000 most frequent words (FrequencyW
 that the pair's dictionary knows, as a headword or an inflected form.
 """
 import argparse
-import http.client
-import shutil
 import json
 import os
-import re
-import urllib.request
 import zipfile
 
+from build import FREQ, MIN_DIRECT, fetch
+from inkpeek_packs import related
+
 ASSETS = "https://github.com/kafeg/inkpeek/releases/download/packs/"
-FREQ = "https://raw.githubusercontent.com/hermitdave/FrequencyWords/master/content/2018/{x}/{x}_50k.txt"
 NAMES = {"en": "English", "de": "German", "ru": "Russian", "fr": "French", "es": "Spanish", "it": "Italian",
          "pt": "Portuguese", "pl": "Polish", "nl": "Dutch", "uk": "Ukrainian",
          "cs": "Czech", "bg": "Bulgarian", "fi": "Finnish", "hu": "Hungarian", "sv": "Swedish", "da": "Danish", "ro": "Romanian"}
 BEGIN, END = "<!-- packs:begin -->", "<!-- packs:end -->"
-WORD = re.compile(r"[^\W\d_]+(['’-][^\W\d_]+)*")
-
-
-def fetch(url, path, tries=4):
-    if not os.path.exists(path):
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-        for i in range(tries):
-            try:
-                with urllib.request.urlopen(url, timeout=120) as r, open(path + ".part", "wb") as o:
-                    shutil.copyfileobj(r, o)
-                break
-            except (OSError, http.client.HTTPException):
-                if i == tries - 1:
-                    raise
-        os.replace(path + ".part", path)
-    return path
 
 
 def known(zip_path):
@@ -56,17 +38,6 @@ def known(zip_path):
     return out
 
 
-def top(work, x, n=5000):
-    words = []
-    for line in open(fetch(FREQ.format(x=x), os.path.join(work, "freq", f"{x}.txt")), encoding="utf-8"):
-        w = line.split(" ")[0]
-        if WORD.fullmatch(w):
-            words.append(w.lower())
-            if len(words) == n:
-                break
-    return words
-
-
 def steps(x, y):
     return [(x, y)] if "en" in (x, y) else [(x, "en"), ("en", y)]
 
@@ -83,7 +54,7 @@ def table(work):
     for c in sorted((c for c in manifest["components"] if c["kind"] == "dict"), key=lambda c: (c["to"] != "en", c["to"], c["from"])):
         x, y, st = c["from"], c["to"], c.get("stats", {})
         ws = known(fetch(ASSETS + c["file"]["name"], os.path.join(work, "dl", c["file"]["name"])))
-        t = top(work, x)
+        t = related.top(fetch(FREQ.format(x=x), os.path.join(work, "freq", f"{x}.txt")))
         cover = sum(w in ws for w in t) / len(t)
         models = [by_id.get(f"model-{a}-{b}") for a, b in steps(x, y)]
         route = " → ".join([NAMES[x]] + [NAMES[b] for _, b in steps(x, y)])
@@ -96,7 +67,7 @@ def table(work):
             src.append(f"{st['wiktionary']:,} from {NAMES[y]} Wiktionary")
         if st.get("wikdict"):
             src.append(f"{st['wikdict']:,} from WikDict")
-        label = "full" if cover >= 0.85 and all(models) else "basic" if cover >= 0.6 else "experimental"
+        label = "full" if cover >= 0.85 and all(models) else "basic" if cover >= MIN_DIRECT / 100 else "experimental"
         rows.append(f"| {NAMES[x]} → {NAMES[y]} | **{cover * 100:.0f}%** {label} | {st.get('words', 0):,} words, {st.get('forms', 0):,} forms "
                     f"| {'; '.join(src)} | {route} ({kinds}) | {mb(size)} |")
     head = ("| pair (book → answers) | top-5,000 coverage, label | dictionary | where the articles come from | offline translation "

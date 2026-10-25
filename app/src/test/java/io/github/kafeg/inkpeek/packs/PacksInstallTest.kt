@@ -41,6 +41,62 @@ class PacksInstallTest {
     }
 }
 
+/** Updates and failures: the old version stays whole until the new one is checked and in place; nothing half is left. */
+class PacksUpdateTest {
+    private fun zip(vararg files: Pair<String, String>) = ByteArrayOutputStream().also { b -> ZipOutputStream(b).use { z ->
+        files.forEach { (n, t) -> z.putNextEntry(ZipEntry("dict-de-ru/$n")); z.write(t.toByteArray()); z.closeEntry() }
+    } }.toByteArray()
+    private fun sha(b: ByteArray) = MessageDigest.getInstance("SHA-256").digest(b).joinToString("") { "%02x".format(it) }
+    private fun dict(body: ByteArray, sha: String = sha(body)) = Component("dict-de-ru", "dict", "de", "ru", "dict-de-ru.zip", body.size.toLong(), sha)
+
+    /** What the local server sends now. */
+    @Volatile private var body = ByteArray(0)
+
+    /** Packs in a fresh home, downloading from a local server that sends [body]. */
+    private fun withPacks(run: (Packs) -> Unit) {
+        val home = Files.createTempDirectory("upd").toFile()
+        java.net.ServerSocket(0).use { ss ->
+            thread(isDaemon = true) {
+                while (!ss.isClosed) runCatching { ss.accept().use { s ->
+                    val r = s.getInputStream().bufferedReader(); while (r.readLine()?.isNotEmpty() == true) Unit
+                    val b = body
+                    s.getOutputStream().apply { write("HTTP/1.1 200 OK\r\nContent-Length: ${b.size}\r\nConnection: close\r\n\r\n".toByteArray()); write(b); flush() }
+                } }
+            }
+            run(Packs(File(home, "packs"), File(home, "models"), "http://127.0.0.1:${ss.localPort}/", okhttp3.OkHttpClient()))
+        }
+        home.deleteRecursively()
+    }
+
+    @Test fun aBadDownloadLeavesTheOldVersion() = withPacks { p ->
+        val v1 = zip("dict-de-ru.ifo" to "v1"); body = v1; p.install(dict(v1))
+        // The newer file with a wrong checksum: refused, the old dictionary and its record as they were.
+        val v2 = zip("dict-de-ru.ifo" to "v2"); body = v2
+        assertTrue(runCatching { p.install(dict(v2, "0".repeat(64))) }.isFailure)
+        assertEquals("v1", File(p.dicts, "dict-de-ru/dict-de-ru.ifo").readText())
+        assertEquals(sha(v1), p.installed()["dict-de-ru"])
+        assertTrue(p.root.listFiles()!!.none { it.name.endsWith(".part") } && !File(p.root, "tmp").exists())
+    }
+
+    @Test fun anUpdateReplacesTheWholeFolder() = withPacks { p ->
+        val v1 = zip("dict-de-ru.ifo" to "v1", "old.txt" to "gone"); body = v1; p.install(dict(v1))
+        val v2 = zip("dict-de-ru.ifo" to "v2"); body = v2; p.install(dict(v2))
+        assertEquals(listOf("dict-de-ru.ifo"), File(p.dicts, "dict-de-ru").list()!!.toList())
+        assertEquals("v2", File(p.dicts, "dict-de-ru/dict-de-ru.ifo").readText())
+        assertEquals(sha(v2), p.installed()["dict-de-ru"])
+    }
+
+    @Test fun aDownloadCutShortIsCleanedUpAndBadIdsAreRefused() = withPacks { p ->
+        p.root.mkdirs(); File(p.root, "model-xx.tar.zst.part").writeText("half")
+        val v1 = zip("dict-de-ru.ifo" to "v1"); body = v1; p.install(dict(v1))
+        assertTrue(p.root.listFiles()!!.none { it.name.endsWith(".part") })
+        assertTrue(runCatching { p.install(Component("../evil", "dict", "de", "ru", "x.zip", 1, "0")) }.exceptionOrNull() is IllegalArgumentException)
+        assertTrue(runCatching { p.install(Component("model-x", "model", "", "", "x.tar.zst", 1, "0")) }.exceptionOrNull() is IllegalArgumentException)
+        assertTrue(runCatching { p.remove(Component("model-x", "model", "..", "ru", "x", 1, "0")) }.exceptionOrNull() is IllegalArgumentException)
+        assertTrue(File(p.dicts, "dict-de-ru/dict-de-ru.ifo").exists())
+    }
+}
+
 /** Removing a pair frees only what no other installed pair needs; updates are the parts with a newer file. */
 class PacksPlanTest {
     private fun c(id: String, kind: String, from: String = "", to: String = "", sha: String = "1") = Component(id, kind, from, to, "$id.zip", 1, sha)

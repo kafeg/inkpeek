@@ -3,7 +3,6 @@ package io.github.kafeg.inkpeek.packs
 import com.github.luben.zstd.ZstdInputStream
 import io.github.kafeg.inkpeek.mt.Engine
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream
 import org.json.JSONObject
 import java.io.File
@@ -39,9 +38,7 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
 
     /** The packs list from the release; the last one received is kept, so installed packs show up offline too. */
     fun list(): List<Component> {
-        val json = http.newCall(Request.Builder().url(assets + "packs.json").build()).execute().use {
-            if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()
-        }
+        val json = io.github.kafeg.inkpeek.Net.text(assets + "packs.json", client = http)
         // The copy for offline use is a convenience: no access to files yet (a fresh install) must not hide the list.
         return parse(json).also { runCatching { root.mkdirs(); write(listFile, json) } }
     }
@@ -98,15 +95,11 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     }
 
     private fun download(c: Component, url: String, tmp: File, progress: (Long, Long) -> Unit) {
-        http.newCall(Request.Builder().url(url).build()).execute().use { r ->
-            if (!r.isSuccessful) error("HTTP ${r.code}: ${c.file}")
-            val md = MessageDigest.getInstance("SHA-256")
-            r.body!!.byteStream().use { inp -> tmp.outputStream().use { o ->
-                val buf = ByteArray(1 shl 16); var done = 0L
-                while (true) { val n = inp.read(buf); if (n < 0) break; o.write(buf, 0, n); md.update(buf, 0, n); done += n; progress(done, c.size) }
-            } }
-            if (md.digest().joinToString("") { "%02x".format(it) } != c.sha256) error("Checksum mismatch: ${c.file}")
+        val md = MessageDigest.getInstance("SHA-256")
+        io.github.kafeg.inkpeek.Net.download(url, c.size, { done, _ -> progress(done, c.size) }, http) { inp ->
+            java.security.DigestInputStream(inp, md).use { d -> tmp.outputStream().use { d.copyTo(it, 1 shl 16) } }
         }
+        if (md.digest().joinToString("") { "%02x".format(it) } != c.sha256) error("Checksum mismatch: ${c.file}")
     }
 
     fun remove(c: Component) {

@@ -4,6 +4,7 @@ import html
 import re
 
 from . import stardict
+from .grammar import GENDER, STRESS
 
 ARTICLE = {"de": {"m": "der", "f": "die", "n": "das"}, "fr": {"m": "le", "f": "la"}, "es": {"m": "el", "f": "la"},
            "it": {"m": "il", "f": "la"}, "pt": {"m": "o", "f": "a"}, "nl": {"m": "de", "f": "de", "n": "het"}}
@@ -23,7 +24,6 @@ LABELS = {
 ABBREVIATIONS = {v.split("/")[-1].split()[-1] for lab in LABELS.values() for v in lab.values() if v.endswith(".")}
 PERFECT = {"sein": "ist", "haben": "hat"}  # German Perfekt: the auxiliary's 3rd person
 CASES = ("nominative", "accusative", "dative", "genitive")
-GENDERS = (("masculine", "m"), ("feminine", "f"), ("neuter", "n"))
 DETERMINERS = {"det", "article"}
 
 
@@ -35,7 +35,7 @@ def determiner(tagged, x, y):
     lemma = ARTICLE.get(x, {}).get("m") if ARTICLE.get(x, {}).get("m") in lemmas else lemmas[0]
     groups = {}
     for lm, t in tagged:
-        key = "pl" if "plural" in t else next((c for g, c in GENDERS if g in t), None)
+        key = "pl" if "plural" in t else next((c for g, c in GENDER.items() if g in t), None)
         if lm == lemma and key:
             groups.setdefault(key, set()).update(c for c in CASES if c in t)
     segs = [f"{lab[k]} " + "/".join(lab[c] for c in CASES if c in groups[k]) for k in ("m", "f", "n", "pl") if groups.get(k)]
@@ -132,9 +132,6 @@ def senses(record):
                 ex.append(t + (f" — {tr}" if tr else ""))
         out.append((gl, ex))
     return out
-
-
-STRESS = re.compile("[\u0300\u0301]")
 
 
 def translations(records, y):

@@ -45,7 +45,7 @@ class TranslatePage(private val card: CardActivity) {
                 by == "ai" && aiOk -> with(card.ai) { await(out, Ask.QUICK) }.fold(
                     { card.markdown(out, card.ai.render(CardActivity.TRANSLATE, it)) }, { e ->
                         // The error, and a new try next time.
-                        out.text = if (e is io.github.kafeg.inkpeek.ai.Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
+                        out.text = aiError(card, card.prefs, card.online, e)
                         card.forget(CardActivity.TRANSLATE)
                     })
                 // AI cannot answer now and there is no offline translation: say why.
@@ -81,6 +81,6 @@ class TranslatePage(private val card: CardActivity) {
             if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Ink.lang(card, from) +
                 // The model that translated: "German · OPUS-MT", or Mozilla's "German · through English".
                 if (r.by.isNotEmpty()) " · " + r.by else if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
-            { out.text = it.message ?: it.javaClass.simpleName })
+            { out.text = card.getString(R.string.failed, it.message ?: it.javaClass.simpleName) })
     }
 }

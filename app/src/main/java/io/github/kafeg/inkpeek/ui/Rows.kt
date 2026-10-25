@@ -118,10 +118,10 @@ object Rows {
             texts(ctx, items[i].first, items[i].second, 1).apply { val q = Ink.dp(ctx, 10); setPadding(0, q, 0, q) }
     }
 
-    /** A page's header: ← (back to the settings; e-ink readers often have no back gesture) and its title. */
-    fun header(a: android.app.Activity, title: String) = Ink.horizontal(a).apply {
+    /** A page's header: ← (by default closes the screen; e-ink readers often have no back gesture) and its title. */
+    fun header(a: android.app.Activity, title: String, back: () -> Unit = { a.finish() }) = Ink.horizontal(a).apply {
         gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
-        addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { a.finish() },
+        addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { back() },
             LinearLayout.LayoutParams(Ink.dp(a, 48), Ink.dp(a, 48)).apply { rightMargin = Ink.dp(a, 12) })
         addView(Ink.text(a, title, 22f, bold = true).apply { isSingleLine = true; ellipsize = TextUtils.TruncateAt.END }, Ink.lp(0, weight = 1f))
     }

@@ -135,10 +135,19 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         val name = contentResolver.query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c ->
             if (c.moveToFirst()) c.getString(0) else null } ?: "font.ttf"
         if (name.substringAfterLast('.').lowercase() !in setOf("ttf", "otf")) { Ink.toast(this, getString(R.string.font_bad, name)); return }
-        val f = runCatching { contentResolver.openInputStream(uri)!!.use { Fonts.keep(prefs.home, name, it) } }
-            .getOrElse { Ink.toast(this, getString(R.string.failed, it.message)); return }
-        if (Fonts.face(f.path) == null) { f.delete(); Ink.toast(this, getString(R.string.font_bad, name)); return }
-        prefs.cardFont = f.path; tab = "yours"; refresh()
+        // Off the main thread: a font with many scripts is tens of MB.
+        Thread {
+            val r = runCatching { contentResolver.openInputStream(uri)!!.use { Fonts.keep(prefs.home, name, it) } }
+            val ok = r.getOrNull()?.takeIf { f -> Fonts.face(f.path) != null || run { f.delete(); false } }
+            runOnUiThread {
+                if (isFinishing) return@runOnUiThread
+                when {
+                    r.isFailure -> Ink.toast(this, getString(R.string.failed, r.exceptionOrNull()?.message))
+                    ok == null -> Ink.toast(this, getString(R.string.font_bad, name))
+                    else -> { prefs.cardFont = ok.path; tab = "yours"; refresh() }
+                }
+            }
+        }.start()
     }
 
     companion object {

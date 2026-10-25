@@ -113,7 +113,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         ai = AiSettings(this).also { it.build(sections.getValue(R.string.tab_ai)) }
         card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
-        val section = mapOf("lang" to R.string.tab_dicts, "ai" to R.string.tab_ai, "card" to R.string.tab_card, "words" to R.string.tab_words)
+        val section = SECTION_KEYS.entries.associate { (id, k) -> k to id }
         show(savedInstanceState?.getInt("tab") ?: asked?.let { section[it[0]] } ?: R.string.tab_dicts)
         open["page"]?.let { openPage(it) }
     }
@@ -212,7 +212,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     fun langName(code: String) = Ink.lang(this, code)
 
     /** A path on shared storage as people see it: "koreader/data/dict". */
-    fun short(f: File) = f.path.removePrefix(Environment.getExternalStorageDirectory().path + "/")
+    fun short(f: File) = Ink.short(f)
 
     fun edit(hint: String, value: String, secret: Boolean = false, save: ((String) -> Unit)? = null) =
         EditText(this).apply {

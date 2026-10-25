@@ -7,9 +7,9 @@ its rank in the frequency list (0: not in it) and, for a separable verb, its par
 """
 import re
 
+from .grammar import TABLE_TAGS
+
 COLUMNS = ["rel", "syn", "ant", "expr", "ipa", "ety", "forms"]
-# Forms of the tables, not their machinery.
-SKIP_TAGS = {"table-tags", "inflection-template", "class", "romanization", "auxiliary"}
 # The finite forms of a verb's table: where a separable verb is written apart ("macht zu").
 FINITE = {"present", "past", "subjunctive-i", "subjunctive-ii", "imperative"}
 REFLEXIVE = {"mich", "dich", "sich", "uns", "euch", "mir", "dir"}
@@ -68,9 +68,9 @@ def collect(records, into):
         if ety and not e["ety"]:
             add("ety", _origin(ety))
         for f in r.get("forms") or []:
-            tags = [t for t in f.get("tags") or [] if t not in SKIP_TAGS]
+            tags = [t for t in f.get("tags") or [] if t not in TABLE_TAGS]
             form = _clean(f.get("form"))
-            if form and tags and form != w and form != "-" and not any(t in SKIP_TAGS for t in f.get("tags") or []):
+            if form and tags and form != w and form != "-" and not any(t in TABLE_TAGS for t in f.get("tags") or []):
                 add("forms", f"{form}:{' '.join(tags)}")
 
 
@@ -86,16 +86,22 @@ def rank(freq_path):
 WORD = re.compile(r"[^\W\d_]+(['’-][^\W\d_]+)*")
 
 
-def coverage(known, freq_path, n=5000):
-    """The share (0–100) of the [n] most frequent words (letters only) that [known] (lower case) has."""
-    top = []
+def top(freq_path, n=5000):
+    """The [n] most frequent words of a FrequencyWords list, letters only, lower case."""
+    words = []
     for line in open(freq_path, encoding="utf-8"):
         w = line.split(" ", 1)[0]
         if WORD.fullmatch(w):
-            top.append(w.lower())
-            if len(top) == n:
+            words.append(w.lower())
+            if len(words) == n:
                 break
-    return round(100 * sum(w in known for w in top) / max(len(top), 1), 1)
+    return words
+
+
+def coverage(known, freq_path, n=5000):
+    """The share (0–100) of the [n] most frequent words (letters only) that [known] (lower case) has."""
+    words = top(freq_path, n)
+    return round(100 * sum(w in known for w in words) / max(len(words), 1), 1)
 
 
 def _order(items, ranks):

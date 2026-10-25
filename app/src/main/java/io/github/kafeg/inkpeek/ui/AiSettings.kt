@@ -10,6 +10,7 @@ import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.ListView
+import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Ai
 import io.github.kafeg.inkpeek.ai.Ask
@@ -52,9 +53,9 @@ class AiSettings(private val a: MainActivity) {
             server.visibility = if (p == Provider.CUSTOM) View.VISIBLE else View.GONE
             url.setText(prefs.url(Provider.CUSTOM))
             keyAbout.text = when (prefs.keySource(p)) {
-                "typed in settings" -> a.getString(R.string.key_typed_ok)
-                "none" -> if (p == Provider.CUSTOM) a.getString(R.string.key_optional) else a.getString(R.string.key_missing, a.short(prefs.keyPath(p)))
-                else -> a.getString(R.string.key_file_ok, a.short(prefs.keyPath(p)))
+                Prefs.KeyFrom.TYPED -> a.getString(R.string.key_typed_ok)
+                Prefs.KeyFrom.NONE -> if (p == Provider.CUSTOM) a.getString(R.string.key_optional) else a.getString(R.string.key_missing, a.short(prefs.keyPath(p)))
+                Prefs.KeyFrom.FILE -> a.getString(R.string.key_file_ok, a.short(prefs.keyPath(p)))
             }
             model.text = prefs.model(p).ifBlank { a.getString(R.string.model_choose) } + "  ▾"
         }

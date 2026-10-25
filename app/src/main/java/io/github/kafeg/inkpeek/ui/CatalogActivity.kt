@@ -17,11 +17,9 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.Request
 
 /** Dictionaries of the switched-on public sources: pairs into the app's language first, WikDict first among them. */
 class CatalogActivity : Activity(), CoroutineScope by MainScope() {
-    private val http = io.github.kafeg.inkpeek.Net.http
     private lateinit var prefs: Prefs
     private var items: List<CatalogItem> = emptyList()
     private var shown: List<CatalogItem> = emptyList()
@@ -96,9 +94,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
 
     private fun mb(b: Long) = if (b <= 0) "" else getString(R.string.size_mb, "%.1f".format(b / 1e6))
 
-    private fun get(url: String): String = http.newCall(Request.Builder().url(url).build()).execute().use {
-        if (!it.isSuccessful) error("HTTP ${it.code}"); it.body!!.string()
-    }
+    private fun get(url: String): String = io.github.kafeg.inkpeek.Net.text(url)
 
     /** One download at a time: while one runs, a tap shows its progress instead. */
     private fun confirm(item: CatalogItem) {

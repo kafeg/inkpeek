@@ -7,6 +7,7 @@ import io.github.kafeg.inkpeek.ai.Provider
 
 /** A short, actionable message for an AI error instead of an exception name. */
 fun aiError(ctx: Context, prefs: Prefs, online: Boolean, e: Throwable): String {
+    if (e is io.github.kafeg.inkpeek.ai.Answers.Offline) return ctx.getString(R.string.err_offline)
     val chain = generateSequence(e) { it.cause }.take(8).toList()
     val name = e.javaClass.simpleName; val msg = chain.joinToString(" ") { it.message.orEmpty() }
     val net = chain.any { it is java.net.UnknownHostException || it is java.net.SocketException || it is java.net.SocketTimeoutException ||

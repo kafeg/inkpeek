@@ -77,5 +77,5 @@ class OrderActivity : Activity(), CoroutineScope by MainScope() {
         return "InkPeek · " + listOfNotNull(name(d.book), name(d.answer)).joinToString(" → ")
     }
 
-    private fun short(f: java.io.File) = f.path.removePrefix(android.os.Environment.getExternalStorageDirectory().path + "/")
+    private fun short(f: java.io.File) = Ink.short(f)
 }

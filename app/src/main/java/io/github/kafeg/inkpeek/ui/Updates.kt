@@ -8,7 +8,6 @@ import android.content.pm.PackageInstaller
 import android.widget.Toast
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
-import okhttp3.Request
 import org.json.JSONObject
 import java.io.File
 
@@ -20,7 +19,6 @@ object Updates {
     @Volatile private var tried = 0L
     /** The installer's confirmation that Android did not let start while InkPeek was in the background. */
     @Volatile var pending: Intent? = null
-    private val http = io.github.kafeg.inkpeek.Net.http
 
     /** A release: [code] is the tag's last number (the commit count, also the version code), [notes] its text. */
     data class Release(val tag: String, val code: Int, val notes: String, val apk: String, val size: Long) {
@@ -43,9 +41,7 @@ object Updates {
     /** Blocking: asks GitHub for the latest release and remembers it. */
     fun check(ctx: Context): Release {
         tried = System.currentTimeMillis()
-        val j = http.newCall(Request.Builder().url(LATEST).header("Accept", "application/vnd.github+json").build()).execute().use {
-            if (!it.isSuccessful) error("HTTP ${it.code}"); JSONObject(it.body!!.string())
-        }
+        val j = JSONObject(io.github.kafeg.inkpeek.Net.text(LATEST, accept = "application/vnd.github+json"))
         val tag = j.getString("tag_name")
         val assets = j.getJSONArray("assets"); val apk = (0 until assets.length()).map { assets.getJSONObject(it) }.first { it.getString("name").endsWith(".apk") }
         val r = Release(tag, tag.substringAfterLast('.').toIntOrNull() ?: 0, j.optString("body"), apk.getString("browser_download_url"), apk.optLong("size"))

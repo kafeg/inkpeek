@@ -75,11 +75,12 @@ class Prefs(private val ctx: Context) {
     /** Key typed in settings, else the key file in [keysDir]. */
     fun effectiveKey(p: Provider): String = key(p).ifBlank { read(keyPath(p)) }
     fun keyPath(p: Provider) = File(keysDir, "${p.name.lowercase()}.key")
+    enum class KeyFrom { TYPED, FILE, NONE }
     /** Where the key comes from, for the settings screen (never the key itself). */
-    fun keySource(p: Provider): String = when {
-        key(p).isNotBlank() -> "typed in settings"
-        read(keyPath(p)).isNotBlank() -> keyPath(p).path
-        else -> "none"
+    fun keySource(p: Provider): KeyFrom = when {
+        key(p).isNotBlank() -> KeyFrom.TYPED
+        read(keyPath(p)).isNotBlank() -> KeyFrom.FILE
+        else -> KeyFrom.NONE
     }
     private fun read(f: File) = runCatching { f.readText().trim() }.getOrDefault("")
 

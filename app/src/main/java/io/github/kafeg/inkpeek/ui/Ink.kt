@@ -144,10 +144,16 @@ object Ink {
     private fun res(ctx: Context, name: String, fallback: String) =
         ctx.resources.getIdentifier(name, "string", ctx.packageName).takeIf { it != 0 }?.let { ctx.getString(it) } ?: fallback
 
-    fun escape(s: String) = s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    fun escape(s: String) = io.github.kafeg.inkpeek.stardict.Article.escape(s)
+
+    /** A language's name in its own language, capitalized ("Deutsch"): the app's language list. */
+    fun ownName(code: String) = java.util.Locale(code).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() }
+
+    /** A path on shared storage as people see it: "koreader/data/dict". */
+    fun short(f: java.io.File) = f.path.removePrefix(android.os.Environment.getExternalStorageDirectory().path + "/")
 
     /** The little Markdown the AI may use (**bold**, *italic*, "- " lists) -> HTML. */
-    fun markdown(s: String): String = s.trim().replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+    fun markdown(s: String): String = escape(s.trim())
         .replace(Regex("\\*\\*(.+?)\\*\\*"), "<b>$1</b>").replace(Regex("(?<![*\\w])\\*(?!\\s)(.+?)(?<!\\s)\\*(?![*\\w])"), "<i>$1</i>")
         .replace(Regex("(?m)^#+\\s*"), "").replace(Regex("(?m)^\\s*[-•]\\s+"), "• ").replace("\n", "<br>")
 

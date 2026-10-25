@@ -4,10 +4,12 @@ import re
 from collections import defaultdict
 
 GENDER = {"masculine": "m", "feminine": "f", "neuter": "n"}
+# Forms of the tables' machinery, not of the word.
+TABLE_TAGS = {"table-tags", "inflection-template", "class", "romanization", "auxiliary"}
 # Forms that are not a usable spelling of the word, or a word of their own.
-SKIP_FORM = {"table-tags", "inflection-template", "class", "romanization", "auxiliary", "diminutive", "augmentative",
-             "alternative", "obsolete", "archaic", "dialectal", "misspelling", "abbreviation", "canonical", "nonstandard",
-             "error-unrecognized-form", "rare", "variant", "feminine", "masculine"}
+SKIP_FORM = TABLE_TAGS | {"diminutive", "augmentative", "alternative", "obsolete", "archaic", "dialectal", "misspelling",
+                          "abbreviation", "canonical", "nonstandard", "error-unrecognized-form", "rare", "variant",
+                          "feminine", "masculine"}
 # Related words that Wiktionary lists among the forms: an aspect partner (знать → узнать), a relational or possessive
 # adjective (собака → собачий), an abstract or verbal noun. They have their own entries; not inflections.
 RELATED = {"relational", "possessive", "abstract-noun", "noun-from-verb"}

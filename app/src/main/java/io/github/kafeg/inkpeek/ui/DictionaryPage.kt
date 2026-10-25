@@ -109,14 +109,7 @@ class DictionaryPage(private val card: CardActivity) {
         turn = { d -> if (i + d in hits.indices) pages(hits, word, i + d, to) }
         place = "p:$i"
         val (dict, list) = hits[i]
-        val bar = Ink.horizontal(card).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
-        val side = Ink.dp(card, 40); val many = hits.size > 1
-        if (many) bar.addView(Ink.icon(card, R.drawable.ic_prev, card.getString(R.string.prev), 40) { turn?.invoke(-1) }.apply { alpha = if (i > 0) 1f else Ink.OFF },
-            LinearLayout.LayoutParams(side, side))
-        bar.addView(Ink.text(card, (if (many) "${i + 1} / ${hits.size} · " else "") + card.source(dict), card.size * 0.72f, bold = true)
-            .apply { gravity = android.view.Gravity.CENTER; maxLines = 2 }, Ink.lp(0, weight = 1f).apply { leftMargin = Ink.dp(card, 8); rightMargin = Ink.dp(card, 8) })
-        if (many) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (i < hits.size - 1) 1f else Ink.OFF },
-            LinearLayout.LayoutParams(side, side))
+        val bar = WordsList.bar(card, Ink.escape((if (hits.size > 1) "${i + 1} / ${hits.size} · " else "") + card.source(dict)), card.size * 0.72f, i, hits.size) { j -> pages(hits, word, j, to) }
         p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
         entries(p, list, word)
         sections(p, dict, list.first().word)
@@ -202,14 +195,9 @@ class DictionaryPage(private val card: CardActivity) {
                 val at = n.coerceIn(0, (pages - 1).coerceAtLeast(0))
                 val slice = all.drop(at * WordsList.PAGE_SHORT).take(WordsList.PAGE_SHORT)
                 // ◀ title and "21–40 of 63" ▶ on top, as the dictionaries page; a swipe turns too.
-                val bar = Ink.horizontal(card).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
-                val side = Ink.dp(card, 40)
-                if (pages > 1) { turn = { d -> if (at + d in 0 until pages) section(dict, word, k, at + d) }
-                    bar.addView(Ink.icon(card, R.drawable.ic_prev, card.getString(R.string.prev), 40) { turn?.invoke(-1) }.apply { alpha = if (at > 0) 1f else Ink.OFF }, LinearLayout.LayoutParams(side, side)) }
-                bar.addView(Ink.text(card, head + if (pages > 1) "<br>" + Ink.escape(card.getString(R.string.page_of, at * WordsList.PAGE_SHORT + 1,
-                    minOf(all.size, (at + 1) * WordsList.PAGE_SHORT), all.size)) else "", card.size * 0.72f, bold = true, html = true).apply { gravity = android.view.Gravity.CENTER },
-                    Ink.lp(0, weight = 1f).apply { leftMargin = Ink.dp(card, 8); rightMargin = Ink.dp(card, 8) })
-                if (pages > 1) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (at < pages - 1) 1f else Ink.OFF }, LinearLayout.LayoutParams(side, side))
+                if (pages > 1) turn = { d -> if (at + d in 0 until pages) section(dict, word, k, at + d) }
+                val bar = WordsList.bar(card, head + if (pages > 1) "<br>" + Ink.escape(card.getString(R.string.page_of, at * WordsList.PAGE_SHORT + 1,
+                    minOf(all.size, (at + 1) * WordsList.PAGE_SHORT), all.size)) else "", card.size * 0.72f, at, pages) { j -> section(dict, word, k, j) }
                 p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
                 val box = Ink.vertical(card); p.addView(box)
                 job = card.launch {

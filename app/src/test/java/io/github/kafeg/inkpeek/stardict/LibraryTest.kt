@@ -78,6 +78,18 @@ class LibraryTest {
         assertEquals(1, lib.all().size)
     }
 
+    /** An own dictionary's index stays while its folder is away (a card not mounted), goes when its file is gone from it. */
+    @Test fun anIndexGoesOnlyWithItsDictionary() {
+        val root = Files.createTempDirectory("packs").toFile(); val mine = Files.createTempDirectory("own").toFile().also(::mueller)
+        val work = File(root, "work")
+        fun lib() = Library(root, listOf(mine), work, { _, _ -> true }) { emptyList() }.also { l -> l.found().forEach { it.prepare() } }
+        val id = lib().found().single().id
+        val away = File(mine.path + "-away"); mine.renameTo(away)
+        lib(); assertEquals(true, File(work, id).isDirectory)
+        away.renameTo(mine); mine.walkTopDown().filter { it.isFile }.forEach { it.delete() }
+        lib(); assertEquals(false, File(work, id).exists())
+    }
+
     @Test fun theOrderIsThePersons() {
         var order = emptyList<String>()
         val lib = library(::mueller, order = { order })
