@@ -1,7 +1,7 @@
 # Data formats
 
 The formats InkPeek reads and writes that other apps share: the language packs list, the records (saved words,
-history, answers) and the sync log. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
+history, answers) and the sync log; and the sentence breaks of offline translation. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
 implements the same formats with its own code. A format changes here and in `tests/` first, then in the apps.
 
 ## Language packs: `packs.json`
@@ -145,3 +145,15 @@ device's change is newer than it. `ms` is close to the wall time, not equal: use
 | `cut-last-line` | a broken line in the middle and a last line without `\n` (also one that is valid JSON) are skipped |
 | `unknown-op` | an unknown `op`, `v: 2` and a line without `t` are skipped; extra fields of a known op are ignored |
 | `clock-backwards` | the order is by `t`, not by wall time: a device whose clock went back keeps counting `n`; a change made after reading another log wins |
+
+## Sentence breaks
+Offline translation cuts a text into sentences: an OPUS-MT model with a target tag gets the tag before each one, Hy-MT2
+gets pieces of whole sentences (`Engine.sentences`, `Llm.chunks`). InkPeek uses Android's
+`BreakIterator.getSentenceInstance(Locale(<lang>))`: ICU's rules (Unicode UAX #29) **without abbreviation
+suppressions**, so "Dr.", "z. B.", "J. R. R." and "3. Mai" end a sentence. Each piece is trimmed; a blank line gives
+an empty piece.
+
+Cases: `tests/sentences/sentences.tsv`, UTF-8, one case per line, tab-separated: `lang`, `text`, then the expected
+sentences in order; `\n` in a field is a line break; `#` starts a comment line. Checked on a device by
+`SentencesOnDeviceTest` (`scripts/device-test.sh`); a failing line is logged as the device gives it. The first
+expectations came from ICU 78 on a desktop; a device's older ICU that disagrees is a finding, recorded here.

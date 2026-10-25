@@ -1,6 +1,6 @@
 #!/bin/sh
 # Language packs on a connected device through the app's own code: headers, meanings, language detection, offline
-# translation (cases: app/src/androidTest/assets/cases.tsv). Needs keystore.properties and the packs installed in the app.
+# translation (cases: app/src/androidTest/assets/cases.tsv), sentence breaks (tests/sentences/sentences.tsv). Needs keystore.properties and the packs installed in the app.
 set -e
 cd "$(dirname "$0")/.."
 ./gradlew -q assembleRelease assembleReleaseAndroidTest

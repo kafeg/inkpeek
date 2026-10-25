@@ -37,6 +37,7 @@ android {
     buildFeatures { buildConfig = true }
     // Without the updater the APK may not install APKs either.
     if (!updates) sourceSets.getByName("release").manifest.srcFile("src/noupdates/AndroidManifest.xml")
+    sourceSets.getByName("androidTest").assets.srcDir("../tests/sentences") // shared cases (LexiPeek runs them too)
     externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
     testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
     testBuildType = "release" // device tests run in the installed release app (same signature, its packs)

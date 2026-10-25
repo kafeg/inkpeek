@@ -1,0 +1,44 @@
+# lang	text	sentence…: Engine.sentences on the device (Android ICU). "\n" in a field is a line break. See docs/formats.md.
+de	Er kam spät. Sie wartete schon.	Er kam spät.	Sie wartete schon.
+de	Warum? Weil es regnete! Dann ging er.	Warum?	Weil es regnete!	Dann ging er.
+de	Das ist z. B. ein Haus, usw. Dann kam er.	Das ist z.	B. ein Haus, usw.	Dann kam er.
+de	Dr. Müller wohnt in der Goethestr. 5. Er ist Arzt.	Dr.	Müller wohnt in der Goethestr.	5.	Er ist Arzt.
+de	Am 3. Mai 2024 begann es. Es war der 1. Tag.	Am 3.	Mai 2024 begann es.	Es war der 1.	Tag.
+de	Er sagte: „Ich komme morgen.“ Dann ging er.	Er sagte: „Ich komme morgen.“	Dann ging er.
+de	Das kostet 3.50 Euro. Es ist billig.	Das kostet 3.50 Euro.	Es ist billig.
+de	Er wartete … und wartete. Dann kam sie.	Er wartete … und wartete.	Dann kam sie.
+de	Er wartete... Dann kam sie.	Er wartete...	Dann kam sie.
+de	Was? nein, das nicht.	Was?	nein, das nicht.
+de	Erste Zeile ohne Punkt\nZweite Zeile.	Erste Zeile ohne Punkt	Zweite Zeile.
+de	Absatz eins.\n\nAbsatz zwei.	Absatz eins.		Absatz zwei.
+de	Er las „Krieg und Frieden“. Es war lang.	Er las „Krieg und Frieden“.	Es war lang.
+en	Mr. Smith went to Washington. He arrived at 5 p.m. on Monday.	Mr.	Smith went to Washington.	He arrived at 5 p.m. on Monday.
+en	J. R. R. Tolkien wrote it. It is long.	J.	R.	R.	Tolkien wrote it.	It is long.
+en	The U.S. economy grew. Prices fell.	The U.S. economy grew.	Prices fell.
+en	"Stop!" he cried. Nobody stopped.	"Stop!"	he cried.	Nobody stopped.
+en	It costs $3.50. That is cheap.	It costs $3.50.	That is cheap.
+en	Is it true? yes, it is.	Is it true?	yes, it is.
+en	See e.g. the first chapter. Then read on.	See e.g. the first chapter.	Then read on.
+ru	Он пришёл поздно. Она уже ждала.	Он пришёл поздно.	Она уже ждала.
+ru	Т. е. это дом. И т. д. Потом он ушёл.	Т. е. это дом.	И т. д.	Потом он ушёл.
+ru	Он сказал: «Я приду завтра». Потом ушёл.	Он сказал: «Я приду завтра».	Потом ушёл.
+ru	Почему? Потому что шёл дождь! Он ушёл.	Почему?	Потому что шёл дождь!	Он ушёл.
+ru	Это было в 1990 г. Тогда всё изменилось.	Это было в 1990 г.	Тогда всё изменилось.
+ru	А. С. Пушкин родился в Москве. Он поэт.	А.	С.	Пушкин родился в Москве.	Он поэт.
+ru	Он читал Harry Potter. Книга ему понравилась.	Он читал Harry Potter.	Книга ему понравилась.
+fr	Il est arrivé tard. Elle attendait déjà.	Il est arrivé tard.	Elle attendait déjà.
+fr	M. Dupont habite ici. Il est médecin.	M.	Dupont habite ici.	Il est médecin.
+fr	Il a dit : « Je viendrai demain. » Puis il est parti.	Il a dit : « Je viendrai demain.	» Puis il est parti.
+fr	Pourquoi ? Parce qu'il pleuvait ! Il est parti.	Pourquoi ?	Parce qu'il pleuvait !	Il est parti.
+es	Llegó tarde. Ella ya esperaba.	Llegó tarde.	Ella ya esperaba.
+es	¿Por qué? ¡Porque llovía! Se fue.	¿Por qué?	¡Porque llovía!	Se fue.
+es	El Sr. García vive aquí. Es médico.	El Sr.	García vive aquí.	Es médico.
+it	È arrivato tardi. Lei aspettava già.	È arrivato tardi.	Lei aspettava già.
+it	Il sig. Rossi abita qui. È medico.	Il sig.	Rossi abita qui.	È medico.
+pt	Ele chegou tarde. Ela já esperava.	Ele chegou tarde.	Ela já esperava.
+pt	O Sr. Silva mora aqui. É médico.	O Sr.	Silva mora aqui.	É médico.
+pl	Przyszedł późno. Ona już czekała.	Przyszedł późno.	Ona już czekała.
+pl	Tzn. to jest dom. Potem wyszedł.	Tzn. to jest dom.	Potem wyszedł.
+pl	Powiedział: „Przyjdę jutro”. Potem wyszedł.	Powiedział: „Przyjdę jutro”.	Potem wyszedł.
+uk	Він прийшов пізно. Вона вже чекала.	Він прийшов пізно.	Вона вже чекала.
+uk	Він сказав: «Я прийду завтра». Потім пішов.	Він сказав: «Я прийду завтра».	Потім пішов.
