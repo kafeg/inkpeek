@@ -43,7 +43,10 @@ android {
     }
     buildTypes {
         release {
-            isMinifyEnabled = false
+            // R8: the libraries' unused code and resources out (rules: proguard-rules.pro).
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             signingConfigs.findByName("release")?.let { signingConfig = it }
         }
     }
