@@ -14,9 +14,9 @@ may pick the wrong one of ты / вы; the speaker's gender may change.
 The models stay in memory between translations and leave it after a few idle minutes; when free memory is short,
 InkPeek loads one model at a time.
 
-**Three methods** (Languages → InkPeek → Translation method; one for all pairs, the app downloads what your pairs
-need and removes what none needs; a method this device cannot run is shown dimmed with the reason; after a download
-the page shows how long a phrase takes on this device):
+**Three methods, or Off** (Languages → Translation; one for all pairs, the app downloads what your pairs need; a
+method this device cannot run is shown dimmed with the reason; after a download the page shows how long a phrase
+takes on this device; downloaded models stay when you switch, the list under the methods removes one):
 
 | method | how | size | needs |
 |---|---|---|---|

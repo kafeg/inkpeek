@@ -50,7 +50,7 @@ Answers come in the app's language.</sub></p>
 ## Quick start
 1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
    files when it asks.
-2. **Choose your languages:** Languages → InkPeek → **Download packs…** → tap the pairs of your books. Answers come in
+2. **Choose your languages:** Languages → Packs → **Download packs…** → tap the pairs of your books. Answers come in
    the app's language. Have dictionaries already? Languages → **Other dictionaries** (below).
 3. **Optional — AI:** choose a provider on the **AI** tab and paste your API key. Without it InkPeek works fully
    offline.
@@ -93,7 +93,7 @@ copy other entries from
 ### Other readers
 | reader | how |
 |---|---|
-| Librera | select text → **+** in the selection menu → the first **InkPeek** in the list. Librera sends where the word is: with Card → Appearance → Position → **Where the reader asks** the card opens above or below it |
+| Librera | select text → **+** in the selection menu → the first **InkPeek** in the list. Librera sends where the word is: with Card → Look → Position → **Where the reader asks** the card opens above or below it |
 | AlReaderX | Settings → General settings → **Dictionary for single words** → **GoldenDict/ColorDict 3**; select a word or a passage (Text selection) → the translate icon |
 | Cool Reader | Settings → Dictionary → **ColorDict new / GoldenDict**. On Onyx Boox Cool Reader does not offer it (its list there is Onyx's own); Share → InkPeek works, but Cool Reader adds the author and the title to the shared text |
 | Moon+ Reader | Dictionary → **ColorDict** (not tested by us) |

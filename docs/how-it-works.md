@@ -5,39 +5,46 @@
 ## The card
 - **Dictionary** comes first. For a word: the header from the packs — "das Haus (Hauses, мн. Häuser)", "go (went, gone)
   неправ." — then one short line per dictionary, signed with its source: the packs first ("InkPeek · German →
-  Russian"), then your other dictionaries by name. Tap a line for that dictionary's full entry, ← goes back. For a
-  sentence: the word-by-word gloss, one row per word.
+  Russian"), then your other dictionaries by name. The › at a line's end opens that dictionary's full entry, ← goes
+  back. For a sentence: the word-by-word gloss, one row per word; a German verb written apart comes first ("mache … zu:
+  zumachen").
 - **Under a pack's full article**, from Wiktionary: **related words** (*machen* → anmachen, zumachen, Macher; *make* →
   make up), **synonyms and antonyms**, **expressions and proverbs**, **forms and pronunciation** (IPA), **origin**. One
-  row each with a preview; a tap opens the list — frequent words first, 20 per page, each with its first meaning — and
-  a tap on a word looks it up (← returns). Which ones: Languages → Article.
-- **Translate**: by AI when it can answer (set up and online), offline on the device otherwise — both are tabs, the
-  available one first. Each is there only when it can work: Offline with a pack installed, AI with a provider chosen;
-  with neither there is no Translate icon. When a text's language has a pack you have not installed, the Offline tab
-  names it.
+  row each with a preview; its › opens the list — frequent words first, 20 per page, each with its first meaning — and
+  a word's › looks it up as a card of its own (← returns). Which ones: Card → Article.
+- **Translate**: Offline first (on the device), AI second — AI asks only when its tab is tapped. Each is there only
+  when it can work: Offline with a pack installed and a method on, AI with a provider and its module on; with neither
+  there is no Translate icon. A text with no offline translation opens on Dictionary (word by word).
 - **AI tabs** (marked "AI", dimmed when AI cannot answer right now): Analysis — Grammar and Words; Context —
-  Explanation and Examples; more parts on request (AI → Answers, [below](#ai)). Opening any AI tab asks for all of them at once (the open one first), so the others open
-  instantly; the answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
+  Explanation and Examples; more parts in AI → Modules ([below](#ai)); a module with no part ticked has no tab and sends
+  nothing. Opening one AI tab asks for the others at once (a setting, on by default), so they open instantly; the
+  answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
+- **What opens first** (Card → Opening): a word — dictionary lines or full articles; a phrase — the offline
+  translation (default), the AI translation, word by word, Analysis or Context (an AI choice asks AI on every opening).
 - What you selected decides what the tabs do: one word, a short phrase (up to 8 words), or a passage (longer, or more
   than one sentence).
-- **Hold a text** to copy, share or search the web: a line of the dictionary list, word by word, Notes or the history
-  is selected whole (the handles narrow it); in a translation, an article or an AI answer select any part. A small menu
-  of icons opens over it, like FBReader's.
-- **Notes**: ☆ saves a word or phrase; the app keeps the history too, each entry with one short line (50 per page, in
-  the card and in settings). **Export** saves the open list as a TSV file in `Download/InkPeek` (text, meaning, AI
-  translation, language, date — Anki imports it as is) and offers Share.
+- **Select any text** to copy, share or search the web — a list row too (its › opens it): double tap a word, triple
+  tap a paragraph, or hold and move the handles. A small menu of icons opens over it, like FBReader's.
+- **Notes**: ☆ saves a word as its base form (*andere* → ander), a phrase as it is; the app keeps the history too
+  (the last 1,000), each entry with one short line (50 per page, in the card and in settings). Under a word's header:
+  how common it is and how often you looked it up. **TSV** saves the open list in `Download/InkPeek` (text, meaning, AI
+  translation, language, date — Anki imports it as is); **Export** and **Import** move everything (saved, history, AI
+  answers) as one file — an import adds what the device does not have.
 - **Look up from any text**: select a word in an article, a translation or an AI answer — the menu's 📖 opens it in the
   same card, ← returns to the word before.
-- **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
+- **The card's look** (Card → Look): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
-  cover the word); text size; the font, on a page of its own with a sample — Android's fonts that have the letters
-  the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a file). Card → Main: the theme of the whole app — light, dark (white on
-  black) or as in Android's night mode; the icon bar,
-  the AI icons and the save icons can each be hidden; the dictionary as short lines or as full articles (◀ ▶ or a
-  swipe between dictionaries); **Dictionary order** puts packs and other dictionaries in the order you want.
-- Built for e-ink: black on white, no animations. Languages and Card each have a Help tab; AI → Answers explains each part of an answer.
+  cover the word); text size; dimming the page; the font, on a page of its own with a sample — Android's fonts that
+  have the letters the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a
+  file). Card → Opening: the icon bar and the save icons can be hidden. Card → Article: **Dictionary order** puts packs
+  and other dictionaries in the order you want.
+- **⚙ App** (next to the version): the app's language, the theme of the whole app — light, dark (white on black) or as
+  in Android's night mode —, updates, file access. **? Help**: a page per topic, each with a way to its settings; it
+  can add InkPeek to KOReader's dictionary list.
+- Built for e-ink: black on white, no animations.
 - The app is in English, Русский, Deutsch, Français, Español, Italiano, Português and Polski — exactly the answer
-  languages of InkPeek's language packs; a new language comes with its packs. Answers come in the app's language.
+  languages of InkPeek's language packs. Answers come in the app's language unless Languages → Translation sets
+  another one; AI is told the text's language when the packs know it.
 
 ## AI
 AI is optional: the AI tab's first choice is **Off** (a fresh install starts there unless a key is already in
@@ -77,13 +84,11 @@ Put the key in settings, or in a file:
 adb push openrouter.txt /sdcard/InkPeek/keys/openrouter.key
 ```
 
-**Prompts** (AI → Prompts): what each part of an answer asks for — Grammar, Words, Explanation, the translation's
-facts — and the general style can be edited and reset; the answer's keys and format stay fixed. Answers already saved
-are kept.
-
-**Answers** (AI → Answers): what Analysis and Context ask for, a box each with what it gives — Grammar, Words,
+**Modules** (AI → Modules): Translation, Analysis and Context, a box per part — the AI translation; Grammar, Words,
 Related words, Synonyms and antonyms; Explanation, Examples, Expressions and proverbs, Origin (the last two of each
-off at first). A part not asked is not in the request; a changed set asks again for words already answered.
+off at first). A part not asked is not in the request; a changed set asks again for words already answered; a module
+with nothing ticked has no tab. Each part's ✎ edits what it asks for, and AI → Connection has the general style's ✎;
+the answer's keys and format stay fixed, answers already saved are kept.
 
 **Privacy:** only the selected text and the tab's request go to the provider you chose: when you open an AI tab, or
 Translate while AI is on and online. With AI off no text leaves the device; the other network use is the list of

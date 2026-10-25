@@ -4,8 +4,18 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — unreleased
-- The language of the answers is a setting of its own (Card → Main): an English app with answers, dictionaries and
-  translations in German. By default it follows the app's language.
+- Settings in a new order, at most three tabs each, every setting with a line saying what it does: Languages (Packs ·
+  Translation · Dictionaries), Card (Opening · Article · Look), AI (Connection · Modules), Notes. ⚙ next to the
+  version: the app's language, theme, updates, file access. ? Help: a page per topic, each with a way to its settings;
+  it can add InkPeek to KOReader's dictionary list.
+- The language of the answers is a setting of its own (Languages → Translation): an English app with answers,
+  dictionaries and translations in German. By default it follows the app's language.
+- AI only when you ask: a phrase opens on what Card → Opening says (the offline translation by default; an AI choice
+  there asks on every opening), Offline comes before AI in Translate, and a text without an offline translation opens
+  on Dictionary. AI → Modules: Translation, Analysis, Context — a module with nothing ticked has no tab; ✎ edits each
+  part's prompt. AI is told the text's language when the packs know it.
+- Offline translation Off is a method of its own.
+- Lists: a row opens by the › at its end; its text is selected like any other.
 - Translation method: downloaded models stay when you switch the method (switching back downloads nothing); the
   list under the methods shows them with their size, ✕ removes one.
 - A word in word by word opens as a card of its own: its header, its ☆; ← comes back to the phrase.

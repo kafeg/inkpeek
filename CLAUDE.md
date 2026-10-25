@@ -12,8 +12,9 @@ Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then 
 in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
 (manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
 `CardActivity` (window, header, icon bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`,
-`WordsPage`), `MainActivity` (settings shell) + one class per section (`LanguagesSettings`, `AiSettings`,
-`CardSettings`, `WordsSettings`), all built of `Rows` (the one row style); `PacksActivity` / `CatalogActivity` (packs /
+`WordsPage`), `MainActivity` (settings shell: ⚙ `AppPage` and ? `HelpPage` in `Pages.kt` open over it) + one class
+per section (`LanguagesSettings` with `MethodPane` (offline translation), `AiSettings`, `CardSettings`,
+`WordsSettings`), all built of `Rows` (the one row style; at most three sub-tabs, every setting two lines); `PacksActivity` / `CatalogActivity` (packs /
 other dictionaries to download), `OrderActivity` (dictionary order), `Downloads` (one download for the process: packs,
 dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `TextActions` (selection, our copy /
 share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
