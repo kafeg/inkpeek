@@ -3,7 +3,7 @@
 What changed for people who use InkPeek. The version is `<major>.<minor>.<commits>`: the last number is the commit
 count, so every release has its own.
 
-## 0.8 — unreleased
+## 0.8 — 2026-10-25
 - Settings in a new order, at most three tabs each, every setting with a line saying what it does: Languages (Packs ·
   Translation · Dictionaries), Card (Opening · Article · Look), AI (Connection · Modules), Notes. ⚙ next to the
   version: the app's language, theme, updates, file access. ? Help: a page per topic, each with a way to its settings;
