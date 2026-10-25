@@ -36,7 +36,7 @@
   same card, ← returns to the word before.
 - **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; turning — scrolling, or by pages (a swipe up or down turns a whole page: on some readers scrolling redraws
-  the whole screen when it stops); position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
+  the whole screen when it stops; the line over the icons shows the pages); position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; dimming the page; the font, on a page of its own with a sample — Android's fonts that
   have the letters the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a
   file). Card → Opening: the icon bar and the save icons can be hidden. Card → Article: **Dictionary order** puts packs

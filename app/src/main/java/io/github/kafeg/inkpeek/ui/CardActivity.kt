@@ -144,26 +144,33 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             setOnClickListener { showWholeTitle(full) } }
     }
 
-    private lateinit var frame: FrameLayout
     private var titleSp = 0f; private var titleBold = false
     private var titleOver: View? = null
 
     /**
-     * The whole title in place: over the card from the title's own spot, the same font and margins, as if the title just
-     * grew (scrolls when longer than the card). A tap beside it or Back closes it.
+     * The whole title in its place, the same font and margins, as if it just grew: the page under it moves down (a very
+     * long text scrolls within half the card). ▲ under it or Back closes it.
      */
     private fun showWholeTitle(full: CharSequence) {
         if (titleOver != null) return
-        val pad = Ink.dp(this, 14)
         val tv = Ink.text(this, full, titleSp, bold = titleBold).apply { setLineSpacing(0f, 1f); TextActions.selectable(this, paragraph = false) }
+        // Under the text: a line's room, ▲ in the middle (closes it), then a line — apart from the page under it.
+        val up = ImageView(this).apply { setImageResource(R.drawable.ic_collapse); setColorFilter(Ink.fg(this@CardActivity)); contentDescription = getString(R.string.close)
+            isClickable = true; setOnClickListener { closeTitle() } }
         val box = Ink.vertical(this).apply { setBackgroundColor(Ink.bg(this@CardActivity)); addView(tv)
-            addView(View(this@CardActivity).apply { setBackgroundColor(Ink.fg(this@CardActivity)) }, Ink.lp(h = Ink.dp(this@CardActivity, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8) }) }
+            addView(up, LinearLayout.LayoutParams(Ink.dp(this@CardActivity, 48), Ink.dp(this@CardActivity, 32)).apply {
+                gravity = Gravity.CENTER_HORIZONTAL; topMargin = (titleSp * resources.displayMetrics.scaledDensity * 0.6f).toInt() })
+            addView(View(this@CardActivity).apply { setBackgroundColor(Ink.fg(this@CardActivity)) }, Ink.lp(h = Ink.dp(this@CardActivity, 2)).apply { topMargin = Ink.dp(this@CardActivity, 4) })
+            setPadding(0, 0, 0, Ink.dp(this@CardActivity, 6)) }
+        // In the title's place: the page under it moves down; a very long text scrolls within half the card.
         val over = ScrollView(this).apply { overScrollMode = View.OVER_SCROLL_NEVER; addView(box) }
-        frame.addView(over, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { setMargins(pad, pad, pad, pad) })
+        titleView.visibility = View.GONE
+        titleBox.addView(over, 0, Ink.lp())
+        over.post { val cap = root.height / 2; if (over.height > cap) over.layoutParams = over.layoutParams.apply { height = cap } }
         titleOver = over
     }
 
-    private fun closeTitle(): Boolean = titleOver?.let { frame.removeView(it); titleOver = null; true } ?: false
+    private fun closeTitle(): Boolean = titleOver?.let { titleBox.removeView(it); titleView.visibility = View.VISIBLE; titleOver = null; true } ?: false
 
     /** The scroll a returned-to page was left at, once. */
     fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { scroll.scrollTo(0, y) } } }
@@ -217,11 +224,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
         baseHint = if (prefs.aiOn && !online) getString(R.string.offline) else null
         hintView = Ink.text(this, "", size * 0.65f); showHint()
-        // By pages: "2 / 3" at the right of the small print.
-        pageView = Ink.text(this, "", size * 0.65f).apply { visibility = View.GONE }
-        card.addView(Ink.horizontal(this).apply { gravity = Gravity.BOTTOM or Gravity.END
-            addView(hintView, Ink.lp(0, weight = 1f)); addView(pageView, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(this@CardActivity, 8) })
-        }, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+        card.addView(hintView, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
         if (prefs.cardPaged) { scroll.setOnScrollChangeListener { _, _, _, _, _ -> showPage() }; scroll.viewTreeObserver.addOnGlobalLayoutListener { showPage() } }
 
         val tabs = listOfNotNull(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
@@ -256,13 +259,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch { if (withContext(Dispatchers.IO) { runCatching { isSaved() }.getOrDefault(false) }) starred(true) }
 
         // No icon bar (Card → Opening): the card is the open page only; Back or a tap outside closes it.
-        if (prefs.cardBar) {
-            card.addView(View(this).apply { setBackgroundColor(Ink.fg(this@CardActivity)) },
-                Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
-            card.addView(bar)
-        }
-        frame = FrameLayout(this).apply { addView(card, FrameLayout.LayoutParams(-1, -1)) }
-        setContentView(frame)
+        // The line over the icons; by pages, a segment per page, the open one thick. Without the icons: by pages only.
+        pageLine = PageLine(this, solid = prefs.cardBar)
+        if (prefs.cardBar || prefs.cardPaged) card.addView(pageLine, Ink.lp(h = Ink.dp(this, 4)).apply { topMargin = Ink.dp(this@CardActivity, 6); bottomMargin = Ink.dp(this@CardActivity, 6) })
+        if (prefs.cardBar) card.addView(bar)
+        setContentView(card)
     }
 
     /** A bordered icon; long press shows its name; an AI tab has a small "AI" in its corner. */
@@ -325,7 +326,20 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private lateinit var hintView: TextView
-    private lateinit var pageView: TextView
+    private lateinit var pageLine: PageLine
+
+    /** A line, or by pages its segments: [pages] of them, [at] (0-based) thick; [solid]: a plain line when there are no pages. */
+    private class PageLine(ctx: android.content.Context, private val solid: Boolean) : View(ctx) {
+        var pages = 0; var at = 0
+        private val paint = android.graphics.Paint().apply { color = Ink.fg(ctx) }
+        override fun onDraw(c: android.graphics.Canvas) {
+            val thin = Ink.dp(context, 1).toFloat(); val mid = height / 2f
+            if (pages < 2) { if (solid) c.drawRect(0f, mid - thin / 2, width.toFloat(), mid + thin / 2, paint); return }
+            val gap = Ink.dp(context, 6).toFloat(); val w = (width - gap * (pages - 1)) / pages
+            for (i in 0 until pages) { val x = i * (w + gap); val h = if (i == at) height.toFloat() else thin
+                c.drawRect(x, mid - h / 2, x + w, mid + h / 2, paint) }
+        }
+    }
 
     /** A page of the content: the card's height less two lines kept from the page before. */
     private fun pageStep() = (scroll.height - (size * 2.6f * resources.displayMetrics.scaledDensity).toInt()).coerceAtLeast(scroll.height / 2)
@@ -358,13 +372,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** The page shown and how many there are, by pages only. */
     private fun showPage() {
         val content = scroll.getChildAt(0)?.height ?: 0; val step = pageStep()
-        if (content <= scroll.height || step <= 0) { pageView.visibility = View.GONE; return }
+        if (content <= scroll.height || step <= 0) { pageLine.pages = 0; pageLine.invalidate(); return }
         if (scroll.scrollY == 0) pagesBefore.clear()
         // The pages left, counted by the same turns as [turnPage] (each starts at a whole line).
         val max = content - scroll.height; var y = scroll.scrollY; var left = 0
         while (y < max) { y = nextPage(y, max); left++ }
         val at = pagesBefore.size + 1
-        pageView.text = "$at / ${at + left}"; pageView.visibility = View.VISIBLE
+        pageLine.pages = at + left; pageLine.at = at - 1; pageLine.invalidate()
     }
     private var baseHint: String? = null
 
@@ -490,9 +504,6 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** A tap beside a selection ends it and its menu. */
     override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean {
-        // The whole title open: a tap beside it closes it, and goes no further.
-        titleOver?.let { o -> if (ev.actionMasked == android.view.MotionEvent.ACTION_DOWN) { val r = android.graphics.Rect(); o.getGlobalVisibleRect(r)
-            if (!r.contains(ev.x.toInt(), ev.y.toInt())) { TextActions.end(); closeTitle(); return true } } }
         TextActions.outside(ev); swipe.onTouchEvent(ev); return super.dispatchTouchEvent(ev)
     }
 

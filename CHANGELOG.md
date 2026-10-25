@@ -30,7 +30,7 @@ count, so every release has its own.
 - Help: more on the card, selection and its menu, the offline translation and AI; the button says where it goes
   ("Go to: Card → Opening").
 - Card → Appearance → Turning: by pages — a swipe up or down turns a whole page, starting at a whole line (on some
-  readers scrolling redraws the whole screen when it stops).
+  readers scrolling redraws the whole screen when it stops); the line over the icons shows the pages, the open one thick.
 - Show the English (Languages → Translation, Fast · Mozilla): the English step of a translation through English,
   smaller, under it.
 - A copy of the notes, the history and the AI answers is made each day in InkPeek/backup; the last five are kept.
@@ -38,7 +38,7 @@ count, so every release has its own.
 - One AI icon in the card instead of two: Analysis and Context are its tabs, as Translate holds Offline and AI; with one
   module on, no tabs; with none, no icon.
 - A long header (a phrase, a passage) shows its first lines with "…" and is not scrolled inside; a tap opens the whole
-  text in its place, over the card, to select from there; a tap beside it or Back closes it.
+  text in its place, the page under it moving down, to select from there; ▲ under it or Back closes it.
 - A double tap in the card's header selects a word (an e-ink double tap often arrives as three, and the third took the
   whole header).
 - A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the
