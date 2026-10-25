@@ -81,7 +81,7 @@
     <string name="lang_unsupported">This looks like %1$s: InkPeek has no language pack for it yet.</string>
     <string name="lang_no_packs">No dictionaries yet: InkPeek settings → Languages (packs or other dictionaries).</string>
     <string name="lang_no_net">No network: the list of language packs needs the internet.</string>
-    <string name="icon_close_d">Closes the card; Back does the same.</string>
+    <string name="icon_close_d">Closes the card; Back does the same. Held: opens InkPeek (its search field, the settings).</string>
     <string name="sec_examples">Examples</string>
     <string name="form_of_sel">form: %1$s</string>
     <string name="sec_grammar">Grammar</string>

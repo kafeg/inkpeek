@@ -255,7 +255,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // "←" in the free space before Close: from an article back to the list or the gloss.
         backButton = iconButton(R.drawable.ic_back, getString(R.string.back), side) { back() }.apply { visibility = View.GONE }
         add(backButton)
-        add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
+        // Held: the app itself (its search field, the settings) — the card goes.
+        add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() }.apply { setOnLongClickListener {
+            startActivity(Intent(this@CardActivity, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)); finish(); true } })
         launch { if (withContext(Dispatchers.IO) { runCatching { isSaved() }.getOrDefault(false) }) starred(true) }
 
         // No icon bar (Card → Opening): the card is the open page only; Back or a tap outside closes it.

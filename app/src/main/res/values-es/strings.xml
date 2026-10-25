@@ -80,7 +80,7 @@
     <string name="lang_unsupported">Parece %1$s: InkPeek aún no tiene un paquete para este idioma.</string>
     <string name="lang_no_packs">Aún no hay diccionarios: ajustes de InkPeek → Idiomas (paquetes u otros diccionarios).</string>
     <string name="lang_no_net">Sin red: la lista de paquetes de idioma necesita internet.</string>
-    <string name="icon_close_d">Cierra la tarjeta; Atrás hace lo mismo.</string>
+    <string name="icon_close_d">Cierra la tarjeta; Atrás hace lo mismo. Mantener pulsado: abre InkPeek (búsqueda, ajustes).</string>
     <string name="sec_examples">Ejemplos</string>
     <string name="form_of_sel">forma: %1$s</string>
     <string name="sec_grammar">Gramática</string>

@@ -80,7 +80,7 @@
     <string name="lang_unsupported">Das sieht nach %1$s aus: dafür gibt es noch kein Sprachpaket.</string>
     <string name="lang_no_packs">Noch keine Wörterbücher: InkPeek-Einstellungen → Sprachen (Pakete oder andere Wörterbücher).</string>
     <string name="lang_no_net">Kein Netz: für die Liste der Sprachpakete braucht es Internet.</string>
-    <string name="icon_close_d">Schließt die Karte; Zurück tut dasselbe.</string>
+    <string name="icon_close_d">Schließt die Karte; Zurück tut dasselbe. Gehalten: öffnet InkPeek (Suche, Einstellungen).</string>
     <string name="sec_examples">Beispiele</string>
     <string name="form_of_sel">Form: %1$s</string>
     <string name="sec_grammar">Grammatik</string>

@@ -80,7 +80,7 @@
     <string name="lang_unsupported">Wykryty język: %1$s. InkPeek nie ma jeszcze dla niego pakietu.</string>
     <string name="lang_no_packs">Brak słowników: ustawienia InkPeek → Języki (pakiety lub inne słowniki).</string>
     <string name="lang_no_net">Brak sieci: lista pakietów językowych wymaga internetu.</string>
-    <string name="icon_close_d">Zamyka kartę; Wstecz robi to samo.</string>
+    <string name="icon_close_d">Zamyka kartę; Wstecz robi to samo. Przytrzymanie: otwiera InkPeek (wyszukiwanie, ustawienia).</string>
     <string name="sec_examples">Przykłady</string>
     <string name="form_of_sel">forma: %1$s</string>
     <string name="sec_grammar">Gramatyka</string>

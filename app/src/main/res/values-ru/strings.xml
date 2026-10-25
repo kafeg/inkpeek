@@ -80,7 +80,7 @@
     <string name="lang_unsupported">Похоже на %1$s: языкового пакета для него пока нет.</string>
     <string name="lang_no_packs">Словарей пока нет: настройки InkPeek → Языки (пакеты или другие словари).</string>
     <string name="lang_no_net">Нет сети: для списка языковых пакетов нужен интернет.</string>
-    <string name="icon_close_d">Закрывает карточку; «Назад» делает то же.</string>
+    <string name="icon_close_d">Закрывает карточку; «Назад» делает то же. Удержание — открыть InkPeek (поиск, настройки).</string>
     <string name="sec_examples">Примеры</string>
     <string name="form_of_sel">форма: %1$s</string>
     <string name="sec_grammar">Грамматика</string>
