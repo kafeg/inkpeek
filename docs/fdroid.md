@@ -13,15 +13,18 @@ otherwise download at configure time).
 
 Anti-feature: NonFreeNet — optional AI (Anthropic, OpenAI, OpenRouter) and the packs downloaded from GitHub releases.
 
-Recipe draft for fdroiddata (`metadata/io.github.kafeg.inkpeek.yml`; fill the version, test with `fdroid build -v -l`):
+Recipe for fdroiddata (`metadata/io.github.kafeg.inkpeek.yml`, as `fdroid rewritemeta` writes it). On 0.8.200 `lint`,
+`checkupdates` and a full `fdroid build` pass (APK: version 200, no REQUEST_INSTALL_PACKAGES, the three native libraries).
+Fill the version:
 
 ```yaml
 AntiFeatures:
   NonFreeNet:
-    en-US: Optional AI features use Anthropic, OpenAI or OpenRouter; language packs and models are downloaded from the project's GitHub releases.
+    en-US: Optional AI features use Anthropic, OpenAI or OpenRouter; language packs
+      and models are downloaded from the project's GitHub releases.
 Categories:
-  - Translation & Dictionary
   - Reading
+  - Translation & Dictionary
 License: MIT
 SourceCode: https://github.com/kafeg/inkpeek
 IssueTracker: https://github.com/kafeg/inkpeek/issues
@@ -40,16 +43,17 @@ Builds:
     submodules: true
     gradle:
       - yes
-    gradleprops:
-      - inkpeek.updates=false
     rm:
       - app/src/main/cpp/llama/models
       - app/src/main/cpp/llama/examples/llama.android
+      - app/src/main/cpp/pcre2/testdata
     scandelete:
       - app/src/main/cpp/bergamot/wasm/module/package.json
       - app/src/main/cpp/bergamot/wasm/module/worker/package.json
       - app/src/main/cpp/fasttext/website/package.json
     ndk: 27.3.13750724
+    gradleprops:
+      - inkpeek.updates=false
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v\d+\.\d+\.\d+$
@@ -58,5 +62,17 @@ CurrentVersion: 0.8.NNN
 CurrentVersionCode: NNN
 ```
 
-Open questions for the first `fdroid build`: CMake 3.22.1 on the build server (`sdkmanager 'cmake;3.22.1'` in
-`prebuild` if missing); whether reviewers ask about zstd-jni's prebuilt .so (Maven Central, allowed by the policy).
+Test locally before a merge request (Docker; the image is x86-64, emulated on ARM Macs: ~15 min). In a clone of
+https://gitlab.com/fdroid/fdroiddata with the recipe in `metadata/`:
+
+```bash
+F="docker run --rm --platform linux/amd64 -v fdroid-sdk:/opt/android-sdk -v $PWD:/repo -w /repo registry.gitlab.com/fdroid/docker-executable-fdroidserver:master"
+$F lint io.github.kafeg.inkpeek && $F rewritemeta io.github.kafeg.inkpeek && $F checkupdates --allow-dirty io.github.kafeg.inkpeek
+docker run --rm --platform linux/amd64 -v fdroid-sdk:/opt/android-sdk --entrypoint sh registry.gitlab.com/fdroid/docker-executable-fdroidserver:master -c '. /etc/profile.d/bsenv.sh; sdkmanager "ndk;27.3.13750724"'   # once: the NDK into the SDK volume
+$F build -v -l io.github.kafeg.inkpeek    # the APK: unsigned/io.github.kafeg.inkpeek_<code>.apk
+```
+
+The scanner fails on binaries in a submodule's test data (`rm:` them, as pcre2/testdata); its warnings about PDFs, media
+and test models in the submodules do not stop the build.
+
+Open question for review: zstd-jni's prebuilt .so (Maven Central, allowed by the policy) may be asked about.
