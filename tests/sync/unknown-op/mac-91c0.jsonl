@@ -1,0 +1,5 @@
+{"v":1,"t":[1761400000000,0],"d":"mac-91c0","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house"}
+{"v":1,"t":[1761400010000,0],"d":"mac-91c0","op":"note.put","text":"Haus","note":"p. 12"}
+{"v":2,"t":[1761400020000,0],"d":"mac-91c0","op":"saved.del","text":"Haus"}
+{"v":1,"t":[1761400030000,0],"d":"mac-91c0","op":"saved.put","text":"Baum","kind":"word","lang":"en","meaning":"tree","book":"Effi Briest","tags":["nature"]}
+{"v":1,"d":"mac-91c0","op":"saved.del","text":"Baum"}

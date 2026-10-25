@@ -1,0 +1,6 @@
+{"v":1,"t":[1761400000000,0],"d":"boox-3f2a","op":"history.seen","text":"Zug","kind":"word","lang":"en","meaning":"train","c":1}
+{"v":1,"t":[1761400001000,0],"d":"boox-3f2a","op":"ai.put","text":"Zug","lang":"en","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"train\",\"draught\"]}"}
+{"v":1,"t":[1761400002000,0],"d":"boox-3f2a","op":"ai.put","text":"Zug","lang":"ru","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"поезд\",\"сквозняк\"]}"}
+{"v":1,"t":[1761400003000,0],"d":"boox-3f2a","op":"history.seen","text":"Bahn","kind":"word","lang":"en","meaning":"railway","c":1}
+{"v":1,"t":[1761400004000,0],"d":"boox-3f2a","op":"ai.put","text":"Bahn","lang":"en","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"article\":\"die\",\"base\":\"Bahn\",\"meanings\":[\"railway\"]}"}
+{"v":1,"t":[1761400050000,0],"d":"boox-3f2a","op":"history.del","text":"Bahn"}

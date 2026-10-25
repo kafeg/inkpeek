@@ -1,0 +1,5 @@
+{"v":1,"t":[1761400010000,0],"d":"mac-91c0","op":"history.seen","text":"Zug","kind":"word","lang":"ru","meaning":"поезд","c":1}
+{"v":1,"t":[1761400011000,0],"d":"mac-91c0","op":"ai.put","text":"Zug","lang":"ru","section":"quick","ver":3,"model":"claude-sonnet-5-5","answer":"{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"поезд\",\"сквозняк\",\"черта\"]}"}
+{"v":1,"t":[1761400012000,0],"d":"mac-91c0","op":"ai.put","text":"Zug","lang":"ru","section":"quick","ver":2,"model":"claude-sonnet-5-5","answer":"{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"поезд\"]}"}
+{"v":1,"t":[1761400013000,0],"d":"mac-91c0","op":"ai.put","text":"Der Zug fährt ab.","lang":"ru","section":"offline-de","ver":1,"model":"bergamot","answer":"Поезд отправляется."}
+{"v":1,"t":[1761400013000,1],"d":"mac-91c0","op":"history.seen","text":"Der Zug fährt ab.","kind":"phrase","lang":"ru","meaning":"Поезд отправляется.","c":1}

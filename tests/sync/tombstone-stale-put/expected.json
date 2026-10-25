@@ -1,0 +1,23 @@
+{
+ "saved": [
+  {
+   "text": "Weg",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "way, path",
+   "created": 1761400030000
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "дом",
+   "seen": 1761400120000,
+   "count": 1
+  }
+ ],
+ "ai": []
+}

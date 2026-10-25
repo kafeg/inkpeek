@@ -1,0 +1,23 @@
+{
+ "saved": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "home",
+   "created": 1761400020000
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "дом",
+   "seen": 1761400020000,
+   "count": 1
+  }
+ ],
+ "ai": []
+}

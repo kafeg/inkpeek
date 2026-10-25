@@ -1,0 +1,24 @@
+{
+ "saved": [],
+ "history": [
+  {
+   "text": "Gleis",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "путь, платформа",
+   "seen": 1761400006000,
+   "count": 5
+  },
+  {
+   "text": "Gleise",
+   "kind": "word",
+   "lang": "en",
+   "base": "Gleis",
+   "meaning": "track, platform",
+   "seen": 1761400005500,
+   "count": 1
+  }
+ ],
+ "ai": []
+}

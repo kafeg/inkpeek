@@ -65,3 +65,6 @@ when the screen sleeps: `adb shell input keyevent KEYCODE_WAKEUP` first.
   hand-installing or deleting files on a test device; a manual step there is a missing feature.
 - KISS; comments — one line at most. No WebView, no animations, no colors (e-ink).
 - The API key never goes to logs, UI or commits.
+- **Reference for LexiPeek** (desktop sibling, github.com/kafeg/lexipeek): InkPeek defines behaviour and data formats
+  (`docs/formats.md`, cases in `tests/`); no shared code. A format changes in `docs/formats.md` and `tests/` first.
+  Never change a case to make one app pass.

@@ -1,0 +1,30 @@
+{
+ "saved": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "tree",
+   "created": 1761400005000
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "house",
+   "created": 1761400000000
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "house",
+   "seen": 1761400020000,
+   "count": 1
+  }
+ ],
+ "ai": []
+}

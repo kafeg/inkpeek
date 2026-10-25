@@ -11,7 +11,8 @@ you are back on the same line.
 It is also a plain offline pop-up dictionary when you want one: your own StarDict dictionaries (KOReader's folder
 works as it is), a small card at the edge of the page, white on black if you like, and no AI at all.
 
-Made for Android e-ink readers (Onyx Boox and others); works on any Android device.
+Made for Android e-ink readers (Onyx Boox and others); works on any Android device. On a Mac:
+[LexiPeek](https://github.com/kafeg/lexipeek), a pop-up dictionary and translator using the same language packs.
 
 ## What you can do
 

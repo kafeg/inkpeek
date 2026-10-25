@@ -1,0 +1,61 @@
+{
+ "saved": [],
+ "history": [
+  {
+   "text": "Der Zug fährt ab.",
+   "kind": "phrase",
+   "lang": "ru",
+   "base": null,
+   "meaning": "Поезд отправляется.",
+   "seen": 1761400013000,
+   "count": 1
+  },
+  {
+   "text": "Zug",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "поезд",
+   "seen": 1761400010000,
+   "count": 2
+  }
+ ],
+ "ai": [
+  {
+   "text": "Der Zug fährt ab.",
+   "lang": "ru",
+   "section": "offline-de",
+   "ver": 1,
+   "model": "bergamot",
+   "answer": "Поезд отправляется.",
+   "created": 1761400013000
+  },
+  {
+   "text": "Zug",
+   "lang": "en",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-haiku-5-5",
+   "answer": "{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"train\",\"draught\"]}",
+   "created": 1761400001000
+  },
+  {
+   "text": "Zug",
+   "lang": "ru",
+   "section": "quick",
+   "ver": 2,
+   "model": "claude-sonnet-5-5",
+   "answer": "{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"поезд\"]}",
+   "created": 1761400012000
+  },
+  {
+   "text": "Zug",
+   "lang": "ru",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-sonnet-5-5",
+   "answer": "{\"article\":\"der\",\"base\":\"Zug\",\"meanings\":[\"поезд\",\"сквозняк\",\"черта\"]}",
+   "created": 1761400011000
+  }
+ ]
+}
