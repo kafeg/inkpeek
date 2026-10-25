@@ -7,9 +7,21 @@ set(CMAKE_POLICY_VERSION_MINIMUM 3.5) # old sub-projects under CMake 4
 foreach(opt COMPILE_CUDA USE_TCMALLOC BUILD_SHARED_LIBS USE_WASM_COMPATIBLE_SOURCE SPM_ENABLE_SHARED SPM_BUILD_TEST SPM_ENABLE_TCMALLOC COMPILE_TESTS)
   set(${opt} OFF CACHE BOOL "" FORCE)
 endforeach()
-foreach(opt USE_STATIC_LIBS THREADS_PREFER_PTHREAD_FLAG SSPLIT_USE_INTERNAL_PCRE2 USE_PATHIECPP)
+foreach(opt USE_STATIC_LIBS THREADS_PREFER_PTHREAD_FLAG USE_PATHIECPP)
   set(${opt} ON CACHE BOOL "" FORCE)
 endforeach()
+
+# PCRE2 (BSD) for ssplit's sentence splitting, from our submodule (pinned to the version ssplit downloads itself):
+# nothing is fetched while building. ssplit takes it as a found library.
+foreach(opt PCRE2_BUILD_PCRE2GREP PCRE2_BUILD_TESTS SSPLIT_USE_INTERNAL_PCRE2)
+  set(${opt} OFF CACHE BOOL "" FORCE)
+endforeach()
+foreach(opt PCRE2_SUPPORT_JIT PCRE2_STATIC_PIC)
+  set(${opt} ON CACHE BOOL "" FORCE)
+endforeach()
+add_subdirectory(pcre2 EXCLUDE_FROM_ALL)
+set(PCRE2_LIBRARIES pcre2-8-static CACHE STRING "" FORCE)
+set(PCRE2_INCLUDE_DIRS ${CMAKE_CURRENT_BINARY_DIR}/pcre2 CACHE PATH "" FORCE)
 set(BUILD_ARCH armv8-a CACHE STRING "" FORCE)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-enum-constexpr-conversion")
 

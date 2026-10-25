@@ -33,10 +33,13 @@ object Updates {
     private fun versionCode(ctx: Context): Long = ctx.packageManager.getPackageInfo(ctx.packageName, 0).longVersionCode
 
     /** The latest release seen by the last check, when it is newer than this app. */
-    fun newer(ctx: Context): Release? = Release.of(Prefs(ctx).updateSeen)?.takeIf { it.code > versionCode(ctx) }
+    /** This build has the updater (the GitHub one; F-Droid's and the stores' have not: they update the app themselves). */
+    val enabled get() = io.github.kafeg.inkpeek.BuildConfig.UPDATES
+
+    fun newer(ctx: Context): Release? = if (!enabled) null else Release.of(Prefs(ctx).updateSeen)?.takeIf { it.code > versionCode(ctx) }
 
     /** The daily check is on and a day has passed. */
-    fun due(ctx: Context) = Prefs(ctx).let { it.updateCheck && System.currentTimeMillis().let { now -> now - it.updateAt > DAY && now - tried > DAY / 24 } }
+    fun due(ctx: Context) = enabled && Prefs(ctx).let { it.updateCheck && System.currentTimeMillis().let { now -> now - it.updateAt > DAY && now - tried > DAY / 24 } }
 
     /** Blocking: asks GitHub for the latest release and remembers it. */
     fun check(ctx: Context): Release {

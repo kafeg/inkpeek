@@ -9,6 +9,9 @@ plugins {
 val commits = providers.exec { commandLine("git", "rev-list", "--count", "HEAD"); isIgnoreExitValue = true }
     .standardOutput.asText.get().trim().toIntOrNull() ?: 1
 
+/** The in-app updater (GitHub releases); off for F-Droid and stores: -Pinkpeek.updates=false. */
+val updates = providers.gradleProperty("inkpeek.updates").orNull != "false"
+
 val keystoreProps = Properties().apply {
     rootProject.file("keystore.properties").takeIf { it.exists() }?.inputStream()?.use { load(it) }
 }
@@ -23,6 +26,7 @@ android {
         versionCode = commits
         versionName = "${providers.gradleProperty("appVersion").get()}.$commits"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("boolean", "UPDATES", "$updates")
         ndk { abiFilters += listOf("arm64-v8a") } // e-ink readers are 64-bit ARM; the engine is built for it only
         externalNativeBuild { cmake {
             arguments += listOf("-DANDROID_STL=c++_static", "-DANDROID_CPP_FEATURES=exceptions")
@@ -30,6 +34,9 @@ android {
         } }
     }
     ndkVersion = "27.3.13750724"
+    buildFeatures { buildConfig = true }
+    // Without the updater the APK may not install APKs either.
+    if (!updates) sourceSets.getByName("release").manifest.srcFile("src/noupdates/AndroidManifest.xml")
     externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
     testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
     testBuildType = "release" // device tests run in the installed release app (same signature, its packs)

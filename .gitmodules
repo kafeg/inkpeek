@@ -7,3 +7,6 @@
 [submodule "app/src/main/cpp/llama"]
 	path = app/src/main/cpp/llama
 	url = https://github.com/ggml-org/llama.cpp
+[submodule "app/src/main/cpp/pcre2"]
+	path = app/src/main/cpp/pcre2
+	url = https://github.com/PCRE2Project/pcre2.git

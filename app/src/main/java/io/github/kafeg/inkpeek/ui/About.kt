@@ -40,11 +40,13 @@ object About {
         }
         box.addView(Ink.text(a, "InkPeek " + Updates.versionName(a), 20f, bold = true))
         box.addView(Ink.text(a, a.getString(R.string.about_text), 15f), Ink.lp().apply { topMargin = Ink.dp(a, 6) })
-        box.addView(state, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
-        box.addView(action, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
-        box.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), a.prefs.updateCheck) { a.prefs.updateCheck = it })
+        if (Updates.enabled) {
+            box.addView(state, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
+            box.addView(action, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
+            box.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), a.prefs.updateCheck) { a.prefs.updateCheck = it })
+        }
         box.addView(Ink.text(a, a.getString(R.string.licenses), 13.5f), Ink.lp().apply { topMargin = Ink.dp(a, 14) })
-        fill()
+        if (Updates.enabled) fill()
         dlg = InkDialog(a).view(box)
             .button("GitHub") { runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(GITHUB))) } }
             .button(R.string.close).show()

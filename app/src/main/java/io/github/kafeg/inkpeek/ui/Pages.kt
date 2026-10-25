@@ -22,9 +22,11 @@ class AppPage(private val a: MainActivity) {
         t.addView(Rows.choice(a, a.getString(R.string.look_theme), a.getString(R.string.look_theme_d),
             listOf(R.string.theme_light, R.string.theme_dark, R.string.theme_system).map { a.getString(it) },
             themes.indexOf(prefs.theme).coerceAtLeast(0)) { if (prefs.theme != themes[it]) { prefs.theme = themes[it]; a.recreate() } })
-        t.addView(Rows.heading(a, a.getString(R.string.updates_t)))
-        t.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), prefs.updateCheck) { prefs.updateCheck = it })
-        t.addView(Rows.buttons(a, a.getString(R.string.check_now) to { About.show(a) }))
+        if (Updates.enabled) {
+            t.addView(Rows.heading(a, a.getString(R.string.updates_t)))
+            t.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), prefs.updateCheck) { prefs.updateCheck = it })
+            t.addView(Rows.buttons(a, a.getString(R.string.check_now) to { About.show(a) }))
+        }
         t.addView(Rows.heading(a, a.getString(R.string.files_t)))
         if (Environment.isExternalStorageManager()) t.addView(Rows.info(a, null, a.getString(R.string.files_ok), a.getString(R.string.files_d)))
         else t.addView(Rows.buttons(a, a.getString(R.string.allow_files, prefs.home.path) to {

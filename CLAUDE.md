@@ -8,7 +8,8 @@ Kotlin, Android Views, minSdk 30 / targetSdk 35, arm64 only. Libraries: anthropi
 OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni (dictionary archives). Native: Bergamot
 (submodule `app/src/main/cpp/bergamot`, RTranslator's Android fork, pinned) + fastText (submodule
 `app/src/main/cpp/fasttext`) + JNI → `libinkpeek_mt.so`; llama.cpp (submodule `app/src/main/cpp/llama`) + JNI →
-`libinkpeek_llm.so` (the on-device AI translation model); CMake 3.22.1 and NDK from the SDK (Gradle installs them).
+`libinkpeek_llm.so` (the on-device AI translation model); PCRE2 (submodule `app/src/main/cpp/pcre2`, for Bergamot's
+sentence splitting: nothing is downloaded at build time); CMake 3.22.1 and NDK from the SDK (Gradle installs them).
 Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then other ones (`InkPeek/dicts`, folders
 in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
 (manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
@@ -19,6 +20,7 @@ per section (`LanguagesSettings` with `MethodPane` (offline translation), `AiSet
 other dictionaries to download), `OrderActivity` (dictionary order), `Downloads` (one download for the process: packs,
 dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `TextActions` (selection, our copy /
 share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
+Without the in-app updater (F-Droid, stores): `./gradlew assembleRelease -Pinkpeek.updates=false` — see `docs/fdroid.md`.
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`; `App` hands AI its settings (every screen).
 New language (book or answer) or translation model: `packs/README.md` → "Adding a language" — every step, in order.
 
