@@ -29,7 +29,7 @@ class LanguagesSettings(private val a: MainActivity) {
     fun build(t: LinearLayout) {
         if (!Environment.isExternalStorageManager())
             t.addView(Ink.button(a, a.getString(R.string.allow_files, prefs.home.path), Rows.BUTTON) {
-                a.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:${a.packageName}")))
+                Ink.askFiles(a)
             }, Ink.lp().apply { bottomMargin = Ink.dp(a, 10) })
         val packs = Ink.vertical(a); val translation = Ink.vertical(a); val other = Ink.vertical(a)
         a.tabPick["lang"] = Rows.subTabs(a, t, listOf(Triple("packs", a.getString(R.string.lang_packs), packs), Triple("translation", a.getString(R.string.lang_translation), translation),
@@ -88,7 +88,7 @@ class LanguagesSettings(private val a: MainActivity) {
         pairs.forEach { pair ->
             val parts = Packs.needed(manifest, listOf(pair))
             val mb = (parts.filter { it.id in installed }.sumOf { it.size } / 1_000_000).toInt()
-            val name = "${a.langName(pair.first)} → ${a.langName(pair.second)}"
+            val name = Ink.pair(a, pair.first, pair.second)
             val newer = parts.any { installed[it.id].let { s -> s != null && s != it.sha256 } }
             val about = if (manifest.isEmpty()) "" else listOfNotNull(PacksActivity.quality(a, manifest, pair),
                 a.getString(if (newer) R.string.pack_size_update else R.string.pack_size, mb)).joinToString(" · ")
@@ -116,7 +116,7 @@ class LanguagesSettings(private val a: MainActivity) {
         // Without the list (offline, first start) only the pair's dictionary is known to be its own.
         val freed = if (manifest.isEmpty()) listOf(Packs.stale("dict-${pair.first}-${pair.second}")) else Packs.freed(manifest, all, pair, prefs.mtMethod)
         prefs.pairs = prefs.pairs?.minus("${pair.first}-${pair.second}")
-        Downloads.packs(a, emptyList(), freed, a.getString(R.string.pack_removed, "${a.langName(pair.first)} → ${a.langName(pair.second)}"))
+        Downloads.packs(a, emptyList(), freed, a.getString(R.string.pack_removed, Ink.pair(a, pair.first, pair.second)))
     }
 
     // --- Other dictionaries ---
@@ -206,8 +206,7 @@ class LanguagesSettings(private val a: MainActivity) {
         }
     }
 
-    private fun displayName(u: Uri): String = a.contentResolver.query(u, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)
-        ?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: u.lastPathSegment.orEmpty()
+    private fun displayName(u: Uri): String = Ink.displayName(a, u) ?: u.lastPathSegment.orEmpty()
 
     /** A picked tree "primary:koreader/data/dict" as a path (the app reads shared storage directly). */
     private fun treePath(u: Uri): File? = runCatching {

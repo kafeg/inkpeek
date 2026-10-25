@@ -1,9 +1,6 @@
 package io.github.kafeg.inkpeek.ui
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Environment
-import android.view.Gravity
 import android.widget.LinearLayout
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
@@ -31,7 +28,7 @@ class AppPage(private val a: MainActivity) {
         t.addView(Rows.heading(a, a.getString(R.string.files_t)))
         if (Environment.isExternalStorageManager()) t.addView(Rows.info(a, null, a.getString(R.string.files_ok), a.getString(R.string.files_d)))
         else t.addView(Rows.buttons(a, a.getString(R.string.allow_files, prefs.home.path) to {
-            a.startActivity(Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION, Uri.parse("package:${a.packageName}"))) }))
+            Ink.askFiles(a) }))
     }
 }
 

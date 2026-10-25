@@ -82,7 +82,7 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
         shown = items.filter { f.isEmpty() || "${it.from}-${it.to} ${title(it)} ${name(it.from)} ${name(it.to)}".lowercase().contains(f) }
         info.text = getString(R.string.n_of_m, shown.size, items.size)
         val got = prefs.got.map { it.split('\t') }.filter { e -> e.drop(1).any { it in present } }.map { it.first() }.toSet()
-        list.adapter = Rows.adapter(this, shown.map { (if (recommended(it)) "★ " else "") + "${name(it.from)} → ${name(it.to)}" to
+        list.adapter = Rows.adapter(this, shown.map { (if (recommended(it)) "★ " else "") + "${Ink.pair(this, it.from, it.to)}" to
             (listOf(title(it), mb(it.size)) + if (it.url in got) "✓ " + getString(R.string.got_mark) else "").filter { s -> s.isNotEmpty() }.joinToString(" · ") })
     }
 
@@ -99,10 +99,10 @@ class CatalogActivity : Activity(), CoroutineScope by MainScope() {
     /** One download at a time: while one runs, a tap shows its progress instead. */
     private fun confirm(item: CatalogItem) {
         if (Downloads.busy) { dlg.show(); return }
-        InkDialog(this).title("${title(item)}: ${name(item.from)} → ${name(item.to)}")
+        InkDialog(this).title("${title(item)}: ${Ink.pair(this, item.from, item.to)}")
             .message(getString(when (item.source) { "wikdict" -> R.string.cat_wikdict; "wiktionary" -> R.string.cat_wiktionary; else -> R.string.cat_freedict }) +
                 "\n\n${mb(item.size)} · ${item.license}" + (if (prefs.got.any { it.startsWith(item.url + "\t") && it.split('\t').drop(1).any { n -> n in present } }) "\n✓ " + getString(R.string.got_mark) else ""))
-            .button(R.string.cancel).button(R.string.download) { Downloads.dict(this, item, "${name(item.from)} → ${name(item.to)}"); dlg.show() }.show()
+            .button(R.string.cancel).button(R.string.download) { Downloads.dict(this, item, Ink.pair(this, item.from, item.to)); dlg.show() }.show()
     }
 
     private fun toast(s: String) = Ink.toast(this, s)

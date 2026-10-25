@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.LinearLayout
 import android.widget.ScrollView
-import android.widget.TextView
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.stardict.book
@@ -132,8 +131,7 @@ class FontActivity : Activity(), CoroutineScope by MainScope() {
         super.onActivityResult(requestCode, resultCode, data)
         val uri = data?.data ?: return
         if (requestCode != FILE || resultCode != RESULT_OK) return
-        val name = contentResolver.query(uri, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c ->
-            if (c.moveToFirst()) c.getString(0) else null } ?: "font.ttf"
+        val name = Ink.displayName(this, uri) ?: "font.ttf"
         if (name.substringAfterLast('.').lowercase() !in setOf("ttf", "otf")) { Ink.toast(this, getString(R.string.font_bad, name)); return }
         // Off the main thread: a font with many scripts is tens of MB.
         Thread {

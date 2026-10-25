@@ -60,7 +60,7 @@ class PacksActivity : Activity(), CoroutineScope by MainScope() {
     override fun onDestroy() { dlg.dismiss(); cancel(); super.onDestroy() }
 
     private fun name(c: String) = Ink.lang(this, c)
-    private fun title(p: Pair<String, String>) = "${name(p.first)} → ${name(p.second)}"
+    private fun title(p: Pair<String, String>) = Ink.pair(this, p.first, p.second)
     /** What the pair still needs here: shared models and langid already installed are not downloaded again. */
     private fun missing(p: Pair<String, String>, inst: Map<String, String> = prefs.packs.installed()) = Packs.needed(manifest, listOf(p), prefs.mtMethod).filter { inst[it.id] != it.sha256 }
 

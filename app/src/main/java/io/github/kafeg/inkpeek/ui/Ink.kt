@@ -149,6 +149,18 @@ object Ink {
     /** A language's name in its own language, capitalized ("Deutsch"): the app's language list. */
     fun ownName(code: String) = java.util.Locale(code).let { it.getDisplayLanguage(it) }.replaceFirstChar { it.uppercase() }
 
+    /** A language pair as people read it: "Deutsch → Русский" (in the app's language). */
+    fun pair(ctx: Context, from: String, to: String) = "${lang(ctx, from)} → ${lang(ctx, to)}"
+
+    /** A picked file's name as its app tells it, or null. */
+    fun displayName(ctx: Context, u: android.net.Uri): String? = runCatching {
+        ctx.contentResolver.query(u, arrayOf(android.provider.OpenableColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null }
+    }.getOrNull()
+
+    /** Android's page that grants all-files access to this app. */
+    fun askFiles(ctx: Context) = ctx.startActivity(android.content.Intent(android.provider.Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
+        android.net.Uri.parse("package:${ctx.packageName}")))
+
     /** A path on shared storage as people see it: "koreader/data/dict". */
     fun short(f: java.io.File) = f.path.removePrefix(android.os.Environment.getExternalStorageDirectory().path + "/")
 
