@@ -3,3 +3,11 @@
 -dontobfuscate
 -keep class io.github.kafeg.inkpeek.** { *; }
 -keep class kotlin.** { *; }
+# The AI client builds its JSON with Jackson by reflection and annotations: both stay whole.
+-keepattributes *Annotation*,Signature,InnerClasses,EnclosingMethod
+-keep class com.anthropic.** { *; }
+-keep class com.fasterxml.jackson.** { *; }
+-dontwarn com.fasterxml.jackson.**
+# Desktop Java reflection types of its JSON-schema helper (structured outputs, not used here): not on Android.
+-dontwarn java.lang.reflect.AnnotatedParameterizedType
+-dontwarn java.lang.reflect.AnnotatedType

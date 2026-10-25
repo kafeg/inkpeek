@@ -33,7 +33,7 @@ count, so every release has its own.
   whole header).
 - A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the
   verbs verdammen, fertigen).
-- Smaller app: 9.8 MB instead of 14.8.
+- Smaller app: 12 MB instead of 15.
 - Notes are safer: a damaged notes file is put aside (inkpeek.db.corrupt-…), not deleted; notes made before file
   access was allowed are added to the shared file, not left behind; a cut-short pack update keeps the old version.
 - Fixed: two offline translations at once (a card and the speed test) could hang; the speed test ran on every visit to
