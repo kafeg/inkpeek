@@ -205,7 +205,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             TextActions.selectable(this, paragraph = false)
         }
         fitTitle()
-        // Under the title: the selected form, the same word in another book language.
+        // Under the title: the selected form, how common the word is and how often it was looked up.
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE; TextActions.selectable(this) }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
@@ -451,9 +451,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             prefs.library().rank(first.word, first.book) to store.run { base(query, kindName, first.word); looks(first.word) }
         }.getOrDefault(0 to 0) }
         val facts = listOfNotNull(Facts.frequency(this@CardActivity, rank), Facts.looks(this@CardActivity, looks)).joinToString(" · ")
-        // The selected form, and the same word in another book language ("Gift" is German and English).
-        val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), heads.getOrNull(1)?.header,
-            facts.ifBlank { null }).joinToString("\n")
+        // The selected form (the other dictionaries that know the word are in the Dictionary tab).
+        val sub = listOfNotNull(if (first.word.equals(query, true)) null else getString(R.string.form_of_sel, query), facts.ifBlank { null }).joinToString("\n")
         subView.text = sub; subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
     }
 

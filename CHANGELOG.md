@@ -34,6 +34,8 @@ count, so every release has its own.
 - Show the English (Languages → Translation, Fast · Mozilla): the English step of a translation through English,
   smaller, under it.
 - A copy of the notes, the history and the AI answers is made each day in InkPeek/backup; the last five are kept.
+- Under a word's header no longer a word of another book language ("hausen" under "das Haus"): the dictionaries that
+  know the word are in the Dictionary tab.
 - Holding ✕ in the card opens InkPeek: its search field, the settings.
 - Translate has "AI" in its corner when it holds the AI translation.
 - One AI icon in the card instead of two: Analysis and Context are its tabs, as Translate holds Offline and AI; with one
