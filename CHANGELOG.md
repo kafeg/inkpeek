@@ -27,8 +27,10 @@ count, so every release has its own.
   dictionary.
 - Under an article, a section row shows two lines; › opens the whole list. Section lists and Notes turn pages on
   top, like the dictionaries: ◀ the title and "21–40 of 125" ▶, or a swipe.
-- Help: more on the card, selection and its menu, the offline translation and AI; the button says where it goes
-  ("Go to: Card → Opening").
+- Help rewritten: short items per topic; the selection menu and the card's icons each with its icon; translation
+  methods one by one; what goes to the network (AI, downloads, the update check); Notes, its backups and copies; the App
+  page. The button says where it goes ("Go to: Card → Opening").
+- Translations of the app reviewed in all eight languages: one term per thing, the settings named as they are on screen.
 - Card → Appearance → Turning: by pages — a swipe up or down turns a whole page, starting at a whole line (on some
   readers scrolling redraws the whole screen when it stops); the line over the icons shows the pages, the open one thick.
 - Show the English (Languages → Translation, Fast · Mozilla): the English step of a translation through English,

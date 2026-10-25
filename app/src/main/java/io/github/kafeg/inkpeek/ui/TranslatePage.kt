@@ -32,7 +32,7 @@ class TranslatePage(private val card: CardActivity) {
             val aiOk = aiOn && block == null
             if (by.isEmpty()) by = if (card.offlineOk) "offline" else "ai"
             if (aiOn && card.offlineOk) {
-                val tabs = listOf("offline" to card.getString(R.string.mt_offline), "ai" to "AI")
+                val tabs = listOf("offline" to card.getString(R.string.mt_offline), "ai" to card.getString(R.string.tab_ai))
                 val seg = Ink.subTabs(card, tabs, by, card.size * 0.75f) { k ->
                     if (k == "ai" && !aiOk) block?.let { card.toast(card.getString(it)) }
                     else { by = k; fill(p) }
