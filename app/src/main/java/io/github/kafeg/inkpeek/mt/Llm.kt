@@ -13,7 +13,7 @@ object Llm {
     @Volatile private var loaded = false
 
     /** Blocking. [template] with {from}, {to}, {text}; [names]: language codes → the names the model was taught. */
-    @Synchronized fun translate(file: File, template: String, names: Map<String, String>, from: String, to: String, text: String, keep: Boolean): String = native.let {
+    fun translate(file: File, template: String, names: Map<String, String>, from: String, to: String, text: String, keep: Boolean): String = synchronized(Engine.lock) { native
         freeing?.cancel(false)
         Engine.release() // Mozilla's or OPUS-MT's models: one big model in memory at a time
         val threads = Runtime.getRuntime().availableProcessors().coerceIn(1, 8) / 2
@@ -27,7 +27,8 @@ object Llm {
         out
     }
 
-    @Synchronized fun release() { if (loaded) { native; releaseNative(); loaded = false } }
+    /** Blocks while a translation runs: not on the main thread. */
+    fun release() = synchronized(Engine.lock) { if (loaded) { native; releaseNative(); loaded = false } }
 
     private fun chunks(text: String, lang: String): List<String> {
         if (text.length <= 1200) return listOf(text)

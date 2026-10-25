@@ -142,7 +142,7 @@
     <string name="delete">Usuń</string>
     <string name="st_indexing">budowanie indeksu…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Wyłączone: wszystko działa offline. Ikony AI: Karta → Ogólne.</string>
+    <string name="ai_title_d">Wyłączone: wszystko działa offline. Jego karty w karcie: AI → Moduły.</string>
     <string name="ai_none">Wyłączone</string>
     <string name="lang_need_pack">Tłumaczenie offline wymaga pakietu InkPeek „%1$s → %2$s”: ustawienia InkPeek → Języki.</string>
     <string name="packs_title">Pakiety językowe InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">W dół</string>
     <string name="prev">Wstecz</string>
     <string name="look_font">Czcionka</string>
-    <string name="look_font_d">Tekst karty: czcionki Androida lub własne .ttf / .otf.</string>
     <string name="font_file">Wybierz plik…</string>
     <string name="font_bad">InkPeek nie może odczytać tej czcionki: %1$s</string>
     <string name="font_t">Czcionka karty</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">eksperymentalny</string>
     <string name="pack_cover">%1$d%% częstych słów</string>
     <string name="lang_article">Artykuł</string>
-    <string name="sec_note">Wiersze pod pełnym artykułem pakietu, z Wikisłownika: dotknięcie otwiera listę, częste słowa najpierw.</string>
     <string name="lang_own_tab">Słowniki</string>
     <string name="freq_top">wśród %1$s najczęstszych słów</string>
     <plurals name="looks">
@@ -397,4 +395,5 @@
     <string name="hc_ai_t">AI</string>
     <string name="hc_ai">Karty AI pytają tylko po dotknięciu. Z „%1$s” (AI → Moduły) pozostałe są gotowe, gdy je otworzysz. Moduł bez zaznaczonych części nie ma karty i nic nie wysyła.</string>
     <string name="hm_off">„Wyłączone” wśród metod: bez tłumaczenia offline, Tłumaczenie pokazuje tylko AI. Modele pobiera się dla każdej pary języków, na karcie Tłumaczenie.</string>
+    <string name="no_space">Za mało wolnego miejsca: potrzeba %1$d MB, wolne %2$d MB.</string>
 </resources>

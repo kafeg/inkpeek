@@ -142,7 +142,7 @@
     <string name="delete">Elimina</string>
     <string name="st_indexing">creazione dell\'indice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Disattivato: tutto funziona offline. Icone IA: Scheda → Generale.</string>
+    <string name="ai_title_d">Disattivato: tutto funziona offline. Le sue schede nella scheda: IA → Moduli.</string>
     <string name="ai_none">Disattivato</string>
     <string name="lang_need_pack">La traduzione offline richiede il pacchetto InkPeek «%1$s → %2$s»: impostazioni di InkPeek → Lingue.</string>
     <string name="packs_title">Pacchetti lingua InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">Giù</string>
     <string name="prev">Precedente</string>
     <string name="look_font">Carattere</string>
-    <string name="look_font_d">Il testo della scheda: caratteri di Android o i tuoi (.ttf / .otf).</string>
     <string name="font_file">Scegli un file…</string>
     <string name="font_bad">InkPeek non può leggere questo carattere: %1$s</string>
     <string name="font_t">Carattere della scheda</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">sperimentale</string>
     <string name="pack_cover">%1$d%% delle parole frequenti</string>
     <string name="lang_article">Articolo</string>
-    <string name="sec_note">Righe sotto l\'articolo completo di un pacchetto, da Wiktionary: un tocco apre l\'elenco, prima le parole frequenti.</string>
     <string name="lang_own_tab">Dizionari</string>
     <string name="freq_top">tra le %1$s parole più frequenti</string>
     <plurals name="looks">
@@ -396,4 +394,5 @@
     <string name="hc_ai_t">IA</string>
     <string name="hc_ai">Le schede IA chiedono solo al tocco. Con «%1$s» (IA → Moduli) le altre sono pronte quando le apri. Un modulo senza nulla spuntato non ha scheda e non invia nulla.</string>
     <string name="hm_off">«Disattivato» tra i metodi: nessuna traduzione offline, Traduci mostra solo l\'IA. I modelli si scaricano per coppia di lingue, nella scheda Traduzione.</string>
+    <string name="no_space">Spazio libero insufficiente: servono %1$d MB, liberi %2$d MB.</string>
 </resources>

@@ -65,7 +65,8 @@ Java_io_github_kafeg_inkpeek_mt_Llm_translateNative(JNIEnv* env, jobject, jstrin
         char buf[256];
         int k = llama_token_to_piece(vocab, t, buf, sizeof buf, 0, false);
         if (k > 0) out.append(buf, k);
-        if (llama_decode(ctx, llama_batch_get_one(&t, 1))) break;
+        // A failed step would return half a translation as a whole one (and it is cached): an error instead.
+        if (llama_decode(ctx, llama_batch_get_one(&t, 1))) { llama_sampler_free(smpl); return fail(env, "Decoding failed"); }
     }
     llama_sampler_free(smpl);
     return bytes(env, out);

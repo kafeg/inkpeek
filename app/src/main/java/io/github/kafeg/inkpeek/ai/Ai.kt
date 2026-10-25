@@ -73,7 +73,7 @@ data class Key(val name: String, val type: String, val about: String, val extra:
 /**
  * The AI requests, each answered as one JSON object: [QUICK] for Translate (head facts + translation), [ANALYSIS] and
  * [CONTEXT] for their tabs; opening any AI tab sends all three at once. Placeholders: {text}, {lang}. The prompt is
- * [intro], one "- key: about" line per key, [tail]; settings may replace the abouts (AI → Prompts).
+ * [intro], one "- key: about" line per key, [tail]; settings may replace the abouts (AI → Modules).
  */
 enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val maxTokens: Long) {
     QUICK("Answer with one JSON object, these keys only:", listOf(
@@ -145,7 +145,7 @@ data class ModelInfo(val id: String, val name: String = id, val free: Boolean = 
                      val publisher: String = id.substringBefore('/', ""), val created: Long = 0, val context: Int = 0)
 
 object Ai {
-    /** The general style of every answer; {lang} is the answer language. Editable (AI → Prompts) as "system". */
+    /** The general style of every answer; {lang} is the answer language. Editable (AI → Modules) as "system". */
     const val SYSTEM = "You are a concise dictionary and language tutor inside an e-book reader on an " +
         "e-ink screen. Write every answer in {lang} only. If the text is already in {lang}, answer like an explanatory " +
         "dictionary of {lang} instead of translating. Formatting: only **bold** and *italic*, short lines, simple \"- \" " +

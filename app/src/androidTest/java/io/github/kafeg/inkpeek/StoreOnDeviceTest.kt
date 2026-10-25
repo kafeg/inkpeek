@@ -28,6 +28,29 @@ class StoreOnDeviceTest {
         s.close()
     }
 
+    @Test fun aListLineIsTheNewestAiAnswer() {
+        val s = fresh("t-newest.db")
+        s.save("Haus", "word", "", "en")
+        s.putAnswer("Haus", "en", "quick", 1, "m", """{"translation":"old"}"""); Thread.sleep(5)
+        s.putAnswer("Haus", "en", "quick", 2, "m", """{"translation":"new"}""")
+        assertEquals("new", s.saved("word", "en").single().meaning)
+        s.seen("Haus", "word")
+        assertEquals("new", s.history("en").single().meaning)
+        s.close()
+    }
+
+    /** A damaged file is put aside, not deleted (Android's default): the notes in it may still be saved. */
+    @Test fun aDamagedFileIsPutAside() {
+        val f = File(ctx.cacheDir, "t-bad.db")
+        ctx.cacheDir.listFiles { x -> x.name.startsWith("t-bad.db") }?.forEach { it.delete() }
+        f.writeText("not a database, but notes ".repeat(200))
+        val s = Store.at(ctx, f.path)
+        s.save("Haus", "word", "house", "en")
+        assertEquals(1, s.saved("word", "en").size)
+        assertTrue(ctx.cacheDir.list()!!.any { it.startsWith("t-bad.db.corrupt-") })
+        s.close()
+    }
+
     @Test fun backupAndRestoreAddOnlyWhatIsMissing() {
         val a = fresh("t-a.db")
         a.save("ander", "word", "other", "en"); a.seen("ander", "word")

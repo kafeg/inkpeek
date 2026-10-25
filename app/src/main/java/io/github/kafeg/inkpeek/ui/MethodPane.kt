@@ -21,7 +21,7 @@ class MethodPane(private val a: MainActivity, private val list: LinearLayout) {
     /** The packs list (Languages loads it). */
     var manifest: List<Component> = emptyList()
 
-    private fun kind(method: String) = when (method) { "direct" -> "opus"; "llm" -> "llm"; else -> null }
+    private fun kind(method: String) = Packs.kind(method)
 
     /** The models [method] needs for the installed pairs (none for Mozilla: the pairs' packs have them). */
     private fun models(method: String): List<Component> = kind(method)?.let { k ->
@@ -40,6 +40,8 @@ class MethodPane(private val a: MainActivity, private val list: LinearLayout) {
 
     fun show() {
         list.removeAllViews()
+        // Its models' download stopped or failed: the method was never usable, Mozilla's goes on (as the card did anyway).
+        if (!Downloads.busy && prefs.packs.installed().let { have -> models(prefs.mtMethod).any { it.id !in have } }) prefs.mtMethod = "fast"
         list.addView(Rows.note(a, a.getString(R.string.mt_this, String.format(a.resources.configuration.locales[0], "%.1f", device.totalMb / 1024f),
             a.getString(if ("asimddp" in device.features) R.string.mt_yes else R.string.mt_no))))
         val installed = prefs.packs.installed(); val pairs = prefs.packs.installedPairs()
@@ -99,23 +101,27 @@ class MethodPane(private val a: MainActivity, private val list: LinearLayout) {
     /** One phrase translated twice (the second without the load): "≈ N s per phrase" under the method, for this device. */
     fun measure() {
         val m = prefs.mtMethod
-        if (kind(m) == null || prefs.mtSpeed(m) > 0) return
+        // Once per method and download (-1: it could not run here); not again while one runs.
+        if (kind(m) == null || prefs.mtSpeed(m) != 0 || measuring) return
         val installed = prefs.packs.installed()
         val c = models(m).firstOrNull { installed[it.id] == it.sha256 } ?: return
         val (x, y) = prefs.packs.installedPairs().firstOrNull { (x, y) -> "$x-$y" in c.covers } ?: return
         val phrase = SAMPLE[x] ?: return
+        measuring = true
         a.launch {
-            val ms = withContext(Dispatchers.IO) { runCatching {
+            val ms = try { withContext(Dispatchers.IO) { runCatching {
                 val once = { if (c.kind == "opus") Engine.translateDirect(prefs.packs.opusDir(c.id), x, c.tags[y], phrase, keep = true)
                     else io.github.kafeg.inkpeek.mt.Llm.translate(prefs.packs.llmFile(c.id), c.template, c.names, x, y, phrase, keep = true) }
                 once()
                 val t0 = System.nanoTime(); once(); (System.nanoTime() - t0) / 1_000_000
-            }.getOrDefault(0L) }
-            if (ms > 0) { prefs.setMtSpeed(m, ms.toInt()); show() }
+            }.getOrDefault(-1L) } } finally { measuring = false }
+            prefs.setMtSpeed(m, ms.toInt()); if (ms > 0) show()
         }
     }
 
     companion object {
+        /** A speed test is running (the pane is made again on every visit). */
+        @Volatile private var measuring = false
         /** A phrase of an ordinary length per book language, for the speed test. */
         private val SAMPLE = mapOf("de" to "Er nimmt ihre rechte Hand und legt sie vorsichtig auf den Schläger.",
             "en" to "He takes her right hand and carefully puts it on the racket.", "ru" to "Он берёт её правую руку и осторожно кладёт на ракетку.",

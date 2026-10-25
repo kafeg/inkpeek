@@ -20,7 +20,7 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
     // A new library (a new folder, a download) tries the failed ones again.
     init { STATUS.entries.removeIf { it.value.startsWith("error") } }
 
-    /** The dictionaries in use, in the person's order (Card → Main); the others after them, the packs first, by name. */
+    /** The dictionaries in use, in the person's order (Card → Article); the others after them, the packs first, by name. */
     fun all(): List<StarDict> = found().filter { use(it, isPack(it)) }
 
     /** Every dictionary on disk, in use or not. */

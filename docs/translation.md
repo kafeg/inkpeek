@@ -11,8 +11,8 @@ is named as such ("This looks like French"). AI translation needs none of this.
 English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
 may pick the wrong one of ты / вы; the speaker's gender may change.
 
-The models stay in memory between translations and leave it after a few idle minutes; when free memory is short,
-InkPeek loads one model at a time.
+One model is in memory at a time. With plenty of free memory it stays there between translations and leaves after a
+few idle minutes; when memory is short, it is freed after each translation.
 
 **Three methods, or Off** (Languages → Translation; one for all pairs, the app downloads what your pairs need; a
 method this device cannot run is shown dimmed with the reason; after a download the page shows how long a phrase

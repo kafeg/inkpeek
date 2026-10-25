@@ -13,7 +13,6 @@ import io.github.kafeg.inkpeek.stardict.shortMeaning
 import io.github.kafeg.inkpeek.stardict.Head
 import io.github.kafeg.inkpeek.stardict.headLine
 import io.github.kafeg.inkpeek.stardict.Separable
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.Deferred
@@ -59,7 +58,7 @@ class DictionaryPage(private val card: CardActivity) {
             runCatching { lib.separable(card.query, card.prefs.answerCode) }.getOrDefault(emptyList()))
             .also { if (!ready) withContext(Dispatchers.Main) { glossJob = null } }
     }.also { glossJob = it }
-    /** Full articles (Card → Main): to the next (+1) or previous (-1) dictionary; null in the other views. */
+    /** Full articles (Card → Opening): to the next (+1) or previous (-1) dictionary; null in the other views. */
     var turn: ((Int) -> Unit)? = null; private set
     /** "←" and Back: from an article to the list, from a word to the gloss; null at the top. */
     var back: (() -> Unit)? = null; private set
@@ -70,8 +69,6 @@ class DictionaryPage(private val card: CardActivity) {
 
     fun fill(p: LinearLayout) { page = p; if (card.kind == Kind.WORD) articles(card.query, null) else gloss() }
 
-    /** [word]'s articles in this tab, "←" back to the gloss; for the gloss rows under other tabs too. */
-    fun show(word: String) { page = card.page(CardActivity.DICT, fill = false); card.open(CardActivity.DICT); articles(word) { gloss() } }
 
     private fun up(to: (() -> Unit)?) { back = to?.let { f -> { back = null; card.showBack(); f() } }; card.showBack() }
 
@@ -157,7 +154,7 @@ class DictionaryPage(private val card: CardActivity) {
         p.addView(Ink.divider(card))
     }
 
-    /** Under a pack's article: a row per section it has (Languages → What the card takes) — a preview, its caption ›. */
+    /** Under a pack's article: a row per section it has (Card → Article) — a preview, its caption ›. */
     private fun sections(p: LinearLayout, dict: StarDict, word: String) {
         val e = runCatching { dict.related?.of(word) }.getOrNull() ?: return
         val prefs = card.prefs
@@ -186,9 +183,10 @@ class DictionaryPage(private val card: CardActivity) {
     private fun section(dict: StarDict, word: String, k: String, n: Int) {
         val p = page ?: return
         val e = runCatching { dict.related?.of(word) }.getOrNull() ?: return
-        val hits = runCatching { dict.lookup(word) }.getOrDefault(emptyList())
+        // ← returns to the view it came from: the article, or the full articles at that dictionary (◀ ▶ kept).
+        val from = place.takeUnless { it.startsWith("r:") } ?: "a:${dict.id}"
         job?.cancel(); p.removeAllViews(); turn = null; place = "r:${dict.id}:$k:$n:$word"; card.scrollTop()
-        up { if (hits.isNotEmpty()) article(dict, hits, word) { articles(card.query, null) } else articles(card.query, null) }
+        up { restore = from; articles(card.query, null) }
         val title = card.getString(when (k) { "rel" -> R.string.sec_rel; "syn" -> R.string.sec_syn; "expr" -> R.string.sec_expr; "forms" -> R.string.sec_forms; else -> R.string.sec_ety })
         val head = "${Ink.escape(word)} · ${Ink.escape(title)}"
         if (k == "forms" || k == "ety") p.addView(Ink.text(card, head, card.size * 0.8f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 6) })
@@ -228,9 +226,9 @@ class DictionaryPage(private val card: CardActivity) {
     }
 
     /** Word by word from the packs, offline: base form and first meanings; [tap] opens a word. */
-    private fun rows(p: LinearLayout, scope: CoroutineScope = card, tap: (String) -> Unit): Job {
+    private fun rows(p: LinearLayout, tap: (String) -> Unit): Job {
         val wait = Ink.text(card, "…", card.size); p.addView(wait)
-        return scope.launch {
+        return card.launch {
             val t0 = System.currentTimeMillis()
             val (g, apart) = warm().await()
             p.removeView(wait)
@@ -253,6 +251,7 @@ class DictionaryPage(private val card: CardActivity) {
                 }
                 listRow(p, text) { tap(x.base.ifBlank { x.word }) }
             }
+            card.scrollBack() // ← from a word: where the list was left
         }
     }
 }

@@ -34,13 +34,6 @@ object Rows {
             Ink.lp().apply { topMargin = Ink.dp(ctx, 1) })
     }
 
-    /** A row that depends on another setting: dimmed and untouchable while that one is off. */
-    fun enable(v: View, on: Boolean) {
-        v.alpha = if (on) 1f else 0.4f
-        fun walk(x: View) { x.isEnabled = on; (x as? ViewGroup)?.let { g -> (0 until g.childCount).forEach { walk(g.getChildAt(it)) } } }
-        walk(v)
-    }
-
     /**
      * A setting that is on or off; a tap on the text toggles it too. [remove]: a ✕ on the right (it asks first) — a list
      * item (a pack, a dictionary), whose second line is its state. [edit]: a ✎ there instead (a prompt of AI → Modules).

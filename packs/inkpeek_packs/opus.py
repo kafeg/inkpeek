@@ -1,7 +1,7 @@
 """OPUS-MT (Helsinki-NLP) models for direct offline translation: the plan of models and their conversion for Bergamot.
 
 A Tatoeba-MT model is Marian with a joint vocab.yml and tied embeddings; Bergamot reads only SentencePiece vocabularies.
-convert() maps the embeddings to the ids of source.spm / target.spm, adds the target tags (">>rus<<") to source.spm
+remap() maps the embeddings to the ids of source.spm / target.spm, adds the target tags (">>rus<<") to source.spm
 as whole pieces, then marian-conv (x86 only) makes it int8.
 """
 import io
@@ -13,7 +13,6 @@ import subprocess
 import zipfile
 
 URL = "https://object.pouta.csc.fi/Tatoeba-MT-models/"
-LEADERBOARD = "https://raw.githubusercontent.com/Helsinki-NLP/OPUS-MT-leaderboard/master/"
 ISO3 = {"de": "deu", "en": "eng", "ru": "rus", "fr": "fra", "es": "spa", "it": "ita", "pt": "por", "pl": "pol", "uk": "ukr"}
 CYRILLIC = {"ru", "uk"}
 # One short sentence per source language: the converted model must translate it (not echo it, not stay empty).

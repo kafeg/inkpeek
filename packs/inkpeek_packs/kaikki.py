@@ -39,7 +39,3 @@ def slice_dump(path, langs, out_dir, edition):
         for o in outs.values():
             o.close()
     return counts
-
-
-def slice_path(work, edition, lang):
-    return os.path.join(work, "slices", f"{edition}.{lang}.jsonl.gz")

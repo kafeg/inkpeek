@@ -32,7 +32,7 @@
   answers) as one file — an import adds what the device does not have.
 - **Look up from any text**: select a word in an article, a translation or an AI answer — the menu's 📖 opens it in the
   same card, ← returns to the word before.
-- **The card's look** (Card → Look): height by content (a small card, like KOReader's) or a share of the screen;
+- **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
   width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; dimming the page; the font, on a page of its own with a sample — Android's fonts that
   have the letters the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a

@@ -142,7 +142,7 @@
     <string name="delete">Удалить</string>
     <string name="st_indexing">строю индекс…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Выключено — всё работает офлайн. Значки AI в карточке: Карточка → Основные.</string>
+    <string name="ai_title_d">Выключено — всё работает офлайн. Его вкладки в карточке: AI → Модули.</string>
     <string name="ai_none">Выключено</string>
     <string name="lang_need_pack">Для офлайн-перевода нужен пакет InkPeek «%1$s → %2$s»: настройки InkPeek → Языки.</string>
     <string name="packs_title">Языковые пакеты InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">Ниже</string>
     <string name="prev">Назад</string>
     <string name="look_font">Шрифт</string>
-    <string name="look_font_d">Текст карточки: шрифты Android или свои .ttf / .otf.</string>
     <string name="font_file">Выбрать файл…</string>
     <string name="font_bad">Этот шрифт InkPeek прочитать не может: %1$s</string>
     <string name="font_t">Шрифт карточки</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">экспериментальный</string>
     <string name="pack_cover">%1$d%% частых слов</string>
     <string name="lang_article">Статья</string>
-    <string name="sec_note">Строки под полной статьёй пакета, из Wiktionary: нажатие открывает список, частые слова сначала.</string>
     <string name="lang_own_tab">Словари</string>
     <string name="freq_top">в %1$s самых частых слов</string>
     <plurals name="looks">
@@ -397,4 +395,5 @@
     <string name="hc_ai_t">AI</string>
     <string name="hc_ai">AI-вкладки спрашивают только по тапу. С «%1$s» (AI → Модули) остальные готовы, когда вы их откроете. Модуль без отмеченных частей — без вкладки и без запросов.</string>
     <string name="hm_off">«Выключено» среди методов — без офлайн-перевода, в «Переводе» только AI. Модели скачиваются для каждой пары языков на вкладке «Перевод».</string>
+    <string name="no_space">Не хватает места: нужно %1$d МБ, свободно %2$d МБ.</string>
 </resources>

@@ -32,10 +32,10 @@ Core works offline without AI; AI tabs are optional extras. Tabs: **Dictionary**
 **AI translation**, **Analysis**, **Context** — "AI" in the icon's corner, dimmed and a reason on tap when AI is off,
 has no key, or there is no network (a saved answer still opens). AI off in settings → no AI tabs. A tab keeps its
 content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told the kind.
-The card opens on Dictionary; a phrase opens on Translate with `phrase_auto_ai` (default on since 0.4) and Translate able
-to answer. No AI request on card open.
-Header of a word from local data only: the article from WikDict's grammar mark ("das Gewitter"); the grammar pack
-(milestone 10) adds plural and verb forms.
+The card opens on Dictionary; a phrase opens on what Card → Opening says (`phrase_open`, milestone 20; the offline
+translation by default). No AI request on card open unless an AI choice is set there.
+Header of a word from local data only: the article, plural and verb forms from the packs' grammar data (milestone 10;
+since 0.6 built into the dictionary pack, not a pack of its own).
 Dictionary tab for a word: one short line per dictionary with a hit — "form → **base** *part of speech* — first
 meanings · dictionary"; tap a line for the full article, "←" back. Order: meanings in the answer script, then
 dictionaries whose headword is the AI's base form (German "ging" → gehen before an English look-alike), then the
@@ -172,16 +172,17 @@ v0.1–v0.2 (done): card + intents + StarDict; AI actions + settings; polish, 18
      Save, My words, Close. AI — AI translation, Analysis, Context: an "AI" mark on the icon; inactive (and a short
      reason on tap) when AI is off, has no key, or there is no network. No AI request on card open.
    - No "Ask again".
-Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models downloaded by the app straight from Mozilla,
+Decisions (21.10): minSdk 30 (Android 11, the Boox); translation models (Mozilla's, mirrored in our packs release),
 the full ("base") models; the pack list is one list, each pack brings everything for its pair; UI languages =
 exactly the answer languages of the packs; Translate: AI first when it can answer (on, set up, online; decided 20.10, no setting), the offline engine
 otherwise, with a plain note in the app and the README that it goes through English.
 10. **Language packs** (scripts, tests, workflow done for de, en → ru, en; then all languages) — built by our scripts in `packs/` (Python, std lib), checked by tests, published as assets
-   of our own GitHub releases (`packs-YYYY.MM.N`) with a manifest `packs.json`; the app downloads only from there —
+   of our own GitHub release `packs` with a manifest `packs.json`; the app downloads only from there —
    no third-party server at run time (Mozilla models mirrored, MPL-2.0). Too big for the APK (all 10 languages ≈ 0.9 GB).
    - Pairs (20.10): de, es, fr, it, pl, pt, nl, ru → en; en, de, es, fr, pl → ru; en, ru → de; en → fr, es, it, pt, pl.
-     Published only when the dictionary knows ≥ 85% of the book language's 5,000 most frequent words (subtitle lists,
-     forms included; de→ru 89%) and the golden words pass. Not yet: it, pt, nl → ru (73–75%), ru → de is the weakest
+     Coverage = the share of the book language's 5,000 most frequent words the dictionary knows (subtitle lists, forms
+     included; de→ru 89%); the golden words must pass. Since 0.7: published from 60% (English pairs always), labelled
+     full (≥ 85% and offline translation), basic (≥ 60%), experimental. Not yet: it, pt, nl → ru (73–75%), ru → de is the weakest
      published (68%). A new answer language comes in tandem — its packs and the UI language together, never one
      without the other. No reversed translation tables (decided 20.10: they added noise to strong pairs).
    - Components, each a separate asset, shared between pairs: `dict-<x>-<y>` (one StarDict per pair: our own articles from the

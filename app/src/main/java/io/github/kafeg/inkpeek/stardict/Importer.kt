@@ -71,9 +71,12 @@ object Importer {
         while (dir.exists()) dir = File(target, safe(name) + "-" + i++)
         dir.mkdirs()
         // The .ifo last: a dictionary is found by it, so one cut short (the app killed) is never seen half.
-        ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.sortedBy { it == ifo }.forEach { f ->
-            val dst = File(dir, f.name); if (!f.renameTo(dst)) { f.copyTo(dst, true); f.delete() }
-        }
+        // Cut short (no room): the new folder goes, not left without its .ifo in the person's folder.
+        try {
+            ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.sortedBy { it == ifo }.forEach { f ->
+                val dst = File(dir, f.name); if (!f.renameTo(dst)) { f.copyTo(dst, true); f.delete() }
+            }
+        } catch (e: Throwable) { dir.deleteRecursively(); throw e }
         return dir
     }
 

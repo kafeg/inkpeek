@@ -79,10 +79,19 @@ class AiSettings(private val a: MainActivity) {
         model.setOnClickListener { chooseModel { load(prefs.provider) } }
         setup.addView(model, Ink.lp().apply { topMargin = Ink.dp(a, 6) })
         // The answers' language is set in Languages → Translation; here it is said, with the way there.
-        setup.addView(Rows.info(a, null, a.getString(R.string.ans_row, Ink.lang(a, prefs.answerCode)), a.getString(R.string.ans_lang_d), page = true) {
-            a.goTo(R.string.tab_dicts, "translation") }.apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 12) })
+        answersRow = Ink.vertical(a); setup.addView(answersRow); refreshAnswers()
         styleRow = Ink.vertical(a); setup.addView(styleRow); refreshStyle()
         load(prefs.provider)
+    }
+
+    private lateinit var answersRow: LinearLayout
+
+    /** The answers' language, made again when AI shows (it is changed in Languages). */
+    fun refreshAnswers() {
+        if (!::answersRow.isInitialized) return
+        answersRow.removeAllViews()
+        answersRow.addView(Rows.info(a, null, a.getString(R.string.ans_row, Ink.lang(a, prefs.answerCode)), a.getString(R.string.ans_lang_d), page = true) {
+            a.goTo(R.string.tab_dicts, "translation") }.apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 12) })
     }
 
     /** The general style of every answer, ✎ to edit it. */
@@ -219,7 +228,7 @@ class AiSettings(private val a: MainActivity) {
     }
 
     companion object {
-        /** An answer key's title and explanation (AI → Answers). */
+        /** An answer key's title and explanation (AI → Modules). */
         private val KEYS = mapOf("grammar" to (R.string.ak_grammar to R.string.ak_grammar_d), "words" to (R.string.ak_words to R.string.ak_words_d),
             "related" to (R.string.ak_related to R.string.ak_related_d), "synonyms" to (R.string.ak_synonyms to R.string.ak_synonyms_d),
             "explanation" to (R.string.ak_explanation to R.string.ak_explanation_d), "examples" to (R.string.ak_examples to R.string.ak_examples_d),

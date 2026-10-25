@@ -191,7 +191,7 @@ class LanguagesSettings(private val a: MainActivity) {
                         val all = uris.map { u ->
                             val name = displayName(u)
                             a.contentResolver.openInputStream(u)!!.use { input ->
-                                if (Importer.isDictFile(name)) { File(loose, name).outputStream().use { input.copyTo(it) }; null }
+                                if (Importer.isDictFile(name)) { File(loose, File(name).name).outputStream().use { input.copyTo(it) }; null }
                                 else Importer.importStream(name, input, target, a.cacheDir)
                             }
                         }.filterNotNull() + Importer.collect(loose, target)

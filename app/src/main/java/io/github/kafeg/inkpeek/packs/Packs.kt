@@ -23,6 +23,9 @@ data class Component(val id: String, val kind: String, val from: String, val to:
 
 enum class Level { FULL, BASIC, EXPERIMENTAL }
 
+/** Too little room for a download, its unpacked files and the old version together, in MB. */
+class NoSpace(val needMb: Long, val freeMb: Long) : Exception("Not enough free space: $needMb MB needed, $freeMb MB free")
+
 /**
  * InkPeek's language packs from this project's release "packs" — the only source the app downloads them from.
  * Layout under [root]: dicts/<id>/ (the card's dictionaries; the first line of an article is the header), langid.ftz,
@@ -63,19 +66,21 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
 
     /** Downloads one component, checks its sha256, unpacks it in place; [progress]: bytes done of the total. */
     fun install(c: Component, progress: (Long, Long) -> Unit = { _, _ -> }) {
-        root.mkdirs(); File(root, "tmp").deleteRecursively()
+        safe(c, install = true)
+        // Left by a download the process did not live to finish (one install at a time: none is running).
+        root.mkdirs(); File(root, "tmp").deleteRecursively(); root.listFiles { f -> f.name.endsWith(".part") }?.forEach { it.delete() }
         // The download, the unpacked files and the old version side by side at the peak.
         val free = root.usableSpace; val need = if (c.kind == "llm") c.size + c.size / 10 else c.size * 3
-        if (free < need) error("Not enough free space for ${c.file}: ${need / 1_000_000} MB needed, ${free / 1_000_000} MB free")
+        if (free < need) throw NoSpace(need / 1_000_000, free / 1_000_000)
         val tmp = File(root, c.file + ".part")
         try { download(c, tmp, progress) } catch (e: Throwable) { tmp.delete(); throw e }
         try {
             when (c.kind) {
                 "dict" -> unzip(tmp, File(dicts, c.id))
                 "model" -> untar(tmp, File(models, c.from + c.to))
-                "langid" -> { langid.delete(); if (!tmp.renameTo(langid)) error("Cannot move ${langid.name}") }
+                "langid" -> swap(tmp, langid)
                 "opus" -> untar(tmp, opusDir(c.id))
-                "llm" -> llmFile(c.id).let { f -> f.parentFile?.mkdirs(); f.delete(); if (!tmp.renameTo(f)) error("Cannot move ${f.name}") }
+                "llm" -> swap(tmp, llmFile(c.id))
                 else -> error("Unknown pack kind ${c.kind}")
             }
         } finally { tmp.delete(); File(root, "tmp").deleteRecursively() }
@@ -105,6 +110,7 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     }
 
     fun remove(c: Component) {
+        safe(c, install = false)
         when (c.kind) {
             "dict" -> File(dicts, c.id).deleteRecursively()
             "grammar" -> File(root, "grammar").deleteRecursively() // old builds installed grammar packs
@@ -129,9 +135,24 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     private fun staging(dest: File) = File(root, "tmp/" + dest.name).also { it.deleteRecursively(); it.mkdirs() }
 
     /** The unpacked folder to its place; on a fresh device its parent (dicts/, models/) does not exist yet. */
-    private fun place(tmp: File, dest: File) {
-        dest.deleteRecursively(); dest.parentFile?.mkdirs()
-        if (!tmp.renameTo(dest)) error("Cannot move ${dest.name}")
+    private fun place(tmp: File, dest: File) = swap(tmp, dest)
+
+    /** [new] in place of [dest]: the old one goes aside (tmp/, not seen by the library) first and away last. */
+    private fun swap(new: File, dest: File) {
+        dest.parentFile?.mkdirs()
+        val old = File(root, "tmp/old-" + dest.name); old.deleteRecursively(); old.parentFile?.mkdirs()
+        if (dest.exists() && !dest.renameTo(old)) error("Cannot move ${dest.name}")
+        if (!new.renameTo(dest)) { old.renameTo(dest); error("Cannot move ${dest.name}") }
+        old.deleteRecursively()
+    }
+
+    /** Ids and languages become paths: only plain names (a broken list must not reach outside its folder). */
+    private fun safe(c: Component, install: Boolean) {
+        val name = Regex("[A-Za-z0-9._+-]+")
+        require(name.matches(c.id) && ".." !in c.id) { "Bad pack id ${c.id}" }
+        // A model without its languages is removed as nothing (an old entry); installed, it would be the whole models folder.
+        if (c.kind == "model" && (install || c.from.isNotBlank() || c.to.isNotBlank()))
+            require(name.matches(c.from) && name.matches(c.to) && ".." !in c.from + c.to) { "Bad model ${c.id}" }
     }
 
     private fun unzip(zip: File, dest: File) {
@@ -187,6 +208,9 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
             return when { d.coverage >= 85 && mt -> Level.FULL; d.coverage >= 60 -> Level.BASIC; else -> Level.EXPERIMENTAL }
         }
 
+        /** The pack kind of a translation method's own models ("direct": OPUS-MT, "llm"); null: Mozilla's, in every pair. */
+        fun kind(method: String) = when (method) { "direct" -> "opus"; "llm" -> "llm"; else -> null }
+
         /** The language pairs offered: one per dictionary. */
         fun pairs(cs: List<Component>) = cs.filter { it.kind == "dict" }.map { it.from to it.to }
 
@@ -197,7 +221,7 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
         fun needed(cs: List<Component>, pairs: Collection<Pair<String, String>>, method: String = "fast"): List<Component> {
             val ids = pairs.flatMap { (x, y) -> listOf("dict-$x-$y") + Engine.steps(x, y).map { (a, b) -> "model-$a-$b" } } +
                 if (pairs.isEmpty()) emptyList() else listOf("langid")
-            val kind = when (method) { "direct" -> "opus"; "llm" -> "llm"; else -> null }
+            val kind = kind(method)
             val extra = if (kind == null) emptyList() else pairs.mapNotNull { (x, y) -> cs.firstOrNull { it.kind == kind && "$x-$y" in it.covers }?.id }
             return cs.filter { it.id in (ids + extra).toSet() }
         }

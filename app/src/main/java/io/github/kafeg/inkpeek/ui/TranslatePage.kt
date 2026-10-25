@@ -71,7 +71,7 @@ class TranslatePage(private val card: CardActivity) {
                 else -> card.getString(R.string.mt_missing)
             }, out.textSize)
             // Opened by the card itself: no translation for this text, so its words in Dictionary instead.
-            if (auto && card.kind != Kind.WORD) { auto = false; card.open(CardActivity.DICT) }
+            if (auto && card.kind != Kind.WORD) { auto = false; if (card.showing(CardActivity.TRANSLATE)) card.open(CardActivity.DICT) }
             return
         }
         // Which language and how, in small print at the card's bottom: the translation alone in the page.

@@ -38,13 +38,11 @@ class Prefs(private val ctx: Context) {
     var cardText: Int get() = sp.getInt("card_text", 20); set(v) = sp.edit().putInt("card_text", v).apply()
     /** How much the page behind the card is dimmed, %; 0 = not at all (default: e-ink shows a dim as a grey layer). */
     var cardDim: Int get() = sp.getInt("card_dim", 0); set(v) = sp.edit().putInt("card_dim", v).apply()
-    /** "light", "dark" or "system" (Android's night mode). */
     /** light | dark | system, for the whole app (the key is from when only the card had it). */
     var theme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()
     /** The card's font: "" (Android's) or a font file's path. */
     var cardFont: String get() = sp.getString("card_font", "")!!; set(v) = sp.edit().putString("card_font", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
-    /** The card's AI icons (Analysis, Context) while AI is on. */
     /** AI translation in the Translate tab (AI → Modules). */
     var aiTranslate: Boolean get() = sp.getBoolean("ai_translate", true); set(v) = sp.edit().putBoolean("ai_translate", v).apply()
     /** The card's ☆ and Notes icons; the history is kept either way. */
@@ -105,16 +103,26 @@ class Prefs(private val ctx: Context) {
     /** What the card takes from the packs: words (articles, gloss), grammar (the header), offline translation; language id always. */
     var packDicts: Boolean get() = sp.getBoolean("pack_dicts", true); set(v) = sp.edit().putBoolean("pack_dicts", v).apply()
     var packGrammar: Boolean get() = sp.getBoolean("pack_grammar", true); set(v) = sp.edit().putBoolean("pack_grammar", v).apply()
-    /** The rows under a pack's article (milestone 17): rel, syn, expr, forms on; origin off. */
+    /** A part of an AI module ticked (AI → Modules); null: never changed (its default). */
     fun aiKey(k: String): Boolean? = if (sp.contains("ai_key_$k")) sp.getBoolean("ai_key_$k", true) else null
     fun setAiKey(k: String, on: Boolean) = sp.edit().putBoolean("ai_key_$k", on).apply()
+    /** The rows under a pack's article (milestone 17): rel, syn, expr, forms on; origin off. */
     fun packSection(k: String) = sp.getBoolean("pack_sec_$k", k != "ety")
     fun setPackSection(k: String, on: Boolean) = sp.edit().putBoolean("pack_sec_$k", on).apply()
 
-    /** Offline translation method: fast (Mozilla, through English) | direct (OPUS-MT) | llm (an AI model on the device). */
     /** Offline translation: "off", "fast" (Mozilla), "direct" (OPUS-MT), "llm"; "off" also for the old switch turned off. */
     var mtMethod: String get() = sp.getString("mt_method", if (sp.getBoolean("pack_mt", true)) "fast" else "off")!!
         set(v) = sp.edit().putString("mt_method", v).apply()
+    /** Offline translation can work: a method on and models for it (Mozilla's, the fallback of every method, or the method's own). */
+    fun offlineReady(): Boolean {
+        if (mtMethod == "off") return false
+        val have = packs.installed()
+        if (have.keys.any { it.startsWith("model-") }) return true
+        val kind = io.github.kafeg.inkpeek.packs.Packs.kind(mtMethod) ?: return false
+        return packs.cachedList().orEmpty().any { it.kind == kind && it.id in have }
+    }
+    /** An AI module (AI → Modules) can ask: AI on and a part of it ticked. */
+    fun aiModule(ask: io.github.kafeg.inkpeek.ai.Ask) = aiOn && ask.keys.any { aiKey("${ask.section}.${it.name}") ?: !it.extra }
     /** A method's measured time per phrase on this device, ms (0: not measured). */
     fun mtSpeed(method: String) = sp.getInt("mt_speed_$method", 0)
     fun setMtSpeed(method: String, ms: Int) = sp.edit().putInt("mt_speed_$method", ms).apply()
@@ -132,7 +140,7 @@ class Prefs(private val ctx: Context) {
     var dictsDir: File get() = sp.getString("dicts_dir", null)?.let(::File) ?: File(home, "dicts")
         set(v) = sp.edit().putString("dicts_dir", v.path).apply()
 
-    /** The order of the card's dictionaries (ids), packs and others together (Card → Main → Dictionary order). */
+    /** The order of the card's dictionaries (ids), packs and others together (Card → Article → Dictionary order). */
     var order: List<String> get() = sp.getString("order", "")!!.split('\n').filter { it.isNotEmpty() }
         set(v) = sp.edit().putString("order", v.joinToString("\n")).apply()
     /** The card's Dictionary tab: full articles with ◀ ▶ between dictionaries (true) or short lines (false). */
@@ -150,13 +158,14 @@ class Prefs(private val ctx: Context) {
     /** The ticked pairs' pack dictionaries, even when the card does not use them: they tell the text's language. */
     fun packDictionaries(): List<StarDict> = library().let { l -> l.found().filter { l.isPack(it) && ticked(sp, it) } }
 
-    private fun ticked(p: android.content.SharedPreferences, d: StarDict) = p.getStringSet("pairs", null)?.contains("${d.book}-${d.answer}") ?: true
 
     /** After installing or removing packs, changing the dictionaries' folder. */
     fun reload() { lib = null }
 
     companion object {
         @Volatile private var lib: Library? = null
+        // Here, not in the instance: the process-wide library must not hold the screen that made it.
+        private fun ticked(p: android.content.SharedPreferences, d: StarDict) = p.getStringSet("pairs", null)?.contains("${d.book}-${d.answer}") ?: true
         /** App languages = the answer languages of the packs. */
         val ANSWERS = listOf("en", "ru", "de", "fr", "es", "it", "pt", "pl")
     }

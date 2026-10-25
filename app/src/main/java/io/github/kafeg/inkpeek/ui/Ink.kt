@@ -16,7 +16,7 @@ import android.widget.TextView
 
 /** E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples or colors. */
 object Ink {
-    /** White on black (Card → Main → Theme: dark, or the system's night mode), for the whole app. */
+    /** White on black (⚙ App → Theme: dark, or the system's night mode), for the whole app. */
     fun dark(ctx: Context) = when (Prefs(ctx).theme) {
         "dark" -> true
         "system" -> ctx.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES

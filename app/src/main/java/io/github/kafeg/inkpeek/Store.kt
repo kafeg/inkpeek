@@ -11,12 +11,14 @@ import java.io.File
  * One SQLite file in /sdcard/InkPeek (survives a reinstall): lookup history, saved words and phrases, and the answers
  * (AI, offline translation) of those texts: an answer lives as long as its text is in the history or saved.
  */
-class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 4) {
-    /** [kind]: "word" or "phrase"; [meaning]: one short line, may be empty. */
-    /** [meaning]: the line shown (in the app's language when there is one); [ai]: the saved AI translation, if any. */
+class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(ctx, path, null, 4, Corrupt) {
+    /** [kind]: "word" or "phrase"; [meaning]: the line shown (in the app's language when there is one); [ai]: the saved AI translation, if any. */
     data class Entry(val text: String, val kind: String, val meaning: String, val time: Long, val ai: String = "")
 
     init { setWriteAheadLoggingEnabled(false) } // shared storage: no -shm memory map
+
+    /** Opened once at the start: a damaged file shows on its first read, is put aside ([Corrupt]), and the next open is a new one. */
+    private fun probe() { runCatching { readableDatabase.version } }
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE ai(text TEXT, lang TEXT, section TEXT, ver INTEGER, model TEXT, answer TEXT, created INTEGER, PRIMARY KEY(text, lang, section, ver))")
@@ -76,8 +78,11 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     /** Saved entries of [kind], newest first, each with its line in [lang] where there is one (see [list]). */
     fun saved(kind: String, lang: String): List<Entry> = list(lang,
-        "SELECT s.text, s.kind, s.meaning, s.created, a.answer, h.meaning, s.lang, h.lang FROM saved s LEFT JOIN history h ON h.text=s.text " +
-            "LEFT JOIN ai a ON a.text=s.text AND a.lang=? AND a.section='quick' WHERE s.kind=? GROUP BY s.text ORDER BY s.created DESC", arrayOf(lang, kind))
+        "SELECT s.text, s.kind, s.meaning, s.created, ${quick("s")}, h.meaning, s.lang, h.lang FROM saved s LEFT JOIN history h ON h.text=s.text " +
+            "WHERE s.kind=? ORDER BY s.created DESC", arrayOf(lang, kind))
+
+    /** The newest quick AI answer of [t].text in the language given first (older prompt versions may be there too). */
+    private fun quick(t: String) = "(SELECT answer FROM ai WHERE text=$t.text AND lang=? AND section='quick' ORDER BY created DESC LIMIT 1)"
 
     fun seen(text: String, kind: String) = writableDatabase.let { db -> db.beginTransaction(); try { seen(db, text, kind); db.setTransactionSuccessful() } finally { db.endTransaction() } }
 
@@ -100,14 +105,15 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         val db = writableDatabase
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
         db.execSQL("UPDATE history SET meaning=?, lang=? WHERE text=?", arrayOf(meaning, lang, text))
+        trim(db)
     }
     fun history(lang: String): List<Entry> = list(lang,
-        "SELECT h.text, h.kind, '', h.seen, a.answer, h.meaning, '', h.lang FROM history h LEFT JOIN ai a ON a.text=h.text AND a.lang=? AND a.section='quick' " +
-            "GROUP BY h.text ORDER BY h.seen DESC", arrayOf(lang))
+        "SELECT h.text, h.kind, '', h.seen, ${quick("h")}, h.meaning, '', h.lang FROM history h ORDER BY h.seen DESC", arrayOf(lang))
     /** [text] (looked up) is a form of [base] ("andere" → "ander"); its row is made if the look is not counted yet. */
     fun base(text: String, kind: String, base: String) = writableDatabase.run {
         execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, System.currentTimeMillis()))
         execSQL("UPDATE history SET base=? WHERE text=?", arrayOf(base, text))
+        trim(this)
     }
     /** How many times a word was looked up, in any of its forms. */
     fun looks(base: String): Int = readableDatabase.rawQuery("SELECT COALESCE(SUM(count), 0) FROM history WHERE COALESCE(base, text)=?", arrayOf(base))
@@ -177,7 +183,15 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         const val HISTORY = 1000
 
         /** A store in [path], for tests. */
-        fun at(ctx: Context, path: String) = Store(ctx.applicationContext, path)
+        fun at(ctx: Context, path: String) = Store(ctx.applicationContext, path).also { it.probe() }
+
+        /** A damaged file is put aside (inkpeek.db.corrupt-<time>), not deleted as Android would: the notes may be saved from it. */
+        private object Corrupt : android.database.DatabaseErrorHandler {
+            override fun onCorruption(db: SQLiteDatabase) {
+                val f = File(db.path); runCatching { db.close() }
+                listOf("", "-journal").forEach { e -> File(f.path + e).takeIf { it.exists() }?.renameTo(File("${f.path}.corrupt-${System.currentTimeMillis()}$e")) }
+            }
+        }
         @Volatile private var one: Store? = null
 
         /** On shared storage when the app may write there, else in the app's own files. */
@@ -187,11 +201,16 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
                 val own = ctx.getDatabasePath("inkpeek.db")
                 val shared = File(dir, "inkpeek.db")
                 val path = if (Environment.isExternalStorageManager() && (dir.isDirectory || dir.mkdirs())) {
-                    // Used before all-files access was granted: the file moves to shared storage once.
-                    if (!shared.exists() && own.exists()) runCatching { own.copyTo(shared) }.onSuccess { own.delete() }
+                    // Used before all-files access was granted: the file moves to shared storage whole (a copy, then a
+                    // rename), or, when both are there (a reinstall kept the shared one), its entries are added to it.
+                    if (!shared.exists() && own.exists()) runCatching {
+                        val tmp = File(dir, "inkpeek.db.tmp"); own.copyTo(tmp, overwrite = true)
+                        check(tmp.renameTo(shared)); own.delete()
+                    }
                     shared.path
                 } else own.path
-                Store(ctx.applicationContext, path).also { one = it }
+                Store(ctx.applicationContext, path).also { st -> st.probe(); one = st
+                    if (path == shared.path && own.exists()) runCatching { st.restore(own) }.onSuccess { own.delete() } }
             }
         }
 

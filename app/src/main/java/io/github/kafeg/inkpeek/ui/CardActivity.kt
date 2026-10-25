@@ -68,6 +68,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, View>()
     private var shown = ""
+    fun showing(tab: String) = shown == tab
     private lateinit var titleView: TextView
     private lateinit var subView: TextView
     private lateinit var titleBox: LinearLayout
@@ -88,13 +89,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
-        // Static hooks: they hold the application's preferences, not this activity.
-        Prefs(applicationContext).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) }; Ai.picked = { p.aiKey(it) } }
         if (query.isEmpty()) { finish(); return }
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
         val back = intent.getStringExtra(AT)?.split('|')
-        seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } }
+        // One look per opening: not again when the card is made anew (theme, language) or returned to with ←.
+        if (back == null && !intent.getBooleanExtra(COUNTED, false)) { intent.putExtra(COUNTED, true)
+            seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } } }
         build()
         placeWindow()
         if (kind == Kind.WORD) head()
@@ -110,18 +111,22 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1
             open(back[0])
             if (back[0] != DICT && restoreScroll >= 0) scroll.postDelayed({ scrollBack() }, 400)
-        } else open(if (kind == Kind.WORD) DICT else phraseTab())
+        } else if (kind == Kind.WORD) open(DICT) else launch { open(withContext(Dispatchers.IO) { phraseTab() }) }
     }
 
     /**
      * A phrase's first tab (Card → Opening): the offline translation, by AI (a setting chosen, so AI asks at once), word
-     * by word, or an AI tab; what cannot be shown now gives Dictionary (word by word).
+     * by word, or an AI tab; what cannot be shown now (AI off, no key, no network) gives the offline translation, else
+     * Dictionary (word by word). Off the main thread ([Answers.block] reads the saved answers).
      */
-    private fun phraseTab(): String = when (val o = prefs.phraseOpen) {
-        "offline" -> if (offlineOk) TRANSLATE.also { translate.by = "offline"; translate.auto = true } else DICT
-        "ai" -> if (aiTranslate) TRANSLATE.also { translate.by = "ai" } else DICT
-        "analysis", "context" -> if (actions.any { it.id == o }) o else DICT
-        else -> DICT
+    private fun phraseTab(): String {
+        fun offline() = if (offlineOk) TRANSLATE.also { translate.by = "offline"; translate.auto = true } else DICT
+        return when (val o = prefs.phraseOpen) {
+            "offline" -> offline()
+            "ai" -> if (aiTranslate && answers.block(Ask.QUICK) == null) TRANSLATE.also { translate.by = "ai" } else offline()
+            "analysis", "context" -> if (actions.any { it.id == o } && answers.block(ai.ask(o)) == null) o else offline()
+            else -> DICT
+        }
     }
 
     /** The scroll a returned-to page was left at, once. */
@@ -130,7 +135,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
     override fun onDestroy() { cancel(); super.onDestroy() }
-    override fun onTrimMemory(level: Int) { super.onTrimMemory(level); if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) Engine.release() }
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        // Off the main thread: a release waits for a running translation.
+        if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) Thread { Engine.release(); io.github.kafeg.inkpeek.mt.Llm.release() }.start()
+    }
 
     private fun textOf(i: Intent): String? = when (i.action) {
         "colordict.intent.action.SEARCH" -> i.getStringExtra("EXTRA_QUERY")
@@ -178,8 +187,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
         // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
-        launch { val blocked = withContext(Dispatchers.IO) { answers.block(Ask.ANALYSIS) }
-            actions.forEach { tabButtons[it.id]?.alpha = if (blocked == null) 1f else Ink.OFF } }
+        launch { val blocked = withContext(Dispatchers.IO) { actions.associate { it.id to answers.block(ai.ask(it.id)) } }
+            actions.forEach { tabButtons[it.id]?.alpha = if (blocked[it.id] == null) 1f else Ink.OFF } }
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
         starButton = star.findViewWithTag("icon")
         if (prefs.cardSave) {
@@ -193,7 +202,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         add(iconButton(R.drawable.ic_close, getString(R.string.close), side) { finish() })
         launch { if (withContext(Dispatchers.IO) { runCatching { isSaved() }.getOrDefault(false) }) starred(true) }
 
-        // No icon bar (Card → Main): the card is the open page only; Back or a tap outside closes it.
+        // No icon bar (Card → Opening): the card is the open page only; Back or a tap outside closes it.
         if (prefs.cardBar) {
             card.addView(View(this).apply { setBackgroundColor(Ink.fg(this@CardActivity)) },
                 Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
@@ -278,11 +287,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         shown = tab; showBack(); showHint()
     }
 
-    /** Offline translation: a pack's models are installed and its use is on (Languages → What the card takes). */
-    val offlineOk: Boolean by lazy { prefs.mtMethod != "off" && prefs.packs.installed().keys.any { it.startsWith("model-") } }
-    /** Translate is there when AI is on or offline translation can work; else no icon at all. */
+    val offlineOk: Boolean by lazy { prefs.offlineReady() }
     /** AI translation can be asked: AI on and its module on. */
     val aiTranslate: Boolean get() = prefs.aiOn && prefs.aiTranslate
+    /** Translate is there when AI translation or offline translation can work; else no icon at all. */
     val canTranslate: Boolean get() = aiTranslate || offlineOk
 
     /** The tab is filled again on its next opening (its AI request failed). */
@@ -357,7 +365,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /** Saved as its base form, or as the selection itself (by an older version, or while the packs were indexed). */
-    private fun isSaved() = store.isSaved(saveKey().first) || store.isSaved(query)
+    fun isSaved() = store.isSaved(saveKey().first) || store.isSaved(query)
 
     /** ☆ saves the selection (a word as its base form) with one short line: the saved AI translation, else the dictionary's first line or the offline translation; ★ removes it. */
     private fun toggleSaved() = launch {
@@ -378,6 +386,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     companion object {
         private const val BEFORE = "inkpeek.before"; private const val BEFORE_AT = "inkpeek.before.at"; private const val AT = "inkpeek.at"
+        /** The intent's look is counted (the card made again keeps its intent). */
+        private const val COUNTED = "inkpeek.counted"
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4

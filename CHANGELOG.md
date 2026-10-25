@@ -33,6 +33,14 @@ count, so every release has its own.
   whole header).
 - A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the
   verbs verdammen, fertigen).
+- Smaller app: 9.8 MB instead of 14.8.
+- Notes are safer: a damaged notes file is put aside (inkpeek.db.corrupt-…), not deleted; notes made before file
+  access was allowed are added to the shared file, not left behind; a cut-short pack update keeps the old version.
+- Fixed: two offline translations at once (a card and the speed test) could hang; the speed test ran on every visit to
+  the settings; a word's look was counted again when the card came back (←, a new theme).
+- Fixed: an AI Opening without AI (no network, no key) opens the offline translation; ← from a section of a full
+  article keeps ◀ ▶ there, ← to word by word keeps its scroll; ✕ in the card's Notes clears ★ of a word saved as its
+  base form; AI → Connection shows the answer language just changed; an AI tab is dimmed only when that tab cannot answer.
 - Fixed: the download dialog could stay at Cancel / Hide without saying it was done.
 
 ## 0.7 — 2026-10-23

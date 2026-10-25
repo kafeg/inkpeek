@@ -142,7 +142,7 @@
     <string name="delete">Löschen</string>
     <string name="st_indexing">Index wird erstellt…</string>
     <string name="ai_title">KI</string>
-    <string name="ai_title_d">Aus: alles läuft offline. KI-Symbole der Karte: Karte → Allgemein.</string>
+    <string name="ai_title_d">Aus: alles läuft offline. Seine Tabs in der Karte: KI → Module.</string>
     <string name="ai_none">Aus</string>
     <string name="lang_need_pack">Für die Offline-Übersetzung braucht es das InkPeek-Paket «%1$s → %2$s»: InkPeek-Einstellungen → Sprachen.</string>
     <string name="packs_title">InkPeek-Sprachpakete</string>
@@ -250,7 +250,6 @@
     <string name="down">Nach unten</string>
     <string name="prev">Zurück</string>
     <string name="look_font">Schrift</string>
-    <string name="look_font_d">Text der Karte: Schriften von Android oder eigene .ttf / .otf.</string>
     <string name="font_file">Datei wählen…</string>
     <string name="font_bad">Keine Schrift, die InkPeek lesen kann: %1$s</string>
     <string name="font_t">Schrift der Karte</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">experimentell</string>
     <string name="pack_cover">%1$d%% der häufigen Wörter</string>
     <string name="lang_article">Artikel</string>
-    <string name="sec_note">Zeilen unter dem vollen Artikel eines Pakets, aus Wiktionary: ein Tipp öffnet die Liste, häufige Wörter zuerst.</string>
     <string name="lang_own_tab">Wörterbücher</string>
     <string name="freq_top">unter den %1$s häufigsten Wörtern</string>
     <plurals name="looks">
@@ -395,4 +393,5 @@
     <string name="hc_ai_t">KI</string>
     <string name="hc_ai">KI-Tabs fragen nur beim Tippen. Mit „%1$s“ (KI → Module) sind die anderen fertig, wenn Sie sie öffnen. Ein Modul ohne Haken hat keinen Tab und sendet nichts.</string>
     <string name="hm_off">„Aus“ unter den Methoden: keine Offline-Übersetzung, Übersetzen zeigt nur KI. Modelle werden je Sprachpaar geladen, im Tab Übersetzung.</string>
+    <string name="no_space">Nicht genug freier Speicher: %1$d MB nötig, %2$d MB frei.</string>
 </resources>

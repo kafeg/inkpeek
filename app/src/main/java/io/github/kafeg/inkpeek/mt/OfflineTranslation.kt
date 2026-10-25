@@ -37,7 +37,7 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
 
     /** The chosen method's model for [from] → [to] when it is installed and this device runs it; null: Mozilla. */
     private fun direct(from: String, to: String): Result? {
-        val kind = when (prefs.mtMethod) { "direct" -> "opus"; "llm" -> "llm"; else -> return null }
+        val kind = io.github.kafeg.inkpeek.packs.Packs.kind(prefs.mtMethod) ?: return null
         val packs = prefs.packs; val installed = packs.installed()
         val c = packs.cachedList().orEmpty().firstOrNull { it.kind == kind && "$from-$to" in it.covers && installed[it.id] == it.sha256 } ?: return null
         if (device()?.cannot(c) != null) return null

@@ -22,6 +22,9 @@ object Engine {
 
     fun ready(root: File, from: String, to: String) = steps(from, to).all { (a, b) -> Models.installed(root, a, b) }
 
+    /** One lock for this and [Llm]: each frees the other's model first, under two locks that would deadlock. */
+    internal val lock = Any()
+
     /** What is held in memory (a Mozilla pair or an OPUS-MT model): one at a time, others would add up (killed by Android). */
     private var held: String? = null
 
@@ -37,19 +40,19 @@ object Engine {
     private fun run(dir: File, text: String, keep: Boolean) = String(translateNative(config(dir), text.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8)
 
     /** Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use. */
-    @Synchronized fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = native.let {
+    fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = synchronized(lock) { native
         hold("$from-$to", keep)
-        steps(from, to).fold(text) { t, (a, b) -> run(Models.dir(root, a, b), t, keep) }.also { idleLater(keep) }
+        try { steps(from, to).fold(text) { t, (a, b) -> run(Models.dir(root, a, b), t, keep) } } finally { idleLater(keep) }
     }
 
     /**
      * Blocking, with an OPUS-MT model ([dir]): straight [from] → target. A multi-target model needs its [tag] (">>rus<<")
      * before every sentence, so the text goes sentence by sentence (Android's sentence breaks for [from]).
      */
-    @Synchronized fun translateDirect(dir: File, from: String, tag: String?, text: String, keep: Boolean): String = native.let {
+    fun translateDirect(dir: File, from: String, tag: String?, text: String, keep: Boolean): String = synchronized(lock) { native
         hold(dir.path, keep)
         val parts = if (tag == null) listOf(text) else sentences(text, from)
-        parts.joinToString(" ") { s -> if (s.isBlank()) s else run(dir, if (tag == null) s else "$tag $s", keep) }.trim().also { idleLater(keep) }
+        try { parts.joinToString(" ") { s -> if (s.isBlank()) s else run(dir, if (tag == null) s else "$tag $s", keep) }.trim() } finally { idleLater(keep) }
     }
 
     private fun sentences(text: String, lang: String): List<String> {
@@ -57,7 +60,8 @@ object Engine {
         return generateSequence(b.first()) { b.next().takeIf { it != java.text.BreakIterator.DONE } }.zipWithNext { a, c -> text.substring(a, c).trim() }.toList()
     }
 
-    @Synchronized fun release() { native; releaseNative(); held = null }
+    /** Blocks while a translation runs: not on the main thread. */
+    fun release() = synchronized(lock) { native; releaseNative(); held = null }
 
     /** Marian options for one model folder (model, lex shortlist, vocab or src / trg vocab). */
     fun config(d: File): String {

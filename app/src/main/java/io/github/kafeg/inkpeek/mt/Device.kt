@@ -6,7 +6,7 @@ import io.github.kafeg.inkpeek.packs.Component
 import java.io.File
 
 /** What this device can run: its memory (as Android reports it: a "6 GB" phone shows ~5.5) and its CPU features. */
-class Device(val totalMb: Int, val freeMb: Int, val features: Set<String>) {
+class Device(val totalMb: Int, val features: Set<String>) {
     /** Why [c] cannot run here, or null when it can. */
     fun cannot(c: Component): Cannot? = when {
         totalMb < c.ramMb -> Cannot.Memory(c.ramMb, totalMb)
@@ -22,7 +22,7 @@ class Device(val totalMb: Int, val freeMb: Int, val features: Set<String>) {
             // "Features : fp asimd … asimddp": dot product (asimddp) is what makes int8 LLM inference usable.
             val f = runCatching { File("/proc/cpuinfo").readLines().firstOrNull { it.startsWith("Features") } }.getOrNull()
                 ?.substringAfter(':')?.trim()?.split(Regex("\\s+"))?.toSet().orEmpty()
-            return Device((m.totalMem shr 20).toInt(), (m.availMem shr 20).toInt(), f)
+            return Device((m.totalMem shr 20).toInt(), f)
         }
     }
 }

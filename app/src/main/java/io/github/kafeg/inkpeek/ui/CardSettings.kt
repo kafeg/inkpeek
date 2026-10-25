@@ -35,8 +35,8 @@ class CardSettings(private val a: MainActivity) {
     fun refreshOpening() {
         if (!::openBox.isInitialized) return
         openBox.removeAllViews()
-        fun module(ask: io.github.kafeg.inkpeek.ai.Ask) = prefs.aiOn && ask.keys.any { prefs.aiKey("${ask.section}.${it.name}") ?: !it.extra }
-        val offline = prefs.mtMethod != "off" && prefs.packs.installed().keys.any { it.startsWith("model-") }
+        fun module(ask: io.github.kafeg.inkpeek.ai.Ask) = prefs.aiModule(ask)
+        val offline = prefs.offlineReady()
         val opens = listOfNotNull("offline".takeIf { offline }?.let { it to a.getString(R.string.open_offline) },
             "ai".takeIf { prefs.aiOn && prefs.aiTranslate }?.let { it to a.getString(R.string.open_ai) },
             "dict" to a.getString(R.string.open_dict),

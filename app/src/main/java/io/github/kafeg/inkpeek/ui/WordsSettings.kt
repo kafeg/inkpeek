@@ -22,8 +22,10 @@ class WordsSettings(private val a: MainActivity) {
         list = Ink.vertical(a); t.addView(list)
     }
 
-    /** Tap opens the card (offline from saved answers), ✕ removes (it asks first). */
-    fun refresh(): Job = a.launch {
+    private var job: Job? = null
+
+    /** Tap opens the card (offline from saved answers), ✕ removes (it asks first). The last asked list wins. */
+    fun refresh(): Job { job?.cancel(); return a.launch {
         val lang = a.prefs.answerLang; val now = kind
         val (items, counts) = withContext(Dispatchers.IO) { runCatching {
             val st = Store.get(a)
@@ -63,7 +65,7 @@ class WordsSettings(private val a: MainActivity) {
         list.addView(Rows.buttons(a, a.getString(R.string.export) to { backup() }, a.getString(R.string.import_) to {
             a.startActivityForResult(android.content.Intent(android.content.Intent.ACTION_OPEN_DOCUMENT)
                 .addCategory(android.content.Intent.CATEGORY_OPENABLE).setType("*/*"), RESTORE) }))
-    }
+    }.also { job = it } }
 
     /** The whole store as one file in Download/InkPeek. */
     private fun backup() = a.launch {

@@ -142,7 +142,7 @@
     <string name="delete">Eliminar</string>
     <string name="st_indexing">creando el índice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Desactivado: todo funciona sin conexión. Iconos de IA: Tarjeta → General.</string>
+    <string name="ai_title_d">Desactivado: todo funciona sin conexión. Sus pestañas en la tarjeta: IA → Módulos.</string>
     <string name="ai_none">Desactivado</string>
     <string name="lang_need_pack">La traducción sin conexión necesita el paquete de InkPeek «%1$s → %2$s»: ajustes de InkPeek → Idiomas.</string>
     <string name="packs_title">Paquetes de idioma InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">Bajar</string>
     <string name="prev">Anterior</string>
     <string name="look_font">Fuente</string>
-    <string name="look_font_d">El texto de la tarjeta: fuentes de Android o las tuyas (.ttf / .otf).</string>
     <string name="font_file">Elegir un archivo…</string>
     <string name="font_bad">InkPeek no puede leer esta fuente: %1$s</string>
     <string name="font_t">Fuente de la tarjeta</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">experimental</string>
     <string name="pack_cover">%1$d%% de las palabras frecuentes</string>
     <string name="lang_article">Artículo</string>
-    <string name="sec_note">Filas bajo el artículo completo de un paquete, de Wiktionary: un toque abre la lista, primero las palabras frecuentes.</string>
     <string name="lang_own_tab">Diccionarios</string>
     <string name="freq_top">entre las %1$s palabras más frecuentes</string>
     <plurals name="looks">
@@ -396,4 +394,5 @@
     <string name="hc_ai_t">IA</string>
     <string name="hc_ai">Las pestañas de IA preguntan solo al tocarlas. Con «%1$s» (IA → Módulos) las demás están listas al abrirlas. Un módulo sin nada marcado no tiene pestaña y no envía nada.</string>
     <string name="hm_off">«Desactivado» entre los métodos: sin traducción sin conexión, Traducir muestra solo IA. Los modelos se descargan por par de idiomas, en la pestaña Traducción.</string>
+    <string name="no_space">No hay espacio suficiente: se necesitan %1$d MB, hay %2$d MB libres.</string>
 </resources>

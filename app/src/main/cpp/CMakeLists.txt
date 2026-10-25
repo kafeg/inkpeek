@@ -1,5 +1,5 @@
 # Offline translation: Bergamot (MPL-2.0) with its marian; build flags as in RTranslator (Apache-2.0).
-# One library: libinkpeek_mt.so (translation + language identification).
+# Two libraries: libinkpeek_mt.so (translation + language identification), libinkpeek_llm.so (llama.cpp, the AI model).
 cmake_minimum_required(VERSION 3.18)
 project(inkpeek_native C CXX)
 

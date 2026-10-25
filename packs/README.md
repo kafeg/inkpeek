@@ -37,7 +37,8 @@ from the published packs: `python3 packs/report.py --work /tmp/packs-report --re
 
 ## Translation models
 `.github/workflows/mt.yml` (manual): builds marian-conv and the bergamot CLI from the app's Bergamot (int8 packing is
-x86-only), then `build.py opus` (download the Marian zip, remap, quantize, one check translation per direction) and
+x86-only), then `build.py opus-convert` (download the Marian zip, remap, quantize; x86) and `build.py opus-finish` (one check
+translation per direction with the app's engine; ARM) and
 `build.py llm` (the GGUF at its pinned revision, checked against the Hub's sha256), and publishes to `packs`. Locally:
 `--marian-conv "docker run --platform linux/amd64 …"`. The plan is regenerated from the OPUS-MT leaderboard with
 `opus.plan()` (scores/chrf_scores.db, released-models.txt).
@@ -52,7 +53,7 @@ added by hand on a device.
 2. **Sources:** `sources.json` → `kaikki` (the language's own wiktextract dump, if any) and `languages` (its English
    name). Grammar comes only from data (`grammar.py`: genders, plurals, verb forms of that edition); no endings rules —
    fixes go to `overrides/<x>.tsv`.
-3. **Mozilla models:** a book language needs `x→en`, an answer language `en→y` at Mozilla (`models.json`; the build
+3. **Mozilla models:** a book language needs `x→en`, an answer language `en→y` at Mozilla (its model records, read by `models.py`; the build
    prints "none at Mozilla" otherwise — then the pair has no offline translation).
 4. **OPUS-MT:** add the language to `opus.ISO3`, regenerate `opus.json` with `opus.plan()` (OPUS-MT leaderboard: the
    new directions get their models; check the coverage list it prints), run the *Translation models* workflow.

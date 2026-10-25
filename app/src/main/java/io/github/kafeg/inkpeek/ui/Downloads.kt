@@ -40,7 +40,7 @@ object Downloads {
 
     private fun run(ctx: Context, work: suspend (Context, (String) -> Unit) -> String) {
         if (busy) return
-        // In the app's language (Card → Main), not the system's: the texts go to the screens.
+        // In the app's language (⚙ App), not the system's: the texts go to the screens.
         val app = Ink.localized(ctx.applicationContext); result = null; status = "…"; stop = false; running = true
         job = CoroutineScope(Dispatchers.IO).launch {
             var last = ""
@@ -50,8 +50,11 @@ object Downloads {
                 if (s != last) { last = s; status = s; main.post { listener?.invoke() } } } }
             try {
                 runCatching { Prefs(app).reload() }; status = ""
-                result = r.getOrElse { if (it is java.util.concurrent.CancellationException) app.getString(R.string.cancelled)
-                    else app.getString(R.string.failed, it.message ?: it.javaClass.simpleName) }
+                result = r.getOrElse { when (it) {
+                    is java.util.concurrent.CancellationException -> app.getString(R.string.cancelled)
+                    is io.github.kafeg.inkpeek.packs.NoSpace -> app.getString(R.string.no_space, it.needMb, it.freeMb)
+                    else -> app.getString(R.string.failed, it.message ?: it.javaClass.simpleName)
+                } }
             } finally {
                 running = false
                 main.post { listener?.invoke() }
@@ -62,10 +65,11 @@ object Downloads {
 
     /** Installs and removes pack parts. */
     fun packs(ctx: Context, install: List<Component>, remove: List<Component>, done: String) = run(ctx) { app, progress ->
-        val packs = Prefs(app).packs
+        val prefs = Prefs(app); val packs = prefs.packs
+        val before = packs.installed().keys
+        // Models loaded in memory would go on translating with the old files (or hold the memory of removed ones).
+        if ((install + remove).any { it.kind in setOf("model", "opus", "llm") }) { io.github.kafeg.inkpeek.mt.Engine.release(); io.github.kafeg.inkpeek.mt.Llm.release() }
         remove.forEach { packs.remove(it) }
-        // Models loaded in memory would go on translating with the old files.
-        if ((install + remove).any { it.kind == "model" }) io.github.kafeg.inkpeek.mt.Engine.release()
         // The dictionary last: a pair counts as installed by it, so a cancelled or broken download leaves no half pair.
         val added = ArrayList<Component>()
         try {
@@ -74,9 +78,10 @@ object Downloads {
                 added += c
             }
         } catch (e: Throwable) {
-            // Stopped or failed: the parts it brought that no installed pair needs go again (nothing would show them).
-            val keep = io.github.kafeg.inkpeek.packs.Packs.needed(install, packs.installedPairs()).map { it.id }.toSet()
-            added.filter { it.id !in keep }.forEach { runCatching { packs.remove(it) } }
+            // Stopped or failed: the new parts it brought that no installed pair needs go again (nothing would show them);
+            // updated ones stay, they worked before.
+            val keep = io.github.kafeg.inkpeek.packs.Packs.needed(install, packs.installedPairs(), prefs.mtMethod).map { it.id }.toSet()
+            added.filter { it.id !in keep && it.id !in before }.forEach { runCatching { packs.remove(it) } }
             throw e
         }
         done

@@ -143,7 +143,7 @@
     <string name="delete">Delete</string>
     <string name="st_indexing">building the index…</string>
     <string name="ai_title">AI</string>
-    <string name="ai_title_d">Off: everything works offline. AI icons in the card: Card → Main.</string>
+    <string name="ai_title_d">Off: everything works offline. Its tabs in the card: AI → Modules.</string>
     <string name="ai_none">Off</string>
     <string name="lang_need_pack">Offline translation needs the InkPeek pack «%1$s → %2$s»: InkPeek settings → Languages.</string>
     <string name="packs_title">InkPeek language packs</string>
@@ -251,7 +251,6 @@
     <string name="down">Down</string>
     <string name="prev">Previous</string>
     <string name="look_font">Font</string>
-    <string name="look_font_d">The card\'s text: Android\'s fonts or your own .ttf / .otf.</string>
     <string name="font_file">Choose a file…</string>
     <string name="font_bad">Not a font InkPeek can read: %1$s</string>
     <string name="font_t">Card font</string>
@@ -321,7 +320,6 @@
     <string name="lvl_exp">experimental</string>
     <string name="pack_cover">%1$d%% of frequent words</string>
     <string name="lang_article">Article</string>
-    <string name="sec_note">Rows under a pack\'s full article, from Wiktionary: a tap opens the list, frequent words first.</string>
     <string name="lang_own_tab">Dictionaries</string>
     <string name="freq_top">among the %1$s most frequent words</string>
     <plurals name="looks">
@@ -396,4 +394,5 @@
     <string name="hc_ai_t">AI</string>
     <string name="hc_ai">AI tabs ask only when you tap them. With \"%1$s\" (AI → Modules) the others are ready when you open them. A module with nothing ticked has no tab and sends nothing.</string>
     <string name="hm_off">Off among the methods: no offline translation, Translate shows AI only. Models download per language pair, on the Translation tab.</string>
+    <string name="no_space">Not enough free space: %1$d MB needed, %2$d MB free.</string>
 </resources>

@@ -29,7 +29,7 @@ def dictzip(data):
     return head + b"".join(parts) + tail
 
 
-def write(base, articles, syn=(), bookname="", description="", types="h", date=""):
+def write(base, articles, syn=(), bookname="", description="", types="h"):
     """[articles]: headword → article; [syn]: (form, headword) pairs, kept only for known headwords."""
     words = sorted(articles, key=sort_key)
     index = {w: i for i, w in enumerate(words)}
@@ -52,8 +52,6 @@ def write(base, articles, syn=(), bookname="", description="", types="h", date="
            f"idxfilesize={len(idx)}", f"sametypesequence={types}"]
     if pairs:
         ifo.append(f"synwordcount={len(pairs)}")
-    if date:
-        ifo.append(f"date={date}")
     if description:
         ifo.append("description=" + description.replace("\n", "<br>"))
     with open(base + ".ifo", "w", encoding="utf-8") as o:
@@ -74,8 +72,6 @@ class Reader:
     """A whole dictionary in memory: headwords with articles, and .syn forms."""
 
     def __init__(self, base):
-        with open(base + ".ifo", encoding="utf-8") as f:
-            self.info = dict(l.split("=", 1) for l in f.read().splitlines()[1:] if "=" in l)
         data, idx = _read(base + ".dict"), _read(base + ".idx")
         self.words = []
         i = 0

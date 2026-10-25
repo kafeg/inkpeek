@@ -142,7 +142,7 @@
     <string name="delete">Apagar</string>
     <string name="st_indexing">a criar o índice…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Desligado: tudo funciona offline. Ícones de IA: Cartão → Geral.</string>
+    <string name="ai_title_d">Desligado: tudo funciona offline. Os seus separadores no cartão: IA → Módulos.</string>
     <string name="ai_none">Desligado</string>
     <string name="lang_need_pack">A tradução offline precisa do pacote InkPeek «%1$s → %2$s»: definições do InkPeek → Idiomas.</string>
     <string name="packs_title">Pacotes de idioma InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">Descer</string>
     <string name="prev">Anterior</string>
     <string name="look_font">Fonte</string>
-    <string name="look_font_d">O texto do cartão: fontes do Android ou as suas (.ttf / .otf).</string>
     <string name="font_file">Escolher um ficheiro…</string>
     <string name="font_bad">O InkPeek não consegue ler esta fonte: %1$s</string>
     <string name="font_t">Fonte do cartão</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">experimental</string>
     <string name="pack_cover">%1$d%% das palavras frequentes</string>
     <string name="lang_article">Artigo</string>
-    <string name="sec_note">Linhas sob o artigo completo de um pacote, do Wiktionary: um toque abre a lista, primeiro as palavras frequentes.</string>
     <string name="lang_own_tab">Dicionários</string>
     <string name="freq_top">entre as %1$s palavras mais frequentes</string>
     <plurals name="looks">
@@ -396,4 +394,5 @@
     <string name="hc_ai_t">IA</string>
     <string name="hc_ai">Os separadores de IA só perguntam ao tocar. Com «%1$s» (IA → Módulos) os outros estão prontos ao abri-los. Um módulo sem nada marcado não tem separador e não envia nada.</string>
     <string name="hm_off">«Desligado» entre os métodos: sem tradução offline, Traduzir mostra só IA. Os modelos descarregam-se por par de línguas, no separador Tradução.</string>
+    <string name="no_space">Espaço livre insuficiente: são precisos %1$d MB, livres %2$d MB.</string>
 </resources>

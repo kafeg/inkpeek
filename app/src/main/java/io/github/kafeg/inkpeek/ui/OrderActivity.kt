@@ -16,7 +16,7 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** The card's dictionaries in one list, packs and others together, ↑ ↓ to order them (Card → Main). */
+/** The card's dictionaries in one list, packs and others together, ↑ ↓ to order them (Card → Article). */
 class OrderActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var prefs: Prefs
     private lateinit var list: LinearLayout

@@ -142,7 +142,7 @@
     <string name="delete">Supprimer</string>
     <string name="st_indexing">construction de l\'index…</string>
     <string name="ai_title">IA</string>
-    <string name="ai_title_d">Désactivé : tout marche hors ligne. Icônes IA : Fiche → Général.</string>
+    <string name="ai_title_d">Désactivé : tout marche hors ligne. Ses onglets dans la fiche : IA → Modules.</string>
     <string name="ai_none">Désactivé</string>
     <string name="lang_need_pack">La traduction hors ligne demande le pack InkPeek « %1$s → %2$s » : réglages d\'InkPeek → Langues.</string>
     <string name="packs_title">Packs de langue InkPeek</string>
@@ -250,7 +250,6 @@
     <string name="down">Descendre</string>
     <string name="prev">Précédent</string>
     <string name="look_font">Police</string>
-    <string name="look_font_d">Le texte de la fiche : polices d\'Android ou les vôtres (.ttf / .otf).</string>
     <string name="font_file">Choisir un fichier…</string>
     <string name="font_bad">Police illisible pour InkPeek : %1$s</string>
     <string name="font_t">Police de la fiche</string>
@@ -320,7 +319,6 @@
     <string name="lvl_exp">expérimental</string>
     <string name="pack_cover">%1$d%% des mots fréquents</string>
     <string name="lang_article">Article</string>
-    <string name="sec_note">Lignes sous l\'article complet d\'un pack, tirées du Wiktionnaire : un appui ouvre la liste, les mots fréquents d\'abord.</string>
     <string name="lang_own_tab">Dictionnaires</string>
     <string name="freq_top">parmi les %1$s mots les plus fréquents</string>
     <plurals name="looks">
@@ -396,4 +394,5 @@
     <string name="hc_ai_t">IA</string>
     <string name="hc_ai">Les onglets IA ne demandent qu\'à l\'appui. Avec « %1$s » (IA → Modules), les autres sont prêts à l\'ouverture. Un module sans case cochée n\'a pas d\'onglet et n\'envoie rien.</string>
     <string name="hm_off">« Désactivé » parmi les méthodes : pas de traduction hors ligne, Traduire montre seulement l\'IA. Les modèles se téléchargent par paire de langues, dans l\'onglet Traduction.</string>
+    <string name="no_space">Pas assez d\'espace libre : %1$d Mo nécessaires, %2$d Mo libres.</string>
 </resources>

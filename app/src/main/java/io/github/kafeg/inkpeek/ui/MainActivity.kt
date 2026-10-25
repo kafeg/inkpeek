@@ -48,6 +48,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var languages: LanguagesSettings
     private lateinit var words: WordsSettings
     private lateinit var card: CardSettings
+    private lateinit var ai: AiSettings
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -109,7 +110,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             sectionButtons.values.forEach { it.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE); it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, min) } }
         sections.values.forEach { main.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
         languages = LanguagesSettings(this).also { it.build(sections.getValue(R.string.tab_dicts)) }
-        AiSettings(this).build(sections.getValue(R.string.tab_ai))
+        ai = AiSettings(this).also { it.build(sections.getValue(R.string.tab_ai)) }
         card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
         val section = mapOf("lang" to R.string.tab_dicts, "ai" to R.string.tab_ai, "card" to R.string.tab_card, "words" to R.string.tab_words)
@@ -145,6 +146,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         sectionButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
         if (tab == R.string.tab_words) words.refresh()
         if (tab == R.string.tab_card) card.refreshOpening()
+        if (tab == R.string.tab_ai) ai.refreshAnswers()
     }
 
     override fun onSaveInstanceState(out: Bundle) {
