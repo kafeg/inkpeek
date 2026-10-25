@@ -155,5 +155,5 @@ an empty piece.
 
 Cases: `tests/sentences/sentences.tsv`, UTF-8, one case per line, tab-separated: `lang`, `text`, then the expected
 sentences in order; `\n` in a field is a line break; `#` starts a comment line. Checked on a device by
-`SentencesOnDeviceTest` (`scripts/device-test.sh`); a failing line is logged as the device gives it. The first
-expectations came from ICU 78 on a desktop; a device's older ICU that disagrees is a finding, recorded here.
+`SentencesOnDeviceTest` (`scripts/device-test.sh`); a failing line is logged as the device gives it. The
+expectations came from ICU 78 on a desktop and pass on Android 15; a device whose ICU disagrees is a finding, recorded here.
