@@ -166,7 +166,7 @@ class DictionaryPage(private val card: CardActivity) {
             p.addView(Ink.divider(card).apply { (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(card, 10) })
             p.addView(Ink.opener(card, Ink.vertical(card).apply {
                 val q = Ink.dp(card, 7); setPadding(0, q, 0, q)
-                addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 3; ellipsize = android.text.TextUtils.TruncateAt.END; TextActions.selectable(this) })
+                addView(Ink.text(card, preview, card.size * 0.9f).apply { maxLines = 2; ellipsize = android.text.TextUtils.TruncateAt.END })
                 addView(Ink.text(card, caption, card.size * 0.65f))
             }, { section(dict, word, k, 0) }))
         }
@@ -187,10 +187,11 @@ class DictionaryPage(private val card: CardActivity) {
         val p = page ?: return
         val e = runCatching { dict.related?.of(word) }.getOrNull() ?: return
         val hits = runCatching { dict.lookup(word) }.getOrDefault(emptyList())
-        job?.cancel(); p.removeAllViews(); turn = null; place = "r:${dict.id}:$k:$n:$word"
+        job?.cancel(); p.removeAllViews(); turn = null; place = "r:${dict.id}:$k:$n:$word"; card.scrollTop()
         up { if (hits.isNotEmpty()) article(dict, hits, word) { articles(card.query, null) } else articles(card.query, null) }
         val title = card.getString(when (k) { "rel" -> R.string.sec_rel; "syn" -> R.string.sec_syn; "expr" -> R.string.sec_expr; "forms" -> R.string.sec_forms; else -> R.string.sec_ety })
-        p.addView(Ink.text(card, "${Ink.escape(word)} · ${Ink.escape(title)}", card.size * 0.8f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 6) })
+        val head = "${Ink.escape(word)} · ${Ink.escape(title)}"
+        if (k == "forms" || k == "ety") p.addView(Ink.text(card, head, card.size * 0.8f, bold = true), Ink.lp().apply { bottomMargin = Ink.dp(card, 6) })
         when (k) {
             "forms" -> {
                 if (e.ipa.isNotEmpty()) p.addView(Ink.text(card, e.ipa.joinToString(", "), card.size).also { TextActions.selectable(it) })
@@ -202,6 +203,16 @@ class DictionaryPage(private val card: CardActivity) {
                 val pages = (all.size + WordsList.PAGE_SHORT - 1) / WordsList.PAGE_SHORT
                 val at = n.coerceIn(0, (pages - 1).coerceAtLeast(0))
                 val slice = all.drop(at * WordsList.PAGE_SHORT).take(WordsList.PAGE_SHORT)
+                // ◀ title and "21–40 of 63" ▶ on top, as the dictionaries page; a swipe turns too.
+                val bar = Ink.horizontal(card).apply { gravity = android.view.Gravity.CENTER_VERTICAL; isBaselineAligned = false }
+                val side = Ink.dp(card, 40)
+                if (pages > 1) { turn = { d -> if (at + d in 0 until pages) section(dict, word, k, at + d) }
+                    bar.addView(Ink.icon(card, R.drawable.ic_prev, card.getString(R.string.prev), 40) { turn?.invoke(-1) }.apply { alpha = if (at > 0) 1f else Ink.OFF }, LinearLayout.LayoutParams(side, side)) }
+                bar.addView(Ink.text(card, head + if (pages > 1) "<br>" + Ink.escape(card.getString(R.string.page_of, at * WordsList.PAGE_SHORT + 1,
+                    minOf(all.size, (at + 1) * WordsList.PAGE_SHORT), all.size)) else "", card.size * 0.72f, bold = true, html = true).apply { gravity = android.view.Gravity.CENTER },
+                    Ink.lp(0, weight = 1f).apply { leftMargin = Ink.dp(card, 8); rightMargin = Ink.dp(card, 8) })
+                if (pages > 1) bar.addView(Ink.icon(card, R.drawable.ic_next, card.getString(R.string.next), 40) { turn?.invoke(1) }.apply { alpha = if (at < pages - 1) 1f else Ink.OFF }, LinearLayout.LayoutParams(side, side))
+                p.addView(bar, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
                 val box = Ink.vertical(card); p.addView(box)
                 job = card.launch {
                     // The first meaning of each word from the same pack, off the main thread.
@@ -209,8 +220,6 @@ class DictionaryPage(private val card: CardActivity) {
                         x to if (k == "expr") "" else runCatching { dict.lookup(w).let { hs -> hs.firstOrNull { it.word == w } ?: hs.firstOrNull { it.word.equals(w, true) } }?.let { meaning(it) } }.getOrNull().orEmpty() } }
                     lines.forEach { (x, m) -> val w = x.removePrefix("≠ ")
                         listRow(box, "<b>${Ink.escape(x)}</b>" + if (m.isBlank()) "" else " — " + Ink.escape(m)) { card.lookUp(w) } }
-                    if (pages > 1) box.addView(WordsList.pager(card, at, all.size, card.size * 0.75f, WordsList.PAGE_SHORT) { section(dict, word, k, it) },
-                        Ink.lp().apply { topMargin = Ink.dp(card, 10) })
                     card.scrollBack()
                 }
             }

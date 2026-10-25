@@ -38,6 +38,7 @@ class WordsSettings(private val a: MainActivity) {
         if (items.isEmpty()) list.addView(Rows.note(a, a.getString(if (now == "history") R.string.list_empty_history else R.string.list_empty_saved)))
         val pages = (items.size + PAGE - 1) / PAGE
         page = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
+        if (pages > 1) list.addView(WordsList.pager(a, page, items.size, 15f) { page = it; turn() }, Ink.lp().apply { bottomMargin = Ink.dp(a, 6) })
         items.drop(page * PAGE).take(PAGE).forEach { e ->
             list.addView(WordsList.row(a, e, 16f, { a.startActivity(WordsList.card(a, e.text)) }) {
                 Rows.confirm(a, a.getString(if (now == "history") R.string.forget_q else R.string.unsave_q, e.text)) {
@@ -45,10 +46,9 @@ class WordsSettings(private val a: MainActivity) {
                 }
             })
         }
-        // Under the list: the pages and, for the history, clearing it all.
+        // Under the list: TSV and, for the history, clearing it all.
         val bar = Ink.horizontal(a).apply { gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val wrap = ViewGroup.LayoutParams.WRAP_CONTENT
-        if (pages > 1) bar.addView(WordsList.pager(a, page, items.size, 15f) { page = it; turn() }, Ink.lp(wrap))
         bar.addView(android.view.View(a), Ink.lp(0, 1, 1f))
         if (items.isNotEmpty()) bar.addView(Ink.button(a, "TSV", 15f) { export(now, items) },
             Ink.lp(wrap).apply { rightMargin = Ink.dp(a, 8) })

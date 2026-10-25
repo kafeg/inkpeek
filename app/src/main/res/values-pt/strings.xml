@@ -69,7 +69,7 @@
     <string name="icon_save_d">Guarda em Notas; estrela cheia: já guardado.</string>
     <string name="icon_words_d">Palavras, frases guardadas e o histórico, também nas definições.</string>
     <string name="tab_translate">Traduzir</string>
-    <string name="icon_translate_d">A IA se puder responder; senão, a tradução offline.</string>
+    <string name="icon_translate_d">Primeiro a tradução offline no dispositivo, ao lado a tradução por IA (pedida ao tocá-la).</string>
     <string name="mt_missing">A tradução offline precisa de um pacote de idioma: configurações do InkPeek → Idiomas.</string>
     <string name="mt_working">Traduzindo…</string>
     <string name="mt_via_english">Tradução offline, via inglês</string>
@@ -226,8 +226,6 @@
     <string name="share">Partilhar</string>
     <string name="search_web">Pesquisar na web</string>
     <string name="select_all">Selecionar tudo</string>
-    <string name="hold_t">Manter premido um texto</string>
-    <string name="hold_d">Uma linha ou parte de um artigo, tradução ou resposta da IA: copiar, partilhar, pesquisar.</string>
     <string name="about_text">Dicionário e tradutor em pop-up para leitores: pacotes de idioma, os seus dicionários StarDict, tradução offline; IA se quiser.</string>
     <string name="update_latest">Última versão. Verificado às %1$s.</string>
     <string name="update_never">Ainda não verificado.</string>
@@ -366,7 +364,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+: a definição de dicionário → ColorDict ou GoldenDict. Qualquer app: menu de seleção → Procurar no InkPeek, ou Partilhar → InkPeek.</string>
     <string name="help_labels">Cada par tem uma etiqueta: completo — 85 % das 5000 palavras mais frequentes ou mais e tradução offline; básico — 60 % ou mais; experimental — menos.</string>
     <string name="help_notes">☆ guarda uma palavra na forma base, uma frase como está. O histórico guarda o que abriu (as últimas 1000) com as respostas da IA; ✕ ou Limpar histórico remove-o, o guardado fica. TSV guarda a lista aberta para o Anki; Exportar e Importar levam tudo num ficheiro.</string>
-    <string name="help_open">Abrir nas definições</string>
     <string name="updates_t">Atualizações</string>
     <string name="files_t">Acesso a ficheiros</string>
     <string name="files_ok">Concedido ✓</string>
@@ -381,4 +378,22 @@
     <string name="prefetch_t">Pedir já as outras abas IA</string>
     <string name="prefetch_d">Aberta uma, as outras são pedidas também e abrem sem espera.</string>
     <string name="edit_prompt">Editar o prompt</string>
+    <string name="help_go">Ir para: %1$s</string>
+    <string name="hs_word_t">Uma palavra</string>
+    <string name="hs_word">Toque duplo ou manter premido seleciona uma palavra; arraste as alças para alargar.</string>
+    <string name="hs_para_t">Um parágrafo</string>
+    <string name="hs_para">Toque triplo seleciona o parágrafo (não no cabeçalho do cartão: aí um toque duplo chega muitas vezes como três).</string>
+    <string name="hs_menu_t">O menu</string>
+    <string name="hs_menu">Sobre a seleção: procurar no cartão (← volta à palavra anterior), copiar, partilhar, pesquisar na web, selecionar tudo. Um toque ao lado termina a seleção.</string>
+    <string name="hs_rows_t">Linhas de listas</string>
+    <string name="hs_rows">O texto de uma linha seleciona-se da mesma forma; a seta › à direita abre-a.</string>
+    <string name="hc_phrase_t">Uma frase</string>
+    <string name="hc_phrase">Abre no que diz Cartão → Abertura: tradução offline, tradução por IA, palavra a palavra, Análise ou Contexto. Sem tradução para o texto → Dicionário.</string>
+    <string name="hc_head_t">Cabeçalho</string>
+    <string name="hc_head">A forma base com artigo, formas e plural; por baixo, a forma selecionada, quão comum é a palavra e quantas vezes a consultou.</string>
+    <string name="hc_article_t">Verbete</string>
+    <string name="hc_article">Um dicionário de cada vez: ◀ ▶ ou deslizar. Por baixo: palavras relacionadas, sinónimos, expressões, formas, origem — › abre a lista inteira, com páginas em cima.</string>
+    <string name="hc_ai_t">IA</string>
+    <string name="hc_ai">Os separadores de IA só perguntam ao tocar. Com «%1$s» (IA → Módulos) os outros estão prontos ao abri-los. Um módulo sem nada marcado não tem separador e não envia nada.</string>
+    <string name="hm_off">«Desligado» entre os métodos: sem tradução offline, Traduzir mostra só IA. Os modelos descarregam-se por par de línguas, no separador Tradução.</string>
 </resources>

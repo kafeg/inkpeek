@@ -22,6 +22,17 @@ count, so every release has its own.
 - Nothing runs for what is switched off: hidden AI tabs send no requests (Translate by AI asks only for the
   translation), offline translation that is off does not start, an AI model starts only when its tab opens, and
   switched-off dictionaries are not indexed.
+- Card → Opening lists only what can open now (Analysis · AI and Context · AI only with their module on, the offline
+  translation only with a method and its models); a choice that is gone falls back to the offline translation or the
+  dictionary.
+- Under an article, a section row shows two lines; › opens the whole list. Section lists and Notes turn pages on
+  top, like the dictionaries: ◀ the title and "21–40 of 125" ▶, or a swipe.
+- Help: more on the card, selection and its menu, the offline translation and AI; the button says where it goes
+  ("Go to: Card → Opening").
+- A double tap in the card's header selects a word (an e-ink double tap often arrives as three, and the third took the
+  whole header).
+- A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the
+  verbs verdammen, fertigen).
 - Fixed: the download dialog could stay at Cancel / Hide without saying it was done.
 
 ## 0.7 — 2026-10-23

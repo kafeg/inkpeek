@@ -69,7 +69,7 @@
     <string name="icon_save_d">Salva in Note; stella piena: già salvato.</string>
     <string name="icon_words_d">Parole, frasi salvate e cronologia, anche nelle impostazioni.</string>
     <string name="tab_translate">Traduci</string>
-    <string name="icon_translate_d">L\'IA se può rispondere, altrimenti la traduzione offline.</string>
+    <string name="icon_translate_d">Prima la traduzione offline sul dispositivo, accanto la traduzione IA (richiesta quando la tocchi).</string>
     <string name="mt_missing">La traduzione offline richiede un pacchetto linguistico: impostazioni di InkPeek → Lingue.</string>
     <string name="mt_working">Traduzione…</string>
     <string name="mt_via_english">Traduzione offline, tramite l\'inglese</string>
@@ -226,8 +226,6 @@
     <string name="share">Condividi</string>
     <string name="search_web">Cerca sul web</string>
     <string name="select_all">Seleziona tutto</string>
-    <string name="hold_t">Tenere premuto un testo</string>
-    <string name="hold_d">Una riga o parte di una voce, di una traduzione, di una risposta IA: copia, condividi, cerca sul web.</string>
     <string name="about_text">Dizionario e traduttore a comparsa per e-reader: pacchetti linguistici, i tuoi dizionari StarDict, traduzione offline; IA se vuoi.</string>
     <string name="update_latest">Ultima versione. Controllato alle %1$s.</string>
     <string name="update_never">Non ancora controllato.</string>
@@ -366,7 +364,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+: la loro impostazione del dizionario → ColorDict o GoldenDict. Qualsiasi app: menu di selezione → Cerca in InkPeek, o Condividi → InkPeek.</string>
     <string name="help_labels">Ogni coppia ha un\'etichetta: completo — 85 % delle 5000 parole più frequenti o più e traduzione offline; di base — 60 % o più; sperimentale — meno.</string>
     <string name="help_notes">☆ salva una parola nella forma base, una frase così com\'è. La cronologia tiene ciò che hai aperto (le ultime 1000) con le risposte dell\'IA; ✕ o Cancella cronologia la rimuove, il salvato resta. TSV salva l\'elenco aperto per Anki; Esporta e Importa spostano tutto in un file.</string>
-    <string name="help_open">Apri nelle impostazioni</string>
     <string name="updates_t">Aggiornamenti</string>
     <string name="files_t">Accesso ai file</string>
     <string name="files_ok">Concesso ✓</string>
@@ -381,4 +378,22 @@
     <string name="prefetch_t">Chiedi subito le altre schede IA</string>
     <string name="prefetch_d">Aperta una, si chiedono anche le altre e si aprono senza attesa.</string>
     <string name="edit_prompt">Modifica il prompt</string>
+    <string name="help_go">Vai a: %1$s</string>
+    <string name="hs_word_t">Una parola</string>
+    <string name="hs_word">Doppio tocco o tenere premuto seleziona una parola; trascina le maniglie per estendere.</string>
+    <string name="hs_para_t">Un paragrafo</string>
+    <string name="hs_para">Triplo tocco seleziona il paragrafo (non nell\'intestazione della scheda: lì un doppio tocco arriva spesso come tre).</string>
+    <string name="hs_menu_t">Il menu</string>
+    <string name="hs_menu">Sopra la selezione: cerca nella scheda (← torna alla parola prima), copia, condividi, cerca sul web, seleziona tutto. Un tocco accanto toglie la selezione.</string>
+    <string name="hs_rows_t">Righe degli elenchi</string>
+    <string name="hs_rows">Il testo di una riga si seleziona allo stesso modo; la freccia › a destra la apre.</string>
+    <string name="hc_phrase_t">Una frase</string>
+    <string name="hc_phrase">Si apre su ciò che dice Scheda → Apertura: traduzione offline, traduzione IA, parola per parola, Analisi o Contesto. Nessuna traduzione per il testo → Dizionario.</string>
+    <string name="hc_head_t">Intestazione</string>
+    <string name="hc_head">La forma base con articolo, forme e plurale; sotto, la forma selezionata, quanto è comune la parola e quante volte l\'hai cercata.</string>
+    <string name="hc_article_t">Voce</string>
+    <string name="hc_article">Un dizionario alla volta: ◀ ▶ o uno scorrimento. Sotto: parole correlate, sinonimi, espressioni, forme, origine — › apre l\'elenco intero, a pagine in alto.</string>
+    <string name="hc_ai_t">IA</string>
+    <string name="hc_ai">Le schede IA chiedono solo al tocco. Con «%1$s» (IA → Moduli) le altre sono pronte quando le apri. Un modulo senza nulla spuntato non ha scheda e non invia nulla.</string>
+    <string name="hm_off">«Disattivato» tra i metodi: nessuna traduzione offline, Traduci mostra solo l\'IA. I modelli si scaricano per coppia di lingue, nella scheda Traduzione.</string>
 </resources>

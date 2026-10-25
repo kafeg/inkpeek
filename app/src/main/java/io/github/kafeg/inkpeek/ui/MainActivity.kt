@@ -144,6 +144,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         sections.forEach { (t, v) -> v.visibility = if (t == tab) View.VISIBLE else View.GONE }
         sectionButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
         if (tab == R.string.tab_words) words.refresh()
+        if (tab == R.string.tab_card) card.refreshOpening()
     }
 
     override fun onSaveInstanceState(out: Bundle) {

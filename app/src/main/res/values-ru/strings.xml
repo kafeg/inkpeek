@@ -69,7 +69,7 @@
     <string name="icon_save_d">Сохраняет в «Записи»; закрашенная звезда — уже сохранено.</string>
     <string name="icon_words_d">Сохранённые слова, фразы и история, они же — в настройках.</string>
     <string name="tab_translate">Перевод</string>
-    <string name="icon_translate_d">AI, если он может ответить, иначе офлайн-перевод на устройстве.</string>
+    <string name="icon_translate_d">Сначала офлайн-перевод на устройстве, рядом — AI-перевод (запрос по тапу на него).</string>
     <string name="mt_missing">Для офлайн-перевода нужен языковой пакет: настройки InkPeek → Языки.</string>
     <string name="mt_working">Перевожу…</string>
     <string name="mt_via_english">Офлайн-перевод, через английский</string>
@@ -226,8 +226,6 @@
     <string name="share">Поделиться</string>
     <string name="search_web">Искать в интернете</string>
     <string name="select_all">Выделить всё</string>
-    <string name="hold_t">Удержание текста</string>
-    <string name="hold_d">Строка или часть статьи, перевода, ответа AI: копировать, поделиться, искать в интернете.</string>
     <string name="about_text">Всплывающий словарь и переводчик для читалок: языковые пакеты, свои словари StarDict, офлайн-перевод; AI — по желанию.</string>
     <string name="update_latest">Последняя версия. Проверено в %1$s.</string>
     <string name="update_never">Ещё не проверялось.</string>
@@ -367,7 +365,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+: их настройка словаря → ColorDict или GoldenDict. Любое приложение: меню выделения → «Найти в InkPeek» или «Поделиться» → InkPeek.</string>
     <string name="help_labels">У каждой пары метка: полный — 85 % из 5 000 частых слов и больше и офлайн-перевод; базовый — 60 % и больше; экспериментальный — меньше.</string>
     <string name="help_notes">☆ сохраняет слово в начальной форме, фразу — как есть. История хранит, что вы открывали (последние 1 000), с ответами ИИ; ✕ или «Очистить историю» удаляют её, сохранённое остаётся. TSV сохраняет открытый список для Anki; Экспорт и Импорт переносят всё одним файлом.</string>
-    <string name="help_open">Открыть в настройках</string>
     <string name="updates_t">Обновления</string>
     <string name="files_t">Доступ к файлам</string>
     <string name="files_ok">Разрешён ✓</string>
@@ -382,4 +379,22 @@
     <string name="prefetch_t">Запрашивать остальные AI-вкладки сразу</string>
     <string name="prefetch_d">Открыли одну — остальные запрашиваются тоже и открываются без ожидания.</string>
     <string name="edit_prompt">Изменить промпт</string>
+    <string name="help_go">Перейти: %1$s</string>
+    <string name="hs_word_t">Слово</string>
+    <string name="hs_word">Двойной тап или удержание выделяет слово; ручками выделение расширяется.</string>
+    <string name="hs_para_t">Абзац</string>
+    <string name="hs_para">Тройной тап выделяет абзац (кроме заголовка карточки: там двойной тап часто приходит тройным).</string>
+    <string name="hs_menu_t">Меню</string>
+    <string name="hs_menu">Над выделением: найти в карточке (← вернёт к прежнему слову), копировать, поделиться, искать в интернете, выделить всё. Тап мимо снимает выделение.</string>
+    <string name="hs_rows_t">Строки списков</string>
+    <string name="hs_rows">Текст строки выделяется так же; открывает строку стрелка › справа.</string>
+    <string name="hc_phrase_t">Фраза</string>
+    <string name="hc_phrase">Открывается на том, что выбрано в Карточка → Открытие: офлайн-перевод, AI-перевод, перевод по словам, Разбор или Контекст. Перевода для текста нет — откроется Словарь.</string>
+    <string name="hc_head_t">Заголовок</string>
+    <string name="hc_head">Начальная форма с артиклем, формами и множественным числом; под ней — выделенная форма, насколько слово частое и сколько раз вы его смотрели.</string>
+    <string name="hc_article_t">Статья</string>
+    <string name="hc_article">Словари по одному: ◀ ▶ или свайп. Внизу — однокоренные, синонимы, выражения, формы, происхождение: › открывает весь список, листание сверху.</string>
+    <string name="hc_ai_t">AI</string>
+    <string name="hc_ai">AI-вкладки спрашивают только по тапу. С «%1$s» (AI → Модули) остальные готовы, когда вы их откроете. Модуль без отмеченных частей — без вкладки и без запросов.</string>
+    <string name="hm_off">«Выключено» среди методов — без офлайн-перевода, в «Переводе» только AI. Модели скачиваются для каждой пары языков на вкладке «Перевод».</string>
 </resources>

@@ -155,9 +155,11 @@ class StarDict(ifoFile: File, workRoot: File) {
         }
         if (first < 0) return emptyList()
         // All entries for the key (cheap: headwords only), then the best 8 get their articles read.
-        // Order: the word as written (same case) > a form of another word (.syn) > the word in another case
-        // ("lag" is a form of "liegen" before the noun "Lag"; "Häuser" leads to "Haus").
+        // Order: the word as written (same case) > a capitalised word as its lower-case headword (a sentence's first word:
+        // "Verdammt!" is the adjective, not a form of "verdammen") > a form of another word (.syn) > the word in another
+        // case ("lag" is a form of "liegen" before the noun "Lag"; "Häuser" leads to "Haus").
         val q = query.trim()
+        val lower = q.lowercase().takeIf { it != q }
         class E(val word: String, val off: Long, val size: Int)
         val all = ArrayList<E>(); var i = first
         while (i < n && keyAt(i) == key) {
@@ -166,7 +168,7 @@ class StarDict(ifoFile: File, workRoot: File) {
             val wl = m.getShort(p).toInt() and 0xFFFF; val word = str(m, p + 2, wl); p += 2 + wl
             all += E(word, m.getLong(p), m.getInt(p + 8)); i++
         }
-        val best = all.distinctBy { it.off }.sortedBy { e -> when { e.word == q -> 0; !e.word.equals(q, true) -> 1; e.word == q.lowercase() -> 2; else -> 3 } }.take(8)
+        val best = all.distinctBy { it.off }.sortedBy { e -> when { e.word == q -> 0; e.word == lower -> 1; !e.word.equals(q, true) -> 2; else -> 3 } }.take(8)
         val d = dict()
         return best.map { Hit(it.word, Article.toHtml(d.read(it.off, it.size), types)) }.distinctBy { it.html }
     }

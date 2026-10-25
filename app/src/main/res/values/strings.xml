@@ -70,7 +70,7 @@
     <string name="icon_save_d">Keeps it in Notes; a filled star: it is there already.</string>
     <string name="icon_words_d">Your saved words and phrases and the history, also in the settings.</string>
     <string name="tab_translate">Translate</string>
-    <string name="icon_translate_d">AI when it can answer, else the offline translation on the device.</string>
+    <string name="icon_translate_d">Offline translation on the device first, AI translation next to it (asked when you tap it).</string>
     <string name="mt_missing">Offline translation needs a language pack: InkPeek settings → Languages.</string>
     <string name="mt_working">Translating…</string>
     <string name="mt_via_english">Offline translation, through English</string>
@@ -227,8 +227,6 @@
     <string name="share">Share</string>
     <string name="search_web">Search the web</string>
     <string name="select_all">Select all</string>
-    <string name="hold_t">Hold a text</string>
-    <string name="hold_d">A line, or part of an article, a translation or an AI answer: copy, share, search the web.</string>
     <string name="about_text">A pop-up dictionary and translator for e-book readers: language packs, your own StarDict dictionaries, offline translation; AI if you want it.</string>
     <string name="update_latest">The latest version. Checked at %1$s.</string>
     <string name="update_never">Not checked yet.</string>
@@ -366,7 +364,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+: their dictionary setting → ColorDict or GoldenDict. Any app: the text selection menu → Look up in InkPeek, or Share → InkPeek.</string>
     <string name="help_labels">Each pair has a label: full — 85 % of the 5,000 most frequent words or more and offline translation; basic — 60 % or more; experimental — less.</string>
     <string name="help_notes">☆ saves a word as its base form, a phrase as it is. The history keeps what you opened (the last 1,000) with its AI answers; ✕ or Clear history removes it, saved notes stay. TSV saves the open list for Anki; Export and Import move everything as one file.</string>
-    <string name="help_open">Open in settings</string>
     <string name="updates_t">Updates</string>
     <string name="files_t">File access</string>
     <string name="files_ok">Granted ✓</string>
@@ -381,4 +378,22 @@
     <string name="prefetch_t">Ask the other AI tabs at once</string>
     <string name="prefetch_d">Opening one asks for the others too: they open without waiting.</string>
     <string name="edit_prompt">Edit the prompt</string>
+    <string name="help_go">Go to: %1$s</string>
+    <string name="hs_word_t">A word</string>
+    <string name="hs_word">Double tap or hold a word to select it; drag the handles to select more.</string>
+    <string name="hs_para_t">A paragraph</string>
+    <string name="hs_para">Triple tap selects the paragraph (not in the card\'s header: there a double tap often comes as three).</string>
+    <string name="hs_menu_t">The menu</string>
+    <string name="hs_menu">Over the selection: look it up in the card (← returns to the word before), copy, share, search the web, select all. A tap beside it ends the selection.</string>
+    <string name="hs_rows_t">List rows</string>
+    <string name="hs_rows">A row\'s text is selected the same way; the › arrow on its right opens it.</string>
+    <string name="hc_phrase_t">A phrase</string>
+    <string name="hc_phrase">Opens on what Card → Opening says: offline translation, AI translation, word by word, Analysis or Context. No translation for the text → Dictionary.</string>
+    <string name="hc_head_t">Header</string>
+    <string name="hc_head">The base form with its article, forms and plural; under it the form you selected, how common the word is and how often you looked it up.</string>
+    <string name="hc_article_t">Article</string>
+    <string name="hc_article">One dictionary at a time: ◀ ▶ or a swipe. Under it: related words, synonyms, expressions, forms, origin — › opens the whole list, paged on top.</string>
+    <string name="hc_ai_t">AI</string>
+    <string name="hc_ai">AI tabs ask only when you tap them. With \"%1$s\" (AI → Modules) the others are ready when you open them. A module with nothing ticked has no tab and sends nothing.</string>
+    <string name="hm_off">Off among the methods: no offline translation, Translate shows AI only. Models download per language pair, on the Translation tab.</string>
 </resources>

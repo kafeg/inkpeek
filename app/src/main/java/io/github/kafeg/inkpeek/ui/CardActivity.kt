@@ -149,14 +149,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
             // No "…": Android's selection goes wrong on ellipsized text (a double tap took it all, a triple missed a word).
             maxLines = if (long) 2 else 3; setLineSpacing(0f, 1f)
-            TextActions.selectable(this)
+            TextActions.selectable(this, paragraph = false)
         }
         // Under the title: the selected form, the same word in another book language.
         subView = Ink.text(this, "", size * 0.72f).apply { visibility = View.GONE; TextActions.selectable(this) }
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         card.addView(head)
-        scroll = ScrollView(this)
+        scroll = ScrollView(this).apply { overScrollMode = android.view.View.OVER_SCROLL_NEVER }
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
         scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.

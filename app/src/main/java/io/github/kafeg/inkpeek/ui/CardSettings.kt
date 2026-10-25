@@ -19,14 +19,32 @@ class CardSettings(private val a: MainActivity) {
     private fun buildOpening(t: LinearLayout) {
         t.addView(first(Rows.choice(a, a.getString(R.string.card_dict_t), a.getString(R.string.card_dict_d),
             listOf(a.getString(R.string.dict_short), a.getString(R.string.dict_full)), if (prefs.cardFull) 1 else 0) { prefs.cardFull = it == 1 }))
-        // What a phrase opens on: offline or AI translation, word by word, an AI tab (AI then asks on every opening).
-        val opens = listOf("offline" to R.string.open_offline, "ai" to R.string.open_ai, "dict" to R.string.open_dict,
-            "analysis" to R.string.a_analysis, "context" to R.string.a_context)
-        t.addView(Rows.choice(a, a.getString(R.string.phrase_open), a.getString(R.string.phrase_open_d), opens.map { a.getString(it.second) },
-            opens.indexOfFirst { it.first == prefs.phraseOpen }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
+        openBox = Ink.vertical(a); t.addView(openBox); refreshOpening()
         t.addView(Rows.heading(a, a.getString(R.string.controls_t)))
         t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
         t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
+    }
+
+    private lateinit var openBox: LinearLayout
+
+    /**
+     * What a phrase opens on, among what can be shown now: the offline translation (a method on, models here), by AI (AI
+     * and its module on), word by word, an AI tab with a part ticked (AI then asks on every opening). A choice that is
+     * gone falls back to the offline translation, else to word by word. Made again when the tab shows (AI or a method changed).
+     */
+    fun refreshOpening() {
+        if (!::openBox.isInitialized) return
+        openBox.removeAllViews()
+        fun module(ask: io.github.kafeg.inkpeek.ai.Ask) = prefs.aiOn && ask.keys.any { prefs.aiKey("${ask.section}.${it.name}") ?: !it.extra }
+        val offline = prefs.mtMethod != "off" && prefs.packs.installed().keys.any { it.startsWith("model-") }
+        val opens = listOfNotNull("offline".takeIf { offline }?.let { it to a.getString(R.string.open_offline) },
+            "ai".takeIf { prefs.aiOn && prefs.aiTranslate }?.let { it to a.getString(R.string.open_ai) },
+            "dict" to a.getString(R.string.open_dict),
+            "analysis".takeIf { module(io.github.kafeg.inkpeek.ai.Ask.ANALYSIS) }?.let { it to a.getString(R.string.a_analysis) + " · AI" },
+            "context".takeIf { module(io.github.kafeg.inkpeek.ai.Ask.CONTEXT) }?.let { it to a.getString(R.string.a_context) + " · AI" })
+        if (opens.none { it.first == prefs.phraseOpen }) prefs.phraseOpen = if (offline) "offline" else "dict"
+        openBox.addView(Rows.choice(a, a.getString(R.string.phrase_open), a.getString(R.string.phrase_open_d), opens.map { it.second },
+            opens.indexOfFirst { it.first == prefs.phraseOpen }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
     }
 
     /** The dictionaries' order, then what the card takes from InkPeek's language packs, one row per part. */

@@ -11,8 +11,9 @@ import java.util.zip.GZIPOutputStream
 
 class StarDictTest {
     /** Writes a tiny dictionary; the .idx is deliberately unsorted (broken upstream builds). */
-    private fun dict(dir: File, gz: Boolean = true): File {
-        val words = listOf("Haus" to "<b>Haus</b> n — дом", "abend" to "вечер", "Ärger" to "досада")
+    private fun dict(dir: File, gz: Boolean = true,
+                     words: List<Pair<String, String>> = listOf("Haus" to "<b>Haus</b> n — дом", "abend" to "вечер", "Ärger" to "досада"),
+                     syns: List<Pair<String, Int>> = listOf("Häuser" to 0)): File {
         val data = ByteArrayOutputStream(); val idx = DataOutputStream(ByteArrayOutputStream().also { })
         val idxBytes = ByteArrayOutputStream(); val o = DataOutputStream(idxBytes)
         words.forEach { (w, a) ->
@@ -23,7 +24,7 @@ class StarDictTest {
         File(dir, "t.idx").writeBytes(idxBytes.toByteArray())
         if (gz) GZIPOutputStream(File(dir, "t.dict.dz").outputStream()).use { it.write(data.toByteArray()) }
         else File(dir, "t.dict").writeBytes(data.toByteArray())
-        val syn = ByteArrayOutputStream(); DataOutputStream(syn).use { it.write("Häuser".toByteArray()); it.write(0); it.writeInt(0) }
+        val syn = ByteArrayOutputStream(); DataOutputStream(syn).use { o2 -> syns.forEach { (f, i) -> o2.write(f.toByteArray()); o2.write(0); o2.writeInt(i) } }
         File(dir, "t.syn").writeBytes(syn.toByteArray())
         return File(dir, "t.ifo").apply {
             writeText("StarDict's dict ifo file\nversion=3.0.0\nbookname=Test\nwordcount=3\nsametypesequence=h\n")
@@ -39,6 +40,16 @@ class StarDictTest {
         assertEquals("досада", d.lookup("ärger").single().html)
         assertEquals("вечер", d.lookup("Abend").single().html)
         assertTrue(d.lookup("nope").isEmpty())
+    }
+
+    @Test fun aSentencesFirstWordIsItsLowerCaseWord() {
+        val tmp = Files.createTempDirectory("sd").toFile()
+        val words = listOf("verdammt" to "чертовский", "verdammen" to "проклинать", "Lag" to "лаг", "liegen" to "лежать")
+        val d = StarDict(dict(tmp, words = words, syns = listOf("verdammt" to 1, "lag" to 3)), File(tmp, "work"))
+        assertEquals("verdammt", d.lookup("Verdammt").first().word)  // "Verdammt!" — the adjective, not verdammen
+        assertEquals("verdammt", d.lookup("verdammt").first().word)
+        assertEquals("liegen", d.lookup("lag").first().word)         // "lag" — a form of liegen before the noun
+        assertEquals("Lag", d.lookup("Lag").first().word)
     }
 
     @Test fun indexRebuiltWhenBrokenOrFilesChange() {

@@ -69,7 +69,7 @@
     <string name="icon_save_d">Garde dans Notes ; une étoile pleine : déjà gardé.</string>
     <string name="icon_words_d">Mots, phrases gardés et historique, aussi dans les réglages.</string>
     <string name="tab_translate">Traduire</string>
-    <string name="icon_translate_d">L\'IA si elle peut répondre, sinon la traduction hors ligne.</string>
+    <string name="icon_translate_d">D\'abord la traduction hors ligne sur l\'appareil, à côté la traduction par IA (demandée quand vous la touchez).</string>
     <string name="mt_missing">La traduction hors ligne nécessite un pack de langue : réglages d\'InkPeek → Langues.</string>
     <string name="mt_working">Traduction…</string>
     <string name="mt_via_english">Traduction hors ligne, via l\'anglais</string>
@@ -226,8 +226,6 @@
     <string name="share">Partager</string>
     <string name="search_web">Chercher sur le web</string>
     <string name="select_all">Tout sélectionner</string>
-    <string name="hold_t">Maintenir un texte</string>
-    <string name="hold_d">Une ligne, ou une partie d\'article, de traduction, de réponse IA : copier, partager, chercher sur le web.</string>
     <string name="about_text">Dictionnaire et traducteur en pop-up pour liseuses : packs de langue, vos dictionnaires StarDict, traduction hors ligne ; l\'IA si vous voulez.</string>
     <string name="update_latest">Dernière version. Vérifié à %1$s.</string>
     <string name="update_never">Pas encore vérifié.</string>
@@ -366,7 +364,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+ : leur réglage de dictionnaire → ColorDict ou GoldenDict. Toute application : menu de sélection → Chercher dans InkPeek, ou Partager → InkPeek.</string>
     <string name="help_labels">Chaque paire a une étiquette : complet — 85 % des 5 000 mots les plus fréquents ou plus et traduction hors ligne ; de base — 60 % ou plus ; expérimental — moins.</string>
     <string name="help_notes">☆ enregistre un mot sous sa forme de base, une phrase telle quelle. L\'historique garde ce que vous avez ouvert (les 1 000 derniers) avec les réponses de l\'IA ; ✕ ou Effacer l\'historique le supprime, les notes restent. TSV enregistre la liste ouverte pour Anki ; Exporter et Importer déplacent tout en un fichier.</string>
-    <string name="help_open">Ouvrir dans les réglages</string>
     <string name="updates_t">Mises à jour</string>
     <string name="files_t">Accès aux fichiers</string>
     <string name="files_ok">Autorisé ✓</string>
@@ -381,4 +378,22 @@
     <string name="prefetch_t">Demander aussi les autres onglets IA</string>
     <string name="prefetch_d">Un ouvert — les autres sont demandés aussi et s\'ouvrent sans attente.</string>
     <string name="edit_prompt">Modifier le prompt</string>
+    <string name="help_go">Aller à : %1$s</string>
+    <string name="hs_word_t">Un mot</string>
+    <string name="hs_word">Un double appui ou un appui long sélectionne un mot ; les poignées étendent la sélection.</string>
+    <string name="hs_para_t">Un paragraphe</string>
+    <string name="hs_para">Un triple appui sélectionne le paragraphe (pas dans l\'en-tête de la fiche : un double appui y arrive souvent comme trois).</string>
+    <string name="hs_menu_t">Le menu</string>
+    <string name="hs_menu">Au-dessus de la sélection : chercher dans la fiche (← revient au mot d\'avant), copier, partager, chercher sur le web, tout sélectionner. Un appui à côté termine la sélection.</string>
+    <string name="hs_rows_t">Lignes de liste</string>
+    <string name="hs_rows">Le texte d\'une ligne se sélectionne de même ; la flèche › à droite l\'ouvre.</string>
+    <string name="hc_phrase_t">Une phrase</string>
+    <string name="hc_phrase">S\'ouvre sur ce que dit Fiche → Ouverture : traduction hors ligne, traduction IA, mot à mot, Analyse ou Contexte. Pas de traduction pour le texte → Dictionnaire.</string>
+    <string name="hc_head_t">En-tête</string>
+    <string name="hc_head">La forme de base avec article, formes et pluriel ; dessous, la forme sélectionnée, la fréquence du mot et combien de fois vous l\'avez consulté.</string>
+    <string name="hc_article_t">Article</string>
+    <string name="hc_article">Un dictionnaire à la fois : ◀ ▶ ou un glissement. Dessous : mots apparentés, synonymes, expressions, formes, origine — › ouvre la liste entière, paginée en haut.</string>
+    <string name="hc_ai_t">IA</string>
+    <string name="hc_ai">Les onglets IA ne demandent qu\'à l\'appui. Avec « %1$s » (IA → Modules), les autres sont prêts à l\'ouverture. Un module sans case cochée n\'a pas d\'onglet et n\'envoie rien.</string>
+    <string name="hm_off">« Désactivé » parmi les méthodes : pas de traduction hors ligne, Traduire montre seulement l\'IA. Les modèles se téléchargent par paire de langues, dans l\'onglet Traduction.</string>
 </resources>

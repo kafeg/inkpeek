@@ -69,7 +69,7 @@
     <string name="icon_save_d">Zapisuje w Notatkach; pełna gwiazdka: już zapisane.</string>
     <string name="icon_words_d">Zapisane słowa, frazy i historia, także w ustawieniach.</string>
     <string name="tab_translate">Tłumaczenie</string>
-    <string name="icon_translate_d">AI, jeśli może odpowiedzieć, inaczej tłumaczenie offline.</string>
+    <string name="icon_translate_d">Najpierw tłumaczenie offline na urządzeniu, obok tłumaczenie AI (pytane po dotknięciu).</string>
     <string name="mt_missing">Tłumaczenie offline wymaga pakietu językowego: ustawienia InkPeek → Języki.</string>
     <string name="mt_working">Tłumaczenie…</string>
     <string name="mt_via_english">Tłumaczenie offline, przez angielski</string>
@@ -193,7 +193,7 @@
     <string name="save">Zapisz</string>
     <string name="aih_what_t">Co daje AI</string>
     <string name="aih_what">Opcjonalne karty nad rdzeniem offline: tłumaczenie AI, Analiza i Kontekst. Słownik, gramatyka i tłumaczenie offline go nie potrzebują; gdy AI jest wyłączone, jego ikon i karty nie ma.</string>
-    <string name="aih_translate">Słowo: forma podstawowa, rodzaj, formy i główne znaczenia; fraza lub fragment: naturalne tłumaczenie zachowujące typ zdania. Bez sieci Tłumacz pokazuje tłumaczenie offline.</string>
+    <string name="aih_translate">Słowo: forma podstawowa, rodzaj, formy i główne znaczenia; fraza lub fragment: naturalne tłumaczenie zachowujące typ zdania. Bez sieci Tłumaczenie pokazuje tłumaczenie offline.</string>
     <string name="aih_send_t">Co jest wysyłane</string>
     <string name="aih_send">Tylko zaznaczony tekst trafia do wybranego dostawcy, z językiem odpowiedzi. Odpowiedzi zostają na urządzeniu: sprawdzane już słowo otworzy się offline.</string>
     <string name="aih_keys_t">Klucz</string>
@@ -226,8 +226,6 @@
     <string name="share">Udostępnij</string>
     <string name="search_web">Szukaj w sieci</string>
     <string name="select_all">Zaznacz wszystko</string>
-    <string name="hold_t">Przytrzymanie tekstu</string>
-    <string name="hold_d">Wiersz albo część hasła, tłumaczenia, odpowiedzi AI: kopiuj, udostępnij, szukaj w sieci.</string>
     <string name="about_text">Wyskakujący słownik i tłumacz dla czytników: pakiety językowe, własne słowniki StarDict, tłumaczenie offline; AI według uznania.</string>
     <string name="update_latest">Najnowsza wersja. Sprawdzono o %1$s.</string>
     <string name="update_never">Jeszcze nie sprawdzano.</string>
@@ -367,7 +365,6 @@
     <string name="help_readers_other">Librera, AlReaderX, Cool Reader, Moon+: ich ustawienie słownika → ColorDict lub GoldenDict. Każda aplikacja: menu zaznaczenia → Znajdź w InkPeek albo Udostępnij → InkPeek.</string>
     <string name="help_labels">Każda para ma etykietę: pełny — 85 % z 5000 najczęstszych słów lub więcej i tłumaczenie offline; podstawowy — 60 % lub więcej; eksperymentalny — mniej.</string>
     <string name="help_notes">☆ zapisuje słowo w formie podstawowej, frazę taką, jaka jest. Historia trzyma to, co otwierałeś (ostatnie 1000), z odpowiedziami AI; ✕ lub Wyczyść historię ją usuwa, zapisane zostaje. TSV zapisuje otwartą listę dla Anki; Eksport i Import przenoszą wszystko jednym plikiem.</string>
-    <string name="help_open">Otwórz w ustawieniach</string>
     <string name="updates_t">Aktualizacje</string>
     <string name="files_t">Dostęp do plików</string>
     <string name="files_ok">Przyznany ✓</string>
@@ -382,4 +379,22 @@
     <string name="prefetch_t">Od razu pytaj inne karty AI</string>
     <string name="prefetch_d">Otwarta jedna — inne są pytane też i otwierają się bez czekania.</string>
     <string name="edit_prompt">Edytuj prompt</string>
+    <string name="help_go">Przejdź do: %1$s</string>
+    <string name="hs_word_t">Słowo</string>
+    <string name="hs_word">Dwukrotne dotknięcie lub przytrzymanie zaznacza słowo; uchwyty rozszerzają zaznaczenie.</string>
+    <string name="hs_para_t">Akapit</string>
+    <string name="hs_para">Trzykrotne dotknięcie zaznacza akapit (nie w nagłówku karty: tam dwukrotne dotknięcie często przychodzi jako trzy).</string>
+    <string name="hs_menu_t">Menu</string>
+    <string name="hs_menu">Nad zaznaczeniem: znajdź w karcie (← wraca do poprzedniego słowa), kopiuj, udostępnij, szukaj w sieci, zaznacz wszystko. Dotknięcie obok kończy zaznaczenie.</string>
+    <string name="hs_rows_t">Wiersze list</string>
+    <string name="hs_rows">Tekst wiersza zaznacza się tak samo; strzałka › po prawej go otwiera.</string>
+    <string name="hc_phrase_t">Fraza</string>
+    <string name="hc_phrase">Otwiera się na tym, co mówi Karta → Otwieranie: tłumaczenie offline, tłumaczenie AI, słowo po słowie, Analiza lub Kontekst. Brak tłumaczenia tekstu → Słownik.</string>
+    <string name="hc_head_t">Nagłówek</string>
+    <string name="hc_head">Forma podstawowa z rodzajnikiem, formami i liczbą mnogą; pod nią zaznaczona forma, jak częste jest słowo i ile razy je sprawdzano.</string>
+    <string name="hc_article_t">Hasło</string>
+    <string name="hc_article">Jeden słownik naraz: ◀ ▶ lub przesunięcie. Pod nim: wyrazy pokrewne, synonimy, wyrażenia, formy, pochodzenie — › otwiera całą listę, ze stronami u góry.</string>
+    <string name="hc_ai_t">AI</string>
+    <string name="hc_ai">Karty AI pytają tylko po dotknięciu. Z „%1$s” (AI → Moduły) pozostałe są gotowe, gdy je otworzysz. Moduł bez zaznaczonych części nie ma karty i nic nie wysyła.</string>
+    <string name="hm_off">„Wyłączone” wśród metod: bez tłumaczenia offline, Tłumaczenie pokazuje tylko AI. Modele pobiera się dla każdej pary języków, na karcie Tłumaczenie.</string>
 </resources>

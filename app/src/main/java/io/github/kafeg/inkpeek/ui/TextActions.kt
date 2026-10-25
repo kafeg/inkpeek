@@ -39,9 +39,10 @@ object TextActions {
 
     /**
      * A text you can select: the handles, our menu instead of Android's, moving with the handles. Double tap: a word;
-     * triple tap: the paragraph; a list row is selected the same way (its arrow opens it).
+     * triple tap: the paragraph unless [paragraph] is false (a one-line header: an e-ink double tap often comes as three);
+     * a list row is selected the same way (its arrow opens it).
      */
-    fun selectable(tv: TextView) {
+    fun selectable(tv: TextView, paragraph: Boolean = true) {
         tv.setTextIsSelectable(true)
         var taps = 0; var lastUp = 0L; var focused = true; var mine = false
         tv.setOnTouchListener { _, ev ->
@@ -50,7 +51,7 @@ object TextActions {
                     taps = if (ev.eventTime - lastUp < 350) taps + 1 else 1; focused = tv.isFocused
                     // The third tap selects the paragraph; Android would take it for a tap that ends the selection. The whole
                     // gesture is ours, and the count starts again (a fourth tap is a first one).
-                    mine = taps == 3
+                    mine = paragraph && taps == 3
                     if (mine) { taps = 0; paragraph(tv, tv.getOffsetForPosition(ev.x, ev.y)) }
                     mine
                 }
