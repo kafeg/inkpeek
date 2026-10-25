@@ -48,7 +48,8 @@ offline translation. Add your own StarDict dictionaries next to them.</td>
 Answers come in the app's language.</sub></p>
 
 ## Quick start
-1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) and open InkPeek. Allow access to
+1. **Install** the APK from [Releases](https://github.com/kafeg/inkpeek/releases) (or add `https://github.com/kafeg/inkpeek`
+   in [Obtainium](https://obtainium.imranr.dev/): it installs and updates from the same releases) and open InkPeek. Allow access to
    files when it asks.
 2. **Choose your languages:** Languages → Packs → **Download packs…** → tap the pairs of your books. Answers come in
    the app's language. Have dictionaries already? Languages → **Dictionaries** (below).
@@ -121,7 +122,8 @@ scripts/device-test.sh        # the language packs on a connected device: header
 
 The version is `<appVersion>.<number of commits>` (`appVersion` in `gradle.properties`); the commit count is also the version code. What changed: [CHANGELOG.md](CHANGELOG.md).
 
-**Updates:** the version is on the right of the settings' status line; a tap opens About. Once a day, when settings
+**Updates:** the version is on the right of the settings' status line; a tap opens About. (A build made with
+`-Pinkpeek.updates=false` — F-Droid's — has no updater: its store updates it.) Once a day, when settings
 open, InkPeek asks GitHub for the latest release (one request; About → "Check once a day" turns it off). When a newer
 one is out, the version line says so; Update downloads it in the app and Android's installer asks you to confirm (the
 first time also to allow InkPeek to install apps).
