@@ -1,0 +1,17 @@
+<p>Read books in a language you are learning without leaving the page. Select a word or a sentence in your e-book reader: a calm black-and-white card opens over the page with the dictionary entry, a translation and, if you want, short explanations from an AI tutor. Close it and you are back on the same line.</p>
+
+<p><b>Offline, from free data</b></p>
+<ul>
+<li>Language packs built from Wiktionary: the word's base form with its article, plural and verb forms (<i>Häusern</i> → <i>das Haus</i>), meanings, related words, synonyms, expressions, pronunciation.</li>
+<li>Translation of a sentence or a paragraph on the device: Mozilla's models, OPUS-MT, or the Hy-MT2 model on capable devices.</li>
+<li>Word by word: each word of a sentence with its base form and meaning; German separable verbs are found (<i>mache … zu</i> → <i>zumachen</i>).</li>
+<li>Your own StarDict dictionaries; KOReader's folder works as it is.</li>
+</ul>
+
+<p><b>Made for e-ink</b>: no colours, no animations, a card that can turn by pages instead of scrolling, a dark theme, your font. Works with FBReader, KOReader, Librera, AlReaderX, Cool Reader, Moon+ and any app with a "share" or text-selection menu.</p>
+
+<p><b>Notes</b>: save words and phrases, see how often you looked a word up, export to Anki (TSV), back up everything to one file; a copy is made every day.</p>
+
+<p><b>Optional AI</b> (off unless you set it up, asked only when you tap): grammar of a sentence, context and examples, a translation that keeps the tone. Works with your own key for Anthropic, OpenAI or OpenRouter, or with your own server (LM Studio, Ollama, llama.cpp).</p>
+
+<p>Language packs and models are downloaded by the app from the project's GitHub releases (and model mirrors). App languages: English, German, Spanish, French, Italian, Polish, Portuguese, Russian.</p>

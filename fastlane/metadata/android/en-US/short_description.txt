@@ -1,0 +1,1 @@
+Pop-up dictionary and translator for e-ink readers, offline first
