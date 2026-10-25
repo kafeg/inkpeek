@@ -61,7 +61,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val translate = TranslatePage(this)
     private val words = WordsPage(this)
 
-    private lateinit var scroll: ScrollView
+    /** The open page's frame: a ScrollView, or by pages a plain frame moved by [android.view.View.scrollTo]. */
+    private lateinit var scroll: FrameLayout
     private lateinit var root: LinearLayout
     private var width = 0
     private var maxHeight = 0
@@ -202,13 +203,26 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         titleBox = Ink.vertical(this).apply { addView(titleView); addView(subView) }
         head.addView(titleBox, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT))
         card.addView(head)
-        scroll = ScrollView(this).apply { overScrollMode = android.view.View.OVER_SCROLL_NEVER }
+        // By pages (Card → Appearance): no ScrollView (some readers' firmware takes any swipe over one for a scroll and
+        // redraws the whole screen after it); a frame as tall as the card, its page as tall as it needs, a swipe turns it (see [swipe]).
+        scroll = if (!prefs.cardPaged) ScrollView(this).apply { overScrollMode = View.OVER_SCROLL_NEVER } else object : FrameLayout(this) {
+            override fun onMeasure(w: Int, h: Int) {
+                super.onMeasure(w, h)
+                getChildAt(0)?.measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
+            }
+            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) { getChildAt(0)?.let { it.layout(0, 0, it.measuredWidth, it.measuredHeight) } }
+        }.apply { clipChildren = true }
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
         scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
         baseHint = if (prefs.aiOn && !online) getString(R.string.offline) else null
         hintView = Ink.text(this, "", size * 0.65f); showHint()
-        card.addView(hintView, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+        // By pages: "2 / 3" at the right of the small print.
+        pageView = Ink.text(this, "", size * 0.65f).apply { visibility = View.GONE }
+        card.addView(Ink.horizontal(this).apply { gravity = Gravity.BOTTOM or Gravity.END
+            addView(hintView, Ink.lp(0, weight = 1f)); addView(pageView, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { leftMargin = Ink.dp(this@CardActivity, 8) })
+        }, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
+        if (prefs.cardPaged) { scroll.setOnScrollChangeListener { _, _, _, _, _ -> showPage() }; scroll.viewTreeObserver.addOnGlobalLayoutListener { showPage() } }
 
         val tabs = listOfNotNull(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
             Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate)).takeIf { canTranslate },
@@ -221,7 +235,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
             val isAi = id == AI
-            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { actions.map { answers.block(ai.ask(it.id)) } }
+            // "AI" in the corner: the AI tab, and Translate when it holds AI translation.
+            add(iconButton(icon, label, side, ai = isAi || id == TRANSLATE && aiTranslate) { if (isAi) launch { val r = withContext(Dispatchers.IO) { actions.map { answers.block(ai.ask(it.id)) } }
                 if (r.all { it != null }) toast(getString(r.first()!!)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
         // The AI tab is dimmed while none of its modules can answer; a saved answer still opens offline.
@@ -310,6 +325,47 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private lateinit var hintView: TextView
+    private lateinit var pageView: TextView
+
+    /** A page of the content: the card's height less two lines kept from the page before. */
+    private fun pageStep() = (scroll.height - (size * 2.6f * resources.displayMetrics.scaledDensity).toInt()).coerceAtLeast(scroll.height / 2)
+
+    /** [y] in the page moved up to the top of the text line it cuts: a page starts with a whole line. */
+    private fun lineStart(y: Int): Int {
+        fun find(v: View, top: Int): Int? {
+            if (v is TextView) v.layout?.let { l -> val t = top + v.totalPaddingTop; return t + l.getLineTop(l.getLineForVertical(y - t)) }
+            if (v is android.view.ViewGroup) for (i in 0 until v.childCount) { val c = v.getChildAt(i); val t = top + c.top
+                if (y >= t && y < t + c.height) return find(c, t) }
+            return null
+        }
+        return scroll.getChildAt(0)?.let { find(it, 0) } ?: y
+    }
+
+    /** Where the pages before this one started: back is exactly where it was. */
+    private val pagesBefore = ArrayList<Int>()
+
+    /** By pages: the next page (from the line the old one cut, two lines kept) or the one before. */
+    private fun turnPage(next: Boolean) {
+        val max = ((scroll.getChildAt(0)?.height ?: 0) - scroll.height).coerceAtLeast(0); val y = scroll.scrollY
+        if (next) { if (y >= max) return
+            pagesBefore += y
+            scroll.scrollTo(0, nextPage(y, max))
+        } else { if (y <= 0) return; scroll.scrollTo(0, pagesBefore.removeLastOrNull() ?: 0) }
+    }
+
+    private fun nextPage(y: Int, max: Int) = minOf(y + pageStep(), max).let { to -> lineStart(to).takeIf { it > y } ?: to }
+
+    /** The page shown and how many there are, by pages only. */
+    private fun showPage() {
+        val content = scroll.getChildAt(0)?.height ?: 0; val step = pageStep()
+        if (content <= scroll.height || step <= 0) { pageView.visibility = View.GONE; return }
+        if (scroll.scrollY == 0) pagesBefore.clear()
+        // The pages left, counted by the same turns as [turnPage] (each starts at a whole line).
+        val max = content - scroll.height; var y = scroll.scrollY; var left = 0
+        while (y < max) { y = nextPage(y, max); left++ }
+        val at = pagesBefore.size + 1
+        pageView.text = "$at / ${at + left}"; pageView.visibility = View.VISIBLE
+    }
     private var baseHint: String? = null
 
     private val hints = HashMap<String, String?>()
@@ -443,6 +499,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** Full articles: a swipe left or right turns to the next or previous dictionary. */
     private val swipe by lazy { android.view.GestureDetector(this, object : android.view.GestureDetector.SimpleOnGestureListener() {
         override fun onFling(e1: android.view.MotionEvent?, e2: android.view.MotionEvent, vx: Float, vy: Float): Boolean {
+            // By pages: up or down a page at once (no scroll on the way: the screen is drawn once).
+            if (prefs.cardPaged && !TextActions.selecting && kotlin.math.abs(vy) > 2 * kotlin.math.abs(vx) && kotlin.math.abs(vy) > 500) {
+                turnPage(vy < 0); return true
+            }
             val turn = dictionary.turn ?: return false
             if (shown != DICT || kotlin.math.abs(vx) < 2 * kotlin.math.abs(vy) || kotlin.math.abs(vx) < 500) return false
             turn(if (vx < 0) 1 else -1); return true

@@ -51,6 +51,21 @@ class StoreOnDeviceTest {
         s.close()
     }
 
+    /** A copy a day, the last five kept; nothing written for an empty store or twice a day. */
+    @Test fun dailyCopiesKeepTheLastFive() {
+        val dir = File(ctx.cacheDir, "t-copies").also { it.deleteRecursively(); it.mkdirs() }
+        val s = fresh("t-copies.db")
+        s.autoBackup(dir); assertEquals(0, dir.list()!!.size)
+        (1..6).forEach { File(dir, "inkpeek-2020-01-0$it.db").writeText("old") }
+        s.save("Haus", "word", "house", "en")
+        s.autoBackup(dir); s.autoBackup(dir)
+        val left = dir.list()!!.sorted()
+        assertEquals(5, left.size)
+        assertTrue(left.last().startsWith("inkpeek-20") && left.last() > "inkpeek-2020-01-06.db")
+        assertEquals(1, Store.at(ctx, File(dir, left.last()).path).saved("word", "en").size)
+        s.close()
+    }
+
     @Test fun backupAndRestoreAddOnlyWhatIsMissing() {
         val a = fresh("t-a.db")
         a.save("ander", "word", "other", "en"); a.seen("ander", "word")

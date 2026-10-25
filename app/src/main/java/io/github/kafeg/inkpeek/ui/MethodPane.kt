@@ -65,6 +65,9 @@ class MethodPane(private val a: MainActivity, private val list: LinearLayout) {
                 addView(Ink.text(a, lines.joinToString("\n"), 14f), Ink.lp().apply { topMargin = Ink.dp(a, 4) })
                 if (why != null) alpha = Ink.OFF
                 setOnClickListener { if (why != null) Ink.toast(a, why) else choose(m, a.getString(title)) }
+                // Mozilla's own: its English in between under the translation (the fallback of the other methods too).
+                if (m == "fast") addView(Rows.check(a, a.getString(R.string.mt_english_t), a.getString(R.string.mt_english_d), prefs.mtEnglish) { prefs.mtEnglish = it },
+                    Ink.lp().apply { topMargin = Ink.dp(a, 8) })
             }
             list.addView(box, Ink.lp().apply { topMargin = Ink.dp(a, 12) })
         }

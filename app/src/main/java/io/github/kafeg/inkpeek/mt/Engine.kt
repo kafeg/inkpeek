@@ -39,10 +39,14 @@ object Engine {
 
     private fun run(dir: File, text: String, keep: Boolean) = String(translateNative(config(dir), text.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8)
 
-    /** Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use. */
-    fun translate(root: File, from: String, to: String, text: String, keep: Boolean): String = synchronized(lock) { native
+    /**
+     * Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use.
+     * [english]: the English of the step in between, when there is one.
+     */
+    fun translate(root: File, from: String, to: String, text: String, keep: Boolean, english: ((String) -> Unit)? = null): String = synchronized(lock) { native
         hold("$from-$to", keep)
-        try { steps(from, to).fold(text) { t, (a, b) -> run(Models.dir(root, a, b), t, keep) } } finally { idleLater(keep) }
+        try { steps(from, to).fold(text) { t, (a, b) -> run(Models.dir(root, a, b), t, keep).also { if (b == "en" && to != "en") english?.invoke(it) } } }
+        finally { idleLater(keep) }
     }
 
     /**

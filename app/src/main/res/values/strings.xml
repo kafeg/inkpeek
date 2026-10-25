@@ -397,4 +397,10 @@
     <string name="no_space">Not enough free space: %1$d MB needed, %2$d MB free.</string>
     <string name="tab_ai_card">Analysis and context</string>
     <string name="icon_ai_d">Analysis (grammar, words) and Context (explanation, examples), as tabs inside; asked when you tap.</string>
+    <string name="look_paged">Turning</string>
+    <string name="look_paged_d">On some readers scrolling redraws the whole screen when it stops; by pages, a swipe up or down turns a whole page.</string>
+    <string name="paged_scroll">Scroll</string>
+    <string name="paged_pages">Pages</string>
+    <string name="mt_english_t">Show the English</string>
+    <string name="mt_english_d">The English step in between, smaller, under the translation. Nothing is translated again.</string>
 </resources>

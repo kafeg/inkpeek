@@ -9,7 +9,8 @@ is named as such ("This looks like French"). AI translation needs none of this.
 
 **It goes through English.** Mozilla trains every model to or from English, so German → Russian is German →
 English → Russian. The meaning comes through; nuances can get lost: *du* and *Sie* both become *you*, so the Russian
-may pick the wrong one of ты / вы; the speaker's gender may change.
+may pick the wrong one of ты / вы; the speaker's gender may change. **Show the English** (in the Fast · Mozilla box)
+puts that English step under the translation, smaller: nothing is translated again for it.
 
 One model is in memory at a time. With plenty of free memory it stays there between translations and leaves after a
 few idle minutes; when memory is short, it is freed after each translation.

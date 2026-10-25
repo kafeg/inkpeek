@@ -37,6 +37,9 @@ object TextActions {
     /** The screen goes (paused, finished): its selection menu with it. */
     fun end() { active?.second?.finish() }
 
+    /** A selection is shown (its handles are being dragged, not the page). */
+    val selecting get() = active != null
+
     /**
      * A text you can select: the handles, our menu instead of Android's, moving with the handles. Double tap: a word;
      * triple tap: the paragraph unless [paragraph] is false (a one-line header: an e-ink double tap often comes as three);

@@ -77,6 +77,8 @@ class CardSettings(private val a: MainActivity) {
         val dims = listOf(0, 10, 25, 40, 60)
         t.addView(Rows.choice(a, a.getString(R.string.look_dim), a.getString(R.string.look_dim_d), dims.map { if (it == 0) a.getString(R.string.dim_off) else "$it %" },
             dims.indexOf(prefs.cardDim).coerceAtLeast(0)) { prefs.cardDim = dims[it] })
+        t.addView(Rows.choice(a, a.getString(R.string.look_paged), a.getString(R.string.look_paged_d),
+            listOf(a.getString(R.string.paged_scroll), a.getString(R.string.paged_pages)), if (prefs.cardPaged) 1 else 0) { prefs.cardPaged = it == 1 })
         fontRow(t)
     }
 

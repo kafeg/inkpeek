@@ -396,4 +396,10 @@
     <string name="no_space">Nicht genug freier Speicher: %1$d MB nötig, %2$d MB frei.</string>
     <string name="tab_ai_card">Analyse und Kontext</string>
     <string name="icon_ai_d">Analyse (Grammatik, Wörter) und Kontext (Erklärung, Beispiele) als Tabs darin; angefragt beim Tippen.</string>
+    <string name="look_paged">Blättern</string>
+    <string name="look_paged_d">Auf manchen Readern zeichnet Scrollen am Ende den ganzen Bildschirm neu; seitenweise blättert ein Wischen nach oben oder unten eine ganze Seite.</string>
+    <string name="paged_scroll">Scrollen</string>
+    <string name="paged_pages">Seitenweise</string>
+    <string name="mt_english_t">Englisch zeigen</string>
+    <string name="mt_english_d">Der englische Zwischenschritt klein unter der Übersetzung. Nichts wird neu übersetzt.</string>
 </resources>

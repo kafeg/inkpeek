@@ -11,7 +11,8 @@ import kotlinx.coroutines.async
 class OfflineTranslation(private val prefs: Prefs, private val store: Store, private val text: String, private val roomy: () -> Boolean,
                          private val device: () -> Device? = { null }) {
     /** [from] the detected language, [other] a language without a pack; [text] null when no translation can be made; [by] the model ("OPUS-MT", "" for Mozilla). */
-    class Result(val from: String?, val other: String?, val text: kotlin.Result<String>?, val by: String = "")
+    /** [english]: Mozilla's English in between (a pair without English), when asked for (Languages → Translation). */
+    class Result(val from: String?, val other: String?, val text: kotlin.Result<String>?, val by: String = "", val english: String? = null)
 
     private var job: Deferred<Result>? = null
 
@@ -23,13 +24,21 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
                 from == null -> Result(null, other, null)
                 from == to -> Result(from, null, kotlin.Result.success(text))
                 else -> direct(from, to) ?: if (!Engine.ready(root, from, to)) Result(from, other, null) else {
-                    // Saved per model version: an updated model translates again.
+                    // Saved per model version: an updated model translates again. The English in between is saved as the
+                    // text's translation into English (it is one).
                     val installed = prefs.packs.installed()
-                    val ver = Engine.steps(from, to).joinToString { (a, b) -> installed["model-$a-$b"].orEmpty() }.hashCode()
-                    Result(from, null, runCatching {
-                        store.answer(text, to, "offline-$from", ver) ?: Engine.translate(root, from, to, text, keep = roomy())
+                    fun ver(x: String, y: String) = Engine.steps(x, y).joinToString { (a, b) -> installed["model-$a-$b"].orEmpty() }.hashCode()
+                    val ver = ver(from, to)
+                    val pivot = Engine.steps(from, to).size > 1
+                    var en: String? = if (pivot) runCatching { store.answer(text, "en", "offline-$from", ver(from, "en")) }.getOrNull() else null
+                    fun keepEnglish(e: String) { en = e; runCatching { store.putAnswer(text, "en", "offline-$from", ver(from, "en"), "bergamot", e) } }
+                    val t = runCatching {
+                        store.answer(text, to, "offline-$from", ver) ?: Engine.translate(root, from, to, text, keep = roomy()) { keepEnglish(it) }
                             .also { runCatching { store.putAnswer(text, to, "offline-$from", ver, "bergamot", it) } }
-                    })
+                    }
+                    // Saved before the setting was on: only the English step now.
+                    if (pivot && en == null && prefs.mtEnglish && t.isSuccess) runCatching { keepEnglish(Engine.translate(root, from, "en", text, keep = roomy())) }
+                    Result(from, null, t, english = en?.takeIf { prefs.mtEnglish })
                 }
             }
         }.getOrElse { Result(null, null, kotlin.Result.failure(it)) }

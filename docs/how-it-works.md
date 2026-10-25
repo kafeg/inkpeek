@@ -15,7 +15,8 @@
 - **Translate**: Offline first (on the device), AI second — AI asks only when its tab is tapped. Each is there only
   when it can work: Offline with a pack installed and a method on, AI with a provider and its module on; with neither
   there is no Translate icon. A text with no offline translation opens on Dictionary (word by word).
-- **AI tabs** (marked "AI", dimmed when AI cannot answer right now): Analysis — Grammar and Words; Context —
+- **The AI tab** (one icon marked "AI", dimmed when AI cannot answer right now; Analysis and Context its tabs, only the
+  modules that are on): Analysis — Grammar and Words; Context —
   Explanation and Examples; more parts in AI → Modules ([below](#ai)); a module with no part ticked has no tab and sends
   nothing. Opening one AI tab asks for the others at once (a setting, on by default), so they open instantly; the
   answers are kept with the history entry and go when you remove that entry. With AI off they are gone.
@@ -29,11 +30,13 @@
   (the last 1,000), each entry with one short line (50 per page, in the card and in settings). Under a word's header:
   how common it is and how often you looked it up. **TSV** saves the open list in `Download/InkPeek` (text, meaning, AI
   translation, language, date — Anki imports it as is); **Export** and **Import** move everything (saved, history, AI
-  answers) as one file — an import adds what the device does not have.
+  answers) as one file — an import adds what the device does not have. A copy of everything is made each day in
+  `InkPeek/backup` (the last five kept): to go back to one, Import it.
 - **Look up from any text**: select a word in an article, a translation or an AI answer — the menu's 📖 opens it in the
   same card, ← returns to the word before.
 - **The card's look** (Card → Appearance): height by content (a small card, like KOReader's) or a share of the screen;
-  width; position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
+  width; turning — scrolling, or by pages (a swipe up or down turns a whole page: on some readers scrolling redraws
+  the whole screen when it stops); position — top, centre, bottom, or where the reader asks (FBReader and Librera send it, so the card does not
   cover the word); text size; dimming the page; the font, on a page of its own with a sample — Android's fonts that
   have the letters the card needs, or your own `.ttf` / `.otf` (found in `fonts/` and `koreader/fonts`, or chosen as a
   file). Card → Opening: the icon bar and the save icons can be hidden. Card → Article: **Dictionary order** puts packs

@@ -17,6 +17,20 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     init { setWriteAheadLoggingEnabled(false) } // shared storage: no -shm memory map
 
+    /**
+     * A copy a day in [dir] (inkpeek-<date>.db), the last [KEPT] kept: whatever happens to the file (another app, a sync
+     * tool, the storage), yesterday's notes are there. Written whole, then renamed.
+     */
+    fun autoBackup(dir: File) {
+        val today = java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.ROOT).format(java.util.Date())
+        val f = File(dir, "inkpeek-$today.db")
+        if (f.exists() || count("saved") + count("history") == 0) return
+        dir.mkdirs()
+        val tmp = File(dir, "inkpeek-$today.db.tmp"); backup(tmp)
+        if (!tmp.renameTo(f)) { tmp.delete(); return }
+        dir.listFiles { x -> x.name.matches(Regex("inkpeek-\\d{4}-\\d{2}-\\d{2}\\.db")) }.orEmpty().sortedByDescending { it.name }.drop(KEPT).forEach { it.delete() }
+    }
+
     /** Opened once at the start: a damaged file shows on its first read, is put aside ([Corrupt]), and the next open is a new one. */
     private fun probe() { runCatching { readableDatabase.version } }
 
@@ -181,6 +195,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
 
     companion object {
         const val HISTORY = 1000
+        /** Daily copies kept (see [autoBackup]). */
+        const val KEPT = 5
 
         /** A store in [path], for tests. */
         fun at(ctx: Context, path: String) = Store(ctx.applicationContext, path).also { it.probe() }
@@ -210,6 +226,7 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
                     shared.path
                 } else own.path
                 Store(ctx.applicationContext, path).also { st -> st.probe(); one = st
+                    if (path == shared.path) Thread { runCatching { st.autoBackup(File(dir, "backup")) } }.start()
                     if (path == shared.path && own.exists()) runCatching { st.restore(own) }.onSuccess { own.delete() } }
             }
         }

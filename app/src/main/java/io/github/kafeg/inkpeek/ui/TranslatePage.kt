@@ -76,6 +76,8 @@ class TranslatePage(private val card: CardActivity) {
         }
         // Which language and how, in small print at the card's bottom: the translation alone in the page.
         text.fold({ out.text = Ink.arrows(card, it, out.textSize); val from = r.from
+            // The English in between, smaller, under it ("through English" is said in the small print already).
+            r.english?.let { e -> p.addView(Ink.text(card, e, card.size * 0.75f).also { TextActions.selectable(it) }, Ink.lp().apply { topMargin = Ink.dp(card, 12) }) }
             if (from != null && from != to) card.hint(CardActivity.TRANSLATE, Ink.lang(card, from) +
                 // The model that translated: "German · OPUS-MT", or Mozilla's "German · through English".
                 if (r.by.isNotEmpty()) " · " + r.by else if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },

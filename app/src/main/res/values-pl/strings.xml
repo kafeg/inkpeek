@@ -398,4 +398,10 @@
     <string name="no_space">Za mało wolnego miejsca: potrzeba %1$d MB, wolne %2$d MB.</string>
     <string name="tab_ai_card">Analiza i kontekst</string>
     <string name="icon_ai_d">Analiza (gramatyka, słowa) i Kontekst (wyjaśnienie, przykłady) jako karty w środku; pytane po dotknięciu.</string>
+    <string name="look_paged">Przewijanie</string>
+    <string name="look_paged_d">Na niektórych czytnikach przewijanie odświeża cały ekran po zatrzymaniu; stronami — przesunięcie w górę lub w dół przewraca całą stronę.</string>
+    <string name="paged_scroll">Przewijanie</string>
+    <string name="paged_pages">Stronami</string>
+    <string name="mt_english_t">Pokazuj angielski</string>
+    <string name="mt_english_d">Pośredni krok po angielsku, mniejszym drukiem pod tłumaczeniem. Nic nie jest tłumaczone ponownie.</string>
 </resources>

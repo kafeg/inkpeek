@@ -42,6 +42,8 @@ class Prefs(private val ctx: Context) {
     var theme: String get() = sp.getString("card_theme", "light")!!; set(v) = sp.edit().putString("card_theme", v).apply()
     /** The card's font: "" (Android's) or a font file's path. */
     var cardFont: String get() = sp.getString("card_font", "")!!; set(v) = sp.edit().putString("card_font", v).apply()
+    /** The card's content turns by whole pages (a swipe up or down) instead of scrolling. */
+    var cardPaged: Boolean get() = sp.getBoolean("card_paged", false); set(v) = sp.edit().putBoolean("card_paged", v).apply()
     var cardBar: Boolean get() = sp.getBoolean("card_bar", true); set(v) = sp.edit().putBoolean("card_bar", v).apply()
     /** AI translation in the Translate tab (AI → Modules). */
     var aiTranslate: Boolean get() = sp.getBoolean("ai_translate", true); set(v) = sp.edit().putBoolean("ai_translate", v).apply()
@@ -123,6 +125,8 @@ class Prefs(private val ctx: Context) {
     }
     /** An AI module (AI → Modules) can ask: AI on and a part of it ticked. */
     fun aiModule(ask: io.github.kafeg.inkpeek.ai.Ask) = aiOn && ask.keys.any { aiKey("${ask.section}.${it.name}") ?: !it.extra }
+    /** Mozilla's English in between shown under a translation through English. */
+    var mtEnglish: Boolean get() = sp.getBoolean("mt_english", false); set(v) = sp.edit().putBoolean("mt_english", v).apply()
     /** A method's measured time per phrase on this device, ms (0: not measured). */
     fun mtSpeed(method: String) = sp.getInt("mt_speed_$method", 0)
     fun setMtSpeed(method: String, ms: Int) = sp.edit().putInt("mt_speed_$method", ms).apply()

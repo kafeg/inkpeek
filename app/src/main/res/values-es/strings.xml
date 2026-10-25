@@ -397,4 +397,10 @@
     <string name="no_space">No hay espacio suficiente: se necesitan %1$d MB, hay %2$d MB libres.</string>
     <string name="tab_ai_card">Análisis y contexto</string>
     <string name="icon_ai_d">Análisis (gramática, palabras) y Contexto (explicación, ejemplos), como pestañas dentro; se pide al tocar.</string>
+    <string name="look_paged">Paso de página</string>
+    <string name="look_paged_d">En algunos lectores el desplazamiento redibuja toda la pantalla al parar; por páginas, deslizar arriba o abajo pasa una página entera.</string>
+    <string name="paged_scroll">Desplazar</string>
+    <string name="paged_pages">Por páginas</string>
+    <string name="mt_english_t">Mostrar el inglés</string>
+    <string name="mt_english_d">El paso intermedio en inglés, más pequeño, bajo la traducción. No se traduce de nuevo.</string>
 </resources>

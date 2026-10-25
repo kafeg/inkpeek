@@ -398,4 +398,10 @@
     <string name="no_space">Не хватает места: нужно %1$d МБ, свободно %2$d МБ.</string>
     <string name="tab_ai_card">Разбор и контекст</string>
     <string name="icon_ai_d">Разбор (грамматика, слова) и Контекст (пояснение, примеры) — вкладками внутри; запрос по тапу.</string>
+    <string name="look_paged">Листание</string>
+    <string name="look_paged_d">На некоторых читалках прокрутка перерисовывает весь экран, когда останавливается; страницами — свайп вверх или вниз листает целую страницу.</string>
+    <string name="paged_scroll">Прокрутка</string>
+    <string name="paged_pages">Страницами</string>
+    <string name="mt_english_t">Показывать английский</string>
+    <string name="mt_english_d">Промежуточный английский — мелко под переводом. Перевод не повторяется.</string>
 </resources>
