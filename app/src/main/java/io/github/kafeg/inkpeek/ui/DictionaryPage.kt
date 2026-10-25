@@ -74,7 +74,7 @@ class DictionaryPage(private val card: CardActivity) {
 
     private fun articles(word: String, to: (() -> Unit)?) {
         val p = page ?: return
-        job?.cancel(); p.removeAllViews(); up(to); turn = null
+        job?.cancel(); p.removeAllViews(); up(to); turn = null; card.scrollTop()
         val wait = Ink.text(card, "…", card.size); p.addView(wait)
         job = card.launch {
             val notReady = ArrayList<StarDict>(); val lib = card.prefs.library()

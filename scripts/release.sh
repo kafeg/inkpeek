@@ -19,6 +19,9 @@ grep -q "^## $V\b" CHANGELOG.md || die "CHANGELOG.md has no section '## $V'"
 
 if grep -q "^## $V — unreleased" CHANGELOG.md; then
   sed -i '' "s/^## $V — unreleased/## $V — $(date +%F)/" CHANGELOG.md
+  # F-Droid's notes for this version: changelogs/next.txt becomes changelogs/<the tag's commit count>.txt in this commit.
+  N=$(( $(git rev-list --count HEAD) + 1 ))
+  for f in fastlane/metadata/android/*/changelogs/next.txt; do [ -f "$f" ] && git mv "$f" "$(dirname "$f")/$N.txt"; done
   git commit -qam "CHANGELOG: $V released"
   git push -q origin main || die "push failed: git push origin main, then run this again"
 fi

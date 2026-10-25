@@ -21,12 +21,15 @@ class AiPage(private val card: CardActivity) {
     /** The open sub-tab: "analysis" or "context". */
     var by = ""
 
+    private var job: kotlinx.coroutines.Job? = null
+
     fun fill(p: LinearLayout) {
-        p.removeAllViews()
+        job?.cancel(); p.removeAllViews()
         val subs = card.aiModules; if (subs.isEmpty()) return
-        if (by !in subs) by = subs.first()
-        card.launch {
+        job = card.launch {
             val blocked = withContext(Dispatchers.IO) { subs.associateWith { card.answers.block(ask(it)) } }
+            // A module that can answer now first (offline: the one with a saved answer).
+            if (by !in subs || blocked[by] != null) by = subs.firstOrNull { blocked[it] == null } ?: subs.first()
             if (subs.size > 1) {
                 val seg = Ink.subTabs(card, subs.map { it to Ink.label(card, Action(it)) }, by, card.size * 0.75f) { k ->
                     blocked[k]?.let { card.toast(card.getString(it)) } ?: run { by = k; fill(p) }

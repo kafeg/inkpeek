@@ -124,7 +124,7 @@ object Rows {
         gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false
         addView(Ink.icon(a, R.drawable.ic_back, a.getString(R.string.back)) { back() },
             LinearLayout.LayoutParams(Ink.dp(a, 48), Ink.dp(a, 48)).apply { rightMargin = Ink.dp(a, 12) })
-        addView(Ink.text(a, title, 22f, bold = true).apply { isSingleLine = true; ellipsize = TextUtils.TruncateAt.END }, Ink.lp(0, weight = 1f))
+        addView(Ink.text(a, title, 22f, bold = true).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }, Ink.lp(0, weight = 1f))
     }
 
     /** The running download in a dialog: its progress, then its outcome; closing it leaves the download running. */

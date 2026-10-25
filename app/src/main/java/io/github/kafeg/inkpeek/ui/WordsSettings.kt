@@ -121,7 +121,6 @@ class WordsSettings(private val a: MainActivity) {
     /** Another page starts at its top. */
     private fun turn() = a.launch { refresh().join(); a.scrollTo(tabs) }
 
-    private val PAGE = WordsList.PAGE
 
     companion object { const val RESTORE = 3 }
 }

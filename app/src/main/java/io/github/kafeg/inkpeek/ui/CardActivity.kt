@@ -135,9 +135,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
      * A title longer than its lines is not selected or scrolled inside: its lines end in "…" and a tap shows the whole
      * text in a window, selectable there (a selection inside a cut text scrolls it and takes it all).
      */
-    private fun fitTitle() = titleView.post {
-        val l = titleView.layout ?: return@post
-        if (l.lineCount <= titleView.maxLines) return@post
+    private fun fitTitle() {
+        closeTitle()
+        titleView.apply { ellipsize = null; setOnClickListener(null); TextActions.selectable(this, paragraph = false) }
+        titleView.post { cutTitle() }
+    }
+
+    private fun cutTitle() {
+        val l = titleView.layout ?: return
+        if (l.lineCount <= titleView.maxLines) return
         val full = titleView.text
         titleView.apply { setTextIsSelectable(false); setOnTouchListener(null); ellipsize = android.text.TextUtils.TruncateAt.END; text = full
             setOnClickListener { showWholeTitle(full) } }
@@ -172,7 +178,15 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private fun closeTitle(): Boolean = titleOver?.let { titleBox.removeView(it); titleView.visibility = View.VISIBLE; titleOver = null; true } ?: false
 
     /** The scroll a returned-to page was left at, once. */
-    fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { scroll.scrollTo(0, y) } } }
+    fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { if (prefs.cardPaged) pageAt(y) else scroll.scrollTo(0, y) } } }
+
+    /** By pages: the page holding [y], turned to from the top, so ◀ pages and the count are right. */
+    private fun pageAt(y: Int) {
+        val max = ((scroll.getChildAt(0)?.height ?: 0) - scroll.height).coerceAtLeast(0)
+        pagesBefore.clear(); var at = 0
+        while (at < max) { val next = nextPage(at, max); if (next > y || next <= at) break; pagesBefore += at; at = next }
+        scroll.scrollTo(0, at)
+    }
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
@@ -216,7 +230,14 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 super.onMeasure(w, h)
                 getChildAt(0)?.measure(MeasureSpec.makeMeasureSpec(measuredWidth, MeasureSpec.EXACTLY), MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED))
             }
-            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) { getChildAt(0)?.let { it.layout(0, 0, it.measuredWidth, it.measuredHeight) } }
+            override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
+                val child = getChildAt(0) ?: return
+                child.layout(0, 0, child.measuredWidth, child.measuredHeight)
+                // New content shorter than where the old one was turned to: back within it, the pages past it forgotten.
+                val max = (child.measuredHeight - height).coerceAtLeast(0)
+                if (scrollY > max) scrollTo(0, max)
+                pagesBefore.removeAll { it > max }
+            }
         }.apply { clipChildren = true }
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
         scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
@@ -373,8 +394,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** The page shown and how many there are, by pages only. */
     private fun showPage() {
         val content = scroll.getChildAt(0)?.height ?: 0; val step = pageStep()
-        if (content <= scroll.height || step <= 0) { pageLine.pages = 0; pageLine.invalidate(); return }
         if (scroll.scrollY == 0) pagesBefore.clear()
+        if (content <= scroll.height || step <= 0) { pageLine.pages = 0; pageLine.invalidate(); return }
         // The pages left, counted by the same turns as [turnPage] (each starts at a whole line).
         val max = content - scroll.height; var y = scroll.scrollY; var left = 0
         while (y < max) { y = nextPage(y, max); left++ }
@@ -511,7 +532,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val swipe by lazy { android.view.GestureDetector(this, object : android.view.GestureDetector.SimpleOnGestureListener() {
         override fun onFling(e1: android.view.MotionEvent?, e2: android.view.MotionEvent, vx: Float, vy: Float): Boolean {
             // By pages: up or down a page at once (no scroll on the way: the screen is drawn once).
-            if (prefs.cardPaged && !TextActions.selecting && kotlin.math.abs(vy) > 2 * kotlin.math.abs(vx) && kotlin.math.abs(vy) > 500) {
+            val inTitle = e1 != null && titleOver?.let { o -> android.graphics.Rect().also { o.getGlobalVisibleRect(it) }.contains(e1.x.toInt(), e1.y.toInt()) } == true
+            if (prefs.cardPaged && !TextActions.selecting && !inTitle && kotlin.math.abs(vy) > 2 * kotlin.math.abs(vx) && kotlin.math.abs(vy) > 500) {
                 turnPage(vy < 0); return true
             }
             val turn = dictionary.turn ?: return false

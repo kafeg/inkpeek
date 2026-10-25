@@ -5,7 +5,8 @@ F-Droid builds do not update each other). It has no in-app updater: `-Pinkpeek.u
 drops the update check, its download and the REQUEST_INSTALL_PACKAGES permission.
 
 Descriptions, icon, screenshots: `fastlane/metadata/android/<locale>/` (F-Droid reads them from the tagged commit).
-A release's notes there: `changelogs/<versionCode>.txt` (≤ 500 characters; versionCode = the commit count of the tag).
+A release's notes there: `changelogs/<versionCode>.txt` (≤ 500 characters; versionCode = the commit count of the tag):
+write them as `changelogs/next.txt` per locale before a release, `scripts/release.sh` gives the file its number.
 
 Native code builds from submodules only: Bergamot, fastText, llama.cpp, PCRE2 (pinned to 10.39, what ssplit would
 otherwise download at configure time).
