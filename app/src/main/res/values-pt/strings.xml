@@ -395,4 +395,6 @@
     <string name="hc_ai">Os separadores de IA só perguntam ao tocar. Com «%1$s» (IA → Módulos) os outros estão prontos ao abri-los. Um módulo sem nada marcado não tem separador e não envia nada.</string>
     <string name="hm_off">«Desligado» entre os métodos: sem tradução offline, Traduzir mostra só IA. Os modelos descarregam-se por par de línguas, no separador Tradução.</string>
     <string name="no_space">Espaço livre insuficiente: são precisos %1$d MB, livres %2$d MB.</string>
+    <string name="tab_ai_card">Análise e contexto</string>
+    <string name="icon_ai_d">Análise (gramática, palavras) e Contexto (explicação, exemplos), como separadores dentro; pedido ao tocar.</string>
 </resources>

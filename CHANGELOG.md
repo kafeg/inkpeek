@@ -29,8 +29,10 @@ count, so every release has its own.
   top, like the dictionaries: ◀ the title and "21–40 of 125" ▶, or a swipe.
 - Help: more on the card, selection and its menu, the offline translation and AI; the button says where it goes
   ("Go to: Card → Opening").
-- A long header (a phrase, a passage) shows its first lines with "…" and is not scrolled inside; a tap shows the whole
-  text in a window, to select from there.
+- One AI icon in the card instead of two: Analysis and Context are its tabs, as Translate holds Offline and AI; with one
+  module on, no tabs; with none, no icon.
+- A long header (a phrase, a passage) shows its first lines with "…" and is not scrolled inside; a tap opens the whole
+  text in its place, over the card, to select from there; a tap beside it or Back closes it.
 - A double tap in the card's header selects a word (an e-ink double tap often arrives as three, and the third took the
   whole header).
 - A capitalised word at a sentence's start is first its own word: *Verdammt* → verdammt, *Fertig* → fertig (not the

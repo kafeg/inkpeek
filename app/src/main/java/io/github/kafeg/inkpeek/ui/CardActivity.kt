@@ -77,6 +77,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var starButton: ImageView
     /** The AI tabs: a module with a part ticked (AI → Modules). */
     private val actions get() = if (prefs.aiOn) Action.ALL.filter { ai.ask(it.id).active.isNotEmpty() } else emptyList()
+    /** The AI tab's sub-tabs: the modules on ("analysis", "context"); none — no AI tab. */
+    val aiModules: List<String> get() = actions.map { it.id }
     /** The AI requests this card can show: Translate by AI, and the AI tabs that are not hidden. */
     val shownAsks: List<Ask> get() = if (!prefs.aiOn) emptyList() else (if (prefs.aiTranslate) listOf(Ask.QUICK) else emptyList()) + actions.map { ai.ask(it.id) }
 
@@ -124,7 +126,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         return when (val o = prefs.phraseOpen) {
             "offline" -> offline()
             "ai" -> if (aiTranslate && answers.block(Ask.QUICK) == null) TRANSLATE.also { translate.by = "ai" } else offline()
-            "analysis", "context" -> if (actions.any { it.id == o } && answers.block(ai.ask(o)) == null) o else offline()
+            "analysis", "context" -> if (actions.any { it.id == o } && answers.block(ai.ask(o)) == null) AI.also { ai.by = o } else offline()
             else -> DICT
         }
     }
@@ -138,9 +140,29 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (l.lineCount <= titleView.maxLines) return@post
         val full = titleView.text
         titleView.apply { setTextIsSelectable(false); setOnTouchListener(null); ellipsize = android.text.TextUtils.TruncateAt.END; text = full
-            setOnClickListener { InkDialog(this@CardActivity).view(Ink.text(this@CardActivity, full, size).also { TextActions.selectable(it) })
-                .button(R.string.close).show() } }
+            setOnClickListener { showWholeTitle(full) } }
     }
+
+    private lateinit var frame: FrameLayout
+    private var titleSp = 0f; private var titleBold = false
+    private var titleOver: View? = null
+
+    /**
+     * The whole title in place: over the card from the title's own spot, the same font and margins, as if the title just
+     * grew (scrolls when longer than the card). A tap beside it or Back closes it.
+     */
+    private fun showWholeTitle(full: CharSequence) {
+        if (titleOver != null) return
+        val pad = Ink.dp(this, 14)
+        val tv = Ink.text(this, full, titleSp, bold = titleBold).apply { setLineSpacing(0f, 1f); TextActions.selectable(this, paragraph = false) }
+        val box = Ink.vertical(this).apply { setBackgroundColor(Ink.bg(this@CardActivity)); addView(tv)
+            addView(View(this@CardActivity).apply { setBackgroundColor(Ink.fg(this@CardActivity)) }, Ink.lp(h = Ink.dp(this@CardActivity, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8) }) }
+        val over = ScrollView(this).apply { overScrollMode = View.OVER_SCROLL_NEVER; addView(box) }
+        frame.addView(over, FrameLayout.LayoutParams(android.view.ViewGroup.LayoutParams.MATCH_PARENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { setMargins(pad, pad, pad, pad) })
+        titleOver = over
+    }
+
+    private fun closeTitle(): Boolean = titleOver?.let { frame.removeView(it); titleOver = null; true } ?: false
 
     /** The scroll a returned-to page was left at, once. */
     fun scrollBack() { if (restoreScroll >= 0) { val y = restoreScroll; restoreScroll = -1; scroll.post { scroll.scrollTo(0, y) } } }
@@ -168,7 +190,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         root = card
         val head = FrameLayout(this)
         val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
-        titleView = Ink.text(this, query, if (long) size * 0.95f else size * 1.3f, bold = !long).apply {
+        titleSp = if (long) size * 0.95f else size * 1.3f; titleBold = !long
+        titleView = Ink.text(this, query, titleSp, bold = titleBold).apply {
             // No "…": Android's selection goes wrong on ellipsized text (a double tap took it all, a triple missed a word).
             maxLines = if (long) 2 else 3; setLineSpacing(0f, 1f)
             TextActions.selectable(this, paragraph = false)
@@ -188,21 +211,22 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         card.addView(hintView, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 6) })
 
         val tabs = listOfNotNull(Triple(DICT, R.drawable.ic_dictionary, getString(R.string.tab_dictionary)),
-            Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate)).takeIf { canTranslate }) + actions.map { a ->
-            Triple(a.id, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a))
-        }
+            Triple(TRANSLATE, R.drawable.ic_translate, getString(R.string.tab_translate)).takeIf { canTranslate },
+            // One AI tab, its modules inside (as Translate holds Offline and AI); named by the module when it is one.
+            actions.singleOrNull()?.let { a -> Triple(AI, if (a.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(this, a)) }
+                ?: Triple(AI, R.drawable.ic_analysis, getString(R.string.tab_ai_card)).takeIf { actions.isNotEmpty() })
         val n = tabs.size + if (prefs.cardSave) 4 else 2; val gap = Ink.dp(this, 5) // + save, Notes, back, close
         val side = minOf(Ink.dp(this, 44), (resources.displayMetrics.widthPixels * prefs.cardWidth / 100 - 2 * pad - gap * (n + 3)) / n)
         val bar = Ink.horizontal(this).apply { gravity = Gravity.CENTER_VERTICAL }
         fun add(v: View, first: Boolean = false) = bar.addView(v, Ink.lp(android.view.ViewGroup.LayoutParams.WRAP_CONTENT).apply { if (!first) leftMargin = gap })
         tabs.forEachIndexed { i, (id, icon, label) ->
-            val isAi = id != DICT && id != TRANSLATE
-            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { answers.block(ai.ask(id)) }
-                if (r != null) toast(getString(r)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
+            val isAi = id == AI
+            add(iconButton(icon, label, side, ai = isAi) { if (isAi) launch { val r = withContext(Dispatchers.IO) { actions.map { answers.block(ai.ask(it.id)) } }
+                if (r.all { it != null }) toast(getString(r.first()!!)) else open(id) } else open(id) }.also { tabButtons[id] = it }, i == 0)
         }
-        // AI tabs are dimmed while AI cannot answer; a saved answer still opens offline.
-        launch { val blocked = withContext(Dispatchers.IO) { actions.associate { it.id to answers.block(ai.ask(it.id)) } }
-            actions.forEach { tabButtons[it.id]?.alpha = if (blocked[it.id] == null) 1f else Ink.OFF } }
+        // The AI tab is dimmed while none of its modules can answer; a saved answer still opens offline.
+        launch { val blocked = withContext(Dispatchers.IO) { actions.map { answers.block(ai.ask(it.id)) } }
+            tabButtons[AI]?.alpha = if (blocked.all { it != null }) Ink.OFF else 1f }
         val star = iconButton(R.drawable.ic_star, getString(R.string.save_word), side) { toggleSaved() }
         starButton = star.findViewWithTag("icon")
         if (prefs.cardSave) {
@@ -222,7 +246,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 Ink.lp(h = Ink.dp(this, 1)).apply { topMargin = Ink.dp(this@CardActivity, 8); bottomMargin = Ink.dp(this@CardActivity, 8) })
             card.addView(bar)
         }
-        setContentView(card)
+        frame = FrameLayout(this).apply { addView(card, FrameLayout.LayoutParams(-1, -1)) }
+        setContentView(frame)
     }
 
     /** A bordered icon; long press shows its name; an AI tab has a small "AI" in its corner. */
@@ -281,7 +306,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** A tab's page, filled the first time unless [fill] is false (the Dictionary tab opened on a word from elsewhere). */
     fun page(tab: String, fill: Boolean = true): LinearLayout = pages[tab] ?: Ink.vertical(this).also { p ->
         pages[tab] = p
-        if (fill) when (tab) { DICT -> dictionary.fill(p); SAVED -> words.fill(p); TRANSLATE -> translate.fill(p); else -> ai.fill(p, tab) }
+        if (fill) when (tab) { DICT -> dictionary.fill(p); SAVED -> words.fill(p); TRANSLATE -> translate.fill(p); else -> ai.fill(p) }
     }
 
     private lateinit var hintView: TextView
@@ -331,7 +356,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** System Back from a word's article returns to the list or the gloss first. */
     @Deprecated("Activity API") override fun onBackPressed() {
-        if (!back()) @Suppress("DEPRECATION") super.onBackPressed()
+        if (!closeTitle() && !back()) @Suppress("DEPRECATION") super.onBackPressed()
     }
 
     fun note(p: LinearLayout, s: String) = p.addView(Ink.text(this, s, size * 0.85f))
@@ -402,13 +427,18 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         private const val BEFORE = "inkpeek.before"; private const val BEFORE_AT = "inkpeek.before.at"; private const val AT = "inkpeek.at"
         /** The intent's look is counted (the card made again keeps its intent). */
         private const val COUNTED = "inkpeek.counted"
-        const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"
+        const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"; const val AI = "ai"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4
     }
 
     /** A tap beside a selection ends it and its menu. */
-    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean { TextActions.outside(ev); swipe.onTouchEvent(ev); return super.dispatchTouchEvent(ev) }
+    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean {
+        // The whole title open: a tap beside it closes it, and goes no further.
+        titleOver?.let { o -> if (ev.actionMasked == android.view.MotionEvent.ACTION_DOWN) { val r = android.graphics.Rect(); o.getGlobalVisibleRect(r)
+            if (!r.contains(ev.x.toInt(), ev.y.toInt())) { TextActions.end(); closeTitle(); return true } } }
+        TextActions.outside(ev); swipe.onTouchEvent(ev); return super.dispatchTouchEvent(ev)
+    }
 
     /** Full articles: a swipe left or right turns to the next or previous dictionary. */
     private val swipe by lazy { android.view.GestureDetector(this, object : android.view.GestureDetector.SimpleOnGestureListener() {

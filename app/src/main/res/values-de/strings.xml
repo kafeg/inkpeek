@@ -394,4 +394,6 @@
     <string name="hc_ai">KI-Tabs fragen nur beim Tippen. Mit „%1$s“ (KI → Module) sind die anderen fertig, wenn Sie sie öffnen. Ein Modul ohne Haken hat keinen Tab und sendet nichts.</string>
     <string name="hm_off">„Aus“ unter den Methoden: keine Offline-Übersetzung, Übersetzen zeigt nur KI. Modelle werden je Sprachpaar geladen, im Tab Übersetzung.</string>
     <string name="no_space">Nicht genug freier Speicher: %1$d MB nötig, %2$d MB frei.</string>
+    <string name="tab_ai_card">Analyse und Kontext</string>
+    <string name="icon_ai_d">Analyse (Grammatik, Wörter) und Kontext (Erklärung, Beispiele) als Tabs darin; angefragt beim Tippen.</string>
 </resources>

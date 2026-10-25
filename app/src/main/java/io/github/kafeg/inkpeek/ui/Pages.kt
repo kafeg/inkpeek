@@ -7,7 +7,6 @@ import android.view.Gravity
 import android.widget.LinearLayout
 import io.github.kafeg.inkpeek.Prefs
 import io.github.kafeg.inkpeek.R
-import io.github.kafeg.inkpeek.ai.Action
 import java.io.File
 
 /** A page's header over the settings: ← (to [back]) and its title. */
@@ -63,7 +62,7 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
             t.addView(Rows.heading(a, a.getString(R.string.controls_t)))
             val rows = listOf(Triple(R.drawable.ic_dictionary, a.getString(R.string.tab_dictionary), a.getString(R.string.icon_dict_d)),
                 Triple(R.drawable.ic_translate, a.getString(R.string.tab_translate), a.getString(R.string.icon_translate_d))) +
-                Action.ALL.map { x -> Triple(if (x.id == "analysis") R.drawable.ic_analysis else R.drawable.ic_context, Ink.label(a, x) + " · AI", Ink.description(a, x)) } +
+                listOf(Triple(R.drawable.ic_analysis, a.getString(R.string.tab_ai_card) + " · AI", a.getString(R.string.icon_ai_d))) +
                 listOf(Triple(R.drawable.ic_star, a.getString(R.string.save_word), a.getString(R.string.icon_save_d)),
                     Triple(R.drawable.ic_words, a.getString(R.string.tab_words), a.getString(R.string.icon_words_d)),
                     Triple(R.drawable.ic_back, a.getString(R.string.back), a.getString(R.string.icon_back_d)),

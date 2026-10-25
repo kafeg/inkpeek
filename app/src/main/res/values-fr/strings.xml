@@ -395,4 +395,6 @@
     <string name="hc_ai">Les onglets IA ne demandent qu\'à l\'appui. Avec « %1$s » (IA → Modules), les autres sont prêts à l\'ouverture. Un module sans case cochée n\'a pas d\'onglet et n\'envoie rien.</string>
     <string name="hm_off">« Désactivé » parmi les méthodes : pas de traduction hors ligne, Traduire montre seulement l\'IA. Les modèles se téléchargent par paire de langues, dans l\'onglet Traduction.</string>
     <string name="no_space">Pas assez d\'espace libre : %1$d Mo nécessaires, %2$d Mo libres.</string>
+    <string name="tab_ai_card">Analyse et contexte</string>
+    <string name="icon_ai_d">Analyse (grammaire, mots) et Contexte (explication, exemples), en onglets à l\'intérieur ; demandé à l\'appui.</string>
 </resources>

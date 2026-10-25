@@ -6,21 +6,42 @@ import io.github.kafeg.inkpeek.R
 import io.github.kafeg.inkpeek.ai.Answers
 import io.github.kafeg.inkpeek.ai.Ask
 import io.github.kafeg.inkpeek.ai.Kind
+import io.github.kafeg.inkpeek.ai.Action
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 
-/** The AI tabs: Analysis (Grammar, Words) and Context (Explanation, Examples), under the app's own headings. */
+/**
+ * The card's one AI tab: Analysis (Grammar, Words) and Context (Explanation, Examples) as its sub-tabs, under the app's
+ * own headings — only the modules that are on; with one, no sub-tabs.
+ */
 class AiPage(private val card: CardActivity) {
-    fun fill(p: LinearLayout, tab: String) {
-        val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
+    /** The open sub-tab: "analysis" or "context". */
+    var by = ""
+
+    fun fill(p: LinearLayout) {
+        p.removeAllViews()
+        val subs = card.aiModules; if (subs.isEmpty()) return
+        if (by !in subs) by = subs.first()
         card.launch {
-            val r = await(out, ask(tab))
-            r.fold({ card.markdown(out, render(tab, it)) }, { e ->
+            val blocked = withContext(Dispatchers.IO) { subs.associateWith { card.answers.block(ask(it)) } }
+            if (subs.size > 1) {
+                val seg = Ink.subTabs(card, subs.map { it to Ink.label(card, Action(it)) }, by, card.size * 0.75f) { k ->
+                    blocked[k]?.let { card.toast(card.getString(it)) } ?: run { by = k; fill(p) }
+                }
+                subs.filter { blocked[it] != null }.forEach { seg.findViewWithTag<android.view.View>(it)?.alpha = Ink.OFF }
+                p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+            }
+            val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
+            blocked[by]?.let { out.text = card.getString(it); card.forget(CardActivity.AI); return@launch }
+            val tab = by
+            await(out, ask(tab)).fold({ card.markdown(out, render(tab, it)) }, { e ->
                 // The error; the tab asks again next time.
                 out.text = if (e is Answers.Offline) card.getString(R.string.err_offline) else aiError(card, card.prefs, card.online, e)
-                card.forget(tab)
+                card.forget(CardActivity.AI)
             })
         }
     }

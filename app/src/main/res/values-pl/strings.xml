@@ -396,4 +396,6 @@
     <string name="hc_ai">Karty AI pytają tylko po dotknięciu. Z „%1$s” (AI → Moduły) pozostałe są gotowe, gdy je otworzysz. Moduł bez zaznaczonych części nie ma karty i nic nie wysyła.</string>
     <string name="hm_off">„Wyłączone” wśród metod: bez tłumaczenia offline, Tłumaczenie pokazuje tylko AI. Modele pobiera się dla każdej pary języków, na karcie Tłumaczenie.</string>
     <string name="no_space">Za mało wolnego miejsca: potrzeba %1$d MB, wolne %2$d MB.</string>
+    <string name="tab_ai_card">Analiza i kontekst</string>
+    <string name="icon_ai_d">Analiza (gramatyka, słowa) i Kontekst (wyjaśnienie, przykłady) jako karty w środku; pytane po dotknięciu.</string>
 </resources>

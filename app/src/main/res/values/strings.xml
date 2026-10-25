@@ -395,4 +395,6 @@
     <string name="hc_ai">AI tabs ask only when you tap them. With \"%1$s\" (AI → Modules) the others are ready when you open them. A module with nothing ticked has no tab and sends nothing.</string>
     <string name="hm_off">Off among the methods: no offline translation, Translate shows AI only. Models download per language pair, on the Translation tab.</string>
     <string name="no_space">Not enough free space: %1$d MB needed, %2$d MB free.</string>
+    <string name="tab_ai_card">Analysis and context</string>
+    <string name="icon_ai_d">Analysis (grammar, words) and Context (explanation, examples), as tabs inside; asked when you tap.</string>
 </resources>

@@ -395,4 +395,6 @@
     <string name="hc_ai">Le schede IA chiedono solo al tocco. Con «%1$s» (IA → Moduli) le altre sono pronte quando le apri. Un modulo senza nulla spuntato non ha scheda e non invia nulla.</string>
     <string name="hm_off">«Disattivato» tra i metodi: nessuna traduzione offline, Traduci mostra solo l\'IA. I modelli si scaricano per coppia di lingue, nella scheda Traduzione.</string>
     <string name="no_space">Spazio libero insufficiente: servono %1$d MB, liberi %2$d MB.</string>
+    <string name="tab_ai_card">Analisi e contesto</string>
+    <string name="icon_ai_d">Analisi (grammatica, parole) e Contesto (spiegazione, esempi), come schede interne; richiesti al tocco.</string>
 </resources>
