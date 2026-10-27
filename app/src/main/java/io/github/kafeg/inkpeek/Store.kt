@@ -61,6 +61,8 @@ class Store private constructor(ctx: Context, path: String) : SQLiteOpenHelper(c
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, seen))
 
     /** Answers of texts that are neither in the history nor saved. */
+    /** Answers of texts neither in the history nor saved (the history is off): gone when the card closes. */
+    fun dropUnkept() = dropAnswers(writableDatabase)
     private fun dropAnswers(db: SQLiteDatabase) =
         db.execSQL("DELETE FROM ai WHERE text NOT IN (SELECT text FROM history) AND text NOT IN (SELECT text FROM saved)")
 

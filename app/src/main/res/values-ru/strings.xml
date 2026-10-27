@@ -104,7 +104,9 @@
     <string name="look_bar">Панель значков</string>
     <string name="look_bar_d">Выключено: только открытая страница; закрыть — «Назад» или касание вне.</string>
     <string name="look_save">Сохранение слов</string>
-    <string name="look_save_d">Значки ☆ и «Записи»; история ведётся в любом случае.</string>
+    <string name="look_save_d">Значки ☆ и «Записи».</string>
+    <string name="look_history">История</string>
+    <string name="look_history_d">Что вы открываете, остаётся в «Записи → История», со счётчиком просмотров. Выключено: ничего не записывается; то, что уже есть, остаётся, пока не очистите.</string>
     <string name="look_theme">Тема</string>
     <string name="look_theme_d">Светлая, тёмная (белым по чёрному) или как ночной режим Android: карточка и настройки.</string>
     <string name="theme_light">Светлая</string>
@@ -424,7 +426,7 @@
     <string name="hw_save_t">Сохранение</string>
     <string name="hw_save">☆ в карточке сохраняет слово в начальной форме (Häusern → Haus), фразу — как есть. Закрашенная звезда — уже сохранено.</string>
     <string name="hw_hist_t">История</string>
-    <string name="hw_hist">Всё, что вы открывали, последние 1 000, и сколько раз смотрели каждое; запись хранит свои ответы AI, поэтому потом открывается офлайн.</string>
+    <string name="hw_hist">Всё, что вы открывали, последние 1 000, и сколько раз смотрели каждое; запись хранит свои ответы AI, поэтому потом открывается офлайн. Выключается в «Карточка → Открытие → История».</string>
     <string name="hw_del_t">Удаление</string>
     <string name="hw_del">✕ удаляет одну запись, «Очистить историю» — всю историю; сохранённое остаётся.</string>
     <string name="hw_anki_t">Anki</string>

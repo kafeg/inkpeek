@@ -116,6 +116,8 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   at display time.
 - `history`: every card opening, last 1000, with one short line: a word — the pack dictionary's first line; a phrase —
   its offline translation (started when the card opens); else the cached AI translation, else "—". Only in the app.
+  Card → Opening → History off: nothing is written (no row, no count, no base form); what is there stays until cleared;
+  answers of a text neither in the history nor saved are removed when its card closes.
 - Settings → Notes: Words / Phrases / History as second-level tabs (text, the open one underlined), rows of the
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
@@ -226,8 +228,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       ColorDict protocol: Librera and FBReader send them, so the card does not cover the word); text size; theme —
       light, dark (white on black) or as in the system (night mode). **Icons**: the icon bar on or off (off: the
       Dictionary tab only, tap outside closes); each icon with what it does and when it is there (Translate: AI or
-      offline translation on; Analysis, Context: AI chosen); the save icons (☆, Notes) on or off under them — the
-      history is kept either way.
+      offline translation on; Analysis, Context: AI chosen); the save icons (☆, Notes) on or off under them; History on or
+      off (off: nothing of what is opened is written).
    2. **Languages in two tabs.** "InkPeek": the pairs as in 0.3, then "what the card takes from the language packs" —
       words (articles, word-by-word), grammar (the header), offline translation; the text's language always comes from
       the packs (the ticked pairs, whatever is switched off). "Other dictionaries" (StarDict only, as in 0.2): download

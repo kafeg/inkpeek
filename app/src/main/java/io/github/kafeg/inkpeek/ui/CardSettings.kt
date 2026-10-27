@@ -23,6 +23,7 @@ class CardSettings(private val a: MainActivity) {
         t.addView(Rows.heading(a, a.getString(R.string.controls_t)))
         t.addView(Rows.check(a, a.getString(R.string.look_bar), a.getString(R.string.look_bar_d), prefs.cardBar) { prefs.cardBar = it })
         t.addView(Rows.check(a, a.getString(R.string.look_save), a.getString(R.string.look_save_d), prefs.cardSave) { prefs.cardSave = it })
+        t.addView(Rows.check(a, a.getString(R.string.look_history), a.getString(R.string.look_history_d), prefs.history) { prefs.history = it })
     }
 
     private lateinit var openBox: LinearLayout

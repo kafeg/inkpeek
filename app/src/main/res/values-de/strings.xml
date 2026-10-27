@@ -104,7 +104,9 @@
     <string name="look_bar">Symbolleiste</string>
     <string name="look_bar_d">Aus: nur die offene Seite; Zurück oder ein Tippen außerhalb schließt die Karte.</string>
     <string name="look_save">Wörter speichern</string>
-    <string name="look_save_d">Die Symbole ☆ und Notizen; der Verlauf wird immer geführt.</string>
+    <string name="look_save_d">Die Symbole ☆ und Notizen.</string>
+    <string name="look_history">Verlauf</string>
+    <string name="look_history_d">Was Sie öffnen, bleibt in Notizen → Verlauf, mit der Zahl der Aufrufe. Aus: nichts wird geschrieben; was schon da ist, bleibt, bis Sie es löschen.</string>
     <string name="look_theme">Design</string>
     <string name="look_theme_d">Hell, dunkel (weiß auf schwarz) oder wie der Nachtmodus von Android: Karte und Einstellungen.</string>
     <string name="theme_light">Hell</string>
@@ -422,7 +424,7 @@
     <string name="hw_save_t">Speichern</string>
     <string name="hw_save">☆ in der Karte speichert ein Wort in der Grundform (Häusern → Haus), eine Phrase so, wie sie ist. Ein voller Stern: schon gespeichert.</string>
     <string name="hw_hist_t">Verlauf</string>
-    <string name="hw_hist">Alles, was Sie öffnen, die letzten 1.000, mit der Zahl, wie oft Sie es nachgeschlagen haben; die KI-Antworten bleiben dabei, so öffnet es später auch offline.</string>
+    <string name="hw_hist">Alles, was Sie öffnen, die letzten 1.000, mit der Zahl, wie oft Sie es nachgeschlagen haben; die KI-Antworten bleiben dabei, so öffnet es später auch offline. Ausschalten: Karte → Öffnen → Verlauf.</string>
     <string name="hw_del_t">Entfernen</string>
     <string name="hw_del">✕ entfernt einen Eintrag, „Verlauf löschen“ den ganzen Verlauf; Gespeichertes bleibt.</string>
     <string name="hw_anki_t">Anki</string>

@@ -104,7 +104,9 @@
     <string name="look_bar">Barra de iconos</string>
     <string name="look_bar_d">Desactivada: solo la página abierta; Atrás o un toque fuera cierra la tarjeta.</string>
     <string name="look_save">Guardar palabras</string>
-    <string name="look_save_d">Los iconos ☆ y Notas; el historial se guarda igualmente.</string>
+    <string name="look_save_d">Los iconos ☆ y Notas.</string>
+    <string name="look_history">Historial</string>
+    <string name="look_history_d">Lo que abre queda en Notas → Historial, con cuántas veces lo consultó. Desactivado: no se escribe nada; lo que ya hay queda hasta que lo borre.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Clara, oscura (blanco sobre negro) o como el modo nocturno de Android: la tarjeta y los ajustes.</string>
     <string name="theme_light">Claro</string>
@@ -423,7 +425,7 @@
     <string name="hw_save_t">Guardar</string>
     <string name="hw_save">☆ en la tarjeta guarda una palabra en su forma base (Häusern → Haus) y una frase tal cual. Estrella rellena: ya está guardada.</string>
     <string name="hw_hist_t">Historial</string>
-    <string name="hw_hist">Todo lo que abres, las últimas 1000 entradas, con cuántas veces consultaste cada una; sus respuestas de IA se quedan con ellas, así que luego se abren sin conexión.</string>
+    <string name="hw_hist">Todo lo que abres, las últimas 1000 entradas, con cuántas veces consultaste cada una; sus respuestas de IA se quedan con ellas, así que luego se abren sin conexión. Se desactiva en Tarjeta → Apertura → Historial.</string>
     <string name="hw_del_t">Borrar</string>
     <string name="hw_del">✕ quita una entrada; Borrar historial, todo el historial; lo guardado se queda.</string>
     <string name="hw_anki_t">Anki</string>

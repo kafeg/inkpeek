@@ -104,7 +104,9 @@
     <string name="look_bar">Barre d\'icônes</string>
     <string name="look_bar_d">Désactivé : seulement la page ouverte ; Retour ou un appui en dehors ferme la fiche.</string>
     <string name="look_save">Enregistrement des mots</string>
-    <string name="look_save_d">Les icônes ☆ et Notes ; l\'historique est gardé dans tous les cas.</string>
+    <string name="look_save_d">Les icônes ☆ et Notes.</string>
+    <string name="look_history">Historique</string>
+    <string name="look_history_d">Ce que vous ouvrez reste dans Notes → Historique, avec le nombre de consultations. Désactivé : rien n’est écrit ; ce qui y est déjà reste jusqu’à ce que vous l’effaciez.</string>
     <string name="look_theme">Thème</string>
     <string name="look_theme_d">Clair, sombre (blanc sur noir) ou selon le mode nuit d\'Android : la fiche et les réglages.</string>
     <string name="theme_light">Clair</string>
@@ -423,7 +425,7 @@
     <string name="hw_save_t">Enregistrement</string>
     <string name="hw_save">☆ dans la fiche enregistre un mot sous sa forme de base (Häusern → Haus), une phrase telle quelle. Étoile pleine : déjà enregistré.</string>
     <string name="hw_hist_t">Historique</string>
-    <string name="hw_hist">Tout ce que vous ouvrez, les 1 000 derniers, avec le nombre de consultations de chacun ; ses réponses de l\'IA restent avec lui, donc il s\'ouvre ensuite hors ligne.</string>
+    <string name="hw_hist">Tout ce que vous ouvrez, les 1 000 derniers, avec le nombre de consultations de chacun ; ses réponses de l\'IA restent avec lui, donc il s\'ouvre ensuite hors ligne. Se désactive dans Fiche → Ouverture → Historique.</string>
     <string name="hw_del_t">Suppression</string>
     <string name="hw_del">✕ supprime une entrée, « Effacer l\'historique » tout l\'historique ; ce qui est enregistré reste.</string>
     <string name="hw_anki_t">Anki</string>

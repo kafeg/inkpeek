@@ -40,6 +40,15 @@ class StoreOnDeviceTest {
     }
 
     /** A damaged file is put aside, not deleted (Android's default): the notes in it may still be saved. */
+    @Test fun withoutHistoryOnlySavedAnswersStay() {
+        val s = fresh("t-unkept.db")
+        s.save("Haus", "word", "", "en")
+        s.putAnswer("Haus", "en", "quick", 1, "m", "kept"); s.putAnswer("geheim", "en", "quick", 1, "m", "gone")
+        s.dropUnkept()
+        assertEquals("kept", s.answer("Haus", "en", "quick", 1)); assertEquals(null, s.answer("geheim", "en", "quick", 1))
+        assertEquals(0, s.count("history"))
+    }
+
     @Test fun aDamagedFileIsPutAside() {
         val f = File(ctx.cacheDir, "t-bad.db")
         ctx.cacheDir.listFiles { x -> x.name.startsWith("t-bad.db") }?.forEach { it.delete() }

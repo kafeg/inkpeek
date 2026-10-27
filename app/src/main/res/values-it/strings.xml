@@ -104,7 +104,9 @@
     <string name="look_bar">Barra delle icone</string>
     <string name="look_bar_d">Disattivata: solo la pagina aperta; Indietro o un tocco fuori chiude la scheda.</string>
     <string name="look_save">Salvataggio parole</string>
-    <string name="look_save_d">Le icone ☆ e Note; la cronologia resta comunque.</string>
+    <string name="look_save_d">Le icone ☆ e Note.</string>
+    <string name="look_history">Cronologia</string>
+    <string name="look_history_d">Ciò che apri resta in Note → Cronologia, con quante volte l’hai consultato. Disattivata: non si scrive nulla; ciò che c’è già resta finché non lo cancelli.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Chiaro, scuro (bianco su nero) o come la modalità notte di Android: la scheda e le impostazioni.</string>
     <string name="theme_light">Chiaro</string>
@@ -423,7 +425,7 @@
     <string name="hw_save_t">Salvataggio</string>
     <string name="hw_save">☆ nella scheda salva una parola nella forma base (Häusern → Haus), una frase così com\'è. Stella piena: già salvato.</string>
     <string name="hw_hist_t">Cronologia</string>
-    <string name="hw_hist">Tutto ciò che apri, gli ultimi 1000, con quante volte hai cercato ciascuno; le risposte dell\'IA restano con la voce, così dopo si apre anche offline.</string>
+    <string name="hw_hist">Tutto ciò che apri, gli ultimi 1000, con quante volte hai cercato ciascuno; le risposte dell\'IA restano con la voce, così dopo si apre anche offline. Si disattiva in Scheda → Apertura → Cronologia.</string>
     <string name="hw_del_t">Rimozione</string>
     <string name="hw_del">✕ rimuove una voce, «Cancella cronologia» tutta la cronologia; ciò che è salvato resta.</string>
     <string name="hw_anki_t">Anki</string>

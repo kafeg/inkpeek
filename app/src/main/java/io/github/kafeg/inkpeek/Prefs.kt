@@ -49,6 +49,7 @@ class Prefs(private val ctx: Context) {
     var aiTranslate: Boolean get() = sp.getBoolean("ai_translate", true); set(v) = sp.edit().putBoolean("ai_translate", v).apply()
     /** The card's ☆ and Notes icons; the history is kept either way. */
     var cardSave: Boolean get() = sp.getBoolean("card_save", true); set(v) = sp.edit().putBoolean("card_save", v).apply()
+    var history: Boolean get() = sp.getBoolean("history", true); set(v) = sp.edit().putBoolean("history", v).apply()
     /** AI chosen (AI tab); never chosen yet — on only with a key or a server already there, so a fresh install starts without AI. */
     var aiOn: Boolean get() = if (sp.contains("ai_on")) sp.getBoolean("ai_on", false) else effectiveKey(provider).isNotBlank() || url(Provider.CUSTOM).isNotBlank()
         set(v) = sp.edit().putBoolean("ai_on", v).apply()

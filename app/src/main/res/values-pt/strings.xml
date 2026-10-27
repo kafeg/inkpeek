@@ -104,7 +104,9 @@
     <string name="look_bar">Barra de ícones</string>
     <string name="look_bar_d">Desligada: só a página aberta; Voltar ou um toque fora fecha o cartão.</string>
     <string name="look_save">Guardar palavras</string>
-    <string name="look_save_d">Os ícones ☆ e Notas; o histórico é sempre guardado.</string>
+    <string name="look_save_d">Os ícones ☆ e Notas.</string>
+    <string name="look_history">Histórico</string>
+    <string name="look_history_d">O que abre fica em Notas → Histórico, com quantas vezes o consultou. Desligado: nada é escrito; o que já lá está fica até o apagar.</string>
     <string name="look_theme">Tema</string>
     <string name="look_theme_d">Claro, escuro (branco sobre preto) ou como o modo noturno do Android: o cartão e as definições.</string>
     <string name="theme_light">Claro</string>
@@ -423,7 +425,7 @@
     <string name="hw_save_t">Guardar</string>
     <string name="hw_save">☆ no cartão guarda uma palavra na forma base (Häusern → Haus) e uma frase tal como está. Estrela cheia: já está guardada.</string>
     <string name="hw_hist_t">Histórico</string>
-    <string name="hw_hist">Tudo o que abre, as últimas 1000 entradas, com quantas vezes consultou cada uma; as respostas da IA ficam com elas, por isso abrem depois offline.</string>
+    <string name="hw_hist">Tudo o que abre, as últimas 1000 entradas, com quantas vezes consultou cada uma; as respostas da IA ficam com elas, por isso abrem depois offline. Desliga-se em Cartão → Abertura → Histórico.</string>
     <string name="hw_del_t">Remover</string>
     <string name="hw_del">✕ remove uma entrada; Limpar histórico, o histórico inteiro; o que está guardado fica.</string>
     <string name="hw_anki_t">Anki</string>

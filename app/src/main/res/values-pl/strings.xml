@@ -104,7 +104,9 @@
     <string name="look_bar">Pasek ikon</string>
     <string name="look_bar_d">Wyłączone: tylko otwarta strona; Wstecz lub dotknięcie poza kartą ją zamyka.</string>
     <string name="look_save">Zapisywanie słów</string>
-    <string name="look_save_d">Ikony ☆ i Notatki; historia jest prowadzona zawsze.</string>
+    <string name="look_save_d">Ikony ☆ i Notatki.</string>
+    <string name="look_history">Historia</string>
+    <string name="look_history_d">To, co otwierasz, zostaje w Notatki → Historia, z liczbą wyświetleń. Wyłączone: nic nie jest zapisywane; to, co już jest, zostaje, dopóki nie wyczyścisz.</string>
     <string name="look_theme">Motyw</string>
     <string name="look_theme_d">Jasny, ciemny (biały na czarnym) lub jak tryb nocny Androida: karta i ustawienia.</string>
     <string name="theme_light">Jasny</string>
@@ -424,7 +426,7 @@
     <string name="hw_save_t">Zapisywanie</string>
     <string name="hw_save">☆ na karcie zapisuje słowo w formie podstawowej (Häusern → Haus), a frazę tak, jak jest. Pełna gwiazdka: już zapisane.</string>
     <string name="hw_hist_t">Historia</string>
-    <string name="hw_hist">Wszystko, co otwierasz, ostatnie 1000 pozycji, z liczbą sprawdzeń każdej; odpowiedzi AI zostają przy niej, więc później otwiera się offline.</string>
+    <string name="hw_hist">Wszystko, co otwierasz, ostatnie 1000 pozycji, z liczbą sprawdzeń każdej; odpowiedzi AI zostają przy niej, więc później otwiera się offline. Wyłącza się w Karta → Otwieranie → Historia.</string>
     <string name="hw_del_t">Usuwanie</string>
     <string name="hw_del">✕ usuwa jeden wpis, „Wyczyść historię” — całą historię; zapisane zostaje.</string>
     <string name="hw_anki_t">Anki</string>

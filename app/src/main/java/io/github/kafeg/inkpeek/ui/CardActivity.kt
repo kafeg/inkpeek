@@ -97,7 +97,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
         val back = intent.getStringExtra(AT)?.split('|')
         // One look per opening: not again when the card is made anew (theme, language) or returned to with ←.
-        if (back == null && !intent.getBooleanExtra(COUNTED, false)) { intent.putExtra(COUNTED, true)
+        if (prefs.history && back == null && !intent.getBooleanExtra(COUNTED, false)) { intent.putExtra(COUNTED, true)
             seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } } }
         build()
         placeWindow()
@@ -107,7 +107,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         else {
             dictionary.warm()
             if (offlineOk && prefs.mtMethod != "llm")
-                launch { mt.start(this@CardActivity).await().text?.getOrNull()?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
+                launch { mt.start(this@CardActivity).await().text?.getOrNull()?.takeIf { prefs.history }?.let { t -> withContext(Dispatchers.IO) { runCatching { store.meaning(query, kindName, t, prefs.answerLang) } } } }
         }
         // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
         if (back != null && back.size == 3 && back[0] in tabButtons) {
@@ -190,7 +190,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
-    override fun onDestroy() { cancel(); super.onDestroy() }
+    override fun onDestroy() {
+        cancel()
+        if (isFinishing && !prefs.history) Thread { runCatching { store.dropUnkept() } }.start()
+        super.onDestroy()
+    }
     override fun onTrimMemory(level: Int) {
         super.onTrimMemory(level)
         // Off the main thread: a release waits for a running translation.
@@ -463,12 +467,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (!prefs.packGrammar) return@launch
         val heads = withContext(Dispatchers.IO) { runCatching { prefs.library().heads(query, prefs.answerCode, prefs.packDictionaries()) }.getOrDefault(emptyList()) }
         val first = heads.firstOrNull() ?: return@launch
-        launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
+        if (prefs.history) launch(Dispatchers.IO) { runCatching { store.meaning(query, kindName, first.line, prefs.answerLang) } }
         titleView.text = first.header; fitTitle()
         // How common the word is and how often it was looked up here, in any of its forms.
         seenJob?.join()
         val (rank, looks) = withContext(Dispatchers.IO) { runCatching {
-            prefs.library().rank(first.word, first.book) to store.run { base(query, kindName, first.word); looks(first.word) }
+            prefs.library().rank(first.word, first.book) to store.run { if (prefs.history) base(query, kindName, first.word); looks(first.word) }
         }.getOrDefault(0 to 0) }
         val facts = listOfNotNull(Facts.frequency(this@CardActivity, rank), Facts.looks(this@CardActivity, looks)).joinToString(" · ")
         // The selected form (the other dictionaries that know the word are in the Dictionary tab).
