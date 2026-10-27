@@ -328,7 +328,7 @@
     <string name="backup_d">Всё сразу — сохранённые слова и фразы, история и ответы AI — в файл в Download/InkPeek и обратно: импорт добавляет то, чего на этом устройстве нет.</string>
     <string name="backup_done">Сохранено: %1$s</string>
     <string name="restore_done">Добавлено: %1$d</string>
-    <string name="restore_bad">Это не резервная копия InkPeek.</string>
+    <string name="restore_bad">Это не резервная копия InkPeek: «Импорт» берёт файл inkpeek-backup-….db, который делает «Экспорт». Список .tsv — для Anki или таблицы.</string>
     <string name="ans_lang">Язык ответов</string>
     <string name="ans_lang_d">На этом языке приходят словари, переводы и ответы AI; пакеты на него — первыми.</string>
     <string name="ans_lang_same">Как язык приложения</string>

@@ -327,7 +327,7 @@
     <string name="backup_d">Tout à la fois — mots et expressions enregistrés, historique et réponses de l\'IA — dans un fichier de Download/InkPeek, et retour : une importation ajoute ce que cet appareil n\'a pas.</string>
     <string name="backup_done">Enregistré : %1$s</string>
     <string name="restore_done">Ajouté : %1$d</string>
-    <string name="restore_bad">Ce n\'est pas une sauvegarde InkPeek.</string>
+    <string name="restore_bad">Ce n\'est pas une sauvegarde InkPeek : « Importer » prend le fichier inkpeek-backup-….db créé par « Exporter ». Une liste .tsv est pour Anki ou un tableur.</string>
     <string name="ans_lang">Langue des réponses</string>
     <string name="ans_lang_d">Les dictionnaires, traductions et réponses de l\'IA arrivent dans cette langue ; les packs vers cette langue passent en premier.</string>
     <string name="ans_lang_same">Comme l\'application</string>

@@ -328,7 +328,7 @@
     <string name="backup_d">Wszystko naraz — zapisane słowa i wyrażenia, historia i odpowiedzi AI — do pliku w Download/InkPeek i z powrotem: import dodaje to, czego na tym urządzeniu brak.</string>
     <string name="backup_done">Zapisano: %1$s</string>
     <string name="restore_done">Dodano: %1$d</string>
-    <string name="restore_bad">To nie jest kopia zapasowa InkPeek.</string>
+    <string name="restore_bad">To nie jest kopia zapasowa InkPeek: „Import” przyjmuje plik inkpeek-backup-….db tworzony przez „Eksport”. Lista .tsv jest dla Anki lub arkusza kalkulacyjnego.</string>
     <string name="ans_lang">Język odpowiedzi</string>
     <string name="ans_lang_d">Słowniki, tłumaczenia i odpowiedzi AI przychodzą w tym języku; pakiety na ten język są pierwsze.</string>
     <string name="ans_lang_same">Jak w aplikacji</string>

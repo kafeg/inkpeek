@@ -326,7 +326,7 @@
     <string name="backup_d">Alles auf einmal — gespeicherte Wörter und Phrasen, der Verlauf und die KI-Antworten — in eine Datei in Download/InkPeek und zurück: ein Import fügt hinzu, was auf diesem Gerät fehlt.</string>
     <string name="backup_done">Gespeichert: %1$s</string>
     <string name="restore_done">Hinzugefügt: %1$d</string>
-    <string name="restore_bad">Das ist keine InkPeek-Sicherung.</string>
+    <string name="restore_bad">Das ist keine InkPeek-Sicherung: „Importieren“ nimmt die Datei inkpeek-backup-….db, die „Exportieren“ erstellt. Eine .tsv-Liste ist für Anki oder eine Tabelle.</string>
     <string name="ans_lang">Sprache der Antworten</string>
     <string name="ans_lang_d">In dieser Sprache kommen Wörterbücher, Übersetzungen und KI-Antworten; Pakete in diese Sprache stehen vorn.</string>
     <string name="ans_lang_same">Wie die App</string>
