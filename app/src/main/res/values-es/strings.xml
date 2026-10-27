@@ -327,6 +327,7 @@
     <string name="backup_d">Todo a la vez — palabras y frases guardadas, el historial y las respuestas de la IA — a un archivo en Download/InkPeek, y de vuelta: una importación añade lo que este dispositivo no tiene.</string>
     <string name="backup_done">Guardado: %1$s</string>
     <string name="restore_done">Añadido: %1$d</string>
+    <string name="tsv_q">Una lista TSV para Anki o una hoja de cálculo: texto, significado, traducción de la IA, idioma, fecha. No se puede volver a importar — para pasar las notas a otro dispositivo, use «Exportar» abajo.</string>
     <string name="restore_bad">No es una copia de seguridad de InkPeek: «Importar» toma el archivo inkpeek-backup-….db que crea «Exportar». Una lista .tsv es para Anki o una hoja de cálculo.</string>
     <string name="ans_lang">Idioma de las respuestas</string>
     <string name="ans_lang_d">Los diccionarios, las traducciones y las respuestas de la IA llegan en este idioma; los paquetes hacia él van primero.</string>

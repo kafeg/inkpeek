@@ -46,7 +46,8 @@ class WordsSettings(private val a: MainActivity) {
         val bar = Ink.horizontal(a).apply { gravity = Gravity.CENTER_VERTICAL; isBaselineAligned = false }
         val wrap = ViewGroup.LayoutParams.WRAP_CONTENT
         bar.addView(android.view.View(a), Ink.lp(0, 1, 1f))
-        if (items.isNotEmpty()) bar.addView(Ink.button(a, "TSV", 15f) { export(now, items) },
+        if (items.isNotEmpty()) bar.addView(Ink.button(a, "TSV", 15f) {
+            Rows.confirm(a, a.getString(R.string.tsv_q), R.string.save) { export(now, items) } },
             Ink.lp(wrap).apply { rightMargin = Ink.dp(a, 8) })
         if (now == "history" && items.isNotEmpty()) bar.addView(Ink.button(a, a.getString(R.string.clear_history), 15f) {
             Rows.confirm(a, a.getString(R.string.clear_history_q), R.string.clear_history) {

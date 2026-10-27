@@ -327,6 +327,7 @@
     <string name="backup_d">Everything at once — saved words and phrases, the history and the AI answers — to a file in Download/InkPeek, and back: an import adds what this device does not have.</string>
     <string name="backup_done">Saved: %1$s</string>
     <string name="restore_done">Added: %1$d</string>
+    <string name="tsv_q">A TSV list for Anki or a spreadsheet: text, meaning, AI translation, language, date. It cannot be imported back — to move notes to another device, use Export below.</string>
     <string name="restore_bad">This is not an InkPeek backup: Import takes the inkpeek-backup-….db file that Export makes. A .tsv list is for Anki or a spreadsheet.</string>
     <string name="ans_lang">Language of the answers</string>
     <string name="ans_lang_d">Dictionaries, translations and AI answers come in this language; the packs into it come first.</string>
