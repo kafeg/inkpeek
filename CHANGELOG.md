@@ -4,6 +4,13 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.209 — 2026-10-27
+- Android 15: settings and their screens no longer start under the status bar (or end under the keyboard); the status
+  bar's icons are dark in the light theme.
+- Notes → TSV first says what the file is for: a list for Anki or a spreadsheet. To move notes to another device, use
+  Export and Import; an Import of a file that is not a backup says so.
+
+### 0.8.200 — 2026-10-25
 - Settings in a new order, at most three tabs each, every setting with a line saying what it does: Languages (Packs ·
   Translation · Dictionaries), Card (Opening · Article · Look), AI (Connection · Modules), Notes. ⚙ next to the
   version: the app's language, theme, updates, file access. ? Help: a page per topic, each with a way to its settings;

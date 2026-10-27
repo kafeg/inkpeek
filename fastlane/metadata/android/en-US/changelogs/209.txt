@@ -1,0 +1,1 @@
+Android 15: screens no longer start under the status bar. TSV in Notes says it is a list for Anki or a spreadsheet; to move notes to another device, use Export and Import.
