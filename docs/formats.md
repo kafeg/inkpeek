@@ -29,7 +29,8 @@ release's list); read by `Packs.parse` (`app/.../packs/Packs.kt`). UTF-8 JSON.
 | `tags` | opus | target → the token put before a sentence (`{"fr": ">>fra<<"}`) |
 | `chrf` | opus | direction → chrF of the check translation (informative) |
 | `ram_mb` | opus, llm | the device RAM it needs; missing: 0 (any) |
-| `cpu` | llm | CPU features it needs (`["asimddp"]`) |
+| `cpu` | llm | CPU features it needs on arm64 (`["asimddp"]`, Linux's `/proc/cpuinfo` names) |
+| `cpu_by_arch` | llm | CPU features it needs per architecture (`{"arm64": ["asimddp"], "x86_64": ["avx2", "fma"]}`): a reader takes its own architecture's list; an architecture not in it cannot run the model. Missing: `cpu` on arm64 |
 | `name` | llm | the model's display name |
 | `template` | llm | the prompt; `{from}`, `{to}` (language names from `names`) and `{text}` are replaced |
 | `names` | llm | code → English language name for `template` |

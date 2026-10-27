@@ -96,6 +96,15 @@
   "ram_mb": 5000,
   "cpu": [
    "asimddp"
-  ]
+  ],
+  "cpu_by_arch": {
+   "arm64": [
+    "asimddp"
+   ],
+   "x86_64": [
+    "avx2",
+    "fma"
+   ]
+  }
  }
 ]

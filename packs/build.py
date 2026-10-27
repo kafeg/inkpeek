@@ -365,7 +365,8 @@ def cmd_llm(a):
         if sha256(path) != want:
             raise ValueError(f"{e['file']}: sha256 differs from the Hub")
         out.append({"id": e["id"], "kind": "llm", "from": "", "to": "", "name": e["name"], "covers": e["covers"],
-                    "template": e["template"], "names": e["names"], "ram_mb": e["ram_mb"], "cpu": e["cpu"], "mirror": url,
+                    "template": e["template"], "names": e["names"], "ram_mb": e["ram_mb"], "cpu": e["cpu"],
+                    "cpu_by_arch": e.get("cpu_by_arch", {"arm64": e["cpu"]}), "mirror": url,
                     "file": file_entry(path, want),
                     "license": e["license"], "attribution": e["attribution"]})
     return out
