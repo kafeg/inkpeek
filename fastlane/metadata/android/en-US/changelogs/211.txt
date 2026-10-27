@@ -1,0 +1,1 @@
+History can be turned off (Card → Opening → History): what you open is not written anywhere; AI answers of a text you did not save go when its card closes.

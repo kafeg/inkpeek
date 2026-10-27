@@ -4,6 +4,11 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.211 — 2026-10-27
+- History can be turned off (Card → Opening → History): what you open is not written anywhere — no history line, no
+  count; AI answers and translations of a text you did not save go when its card closes. What is in the history stays
+  until you clear it.
+
 ### 0.8.209 — 2026-10-27
 - Android 15: settings and their screens no longer start under the status bar (or end under the keyboard); the status
   bar's icons are dark in the light theme.
