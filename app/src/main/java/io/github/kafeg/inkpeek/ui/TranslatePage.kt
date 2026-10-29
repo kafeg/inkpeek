@@ -25,7 +25,7 @@ class TranslatePage(private val card: CardActivity) {
     private var job: Job? = null
 
     fun fill(p: LinearLayout) {
-        job?.cancel(); p.removeAllViews(); card.hint(CardActivity.TRANSLATE, null)
+        job?.cancel(); p.removeAllViews(); card.hint(CardActivity.TRANSLATE, null); card.bar(CardActivity.TRANSLATE, null)
         job = card.launch {
             val aiOn = card.aiTranslate
             val block = if (aiOn) withContext(Dispatchers.IO) { card.answers.block(Ask.QUICK) } else null
@@ -38,7 +38,7 @@ class TranslatePage(private val card: CardActivity) {
                     else { by = k; fill(p) }
                 }
                 if (!aiOk) seg.findViewWithTag<View>("ai")?.alpha = Ink.OFF
-                p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+                card.bar(CardActivity.TRANSLATE, seg)
             }
             val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
             when {

@@ -69,6 +69,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     private val pages = HashMap<String, LinearLayout>()
     private val tabButtons = LinkedHashMap<String, View>()
     private var shown = ""
+    private val bars = HashMap<String, View>()
+    private lateinit var barBox: FrameLayout
     fun showing(tab: String) = shown == tab
     private lateinit var titleView: TextView
     private lateinit var subView: TextView
@@ -243,6 +245,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
                 pagesBefore.removeAll { it > max }
             }
         }.apply { clipChildren = true }
+        // A tab's own sub-tabs (Offline · AI, Analysis · Context) stay over its content, not scrolled with it.
+        barBox = FrameLayout(this).apply { visibility = View.GONE }
+        card.addView(barBox, Ink.lp().apply { topMargin = Ink.dp(this@CardActivity, 8) })
         card.addView(scroll, Ink.lp(h = 0, weight = 1f).apply { topMargin = Ink.dp(this@CardActivity, 8) })
         scroll.viewTreeObserver.addOnGlobalLayoutListener { fit() }
         // Small print over the icon bar: AI off or no network, or what the open tab says about itself.
@@ -412,6 +417,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** [tab]'s small line at the bottom: [s], or the card's own note when null; shown while the tab is open. */
     fun hint(tab: String, s: String?) { hints[tab] = s; showHint() }
+    /** [tab]'s sub-tabs over the scrolled content; null: none. */
+    fun bar(tab: String, v: View?) { if (v == null) bars.remove(tab) else bars[tab] = v; if (shown == tab) showBar() }
+    private fun showBar() {
+        barBox.removeAllViews()
+        bars[shown]?.let { (it.parent as? android.view.ViewGroup)?.removeView(it); barBox.addView(it) }
+        barBox.visibility = if (barBox.childCount > 0) View.VISIBLE else View.GONE
+    }
     private fun showHint() { val t = hints[shown] ?: baseHint; hintView.text = t.orEmpty(); hintView.visibility = if (t.isNullOrBlank()) View.GONE else View.VISIBLE }
 
     /** Shows the tab, filling it the first time. */
@@ -419,7 +431,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         tabButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) SELECTED else 2) }
         val p = page(tab)
         scroll.removeAllViews(); scroll.addView(p); scroll.scrollTo(0, 0)
-        shown = tab; showBack(); showHint()
+        shown = tab; showBack(); showHint(); showBar()
     }
 
     val offlineOk: Boolean by lazy { prefs.offlineReady() }

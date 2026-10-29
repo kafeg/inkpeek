@@ -24,7 +24,7 @@ class AiPage(private val card: CardActivity) {
     private var job: kotlinx.coroutines.Job? = null
 
     fun fill(p: LinearLayout) {
-        job?.cancel(); p.removeAllViews()
+        job?.cancel(); p.removeAllViews(); card.bar(CardActivity.AI, null)
         val subs = card.aiModules; if (subs.isEmpty()) return
         job = card.launch {
             val blocked = withContext(Dispatchers.IO) { subs.associateWith { card.answers.block(ask(it)) } }
@@ -35,7 +35,7 @@ class AiPage(private val card: CardActivity) {
                     blocked[k]?.let { card.toast(card.getString(it)) } ?: run { by = k; fill(p) }
                 }
                 subs.filter { blocked[it] != null }.forEach { seg.findViewWithTag<android.view.View>(it)?.alpha = Ink.OFF }
-                p.addView(seg, Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+                card.bar(CardActivity.AI, seg)
             }
             val out = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(out)
             blocked[by]?.let { out.text = card.getString(it); card.forget(CardActivity.AI); return@launch }
