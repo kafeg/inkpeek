@@ -64,11 +64,12 @@ InkPeek's install layout (its own, not shared): `dicts/<id>/`, `langid.ftz`, `in
 last list as `packs.json`; models in `<models>/<from><to>/`, `opus/<id>/`, `llm/<id>.gguf`.
 
 ## Languages you learn
-A setting, per device (not synced), with the same meaning in both apps: per answer language, at most two other
-languages, in order. InkPeek: Prefs `study_<answer>` = `"de,en"`; LexiPeek: `settings.json` `"study": {"ru": ["de", "en"]}`.
-A language counts only with its pack `dict-<answer>-<x>` installed. A text in the answer language is then shown in them,
-in this order (what each tab shows: `docs/spec.md`, milestone 21). AI answers for it are saved under a `ver` of their
-own: `(prompt + the study paragraph with the names).hashCode()`; an empty list keeps the prompt's own `ver`.
+A setting, per device (not synced), with the same meaning in both apps: per answer language, **one** other language (or
+none). InkPeek: Prefs `study_<answer>` = `"de"` (an older `"de,en"`: only its first code counts); LexiPeek: `settings.json`
+`"study": {"ru": ["de"]}` — a list of at most one, kept for compatibility (more: only the first counts). The language
+counts only with its pack `dict-<answer>-<x>` installed. A text in the answer language is then shown in it (what each tab
+shows: `docs/spec.md`, milestone 21). AI answers for it are saved under a `ver` of their own:
+`(prompt + the study paragraph with the language's name).hashCode()`; none keeps the prompt's own `ver`.
 
 ## Records
 InkPeek keeps them in one SQLite file (`Store.kt`, `/sdcard/InkPeek/inkpeek.db`, schema version 4). The tables are

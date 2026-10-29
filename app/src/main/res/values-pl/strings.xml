@@ -438,10 +438,9 @@
     <string name="ha_files">InkPeek trzyma pakiety, notatki i kopie w folderze InkPeek i czyta foldery innych słowników (także KOReadera): potrzebuje dostępu do plików.</string>
     <string name="ha_upd">InkPeek pyta GitHuba o nowszą wersję tylko wtedy, gdy naciśniesz „Sprawdź teraz”; sam nigdy tego nie robi. „Aktualizuj” ją pobiera, a instalator Androida prosi o potwierdzenie.</string>
     <string name="study_t">Tekst już w języku: %1$s</string>
-    <string name="study_d">Języki, których się uczysz, najwyżej dwa: tłumaczenie, słowniki z ich gramatyką, analiza AI.</string>
-    <string name="study_two">Najwyżej dwa: najpierw odznacz jeden</string>
+    <string name="study_d">Język, którego się uczysz: tłumaczenie, jego słownik z gramatyką, analiza AI.</string>
     <string name="study_no_pack">Brak pakietu %1$s: pobierz go w Pakietach</string>
     <string name="study_none">Brak jeszcze pakietów %1$s → inne języki.</string>
     <string name="study_help_t">Języki, których się uczysz</string>
-    <string name="study_help">Pod Językiem odpowiedzi zaznacz do dwóch języków, których się uczysz. Tekst już w języku odpowiedzi otworzy się wtedy w nich: wiersz pod tytułem (ru → de, en); Słownik — jeden język na stronę (◀ ▶), wiersz jego pakietu i przetłumaczone słowa z ich własną gramatyką i częstością (dotknięcie otwiera kartę słowa); Tłumaczenie — tłumaczenie offline na każdy; AI — o tych wersjach, z objaśnieniami w twoim języku. Każdy język odpowiedzi ma własną listę; nic nie zaznaczone: jak dotąd.</string>
+    <string name="study_help">Pod Językiem odpowiedzi wybierz język, którego się uczysz (Wyłączone: jak dotąd). Tekst już w języku odpowiedzi otworzy się wtedy w nim: wiersz pod tytułem (ru → de); Słownik — wiersz jego pakietu i przetłumaczone słowa z ich własną gramatyką i częstością (dotknięcie otwiera kartę słowa); Tłumaczenie — tłumaczenie offline na niego; AI — o tej wersji, z objaśnieniami w twoim języku. Każdy język odpowiedzi ma własny wybór; języka bez zainstalowanego pakietu nie można jeszcze wybrać.</string>
 </resources>

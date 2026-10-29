@@ -59,15 +59,15 @@ class Prefs(private val ctx: Context) {
     /** The language of the answers (dictionaries, translations, AI): its own setting, else the app's language (setting or
      *  system), one of [ANSWERS]; English otherwise. */
     val answerCode: String get() = answerPick.ifBlank { uiLang.ifBlank { java.util.Locale.getDefault().language } }.let { if (it in ANSWERS) it else "en" }
-    /** Languages you learn for [answer] (Languages → Translation): `study_<answer>` = "de,en", ordered, two at most; "" off. */
-    fun study(answer: String): List<String> = Study.parse(sp.getString("study_$answer", ""))
-    fun setStudy(answer: String, langs: List<String>) = sp.edit().putString("study_$answer", Study.format(langs)).apply()
-    /** The languages you learn the card shows [text] in: the text is in the answer language and their packs are there. Blocking. */
-    fun studyOf(text: String): List<String> {
-        val ans = answerCode; val stored = study(ans); if (stored.isEmpty()) return emptyList()
+    /** The language you learn for [answer] (Languages → Translation): `study_<answer>` = "de"; "" or null off. */
+    fun study(answer: String): String? = Study.parse(sp.getString("study_$answer", ""))
+    fun setStudy(answer: String, lang: String?) = sp.edit().putString("study_$answer", lang.orEmpty()).apply()
+    /** The language you learn the card shows [text] in: the text is in the answer language and its pack is there. Blocking. */
+    fun studyOf(text: String): String? {
+        val ans = answerCode; val stored = study(ans) ?: return null
         val ticked = pairs; val have = packs.installedPairs().filter { ticked == null || "${it.first}-${it.second}" in ticked }
-        val langs = Study.effective(stored, ans, have); if (langs.isEmpty()) return emptyList()
-        return if (io.github.kafeg.inkpeek.mt.LangId.source(text, ans, packs, packDictionaries(), self = true).first == ans) langs else emptyList()
+        val lang = Study.effective(stored, ans, have) ?: return null
+        return lang.takeIf { io.github.kafeg.inkpeek.mt.LangId.source(text, ans, packs, packDictionaries(), self = true).first == ans }
     }
     /** Its English name ("Russian"): what AI prompts and saved answers use. */
     val answerLang: String get() = java.util.Locale(answerCode).getDisplayLanguage(java.util.Locale.ENGLISH)

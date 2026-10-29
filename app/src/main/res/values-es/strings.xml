@@ -437,10 +437,9 @@
     <string name="ha_files">InkPeek guarda sus paquetes, notas y copias en la carpeta InkPeek y lee las carpetas de otros diccionarios (también la de KOReader): necesita acceso a archivos.</string>
     <string name="ha_upd">InkPeek pregunta a GitHub si hay una versión nueva solo cuando pulsas Comprobar ahora; nunca lo hace por sí sola. Actualizar la descarga y el instalador de Android te pide confirmarla.</string>
     <string name="study_t">Texto ya en %1$s</string>
-    <string name="study_d">Idiomas que aprendes, dos como máximo: su traducción, diccionarios con su gramática, análisis de la IA.</string>
-    <string name="study_two">Dos como máximo: desmarca uno primero</string>
+    <string name="study_d">El idioma que aprendes: su traducción, su diccionario con su gramática, análisis de la IA.</string>
     <string name="study_no_pack">Aún no hay paquete %1$s: descárgalo en Paquetes</string>
     <string name="study_none">Aún no hay paquetes %1$s → otros idiomas.</string>
     <string name="study_help_t">Idiomas que aprendes</string>
-    <string name="study_help">Bajo Idioma de las respuestas, marca hasta dos idiomas que aprendes. Un texto ya en el idioma de las respuestas se abre entonces en ellos: una línea bajo el título (ru → de, en); Diccionario — un idioma por página (◀ ▶), la línea de su paquete y las palabras traducidas con su propia gramática y frecuencia (un toque abre la ficha de la palabra); Traducir — la traducción sin conexión a cada uno; IA — sobre esas versiones, explicado en tu idioma. Cada idioma de respuestas tiene su lista; nada marcado: como antes.</string>
+    <string name="study_help">Bajo Idioma de las respuestas, elige el idioma que aprendes (Desactivado: como antes). Un texto ya en el idioma de las respuestas se abre entonces en él: una línea bajo el título (ru → de); Diccionario — la línea de su paquete y las palabras traducidas con su propia gramática y frecuencia (un toque abre la ficha de la palabra); Traducir — la traducción sin conexión a él; IA — sobre esa versión, explicado en tu idioma. Cada idioma de respuestas tiene su elección; un idioma sin su paquete instalado aún no se puede elegir.</string>
 </resources>

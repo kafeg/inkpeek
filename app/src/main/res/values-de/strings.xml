@@ -436,10 +436,9 @@
     <string name="ha_files">InkPeek speichert Pakete, Notizen und Kopien im Ordner InkPeek und liest die Ordner anderer Wörterbücher (auch den von KOReader): Dafür braucht es Dateizugriff.</string>
     <string name="ha_upd">InkPeek fragt GitHub nur dann nach einer neueren Version, wenn Sie „Jetzt prüfen“ tippen; von selbst prüft es nie. „Aktualisieren“ lädt sie herunter, der Android-Installer bittet um Bestätigung.</string>
     <string name="study_t">Text schon auf %1$s</string>
-    <string name="study_d">Sprachen, die Sie lernen, höchstens zwei: Übersetzung, Wörterbücher mit ihrer Grammatik, KI-Analyse darin.</string>
-    <string name="study_two">Höchstens zwei: erst eine abwählen</string>
+    <string name="study_d">Die Sprache, die Sie lernen: Übersetzung, ihr Wörterbuch mit Grammatik, KI-Analyse darin.</string>
     <string name="study_no_pack">Noch kein Paket %1$s: unter Pakete laden</string>
     <string name="study_none">Noch keine Pakete %1$s → andere Sprachen.</string>
     <string name="study_help_t">Sprachen, die Sie lernen</string>
-    <string name="study_help">Unter Sprache der Antworten bis zu zwei Sprachen ankreuzen, die Sie lernen. Ein Text schon in der Antwortsprache öffnet sich dann in ihnen: eine Zeile unter dem Titel (ru → de, en); Wörterbuch — eine Sprache je Seite (◀ ▶), die Zeile ihres Pakets und die übersetzten Wörter mit eigener Grammatik und Häufigkeit (Tippen öffnet die Karte des Worts); Übersetzen — die Offline-Übersetzung in jede; KI — über diese Fassungen, erklärt in Ihrer Sprache. Jede Antwortsprache hat ihre eigene Liste; nichts angekreuzt: wie bisher.</string>
+    <string name="study_help">Unter Sprache der Antworten die Sprache wählen, die Sie lernen (Aus: wie bisher). Ein Text schon in der Antwortsprache öffnet sich dann in ihr: eine Zeile unter dem Titel (ru → de); Wörterbuch — die Zeile ihres Pakets und die übersetzten Wörter mit eigener Grammatik und Häufigkeit (Tippen öffnet die Karte des Worts); Übersetzen — die Offline-Übersetzung in sie; KI — über diese Fassung, erklärt in Ihrer Sprache. Jede Antwortsprache hat ihre eigene Wahl; eine Sprache ohne installiertes Paket ist noch nicht wählbar.</string>
 </resources>

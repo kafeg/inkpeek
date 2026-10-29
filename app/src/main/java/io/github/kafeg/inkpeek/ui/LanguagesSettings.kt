@@ -76,25 +76,21 @@ class LanguagesSettings(private val a: MainActivity) {
     private var studyBox: LinearLayout? = null
 
     /**
-     * Languages you learn for the current answer language: a box per language with a pack answer → it (two at most, the
-     * others dimmed then); one whose pack is not installed is shown dimmed with "no pack" (Packs downloads it).
+     * The language you learn for the current answer language: Off or one language with a pack answer → it; one whose pack
+     * is not installed is listed dimmed with "no pack" (Packs downloads it) and cannot be picked.
      */
     private fun refreshStudy() {
         val box = studyBox ?: return
         box.removeAllViews()
         val ans = prefs.answerCode; val installed = prefs.packs.installedPairs()
-        box.addView(Rows.info(a, null, a.getString(R.string.study_t, a.langName(ans)), a.getString(R.string.study_d)))
         val offered = io.github.kafeg.inkpeek.Study.offered(ans, Packs.pairs(manifest) + installed).sortedBy { a.langName(it) }
-        val picked = prefs.study(ans)
-        if (offered.isEmpty()) { box.addView(Rows.note(a, a.getString(R.string.study_none, a.langName(ans)))); return }
-        offered.forEach { x ->
-            val have = (ans to x) in installed; val on = x in picked
-            val off = !on && (!have || io.github.kafeg.inkpeek.Study.full(picked))
-            val about = when { !have -> a.getString(R.string.study_no_pack, Ink.pair(a, ans, x)); off -> a.getString(R.string.study_two); else -> "" }
-            box.addView(Rows.check(a, a.langName(x).replaceFirstChar { it.uppercase() }, about, on) { v ->
-                prefs.setStudy(ans, io.github.kafeg.inkpeek.Study.toggle(prefs.study(ans), x, v)); refreshStudy()
-            }.apply { if (off) { getChildAt(0).isEnabled = false; getChildAt(1).alpha = Ink.OFF } })
-        }
+        val title = a.getString(R.string.study_t, a.langName(ans))
+        if (offered.isEmpty()) { box.addView(Rows.info(a, null, title, a.getString(R.string.study_none, a.langName(ans)))); return }
+        val codes = listOf<String?>(null) + offered
+        val names = listOf(a.getString(R.string.mt_off_t)) + offered.map { x -> a.langName(x).replaceFirstChar { it.uppercase() } +
+            if ((ans to x) in installed) "" else " — " + a.getString(R.string.study_no_pack, Ink.pair(a, ans, x)) }
+        box.addView(Rows.choice(a, title, a.getString(R.string.study_d), names, codes.indexOf(prefs.study(ans)).coerceAtLeast(0),
+            { codes[it] == null || (ans to codes[it]) in installed }) { prefs.setStudy(ans, codes[it]); refreshStudy() })
     }
 
     /** The methods with what they need here; after a download, this device's speed. */

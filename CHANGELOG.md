@@ -4,6 +4,10 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### Unreleased
+- Languages you learn: one language, chosen in a list. A text already in your answer language opens in it — no pages to
+  turn on the Dictionary tab, one translation, AI about that one version.
+
 ### 0.8.218 — 2026-10-29
 - Updates: no more daily check. InkPeek asks GitHub for a new version only when you press Check now (About, or
   ⚙ App → Updates); "Check once a day" is gone.

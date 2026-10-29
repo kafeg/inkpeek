@@ -437,10 +437,9 @@
     <string name="ha_files">InkPeek keeps its packs, Notes and copies in the InkPeek folder and reads other dictionaries\' folders (KOReader\'s too): it needs access to files.</string>
     <string name="ha_upd">InkPeek asks GitHub for a newer version only when you press Check now; it never checks by itself. Update downloads it, Android\'s installer asks you to confirm.</string>
     <string name="study_t">Text already in %1$s</string>
-    <string name="study_d">Languages you learn, two at most: their translation, dictionaries with their grammar, AI\'s analysis in them.</string>
-    <string name="study_two">Two at most: untick one first</string>
+    <string name="study_d">The language you learn: its translation, its dictionary with its grammar, AI\'s analysis in it.</string>
     <string name="study_no_pack">No pack %1$s yet: get it in Packs</string>
     <string name="study_none">No packs %1$s → other languages yet.</string>
     <string name="study_help_t">Languages you learn</string>
-    <string name="study_help">Under Language of the answers, tick up to two languages you learn. A text already in the answer language then opens in them: a line under the title (ru → de, en); Dictionary — a language per page (◀ ▶), its pack\'s line and the translated words with their own grammar and frequency (a tap opens a word\'s card); Translate — the offline translation into each; AI — about those versions, explained in your language. Each answer language keeps its own list; nothing ticked: as before.</string>
+    <string name="study_help">Under Language of the answers, pick the language you learn (Off: as before). A text already in the answer language then opens in it: a line under the title (ru → de); Dictionary — its pack\'s line and the translated words with their own grammar and frequency (a tap opens a word\'s card); Translate — the offline translation into it; AI — about that version, explained in your language. Each answer language keeps its own choice; a language whose pack is not installed cannot be picked yet.</string>
 </resources>

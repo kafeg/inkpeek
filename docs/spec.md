@@ -373,33 +373,29 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      tap a word, triple a paragraph, hold and handles); a small arrow at the row's end (a wide touch area) opens it.
    - **AI gets the text's language** when the packs tell it: "The text is probably German."
 
-21. **Languages you learn** (29.10; the owner's design). A text already in the answer language is shown in the languages
-   the person learns, instead of "no pack for it".
+21. **Languages you learn** (29.10; the owner's design). A text already in the answer language is
+   shown in the **one** language the person learns, instead of "no pack for it" — never in two or more.
    - **Setting** (Languages → Translation, under the answer language): "Text already in <answer language>" (the name of
-     the current answer language), "Languages you learn, two at most: …". A box per language X with a pack answer → X
-     in the packs list or installed, by name. **Two at most**: with two ticked the other boxes are dimmed ("two at most").
-     A language whose pack answer → X is not installed is shown dimmed with "no pack — get it in Packs" (no download
-     from here). Stored **per answer language**, per device (not synced): Prefs `study_<answer>` = ordered codes
-     joined by "," (`study_ru` = `de,en`), the order of ticking; "" (default) — off. Changing the answer language shows
-     that language's own list.
-   - **When it applies:** the list's languages whose pack answer → X is installed and ticked (in the list's order; none
-     left — off), and the text's language is the answer language: language id as for offline translation with the
-     answer language as one more candidate (fastText; unsure — the pack answer → X that knows more of the words).
-   - **Card:** under the title a passive line "ru → de, en" (codes; no menu). Header and the rest as before.
-     **Dictionary** — a language per page, in the list's order, turned as the full articles: ◀ "1 / 2 · German
-     ru → de" ▶ on top (the direction small; a swipe turns too); one language — its name and direction, no pager. A
-     word: the line of the pack answer → X (tap: that article alone, ← back to the same language's page; so does ← from
-     a word's card), then the translated words of its first meaning (up to 5,
-     notes in brackets dropped) with their own header and frequency band from the pack X → answer (installed; any
-     answer language when not into this one), "das Haus (Hauses, Pl. Häuser)" + "among the 1,000 most frequent words";
-     the word alone without that pack; a tap opens the word's own card (← back). Full articles (Card → Opening) are not
-     used here. A phrase: word by word through each pack answer → X, a language per page. **Translate** (Offline): the
-     offline translation answer → X for each language, one under the other under its name; a missing model says which
-     pack is needed. The history line of a phrase is the first language's translation. **AI** (AI translation,
-     Analysis, Context): the request gets one more paragraph (`Ai.STUDY`: translate into each, take the X versions
-     apart — separable verbs, cases, tenses; explanations in the answer language); its saved answers are kept apart by
-     the version `(prompt + that paragraph with the names in order).hashCode()` — an empty list keeps today's version.
-   - Empty list: everything as before. LexiPeek: `settings.json` `"study": {"ru": ["de", "en"]}` with the same meaning
+     the current answer language), "The language you learn: …", a drop-down: **Off** (default) and every language X
+     with a pack answer → X in the packs list or installed, by name. A language whose pack answer → X is not installed
+     is listed dimmed with "no pack — get it in Packs" and cannot be picked (no download from here). Stored **per answer
+     language**, per device (not synced): Prefs `study_<answer>` = one code (`study_ru` = `de`); "" — off; an older
+     value with two codes ("de,en"): only the first counts. Changing the answer language shows that language's choice.
+   - **When it applies:** the chosen language's pack answer → X is installed and ticked, and the text's language is the
+     answer language: language id as for offline translation with the answer language as one more candidate (fastText;
+     unsure — the pack answer → X that knows more of the words).
+   - **Card:** under the title a passive line "ru → de" (codes; no menu) — it names the language, so the tabs have no
+     language headers and no pager. Header and the rest as before. **Dictionary**: a word — the line of the pack
+     answer → X (tap: that article alone, ← back), then the translated words of its first meaning (up to 5, notes in
+     brackets dropped) with their own header and frequency band from the pack X → answer (installed; any answer language
+     when not into this one), "das Haus (Hauses, Pl. Häuser)" + "among the 1,000 most frequent words"; the word alone
+     without that pack; a tap opens the word's own card (← back). Full articles (Card → Opening) are not used here. A
+     phrase: word by word through the pack answer → X. **Translate** (Offline): the offline translation answer → X; a
+     missing model says which pack is needed. The history line of a phrase is that translation. **AI** (AI translation,
+     Analysis, Context): the request gets one more paragraph (`Ai.STUDY`: translate into X, take the X version apart —
+     separable verbs, cases, tenses; explanations in the answer language); its saved answers are kept apart by the
+     version `(prompt + that paragraph with the language's name).hashCode()` — none keeps today's version.
+   - Off: everything as before. LexiPeek: `settings.json` `"study": {"ru": ["de"]}` with the same meaning
      (`docs/formats.md`).
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the

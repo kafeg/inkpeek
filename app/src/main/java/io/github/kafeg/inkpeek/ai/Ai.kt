@@ -127,8 +127,8 @@ enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val max
 
     /** The original prompt's, without SYSTEM: an edit keeps the saved answers (the owner's choice); a new app's prompt or other picked keys ask again. */
     val version: Int get() = prompt().hashCode()
-    /** With languages you learn ([study], English names) the prompt has [Ai.STUDY] too: its own answers; none — [version]. */
-    fun version(study: List<String>): Int = if (study.isEmpty()) version else (prompt() + Ai.study(study)).hashCode()
+    /** With a language you learn ([study], its English name) the prompt has [Ai.STUDY] too: its own answers; none — [version]. */
+    fun version(study: String?): Int = if (study == null) version else (prompt() + Ai.study(study)).hashCode()
     val section: String get() = name.lowercase()
 
     /** JSON Schema for structured outputs: every key required, no others. */
@@ -154,13 +154,13 @@ object Ai {
         "lists inside JSON string values. No headings, tables or code. Keep each part under 120 words unless it needs " +
         "more. You see only the selected text, " +
         "not the sentence around it: do not guess a context (a preposition, a speaker) that is not in the text."
-    /** Added to a request about a text in the answer language when the reader learns other languages ({study}). */
+    /** Added to a request about a text in the answer language when the reader learns another language ({study}). */
     const val STUDY = "The text is in {lang}, the reader's own language, and the reader learns {study}. Work on the text's " +
-        "{study} versions instead of explaining it as a dictionary of {lang}: wherever a key asks for a translation, give one " +
-        "into each of {study}, also for a single word, each on its own line after the language's name; wherever a key asks " +
-        "about the text's own language (base form, forms, grammar, words, examples, idioms), answer about those versions " +
+        "{study} version instead of explaining it as a dictionary of {lang}: wherever a key asks for a translation, give one " +
+        "into {study}, also for a single word; wherever a key asks " +
+        "about the text's own language (base form, forms, grammar, words, examples, idioms), answer about that version " +
         "(separable verbs, cases, tenses…). Explanations stay in {lang}."
-    fun study(names: List<String>): String = if (names.isEmpty()) "" else "\n" + STUDY.replace("{study}", names.joinToString(" and "))
+    fun study(name: String?): String = if (name == null) "" else "\n" + STUDY.replace("{study}", name)
     /** Edited prompt parts ("system", "analysis.grammar"); set by the app from its settings. */
     var edited: (String) -> String? = { null }
     /** Whether an answer key is picked ("analysis.related"), null — its default; set by the app from its settings. */
@@ -180,10 +180,10 @@ object Ai {
     var recall: (String) -> Int? = { null }
     var remember: (String, Int) -> Unit = { _, _ -> }
 
-    /** Blocking; call off the main thread. The answer is the model's JSON object. [study]: languages you learn (English names). */
+    /** Blocking; call off the main thread. The answer is the model's JSON object. [study]: the language you learn (English name). */
     /** [source]: the text's language as the packs tell it ("German"), a hint the model may overrule; null: none. */
     fun ask(p: Provider, key: String, model: String, ask: Ask, text: String, lang: String, url: String = p.baseUrl, source: String? = null,
-            study: List<String> = emptyList()): JSONObject {
+            study: String? = null): JSONObject {
         if (p == Provider.CUSTOM && url.isBlank()) throw AiError("No server address")
         if (key.isBlank() && p != Provider.CUSTOM) throw AiError("No API key for ${p.title}")
         if (model.isBlank()) throw AiError("No model selected for ${p.title}")

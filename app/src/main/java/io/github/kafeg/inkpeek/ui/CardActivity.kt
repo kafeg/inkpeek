@@ -54,13 +54,12 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     /** Body text size (sp); the header is larger. */
     val size: Float get() = prefs.cardText.toFloat()
     val online: Boolean get() = Net.online(this)
-    /** Languages you learn (Languages → Translation) when the text is in the answer language, else empty. Blocking, once. */
-    val study: List<String> by lazy { runCatching { prefs.studyOf(query) }.getOrDefault(emptyList()) }
+    /** The language you learn (Languages → Translation) when the text is in the answer language, else null. Blocking, once. */
+    val study: String? by lazy { runCatching { prefs.studyOf(query) }.getOrNull() }
     val answers by lazy { Answers(prefs, store, query, study = { study }) { online } }
     val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }) }
-    private val mtInto = HashMap<String, OfflineTranslation>()
-    /** The offline translation of the text from the answer language into [lang] (a language you learn). */
-    fun mtInto(lang: String) = mtInto.getOrPut(lang) { OfflineTranslation(prefs, store, query, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }, from = prefs.answerCode, to = lang) }
+    /** The offline translation from the answer language into the language you learn ([study]: read it off the main thread first). */
+    val mtStudy by lazy { OfflineTranslation(prefs, store, query, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }, from = prefs.answerCode, to = study) }
     val dictionary = DictionaryPage(this)
     val ai = AiPage(this)
     private val translate = TranslatePage(this)
@@ -110,18 +109,17 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         placeWindow()
         if (kind == Kind.WORD) head()
         // A phrase: word by word and the offline translation start at once; the translation fills Translate and the history
-        // line (in a language you learn: the first one's). Not when offline translation is off, nor with an AI model (heavy).
+        // line (with a language you learn: its translation). Not when offline translation is off, nor with an AI model (heavy).
         else {
             dictionary.warm()
             if (offlineOk && prefs.mtMethod != "llm") launch {
-                val s = withContext(Dispatchers.IO) { study }
-                val lang = s.firstOrNull()
-                (if (lang == null) mt else mtInto(lang)).start(this@CardActivity).await().text?.getOrNull()?.takeIf { prefs.history }?.let { t -> withContext(Dispatchers.IO) {
+                val lang = withContext(Dispatchers.IO) { study }
+                (if (lang == null) mt else mtStudy).start(this@CardActivity).await().text?.getOrNull()?.takeIf { prefs.history }?.let { t -> withContext(Dispatchers.IO) {
                     runCatching { store.meaning(query, kindName, t, lang?.let { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) } ?: prefs.answerLang) } } }
             }
         }
-        // The direction under the title when the text is shown in the languages you learn: "ru → de, en".
-        launch { val s = withContext(Dispatchers.IO) { study }; if (s.isNotEmpty()) { dirLine = io.github.kafeg.inkpeek.Study.direction(prefs.answerCode, s); showSub() } }
+        // The direction under the title when the text is shown in the language you learn: "ru → de".
+        launch { withContext(Dispatchers.IO) { study }?.let { dirLine = io.github.kafeg.inkpeek.Study.direction(prefs.answerCode, it); showSub() } }
         // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
         if (back != null && back.size == 3 && back[0] in tabButtons) {
             dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1
@@ -504,7 +502,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private var dirLine = ""; private var headSub = ""
-    /** The small lines under the title: the direction (languages you learn), then the form and the facts. */
+    /** The small lines under the title: the direction (the language you learn), then the form and the facts. */
     private fun showSub() {
         val sub = listOf(dirLine, headSub).filter { it.isNotBlank() }.joinToString("\n")
         subView.text = Ink.arrows(this, sub, subView.textSize); subView.visibility = if (sub.isBlank()) View.GONE else View.VISIBLE
