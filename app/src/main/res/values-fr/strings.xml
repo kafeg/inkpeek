@@ -231,8 +231,6 @@
     <string name="update_new">%1$s est disponible</string>
     <string name="check_now">Vérifier</string>
     <string name="update_btn">Mettre à jour (%1$d Mo)</string>
-    <string name="check_daily_t">Vérifier chaque jour</string>
-    <string name="check_daily_d">À l\'ouverture des réglages ; une requête à GitHub.</string>
     <string name="licenses">github.com/kafeg/inkpeek · MIT · packs : CC BY-SA, MPL</string>
     <string name="checking">Vérification…</string>
     <string name="update_confirm">Téléchargé : confirmez l\'installation.</string>
@@ -421,7 +419,7 @@
     <string name="hn_ai">Seulement quand vous touchez un onglet IA, ou si une expression s\'ouvre sur l\'un d\'eux (Fiche → Ouverture) : le texte sélectionné et la langue des réponses partent vers le fournisseur choisi, avec votre clé. Rien d\'autre ne quitte l\'appareil. Les réponses sont gardées sur l\'appareil.</string>
     <string name="hn_dl_t">Téléchargements</string>
     <string name="hn_dl">Les packs, modèles et autres dictionnaires ne sont téléchargés qu\'à votre demande : depuis les versions publiées du projet sur GitHub (les modèles aussi depuis leur site d\'origine) et depuis les sources de dictionnaires que vous choisissez.</string>
-    <string name="hn_upd">Cette édition de l\'application interroge GitHub sur la dernière version une fois par jour, à l\'ouverture des réglages (une requête, rien sur vous) ; ⚙ Application → Mises à jour permet de le désactiver.</string>
+    <string name="hn_upd">Cette édition de l\'application interroge GitHub sur la dernière version seulement quand vous appuyez sur « Vérifier » (⚙ Application → Mises à jour) : une requête, rien sur vous ; jamais d\'elle-même.</string>
     <string name="hw_save_t">Enregistrement</string>
     <string name="hw_save">☆ dans la fiche enregistre un mot sous sa forme de base (Häusern → Haus), une phrase telle quelle. Étoile pleine : déjà enregistré.</string>
     <string name="hw_hist_t">Historique</string>
@@ -437,5 +435,5 @@
     <string name="ha_lang">La langue des menus et des réglages. Les réponses (dictionnaires, traductions, IA) la suivent, sauf réglage dans Langues → Traduction.</string>
     <string name="ha_theme">Clair, sombre (blanc sur noir) ou selon le mode nuit d\'Android ; pour la fiche et les réglages.</string>
     <string name="ha_files">InkPeek garde ses packs, ses notes et ses copies dans le dossier InkPeek et lit les dossiers d\'autres dictionnaires (celui de KOReader aussi) : il lui faut l\'accès aux fichiers.</string>
-    <string name="ha_upd">Une fois par jour, InkPeek peut demander à GitHub s\'il existe une version plus récente ; « Vérifier » le demande tout de suite. « Mettre à jour » la télécharge, puis l\'installateur d\'Android vous demande de confirmer.</string>
+    <string name="ha_upd">InkPeek demande à GitHub s\'il existe une version plus récente seulement quand vous appuyez sur « Vérifier » ; il ne le fait jamais de lui-même. « Mettre à jour » la télécharge, puis l\'installateur d\'Android vous demande de confirmer.</string>
 </resources>

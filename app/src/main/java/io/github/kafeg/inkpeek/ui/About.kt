@@ -8,7 +8,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** About: what InkPeek is, the version and the update state, Check now / Update, the daily check, GitHub, licenses. */
+/** About: what InkPeek is, the version and the update state, Check now / Update, GitHub, licenses. */
 object About {
     private const val GITHUB = "https://github.com/kafeg/inkpeek"
 
@@ -43,7 +43,6 @@ object About {
         if (Updates.enabled) {
             box.addView(state, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
             box.addView(action, Ink.lp().apply { topMargin = Ink.dp(a, 8) })
-            box.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), a.prefs.updateCheck) { a.prefs.updateCheck = it })
         }
         box.addView(Ink.text(a, a.getString(R.string.licenses), 13.5f), Ink.lp().apply { topMargin = Ink.dp(a, 14) })
         if (Updates.enabled) fill()

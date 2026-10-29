@@ -24,7 +24,6 @@ class AppPage(private val a: MainActivity) {
             themes.indexOf(prefs.theme).coerceAtLeast(0)) { if (prefs.theme != themes[it]) { prefs.theme = themes[it]; a.recreate() } })
         if (Updates.enabled) {
             t.addView(Rows.heading(a, a.getString(R.string.updates_t)))
-            t.addView(Rows.check(a, a.getString(R.string.check_daily_t), a.getString(R.string.check_daily_d), prefs.updateCheck) { prefs.updateCheck = it })
             t.addView(Rows.buttons(a, a.getString(R.string.check_now) to { About.show(a) }))
         }
         t.addView(Rows.heading(a, a.getString(R.string.files_t)))

@@ -264,8 +264,9 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       icons opens over it (copy, share, search the web; select all for a text), like FBReader's: nothing on the page
       moves. One card for every way in (a reader, the search field, Notes), so it works the same everywhere.
    2. **Version and updates**: the settings' status line shows the version on the right, "0.5.112 → 0.5.118" when a
-      newer release is out. A tap opens About: what InkPeek is, the version and the update state, Check now, a daily
-      check (on by default; when settings open, at most once a day; one request to GitHub), GitHub, the licenses.
+      newer release is out (as of the last check). A tap opens About: what InkPeek is, the version and the update
+      state, Check now, GitHub, the licenses. The update check runs only on the person's action (About → Check now; one
+      request to GitHub); never automatic.
       Update: the APK through the download dialog (progress, Cancel, Hide), then Android's installer.
    3. **The card's dictionary** (MobileRead, 21.10): Card → Main — short lines (tap for the article) or full articles,
       one dictionary per page, ◀ ▶ or a swipe; Dictionary order — one list of the packs and the other dictionaries in
@@ -350,7 +351,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 
 20. **One way through settings and the card** (24.10). Rule: AI only on a person's action (or a setting they chose).
    - **Header:** one line under the title — version · Settings (⚙) · Help (?) — plain clickable text, no frames.
-   - **⚙ App:** app language, theme (the whole app), updates (daily check, check now), file access.
+   - **⚙ App:** app language, theme (the whole app), updates (Check now — the only check; never automatic), file access.
    - **? Help:** its own screen, one page per topic (connect a reader — with a button that adds InkPeek to KOReader's
      dictionaries.lua without dropping its other entries —, card and controls, selection and menu, InkPeek language
      packs, offline translation, StarDict dictionaries (after the packs by default; the order is a setting), AI, what

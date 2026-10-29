@@ -124,9 +124,9 @@ scripts/device-test.sh        # the language packs on a connected device: header
 The version is `<appVersion>.<number of commits>` (`appVersion` in `gradle.properties`); the commit count is also the version code. What changed: [CHANGELOG.md](CHANGELOG.md).
 
 **Updates:** the version is on the right of the settings' status line; a tap opens About. (A build made with
-`-Pinkpeek.updates=false` — F-Droid's — has no updater: its store updates it.) Once a day, when settings
-open, InkPeek asks GitHub for the latest release (one request; About → "Check once a day" turns it off). When a newer
-one is out, the version line says so; Update downloads it in the app and Android's installer asks you to confirm (the
+`-Pinkpeek.updates=false` — F-Droid's — has no updater: its store updates it.) InkPeek asks GitHub for the latest
+release only when you press Check now in About (one request); it never checks by itself. When a newer one is out,
+About and the version line say so; Update downloads it in the app and Android's installer asks you to confirm (the
 first time also to allow InkPeek to install apps).
 
 Kotlin, Android Views, Android 11+ (minSdk 30), 64-bit ARM. The translation engine is C++ built with the NDK:

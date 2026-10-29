@@ -231,8 +231,6 @@
     <string name="update_new">Saiu a %1$s</string>
     <string name="check_now">Verificar agora</string>
     <string name="update_btn">Atualizar (%1$d MB)</string>
-    <string name="check_daily_t">Verificar todos os dias</string>
-    <string name="check_daily_d">Ao abrir as definições; um pedido ao GitHub.</string>
     <string name="licenses">github.com/kafeg/inkpeek · MIT · pacotes: CC BY-SA, MPL</string>
     <string name="checking">A verificar…</string>
     <string name="update_confirm">Transferido: confirme a instalação.</string>
@@ -421,7 +419,7 @@
     <string name="hn_ai">Só quando toca num separador de IA, ou uma frase abre num deles (Cartão → Abertura): o texto selecionado e o idioma das respostas vão para o fornecedor que escolheu, com a sua chave. Mais nada do dispositivo. As respostas ficam guardadas no dispositivo.</string>
     <string name="hn_dl_t">Transferências</string>
     <string name="hn_dl">Os pacotes, modelos e outros dicionários só são transferidos quando pede: das versões do projeto no GitHub (os modelos também do seu site original) e das fontes de dicionários que escolher.</string>
-    <string name="hn_upd">Esta compilação pergunta ao GitHub pela versão mais recente uma vez por dia, ao abrir as definições (um pedido, nada sobre si); desliga-se em ⚙ App → Atualizações.</string>
+    <string name="hn_upd">Esta compilação pergunta ao GitHub pela versão mais recente só quando carrega em Verificar agora (⚙ App → Atualizações): um pedido, nada sobre si; nunca por si só.</string>
     <string name="hw_save_t">Guardar</string>
     <string name="hw_save">☆ no cartão guarda uma palavra na forma base (Häusern → Haus) e uma frase tal como está. Estrela cheia: já está guardada.</string>
     <string name="hw_hist_t">Histórico</string>
@@ -437,5 +435,5 @@
     <string name="ha_lang">O idioma dos menus e das definições. As respostas (dicionários, traduções, IA) seguem-no, a não ser que escolha outro em Idiomas → Tradução.</string>
     <string name="ha_theme">Claro, escuro (branco sobre preto) ou como o modo noturno do Android; para o cartão e as definições.</string>
     <string name="ha_files">O InkPeek guarda os pacotes, as notas e as cópias na pasta InkPeek e lê as pastas de outros dicionários (também a do KOReader): precisa de acesso aos ficheiros.</string>
-    <string name="ha_upd">Uma vez por dia, o InkPeek pode perguntar ao GitHub por uma versão mais recente; Verificar agora pergunta logo. Atualizar transfere-a e o instalador do Android pede-lhe confirmação.</string>
+    <string name="ha_upd">O InkPeek pergunta ao GitHub por uma versão mais recente só quando carrega em Verificar agora; nunca o faz por si só. Atualizar transfere-a e o instalador do Android pede-lhe confirmação.</string>
 </resources>

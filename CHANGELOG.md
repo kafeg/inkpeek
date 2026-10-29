@@ -4,6 +4,10 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### Unreleased
+- Updates: no more daily check. InkPeek asks GitHub for a new version only when you press Check now (About, or
+  ⚙ App → Updates); "Check once a day" is gone.
+
 ### 0.8.214 — 2026-10-29
 - Translate and AI: their tabs (Offline · AI, Analysis · Context) stay on top; only the answer scrolls or turns pages.
 

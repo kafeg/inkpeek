@@ -231,8 +231,6 @@
     <string name="update_new">Nueva versión: %1$s</string>
     <string name="check_now">Comprobar ahora</string>
     <string name="update_btn">Actualizar (%1$d MB)</string>
-    <string name="check_daily_t">Comprobar a diario</string>
-    <string name="check_daily_d">Al abrir los ajustes; una petición a GitHub.</string>
     <string name="licenses">github.com/kafeg/inkpeek · MIT · paquetes: CC BY-SA, MPL</string>
     <string name="checking">Comprobando…</string>
     <string name="update_confirm">Descargado: confirma la instalación.</string>
@@ -421,7 +419,7 @@
     <string name="hn_ai">Solo cuando tocas una pestaña de IA o una frase se abre en una (Tarjeta → Apertura): el texto seleccionado y el idioma de las respuestas van al proveedor que elegiste, con tu clave. Nada más del dispositivo. Las respuestas se guardan en el dispositivo.</string>
     <string name="hn_dl_t">Descargas</string>
     <string name="hn_dl">Los paquetes, modelos y otros diccionarios se descargan solo cuando lo pides: de las versiones del proyecto en GitHub (los modelos, también de su sitio original) y de las fuentes de diccionarios que elijas.</string>
-    <string name="hn_upd">Esta compilación pregunta a GitHub por la última versión una vez al día, al abrir los ajustes (una petición, nada sobre ti); se desactiva en ⚙ Aplicación → Actualizaciones.</string>
+    <string name="hn_upd">Esta compilación pregunta a GitHub por la última versión solo cuando pulsas Comprobar ahora (⚙ Aplicación → Actualizaciones): una petición, nada sobre ti; nunca por sí sola.</string>
     <string name="hw_save_t">Guardar</string>
     <string name="hw_save">☆ en la tarjeta guarda una palabra en su forma base (Häusern → Haus) y una frase tal cual. Estrella rellena: ya está guardada.</string>
     <string name="hw_hist_t">Historial</string>
@@ -437,5 +435,5 @@
     <string name="ha_lang">El idioma de los menús y ajustes. Las respuestas (diccionarios, traducciones, IA) lo siguen, salvo que elijas otro en Idiomas → Traducción.</string>
     <string name="ha_theme">Claro, oscuro (blanco sobre negro) o como el modo nocturno de Android; para la tarjeta y los ajustes.</string>
     <string name="ha_files">InkPeek guarda sus paquetes, notas y copias en la carpeta InkPeek y lee las carpetas de otros diccionarios (también la de KOReader): necesita acceso a archivos.</string>
-    <string name="ha_upd">Una vez al día InkPeek puede preguntar a GitHub si hay una versión nueva; Comprobar ahora pregunta al momento. Actualizar la descarga y el instalador de Android te pide confirmarla.</string>
+    <string name="ha_upd">InkPeek pregunta a GitHub si hay una versión nueva solo cuando pulsas Comprobar ahora; nunca lo hace por sí sola. Actualizar la descarga y el instalador de Android te pide confirmarla.</string>
 </resources>

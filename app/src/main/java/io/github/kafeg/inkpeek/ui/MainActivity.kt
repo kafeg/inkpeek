@@ -160,8 +160,6 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (Downloads.busy) download.show()
         Updates.pending?.let { Updates.pending = null; runCatching { startActivity(it) } }
         languages.refreshPacks(); refreshDicts(); card.refreshFont(); if (current == R.string.tab_words) words.refresh()
-        // The daily update check (About), quietly: only the version line changes.
-        if (Updates.due(this)) launch { withContext(Dispatchers.IO) { runCatching { Updates.check(this@MainActivity) } }; refreshStatus() }
     }
     override fun onPause() { TextActions.end(); resumed = false; ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
     override fun onDestroy() { download.dismiss(); cancel(); super.onDestroy() }

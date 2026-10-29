@@ -231,8 +231,6 @@
     <string name="update_new">Nowa wersja: %1$s</string>
     <string name="check_now">Sprawdź teraz</string>
     <string name="update_btn">Aktualizuj (%1$d MB)</string>
-    <string name="check_daily_t">Sprawdzaj codziennie</string>
-    <string name="check_daily_d">Przy otwarciu ustawień; jedno zapytanie do GitHuba.</string>
     <string name="licenses">github.com/kafeg/inkpeek · MIT · pakiety: CC BY-SA, MPL</string>
     <string name="checking">Sprawdzam…</string>
     <string name="update_confirm">Pobrano: potwierdź instalację.</string>
@@ -422,7 +420,7 @@
     <string name="hn_ai">Tylko gdy dotkniesz zakładki AI albo fraza otwiera się na jednej z nich (Karta → Otwieranie): zaznaczony tekst i język odpowiedzi trafiają do wybranego dostawcy z twoim kluczem. Nic więcej z urządzenia. Odpowiedzi są przechowywane na urządzeniu.</string>
     <string name="hn_dl_t">Pobieranie</string>
     <string name="hn_dl">Pakiety, modele i inne słowniki są pobierane tylko na twoje polecenie: z wydań projektu na GitHubie (modele także z ich oryginalnej strony) i z wybranych przez ciebie źródeł słowników.</string>
-    <string name="hn_upd">Ta wersja raz dziennie przy otwarciu ustawień pyta GitHuba o najnowsze wydanie (jedno zapytanie, nic o tobie); wyłącza się to w ⚙ Aplikacja → Aktualizacje.</string>
+    <string name="hn_upd">Ta wersja pyta GitHuba o najnowsze wydanie tylko wtedy, gdy naciśniesz „Sprawdź teraz” (⚙ Aplikacja → Aktualizacje): jedno zapytanie, nic o tobie; nigdy sama z siebie.</string>
     <string name="hw_save_t">Zapisywanie</string>
     <string name="hw_save">☆ na karcie zapisuje słowo w formie podstawowej (Häusern → Haus), a frazę tak, jak jest. Pełna gwiazdka: już zapisane.</string>
     <string name="hw_hist_t">Historia</string>
@@ -438,5 +436,5 @@
     <string name="ha_lang">Język menu i ustawień. Odpowiedzi (słowniki, tłumaczenia, AI) są w tym języku, chyba że w Języki → Tłumaczenie ustawiono inny.</string>
     <string name="ha_theme">Jasny, ciemny (biały na czarnym) lub jak tryb nocny Androida; dla karty i ustawień.</string>
     <string name="ha_files">InkPeek trzyma pakiety, notatki i kopie w folderze InkPeek i czyta foldery innych słowników (także KOReadera): potrzebuje dostępu do plików.</string>
-    <string name="ha_upd">Raz dziennie InkPeek może pytać GitHuba o nowszą wersję; „Sprawdź teraz” pyta od razu. „Aktualizuj” ją pobiera, a instalator Androida prosi o potwierdzenie.</string>
+    <string name="ha_upd">InkPeek pyta GitHuba o nowszą wersję tylko wtedy, gdy naciśniesz „Sprawdź teraz”; sam nigdy tego nie robi. „Aktualizuj” ją pobiera, a instalator Androida prosi o potwierdzenie.</string>
 </resources>

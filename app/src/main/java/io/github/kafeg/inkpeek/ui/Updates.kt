@@ -15,8 +15,6 @@ import java.io.File
 object Updates {
     private const val LATEST = "https://api.github.com/repos/kafeg/inkpeek/releases/latest"
     const val DAY = 24 * 3600 * 1000L
-    /** The last try in this process: without a network the daily check does not go out on every settings visit. */
-    @Volatile private var tried = 0L
     /** The installer's confirmation that Android did not let start while InkPeek was in the background. */
     @Volatile var pending: Intent? = null
 
@@ -32,18 +30,14 @@ object Updates {
     fun versionName(ctx: Context): String = ctx.packageManager.getPackageInfo(ctx.packageName, 0).versionName.orEmpty()
     private fun versionCode(ctx: Context): Long = ctx.packageManager.getPackageInfo(ctx.packageName, 0).longVersionCode
 
-    /** The latest release seen by the last check, when it is newer than this app. */
     /** This build has the updater (the GitHub one; F-Droid's and the stores' have not: they update the app themselves). */
     val enabled get() = io.github.kafeg.inkpeek.BuildConfig.UPDATES
 
+    /** The latest release seen by the last check, when it is newer than this app. */
     fun newer(ctx: Context): Release? = if (!enabled) null else Release.of(Prefs(ctx).updateSeen)?.takeIf { it.code > versionCode(ctx) }
 
-    /** The daily check is on and a day has passed. */
-    fun due(ctx: Context) = enabled && Prefs(ctx).let { it.updateCheck && System.currentTimeMillis().let { now -> now - it.updateAt > DAY && now - tried > DAY / 24 } }
-
-    /** Blocking: asks GitHub for the latest release and remembers it. */
+    /** Blocking: asks GitHub for the latest release and remembers it. Only on Check now, never by itself. */
     fun check(ctx: Context): Release {
-        tried = System.currentTimeMillis()
         val j = JSONObject(io.github.kafeg.inkpeek.Net.text(LATEST, accept = "application/vnd.github+json"))
         val tag = j.getString("tag_name")
         val assets = j.getJSONArray("assets"); val apk = (0 until assets.length()).map { assets.getJSONObject(it) }.first { it.getString("name").endsWith(".apk") }

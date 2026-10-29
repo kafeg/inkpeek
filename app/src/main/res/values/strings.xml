@@ -232,8 +232,6 @@
     <string name="update_new">%1$s is out</string>
     <string name="check_now">Check now</string>
     <string name="update_btn">Update (%1$d MB)</string>
-    <string name="check_daily_t">Check once a day</string>
-    <string name="check_daily_d">When settings open; one request to GitHub.</string>
     <string name="licenses">github.com/kafeg/inkpeek · MIT · packs: CC BY-SA, MPL</string>
     <string name="checking">Checking…</string>
     <string name="update_confirm">Downloaded: confirm the installation.</string>
@@ -421,7 +419,7 @@
     <string name="hn_ai">Only when you tap an AI tab, or a phrase opens on one (Card → Opening): the selected text and the answer language go to the provider you chose, with your key. Nothing else from the device. Answers are kept on the device.</string>
     <string name="hn_dl_t">Downloads</string>
     <string name="hn_dl">Packs, models and other dictionaries are downloaded only when you ask: from the project\'s GitHub releases (models also from their original site) and the dictionary sources you pick.</string>
-    <string name="hn_upd">This build asks GitHub for the latest release once a day when settings open (one request, nothing about you); ⚙ App → Updates turns it off.</string>
+    <string name="hn_upd">This build asks GitHub for the latest release only when you press Check now (⚙ App → Updates): one request, nothing about you; never by itself.</string>
     <string name="hw_save_t">Saving</string>
     <string name="hw_save">☆ in the card saves a word as its base form (Häusern → Haus), a phrase as it is. A filled star: saved already.</string>
     <string name="hw_hist_t">History</string>
@@ -437,5 +435,5 @@
     <string name="ha_lang">The language of menus and settings. The answers (dictionaries, translations, AI) follow it unless set in Languages → Translation.</string>
     <string name="ha_theme">Light, dark (white on black) or as Android\'s night mode; for the card and the settings.</string>
     <string name="ha_files">InkPeek keeps its packs, Notes and copies in the InkPeek folder and reads other dictionaries\' folders (KOReader\'s too): it needs access to files.</string>
-    <string name="ha_upd">Once a day InkPeek can ask GitHub for a newer version; Check now asks at once. Update downloads it, Android\'s installer asks you to confirm.</string>
+    <string name="ha_upd">InkPeek asks GitHub for a newer version only when you press Check now; it never checks by itself. Update downloads it, Android\'s installer asks you to confirm.</string>
 </resources>
