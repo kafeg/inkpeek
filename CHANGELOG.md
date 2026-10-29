@@ -7,6 +7,10 @@ count, so every release has its own.
 ### Unreleased
 - Updates: no more daily check. InkPeek asks GitHub for a new version only when you press Check now (About, or
   ⚙ App → Updates); "Check once a day" is gone.
+- Languages you learn (Languages → Translation, under the answer language): tick up to two, and a text already in
+  your answer language opens in them — "ru → de, en" under the title; Dictionary: a block per language with the
+  translated words' own grammar and frequency (tap one for its card); Translate: the translation into each; AI: about
+  those versions, explained in your language. Each answer language keeps its own list.
 
 ### 0.8.214 — 2026-10-29
 - Translate and AI: their tabs (Offline · AI, Analysis · Context) stay on top; only the answer scrolls or turns pages.

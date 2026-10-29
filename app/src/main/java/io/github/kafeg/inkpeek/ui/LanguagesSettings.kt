@@ -54,6 +54,7 @@ class LanguagesSettings(private val a: MainActivity) {
             listOf(a.getString(R.string.ans_lang_same)) + names, answers.indexOf(prefs.answerPick).coerceAtLeast(0)) {
             if (prefs.answerPick != answers[it]) { prefs.answerPick = answers[it]; a.refreshStatus(); refreshPacks() } }.apply {
             (layoutParams as LinearLayout.LayoutParams).topMargin = Ink.dp(a, 4) })
+        studyBox = Ink.vertical(a).also { t.addView(it) }
         t.addView(Rows.heading(a, a.getString(R.string.mt_t)))
         pane = MethodPane(a, Ink.vertical(a).also { t.addView(it) })
     }
@@ -72,13 +73,36 @@ class LanguagesSettings(private val a: MainActivity) {
     }
 
     private var pane: MethodPane? = null
+    private var studyBox: LinearLayout? = null
+
+    /**
+     * Languages you learn for the current answer language: a box per language with a pack answer → it (two at most, the
+     * others dimmed then); one whose pack is not installed is shown dimmed with "no pack" (Packs downloads it).
+     */
+    private fun refreshStudy() {
+        val box = studyBox ?: return
+        box.removeAllViews()
+        val ans = prefs.answerCode; val installed = prefs.packs.installedPairs()
+        box.addView(Rows.info(a, null, a.getString(R.string.study_t, a.langName(ans)), a.getString(R.string.study_d)))
+        val offered = io.github.kafeg.inkpeek.Study.offered(ans, Packs.pairs(manifest) + installed).sortedBy { a.langName(it) }
+        val picked = prefs.study(ans)
+        if (offered.isEmpty()) { box.addView(Rows.note(a, a.getString(R.string.study_none, a.langName(ans)))); return }
+        offered.forEach { x ->
+            val have = (ans to x) in installed; val on = x in picked
+            val off = !on && (!have || io.github.kafeg.inkpeek.Study.full(picked))
+            val about = when { !have -> a.getString(R.string.study_no_pack, Ink.pair(a, ans, x)); off -> a.getString(R.string.study_two); else -> "" }
+            box.addView(Rows.check(a, a.langName(x).replaceFirstChar { it.uppercase() }, about, on) { v ->
+                prefs.setStudy(ans, io.github.kafeg.inkpeek.Study.toggle(prefs.study(ans), x, v)); refreshStudy()
+            }.apply { if (off) { getChildAt(0).isEnabled = false; getChildAt(1).alpha = Ink.OFF } })
+        }
+    }
 
     /** The methods with what they need here; after a download, this device's speed. */
     private fun refreshMethod() { pane?.let { it.manifest = manifest; it.show(); if (!Downloads.busy) it.measure() } }
 
     /** The installed pairs: a box (the card uses it), its size, ✕; an update line when the release has newer files. */
     fun refreshPacks() {
-        refreshMethod()
+        refreshMethod(); refreshStudy()
         if (!Downloads.busy) Downloads.result?.let { a.toast(it); Downloads.result = null }
         packList.removeAllViews()
         val packs = prefs.packs; val installed = packs.installed()

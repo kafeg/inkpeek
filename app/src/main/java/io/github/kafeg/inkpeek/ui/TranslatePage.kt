@@ -56,6 +56,8 @@ class TranslatePage(private val card: CardActivity) {
     }
 
     private suspend fun CoroutineScope.offline(p: LinearLayout, out: TextView) {
+        val study = withContext(Dispatchers.IO) { card.study }
+        if (study.isNotEmpty()) return learned(p, out, study)
         val d = card.mt.start(card)
         if (!d.isCompleted) out.text = card.getString(R.string.mt_working)
         val r = d.await(); val to = card.prefs.answerCode; val locale = card.resources.configuration.locales[0]
@@ -82,5 +84,25 @@ class TranslatePage(private val card: CardActivity) {
                 // The model that translated: "German · OPUS-MT", or Mozilla's "German · through English".
                 if (r.by.isNotEmpty()) " · " + r.by else if (Engine.steps(from, to).size > 1) " · " + card.getString(R.string.mt_via_english) else "") },
             { out.text = card.getString(R.string.failed, it.message ?: it.javaClass.simpleName) })
+    }
+
+    /** Languages you learn: the translation into each, one under the other, each under its language's name. */
+    private suspend fun learned(p: LinearLayout, out: TextView, study: List<String>) {
+        val from = card.prefs.answerCode
+        p.removeView(out); var any = false
+        study.forEachIndexed { i, x ->
+            p.addView(Ink.text(card, Ink.lang(card, x).replaceFirstChar { it.uppercase() }, card.size * 0.8f, bold = true),
+                Ink.lp().apply { topMargin = Ink.dp(card, if (i == 0) 0 else 18) })
+            val t = Ink.text(card, "", card.size).also { TextActions.selectable(it) }; p.addView(t)
+            val d = card.mtInto(x).start(card)
+            if (!d.isCompleted) t.text = card.getString(R.string.mt_working)
+            val text = d.await().text
+            t.text = Ink.arrows(card, when {
+                text == null -> card.getString(R.string.lang_need_pack, Ink.lang(card, from), Ink.lang(card, x))
+                else -> text.fold({ any = true; it }, { card.getString(R.string.failed, it.message ?: it.javaClass.simpleName) })
+            }, t.textSize)
+        }
+        // Opened by the card itself and nothing translated: its words in Dictionary instead.
+        if (!any && auto && card.kind != Kind.WORD) { auto = false; if (card.showing(CardActivity.TRANSLATE)) card.open(CardActivity.DICT) }
     }
 }

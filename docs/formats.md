@@ -63,6 +63,13 @@ Archives are unpacked flat (file names only, folders dropped). The first line of
 InkPeek's install layout (its own, not shared): `dicts/<id>/`, `langid.ftz`, `installed.json` (id → sha256), the
 last list as `packs.json`; models in `<models>/<from><to>/`, `opus/<id>/`, `llm/<id>.gguf`.
 
+## Languages you learn
+A setting, per device (not synced), with the same meaning in both apps: per answer language, at most two other
+languages, in order. InkPeek: Prefs `study_<answer>` = `"de,en"`; LexiPeek: `settings.json` `"study": {"ru": ["de", "en"]}`.
+A language counts only with its pack `dict-<answer>-<x>` installed. A text in the answer language is then shown in them,
+in this order (what each tab shows: `docs/spec.md`, milestone 21). AI answers for it are saved under a `ver` of their
+own: `(prompt + the study paragraph with the names).hashCode()`; an empty list keeps the prompt's own `ver`.
+
 ## Records
 InkPeek keeps them in one SQLite file (`Store.kt`, `/sdcard/InkPeek/inkpeek.db`, schema version 4). The tables are
 the shared model: the sync log carries the same fields, the merged state in the tests uses the same names.

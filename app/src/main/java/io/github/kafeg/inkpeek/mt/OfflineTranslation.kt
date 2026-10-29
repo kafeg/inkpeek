@@ -7,9 +7,9 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 
-/** The offline translation of one [text] into the app's language: started once, shared, saved per model version. */
+/** The offline translation of one [text] into the app's language (or [to], from [from]: languages you learn): started once, shared, saved per model version. */
 class OfflineTranslation(private val prefs: Prefs, private val store: Store, private val text: String, private val roomy: () -> Boolean,
-                         private val device: () -> Device? = { null }) {
+                         private val device: () -> Device? = { null }, private val from: String? = null, private val to: String? = null) {
     /** [from] the detected language, [other] a language without a pack; [text] null when no translation can be made; [by] the model ("OPUS-MT", "" for Mozilla). */
     /** [english]: Mozilla's English in between (a pair without English), when asked for (Languages → Translation). */
     class Result(val from: String?, val other: String?, val text: kotlin.Result<String>?, val by: String = "", val english: String? = null)
@@ -18,8 +18,8 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
 
     fun start(scope: CoroutineScope): Deferred<Result> = job ?: scope.async(Dispatchers.IO) {
         runCatching {
-            val root = prefs.modelsDir; val to = prefs.answerCode
-            val (from, other) = LangId.source(text, to, prefs.packs, prefs.packDictionaries())
+            val root = prefs.modelsDir; val to = to ?: prefs.answerCode
+            val (from, other) = from?.let { it to null } ?: LangId.source(text, to, prefs.packs, prefs.packDictionaries())
             when {
                 from == null -> Result(null, other, null)
                 from == to -> Result(from, null, kotlin.Result.success(text))

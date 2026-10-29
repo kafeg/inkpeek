@@ -10,7 +10,11 @@ import kotlinx.coroutines.async
 import org.json.JSONObject
 
 /** The AI answers about one [text]: each request started once and shared by the tabs; a saved answer opens offline. */
-class Answers(private val prefs: Prefs, private val store: Store, private val text: String, private val online: () -> Boolean) {
+class Answers(private val prefs: Prefs, private val store: Store, private val text: String, private val study: () -> List<String> = { emptyList() },
+              private val online: () -> Boolean) {
+    /** Languages you learn for this text, as AI is told them ("German"); blocking. */
+    private fun names() = study().map { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
+
     /** No network and no saved answer. */
     class Offline : Exception()
 
@@ -21,10 +25,11 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         started[ask]?.let { d -> if (!d.isCompleted || d.getCompleted().isSuccess) return d }
         val pr = prefs.provider; val lang = prefs.answerLang; val model = prefs.model(pr)
         return scope.async(Dispatchers.IO) { runCatching {
-            store.answer(text, lang, ask.section, ask.version)?.let { return@runCatching JSONObject(it) }
+            val names = names(); val ver = ask.version(names)
+            store.answer(text, lang, ask.section, ver)?.let { return@runCatching JSONObject(it) }
             if (!online()) throw Offline()
-            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr), source())
-                .also { runCatching { store.putAnswer(text, lang, ask.section, ask.version, model, it.toString()) } }
+            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr), source(), names)
+                .also { runCatching { store.putAnswer(text, lang, ask.section, ver, model, it.toString()) } }
         } }.also { started[ask] = it }
     }
 
@@ -46,11 +51,11 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
             !prefs.aiOn -> R.string.ai_off
             pr != Provider.CUSTOM && prefs.effectiveKey(pr).isBlank() -> R.string.err_no_key
             prefs.model(pr).isBlank() -> R.string.err_no_model
-            !online() && runCatching { store.answer(text, prefs.answerLang, ask.section, ask.version) }.getOrNull() == null -> R.string.err_offline
+            !online() && runCatching { store.answer(text, prefs.answerLang, ask.section, ask.version(names())) }.getOrNull() == null -> R.string.err_offline
             else -> null
         }
     }
 
     /** The quick answer if it is saved: one line for Notes. */
-    fun saved(): String? = store.answer(text, prefs.answerLang, Ask.QUICK.section, Ask.QUICK.version)?.let { Store.brief(it) }
+    fun saved(): String? = store.answer(text, prefs.answerLang, Ask.QUICK.section, Ask.QUICK.version(names()))?.let { Store.brief(it) }
 }

@@ -436,4 +436,11 @@
     <string name="ha_theme">Clair, sombre (blanc sur noir) ou selon le mode nuit d\'Android ; pour la fiche et les réglages.</string>
     <string name="ha_files">InkPeek garde ses packs, ses notes et ses copies dans le dossier InkPeek et lit les dossiers d\'autres dictionnaires (celui de KOReader aussi) : il lui faut l\'accès aux fichiers.</string>
     <string name="ha_upd">InkPeek demande à GitHub s\'il existe une version plus récente seulement quand vous appuyez sur « Vérifier » ; il ne le fait jamais de lui-même. « Mettre à jour » la télécharge, puis l\'installateur d\'Android vous demande de confirmer.</string>
+    <string name="study_t">Texte déjà en %1$s</string>
+    <string name="study_d">Langues que vous apprenez, deux au plus : traduction, dictionnaires avec leur grammaire, analyse de l\'IA.</string>
+    <string name="study_two">Deux au plus : décochez-en une d\'abord</string>
+    <string name="study_no_pack">Pas encore de pack %1$s : à télécharger dans Packs</string>
+    <string name="study_none">Pas encore de packs %1$s → autres langues.</string>
+    <string name="study_help_t">Langues que vous apprenez</string>
+    <string name="study_help">Sous Langue des réponses, cochez jusqu\'à deux langues que vous apprenez. Un texte déjà dans la langue des réponses s\'ouvre alors en elles : une ligne sous le titre (ru → de, en) ; Dictionnaire — un bloc par langue, la ligne de son pack et les mots traduits avec leur propre grammaire et fréquence (un appui ouvre la fiche du mot) ; Traduire — la traduction hors ligne dans chacune ; IA — sur ces versions, expliqué dans votre langue. Chaque langue des réponses a sa liste ; rien de coché : comme avant.</string>
 </resources>

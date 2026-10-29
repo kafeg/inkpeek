@@ -72,6 +72,7 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
         Topic(R.string.mt_t, Triple(R.string.tab_dicts, "translation", R.string.lang_translation)) { t ->
             item(t, R.string.mt_fast_t, R.string.hm_fast); item(t, R.string.mt_direct_t, R.string.hm_opus); item(t, R.string.mt_llm_t, R.string.hm_llm)
             item(t, R.string.mt_off_t, R.string.hm_off); item(t, R.string.mt_english_t, R.string.hm_en); item(t, R.string.help_lid_t, R.string.help_lid)
+            item(t, R.string.study_help_t, R.string.study_help)
         },
         Topic(R.string.own_title, Triple(R.string.tab_dicts, "other", R.string.lang_own_tab)) { t ->
             item(t, R.string.help_other_t, R.string.help_other); item(t, R.string.help_formats_t, R.string.help_formats); item(t, R.string.help_folder_t, R.string.help_folder)

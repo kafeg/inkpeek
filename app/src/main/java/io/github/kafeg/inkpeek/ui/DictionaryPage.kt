@@ -78,7 +78,10 @@ class DictionaryPage(private val card: CardActivity) {
         val wait = Ink.text(card, "…", card.size); p.addView(wait)
         job = card.launch {
             val notReady = ArrayList<StarDict>(); val lib = card.prefs.library()
-            val res = withContext(Dispatchers.IO) { runCatching { lib.lookup(word, card.prefs.answerCode, notReady) to lib.all().isEmpty() } }
+            // The card's own text in the answer language with languages you learn: their packs, in the list's order.
+            val study = if (to == null && word == card.query) withContext(Dispatchers.IO) { card.study } else emptyList()
+            val res = withContext(Dispatchers.IO) { runCatching { (if (study.isEmpty()) lib.lookup(word, card.prefs.answerCode, notReady)
+                else study.flatMap { x -> lib.lookup(word, x, notReady, studyDicts(lib, x)) }) to lib.all().isEmpty() } }
             p.removeView(wait)
             val (hits, none) = res.getOrElse { card.note(p, card.getString(R.string.dict_error, it.message)); return@launch }
             if (notReady.isNotEmpty()) card.note(p, card.getString(R.string.preparing, notReady.joinToString { it.name }))
@@ -90,6 +93,7 @@ class DictionaryPage(private val card: CardActivity) {
             r?.removePrefix("p:")?.toIntOrNull()?.takeIf { r.startsWith("p:") && it in hits.indices }?.let { pages(hits, word, it, to); card.scrollBack(); return@launch }
             r?.takeIf { it.startsWith("a:") }?.let { id -> hits.firstOrNull { it.first.id == id.removePrefix("a:") } }
                 ?.let { (dict, list) -> article(dict, list, word) { articles(word, to) }; card.scrollBack(); return@launch }
+            if (study.isNotEmpty()) { studyBlocks(p, word, study, hits) { articles(word, to) }; return@launch }
             if (card.prefs.cardFull && hits.isNotEmpty() && notReady.isEmpty()) { pages(hits, word, 0, to); return@launch }
             place = ""
             hits.forEachIndexed { i, (dict, list) ->
@@ -97,6 +101,47 @@ class DictionaryPage(private val card: CardActivity) {
                 p.addView(Ink.opener(card, Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q); TextActions.selectable(this)
                 }, { article(dict, list, word) { articles(word, to) } }))
+            }
+            card.scrollBack()
+        }
+    }
+
+    /** The packs answer → [lang] (a language you learn) that the card uses. */
+    private fun studyDicts(lib: io.github.kafeg.inkpeek.stardict.Library, lang: String) =
+        lib.all().filter { lib.isPack(it) && it.book == card.prefs.answerCode && it.answer == lang }
+
+    /**
+     * Languages you learn: a block per language, its name on top — the line of the pack answer → it (tap: the article), then
+     * the translated words with their own header and frequency from the pack of their language (tap: their own card).
+     */
+    private fun studyBlocks(p: LinearLayout, word: String, study: List<String>, hits: List<Pair<StarDict, List<Hit>>>, again: () -> Unit) {
+        place = ""
+        val box = Ink.vertical(card); p.addView(box)
+        job = card.launch {
+            val lib = card.prefs.library(); val ans = card.prefs.answerCode
+            val blocks = withContext(Dispatchers.IO) { study.map { x ->
+                val hit = hits.firstOrNull { it.first.answer == x }
+                val words = hit?.let { io.github.kafeg.inkpeek.Study.words(meaning(it.second.first())) }.orEmpty().map { w ->
+                    // Its own grammar and frequency from the pack of its language (de → ru); none: the word alone.
+                    val h = runCatching { lib.heads(w, ans, lib.all().filter { lib.isPack(it) && it.book == x }).firstOrNull() }.getOrNull()
+                    Triple(w, h, h?.let { runCatching { lib.rank(it.word, x) }.getOrDefault(0) } ?: 0)
+                }
+                Triple(x, hit, words)
+            } }
+            blocks.forEachIndexed { i, (x, hit, words) ->
+                box.addView(Ink.text(card, Ink.lang(card, x).replaceFirstChar { it.uppercase() }, card.size * 0.8f, bold = true),
+                    Ink.lp().apply { topMargin = Ink.dp(card, if (i == 0) 0 else 18) })
+                if (hit == null) { card.note(box, card.getString(R.string.not_found)); return@forEachIndexed }
+                val (dict, list) = hit
+                box.addView(Ink.opener(card, Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
+                    val q = Ink.dp(card, 6); setPadding(0, q, 0, q); TextActions.selectable(this)
+                }, { article(dict, list, word, again) }))
+                box.addView(Ink.divider(card))
+                words.forEach { (w, h, rank) ->
+                    val head = h?.let { Ink.escape(if (card.prefs.packGrammar) it.header else it.word) } ?: Ink.escape(w)
+                    val freq = Facts.frequency(card, rank)?.let { "<br><small>${Ink.escape(it)}</small>" }.orEmpty()
+                    listRow(box, "<b>$head</b>$freq") { card.lookUp(h?.word ?: w) }
+                }
             }
             card.scrollBack()
         }
@@ -135,7 +180,30 @@ class DictionaryPage(private val card: CardActivity) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(null); turn = null
         // A word opens as a card of its own: its header, its ☆; ← comes back to this list.
-        job = rows(p) { w -> card.lookUp(w) }
+        job = card.launch {
+            val study = withContext(Dispatchers.IO) { card.study }
+            if (study.isEmpty()) { job = rows(p) { w -> card.lookUp(w) }; return@launch }
+            // Languages you learn: word by word through each one's pack, a block per language.
+            val lib = card.prefs.library()
+            val all = withContext(Dispatchers.IO) { study.map { x -> x to runCatching { lib.gloss(card.query, x) }.getOrDefault(emptyList()) } }
+            all.forEachIndexed { i, (x, g) ->
+                p.addView(Ink.text(card, Ink.lang(card, x).replaceFirstChar { it.uppercase() }, card.size * 0.8f, bold = true),
+                    Ink.lp().apply { topMargin = Ink.dp(card, if (i == 0) 0 else 18) })
+                if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
+                g.forEach { x2 -> listRow(p, glossLine(x2)) { card.lookUp(x2.base.ifBlank { x2.word }) } }
+            }
+            card.scrollBack()
+        }
+    }
+
+    /** A gloss row: "schläft: schlafen (schläft, schlief, hat geschlafen) — спать", the word alone when no pack knows it. */
+    private fun glossLine(x: Gloss): String {
+        val line = x.head?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") }
+        return when {
+            line == null -> "<b>${Ink.escape(x.word)}</b>"
+            x.base.equals(x.word, true) -> line
+            else -> "<b>${Ink.escape(x.word)}</b>: $line"
+        }
     }
 
 
@@ -228,17 +296,8 @@ class DictionaryPage(private val card: CardActivity) {
                 val line = h?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") } ?: "<b>${Ink.escape(f.verb)}</b>"
                 listRow(p, "<b>${Ink.escape(f.form)} … ${Ink.escape(f.particle)}</b>: $line") { tap(f.verb) }
             }
-            g.forEach { x ->
-                // The same first line as the header and the Dictionary tab: "der Hund (Hundes, мн. Hunde) — собака";
-                // a form names itself first: "schläft: schlafen (schläft, schlief, hat geschlafen) — спать".
-                val line = x.head?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") }
-                val text = when {
-                    line == null -> "<b>${Ink.escape(x.word)}</b>"
-                    x.base.equals(x.word, true) -> line
-                    else -> "<b>${Ink.escape(x.word)}</b>: $line"
-                }
-                listRow(p, text) { tap(x.base.ifBlank { x.word }) }
-            }
+            // The same first line as the header and the Dictionary tab: "der Hund (Hundes, мн. Hunde) — собака".
+            g.forEach { x -> listRow(p, glossLine(x)) { tap(x.base.ifBlank { x.word }) } }
             card.scrollBack() // ← from a word: where the list was left
         }
     }
