@@ -48,6 +48,18 @@ class StudyTest {
         assertEquals("en → de", Study.direction("en", listOf("de")))
     }
 
+    @Test fun aLanguagePerPage() {
+        assertEquals(1, Study.page("s:1", 2)) // ← from page 2's article or a word's card: page 2 again
+        assertEquals(0, Study.page("s:0", 2))
+        assertEquals(0, Study.page("s:2", 2)) // a language gone from the list: the first
+        assertEquals(0, Study.page("a:x", 2))
+        assertEquals(0, Study.page(null, 1))
+        assertEquals(0, Study.page("s:bad", 2))
+        assertEquals("1 / 2 · German", Study.pageTitle(0, 2, "German"))
+        assertEquals("2 / 2 · English", Study.pageTitle(1, 2, "English"))
+        assertEquals("German", Study.pageTitle(0, 1, "German")) // one language: no pager
+    }
+
     @Test fun words() {
         assertEquals(listOf("Haus", "Gebäude", "Dynastie"), Study.words("Haus, Gebäude, Dynastie"))
         assertEquals(listOf("machen", "tun"), Study.words("machen, tun"))

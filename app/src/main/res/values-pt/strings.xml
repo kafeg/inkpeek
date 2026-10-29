@@ -442,5 +442,5 @@
     <string name="study_no_pack">Ainda sem pacote %1$s: baixe-o em Pacotes</string>
     <string name="study_none">Ainda não há pacotes %1$s → outros idiomas.</string>
     <string name="study_help_t">Idiomas que você aprende</string>
-    <string name="study_help">Em Idioma das respostas, marque até dois idiomas que você aprende. Um texto já no idioma das respostas abre então neles: uma linha sob o título (ru → de, en); Dicionário — um bloco por idioma, a linha do seu pacote e as palavras traduzidas com sua própria gramática e frequência (um toque abre o cartão da palavra); Traduzir — a tradução offline para cada um; IA — sobre essas versões, explicado no seu idioma. Cada idioma das respostas tem sua lista; nada marcado: como antes.</string>
+    <string name="study_help">Em Idioma das respostas, marque até dois idiomas que você aprende. Um texto já no idioma das respostas abre então neles: uma linha sob o título (ru → de, en); Dicionário — um idioma por página (◀ ▶), a linha do seu pacote e as palavras traduzidas com sua própria gramática e frequência (um toque abre o cartão da palavra); Traduzir — a tradução offline para cada um; IA — sobre essas versões, explicado no seu idioma. Cada idioma das respostas tem sua lista; nada marcado: como antes.</string>
 </resources>

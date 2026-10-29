@@ -62,7 +62,7 @@ class DictionaryPage(private val card: CardActivity) {
     var turn: ((Int) -> Unit)? = null; private set
     /** "←" and Back: from an article to the list, from a word to the gloss; null at the top. */
     var back: (() -> Unit)? = null; private set
-    /** What the tab shows: "" the list, "a:<dictionary id>" its article, "p:<n>" the n-th of the full articles. */
+    /** What the tab shows: "" the list, "a:<dictionary id>" its article, "p:<n>" the n-th of the full articles, "s:<n>" the n-th language you learn. */
     var place = ""; private set
     /** A place to open once the lookup is done (coming back to this word in the card). */
     var restore: String? = null
@@ -91,9 +91,12 @@ class DictionaryPage(private val card: CardActivity) {
             r?.takeIf { it.startsWith("r:") }?.split(':', limit = 5)?.takeIf { it.size == 5 }?.let { (_, id, k, n, w) ->
                 hits.firstOrNull { it.first.id == id }?.let { (dict, _) -> section(dict, w, k, n.toIntOrNull() ?: 0); return@launch } }
             r?.removePrefix("p:")?.toIntOrNull()?.takeIf { r.startsWith("p:") && it in hits.indices }?.let { pages(hits, word, it, to); card.scrollBack(); return@launch }
+            // ← from a language's article: back to that language's page.
+            val again = { i: Int -> restore = "s:$i"; articles(word, to) }
             r?.takeIf { it.startsWith("a:") }?.let { id -> hits.firstOrNull { it.first.id == id.removePrefix("a:") } }
-                ?.let { (dict, list) -> article(dict, list, word) { articles(word, to) }; card.scrollBack(); return@launch }
-            if (study.isNotEmpty()) { studyBlocks(p, word, study, hits) { articles(word, to) }; return@launch }
+                ?.let { (dict, list) -> article(dict, list, word) { if (study.isEmpty()) articles(word, to) else again(study.indexOf(dict.answer).coerceAtLeast(0)) }
+                    card.scrollBack(); return@launch }
+            if (study.isNotEmpty()) { studyBlocks(p, word, study, hits, io.github.kafeg.inkpeek.Study.page(r, study.size), again); return@launch }
             if (card.prefs.cardFull && hits.isNotEmpty() && notReady.isEmpty()) { pages(hits, word, 0, to); return@launch }
             place = ""
             hits.forEachIndexed { i, (dict, list) ->
@@ -111,11 +114,11 @@ class DictionaryPage(private val card: CardActivity) {
         lib.all().filter { lib.isPack(it) && it.book == card.prefs.answerCode && it.answer == lang }
 
     /**
-     * Languages you learn: a block per language, its name on top — the line of the pack answer → it (tap: the article), then
-     * the translated words with their own header and frequency from the pack of their language (tap: their own card).
+     * Languages you learn: a language per page, from [at] — the line of the pack answer → it (tap: the article, ← [again] its
+     * page), then the translated words with their own header and frequency from the pack of their language (tap: their own card).
      */
-    private fun studyBlocks(p: LinearLayout, word: String, study: List<String>, hits: List<Pair<StarDict, List<Hit>>>, again: () -> Unit) {
-        place = ""
+    private fun studyBlocks(p: LinearLayout, word: String, study: List<String>, hits: List<Pair<StarDict, List<Hit>>>, at: Int, again: (Int) -> Unit) {
+        place = "s:$at"
         val box = Ink.vertical(card); p.addView(box)
         job = card.launch {
             val lib = card.prefs.library(); val ans = card.prefs.answerCode
@@ -128,23 +131,38 @@ class DictionaryPage(private val card: CardActivity) {
                 }
                 Triple(x, hit, words)
             } }
-            blocks.forEachIndexed { i, (x, hit, words) ->
-                box.addView(Ink.text(card, Ink.lang(card, x).replaceFirstChar { it.uppercase() }, card.size * 0.8f, bold = true),
-                    Ink.lp().apply { topMargin = Ink.dp(card, if (i == 0) 0 else 18) })
-                if (hit == null) { card.note(box, card.getString(R.string.not_found)); return@forEachIndexed }
+            studyPage(box, study, at) { b, i ->
+                val (_, hit, words) = blocks[i]
+                if (hit == null) { card.note(b, card.getString(R.string.not_found)); return@studyPage }
                 val (dict, list) = hit
-                box.addView(Ink.opener(card, Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
+                b.addView(Ink.opener(card, Ink.text(card, line(card.prefs, dict, list.first(), word, card.source(dict)), card.size, html = true).apply {
                     val q = Ink.dp(card, 6); setPadding(0, q, 0, q); TextActions.selectable(this)
-                }, { article(dict, list, word, again) }))
-                box.addView(Ink.divider(card))
+                }, { article(dict, list, word) { again(i) } }))
+                b.addView(Ink.divider(card))
                 words.forEach { (w, h, rank) ->
                     val head = h?.let { Ink.escape(if (card.prefs.packGrammar) it.header else it.word) } ?: Ink.escape(w)
                     val freq = Facts.frequency(card, rank)?.let { "<br><small>${Ink.escape(it)}</small>" }.orEmpty()
-                    listRow(box, "<b>$head</b>$freq") { card.lookUp(h?.word ?: w) }
+                    listRow(b, "<b>$head</b>$freq") { card.lookUp(h?.word ?: w) }
                 }
             }
             card.scrollBack()
         }
+    }
+
+    /**
+     * Language [at] of [study] in [box]: "1 / 2 · German  ru → de" on top, ◀ ▶ (or a swipe) to the others as the full
+     * articles; one language — its name alone. [body] fills the page.
+     */
+    private fun studyPage(box: LinearLayout, study: List<String>, at: Int, body: (LinearLayout, Int) -> Unit) {
+        box.removeAllViews(); place = "s:$at"
+        val n = study.size; val x = study[at]
+        val show = { j: Int -> studyPage(box, study, j, body); card.scrollTop() }
+        turn = if (n > 1) { d -> if (at + d in study.indices) show(at + d) } else null
+        val title = Ink.escape(io.github.kafeg.inkpeek.Study.pageTitle(at, n, Ink.lang(card, x).replaceFirstChar { it.uppercase() })) +
+            "&nbsp; <small>${Ink.escape(io.github.kafeg.inkpeek.Study.direction(card.prefs.answerCode, listOf(x)))}</small>"
+        if (n > 1) box.addView(WordsList.bar(card, title, card.size * 0.72f, at, n, show), Ink.lp().apply { bottomMargin = Ink.dp(card, 8) })
+        else box.addView(Ink.text(card, title, card.size * 0.8f, bold = true, html = true))
+        body(box, at)
     }
 
     /** Full articles: dictionary [i] of [hits] on the page, ◀ ▶ (or a swipe) to the others, in the person's order. */
@@ -180,17 +198,16 @@ class DictionaryPage(private val card: CardActivity) {
         val p = page ?: return
         job?.cancel(); p.removeAllViews(); up(null); turn = null
         // A word opens as a card of its own: its header, its ☆; ← comes back to this list.
+        val r = restore; restore = null
         job = card.launch {
             val study = withContext(Dispatchers.IO) { card.study }
             if (study.isEmpty()) { job = rows(p) { w -> card.lookUp(w) }; return@launch }
-            // Languages you learn: word by word through each one's pack, a block per language.
+            // Languages you learn: word by word through each one's pack, a language per page.
             val lib = card.prefs.library()
-            val all = withContext(Dispatchers.IO) { study.map { x -> x to runCatching { lib.gloss(card.query, x) }.getOrDefault(emptyList()) } }
-            all.forEachIndexed { i, (x, g) ->
-                p.addView(Ink.text(card, Ink.lang(card, x).replaceFirstChar { it.uppercase() }, card.size * 0.8f, bold = true),
-                    Ink.lp().apply { topMargin = Ink.dp(card, if (i == 0) 0 else 18) })
-                if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
-                g.forEach { x2 -> listRow(p, glossLine(x2)) { card.lookUp(x2.base.ifBlank { x2.word }) } }
+            val all = withContext(Dispatchers.IO) { study.map { x -> runCatching { lib.gloss(card.query, x) }.getOrDefault(emptyList()) } }
+            studyPage(Ink.vertical(card).also { p.addView(it) }, study, io.github.kafeg.inkpeek.Study.page(r, study.size)) { b, i ->
+                if (all[i].isEmpty()) card.note(b, card.getString(R.string.not_found))
+                all[i].forEach { x -> listRow(b, glossLine(x)) { card.lookUp(x.base.ifBlank { x.word }) } }
             }
             card.scrollBack()
         }

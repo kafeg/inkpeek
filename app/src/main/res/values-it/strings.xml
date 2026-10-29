@@ -442,5 +442,5 @@
     <string name="study_no_pack">Ancora nessun pacchetto %1$s: scaricalo in Pacchetti</string>
     <string name="study_none">Ancora nessun pacchetto %1$s → altre lingue.</string>
     <string name="study_help_t">Lingue che studi</string>
-    <string name="study_help">Sotto Lingua delle risposte, spunta fino a due lingue che studi. Un testo già nella lingua delle risposte si apre allora in esse: una riga sotto il titolo (ru → de, en); Dizionario — un blocco per lingua, la riga del suo pacchetto e le parole tradotte con la propria grammatica e frequenza (un tocco apre la scheda della parola); Traduci — la traduzione offline in ciascuna; IA — su quelle versioni, spiegato nella tua lingua. Ogni lingua delle risposte ha la sua lista; niente spuntato: come prima.</string>
+    <string name="study_help">Sotto Lingua delle risposte, spunta fino a due lingue che studi. Un testo già nella lingua delle risposte si apre allora in esse: una riga sotto il titolo (ru → de, en); Dizionario — una lingua per pagina (◀ ▶), la riga del suo pacchetto e le parole tradotte con la propria grammatica e frequenza (un tocco apre la scheda della parola); Traduci — la traduzione offline in ciascuna; IA — su quelle versioni, spiegato nella tua lingua. Ogni lingua delle risposte ha la sua lista; niente spuntato: come prima.</string>
 </resources>

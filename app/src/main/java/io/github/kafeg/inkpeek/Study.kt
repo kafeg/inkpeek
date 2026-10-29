@@ -29,6 +29,13 @@ object Study {
     /** The card's line under the title: "ru → de, en". */
     fun direction(answer: String, langs: List<String>): String = "$answer → ${langs.joinToString(", ")}"
 
+    /** The Dictionary tab's page of a returned-to place "s:<n>" (a language per page); anything else — the first. */
+    fun page(place: String?, count: Int): Int =
+        place?.takeIf { it.startsWith("s:") }?.removePrefix("s:")?.toIntOrNull()?.takeIf { it in 0 until count } ?: 0
+
+    /** A language's page title: "1 / 2 · German"; one language — its name alone. */
+    fun pageTitle(at: Int, count: Int, name: String): String = (if (count > 1) "${at + 1} / $count · " else "") + name
+
     /** The translated words of a pack line's meaning ("Haus, Gebäude (alt), Dynastie"): each once, without notes in brackets. */
     fun words(meaning: String, max: Int = 5): List<String> =
         meaning.replace(Regex("\\([^)]*\\)|\\[[^]]*]"), "").split(',', ';').map { it.trim().trim('.') }

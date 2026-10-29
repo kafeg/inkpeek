@@ -442,5 +442,5 @@
     <string name="study_no_pack">Pas encore de pack %1$s : à télécharger dans Packs</string>
     <string name="study_none">Pas encore de packs %1$s → autres langues.</string>
     <string name="study_help_t">Langues que vous apprenez</string>
-    <string name="study_help">Sous Langue des réponses, cochez jusqu\'à deux langues que vous apprenez. Un texte déjà dans la langue des réponses s\'ouvre alors en elles : une ligne sous le titre (ru → de, en) ; Dictionnaire — un bloc par langue, la ligne de son pack et les mots traduits avec leur propre grammaire et fréquence (un appui ouvre la fiche du mot) ; Traduire — la traduction hors ligne dans chacune ; IA — sur ces versions, expliqué dans votre langue. Chaque langue des réponses a sa liste ; rien de coché : comme avant.</string>
+    <string name="study_help">Sous Langue des réponses, cochez jusqu\'à deux langues que vous apprenez. Un texte déjà dans la langue des réponses s\'ouvre alors en elles : une ligne sous le titre (ru → de, en) ; Dictionnaire — une langue par page (◀ ▶), la ligne de son pack et les mots traduits avec leur propre grammaire et fréquence (un appui ouvre la fiche du mot) ; Traduire — la traduction hors ligne dans chacune ; IA — sur ces versions, expliqué dans votre langue. Chaque langue des réponses a sa liste ; rien de coché : comme avant.</string>
 </resources>

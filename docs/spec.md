@@ -386,12 +386,14 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      left — off), and the text's language is the answer language: language id as for offline translation with the
      answer language as one more candidate (fastText; unsure — the pack answer → X that knows more of the words).
    - **Card:** under the title a passive line "ru → de, en" (codes; no menu). Header and the rest as before.
-     **Dictionary** — a word: a block per language in the list's order, its name on top: the line of the pack
-     answer → X (tap: the article, ← back to the blocks), then the translated words of its first meaning (up to 5,
+     **Dictionary** — a language per page, in the list's order, turned as the full articles: ◀ "1 / 2 · German
+     ru → de" ▶ on top (the direction small; a swipe turns too); one language — its name and direction, no pager. A
+     word: the line of the pack answer → X (tap: that article alone, ← back to the same language's page; so does ← from
+     a word's card), then the translated words of its first meaning (up to 5,
      notes in brackets dropped) with their own header and frequency band from the pack X → answer (installed; any
      answer language when not into this one), "das Haus (Hauses, Pl. Häuser)" + "among the 1,000 most frequent words";
      the word alone without that pack; a tap opens the word's own card (← back). Full articles (Card → Opening) are not
-     used here. A phrase: word by word through each pack answer → X, a block per language. **Translate** (Offline): the
+     used here. A phrase: word by word through each pack answer → X, a language per page. **Translate** (Offline): the
      offline translation answer → X for each language, one under the other under its name; a missing model says which
      pack is needed. The history line of a phrase is the first language's translation. **AI** (AI translation,
      Analysis, Context): the request gets one more paragraph (`Ai.STUDY`: translate into each, take the X versions

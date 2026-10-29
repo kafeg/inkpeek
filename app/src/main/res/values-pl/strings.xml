@@ -443,5 +443,5 @@
     <string name="study_no_pack">Brak pakietu %1$s: pobierz go w Pakietach</string>
     <string name="study_none">Brak jeszcze pakietów %1$s → inne języki.</string>
     <string name="study_help_t">Języki, których się uczysz</string>
-    <string name="study_help">Pod Językiem odpowiedzi zaznacz do dwóch języków, których się uczysz. Tekst już w języku odpowiedzi otworzy się wtedy w nich: wiersz pod tytułem (ru → de, en); Słownik — blok na język, wiersz jego pakietu i przetłumaczone słowa z ich własną gramatyką i częstością (dotknięcie otwiera kartę słowa); Tłumaczenie — tłumaczenie offline na każdy; AI — o tych wersjach, z objaśnieniami w twoim języku. Każdy język odpowiedzi ma własną listę; nic nie zaznaczone: jak dotąd.</string>
+    <string name="study_help">Pod Językiem odpowiedzi zaznacz do dwóch języków, których się uczysz. Tekst już w języku odpowiedzi otworzy się wtedy w nich: wiersz pod tytułem (ru → de, en); Słownik — jeden język na stronę (◀ ▶), wiersz jego pakietu i przetłumaczone słowa z ich własną gramatyką i częstością (dotknięcie otwiera kartę słowa); Tłumaczenie — tłumaczenie offline na każdy; AI — o tych wersjach, z objaśnieniami w twoim języku. Każdy język odpowiedzi ma własną listę; nic nie zaznaczone: jak dotąd.</string>
 </resources>

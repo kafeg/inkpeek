@@ -441,5 +441,5 @@
     <string name="study_no_pack">Noch kein Paket %1$s: unter Pakete laden</string>
     <string name="study_none">Noch keine Pakete %1$s → andere Sprachen.</string>
     <string name="study_help_t">Sprachen, die Sie lernen</string>
-    <string name="study_help">Unter Sprache der Antworten bis zu zwei Sprachen ankreuzen, die Sie lernen. Ein Text schon in der Antwortsprache öffnet sich dann in ihnen: eine Zeile unter dem Titel (ru → de, en); Wörterbuch — ein Block je Sprache, die Zeile ihres Pakets und die übersetzten Wörter mit eigener Grammatik und Häufigkeit (Tippen öffnet die Karte des Worts); Übersetzen — die Offline-Übersetzung in jede; KI — über diese Fassungen, erklärt in Ihrer Sprache. Jede Antwortsprache hat ihre eigene Liste; nichts angekreuzt: wie bisher.</string>
+    <string name="study_help">Unter Sprache der Antworten bis zu zwei Sprachen ankreuzen, die Sie lernen. Ein Text schon in der Antwortsprache öffnet sich dann in ihnen: eine Zeile unter dem Titel (ru → de, en); Wörterbuch — eine Sprache je Seite (◀ ▶), die Zeile ihres Pakets und die übersetzten Wörter mit eigener Grammatik und Häufigkeit (Tippen öffnet die Karte des Worts); Übersetzen — die Offline-Übersetzung in jede; KI — über diese Fassungen, erklärt in Ihrer Sprache. Jede Antwortsprache hat ihre eigene Liste; nichts angekreuzt: wie bisher.</string>
 </resources>
