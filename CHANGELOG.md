@@ -4,6 +4,9 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.214 — 2026-10-29
+- Translate and AI: their tabs (Offline · AI, Analysis · Context) stay on top; only the answer scrolls or turns pages.
+
 ### 0.8.211 — 2026-10-27
 - History can be turned off (Card → Opening → History): what you open is not written anywhere — no history line, no
   count; AI answers and translations of a text you did not save go when its card closes. What is in the history stays
