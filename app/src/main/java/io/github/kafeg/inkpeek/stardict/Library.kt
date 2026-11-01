@@ -68,12 +68,12 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         val dicts = among.filter { d ->
             d.ready.also { if (!it) { prepareAsync(d); if (status[d.id]?.startsWith("error") != true) notReady?.add(d) } }
         }
-        val hits = dicts.associateWith { d -> runCatching { d.lookup(q) }.getOrDefault(emptyList()) }
+        val hits = dicts.associateWith { d -> runCatching { d.lookup(q, ready = true) }.getOrDefault(emptyList()) }
         // A dictionary that knows the form (Häuser) names the base form (Haus): look that up in the others too.
         val bases = hits.values.flatten().map { it.word }.filter { !it.equals(q, true) }.distinct().take(3)
         return dicts.mapNotNull { d ->
             // The base form named by another dictionary, as written: "go" (from "went") is not German "Go".
-            val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b) }.getOrDefault(emptyList()).filter { it.word == b } } }
+            val own = hits.getValue(d).ifEmpty { bases.flatMap { b -> runCatching { d.lookup(b, ready = true) }.getOrDefault(emptyList()).filter { it.word == b } } }
             own.takeIf { it.isNotEmpty() }?.let { d to it }
         }.let { all -> all.filter { (d, _) -> !isPack(d) || d.answer == answer }.ifEmpty { all } }
     }

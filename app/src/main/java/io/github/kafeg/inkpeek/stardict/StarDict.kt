@@ -18,13 +18,13 @@ fun normKey(s: String): String =
     Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").trim().lowercase(Locale.ROOT)
 
 private val EDGE = Regex("^[\\p{P}\\p{S}\\s]+|[\\p{P}\\p{S}\\s]+$")
-fun cleanQuery(s: String): String = s.replace("­", "").replace(Regex("\\s+"), " ").replace(EDGE, "")
+fun cleanQuery(s: String): String = Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").replace(Regex("\\s+"), " ").replace(EDGE, "")
 
 private val PHRASE_START = Regex("^[\\p{P}\\p{S}\\s&&[^¿¡]]+")
 private val PHRASE_END = Regex("[\\p{P}\\p{S}\\s&&[^.!?…。！？]]+$")
 
 /** A phrase for the card and the AI: stray quotes, brackets and dashes at the edges go; the sentence end (?!.…) stays. */
-fun cleanPhrase(s: String): String = s.replace("­", "").replace(Regex("\\s+"), " ").replace(PHRASE_START, "").replace(PHRASE_END, "")
+fun cleanPhrase(s: String): String = Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").replace(Regex("\\s+"), " ").replace(PHRASE_START, "").replace(PHRASE_END, "")
 
 /**
  * A StarDict 3 dictionary: <base>.ifo, .idx[.gz], .dict[.dz], optional .syn.
@@ -131,7 +131,7 @@ class StarDict(ifoFile: File, workRoot: File) {
             o.writeInt(MAGIC); o.writeInt(count); for (i in 0 until count) o.writeInt(pos[i])
             blobFile.inputStream().use { it.copyTo(o) }
         }
-        blobFile.delete(); tmp.renameTo(indexFile)
+        blobFile.delete(); if (!tmp.renameTo(indexFile)) error("cannot write the index")
     }
 
     private fun mapped(): MappedByteBuffer = map ?: RandomAccessFile(indexFile, "r").use {
@@ -143,8 +143,9 @@ class StarDict(ifoFile: File, workRoot: File) {
 
     private fun dict(): DictData = data ?: DictData.open(File("$base.dict"), File("$base.dict.dz")).also { data = it }
 
-    fun lookup(query: String): List<Hit> {
-        prepare()
+    /** [ready]: just checked by the caller (a phrase's words do not stat the files again for each lookup). */
+    fun lookup(query: String, ready: Boolean = false): List<Hit> {
+        if (!ready) prepare()
         val key = normKey(query); if (key.isEmpty()) return emptyList()
         val m = mapped(); val n = m.getInt(4); val blob = 8 + 4 * n
         fun keyAt(i: Int): String { val p = blob + m.getInt(8 + 4 * i); return str(m, p + 2, m.getShort(p).toInt() and 0xFFFF) }
@@ -259,10 +260,11 @@ object Article {
     fun toHtml(data: ByteArray, types: String?): String {
         val out = StringBuilder(); var p = 0
         fun field(t: Char, last: Boolean): ByteArray {
+            // The last field of a sametypesequence has neither its "\0" nor, binary, its size.
+            if (last) return data.copyOfRange(p, data.size).also { p = data.size }
             if (t.isUpperCase()) { // binary: 32-bit size first
                 val s = ByteBuffer.wrap(data, p, 4).int; p += 4; return data.copyOfRange(p, p + s).also { p += s }
             }
-            if (last) return data.copyOfRange(p, data.size).also { p = data.size }
             var e = p; while (e < data.size && data[e] != 0.toByte()) e++
             return data.copyOfRange(p, e).also { p = e + 1 }
         }
@@ -272,7 +274,7 @@ object Article {
                 'h', 'g' -> out.append(s)
                 'x' -> out.append(xdxf(s))
                 'm', 'l', 't', 'y' -> out.append(escape(s).replace("\n", "<br>"))
-                else -> {}
+                else -> return
             }
             out.append("<br>")
         }

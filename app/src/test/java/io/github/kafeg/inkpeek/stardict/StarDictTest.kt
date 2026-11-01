@@ -82,6 +82,15 @@ class StarDictTest {
         assertEquals("a &lt; b<br><i>x</i>", Article.toHtml(b.toByteArray(), null))
     }
 
+    /** sametypesequence=mW: the last field, a sound, has no size before it (it was read as one and the article lost). */
+    @Test fun articleLastBinaryField() {
+        val b = ByteArrayOutputStream(); b.write("Haus".toByteArray()); b.write(0); b.write(byteArrayOf(9, 9, 9))
+        assertEquals("Haus", Article.toHtml(b.toByteArray(), "mW"))
+    }
+
+    /** A reader's decomposed "Häuser" (a + U+0308) is one word, as the dictionary writes it. */
+    @Test fun decomposedQuery() = assertEquals("Häuser", cleanQuery("Ha\u0308user,"))
+
 }
 
 class MarkdownTest {
