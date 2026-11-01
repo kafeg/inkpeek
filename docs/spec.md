@@ -300,7 +300,10 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      56 directions of the 8 languages within 2 chrF of the best one (FLORES-200). Converted by `packs/` in CI: Marian
      zip → vocab remapped to the two SentencePiece models (+ target tags `>>rus<<` as pieces) → int8 (`marian-conv`,
      x86) → a check translation → release `packs`, kind `opus`, with the directions it covers. Run by Bergamot without a
-     shortlist; the target tag before every sentence. Measured de→ru: ~243 MB, 0.5 s per phrase and 1.6 GB on a 6 GB
+     shortlist; the target tag before every sentence and before each piece of a sentence over 300 characters, cut
+     after ", " / "; " / ": " (past ~128 tokens Marian cuts it itself, without the tag: the rest came out in another
+     language); Marian splits no tagged piece again (`ssplit-mode: sentence`: a lower-case sentence after ". " lost its
+     tag so); a ", " the model puts before a piece starting in lower case is dropped. Measured de→ru: ~243 MB, 0.5 s per phrase and 1.6 GB on a 6 GB
      phone; on a 2 GB Go 6 it does not fit (the system restarted) → needs 4 GB.
    - **AI model · Hy-MT2-1.8B** (Tencent, Apache-2.0, GGUF Q4_K_M 1.13 GB, 33 languages directly): llama.cpp in its own
      library `libinkpeek_llm.so`, loaded only on a device with int8 dot product (`asimddp`) and ≥ 6 GB; weights mapped,

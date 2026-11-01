@@ -37,7 +37,8 @@ object Engine {
 
     private fun idleLater(keep: Boolean) { if (keep) freeing = idle.schedule({ release() }, 3, java.util.concurrent.TimeUnit.MINUTES) }
 
-    private fun run(dir: File, text: String, keep: Boolean) = String(translateNative(config(dir), text.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8)
+    private fun run(dir: File, text: String, keep: Boolean, oneSentence: Boolean = false) =
+        String(translateNative(config(dir, oneSentence), text.toByteArray(Charsets.UTF_8), keep), Charsets.UTF_8)
 
     /**
      * Blocking. [keep] holds the pair's models in memory for the next call (≈ 280–360 MB each); else frees them after use.
@@ -51,12 +52,33 @@ object Engine {
 
     /**
      * Blocking, with an OPUS-MT model ([dir]): straight [from] → target. A multi-target model needs its [tag] (">>rus<<")
-     * before every sentence, so the text goes sentence by sentence (Android's sentence breaks for [from]).
+     * before every piece Marian translates: the text goes sentence by sentence (Android's sentence breaks for [from]), a
+     * long one by [clauses], and Marian splits none of them again (its own part would have no tag).
      */
     fun translateDirect(dir: File, from: String, tag: String?, text: String, keep: Boolean): String = synchronized(lock) { native
         hold(dir.path, keep)
-        val parts = if (tag == null) listOf(text) else sentences(text, from)
-        try { parts.joinToString(" ") { s -> if (s.isBlank()) s else run(dir, if (tag == null) s else "$tag $s", keep) }.trim() } finally { idleLater(keep) }
+        try {
+            if (tag == null) unlead(text, run(dir, text, keep))
+            else sentences(text, from).joinToString(" ") { s ->
+                if (s.isBlank()) s else clauses(s).joinToString(" ") { c -> unlead(c, run(dir, "$tag $c", keep, oneSentence = true)) }
+            }.trim()
+        } finally { idleLater(keep) }
+    }
+
+    /** A long sentence in pieces of at most [max] characters, cut after ", ", "; ", ": " (OPUS-MT loses its way past ~128 tokens). */
+    internal fun clauses(sentence: String, max: Int = 300): List<String> {
+        if (sentence.length <= max) return listOf(sentence)
+        val parts = Regex("(?<=[,;:]) ").split(sentence).map { it.trim() }.filter { it.isNotEmpty() }
+        return parts.fold(mutableListOf()) { out, p ->
+            if (out.isNotEmpty() && out.last().length + 1 + p.length <= max) out[out.size - 1] += " $p" else out += p
+            out
+        }
+    }
+
+    /** The model's answer without the ", " it puts before a piece that starts in lower case (when the piece has none). */
+    internal fun unlead(source: String, out: String): String {
+        fun lead(s: String) = s.trim().firstOrNull()?.let { it in ",;:" } == true
+        return if (lead(out) && !lead(source)) out.trim().drop(1).trim() else out
     }
 
     /** [text] cut into sentences by Android's rules for [lang]. */
@@ -68,8 +90,8 @@ object Engine {
     /** Blocks while a translation runs: not on the main thread. */
     fun release() = synchronized(lock) { native; releaseNative(); held = null }
 
-    /** Marian options for one model folder (model, lex shortlist, vocab or src / trg vocab). */
-    fun config(d: File): String {
+    /** Marian options for one model folder (model, lex shortlist, vocab or src / trg vocab); [oneSentence]: Marian splits no text given. */
+    fun config(d: File, oneSentence: Boolean = false): String {
         val fs = d.listFiles().orEmpty()
         fun f(p: (String) -> Boolean) = fs.firstOrNull { p(it.name) }?.path ?: error("Missing model file in ${d.path}")
         val model = f { it.startsWith("model.") }
@@ -93,6 +115,7 @@ object Engine {
             quiet-translation: true
             gemm-precision: ${if (model.contains("alphas")) "int8shiftAlphaAll" else "int8shiftAll"}
             alignment: soft
+            ${if (oneSentence) "ssplit-mode: sentence" else ""}
         """.trimIndent()
     }
 }

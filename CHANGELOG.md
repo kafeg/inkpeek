@@ -9,6 +9,8 @@ count, so every release has its own.
   turn on the Dictionary tab, one translation, AI about that one version.
 - Card: an article and its noun ("die Konjugation") opens as the noun's word card — its header, Dictionary first —
   when the language pack's header starts so; "die Häuser" or "den Tisch" stay phrases.
+- Offline translation, Direct (OPUS-MT): a long text no longer turns partly English, and no stray ", " starts a
+  sentence — every piece of it now carries the target language, a very long sentence too.
 
 ### 0.8.218 — 2026-10-29
 - Updates: no more daily check. InkPeek asks GitHub for a new version only when you press Check now (About, or

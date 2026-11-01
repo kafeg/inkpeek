@@ -13,6 +13,28 @@ class ModelsTest {
         assertEquals(emptyList<Pair<String, String>>(), Engine.steps("de", "de"))
     }
 
+    /** A multi-target OPUS-MT model: Marian keeps each tagged piece one sentence (its own cut would have no tag). */
+    @Test fun configKeepsTaggedPiecesWhole() {
+        val d = kotlin.io.path.createTempDirectory().toFile()
+        java.io.File(d, "model.deu-rus.intgemm8.bin").writeText(""); java.io.File(d, "vocab.spm").writeText("")
+        assertEquals(false, Engine.config(d).contains("ssplit-mode"))
+        assertEquals(true, Engine.config(d, oneSentence = true).lines().contains("ssplit-mode: sentence"))
+        d.deleteRecursively()
+    }
+
+    /** A long sentence goes in pieces cut after ", " / "; " / ": "; the ", " the model puts before a lower-case piece goes. */
+    @Test fun longSentencePiecesAndLeadingComma() {
+        assertEquals(listOf("kurz, und gut"), Engine.clauses("kurz, und gut"))
+        assertEquals(listOf("eins zwei, drei vier;", "fünf sechs:", "sieben acht"), Engine.clauses("eins zwei, drei vier; fünf sechs: sieben acht", 22))
+        assertEquals(listOf("eins zwei,", "drei vier;", "fünf sechs:", "sieben acht"), Engine.clauses("eins zwei, drei vier; fünf sechs: sieben acht", 18))
+        assertEquals(1, Engine.clauses("x".repeat(400)).size) // no place to cut: Marian's own break
+        assertEquals(true, Engine.clauses(List(40) { "Wort$it Wort," }.joinToString(" ")).all { it.length <= 300 })
+        assertEquals("muss eindeutig", Engine.unlead("явно должно попадать", ", muss eindeutig"))
+        assertEquals("so", Engine.unlead("явно", " ; so"))
+        assertEquals(", und dann", Engine.unlead(", а потом", ", und dann"))
+        assertEquals("Дом", Engine.unlead("Das Haus", "Дом"))
+    }
+
     /** The pair German → Russian needs the de→ru dictionary, de→en + en→ru models and langid — nothing else. */
     @Test fun neededComponents() {
         fun c(id: String, kind: String, from: String = "", to: String = "") = JSONObject().put("id", id).put("kind", kind)
