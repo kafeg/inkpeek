@@ -484,7 +484,7 @@
     <string name="anki_model_changed">Dem Notiztyp %1$s in Anki fehlt das Feld %2$s: Benennen Sie ihn in Anki um, dann wird ein neuer angelegt.</string>
     <string name="anki_refused">Anki hat es nicht angenommen: %1$s</string>
     <string name="hy_what_t">Was synchronisiert wird</string>
-    <string name="hy_what">Gespeicherte Wörter und Wendungen und ihre KI-Antworten. Der Verlauf bleibt auf jedem Gerät, ebenso Einstellungen, Pakete und Wörterbücher.</string>
+    <string name="hy_what">Gespeicherte Wörter und Wendungen, der Verlauf und die KI-Antworten. Einstellungen, Pakete und Wörterbücher bleiben auf jedem Gerät.</string>
     <string name="hy_folder_t">Ein Ordner</string>
     <string name="hy_folder">Jedes Gerät schreibt nur seinen eigenen Ordner darin und liest alle, deshalb gibt es nie Konflikte. LexiPeek am Computer nutzt denselben Ordner.</string>
     <string name="hy_apps_t">Welche Apps</string>

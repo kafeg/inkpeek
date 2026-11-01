@@ -94,9 +94,7 @@ the shared model: the sync log carries the same fields, the merged state in the 
 The one format both apps write and read. No servers: the logs live in a folder
 that a sync tool (Syncthing, a cloud drive, a NAS share) copies between devices; the user picks it in each app
 (`<sync>`). One folder serves InkPeek and LexiPeek together, any number of installs of each. Synced: saved words and
-phrases, the history, the answers (`ai`). Not synced: settings, packs, models, voices. Apps currently show only the
-device's own history (its `history.*` lines; answers of other devices' history texts drop out with them); history ops
-stay in the format. The records (above) are built
+phrases, the history, the answers (`ai`). Not synced: settings, packs, models, voices. The records (above) are built
 from the logs; each app keeps them in its own store, with `id`, `origin`, `updated_by` and `devices` (below).
 
 ### Files

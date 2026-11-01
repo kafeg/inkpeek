@@ -130,9 +130,6 @@ object SyncLog {
         return State(saved, history, ai.values.filter { it.text in kept }.map { Answer(it.text, it.lang, it.section, it.ver, it.model, it.answer, it.ms) })
     }
 
-    /** What the app shows: every device's saved words and answers, the history of [device] only (it stays on each device). */
-    fun view(lines: Collection<Line>, device: String) = lines.filter { !it.op.startsWith("history.") || it.d == device }
-
     /** Two installs with one id: keep it unless the own lines with the newest t are other than [last]. */
     fun keep(own: List<Line>, last: String?): Boolean {
         val top = own.maxWithOrNull(compareBy({ it.ms }, { it.n })) ?: return true

@@ -486,7 +486,7 @@
     <string name="anki_model_changed">Typ notatki %1$s w Anki nie ma pola %2$s: zmień jego nazwę w Anki, a powstanie nowy.</string>
     <string name="anki_refused">Anki nie przyjęło: %1$s</string>
     <string name="hy_what_t">Co się synchronizuje</string>
-    <string name="hy_what">Zapisane słowa i frazy oraz ich odpowiedzi AI. Historia zostaje na każdym urządzeniu, tak jak ustawienia, pakiety i słowniki.</string>
+    <string name="hy_what">Zapisane słowa i frazy, historia i odpowiedzi AI. Ustawienia, pakiety i słowniki zostają na każdym urządzeniu.</string>
     <string name="hy_folder_t">Jeden folder</string>
     <string name="hy_folder">Każde urządzenie pisze tylko swój folder w środku i czyta wszystkie, więc kopie nigdy się nie gryzą. LexiPeek na komputerze używa tego samego folderu.</string>
     <string name="hy_apps_t">Jakie aplikacje</string>

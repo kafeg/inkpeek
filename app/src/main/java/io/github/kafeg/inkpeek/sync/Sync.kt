@@ -101,7 +101,7 @@ object Sync {
         // A write failed (in this run or one that ended since): what the store has and the log lacks goes first.
         if (failed.isNotEmpty() || prefs.syncPending) exportNow()
         if (failed.isNotEmpty()) return // the store has what the log lacks: it waits until the lines are written
-        val s = SyncLog.merge(SyncLog.view(w.lines, w.device))
+        val s = SyncLog.merge(w.lines)
         if (s.hashCode() == applied) return
         Store.get(app).replace(State(s.saved.map { it.copy(lang = name(it.lang)) }, s.history.map { it.copy(lang = name(it.lang)) }, s.ai),
             synchronized(looks) { looks.toSet() })
@@ -113,7 +113,7 @@ object Sync {
         // The failed lines first: the drafts below then count only what they lack.
         if (failed.isNotEmpty()) write(emptyList())
         if (failed.isNotEmpty()) return
-        val w = writer(); val m = SyncLog.merge(SyncLog.view(w.lines, w.device)); val local = Store.get(app).records()
+        val w = writer(); val m = SyncLog.merge(w.lines); val local = Store.get(app).records()
         val saved = m.saved.map { it.text }.toSet(); val counts = m.history.associate { it.text to it.count }
         val ai = m.ai.map { listOf(it.text, it.lang, it.section, it.ver) }.toSet()
         val drafts = local.saved.filter { it.text !in saved }.map { Line(it.created, 0, "", "saved.put", it.text, it.kind, it.lang, it.meaning) } +
