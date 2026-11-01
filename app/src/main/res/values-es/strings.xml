@@ -454,6 +454,8 @@
     <string name="sync_state_t">Carpeta</string>
     <string name="sync_read">Leída el %1$s</string>
     <string name="sync_not_read">Aún no leída</string>
+    <string name="sync_device_t">Este dispositivo</string>
+    <string name="sync_what">Las palabras y frases guardadas, el historial y las respuestas de la IA. Cada dispositivo escribe solo sus propios archivos, así que no hay conflictos.</string>
     <string name="anki_tab">Anki</string>
     <string name="anki_how_t">Cómo funciona</string>
     <string name="anki_how_d">InkPeek envía a AnkiDroid en este dispositivo; en un ordenador, LexiPeek envía a través de AnkiConnect. Ambos crean las mismas notas (tipo de nota Peek): tras sincronizar con AnkiWeb, una palabra es una sola nota.</string>

@@ -454,6 +454,8 @@
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Read %1$s</string>
     <string name="sync_not_read">Not read yet</string>
+    <string name="sync_device_t">This device</string>
+    <string name="sync_what">Saved words and phrases, the history and the AI answers. Each device writes only its own files, so there are no conflicts.</string>
     <string name="anki_tab">Anki</string>
     <string name="anki_how_t">How it works</string>
     <string name="anki_how_d">InkPeek sends to AnkiDroid on this device; on a computer, LexiPeek sends through AnkiConnect. Both make the same notes (note type Peek): after AnkiWeb sync a word is one note.</string>

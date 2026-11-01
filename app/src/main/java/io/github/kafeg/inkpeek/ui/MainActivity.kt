@@ -181,8 +181,11 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && data != null) when (requestCode) {
-            WordsSettings.RESTORE -> words.onResult(data); SyncSettings.FOLDER -> sync.onFolder(data); else -> languages.onResult(requestCode, data) }
+            SyncSettings.RESTORE -> sync.onRestore(data); SyncSettings.FOLDER -> sync.onFolder(data); else -> languages.onResult(requestCode, data) }
     }
+
+    /** Notes again, when they show (a backup imported). */
+    fun refreshWords() { if (current == R.string.tab_words) words.refresh() }
 
     /** Builds the dictionaries' indexes (in the background), the status line and the Other dictionaries list. */
     fun refreshDicts() {

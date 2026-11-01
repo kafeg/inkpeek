@@ -5,6 +5,7 @@ import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.LinearLayout
 import io.github.kafeg.inkpeek.R
+import io.github.kafeg.inkpeek.Store
 import io.github.kafeg.inkpeek.anki.Anki
 import io.github.kafeg.inkpeek.sync.Sync
 import kotlinx.coroutines.Dispatchers
@@ -28,21 +29,78 @@ class SyncSettings(private val a: MainActivity) {
     private fun refreshSync() {
         sync.removeAllViews()
         val uri = prefs.syncUri
-        // "primary:Sync/InkPeek" → "Sync/InkPeek".
-        val shown = if (uri.isEmpty()) a.getString(R.string.sync_folder_none) else runCatching {
-            android.provider.DocumentsContract.getTreeDocumentId(android.net.Uri.parse(uri)).substringAfter(':').ifEmpty { "/" } }.getOrDefault(uri)
+        val shown = if (uri.isEmpty()) a.getString(R.string.sync_folder_none) else place(android.net.Uri.parse(uri))
         sync.addView(Rows.info(a, null, a.getString(R.string.sync_folder_t), shown))
         sync.addView(Rows.buttons(a, a.getString(if (uri.isEmpty()) R.string.sync_choose else R.string.sync_change) to {
             a.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
                 Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION), FOLDER) }))
+        if (uri.isNotEmpty()) {
+            val read = Sync.read()
+            val state = Sync.error.takeIf { it.isNotEmpty() }?.let { a.getString(R.string.failed, it) }
+                ?: if (read == 0L) a.getString(R.string.sync_not_read)
+                else a.getString(R.string.sync_read, android.text.format.DateUtils.formatDateTime(a, read, android.text.format.DateUtils.FORMAT_SHOW_DATE or android.text.format.DateUtils.FORMAT_SHOW_TIME))
+            sync.addView(Rows.info(a, null, a.getString(R.string.sync_state_t), state))
+            prefs.syncDevice.takeIf { it.isNotEmpty() }?.let { sync.addView(Rows.info(a, null, a.getString(R.string.sync_device_t), "${prefs.syncName} · $it")) }
+        }
+        sync.addView(Rows.info(a, null, a.getString(R.string.hy_what_t), a.getString(R.string.sync_what), lines = 4))
         sync.addView(Rows.info(a, null, a.getString(R.string.sync_hint_t), a.getString(R.string.sync_hint), lines = 6))
-        if (uri.isEmpty()) return
-        val read = Sync.read()
-        val state = Sync.error.takeIf { it.isNotEmpty() }?.let { a.getString(R.string.failed, it) }
-            ?: if (read == 0L) a.getString(R.string.sync_not_read)
-            else a.getString(R.string.sync_read, android.text.format.DateUtils.formatDateTime(a, read, android.text.format.DateUtils.FORMAT_SHOW_DATE or android.text.format.DateUtils.FORMAT_SHOW_TIME))
-        sync.addView(Rows.info(a, null, a.getString(R.string.sync_state_t), state))
+        // The whole store (history, saved, AI answers) to a file and back.
+        sync.addView(Rows.note(a, a.getString(R.string.backup_d)))
+        sync.addView(Rows.buttons(a, a.getString(R.string.export) to { backup() }, a.getString(R.string.import_) to {
+            a.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("*/*"), RESTORE) }))
     }
+
+    /** The folder as people see it: "Internal shared storage/Sync"; another app's: "Nextcloud: InkPeek". */
+    private fun place(u: android.net.Uri): String = runCatching {
+        val id = android.provider.DocumentsContract.getTreeDocumentId(u)
+        if (u.authority == "com.android.externalstorage.documents") {
+            val vol = id.substringBefore(':'); val path = id.substringAfter(':', "")
+            val name = a.getSystemService(android.os.storage.StorageManager::class.java).storageVolumes
+                .firstOrNull { if (vol == "primary") it.isPrimary else it.uuid.equals(vol, true) }?.getDescription(a) ?: vol
+            listOf(name, path).filter { it.isNotEmpty() }.joinToString("/")
+        } else {
+            val app = a.packageManager.resolveContentProvider(u.authority!!, 0)?.loadLabel(a.packageManager)?.toString()
+            val dn = a.contentResolver.query(android.provider.DocumentsContract.buildDocumentUriUsingTree(u, id),
+                arrayOf(android.provider.DocumentsContract.Document.COLUMN_DISPLAY_NAME), null, null, null)?.use { if (it.moveToFirst()) it.getString(0) else null }
+            listOfNotNull(app, dn).joinToString(": ").ifEmpty { u.toString() }
+        }
+    }.getOrDefault(u.toString())
+
+    /** The whole store as one file in Download/InkPeek. */
+    private fun backup() = a.launch {
+        val name = "inkpeek-backup-${java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(java.util.Date())}.db"
+        withContext(Dispatchers.IO) { runCatching {
+            val tmp = java.io.File(a.cacheDir, "backup.db").also { Store.get(a).backup(it) }
+            val values = android.content.ContentValues().apply {
+                put(android.provider.MediaStore.MediaColumns.DISPLAY_NAME, name)
+                put(android.provider.MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream")
+                put(android.provider.MediaStore.MediaColumns.RELATIVE_PATH, android.os.Environment.DIRECTORY_DOWNLOADS + "/InkPeek")
+                put(android.provider.MediaStore.MediaColumns.IS_PENDING, 1)
+            }
+            val r = a.contentResolver
+            // Pending until it is whole: a failed copy leaves no half file in Download.
+            val u = r.insert(android.provider.MediaStore.Downloads.EXTERNAL_CONTENT_URI, values)!!
+            try {
+                r.openOutputStream(u)!!.use { o -> tmp.inputStream().use { it.copyTo(o) } }
+                r.update(u, android.content.ContentValues().apply { put(android.provider.MediaStore.MediaColumns.IS_PENDING, 0) }, null, null)
+            } catch (e: Exception) { r.delete(u, null, null); throw e } finally { tmp.delete() }
+            // The name MediaStore gave it (a second backup the same day gets a number).
+            r.query(u, arrayOf(android.provider.MediaStore.MediaColumns.DISPLAY_NAME), null, null, null)?.use { c -> if (c.moveToFirst()) c.getString(0) else null } ?: name
+        } }.onSuccess { a.toast(a.getString(R.string.backup_done, "Download/InkPeek/$it")) }
+            .onFailure { a.toast(a.getString(R.string.failed, it.message)) }
+    }
+
+    /** A backup picked in the system's file picker: what it has and this device does not is added. */
+    fun onRestore(data: android.content.Intent) = a.launch {
+        val uri = data.data ?: return@launch
+        val added = withContext(Dispatchers.IO) { runCatching {
+            val tmp = java.io.File(a.cacheDir, "restore.db")
+            a.contentResolver.openInputStream(uri)!!.use { i -> tmp.outputStream().use { i.copyTo(it) } }
+            try { Store.get(a).restore(tmp) } finally { tmp.delete() }
+        } }.getOrElse { a.toast(a.getString(R.string.restore_bad)); return@launch }
+        a.toast(a.getString(R.string.restore_done, added)); a.refreshWords()
+    }
+
 
     /** A folder picked in the system's picker: kept across restarts, then synced. */
     fun onFolder(data: Intent) {
@@ -110,5 +168,5 @@ class SyncSettings(private val a: MainActivity) {
         refreshAnki()
     }
 
-    companion object { const val FOLDER = 4; const val PERMISSION = 5 }
+    companion object { const val RESTORE = 3; const val FOLDER = 4; const val PERMISSION = 5 }
 }

@@ -455,6 +455,8 @@
     <string name="sync_state_t">Папка</string>
     <string name="sync_read">Прочитана %1$s</string>
     <string name="sync_not_read">Ещё не прочитана</string>
+    <string name="sync_device_t">Это устройство</string>
+    <string name="sync_what">Сохранённые слова и фразы, история и ответы ИИ. Каждое устройство пишет только свои файлы, поэтому конфликтов нет.</string>
     <string name="anki_tab">Anki</string>
     <string name="anki_how_t">Как это работает</string>
     <string name="anki_how_d">InkPeek отправляет в AnkiDroid на этом устройстве; на компьютере LexiPeek отправляет через AnkiConnect. Оба делают одинаковые записи (тип Peek): после синхронизации AnkiWeb слово — одна запись.</string>

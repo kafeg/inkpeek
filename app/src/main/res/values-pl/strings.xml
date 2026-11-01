@@ -455,6 +455,8 @@
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Przeczytany %1$s</string>
     <string name="sync_not_read">Jeszcze nieprzeczytany</string>
+    <string name="sync_device_t">To urządzenie</string>
+    <string name="sync_what">Zapisane słowa i frazy, historia i odpowiedzi AI. Każde urządzenie zapisuje tylko własne pliki, więc nie ma konfliktów.</string>
     <string name="anki_tab">Anki</string>
     <string name="anki_how_t">Jak to działa</string>
     <string name="anki_how_d">InkPeek wysyła do AnkiDroid na tym urządzeniu; na komputerze LexiPeek wysyła przez AnkiConnect. Oba tworzą takie same notatki (typ notatki Peek): po synchronizacji z AnkiWeb słowo to jedna notatka.</string>
