@@ -485,7 +485,7 @@
     <string name="anki_model_changed">The note type %1$s in Anki has no field %2$s: rename that note type in Anki, and a new one is made.</string>
     <string name="anki_refused">Anki did not take it: %1$s</string>
     <string name="hy_what_t">What syncs</string>
-    <string name="hy_what">Saved words and phrases, the history and the AI answers. Settings, packs and dictionaries stay on each device.</string>
+    <string name="hy_what">Saved words and phrases and their AI answers. The history stays on each device, as do settings, packs and dictionaries.</string>
     <string name="hy_folder_t">One folder</string>
     <string name="hy_folder">Each device writes only its own folder inside it and reads all of them, so copies never conflict. LexiPeek on a computer uses the same folder.</string>
     <string name="hy_apps_t">Which apps</string>

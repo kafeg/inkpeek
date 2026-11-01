@@ -485,7 +485,7 @@
     <string name="anki_model_changed">El tipo de nota %1$s en Anki no tiene el campo %2$s: renómbrelo en Anki y se creará uno nuevo.</string>
     <string name="anki_refused">Anki no lo aceptó: %1$s</string>
     <string name="hy_what_t">Qué se sincroniza</string>
-    <string name="hy_what">Las palabras y frases guardadas, el historial y las respuestas de la IA. Ajustes, paquetes y diccionarios se quedan en cada dispositivo.</string>
+    <string name="hy_what">Las palabras y frases guardadas y sus respuestas de la IA. El historial se queda en cada dispositivo, igual que ajustes, paquetes y diccionarios.</string>
     <string name="hy_folder_t">Una carpeta</string>
     <string name="hy_folder">Cada dispositivo escribe solo su propia carpeta dentro y lee todas, así que las copias nunca chocan. LexiPeek en un ordenador usa la misma carpeta.</string>
     <string name="hy_apps_t">Qué apps</string>

@@ -415,6 +415,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      the settings show, at most every 30 s, and the store becomes the merged log. A folder picked: what the store has
      and the log lacks is written first, with the records' own times. The log keeps a line's language as a code
      (`ru`), the store as its English name.
+   - **History stays on each device:** saved words, phrases and their answers sync; the app's history, its counts, the
+     History deck and the 1,000 limit use only this device's `history.*` lines (still written, as the format has them).
    - **Anki tab** (AnkiDroid's content provider, permission `com.ichi2.anki.permission.READ_WRITE_DATABASE` asked when
      needed): on/off; how it works (InkPeek → AnkiDroid, LexiPeek → AnkiConnect); a check line naming the failing step
      (not installed, no permission); Send now; three decks, each on/off and picked from AnkiDroid's or typed:

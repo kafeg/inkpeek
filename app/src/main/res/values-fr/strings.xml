@@ -485,7 +485,7 @@
     <string name="anki_model_changed">Le type de note %1$s dans Anki n’a pas de champ %2$s : renommez-le dans Anki, un nouveau sera créé.</string>
     <string name="anki_refused">Anki ne l’a pas accepté : %1$s</string>
     <string name="hy_what_t">Ce qui se synchronise</string>
-    <string name="hy_what">Les mots et expressions enregistrés, l’historique et les réponses de l’IA. Réglages, packs et dictionnaires restent sur chaque appareil.</string>
+    <string name="hy_what">Les mots et expressions enregistrés et leurs réponses de l’IA. L’historique reste sur chaque appareil, comme les réglages, packs et dictionnaires.</string>
     <string name="hy_folder_t">Un seul dossier</string>
     <string name="hy_folder">Chaque appareil n’écrit que son propre dossier dedans et les lit tous : les copies n’entrent jamais en conflit. LexiPeek sur un ordinateur utilise le même dossier.</string>
     <string name="hy_apps_t">Quelles applis</string>
