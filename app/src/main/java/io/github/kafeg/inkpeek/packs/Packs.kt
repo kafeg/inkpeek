@@ -127,9 +127,6 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     /** Unpacked outside the library first: the card must not see a half-written dictionary. */
     private fun staging(dest: File) = File(root, "tmp/" + dest.name).also { it.deleteRecursively(); it.mkdirs() }
 
-    /** The unpacked folder to its place; on a fresh device its parent (dicts/, models/) does not exist yet. */
-    private fun place(tmp: File, dest: File) = swap(tmp, dest)
-
     /** [new] in place of [dest]: the old one goes aside (tmp/, not seen by the library) first and away last. */
     private fun swap(new: File, dest: File) {
         dest.parentFile?.mkdirs()
@@ -143,6 +140,7 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
     private fun safe(c: Component, install: Boolean) {
         val name = Regex("[A-Za-z0-9._+-]+")
         require(name.matches(c.id) && ".." !in c.id) { "Bad pack id ${c.id}" }
+        if (install) require(name.matches(c.file) && ".." !in c.file) { "Bad pack file ${c.file}" }
         // A model without its languages is removed as nothing (an old entry); installed, it would be the whole models folder.
         if (c.kind == "model" && (install || c.from.isNotBlank() || c.to.isNotBlank()))
             require(name.matches(c.from) && name.matches(c.to) && ".." !in c.from + c.to) { "Bad model ${c.id}" }
@@ -159,7 +157,7 @@ class Packs(val root: File, val models: File, private val assets: String = ASSET
         val tmp = staging(dest)
         // One folder per component: the file names only.
         names.forEach { n -> File(tmp, n.substringAfterLast('/')).outputStream().use { input.copyTo(it) } }
-        place(tmp, dest)
+        swap(tmp, dest)
     }
 
     companion object {

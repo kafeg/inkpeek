@@ -58,7 +58,8 @@ object Updates {
         val pi = ctx.packageManager.packageInstaller
         val id = pi.createSession(PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL))
         pi.openSession(id).use { s ->
-            s.openWrite("inkpeek.apk", 0, apk.length()).use { out -> apk.inputStream().use { it.copyTo(out) }; s.fsync(out) }
+            // A failed copy (no space) leaves no session behind.
+            try { s.openWrite("inkpeek.apk", 0, apk.length()).use { out -> apk.inputStream().use { it.copyTo(out) }; s.fsync(out) } } catch (e: Exception) { s.abandon(); throw e }
             val back = PendingIntent.getBroadcast(ctx, id, Intent(ctx, InstallReceiver::class.java),
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
             s.commit(back.intentSender)

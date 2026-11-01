@@ -10,7 +10,6 @@ import io.github.kafeg.inkpeek.stardict.CatalogItem
 import io.github.kafeg.inkpeek.stardict.Importer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 /**
@@ -18,7 +17,6 @@ import kotlinx.coroutines.launch
  * and whichever screen is open shows its [status] through [listener]; a second one cannot start meanwhile.
  */
 object Downloads {
-    @Volatile private var job: Job? = null
     private val main = Handler(Looper.getMainLooper())
     @Volatile var status = ""; private set
     /** The last run's outcome ("Added: …", "Already there: …", "Failed: …"), shown once by the screen that sees it. */
@@ -38,7 +36,7 @@ object Downloads {
         if (busy) return
         // In the app's language (⚙ App), not the system's: the texts go to the screens.
         val app = Ink.localized(ctx.applicationContext); result = null; status = "…"; stop = false; running = true
-        job = CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             var last = ""
             // E-ink: redraw only when the text changes (whole percents).
             val r = runCatching { work(app) { s ->
@@ -64,7 +62,8 @@ object Downloads {
         val prefs = Prefs(app); val packs = prefs.packs
         val before = packs.installed().keys
         // Models loaded in memory would go on translating with the old files (or hold the memory of removed ones).
-        if ((install + remove).any { it.kind in setOf("model", "opus", "llm") }) { io.github.kafeg.inkpeek.mt.Engine.release(); io.github.kafeg.inkpeek.mt.Llm.release() }
+        fun release() { io.github.kafeg.inkpeek.mt.Engine.release(); io.github.kafeg.inkpeek.mt.Llm.release() }
+        if ((install + remove).any { it.kind in setOf("model", "opus", "llm") }) release()
         remove.forEach { packs.remove(it) }
         // The dictionary last: a pair counts as installed by it, so a cancelled or broken download leaves no half pair.
         val added = ArrayList<Component>()
@@ -73,6 +72,8 @@ object Downloads {
                 packs.install(c) { got, all -> progress(app.getString(R.string.lang_working, i + 1, install.size, c.id, (got * 100 / all.coerceAtLeast(1)).toInt())) }
                 added += c
             }
+            // Again after: a card may have loaded the old model while the new one downloaded.
+            if (install.any { it.kind in setOf("model", "opus", "llm") }) release()
         } catch (e: Throwable) {
             // Stopped or failed: the new parts it brought that no installed pair needs go again (nothing would show them);
             // updated ones stay, they worked before.

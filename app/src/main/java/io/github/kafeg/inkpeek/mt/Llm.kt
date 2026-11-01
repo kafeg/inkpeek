@@ -18,13 +18,15 @@ object Llm {
         Engine.release() // Mozilla's or OPUS-MT's models: one big model in memory at a time
         val threads = Runtime.getRuntime().availableProcessors().coerceIn(1, 8) / 2
         // Long text in pieces of whole sentences: the model's context is 2048 tokens.
-        val out = chunks(text, from).joinToString(" ") { piece ->
-            val prompt = template.replace("{from}", names[from] ?: from).replace("{to}", names[to] ?: to).replace("{text}", piece)
-            loaded = true
-            String(translateNative(file.path, prompt.toByteArray(Charsets.UTF_8), piece.length * 2 + 32, threads.coerceAtLeast(1)), Charsets.UTF_8).trim()
+        try {
+            chunks(text, from).joinToString(" ") { piece ->
+                val prompt = template.replace("{from}", names[from] ?: from).replace("{to}", names[to] ?: to).replace("{text}", piece)
+                loaded = true
+                String(translateNative(file.path, prompt.toByteArray(Charsets.UTF_8), piece.length * 2 + 32, threads.coerceAtLeast(1)), Charsets.UTF_8).trim()
+            }
+        } finally { // a failed translation frees the model too (about 1 GB)
+            if (keep) freeing = idle.schedule({ release() }, 2, java.util.concurrent.TimeUnit.MINUTES) else release()
         }
-        if (keep) freeing = idle.schedule({ release() }, 2, java.util.concurrent.TimeUnit.MINUTES) else release()
-        out
     }
 
     /** Blocks while a translation runs: not on the main thread. */
