@@ -4,6 +4,16 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.239 — 2026-11-01
+- Settings: the five sections are icons (their names on a long press), so they fit on any screen. On phones and
+  tablets one accent colour marks what is selected; e-readers stay black and white.
+- Sync tab: the folder's full path, this device's name and id, and what syncs. Backup export and import moved here.
+- Sync: Synology Drive works directly (a sync task) — the hint and Help say how. A word saved while the folder could
+  not be written is no longer lost if the app closes before the folder is back.
+- Anki: notes doubled by an AnkiWeb sync heal themselves (the oldest note stays, with the audio); AnkiDroid is no
+  longer woken when nothing waits.
+- The icon and the start screen show the whole page and magnifier — the corners were cut off on phones.
+
 ### 0.8.228 — 2026-11-01
 - Sync (⚙ → Sync): pick a folder that a sync app keeps on this device — Syncthing-Fork works best, Nextcloud and
   Yandex Disk too; Google Drive, OneDrive, Dropbox or a NAS through Round Sync or RSAF. Saved words and phrases, the

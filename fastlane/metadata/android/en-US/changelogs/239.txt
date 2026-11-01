@@ -1,0 +1,1 @@
+Settings sections are icons now; on phones one accent colour marks the selection, e-readers stay black and white. Sync tab: full folder path, device name and id, backups. Synology Drive works directly. Anki: duplicates after an AnkiWeb sync heal themselves. Fixes: a word saved while the folder was unreachable is kept; the icon is no longer cut off.
