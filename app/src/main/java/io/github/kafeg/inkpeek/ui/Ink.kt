@@ -164,6 +164,9 @@ object Ink {
     private fun res(ctx: Context, name: String, fallback: String) =
         ctx.resources.getIdentifier(name, "string", ctx.packageName).takeIf { it != 0 }?.let { ctx.getString(it) } ?: fallback
 
+    /** [s] cut to [n] characters, not between the halves of an emoji. */
+    fun cut(s: String, n: Int) = if (s.length <= n) s else s.take(if (s[n - 1].isHighSurrogate()) n - 1 else n)
+
     fun escape(s: String) = io.github.kafeg.inkpeek.stardict.Article.escape(s)
 
     /** A language's name in its own language, capitalized ("Deutsch"): the app's language list. */

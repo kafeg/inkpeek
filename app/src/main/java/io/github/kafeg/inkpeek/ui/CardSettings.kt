@@ -41,9 +41,10 @@ class CardSettings(private val a: MainActivity) {
         val names = mapOf("offline" to a.getString(R.string.open_offline), "ai" to a.getString(R.string.open_ai), "dict" to a.getString(R.string.open_dict),
             "analysis" to a.getString(R.string.a_analysis) + " · AI", "context" to a.getString(R.string.a_context) + " · AI")
         val opens = choices.map { it to names.getValue(it) }
-        prefs.phraseOpen = Opening.pick(prefs.phraseOpen, choices)
+        // Shown, not saved: a choice gone for now (AI off a while) comes back with it.
+        val shown = Opening.pick(prefs.phraseOpen, choices)
         openBox.addView(Rows.choice(a, a.getString(R.string.phrase_open), a.getString(R.string.phrase_open_d), opens.map { it.second },
-            opens.indexOfFirst { it.first == prefs.phraseOpen }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
+            opens.indexOfFirst { it.first == shown }.coerceAtLeast(0)) { prefs.phraseOpen = opens[it].first })
     }
 
     /** The dictionaries' order, then what the card takes from InkPeek's language packs, one row per part. */

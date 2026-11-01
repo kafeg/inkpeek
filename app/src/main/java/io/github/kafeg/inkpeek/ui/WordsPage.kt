@@ -27,7 +27,7 @@ class WordsPage(private val card: CardActivity) {
                 // The activity's scope: this coroutine is over by the time of the tap.
                 Rows.confirm(card, card.getString(R.string.unsave_q, e.text)) { card.launch {
                     withContext(Dispatchers.IO) { runCatching { store.unsave(e.text) } }
-                    card.starred(withContext(Dispatchers.IO) { card.isSaved() }) // ★ of a word saved as its base form too
+                    card.starred(withContext(Dispatchers.IO) { runCatching { card.isSaved() }.getOrDefault(false) }) // ★ of a word saved as its base form too
                     fill(p)
                 } }
             }

@@ -96,7 +96,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
-        val raw = textOf(intent).orEmpty().take(4000) // about a page
+        val raw = Ink.cut(textOf(intent).orEmpty(), 4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         // "die Konjugation": the noun's word card (the pack's header starts so). Blocking, only for two words.
         if (kind == Kind.PHRASE && Kind.words(query) == 2)
@@ -218,11 +218,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     private fun textOf(i: Intent): String? = when (i.action) {
-        "colordict.intent.action.SEARCH" -> i.getStringExtra("EXTRA_QUERY")
-        Intent.ACTION_PROCESS_TEXT -> i.getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT)?.toString()
-        Intent.ACTION_SEND -> i.getStringExtra(Intent.EXTRA_TEXT)
-        else -> i.getStringExtra("EXTRA_QUERY") ?: i.getStringExtra(Intent.EXTRA_TEXT)
+        "colordict.intent.action.SEARCH" -> text(i, "EXTRA_QUERY")
+        Intent.ACTION_PROCESS_TEXT -> text(i, Intent.EXTRA_PROCESS_TEXT)
+        Intent.ACTION_SEND -> text(i, Intent.EXTRA_TEXT)
+        else -> text(i, "EXTRA_QUERY") ?: text(i, Intent.EXTRA_TEXT)
     }
+    /** A String or styled text (some apps share a Spanned): read as a String it would be null. */
+    private fun text(i: Intent, key: String) = runCatching { i.getCharSequenceExtra(key)?.toString() }.getOrNull()
 
     /** The card (header, body) with the icon bar at its bottom under a thin line: tabs · save, Notes · close. */
     private fun build() {
