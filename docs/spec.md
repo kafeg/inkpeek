@@ -12,7 +12,7 @@ Close the card and you are back on the same page.
 - Small, readable code; well-known libraries where they save work.
 
 ## Non-goals (v1)
-- Flashcards / spaced repetition, history sync, online dictionaries.
+- Flashcards / spaced repetition of its own (Anki does it: milestone 22), online dictionaries.
 - A full dictionary app (search screen, browsing). Saved words and history are lists, not a trainer.
 
 ## Invocation
@@ -125,9 +125,10 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
-Four sections with three tabs each (milestone 14.4), in the order of setting up: Languages (InkPeek · Other
+Five sections with up to three tabs each (milestone 14.4), in the order of setting up: Languages (InkPeek · Other
 dictionaries · Help), Card (Main: language, theme, dictionary view and order, phrases · Appearance: size, place, text,
-font › · Icons: which are shown, what each does), AI (Main · Prompts · Help), Notes (Words · Phrases · History). The status line on top, the
+font › · Icons: which are shown, what each does), AI (Main · Prompts · Help), Notes (Words · Phrases · History), Sync
+(Sync · Anki: milestone 22). The status line on top, the
 version on its right (About). UI exactly in the answer languages of the packs (en, ru, de, fr, es, it, pt, pl); system
 language by default. The app language is also the answer language.
 
@@ -403,6 +404,24 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      version `(prompt + that paragraph with the language's name).hashCode()` — none keeps today's version.
    - Off: everything as before. LexiPeek: `settings.json` `"study": {"ru": ["de"]}` with the same meaning
      (`docs/formats.md`).
+
+22. **Sync and Anki** (01.11; as LexiPeek's Settings → Sync). Only a Settings section: nothing in the card, no device
+   list, no dialogs.
+   - **Sync tab:** one folder (the system picker, a tree URI kept across restarts); a hint: sync it with any tool,
+     Syncthing works best (it copies files as they are), others work too; one status line: when it was read, or the
+     error. The log: `docs/formats.md`, "Sync log" (cases `tests/sync`, JVM tests). Every change of the store is written
+     at once (a look when its card closes, with its line and base form); the folder is read when a card closes and when
+     the settings show, at most every 30 s, and the store becomes the merged log. A folder picked: what the store has
+     and the log lacks is written first, with the records' own times. The log keeps a line's language as a code
+     (`ru`), the store as its English name.
+   - **Anki tab** (AnkiDroid's content provider, permission `com.ichi2.anki.permission.READ_WRITE_DATABASE` asked when
+     needed): on/off; how it works (InkPeek → AnkiDroid, LexiPeek → AnkiConnect); a check line naming the failing step
+     (not installed, no permission); Send now; three decks, each on/off and picked from AnkiDroid's or typed:
+     `Peek::Words`, `Peek::Phrases`, `Peek::History` (off by default), per deck "in Anki · waiting". Note type `Peek`,
+     fields `Front, Back, Audio, Example, Key` and the Key as LexiPeek's (`Anki.key`): one word from both apps is one
+     note. Notes go by themselves (when a card closes, when the settings show), found by Key: updated, else added.
+     `Audio` stays empty on new notes, a filled one is kept. What went: `anki.json` in the app's files (per device).
+   - **Notes:** a small "In Anki" under a row that was sent.
 
 Replaced (20.10): Offline Translator app via AIDL (GPL app, 44 MB, its own pack UI — we could not control the
 languages); grammar from AI; AI as the default translation.

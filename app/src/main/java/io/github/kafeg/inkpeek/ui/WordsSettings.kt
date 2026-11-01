@@ -27,17 +27,21 @@ class WordsSettings(private val a: MainActivity) {
     /** Tap opens the card (offline from saved answers), ✕ removes (it asks first). The last asked list wins. */
     fun refresh(): Job { job?.cancel(); return a.launch {
         val lang = a.prefs.answerLang; val now = kind
-        val (items, counts) = withContext(Dispatchers.IO) { runCatching {
+        val anki = a.prefs.ankiOn
+        val (items, counts, sent) = withContext(Dispatchers.IO) { runCatching {
             val st = Store.get(a)
-            (if (now == "history") st.history(lang) else st.saved(now, lang)) to
-                listOf(st.count("saved", "word"), st.count("saved", "phrase"), st.count("history"))
+            val items = if (now == "history") st.history(lang) else st.saved(now, lang)
+            // Rows sent to Anki get a small mark.
+            Triple(items, listOf(st.count("saved", "word"), st.count("saved", "phrase"), st.count("history")),
+                if (anki) items.filter { io.github.kafeg.inkpeek.anki.Anki.inAnki(a, it.text, it.lang, now == "history") }.map { it.text }.toSet() else emptySet())
         }.getOrNull() } ?: return@launch
         tabs.removeAllViews()
         tabs.addView(WordsList.kinds(a, listOf("word", "phrase", "history"), counts, now, 16f) { kind = it; a.open["words"] = it; page = 0; refresh() },
             Ink.lp().apply { bottomMargin = Ink.dp(a, 6) })
         list.removeAllViews()
         if (items.isEmpty()) list.addView(Rows.note(a, a.getString(if (now == "history") R.string.list_empty_history else R.string.list_empty_saved)))
-        page = WordsList.fill(a, list, items, page, 16f, { page = it; turn() }, { e -> a.startActivity(WordsList.card(a, e.text)) }) { e ->
+        val inAnki = a.getString(R.string.anki_in)
+        page = WordsList.fill(a, list, items, page, 16f, { page = it; turn() }, { e -> a.startActivity(WordsList.card(a, e.text)) }, { e -> inAnki.takeIf { e.text in sent } }) { e ->
             Rows.confirm(a, a.getString(if (now == "history") R.string.forget_q else R.string.unsave_q, e.text)) {
                 a.launch { withContext(Dispatchers.IO) { runCatching { Store.get(a).run { if (now == "history") forget(e.text) else unsave(e.text) } } }; refresh() }
             }

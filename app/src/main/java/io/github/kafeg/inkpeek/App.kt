@@ -13,6 +13,7 @@ class App : android.app.Application() {
         super.onCreate()
         Prefs(this).let { p -> Ai.recall = { p.variant(it) }; Ai.remember = { k, v -> p.setVariant(k, v) }; Ai.edited = { p.prompt(it) }; Ai.picked = { p.aiKey(it) } }
         registerActivityLifecycleCallbacks(Bars)
+        io.github.kafeg.inkpeek.sync.Sync.init(this)
     }
 
     /** Android 15 draws screens under the status and navigation bars: keep their content out (and above the keyboard). */

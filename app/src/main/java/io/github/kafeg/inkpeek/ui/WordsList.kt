@@ -6,14 +6,16 @@ import io.github.kafeg.inkpeek.Store
 
 /** Notes, in the app and in the card: one row per entry — the text and one line, tap opens it, ✕ removes it. */
 object WordsList {
-    fun row(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.vertical(ctx).apply {
-        addView(line(ctx, e, sp, open, remove)); addView(Ink.divider(ctx))
+    /** [mark]: a small note at the row's end ("In Anki"). */
+    fun row(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit, mark: String? = null) = Ink.vertical(ctx).apply {
+        addView(line(ctx, e, sp, open, remove, mark)); addView(Ink.divider(ctx))
     }
 
-    private fun line(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit) = Ink.opener(ctx,
+    private fun line(ctx: Context, e: Store.Entry, sp: Float, open: () -> Unit, remove: () -> Unit, mark: String?) = Ink.opener(ctx,
         Ink.entry(ctx, e.text, e.meaning, sp).apply {
             val q = Ink.dp(ctx, 6); setPadding(0, q, q, q)
             (0 until childCount).mapNotNull { getChildAt(it) as? android.widget.TextView }.forEach { TextActions.selectable(it) }
+            mark?.let { addView(Ink.text(ctx, it, sp * 0.65f)) }
         }, open, Ink.button(ctx, "✕", sp * 0.9f) { remove() })
 
     /** The lists' sub-tabs with their counts: "Words (12)"; [pick] gets the key. */
@@ -28,11 +30,11 @@ object WordsList {
      * within the pages, the one shown is returned; [turn] gets another.
      */
     fun fill(ctx: Context, box: android.widget.LinearLayout, items: List<Store.Entry>, page: Int, sp: Float, turn: (Int) -> Unit,
-             open: (Store.Entry) -> Unit, remove: (Store.Entry) -> Unit): Int {
+             open: (Store.Entry) -> Unit, mark: (Store.Entry) -> String? = { null }, remove: (Store.Entry) -> Unit): Int {
         val pages = (items.size + PAGE - 1) / PAGE
         val at = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
         if (pages > 1) box.addView(pager(ctx, at, items.size, sp * 0.9f, turn = turn), Ink.lp().apply { bottomMargin = Ink.dp(ctx, 6) })
-        items.drop(at * PAGE).take(PAGE).forEach { e -> box.addView(row(ctx, e, sp, { open(e) }) { remove(e) }) }
+        items.drop(at * PAGE).take(PAGE).forEach { e -> box.addView(row(ctx, e, sp, { open(e) }, { remove(e) }, mark(e))) }
         return at
     }
 

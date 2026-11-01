@@ -207,6 +207,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onDestroy() {
         cancel()
         if (isFinishing && !prefs.history) Thread { runCatching { store.dropUnkept() } }.start()
+        // The card's look goes to the sync log, the folder is read, what waits goes to Anki.
+        if (isFinishing) io.github.kafeg.inkpeek.sync.Sync.refresh()
         super.onDestroy()
     }
     override fun onTrimMemory(level: Int) {

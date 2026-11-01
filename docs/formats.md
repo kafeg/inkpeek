@@ -91,7 +91,7 @@ the shared model: the sync log carries the same fields, the merged state in the 
 - A word saved as its base form takes the looked-up form's answers along.
 
 ## Sync log
-The one format both apps write and read (InkPeek does not implement it yet). No servers: the logs live in a folder
+The one format both apps write and read. No servers: the logs live in a folder
 that a sync tool (Syncthing, a cloud drive, a NAS share) copies between devices; the user picks it in each app
 (`<sync>`). One folder serves InkPeek and LexiPeek together, any number of installs of each. Synced: saved words and
 phrases, the history, the answers (`ai`). Not synced: settings, packs, models, voices. The records (above) are built

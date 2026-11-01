@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
-/** Settings in four sections (Languages, Card, AI, Notes), each with three tabs; one class per section. */
+/** Settings in five sections (Languages, Card, AI, Notes, Sync), each with up to three tabs; one class per section. */
 class MainActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs
     private lateinit var status: TextView
@@ -49,6 +49,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private lateinit var words: WordsSettings
     private lateinit var card: CardSettings
     private lateinit var ai: AiSettings
+    private lateinit var sync: SyncSettings
 
     override fun attachBaseContext(base: android.content.Context) = super.attachBaseContext(Ink.localized(base))
 
@@ -97,7 +98,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
 
         // Tabs with shrunk labels (a narrow screen) must not drop to a shared text baseline: their bottoms got cut.
         val bar = Ink.horizontal(this).apply { isBaselineAligned = false }
-        listOf(R.string.tab_dicts, R.string.tab_card, R.string.tab_ai, R.string.tab_words).forEachIndexed { i, t ->
+        listOf(R.string.tab_dicts, R.string.tab_card, R.string.tab_ai, R.string.tab_words, R.string.tab_sync).forEachIndexed { i, t ->
             sections[t] = Ink.vertical(this)
             val b = Ink.tab(this, getString(t), 18f) { show(t) }
             sectionButtons[t] = b
@@ -105,7 +106,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
             bar.addView(b, Ink.lp(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
         }
         main.addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 16) })
-        // One text size for all four: the size the longest label shrank to on this screen.
+        // One text size for all five: the size the longest label shrank to on this screen.
         bar.post { val min = sectionButtons.values.minOf { it.textSize }
             sectionButtons.values.forEach { it.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE); it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, min) } }
         sections.values.forEach { main.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
@@ -113,6 +114,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         ai = AiSettings(this).also { it.build(sections.getValue(R.string.tab_ai)) }
         card = CardSettings(this).also { it.build(sections.getValue(R.string.tab_card)) }
         words = WordsSettings(this).also { it.build(sections.getValue(R.string.tab_words)) }
+        sync = SyncSettings(this).also { it.build(sections.getValue(R.string.tab_sync)) }
         val section = SECTION_KEYS.entries.associate { (id, k) -> k to id }
         show(savedInstanceState?.getInt("tab") ?: asked?.let { section[it[0]] } ?: R.string.tab_dicts)
         open["page"]?.let { openPage(it) }
@@ -147,6 +149,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (tab == R.string.tab_words) words.refresh()
         if (tab == R.string.tab_card) card.refreshOpening()
         if (tab == R.string.tab_ai) ai.refreshAnswers()
+        if (tab == R.string.tab_sync) sync.refresh()
     }
 
     override fun onSaveInstanceState(out: Bundle) {
@@ -160,8 +163,15 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         if (Downloads.busy) download.show()
         Updates.pending?.let { Updates.pending = null; runCatching { startActivity(it) } }
         languages.refreshPacks(); refreshDicts(); card.refreshFont(); if (current == R.string.tab_words) words.refresh()
+        // The folder read (the notes may change) and what waits sent to Anki.
+        io.github.kafeg.inkpeek.sync.Sync.changed = { if (resumed) { if (current == R.string.tab_words) words.refresh(); if (current == R.string.tab_sync) sync.refresh() } }
+        io.github.kafeg.inkpeek.sync.Sync.refresh()
     }
-    override fun onPause() { TextActions.end(); resumed = false; ui.removeCallbacksAndMessages(null); Downloads.listener = null; super.onPause() }
+    override fun onPause() { TextActions.end(); resumed = false; ui.removeCallbacksAndMessages(null); Downloads.listener = null; io.github.kafeg.inkpeek.sync.Sync.changed = null; super.onPause() }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, results: IntArray) {
+        if (requestCode == SyncSettings.PERMISSION) sync.onPermission(results.firstOrNull() == android.content.pm.PackageManager.PERMISSION_GRANTED)
+    }
     override fun onDestroy() { download.dismiss(); cancel(); super.onDestroy() }
 
     private var resumed = false
@@ -170,7 +180,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     @Deprecated("Plain Activity result: no AndroidX dependency")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK && data != null) { if (requestCode == WordsSettings.RESTORE) words.onResult(data) else languages.onResult(requestCode, data) }
+        if (resultCode == RESULT_OK && data != null) when (requestCode) {
+            WordsSettings.RESTORE -> words.onResult(data); SyncSettings.FOLDER -> sync.onFolder(data); else -> languages.onResult(requestCode, data) }
     }
 
     /** Builds the dictionaries' indexes (in the background), the status line and the Other dictionaries list. */
@@ -230,7 +241,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     fun toast(s: String) = Ink.toast(this, s)
 
     companion object {
-        private val SECTION_KEYS = mapOf(R.string.tab_dicts to "lang", R.string.tab_card to "card", R.string.tab_ai to "ai", R.string.tab_words to "words")
+        private val SECTION_KEYS = mapOf(R.string.tab_dicts to "lang", R.string.tab_card to "card", R.string.tab_ai to "ai", R.string.tab_words to "words", R.string.tab_sync to "sync")
     }
 
     /** A tap beside a selection ends it and its menu. */

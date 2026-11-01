@@ -50,6 +50,22 @@ class Prefs(private val ctx: Context) {
     /** The card's ☆ and Notes icons; the history is kept either way. */
     var cardSave: Boolean get() = sp.getBoolean("card_save", true); set(v) = sp.edit().putBoolean("card_save", v).apply()
     var history: Boolean get() = sp.getBoolean("history", true); set(v) = sp.edit().putBoolean("history", v).apply()
+
+    /** Sync (docs/formats.md): the folder (a tree URI, "" = none); this install's id, its name and when it was made, its newest line. */
+    var syncUri: String get() = sp.getString("sync_uri", "")!!; set(v) = sp.edit().putString("sync_uri", v).apply()
+    var syncDevice: String get() = sp.getString("sync_device", "")!!; set(v) = sp.edit().putString("sync_device", v).apply()
+    var syncCreated: Long get() = sp.getLong("sync_created", 0); set(v) = sp.edit().putLong("sync_created", v).apply()
+    var syncLast: String get() = sp.getString("sync_last", "")!!; set(v) = sp.edit().putString("sync_last", v).apply()
+    val syncName: String get() = android.os.Build.MODEL.orEmpty().ifBlank { "Android" }
+    /** When the folder was last read (ms). */
+    var syncRead: Long get() = sp.getLong("sync_read", 0); set(v) = sp.edit().putLong("sync_read", v).apply()
+
+    /** Anki through AnkiDroid: on, and per list ("word", "phrase", "history") whether it goes and its deck. */
+    var ankiOn: Boolean get() = sp.getBoolean("anki_on", false); set(v) = sp.edit().putBoolean("anki_on", v).apply()
+    fun ankiDeckOn(kind: String) = sp.getBoolean("anki_${kind}_on", kind != "history")
+    fun setAnkiDeckOn(kind: String, on: Boolean) = sp.edit().putBoolean("anki_${kind}_on", on).apply()
+    fun ankiDeck(kind: String): String = sp.getString("anki_$kind", "")!!.ifBlank { "Peek::" + mapOf("word" to "Words", "phrase" to "Phrases").getOrDefault(kind, "History") }
+    fun setAnkiDeck(kind: String, name: String) = sp.edit().putString("anki_$kind", name.trim()).apply()
     /** AI chosen (AI tab); never chosen yet — on only with a key or a server already there, so a fresh install starts without AI. */
     var aiOn: Boolean get() = if (sp.contains("ai_on")) sp.getBoolean("ai_on", false) else effectiveKey(provider).isNotBlank() || url(Provider.CUSTOM).isNotBlank()
         set(v) = sp.edit().putBoolean("ai_on", v).apply()

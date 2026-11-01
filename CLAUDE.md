@@ -12,11 +12,13 @@ OpenRouter, downloads), coroutines, commons-compress + xz + zstd-jni (dictionary
 sentence splitting: nothing is downloaded at build time); CMake 3.22.1 and NDK from the SDK (Gradle installs them).
 Packages: `stardict` (pure JVM engine; `Library`: the packs' dictionaries, then other ones (`InkPeek/dicts`, folders
 in place) — lookup, header, gloss by answer language; `Importer`; `Catalog` of public sources — JVM-tested), `packs`
-(manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `ui`:
+(manifest, download, install), `ai` (requests, `Answers`), `mt` (Bergamot, language id, `OfflineTranslation`), `sync`
+(the sync log: `Log.kt` pure JVM, run against `tests/sync`; `SafFolder` the picked folder; `Sync` the app's glue: store
+changes → lines, the folder read → the store), `anki` (AnkiDroid's content provider, Key as LexiPeek's), `ui`:
 `CardActivity` (window, header, icon bar) + one class per tab (`DictionaryPage`, `TranslatePage`, `AiPage`,
 `WordsPage`), `MainActivity` (settings shell: ⚙ `AppPage` and ? `HelpPage` in `Pages.kt` open over it) + one class
 per section (`LanguagesSettings` with `MethodPane` (offline translation), `AiSettings`, `CardSettings`,
-`WordsSettings`), all built of `Rows` (the one row style; at most three sub-tabs, every setting two lines); `PacksActivity` / `CatalogActivity` (packs /
+`WordsSettings`, `SyncSettings`), all built of `Rows` (the one row style; at most three sub-tabs, every setting two lines); `PacksActivity` / `CatalogActivity` (packs /
 other dictionaries to download), `OrderActivity` (dictionary order), `Downloads` (one download for the process: packs,
 dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `TextActions` (selection, our copy /
 share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
