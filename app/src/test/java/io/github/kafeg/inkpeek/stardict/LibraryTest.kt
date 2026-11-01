@@ -46,6 +46,20 @@ class LibraryTest {
         assertEquals(listOf("dict-de-ru", "dict-en-ru"), lib.lookup("Gift", "en").map { it.first.ifo.parentFile!!.name })
     }
 
+    /** An article and its noun opens as the noun when the pack's header starts with both words; other pairs stay phrases. */
+    @Test fun articleAndNounByThePacksHeader() {
+        val lib = library()
+        assertEquals("Haus", lib.articleNoun("das Haus", "ru"))
+        assertEquals("Haus", lib.articleNoun("Das Haus.", "ru"))
+        assertEquals("Haus", lib.articleNoun("DAS HAUS", "ru")) // the headword as the pack writes it
+        assertEquals("Hund", lib.articleNoun("«der Hund»", "en"))
+        assertEquals(null, lib.articleNoun("die Häuser", "ru")) // header: das Haus (…)
+        assertEquals(null, lib.articleNoun("der Haus", "ru"))
+        assertEquals(null, lib.articleNoun("ein Haus", "ru"))
+        assertEquals(null, lib.articleNoun("das Haus steht", "ru"))
+        assertEquals(null, lib.articleNoun("das Buch", "ru")) // not in the pack
+    }
+
     @Test fun glossPicksTheTextsLanguageIntoTheAnswer() {
         val g = library().gloss("Die Häuser, der Hund", "ru")
         assertEquals(Gloss("Häuser", Head("Haus", "das Haus (Hauses, мн. Häuser) — дом, здание")), g.first { it.word == "Häuser" })

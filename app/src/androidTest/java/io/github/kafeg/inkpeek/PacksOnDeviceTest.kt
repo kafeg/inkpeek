@@ -29,7 +29,7 @@ class PacksOnDeviceTest {
             val actual = runCatching { run(kind, pair, input) }.getOrElse { "ERROR ${it.javaClass.simpleName}: ${it.message}" }
             val ok = expected.split(" | ").any { e -> when (kind) {
                 "head" -> actual.startsWith(e)
-                "lang", "sep" -> actual == e
+                "lang", "sep", "noun" -> actual == e
                 else -> actual.contains(e, ignoreCase = true)
             } }
             Log.i(TAG, "${if (ok) "PASS" else if (gap) "GAP" else "FAIL"}\t$kind\t$pair\t$input\t$expected\t$actual\t${System.currentTimeMillis() - t0} ms")
@@ -45,6 +45,7 @@ class PacksOnDeviceTest {
             ?.second?.firstNotNullOfOrNull { headLine(it.html) }?.let { if (kind == "head") it.substringBefore(" — ") else it.substringAfter(" — ") } ?: "(not found)"
         "lang" -> LangId.source(input, pair, prefs.packs, lib.all()).let { (book, other) -> book ?: "!$other" }
         "sep" -> lib.separable(input, pair.substringAfter('-')).map { it.first.verb }.sorted().joinToString(", ").ifEmpty { "(none)" }
+        "noun" -> lib.articleNoun(input, pair.substringAfter('-')) ?: "(phrase)"
         "tr" -> pair.split('-').let { (x, y) -> Engine.translate(prefs.modelsDir, x, y, input, keep = true) }
         else -> error("Unknown case kind $kind")
     }

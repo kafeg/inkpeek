@@ -86,6 +86,13 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         lookup(query, answer, among = among.filter(::isPack)).distinctBy { (d, _) -> d.book }
         .mapNotNull { (d, hits) -> hits.firstNotNullOfOrNull { h -> headLine(h.html)?.let { Head(h.word, it, d.book.orEmpty()) } } }
 
+    /** "die Konjugation": an article and its noun — the pack's header of the second word starts with both → its headword; else null. */
+    fun articleNoun(text: String, answer: String, among: List<StarDict> = all()): String? {
+        val w = text.trim().split(Regex("\\s+")).map(::cleanQuery)
+        if (w.size != 2 || w.any { it.isEmpty() }) return null
+        return heads(w[1], answer, among).firstOrNull()?.takeIf { it.header.startsWith("${w[0]} ${w[1]}", ignoreCase = true) }?.word
+    }
+
     /** A word's rank in the frequency list of [book] (its language) from the packs (1: the most frequent), 0 when unknown. */
     fun rank(word: String, book: String): Int = all().filter { isPack(it) && it.ready && it.book == book }
         .firstNotNullOfOrNull { d -> runCatching { d.related?.of(word)?.rank }.getOrNull()?.takeIf { it > 0 } } ?: 0

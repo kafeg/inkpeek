@@ -32,6 +32,9 @@ Core works offline without AI; AI tabs are optional extras. Tabs: **Dictionary**
 **AI translation**, **Analysis**, **Context** — "AI" in the icon's corner, dimmed and a reason on tap when AI is off,
 has no key, or there is no network (a saved answer still opens). AI off in settings → no AI tabs. A tab keeps its
 content. Selection kinds: word · phrase (2–8 words, one sentence) · passage (more); the model is told the kind.
+An article and its noun ("die Konjugation": the pack's header of the second word starts with both words) is the noun:
+its word card, on Dictionary — no list of articles in code; "die Häuser", "den Tisch" (the header is "das Haus …",
+"der Tisch") stay phrases.
 The card opens on Dictionary; a phrase opens on what Card → Opening says (`phrase_open`, milestone 20; the offline
 translation by default). No AI request on card open unless an AI choice is set there.
 Header of a word from local data only: the article, plural and verb forms from the packs' grammar data (milestone 10;
@@ -343,7 +346,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      sentences: 70 with separated verbs, 30 traps) on the device and on the built pack's data in a unit test
      (`scripts/separable-fixture.py`); 9 known gaps: a particle with words after it ("fing an zu essen", "zurück in
      Deckung") and two homographs or missing verbs.
-   - ☆ saves a word's base form from the packs (also "das Haus" → Haus when the pack's header starts so).
+   - ☆ saves a word's base form from the packs ("das Haus" opens as Haus: the pack's header starts so — see Card).
    - Under the header: the frequency band (.rel: the rank) and "looked up N times" across the word's forms (history:
      each look's base form).
    - Notes → Export / Import: the whole store as one file (`VACUUM INTO`); an import adds missing rows by the columns

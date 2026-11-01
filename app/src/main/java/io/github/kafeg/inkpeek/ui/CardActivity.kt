@@ -98,6 +98,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
         val raw = textOf(intent).orEmpty().take(4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
+        // "die Konjugation": the noun's word card (the pack's header starts so). Blocking, only for two words.
+        if (kind == Kind.PHRASE && Kind.words(query) == 2)
+            runCatching { prefs.library().articleNoun(query, prefs.answerCode, prefs.packDictionaries()) }.getOrNull()?.let { query = it }
         if (query.isEmpty()) { finish(); return }
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
@@ -514,15 +517,13 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     }
 
     /**
-     * What ☆ saves: a word as its base form from the packs ("andere" → "ander"), also after its article ("das Haus" →
-     * "Haus": the pack's header starts so); else the selection as it is. Blocking. (text, kind)
+     * What ☆ saves: a word as its base form from the packs ("andere" → "ander"), also after its article when the card
+     * opened before the packs were indexed ("das Haus" → "Haus"); else the selection as it is. Blocking. (text, kind)
      */
     private fun saveKey(): Pair<String, String> {
         val lib = prefs.library(); val packs = prefs.packDictionaries()
         if (kind == Kind.WORD) return (lib.heads(query, prefs.answerCode, packs).firstOrNull()?.word ?: query) to "word"
-        val w = query.trim().split(Regex("\\s+"))
-        if (w.size == 2) lib.heads(w[1], prefs.answerCode, packs).firstOrNull()?.takeIf { it.header.startsWith(query.trim(), ignoreCase = true) }
-            ?.let { return it.word to "word" }
+        lib.articleNoun(query, prefs.answerCode, packs)?.let { return it to "word" }
         return query to kindName
     }
 

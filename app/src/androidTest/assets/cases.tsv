@@ -1,7 +1,7 @@
 # Language packs on the device, through the app's own code. kind	pair	input	expected ("a | b": any of them)
 # head: the header (first line before " — ") starts with; mean: the first meanings contain;
 # lang: the language the card picks for a text, "!xx" = named as a language without a pack (pair = answer language);
-# sep: the separable verbs written apart that word by word names ("a, b"; "(none)"); tr: the offline translation contains. "?kind": a known gap of the data — checked and shown as GAP, does not fail.
+# sep: the separable verbs written apart that word by word names ("a, b"; "(none)"); noun: an article and its noun opens as this word ("(phrase)": stays a phrase); tr: the offline translation contains. "?kind": a known gap of the data — checked and shown as GAP, does not fail.
 head	de-ru	Häusern	das Haus (Hauses, мн. Häuser)
 head	de-ru	ging	gehen (geht, ging, ist gegangen)
 head	de-ru	Kinder	das Kind
@@ -45,6 +45,12 @@ mean	de-en	Baum	tree
 mean	de-en	Kirche	church
 mean	de-en	schnell	fast | quick
 head	en-de	went	go (went, gone)
+noun	de-ru	die Konjugation	Konjugation
+noun	de-ru	Das Haus.	Haus
+noun	de-ru	der Tisch	Tisch
+noun	de-ru	die Häuser	(phrase)
+noun	de-ru	den Tisch	(phrase)
+noun	de-ru	ein Haus	(phrase)
 mean	en-de	dog	Hund
 mean	en-de	house	Haus
 mean	en-de	tree	Baum

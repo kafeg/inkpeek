@@ -7,6 +7,8 @@ count, so every release has its own.
 ### Unreleased
 - Languages you learn: one language, chosen in a list. A text already in your answer language opens in it — no pages to
   turn on the Dictionary tab, one translation, AI about that one version.
+- Card: an article and its noun ("die Konjugation") opens as the noun's word card — its header, Dictionary first —
+  when the language pack's header starts so; "die Häuser" or "den Tisch" stay phrases.
 
 ### 0.8.218 — 2026-10-29
 - Updates: no more daily check. InkPeek asks GitHub for a new version only when you press Check now (About, or
