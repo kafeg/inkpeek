@@ -1,0 +1,14 @@
+{"t":[1798802503000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":1}
+{"t":[1798802564000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"não","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нет, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1798838564987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Good evening!\",\"ещё\"]}"}
+{"t":[1798939425007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":1}
+{"t":[1799004225000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1799018745000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки» (2)","c":1}
+{"t":[1799022347000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)","c":4}
+{"t":[1799022468000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":2}
+{"t":[1799094469007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":3}
+{"t":[1799339451000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"più","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"more\"\t\\ 1. Bedeutung"}
+{"t":[1799343050987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1799479852007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":1}
+{"t":[1799519451987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city"}
+{"t":[1799551912007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":4}

@@ -1,0 +1,20 @@
+{"t":[1798766443007,0],"d":"mac-earhzjsk","op":"ai.put","text":"Er sagte: \"Komm!\"","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Он сказал: \"Иди!\"\"\t\\ 1. Bedeutung"}
+{"t":[1798834964000,0],"d":"mac-earhzjsk","op":"ai.put","text":"Haus","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"das Haus (Hauses, pl. Häuser) — дом (2)\"\t\\ 1. Bedeutung"}
+{"t":[1798903365000,0],"d":"mac-earhzjsk","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел), ещё","c":2}
+{"t":[1799007885007,0],"d":"mac-earhzjsk","op":"ai.put","text":"Ha­us","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"дом (мягкий перенос)\"\t\\ 1. Bedeutung"}
+{"t":[1799018745000,0],"d":"mac-earhzjsk","op":"ai.put","text":"Mädchen","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"girl"}
+{"t":[1799018746007,0],"d":"mac-earhzjsk","op":"ai.put","text":"Häuser","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"дома, ещё\"}"}
+{"t":[1799022346000,0],"d":"mac-earhzjsk","op":"history.seen","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел) (2)","c":1}
+{"t":[1799022466987,0],"d":"mac-earhzjsk","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Как дела?\"}"}
+{"t":[1799054868000,0],"d":"mac-earhzjsk","op":"saved.del","text":"Hauß"}
+{"t":[1799054869000,0],"d":"mac-earhzjsk","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1799195330000,0],"d":"mac-earhzjsk","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028","c":2}
+{"t":[1799227730007,0],"d":"mac-earhzjsk","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":1}
+{"t":[1799260130000,0],"d":"mac-earhzjsk","op":"history.del","text":"garçon"}
+{"t":[1799292530000,0],"d":"mac-earhzjsk","op":"ai.put","text":"źdźbło","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"стебель\",\"ещё\"]}"}
+{"t":[1799292530000,1],"d":"mac-earhzjsk","op":"ai.put","text":" Haus","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"дом (пробел слева)"}
+{"t":[1799303451000,0],"d":"mac-earhzjsk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":1}
+{"t":[1799379051000,0],"d":"mac-earhzjsk","op":"saved.del","text":"東京"}
+{"t":[1799479852000,0],"d":"mac-earhzjsk","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!, ещё","c":1}
+{"t":[1799555512000,0],"d":"mac-earhzjsk","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":2}
+{"t":[1799555632000,0],"d":"mac-earhzjsk","op":"history.seen","text":"delchar","kind":"word","lang":"ru","meaning":"DEL внутри (2)","c":2}

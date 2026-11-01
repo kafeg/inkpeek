@@ -1,0 +1,250 @@
+{"t":[1793480399988,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"한국어","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Korean (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480399988,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":1}
+{"t":[1793480400010,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"東京","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Tokyo\"]}"}
+{"t":[1793480400010,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big (2)"}
+{"t":[1793480400010,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"漢字","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"kanji (2)"}
+{"t":[1793480400010,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"big, ещё\"}"}
+{"t":[1793480400010,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1793480400010,5],"d":"samsung-qvisrwsx","op":"saved.del","text":"Ещё раз"}
+{"t":[1793480400010,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё"}
+{"t":[1793480400010,7],"d":"samsung-qvisrwsx","op":"saved.del","text":"東京"}
+{"t":[1793480400016,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1793480400016,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"漢字","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"kanji (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400016,2],"d":"samsung-qvisrwsx","op":"history.del","text":"𠮷野家"}
+{"t":[1793480400016,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":1}
+{"t":[1793480400016,4],"d":"samsung-qvisrwsx","op":"saved.del","text":"한국어"}
+{"t":[1793480400016,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
+{"t":[1793480400019,5],"d":"samsung-qvisrwsx","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo"}
+{"t":[1793480400019,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana (2)","c":1}
+{"t":[1793480400023,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":1}
+{"t":[1793480400023,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793480400023,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793480400023,3],"d":"samsung-qvisrwsx","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening (2)"}
+{"t":[1793480400023,4],"d":"samsung-qvisrwsx","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480400023,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":1}
+{"t":[1793480400023,6],"d":"samsung-qvisrwsx","op":"saved.del","text":"東京"}
+{"t":[1793480400024,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"我爱你。","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"to eat up\"\t\\ 1. Bedeutung"}
+{"t":[1793480400024,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"Häuser","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"houses (2)"}
+{"t":[1793480400024,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"STRASSE","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793480400024,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":2}
+{"t":[1793480400024,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":2}
+{"t":[1793480400024,5],"d":"samsung-qvisrwsx","op":"ai.put","text":"їжак","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"hedgehog\"\t\\ 1. Bedeutung"}
+{"t":[1793480400027,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":1}
+{"t":[1793480400027,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"big\",\"ещё\"]}"}
+{"t":[1793480400027,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Hello\"}"}
+{"t":[1793480400028,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hiragana\"]}"}
+{"t":[1793480400028,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1793480400028,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1793480400032,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana","c":1}
+{"t":[1793480400032,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":1}
+{"t":[1793480400036,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1793480400036,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":2}
+{"t":[1793480400036,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"사랑해요","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"I love you\"\t\\ 1. Bedeutung"}
+{"t":[1793480400036,3],"d":"samsung-qvisrwsx","op":"saved.del","text":"їжак"}
+{"t":[1793480400036,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hiragana\"]}"}
+{"t":[1793480400036,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":1}
+{"t":[1793480400040,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":2}
+{"t":[1793480400040,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"Haus","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"oil, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400040,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)","c":1}
+{"t":[1793480400040,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио","c":2}
+{"t":[1793480400040,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"ひらがな","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"hiragana (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400040,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":2}
+{"t":[1793480400040,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793480400046,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"한국어","kind":"word","lang":"en","meaning":"Korean, ещё"}
+{"t":[1793480400047,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street (2)","c":1}
+{"t":[1793480400047,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":3}
+{"t":[1793480400047,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
+{"t":[1793480400047,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"hedgehog\"}"}
+{"t":[1793480400050,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"STRASSE","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"street\"]}"}
+{"t":[1793480400050,1],"d":"samsung-qvisrwsx","op":"history.del","text":"ёжик"}
+{"t":[1793480400051,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"Käse","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"cheese, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400053,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
+{"t":[1793480400053,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"사랑해요","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"I love you, ещё\"}"}
+{"t":[1793480400053,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"사랑해요","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I love you\",\"ещё\"]}"}
+{"t":[1793480400053,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo, ещё","c":3}
+{"t":[1793480400053,4],"d":"samsung-qvisrwsx","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you"}
+{"t":[1793480400053,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
+{"t":[1793480400053,6],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!","c":1}
+{"t":[1793480400053,7],"d":"samsung-qvisrwsx","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana, ещё","c":2}
+{"t":[1793480400053,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)","c":3}
+{"t":[1793480400057,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana"}
+{"t":[1793480400057,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"GROẞ","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"big\"\t\\ 1. Bedeutung"}
+{"t":[1793480400057,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":1}
+{"t":[1793480400057,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"Fuß","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"exercise\"]}"}
+{"t":[1793480400059,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"東京","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Tokyo\"\t\\ 1. Bedeutung"}
+{"t":[1793480400059,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":3}
+{"t":[1793480400059,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":2}
+{"t":[1793480400059,3],"d":"samsung-qvisrwsx","op":"saved.put","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana"}
+{"t":[1793480400064,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":1}
+{"t":[1793480400064,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street, ещё","c":2}
+{"t":[1793480400064,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus, ещё","c":2}
+{"t":[1793480400064,6],"d":"samsung-qvisrwsx","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":2}
+{"t":[1793480400064,7],"d":"samsung-qvisrwsx","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1793480400064,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":3}
+{"t":[1793480400064,9],"d":"samsung-qvisrwsx","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":1}
+{"t":[1793480400064,10],"d":"samsung-qvisrwsx","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":2}
+{"t":[1793480400068,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you"}
+{"t":[1793480400068,1],"d":"samsung-qvisrwsx","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1793480400068,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":3}
+{"t":[1793480400070,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"Haus","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"house, home (2)\"}"}
+{"t":[1793480400070,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you.","c":1}
+{"t":[1793480400072,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"日本語"}
+{"t":[1793480400072,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793480400072,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1793480400076,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"漢字","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"kanji\"}"}
+{"t":[1793480400076,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":4}
+{"t":[1793480400076,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":2}
+{"t":[1793480400076,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"東京","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Tokyo\"\t\\ 1. Bedeutung"}
+{"t":[1793480400076,4],"d":"samsung-qvisrwsx","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
+{"t":[1793480400076,5],"d":"samsung-qvisrwsx","op":"saved.del","text":"Mädchen"}
+{"t":[1793480400076,6],"d":"samsung-qvisrwsx","op":"ai.put","text":"Wie geht's?","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"How are you?"}
+{"t":[1793480400076,7],"d":"samsung-qvisrwsx","op":"ai.put","text":"Fuß","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"foot\"]}"}
+{"t":[1793480400076,8],"d":"samsung-qvisrwsx","op":"saved.put","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana"}
+{"t":[1793480400083,3],"d":"samsung-qvisrwsx","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480400083,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":4}
+{"t":[1793480400083,5],"d":"samsung-qvisrwsx","op":"saved.put","text":"東京","kind":"word","lang":"ru","meaning":"Токио"}
+{"t":[1793480400084,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":1}
+{"t":[1793480400084,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"їжак","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hedgehog\"\t\\ 1. Bedeutung"}
+{"t":[1793480400084,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"日本語","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Japanese"}
+{"t":[1793480400084,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё","c":1}
+{"t":[1793480400084,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"Fuß","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"foot, ещё"}
+{"t":[1793480400084,5],"d":"samsung-qvisrwsx","op":"saved.del","text":"Wie geht's?"}
+{"t":[1793480400084,6],"d":"samsung-qvisrwsx","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\"]}"}
+{"t":[1793480400084,7],"d":"samsung-qvisrwsx","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793480400084,8],"d":"samsung-qvisrwsx","op":"ai.put","text":"aufmachen","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"to open\"\t\\ 1. Bedeutung"}
+{"t":[1793480400084,9],"d":"samsung-qvisrwsx","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793480400084,10],"d":"samsung-qvisrwsx","op":"ai.put","text":"їжак","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hedgehog (2)"}
+{"t":[1793480400091,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":3}
+{"t":[1793480400091,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":5}
+{"t":[1793480400093,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480400093,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":3}
+{"t":[1793480400093,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"Käse","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"cheese, ещё\"}"}
+{"t":[1793480400095,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1793480400095,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793480400095,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793480400095,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793480400095,4],"d":"samsung-qvisrwsx","op":"saved.del","text":"𠮷野家"}
+{"t":[1793480400095,5],"d":"samsung-qvisrwsx","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480400095,6],"d":"samsung-qvisrwsx","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":3}
+{"t":[1793480400095,7],"d":"samsung-qvisrwsx","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":4}
+{"t":[1793480400095,8],"d":"samsung-qvisrwsx","op":"ai.put","text":"ёжик","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"hedgehog (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400100,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":2}
+{"t":[1793480400101,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793480400101,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё"}
+{"t":[1793480400101,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":3}
+{"t":[1793480400101,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"big (2)\"}"}
+{"t":[1793480400107,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
+{"t":[1793480400107,2],"d":"samsung-qvisrwsx","op":"history.del","text":"STRASSE"}
+{"t":[1793480400107,3],"d":"samsung-qvisrwsx","op":"history.del","text":"aufmachen"}
+{"t":[1793480400107,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big (2)","c":1}
+{"t":[1793480400107,5],"d":"samsung-qvisrwsx","op":"saved.del","text":"STRASSE"}
+{"t":[1793480400110,0],"d":"samsung-qvisrwsx","op":"history.del","text":"größer"}
+{"t":[1793480400110,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793480400111,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"Straße"}
+{"t":[1793480400111,1],"d":"samsung-qvisrwsx","op":"saved.del","text":"größer"}
+{"t":[1793480400111,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":1}
+{"t":[1793480400111,3],"d":"samsung-qvisrwsx","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)"}
+{"t":[1793480400111,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"𠮷野家","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Yoshinoya\"}"}
+{"t":[1793480400111,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
+{"t":[1793480400111,6],"d":"samsung-qvisrwsx","op":"history.del","text":"Straße"}
+{"t":[1793480400111,7],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":5}
+{"t":[1793480400118,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":1}
+{"t":[1793480400118,1],"d":"samsung-qvisrwsx","op":"history.del","text":"Käse"}
+{"t":[1793480400118,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793480400118,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё","base":"Haus","c":2}
+{"t":[1793480400118,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":6}
+{"t":[1793480400118,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":4}
+{"t":[1793480400118,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793480400118,7],"d":"samsung-qvisrwsx","op":"history.del","text":"Öl"}
+{"t":[1793480400122,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё"}
+{"t":[1793480400122,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel"}
+{"t":[1793480400123,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
+{"t":[1793480400123,3],"d":"samsung-qvisrwsx","op":"saved.put","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык (2)"}
+{"t":[1793480400123,4],"d":"samsung-qvisrwsx","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo"}
+{"t":[1793480400127,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":2}
+{"t":[1793480400127,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
+{"t":[1793480400127,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\"]}"}
+{"t":[1793480400127,3],"d":"samsung-qvisrwsx","op":"history.del","text":"𠮷野家"}
+{"t":[1793480400127,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":1}
+{"t":[1793480400130,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
+{"t":[1793480400130,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"їжак","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"hedgehog, ещё"}
+{"t":[1793480400131,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"Wie geht's?","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1793480400131,1],"d":"samsung-qvisrwsx","op":"history.del","text":"사랑해요"}
+{"t":[1793480400131,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":2}
+{"t":[1793480400131,3],"d":"samsung-qvisrwsx","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480400131,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":2}
+{"t":[1793480400131,5],"d":"samsung-qvisrwsx","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise"}
+{"t":[1793480400133,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":5}
+{"t":[1793480400133,1],"d":"samsung-qvisrwsx","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1793480400134,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":2}
+{"t":[1793480400134,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":1}
+{"t":[1793480400134,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!"}
+{"t":[1793480400134,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё","c":3}
+{"t":[1793480400138,1],"d":"samsung-qvisrwsx","op":"history.del","text":"Öl"}
+{"t":[1793480400138,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean (2)","c":3}
+{"t":[1793480400138,3],"d":"samsung-qvisrwsx","op":"saved.del","text":"한국어"}
+{"t":[1793480400138,4],"d":"samsung-qvisrwsx","op":"saved.del","text":"Haus"}
+{"t":[1793480400138,5],"d":"samsung-qvisrwsx","op":"ai.put","text":"Straße","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"street"}
+{"t":[1793480400138,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793480400138,7],"d":"samsung-qvisrwsx","op":"ai.put","text":"aufmachen","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to open\"]}"}
+{"t":[1793480400138,8],"d":"samsung-qvisrwsx","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)"}
+{"t":[1793480400138,9],"d":"samsung-qvisrwsx","op":"ai.put","text":"größer","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"bigger, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400140,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"カタカナ","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"катакана\"\t\\ 1. Bedeutung"}
+{"t":[1793480400140,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"big (2)\"]}"}
+{"t":[1793480400141,2],"d":"samsung-qvisrwsx","op":"history.del","text":"Ещё раз"}
+{"t":[1793480400141,3],"d":"samsung-qvisrwsx","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1793480400145,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1793480400145,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you (2)","c":1}
+{"t":[1793480400145,2],"d":"samsung-qvisrwsx","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793480400145,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":7}
+{"t":[1793480400145,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"漢字","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"kanji"}
+{"t":[1793480400145,5],"d":"samsung-qvisrwsx","op":"ai.put","text":"𠮷野家","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Yoshinoya\",\"ещё\"]}"}
+{"t":[1793480400145,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1793480400146,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"ёжик"}
+{"t":[1793480400153,0],"d":"samsung-qvisrwsx","op":"saved.put","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык, ещё"}
+{"t":[1793480400153,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!, ещё","c":1}
+{"t":[1793480400153,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":2}
+{"t":[1793480400153,3],"d":"samsung-qvisrwsx","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"exercise\"]}"}
+{"t":[1793480400154,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
+{"t":[1793480400162,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
+{"t":[1793480400163,1],"d":"samsung-qvisrwsx","op":"saved.del","text":"𠮷野家"}
+{"t":[1793480400163,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1793480400163,3],"d":"samsung-qvisrwsx","op":"history.del","text":"한국어"}
+{"t":[1793480400163,4],"d":"samsung-qvisrwsx","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"exercise, ещё\"}"}
+{"t":[1793480400163,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":8}
+{"t":[1793480400163,6],"d":"samsung-qvisrwsx","op":"saved.put","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык"}
+{"t":[1793480400163,7],"d":"samsung-qvisrwsx","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\",\"ещё\"]}"}
+{"t":[1793480400163,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":1}
+{"t":[1793480400163,9],"d":"samsung-qvisrwsx","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
+{"t":[1793480400163,10],"d":"samsung-qvisrwsx","op":"saved.del","text":"ひらがな"}
+{"t":[1793480400163,11],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":6}
+{"t":[1793480400163,12],"d":"samsung-qvisrwsx","op":"saved.del","text":"GROẞ"}
+{"t":[1793480400168,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"Öl"}
+{"t":[1793480400171,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":1}
+{"t":[1793480400175,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"한국어","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Korean"}
+{"t":[1793480400175,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese, ещё","c":3}
+{"t":[1793480400175,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"hiragana (2)\"}"}
+{"t":[1793480400176,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":3}
+{"t":[1793480400176,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":2}
+{"t":[1793480400178,0],"d":"samsung-qvisrwsx","op":"ai.put","text":"Öl","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"oil\"}"}
+{"t":[1793480400178,1],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":2}
+{"t":[1793480400178,2],"d":"samsung-qvisrwsx","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":4}
+{"t":[1793480400178,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1793480400178,6],"d":"samsung-qvisrwsx","op":"history.del","text":"한국어"}
+{"t":[1793480400178,7],"d":"samsung-qvisrwsx","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
+{"t":[1793480400178,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":4}
+{"t":[1793480400178,9],"d":"samsung-qvisrwsx","op":"saved.del","text":"größer"}
+{"t":[1793480400178,10],"d":"samsung-qvisrwsx","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese, ещё","c":1}
+{"t":[1793480400188,0],"d":"samsung-qvisrwsx","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480400188,1],"d":"samsung-qvisrwsx","op":"history.del","text":"größer"}
+{"t":[1793480400191,0],"d":"samsung-qvisrwsx","op":"history.del","text":"ёжик"}
+{"t":[1793480400191,1],"d":"samsung-qvisrwsx","op":"ai.put","text":"Ещё раз","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Once more (2)\"]}"}
+{"t":[1793480400191,2],"d":"samsung-qvisrwsx","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"exercise (2)\"}"}
+{"t":[1793480400191,3],"d":"samsung-qvisrwsx","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
+{"t":[1793480400191,4],"d":"samsung-qvisrwsx","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo, ещё","c":1}
+{"t":[1793480400191,5],"d":"samsung-qvisrwsx","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening (2)","c":2}
+{"t":[1793480400191,6],"d":"samsung-qvisrwsx","op":"ai.put","text":"Wie geht's?","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1793480400191,7],"d":"samsung-qvisrwsx","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)","c":2}
+{"t":[1793480400191,8],"d":"samsung-qvisrwsx","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house (2)","c":5}
+{"t":[1793480400191,9],"d":"samsung-qvisrwsx","op":"saved.put","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana"}
+{"t":[1793480400199,0],"d":"samsung-qvisrwsx","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":7}

@@ -1,0 +1,41 @@
+{"t":[1793361600000,0],"d":"linux-bfy3gmyj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
+{"t":[1793361664007,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга (2)","c":1}
+{"t":[1793361784000,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Мир вам\"\t\\ 1. Bedeutung"}
+{"t":[1793361844250,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":2}
+{"t":[1793361849500,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1793361911750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)","c":1}
+{"t":[1793361920750,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Мир вам\"]}"}
+{"t":[1793361923237,0],"d":"linux-bfy3gmyj","op":"saved.del","text":"مرحبا"}
+{"t":[1793361928250,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":1}
+{"t":[1793361937257,0],"d":"linux-bfy3gmyj","op":"saved.del","text":"كتاب"}
+{"t":[1793361937257,1],"d":"linux-bfy3gmyj","op":"ai.put","text":"كتاب","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"книга (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362057257,0],"d":"linux-bfy3gmyj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793362061487,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"שלום","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"привет\"}"}
+{"t":[1793362066507,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё","c":3}
+{"t":[1793362070500,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":2}
+{"t":[1793362139757,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":1}
+{"t":[1793362199750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1793362200750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
+{"t":[1793362393000,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)","c":2}
+{"t":[1793362453000,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":3}
+{"t":[1793362513000,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"תודה רבה","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Большое спасибо, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362955750,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"תודה רבה","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Большое спасибо"}
+{"t":[1793362962000,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)","c":1}
+{"t":[1793363026250,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":4}
+{"t":[1793363149500,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":5}
+{"t":[1793363210750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":3}
+{"t":[1793363330750,0],"d":"linux-bfy3gmyj","op":"history.del","text":"مرحبا"}
+{"t":[1793363451000,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":6}
+{"t":[1793363571000,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"كتاب","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"книга"}
+{"t":[1793363572000,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Мир вам\"]}"}
+{"t":[1793363573500,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"שלום","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мир\",\"привет\"]}"}
+{"t":[1793363589750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":4}
+{"t":[1793363596237,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book, ещё","c":5}
+{"t":[1793363656750,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":4}
+{"t":[1793363720750,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Мир вам\"}"}
+{"t":[1793363726000,0],"d":"linux-bfy3gmyj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
+{"t":[1793363787500,0],"d":"linux-bfy3gmyj","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1793363791500,0],"d":"linux-bfy3gmyj","op":"history.del","text":"שָׁלוֹם"}
+{"t":[1793363791500,1],"d":"linux-bfy3gmyj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
+{"t":[1793363806507,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"كتاب","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung"}
+{"t":[1793363866500,0],"d":"linux-bfy3gmyj","op":"ai.put","text":"תודה רבה","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Большое спасибо"}

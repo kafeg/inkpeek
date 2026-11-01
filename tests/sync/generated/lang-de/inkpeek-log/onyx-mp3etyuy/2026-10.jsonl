@@ -1,0 +1,74 @@
+{"t":[1793361660000,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":1}
+{"t":[1793361720237,0],"d":"onyx-mp3etyuy","op":"history.del","text":"größer"}
+{"t":[1793361720507,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1793361780507,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё","c":1}
+{"t":[1793361842007,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"STRASSE","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"больше"}
+{"t":[1793361844000,2],"d":"onyx-mp3etyuy","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793361844237,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1793361844750,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793362025737,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Übung","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"нога, ступня\"\t\\ 1. Bedeutung"}
+{"t":[1793362089757,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё","c":1}
+{"t":[1793362209737,0],"d":"onyx-mp3etyuy","op":"history.del","text":"Haus"}
+{"t":[1793362209750,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Straße","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"die Straße (pl. Straßen) — улица (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362210000,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"сыр (2)"}
+{"t":[1793362211257,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"GROẞ","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"большой"}
+{"t":[1793362332237,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793362332750,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793362340737,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793362341987,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1793362342500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё","c":2}
+{"t":[1793362351507,0],"d":"onyx-mp3etyuy","op":"history.del","text":"Haus"}
+{"t":[1793362355487,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Übung"}
+{"t":[1793362356507,0],"d":"onyx-mp3etyuy","op":"history.del","text":"aufmachen"}
+{"t":[1793362361507,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1793362421750,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Straße"}
+{"t":[1793362422000,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"большой\"\t\\ 1. Bedeutung"}
+{"t":[1793362543000,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Mädchen"}
+{"t":[1793362663250,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня (2)"}
+{"t":[1793362663257,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)","c":1}
+{"t":[1793362663500,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Haus","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"дом"}
+{"t":[1793362664500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":1}
+{"t":[1793362673487,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":1}
+{"t":[1793362733487,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"GROẞ"}
+{"t":[1793362734487,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Fuß","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"нога, ступня, ещё"}
+{"t":[1793362734757,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793362734987,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Öl","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1793362737000,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":2}
+{"t":[1793362740987,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":3}
+{"t":[1793362742250,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)"}
+{"t":[1793362742250,1],"d":"onyx-mp3etyuy","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)","c":4}
+{"t":[1793362746237,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Haus"}
+{"t":[1793362806250,1],"d":"onyx-mp3etyuy","op":"ai.put","text":"Übung","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"упражнение\"}"}
+{"t":[1793362814500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":2}
+{"t":[1793362818500,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела?\"]}"}
+{"t":[1793362819750,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Mädchen"}
+{"t":[1793362823750,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Straße","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"die Straße (pl. Straßen) — улица\"\t\\ 1. Bedeutung"}
+{"t":[1793362827750,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Öl","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"масло\"}"}
+{"t":[1793362828750,0],"d":"onyx-mp3etyuy","op":"history.del","text":"Mädchen"}
+{"t":[1793362829000,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":2}
+{"t":[1793362832987,0],"d":"onyx-mp3etyuy","op":"history.del","text":"Häuser"}
+{"t":[1793362837000,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"Öl","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1793362897250,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (2)","c":2}
+{"t":[1793362906757,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1793362967757,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":2}
+{"t":[1793362971750,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Übung"}
+{"t":[1793362975987,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"GROẞ"}
+{"t":[1793362976237,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"GROẞ","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"большой\"}"}
+{"t":[1793362980487,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"STRASSE","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улица"}
+{"t":[1793363040500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":3}
+{"t":[1793363101507,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё"}
+{"t":[1793363101750,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":3}
+{"t":[1793363102750,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Käse"}
+{"t":[1793363102750,1],"d":"onyx-mp3etyuy","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":2}
+{"t":[1793363162750,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё","c":1}
+{"t":[1793363166750,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"GROẞ","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"большой\"]}"}
+{"t":[1793363228007,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё"}
+{"t":[1793363292250,0],"d":"onyx-mp3etyuy","op":"saved.del","text":"Grüß Gott"}
+{"t":[1793363352257,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":2}
+{"t":[1793363352257,1],"d":"onyx-mp3etyuy","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":1}
+{"t":[1793363352500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)","base":"Haus","c":1}
+{"t":[1793363357257,0],"d":"onyx-mp3etyuy","op":"ai.put","text":"GROẞ","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"большой\"}"}
+{"t":[1793363423487,0],"d":"onyx-mp3etyuy","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793363423507,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло, ещё","c":2}
+{"t":[1793363487500,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1793363491487,0],"d":"onyx-mp3etyuy","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":3}

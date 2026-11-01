@@ -1,0 +1,161 @@
+{"t":[1793480404007,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Mädchen"}
+{"t":[1793480408257,0],"d":"google-uzcsqq6d","op":"history.del","text":"aufmachen"}
+{"t":[1793480413257,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793480833007,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Öl","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"масло\"}"}
+{"t":[1793480840987,0],"d":"google-uzcsqq6d","op":"ai.put","text":"aufmachen","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to open\",\"ещё\"]}"}
+{"t":[1793480966500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793481026987,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Öl"}
+{"t":[1793481148257,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)","c":1}
+{"t":[1793481152257,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Haus"}
+{"t":[1793481152507,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)","base":"machen","c":1}
+{"t":[1793481153500,0],"d":"google-uzcsqq6d","op":"history.del","text":"Öl"}
+{"t":[1793481158500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793481159750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793481295507,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":1}
+{"t":[1793481296500,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":1}
+{"t":[1793481300500,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":1}
+{"t":[1793481360507,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":2}
+{"t":[1793481372750,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Здравствуйте (2)\"]}"}
+{"t":[1793481373757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793481374750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё"}
+{"t":[1793481380000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1793481380250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":3}
+{"t":[1793481441250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":2}
+{"t":[1793481441487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793481453750,0],"d":"google-uzcsqq6d","op":"history.del","text":"Grüß Gott"}
+{"t":[1793481457737,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":2}
+{"t":[1793481464237,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":2}
+{"t":[1793481464257,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793481468487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793481468750,0],"d":"google-uzcsqq6d","op":"history.del","text":"Haus"}
+{"t":[1793481469757,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Haus"}
+{"t":[1793481535750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":1}
+{"t":[1793481540757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)"}
+{"t":[1793481602750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":4}
+{"t":[1793481602750,1],"d":"google-uzcsqq6d","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
+{"t":[1793481662750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793481663007,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":3}
+{"t":[1793481723257,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
+{"t":[1793481858500,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793481859757,0],"d":"google-uzcsqq6d","op":"history.del","text":"GROẞ"}
+{"t":[1793481863757,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":5}
+{"t":[1793481929750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
+{"t":[1793481989757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793481998737,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Haus","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\",\"home\",\"ещё\"]}"}
+{"t":[1793482004000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
+{"t":[1793482133500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793482203487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793482203500,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Grüß Gott","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Hello (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793482208757,0],"d":"google-uzcsqq6d","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"big\"]}"}
+{"t":[1793482277750,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Mädchen"}
+{"t":[1793482342257,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793482344250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":4}
+{"t":[1793482467507,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1793482533487,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":6}
+{"t":[1793482597500,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":1}
+{"t":[1793482658757,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Öl"}
+{"t":[1793482722750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793483166750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793483167750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793483167987,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793483173000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)","c":2}
+{"t":[1793483234000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1793483234007,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":5}
+{"t":[1793483234987,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":3}
+{"t":[1793483297500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1793483301487,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Haus","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"das Haus (Hauses, pl. Häuser) — house, home\"\t\\ 1. Bedeutung"}
+{"t":[1793483365737,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1793483369737,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё"}
+{"t":[1793483373750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":7}
+{"t":[1793483373750,1],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793483374000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793483375000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793483376007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
+{"t":[1793483380000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793483447000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)","c":3}
+{"t":[1793483450250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)","c":1}
+{"t":[1793483450500,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)","c":4}
+{"t":[1793483512500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
+{"t":[1793483767987,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793483768000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793483828007,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)","base":"machen","c":8}
+{"t":[1793483829257,1],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793483829257,2],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793483829987,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1793483834007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793483837987,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793483917987,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793483922987,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793484043000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":4}
+{"t":[1793484107000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":6}
+{"t":[1793484228250,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793484229500,1],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":5}
+{"t":[1793484230500,0],"d":"google-uzcsqq6d","op":"ai.put","text":"aujourd'hui","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"today (2)"}
+{"t":[1793484305737,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793484306007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793484310250,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
+{"t":[1793484374500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793484440757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
+{"t":[1793484441750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":1}
+{"t":[1793484561757,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":5}
+{"t":[1793484562750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":9}
+{"t":[1793484563737,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793484567750,0],"d":"google-uzcsqq6d","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
+{"t":[1793484627757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё"}
+{"t":[1793484692757,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":2}
+{"t":[1793484692757,1],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":10}
+{"t":[1793484752757,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":3}
+{"t":[1793484753757,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aufmachen"}
+{"t":[1793484759737,0],"d":"google-uzcsqq6d","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сегодня\",\"ещё\"]}"}
+{"t":[1793484820000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1793484821007,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793484881007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)"}
+{"t":[1793485001237,0],"d":"google-uzcsqq6d","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":2}
+{"t":[1793485067237,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793485128237,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":6}
+{"t":[1793485134487,0],"d":"google-uzcsqq6d","op":"saved.del","text":"größer"}
+{"t":[1793485314757,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":4}
+{"t":[1793485318737,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":7}
+{"t":[1793485379000,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793485383237,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)","base":"machen","c":11}
+{"t":[1793485388507,0],"d":"google-uzcsqq6d","op":"ai.put","text":"aufmachen","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"to open\"\t\\ 1. Bedeutung"}
+{"t":[1793485392487,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё","c":2}
+{"t":[1793485396507,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793485456500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793485582500,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Öl"}
+{"t":[1793485656987,0],"d":"google-uzcsqq6d","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":3}
+{"t":[1793485660250,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793485780487,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Mädchen","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"girl\"\t\\ 1. Bedeutung"}
+{"t":[1793485909737,0],"d":"google-uzcsqq6d","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793486091000,1],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":6}
+{"t":[1793486092007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793486218500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
+{"t":[1793486222500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793486222750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
+{"t":[1793486222757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big, ещё"}
+{"t":[1793486226750,0],"d":"google-uzcsqq6d","op":"history.del","text":"größer"}
+{"t":[1793486419500,0],"d":"google-uzcsqq6d","op":"history.del","text":"aufmachen"}
+{"t":[1793486423500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё"}
+{"t":[1793486484507,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1793486608500,0],"d":"google-uzcsqq6d","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":1}
+{"t":[1793486612500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1793486616737,0],"d":"google-uzcsqq6d","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Hello (2)\"}"}
+{"t":[1793486682757,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)"}
+{"t":[1793486682757,1],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1793486803000,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aufmachen"}
+{"t":[1793486983000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":1}
+{"t":[1793486983257,0],"d":"google-uzcsqq6d","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1793487171487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big, ещё"}
+{"t":[1793487302507,0],"d":"google-uzcsqq6d","op":"saved.del","text":"Mädchen"}
+{"t":[1793487363000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1793487423000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":7}
+{"t":[1793487424007,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)"}
+{"t":[1793487428250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":2}
+{"t":[1793487436500,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793487566487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793487627750,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)"}
+{"t":[1793487700000,0],"d":"google-uzcsqq6d","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":4}
+{"t":[1793487770250,0],"d":"google-uzcsqq6d","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793487834250,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":3}
+{"t":[1793487834507,0],"d":"google-uzcsqq6d","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":8}
+{"t":[1793487895487,0],"d":"google-uzcsqq6d","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё"}

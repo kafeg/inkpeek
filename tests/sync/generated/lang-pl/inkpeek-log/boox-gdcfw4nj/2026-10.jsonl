@@ -1,0 +1,54 @@
+{"t":[1793361600750,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":1}
+{"t":[1793361604750,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
+{"t":[1793361605757,0],"d":"boox-gdcfw4nj","op":"saved.del","text":"łódź"}
+{"t":[1793361606757,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"łódź","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"лодка (2)"}
+{"t":[1793361668987,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":2}
+{"t":[1793361790250,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"łódź","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"лодка\"\t\\ 1. Bedeutung"}
+{"t":[1793361851750,0],"d":"boox-gdcfw4nj","op":"history.del","text":"łódź"}
+{"t":[1793361855987,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"łódź","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"лодка\"\t\\ 1. Bedeutung"}
+{"t":[1793361976250,1],"d":"boox-gdcfw4nj","op":"history.del","text":"źdźbło"}
+{"t":[1793361976250,2],"d":"boox-gdcfw4nj","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель, ещё"}
+{"t":[1793361979750,0],"d":"boox-gdcfw4nj","op":"saved.del","text":"źdźbło"}
+{"t":[1793362043757,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
+{"t":[1793362044737,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма\"\t\\ 1. Bedeutung"}
+{"t":[1793362105750,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1793362166007,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":1}
+{"t":[1793362166757,0],"d":"boox-gdcfw4nj","op":"saved.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793362166757,1],"d":"boox-gdcfw4nj","op":"ai.put","text":"Gdańsk","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Gdansk, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362166757,2],"d":"boox-gdcfw4nj","op":"ai.put","text":"źdźbło","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"стебель, ещё"}
+{"t":[1793362167007,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":2}
+{"t":[1793362227000,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793362230987,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":3}
+{"t":[1793362232000,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Гданьск (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362292987,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель"}
+{"t":[1793362538000,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"łódź","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"лодка\"\t\\ 1. Bedeutung"}
+{"t":[1793362546237,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793362546500,0],"d":"boox-gdcfw4nj","op":"history.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793362612000,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё"}
+{"t":[1793362612000,1],"d":"boox-gdcfw4nj","op":"history.del","text":"Gdańsk"}
+{"t":[1793362803000,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
+{"t":[1793362807000,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":1}
+{"t":[1793362873737,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":2}
+{"t":[1793362940250,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":2}
+{"t":[1793362944250,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":3}
+{"t":[1793362948257,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"лодка\"]}"}
+{"t":[1793363008250,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Гданьск"}
+{"t":[1793363137250,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":3}
+{"t":[1793363137257,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск, ещё"}
+{"t":[1793363137487,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма\"\t\\ 1. Bedeutung"}
+{"t":[1793363138487,0],"d":"boox-gdcfw4nj","op":"history.del","text":"źdźbło"}
+{"t":[1793363138507,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":1}
+{"t":[1793363142500,0],"d":"boox-gdcfw4nj","op":"saved.del","text":"źdźbło"}
+{"t":[1793363204507,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"łódź","kind":"word","lang":"ru","meaning":"лодка"}
+{"t":[1793363206000,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":4}
+{"t":[1793363211007,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка, ещё","c":2}
+{"t":[1793363211007,1],"d":"boox-gdcfw4nj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Гданьск (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363281000,0],"d":"boox-gdcfw4nj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Гданьск, ещё"}
+{"t":[1793363340987,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка (2)","c":3}
+{"t":[1793363341000,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма (2)"}
+{"t":[1793363341237,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":2}
+{"t":[1793363345250,0],"d":"boox-gdcfw4nj","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1793363345757,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка, ещё","c":4}
+{"t":[1793363407987,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка (2)","c":5}
+{"t":[1793363416000,0],"d":"boox-gdcfw4nj","op":"saved.del","text":"źdźbło"}
+{"t":[1793363477007,0],"d":"boox-gdcfw4nj","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":5}

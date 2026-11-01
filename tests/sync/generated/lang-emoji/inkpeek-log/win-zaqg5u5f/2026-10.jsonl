@@ -1,0 +1,76 @@
+{"t":[1793361601000,0],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin (2)","c":1}
+{"t":[1793361661000,0],"d":"win-zaqg5u5f","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793361729237,0],"d":"win-zaqg5u5f","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
+{"t":[1793361734237,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)","c":1}
+{"t":[1793361734237,1],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"flag of Germany\"]}"}
+{"t":[1793361795500,0],"d":"win-zaqg5u5f","op":"history.del","text":"👍🏽"}
+{"t":[1793361795750,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone), ещё","c":1}
+{"t":[1793361796000,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё"}
+{"t":[1793361917007,0],"d":"win-zaqg5u5f","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin (2)\"}"}
+{"t":[1793361917007,1],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":2}
+{"t":[1793362041237,0],"d":"win-zaqg5u5f","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"family (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362045257,0],"d":"win-zaqg5u5f","op":"saved.del","text":"🇩🇪"}
+{"t":[1793362046250,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":3}
+{"t":[1793362050250,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":4}
+{"t":[1793362050507,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793362054507,0],"d":"win-zaqg5u5f","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793362174500,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":5}
+{"t":[1793362178500,1],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"thumbs up (skin tone) (2)\"]}"}
+{"t":[1793362179487,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":2}
+{"t":[1793362179750,0],"d":"win-zaqg5u5f","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"flag of Germany\"}"}
+{"t":[1793362179750,1],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":6}
+{"t":[1793362180750,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793362181737,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family (2)"}
+{"t":[1793362182757,0],"d":"win-zaqg5u5f","op":"saved.del","text":"Haus 🏠"}
+{"t":[1793362183000,0],"d":"win-zaqg5u5f","op":"history.del","text":"😀"}
+{"t":[1793362189250,0],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"thumbs up (skin tone)"}
+{"t":[1793362249737,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё","c":7}
+{"t":[1793362253750,0],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung"}
+{"t":[1793362257750,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":3}
+{"t":[1793362317737,0],"d":"win-zaqg5u5f","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"flag of Germany\"\t\\ 1. Bedeutung"}
+{"t":[1793362320250,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":4}
+{"t":[1793362320750,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793362325757,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793362329757,0],"d":"win-zaqg5u5f","op":"history.del","text":"👨‍👩‍👧"}
+{"t":[1793362330007,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":5}
+{"t":[1793362330250,0],"d":"win-zaqg5u5f","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"flag of Germany (2)\"]}"}
+{"t":[1793362331257,0],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1793362335257,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1793362459250,1],"d":"win-zaqg5u5f","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":2}
+{"t":[1793362459250,2],"d":"win-zaqg5u5f","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":3}
+{"t":[1793362460250,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family"}
+{"t":[1793362460250,1],"d":"win-zaqg5u5f","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin, ещё\"}"}
+{"t":[1793362464237,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":6}
+{"t":[1793362525250,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":8}
+{"t":[1793362526250,0],"d":"win-zaqg5u5f","op":"history.del","text":"🇩🇪"}
+{"t":[1793362528237,0],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"thumbs up (skin tone) (2)"}
+{"t":[1793362709250,0],"d":"win-zaqg5u5f","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793362770507,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)"}
+{"t":[1793362830500,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё","c":9}
+{"t":[1793362830500,1],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":2}
+{"t":[1793362834500,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone), ещё"}
+{"t":[1793362834737,1],"d":"win-zaqg5u5f","op":"ai.put","text":"👍🏽","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung"}
+{"t":[1793362895987,0],"d":"win-zaqg5u5f","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793362955987,0],"d":"win-zaqg5u5f","op":"saved.del","text":"👍🏽"}
+{"t":[1793362959987,0],"d":"win-zaqg5u5f","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793363022000,0],"d":"win-zaqg5u5f","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793363025987,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)","c":10}
+{"t":[1793363026987,0],"d":"win-zaqg5u5f","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793363027500,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1793363031500,0],"d":"win-zaqg5u5f","op":"saved.del","text":"Haus 🏠"}
+{"t":[1793363032487,0],"d":"win-zaqg5u5f","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё","c":1}
+{"t":[1793363032737,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":4}
+{"t":[1793363033000,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":1}
+{"t":[1793363033987,0],"d":"win-zaqg5u5f","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)","c":11}
+{"t":[1793363042000,0],"d":"win-zaqg5u5f","op":"history.del","text":"🇩🇪"}
+{"t":[1793363043007,0],"d":"win-zaqg5u5f","op":"saved.del","text":"Haus 🏠"}
+{"t":[1793363103000,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family (2)","c":2}
+{"t":[1793363107000,0],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin, ещё","c":3}
+{"t":[1793363111007,0],"d":"win-zaqg5u5f","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"grin\"]}"}
+{"t":[1793363175007,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)"}
+{"t":[1793363183237,0],"d":"win-zaqg5u5f","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family"}
+{"t":[1793363247257,0],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin, ещё","c":4}
+{"t":[1793363247257,1],"d":"win-zaqg5u5f","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793363247257,2],"d":"win-zaqg5u5f","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":5}
+{"t":[1793363311250,0],"d":"win-zaqg5u5f","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":3}
+{"t":[1793363371250,0],"d":"win-zaqg5u5f","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё"}

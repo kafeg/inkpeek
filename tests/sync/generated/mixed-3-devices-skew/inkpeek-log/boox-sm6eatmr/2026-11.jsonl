@@ -1,0 +1,336 @@
+{"t":[1793491708257,1],"d":"boox-sm6eatmr","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)"}
+{"t":[1793491708257,2],"d":"boox-sm6eatmr","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1793491708257,3],"d":"boox-sm6eatmr","op":"ai.put","text":"漢字","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"иероглифы\"}"}
+{"t":[1793491708257,4],"d":"boox-sm6eatmr","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin, ещё\"}"}
+{"t":[1793491847487,1],"d":"boox-sm6eatmr","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1793491847487,2],"d":"boox-sm6eatmr","op":"history.del","text":"съесть"}
+{"t":[1793491847487,3],"d":"boox-sm6eatmr","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":1}
+{"t":[1793491847487,4],"d":"boox-sm6eatmr","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793492041500,1],"d":"boox-sm6eatmr","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1793492041500,2],"d":"boox-sm6eatmr","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет"}
+{"t":[1793492041500,3],"d":"boox-sm6eatmr","op":"ai.put","text":"дом","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"ß\"}"}
+{"t":[1793492041500,4],"d":"boox-sm6eatmr","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце, ещё","c":1}
+{"t":[1793492041500,5],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел)","c":1}
+{"t":[1793492041500,6],"d":"boox-sm6eatmr","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family, ещё","c":1}
+{"t":[1793492041500,7],"d":"boox-sm6eatmr","op":"ai.put","text":"Ещё раз","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела? (2)\"]}"}
+{"t":[1793492041500,8],"d":"boox-sm6eatmr","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1793492041500,9],"d":"boox-sm6eatmr","op":"history.seen","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово, ещё","c":1}
+{"t":[1793492041500,10],"d":"boox-sm6eatmr","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793492041500,11],"d":"boox-sm6eatmr","op":"ai.put","text":"nul\u0000inside","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"NUL внутри, ещё"}
+{"t":[1793492041500,12],"d":"boox-sm6eatmr","op":"ai.put","text":"שָׁלוֹם","lang":"German","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"aufessen"}
+{"t":[1793492041500,13],"d":"boox-sm6eatmr","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"half-width katakana\"]}"}
+{"t":[1793492041500,14],"d":"boox-sm6eatmr","op":"history.del","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. "}
+{"t":[1793492041500,15],"d":"boox-sm6eatmr","op":"history.seen","text":"Zeile eins\nZeile zwei","kind":"phrase","lang":"ru","meaning":"строка один\nстрока два","c":1}
+{"t":[1793492041500,16],"d":"boox-sm6eatmr","op":"saved.put","text":"Er sagte: \"Komm!\"","kind":"phrase","lang":"ru","meaning":"Он сказал: \"Иди!\", ещё"}
+{"t":[1793492041500,17],"d":"boox-sm6eatmr","op":"saved.put","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри"}
+{"t":[1793492041500,18],"d":"boox-sm6eatmr","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot (2)","c":2}
+{"t":[1793492041500,19],"d":"boox-sm6eatmr","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Добрый вечер\"\t\\ 1. Bedeutung"}
+{"t":[1793492825750,1],"d":"boox-sm6eatmr","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Tokyo"}
+{"t":[1793492949757,1],"d":"boox-sm6eatmr","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
+{"t":[1793492949757,2],"d":"boox-sm6eatmr","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1793492949757,3],"d":"boox-sm6eatmr","op":"saved.put","text":"coração","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1793492949757,4],"d":"boox-sm6eatmr","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1793492949757,5],"d":"boox-sm6eatmr","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793492949757,6],"d":"boox-sm6eatmr","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии","c":1}
+{"t":[1793492949757,7],"d":"boox-sm6eatmr","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык (2)","c":1}
+{"t":[1793492949757,8],"d":"boox-sm6eatmr","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»","c":1}
+{"t":[1793493082000,2],"d":"boox-sm6eatmr","op":"ai.put","text":"Obrigado!","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"cheese\"]}"}
+{"t":[1793493082000,3],"d":"boox-sm6eatmr","op":"saved.del","text":"😀"}
+{"t":[1793493082000,4],"d":"boox-sm6eatmr","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1793493082000,5],"d":"boox-sm6eatmr","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2}
+{"t":[1793493335757,1],"d":"boox-sm6eatmr","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"pupil\"}"}
+{"t":[1793493335757,2],"d":"boox-sm6eatmr","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":2}
+{"t":[1793493335757,3],"d":"boox-sm6eatmr","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
+{"t":[1793493335757,4],"d":"boox-sm6eatmr","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё","c":1}
+{"t":[1793493335757,5],"d":"boox-sm6eatmr","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793493335757,6],"d":"boox-sm6eatmr","op":"ai.put","text":"perché","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"house 🏠"}
+{"t":[1793493595000,3],"d":"boox-sm6eatmr","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more, ещё","c":1}
+{"t":[1793493595000,4],"d":"boox-sm6eatmr","op":"ai.put","text":"👍🏽","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"thumbs up (skin tone)"}
+{"t":[1793493655987,3],"d":"boox-sm6eatmr","op":"saved.del","text":"a/b </script> & <b>"}
+{"t":[1793493738257,1],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)","c":1}
+{"t":[1793493738257,2],"d":"boox-sm6eatmr","op":"history.del","text":"תודה רבה"}
+{"t":[1793493738257,3],"d":"boox-sm6eatmr","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793493879000,1],"d":"boox-sm6eatmr","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1793493879487,1],"d":"boox-sm6eatmr","op":"saved.put","text":"corazón","kind":"word","lang":"ru","meaning":"сердце"}
+{"t":[1793493879487,2],"d":"boox-sm6eatmr","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}"}
+{"t":[1793493879487,3],"d":"boox-sm6eatmr","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":1}
+{"t":[1793493879487,4],"d":"boox-sm6eatmr","op":"history.seen","text":"Er sagte: \"Komm!\"","kind":"phrase","lang":"ru","meaning":"Он сказал: \"Иди!\"","c":1}
+{"t":[1793493879487,5],"d":"boox-sm6eatmr","op":"history.seen","text":"Ha­us","kind":"word","lang":"ru","meaning":"дом (мягкий перенос)","c":1}
+{"t":[1793493879487,6],"d":"boox-sm6eatmr","op":"saved.put","text":"Hauß","kind":"word","lang":"ru","meaning":"ß"}
+{"t":[1793493879487,7],"d":"boox-sm6eatmr","op":"history.del","text":"תודה רבה"}
+{"t":[1793493879487,8],"d":"boox-sm6eatmr","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1793493879487,9],"d":"boox-sm6eatmr","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!, ещё","c":1}
+{"t":[1793494263750,1],"d":"boox-sm6eatmr","op":"ai.put","text":"שלום","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"peace\",\"hello (2)\"]}"}
+{"t":[1793494263750,2],"d":"boox-sm6eatmr","op":"ai.put","text":"οδός","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street, ещё\"}"}
+{"t":[1793494263750,3],"d":"boox-sm6eatmr","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793494263750,4],"d":"boox-sm6eatmr","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья"}
+{"t":[1793494263750,5],"d":"boox-sm6eatmr","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1793494263750,6],"d":"boox-sm6eatmr","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"pupil (2)\"}"}
+{"t":[1793494263750,7],"d":"boox-sm6eatmr","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)","c":1}
+{"t":[1793494263750,8],"d":"boox-sm6eatmr","op":"ai.put","text":"їжак","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"ёж, ещё"}
+{"t":[1793494263750,9],"d":"boox-sm6eatmr","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal (2)"}
+{"t":[1793494263750,10],"d":"boox-sm6eatmr","op":"ai.put","text":"não","lang":"German","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Haus\"\t\\ 1. Bedeutung"}
+{"t":[1793494263750,11],"d":"boox-sm6eatmr","op":"saved.put","text":"delchar","kind":"word","lang":"ru","meaning":"DEL внутри"}
+{"t":[1793494920507,1],"d":"boox-sm6eatmr","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":1}
+{"t":[1793494920507,2],"d":"boox-sm6eatmr","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
+{"t":[1793494920507,3],"d":"boox-sm6eatmr","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":1}
+{"t":[1793494920507,4],"d":"boox-sm6eatmr","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки)","c":1}
+{"t":[1793495056750,1],"d":"boox-sm6eatmr","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk (2)","c":1}
+{"t":[1793495056750,2],"d":"boox-sm6eatmr","op":"ai.put","text":"perché","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"почему\"]}"}
+{"t":[1793495056750,3],"d":"boox-sm6eatmr","op":"saved.put","text":"łódź","kind":"word","lang":"en","meaning":"boat"}
+{"t":[1793495056750,4],"d":"boox-sm6eatmr","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal","c":2}
+{"t":[1793495061987,1],"d":"boox-sm6eatmr","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё"}
+{"t":[1793495061987,2],"d":"boox-sm6eatmr","op":"saved.del","text":"Öl"}
+{"t":[1793495061987,3],"d":"boox-sm6eatmr","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793495192257,5],"d":"boox-sm6eatmr","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня"}
+{"t":[1793495261250,1],"d":"boox-sm6eatmr","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese"}
+{"t":[1793495271750,4],"d":"boox-sm6eatmr","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793495271750,5],"d":"boox-sm6eatmr","op":"history.del","text":"größer"}
+{"t":[1793495393737,1],"d":"boox-sm6eatmr","op":"history.seen","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины) (2)","c":1}
+{"t":[1793495393737,2],"d":"boox-sm6eatmr","op":"history.seen","text":"Hauß","kind":"word","lang":"ru","meaning":"ß (2)","c":1}
+{"t":[1793495393737,3],"d":"boox-sm6eatmr","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":1}
+{"t":[1793495393737,4],"d":"boox-sm6eatmr","op":"ai.put","text":"não","lang":"German","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Haus (2)"}
+{"t":[1793495592500,1],"d":"boox-sm6eatmr","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо (2)","c":1}
+{"t":[1793495592500,2],"d":"boox-sm6eatmr","op":"saved.del","text":"Häuser"}
+{"t":[1793495592500,3],"d":"boox-sm6eatmr","op":"ai.put","text":"Straße","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
+{"t":[1793495592500,4],"d":"boox-sm6eatmr","op":"ai.put","text":"​Haus","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"дом (пробел нулевой ширины)"}
+{"t":[1793495592500,5],"d":"boox-sm6eatmr","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":2}
+{"t":[1793495592500,6],"d":"boox-sm6eatmr","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":2}
+{"t":[1793496168737,1],"d":"boox-sm6eatmr","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":1}
+{"t":[1793496169750,2],"d":"boox-sm6eatmr","op":"ai.put","text":"cœur","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
+{"t":[1793496169750,3],"d":"boox-sm6eatmr","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend! (2)","c":2}
+{"t":[1793496292000,2],"d":"boox-sm6eatmr","op":"ai.put","text":"città","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица\"]}"}
+{"t":[1793496292000,3],"d":"boox-sm6eatmr","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица"}
+{"t":[1793496292000,4],"d":"boox-sm6eatmr","op":"ai.put","text":"\u0001steuer\u001f","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"сердце\"}"}
+{"t":[1793496292000,5],"d":"boox-sm6eatmr","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри","c":1}
+{"t":[1793496363750,4],"d":"boox-sm6eatmr","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж (2)"}
+{"t":[1793496363750,5],"d":"boox-sm6eatmr","op":"history.del","text":"Hauß"}
+{"t":[1793496375987,5],"d":"boox-sm6eatmr","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»"}
+{"t":[1793496375987,6],"d":"boox-sm6eatmr","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":2}
+{"t":[1793496375987,8],"d":"boox-sm6eatmr","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
+{"t":[1793496375987,9],"d":"boox-sm6eatmr","op":"history.del","text":"aujourd'hui"}
+{"t":[1793496375987,10],"d":"boox-sm6eatmr","op":"saved.del","text":"corazón"}
+{"t":[1793496375987,11],"d":"boox-sm6eatmr","op":"ai.put","text":"日本語","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"японский язык, ещё"}
+{"t":[1793496375987,12],"d":"boox-sm6eatmr","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"family (2)\"]}"}
+{"t":[1793496375987,13],"d":"boox-sm6eatmr","op":"saved.del","text":"дом"}
+{"t":[1793496375987,14],"d":"boox-sm6eatmr","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":1}
+{"t":[1793496375987,20],"d":"boox-sm6eatmr","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"семья\"]}"}
+{"t":[1793496375987,23],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":1}
+{"t":[1793496375987,25],"d":"boox-sm6eatmr","op":"ai.put","text":"съесть","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"foot"}
+{"t":[1793496375987,26],"d":"boox-sm6eatmr","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1793496375987,27],"d":"boox-sm6eatmr","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето, ещё","c":1}
+{"t":[1793496375987,28],"d":"boox-sm6eatmr","op":"saved.del","text":"coração"}
+{"t":[1793496375987,29],"d":"boox-sm6eatmr","op":"saved.put","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово, ещё"}
+{"t":[1793496375987,30],"d":"boox-sm6eatmr","op":"ai.put","text":"你好","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"привет\"}"}
+{"t":[1793496375987,31],"d":"boox-sm6eatmr","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
+{"t":[1793496375987,32],"d":"boox-sm6eatmr","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
+{"t":[1793496375987,44],"d":"boox-sm6eatmr","op":"saved.put","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)"}
+{"t":[1793496375987,45],"d":"boox-sm6eatmr","op":"saved.put","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой"}
+{"t":[1793496375987,47],"d":"boox-sm6eatmr","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё","c":1}
+{"t":[1793496375987,48],"d":"boox-sm6eatmr","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793496375987,49],"d":"boox-sm6eatmr","op":"history.del","text":"Öl"}
+{"t":[1793496375987,50],"d":"boox-sm6eatmr","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
+{"t":[1793496375987,55],"d":"boox-sm6eatmr","op":"saved.del","text":"Wie geht's?"}
+{"t":[1793496375987,58],"d":"boox-sm6eatmr","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё"}
+{"t":[1793496375987,59],"d":"boox-sm6eatmr","op":"saved.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793496375987,60],"d":"boox-sm6eatmr","op":"ai.put","text":"مرحبا","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"hello\"}"}
+{"t":[1793496375987,61],"d":"boox-sm6eatmr","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
+{"t":[1793496375987,62],"d":"boox-sm6eatmr","op":"ai.put","text":"​Haus","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"дом (пробел нулевой ширины)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,63],"d":"boox-sm6eatmr","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793496375987,64],"d":"boox-sm6eatmr","op":"ai.put","text":"\tHaus\n","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"дом (табуляция, перевод строки), ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,65],"d":"boox-sm6eatmr","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street, ещё","c":2}
+{"t":[1793496375987,66],"d":"boox-sm6eatmr","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":1}
+{"t":[1793496375987,67],"d":"boox-sm6eatmr","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793496375987,68],"d":"boox-sm6eatmr","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"упражнение\"]}"}
+{"t":[1793496375987,82],"d":"boox-sm6eatmr","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица (2)","c":1}
+{"t":[1793496375987,83],"d":"boox-sm6eatmr","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)","c":2}
+{"t":[1793496375987,84],"d":"boox-sm6eatmr","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen"}
+{"t":[1793496375987,88],"d":"boox-sm6eatmr","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"семья\"}"}
+{"t":[1793496375987,89],"d":"boox-sm6eatmr","op":"saved.put","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello"}
+{"t":[1793496375987,90],"d":"boox-sm6eatmr","op":"saved.del","text":"aufmachen"}
+{"t":[1793496375987,91],"d":"boox-sm6eatmr","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD) (2)","c":1}
+{"t":[1793496375987,92],"d":"boox-sm6eatmr","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Здравствуйте\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,93],"d":"boox-sm6eatmr","op":"saved.del","text":"perché"}
+{"t":[1793496375987,94],"d":"boox-sm6eatmr","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793496375987,95],"d":"boox-sm6eatmr","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1793496375987,96],"d":"boox-sm6eatmr","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793496375987,106],"d":"boox-sm6eatmr","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":2}
+{"t":[1793496375987,107],"d":"boox-sm6eatmr","op":"ai.put","text":"corazón","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\"]}"}
+{"t":[1793496375987,108],"d":"boox-sm6eatmr","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
+{"t":[1793496375987,110],"d":"boox-sm6eatmr","op":"ai.put","text":"你好","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hello, ещё"}
+{"t":[1793496375987,111],"d":"boox-sm6eatmr","op":"saved.del","text":"Käse"}
+{"t":[1793496375987,112],"d":"boox-sm6eatmr","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"I close the door!, ещё\"}"}
+{"t":[1793496375987,117],"d":"boox-sm6eatmr","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":2}
+{"t":[1793496375987,118],"d":"boox-sm6eatmr","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":2}
+{"t":[1793496375987,119],"d":"boox-sm6eatmr","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":1}
+{"t":[1793496375987,125],"d":"boox-sm6eatmr","op":"saved.del","text":"ılık"}
+{"t":[1793496375987,126],"d":"boox-sm6eatmr","op":"ai.put","text":"日本語","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"японский язык\"]}"}
+{"t":[1793496375987,127],"d":"boox-sm6eatmr","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you.","c":2}
+{"t":[1793496375987,128],"d":"boox-sm6eatmr","op":"ai.put","text":"كتاب","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"exercise (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,129],"d":"boox-sm6eatmr","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улыбка (2)\"]}"}
+{"t":[1793496375987,130],"d":"boox-sm6eatmr","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028, ещё","c":1}
+{"t":[1793496375987,131],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":2}
+{"t":[1793496375987,139],"d":"boox-sm6eatmr","op":"ai.put","text":"їжак","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"hedgehog\"}"}
+{"t":[1793496375987,140],"d":"boox-sm6eatmr","op":"ai.put","text":"a/b </script> & <b>","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"<разметка> & «кавычки» (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,141],"d":"boox-sm6eatmr","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":3}
+{"t":[1793496375987,142],"d":"boox-sm6eatmr","op":"saved.del","text":"« Ça va ? »"}
+{"t":[1793496375987,143],"d":"boox-sm6eatmr","op":"ai.put","text":"ılık","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"lukewarm\"}"}
+{"t":[1793496375987,144],"d":"boox-sm6eatmr","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1793496375987,145],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа), ещё","c":1}
+{"t":[1793496375987,146],"d":"boox-sm6eatmr","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":1}
+{"t":[1793496375987,147],"d":"boox-sm6eatmr","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!, ещё","c":3}
+{"t":[1793496375987,148],"d":"boox-sm6eatmr","op":"ai.put","text":"дом","lang":"German","section":"offline-de","ver":3,"model":"bergamot","answer":"Haus, ещё"}
+{"t":[1793496375987,149],"d":"boox-sm6eatmr","op":"saved.del","text":"תודה רבה"}
+{"t":[1793496375987,154],"d":"boox-sm6eatmr","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки», ещё","c":1}
+{"t":[1793496375987,155],"d":"boox-sm6eatmr","op":"saved.put","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки) (2)"}
+{"t":[1793496375987,159],"d":"boox-sm6eatmr","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":2}
+{"t":[1793496375987,160],"d":"boox-sm6eatmr","op":"history.seen","text":" Haus","kind":"word","lang":"ru","meaning":"дом (пробел слева)","c":1}
+{"t":[1793496375987,163],"d":"boox-sm6eatmr","op":"ai.put","text":"città","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица, ещё\"}"}
+{"t":[1793496375987,164],"d":"boox-sm6eatmr","op":"ai.put","text":"größer","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"bigger, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,169],"d":"boox-sm6eatmr","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":3}
+{"t":[1793496375987,170],"d":"boox-sm6eatmr","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793496375987,175],"d":"boox-sm6eatmr","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня, ещё","c":1}
+{"t":[1793496375987,176],"d":"boox-sm6eatmr","op":"history.del","text":"pingüino"}
+{"t":[1793496375987,177],"d":"boox-sm6eatmr","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»"}
+{"t":[1793496375987,178],"d":"boox-sm6eatmr","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793496375987,179],"d":"boox-sm6eatmr","op":"history.seen","text":"Ha­us","kind":"word","lang":"ru","meaning":"дом (мягкий перенос)","c":1}
+{"t":[1793496375987,180],"d":"boox-sm6eatmr","op":"ai.put","text":"Com'è bello!","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"How beautiful!, ещё"}
+{"t":[1793496375987,186],"d":"boox-sm6eatmr","op":"history.del","text":"Com'è bello!"}
+{"t":[1793496375987,187],"d":"boox-sm6eatmr","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)"}
+{"t":[1793496375987,188],"d":"boox-sm6eatmr","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793496375987,189],"d":"boox-sm6eatmr","op":"ai.put","text":"nul\u0000inside","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"NUL внутри, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,190],"d":"boox-sm6eatmr","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":2}
+{"t":[1793496375987,191],"d":"boox-sm6eatmr","op":"saved.del","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. "}
+{"t":[1793496375987,192],"d":"boox-sm6eatmr","op":"ai.put","text":"كتاب","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"exercise (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,203],"d":"boox-sm6eatmr","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":3}
+{"t":[1793496375987,206],"d":"boox-sm6eatmr","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга"}
+{"t":[1793496375987,207],"d":"boox-sm6eatmr","op":"ai.put","text":"Häuser","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"houses\"}"}
+{"t":[1793496375987,208],"d":"boox-sm6eatmr","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":2}
+{"t":[1793496375987,209],"d":"boox-sm6eatmr","op":"history.seen","text":"Hauß","kind":"word","lang":"ru","meaning":"ß","c":1}
+{"t":[1793496375987,216],"d":"boox-sm6eatmr","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":1}
+{"t":[1793496375987,217],"d":"boox-sm6eatmr","op":"ai.put","text":"Ha­us","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"дом (мягкий перенос) (2)\"}"}
+{"t":[1793496375987,218],"d":"boox-sm6eatmr","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you (2)","c":1}
+{"t":[1793496375987,226],"d":"boox-sm6eatmr","op":"saved.del","text":"Ещё раз"}
+{"t":[1793496375987,232],"d":"boox-sm6eatmr","op":"saved.del","text":"Obrigado!"}
+{"t":[1793496375987,233],"d":"boox-sm6eatmr","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1793496375987,235],"d":"boox-sm6eatmr","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)"}
+{"t":[1793496375987,236],"d":"boox-sm6eatmr","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё","base":"есть","c":1}
+{"t":[1793496375987,237],"d":"boox-sm6eatmr","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)"}
+{"t":[1793496375987,238],"d":"boox-sm6eatmr","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":1}
+{"t":[1793496375987,244],"d":"boox-sm6eatmr","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal","c":3}
+{"t":[1793496375987,245],"d":"boox-sm6eatmr","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":2}
+{"t":[1793496375987,246],"d":"boox-sm6eatmr","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё","c":3}
+{"t":[1793496375987,247],"d":"boox-sm6eatmr","op":"saved.del","text":"漢字"}
+{"t":[1793496375987,248],"d":"boox-sm6eatmr","op":"ai.put","text":"Haus 🏠","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house 🏠\"]}"}
+{"t":[1793496375987,249],"d":"boox-sm6eatmr","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":2}
+{"t":[1793496375987,252],"d":"boox-sm6eatmr","op":"ai.put","text":"łódź","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boat\"]}"}
+{"t":[1793496375987,253],"d":"boox-sm6eatmr","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":2}
+{"t":[1793496375987,254],"d":"boox-sm6eatmr","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":3}
+{"t":[1793496375987,255],"d":"boox-sm6eatmr","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello","c":1}
+{"t":[1793496375987,260],"d":"boox-sm6eatmr","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal (2)","c":4}
+{"t":[1793496375987,261],"d":"boox-sm6eatmr","op":"history.del","text":"Zeile Trenner"}
+{"t":[1793496375987,262],"d":"boox-sm6eatmr","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much"}
+{"t":[1793496375987,263],"d":"boox-sm6eatmr","op":"ai.put","text":"שלום","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"peace, hello, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,264],"d":"boox-sm6eatmr","op":"ai.put","text":"garçon","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"мальчик (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,265],"d":"boox-sm6eatmr","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793496375987,266],"d":"boox-sm6eatmr","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":2}
+{"t":[1793496375987,276],"d":"boox-sm6eatmr","op":"ai.put","text":"élève","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"pupil (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,277],"d":"boox-sm6eatmr","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1793496375987,278],"d":"boox-sm6eatmr","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":4}
+{"t":[1793496375987,279],"d":"boox-sm6eatmr","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
+{"t":[1793496375987,280],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел)","c":2}
+{"t":[1793496375987,281],"d":"boox-sm6eatmr","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри (2)","c":2}
+{"t":[1793496375987,282],"d":"boox-sm6eatmr","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":2}
+{"t":[1793496375987,283],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)","c":2}
+{"t":[1793496375987,284],"d":"boox-sm6eatmr","op":"history.del","text":"תודה רבה"}
+{"t":[1793496375987,285],"d":"boox-sm6eatmr","op":"ai.put","text":"你好","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"привет, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,288],"d":"boox-sm6eatmr","op":"ai.put","text":"garçon","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"мальчик (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,289],"d":"boox-sm6eatmr","op":"history.del","text":"maçã"}
+{"t":[1793496375987,294],"d":"boox-sm6eatmr","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":3}
+{"t":[1793496375987,295],"d":"boox-sm6eatmr","op":"ai.put","text":"Mädchen","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"девочка (2)"}
+{"t":[1793496375987,296],"d":"boox-sm6eatmr","op":"ai.put","text":"STRASSE","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улица, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,297],"d":"boox-sm6eatmr","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
+{"t":[1793496375987,298],"d":"boox-sm6eatmr","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple"}
+{"t":[1793496375987,299],"d":"boox-sm6eatmr","op":"ai.put","text":"élève","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ученик\"]}"}
+{"t":[1793496375987,300],"d":"boox-sm6eatmr","op":"ai.put","text":"我爱你。","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"I love you., ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793496375987,301],"d":"boox-sm6eatmr","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you, ещё","c":3}
+{"t":[1793496375987,302],"d":"boox-sm6eatmr","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":1}
+{"t":[1793496375987,307],"d":"boox-sm6eatmr","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793496375987,308],"d":"boox-sm6eatmr","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":2}
+{"t":[1793496375987,309],"d":"boox-sm6eatmr","op":"saved.del","text":"　日本　"}
+{"t":[1793496375987,314],"d":"boox-sm6eatmr","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1793496375987,315],"d":"boox-sm6eatmr","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":2}
+{"t":[1793496375987,316],"d":"boox-sm6eatmr","op":"saved.del","text":"漢字"}
+{"t":[1793496375987,317],"d":"boox-sm6eatmr","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot, ещё","c":1}
+{"t":[1793496375987,320],"d":"boox-sm6eatmr","op":"saved.put","text":"łódź","kind":"word","lang":"ru","meaning":"лодка, ещё"}
+{"t":[1793496375987,322],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":3}
+{"t":[1793496375987,323],"d":"boox-sm6eatmr","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)"}
+{"t":[1793496375987,324],"d":"boox-sm6eatmr","op":"saved.del","text":"كتاب"}
+{"t":[1793496375987,325],"d":"boox-sm6eatmr","op":"ai.put","text":"coração","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"сердце"}
+{"t":[1793496375987,326],"d":"boox-sm6eatmr","op":"saved.del","text":"👍🏽"}
+{"t":[1793496375987,327],"d":"boox-sm6eatmr","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё","c":1}
+{"t":[1793496375987,328],"d":"boox-sm6eatmr","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":5}
+{"t":[1793496375987,329],"d":"boox-sm6eatmr","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1793496375987,330],"d":"boox-sm6eatmr","op":"ai.put","text":"İstanbul","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Стамбул\"]}"}
+{"t":[1793496553500,1],"d":"boox-sm6eatmr","op":"ai.put","text":"👍🏽","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"класс (тон кожи)\"\t\\ 1. Bedeutung"}
+{"t":[1793496553500,2],"d":"boox-sm6eatmr","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028","c":1}
+{"t":[1793496553500,3],"d":"boox-sm6eatmr","op":"ai.put","text":"Haus ","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"дом (неразрывный пробел)\"\t\\ 1. Bedeutung"}
+{"t":[1793496553500,4],"d":"boox-sm6eatmr","op":"ai.put","text":"Käse","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"cheese (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793496553500,5],"d":"boox-sm6eatmr","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1793496553500,6],"d":"boox-sm6eatmr","op":"ai.put","text":"Übung","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"ученик"}
+{"t":[1793496553500,7],"d":"boox-sm6eatmr","op":"ai.put","text":"corazón","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\"]}"}
+{"t":[1793496756737,1],"d":"boox-sm6eatmr","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee (2)"}
+{"t":[1793496756737,2],"d":"boox-sm6eatmr","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":1}
+{"t":[1793496756737,3],"d":"boox-sm6eatmr","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё"}
+{"t":[1793496756737,4],"d":"boox-sm6eatmr","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1793496756737,5],"d":"boox-sm6eatmr","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1793496756737,6],"d":"boox-sm6eatmr","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch, ещё","c":2}
+{"t":[1793496756737,7],"d":"boox-sm6eatmr","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?» (2)"}
+{"t":[1793496969250,3],"d":"boox-sm6eatmr","op":"saved.put","text":"delchar","kind":"word","lang":"ru","meaning":"DEL внутри"}
+{"t":[1793496969250,4],"d":"boox-sm6eatmr","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":2}
+{"t":[1793496969250,5],"d":"boox-sm6eatmr","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":3}
+{"t":[1793496969250,6],"d":"boox-sm6eatmr","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин, ещё","c":2}
+{"t":[1793496969250,7],"d":"boox-sm6eatmr","op":"ai.put","text":"Er sagte: \"Komm!\"","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Он сказал: \\\"Иди!\\\"\"}"}
+{"t":[1793496969250,8],"d":"boox-sm6eatmr","op":"saved.del","text":"漢字"}
+{"t":[1793496969250,9],"d":"boox-sm6eatmr","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":2}
+{"t":[1793496969250,10],"d":"boox-sm6eatmr","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"grin\"\t\\ 1. Bedeutung"}
+{"t":[1793496969250,11],"d":"boox-sm6eatmr","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)"}
+{"t":[1793496969250,12],"d":"boox-sm6eatmr","op":"ai.put","text":"perché","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"почему\"\t\\ 1. Bedeutung"}
+{"t":[1793496969250,13],"d":"boox-sm6eatmr","op":"saved.del","text":"łódź"}
+{"t":[1793496969250,14],"d":"boox-sm6eatmr","op":"ai.put","text":"pingüino","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"пингвин (2)\"}"}
+{"t":[1793496969250,15],"d":"boox-sm6eatmr","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":1}
+{"t":[1793496969250,16],"d":"boox-sm6eatmr","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё","c":4}
+{"t":[1793497868250,1],"d":"boox-sm6eatmr","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin, ещё","c":1}
+{"t":[1793497868250,2],"d":"boox-sm6eatmr","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal (2)","c":1}
+{"t":[1793497868250,3],"d":"boox-sm6eatmr","op":"ai.put","text":"漢字","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"kanji"}
+{"t":[1793497868250,4],"d":"boox-sm6eatmr","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":2}
+{"t":[1793497868250,5],"d":"boox-sm6eatmr","op":"saved.put","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)"}
+{"t":[1793497868250,6],"d":"boox-sm6eatmr","op":"ai.put","text":"שלום","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"мир, привет"}
+{"t":[1793497868250,7],"d":"boox-sm6eatmr","op":"ai.put","text":"Добрий вечір","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Good evening\"\t\\ 1. Bedeutung"}
+{"t":[1793497868250,8],"d":"boox-sm6eatmr","op":"saved.del","text":"Mädchen"}
+{"t":[1793497868250,9],"d":"boox-sm6eatmr","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1793497868250,10],"d":"boox-sm6eatmr","op":"saved.del","text":"Tab\there"}
+{"t":[1793497868250,11],"d":"boox-sm6eatmr","op":"ai.put","text":"não","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"нет (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793497868250,12],"d":"boox-sm6eatmr","op":"ai.put","text":"a/b </script> & <b>","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"<разметка> & «кавычки», ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793497868250,13],"d":"boox-sm6eatmr","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":2}
+{"t":[1793498514257,1],"d":"boox-sm6eatmr","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793498514257,2],"d":"boox-sm6eatmr","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
+{"t":[1793498514257,3],"d":"boox-sm6eatmr","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":1}
+{"t":[1793498514257,4],"d":"boox-sm6eatmr","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1793498514257,5],"d":"boox-sm6eatmr","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":2}
+{"t":[1793498514257,6],"d":"boox-sm6eatmr","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"нет, ещё"}
+{"t":[1793498646987,1],"d":"boox-sm6eatmr","op":"ai.put","text":"maçã","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"apple\"\t\\ 1. Bedeutung"}
+{"t":[1793498646987,2],"d":"boox-sm6eatmr","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you."}
+{"t":[1793498646987,3],"d":"boox-sm6eatmr","op":"ai.put","text":"pingüino","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"penguin\"\t\\ 1. Bedeutung"}
+{"t":[1793498646987,4],"d":"boox-sm6eatmr","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":1}
+{"t":[1793498646987,5],"d":"boox-sm6eatmr","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":1}
+{"t":[1793498646987,6],"d":"boox-sm6eatmr","op":"ai.put","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"очень длинный отрывок (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793499152750,1],"d":"boox-sm6eatmr","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello, ещё","c":2}
+{"t":[1793499152750,2],"d":"boox-sm6eatmr","op":"ai.put","text":"garçon","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"boy, ещё"}
+{"t":[1793499152750,3],"d":"boox-sm6eatmr","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean, ещё","c":1}
+{"t":[1793499152750,4],"d":"boox-sm6eatmr","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":3}
+{"t":[1793499333250,1],"d":"boox-sm6eatmr","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel"}
+{"t":[1793499333250,2],"d":"boox-sm6eatmr","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD), ещё","c":2}
+{"t":[1793499333250,3],"d":"boox-sm6eatmr","op":"history.del","text":"東京"}
+{"t":[1793499411000,1],"d":"boox-sm6eatmr","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793499411000,2],"d":"boox-sm6eatmr","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио","c":1}

@@ -1,0 +1,74 @@
+{"t":[1793361600000,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793361665000,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👍🏽","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung"}
+{"t":[1793361724987,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793361725007,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":1}
+{"t":[1793361729000,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👍🏽","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"thumbs up (skin tone)\",\"ещё\"]}"}
+{"t":[1793361730257,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793361735257,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"flag of Germany\"}"}
+{"t":[1793361735500,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё","c":2}
+{"t":[1793361796000,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)"}
+{"t":[1793361796007,0],"d":"samsung-pfzn3vgj","op":"history.del","text":"🇩🇪"}
+{"t":[1793361856007,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793361856007,1],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1793361857000,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"🇩🇪","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"flag of Germany"}
+{"t":[1793361916987,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":1}
+{"t":[1793361921007,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":2}
+{"t":[1793361921257,0],"d":"samsung-pfzn3vgj","op":"history.del","text":"👍🏽"}
+{"t":[1793361981250,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793362114487,0],"d":"samsung-pfzn3vgj","op":"saved.del","text":"👨‍👩‍👧"}
+{"t":[1793362114507,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793362178487,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family, ещё"}
+{"t":[1793362178500,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":3}
+{"t":[1793362181757,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"🇩🇪","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"flag of Germany, ещё"}
+{"t":[1793362187000,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1793362188000,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":2}
+{"t":[1793362188007,0],"d":"samsung-pfzn3vgj","op":"saved.del","text":"Haus 🏠"}
+{"t":[1793362188250,0],"d":"samsung-pfzn3vgj","op":"history.del","text":"👨‍👩‍👧"}
+{"t":[1793362188250,1],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793362249257,0],"d":"samsung-pfzn3vgj","op":"history.del","text":"👨‍👩‍👧"}
+{"t":[1793362249500,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793362317750,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👍🏽","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung"}
+{"t":[1793362318000,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1793362318987,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family, ещё"}
+{"t":[1793362319007,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793362319007,1],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"grin\"]}"}
+{"t":[1793362320000,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":2}
+{"t":[1793362320507,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family (2)","c":1}
+{"t":[1793362321750,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"Haus 🏠","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house 🏠 (2)\"]}"}
+{"t":[1793362331237,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793362331250,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"family"}
+{"t":[1793362336250,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":1}
+{"t":[1793362396237,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":2}
+{"t":[1793362397250,0],"d":"samsung-pfzn3vgj","op":"saved.del","text":"😀"}
+{"t":[1793362457237,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"family\"}"}
+{"t":[1793362458257,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":3}
+{"t":[1793362458257,1],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family, ещё","c":2}
+{"t":[1793362458257,2],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":3}
+{"t":[1793362459250,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793362464250,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👍🏽","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung"}
+{"t":[1793362524250,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё","c":4}
+{"t":[1793362527250,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":2}
+{"t":[1793362529237,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin (2)","c":3}
+{"t":[1793362589237,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793362649250,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"grin\"}"}
+{"t":[1793362709500,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":5}
+{"t":[1793362710500,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin (2)"}
+{"t":[1793362834500,1],"d":"samsung-pfzn3vgj","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1793362834737,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улыбка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362835757,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"flag of Germany\"\t\\ 1. Bedeutung"}
+{"t":[1793362836007,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"😀","kind":"word","lang":"en","meaning":"grin"}
+{"t":[1793362960007,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"grin\"\t\\ 1. Bedeutung"}
+{"t":[1793362961000,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family"}
+{"t":[1793363020987,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":4}
+{"t":[1793363027250,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠 (2)"}
+{"t":[1793363027500,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":6}
+{"t":[1793363031500,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"👍🏽","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"thumbs up (skin tone)"}
+{"t":[1793363034007,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"grin\"\t\\ 1. Bedeutung"}
+{"t":[1793363038000,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":5}
+{"t":[1793363170987,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":6}
+{"t":[1793363178987,0],"d":"samsung-pfzn3vgj","op":"saved.del","text":"🇩🇪"}
+{"t":[1793363179237,0],"d":"samsung-pfzn3vgj","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)"}
+{"t":[1793363183250,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"flag of Germany (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363187257,0],"d":"samsung-pfzn3vgj","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin\"}"}
+{"t":[1793363247250,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":7}
+{"t":[1793363307250,0],"d":"samsung-pfzn3vgj","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":3}

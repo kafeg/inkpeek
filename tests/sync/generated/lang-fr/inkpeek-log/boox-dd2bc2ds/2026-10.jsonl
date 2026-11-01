@@ -1,0 +1,38 @@
+{"t":[1793361664000,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":1}
+{"t":[1793361850007,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee (2)","c":1}
+{"t":[1793361860257,0],"d":"boox-dd2bc2ds","op":"saved.del","text":"café"}
+{"t":[1793361860507,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boy\"\t\\ 1. Bedeutung"}
+{"t":[1793361920507,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793361980737,0],"d":"boox-dd2bc2ds","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”"}
+{"t":[1793362040737,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"aujourd'hui","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"coffee\"\t\\ 1. Bedeutung"}
+{"t":[1793362102750,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"garçon","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boy\",\"ещё\"]}"}
+{"t":[1793362162750,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе, ещё","c":2}
+{"t":[1793362170750,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil (2)","base":"élever","c":2}
+{"t":[1793362230750,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)","c":1}
+{"t":[1793362291007,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"“How are you?”\"]}"}
+{"t":[1793362293500,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":1}
+{"t":[1793362413750,0],"d":"boox-dd2bc2ds","op":"saved.del","text":"cœur"}
+{"t":[1793362547500,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee (2)","c":3}
+{"t":[1793362616750,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":4}
+{"t":[1793362622000,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"cœur","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\",\"ещё\"]}"}
+{"t":[1793362682007,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boy\"\t\\ 1. Bedeutung"}
+{"t":[1793362747987,0],"d":"boox-dd2bc2ds","op":"saved.del","text":"cœur"}
+{"t":[1793362752007,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":2}
+{"t":[1793362936987,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793362941007,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"garçon","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"boy"}
+{"t":[1793363010737,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":1}
+{"t":[1793363011757,0],"d":"boox-dd2bc2ds","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”, ещё"}
+{"t":[1793363012000,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе, ещё","c":5}
+{"t":[1793363134757,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":2}
+{"t":[1793363138750,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"coffee"}
+{"t":[1793363208237,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":3}
+{"t":[1793363333250,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee, ещё","c":6}
+{"t":[1793363333250,1],"d":"boox-dd2bc2ds","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793363459007,0],"d":"boox-dd2bc2ds","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?” (2)"}
+{"t":[1793363467000,0],"d":"boox-dd2bc2ds","op":"history.del","text":"l’été"}
+{"t":[1793363475757,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"cœur","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\"]}"}
+{"t":[1793363541007,0],"d":"boox-dd2bc2ds","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer"}
+{"t":[1793363666987,0],"d":"boox-dd2bc2ds","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":1}
+{"t":[1793363671000,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"élève","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"pupil, ещё"}
+{"t":[1793363671000,1],"d":"boox-dd2bc2ds","op":"ai.put","text":"l’été","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"the summer\"\t\\ 1. Bedeutung"}
+{"t":[1793363739250,0],"d":"boox-dd2bc2ds","op":"ai.put","text":"café","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"coffee\"]}"}

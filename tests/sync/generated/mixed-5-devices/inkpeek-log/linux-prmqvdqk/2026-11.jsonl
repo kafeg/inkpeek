@@ -1,0 +1,80 @@
+{"t":[1793500736987,0],"d":"linux-prmqvdqk","op":"history.del","text":" Haus"}
+{"t":[1793504398007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart (2)","c":2}
+{"t":[1793504399000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":4}
+{"t":[1793504400000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки)","c":3}
+{"t":[1793612585007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Я закрываю дверь! (NFD) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793619844987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Haus 🏠","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"house 🏠\"\t\\ 1. Bedeutung"}
+{"t":[1793619905007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"łódź","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boat\"\t\\ 1. Bedeutung"}
+{"t":[1793619965000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"كتاب","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"book\"\t\\ 1. Bedeutung"}
+{"t":[1793652365000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793684765007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"السلام عليكم","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Peace be upon you\",\"ещё\"]}"}
+{"t":[1793717228000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city, ещё","c":2}
+{"t":[1793789228000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"مرحبا","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"hello\"\t\\ 1. Bedeutung"}
+{"t":[1793789228007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Hauß","kind":"word","lang":"ru","meaning":"ß","c":1}
+{"t":[1793792890007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":2}
+{"t":[1793828891007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!"}
+{"t":[1793864951000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)","c":2}
+{"t":[1793868793000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки)","c":4}
+{"t":[1793872394000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"ёжик","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"hedgehog\"\t\\ 1. Bedeutung"}
+{"t":[1793944819007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё","c":3}
+{"t":[1793948420987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":2}
+{"t":[1793948421007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1794013280987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)","c":2}
+{"t":[1794020481007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1794027682000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)","c":2}
+{"t":[1794157464000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"aufmachen","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to open\"]}"}
+{"t":[1794189985007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":3}
+{"t":[1794265705987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы (2)"}
+{"t":[1794269366000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"How are you? (2)"}
+{"t":[1794269426000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1794273447000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1794309511987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":2}
+{"t":[1794381631987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"한국어","kind":"word","lang":"en","meaning":"Korean"}
+{"t":[1794417693987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1794421294000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Ha­us","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"дом (мягкий перенос)"}
+{"t":[1794421354007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":2}
+{"t":[1794453814987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)","c":2}
+{"t":[1794453877007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Käse"}
+{"t":[1794457477007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":1}
+{"t":[1794522398007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":2}
+{"t":[1794590799007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":1}
+{"t":[1794630400000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1794637600000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1794637600000,1],"d":"linux-prmqvdqk","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки) (2)","c":5}
+{"t":[1794637659987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street (2)","c":2}
+{"t":[1794706301987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"ΟΔΟΣ","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"street, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1794774823007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Häuser","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"houses\"\t\\ 1. Bedeutung"}
+{"t":[1794879405000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":2}
+{"t":[1794965809000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":1}
+{"t":[1795063130007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":1}
+{"t":[1795063132000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\",\"ещё\"]}"}
+{"t":[1795063192007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":1}
+{"t":[1795127992000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":3}
+{"t":[1795127992007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё"}
+{"t":[1795131591987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"𠮷野家","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Yoshinoya\"}"}
+{"t":[1795171372007,0],"d":"linux-prmqvdqk","op":"history.del","text":"STRASSE"}
+{"t":[1795243495007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"How are you?"}
+{"t":[1795380355000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"한국어"}
+{"t":[1795456075987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Ha­us","kind":"word","lang":"ru","meaning":"дом (мягкий перенос)"}
+{"t":[1795502878000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё"}
+{"t":[1795549739000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":2}
+{"t":[1795582138987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"😀","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"porch\"]}"}
+{"t":[1795589340000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"maçã","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"apple (2)\"]}"}
+{"t":[1795589341000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":2}
+{"t":[1795589400987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":1}
+{"t":[1795589461000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo"}
+{"t":[1795593241000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1795593302000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":3}
+{"t":[1795593302987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":2}
+{"t":[1795600503000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"👍🏽","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"thumbs up (skin tone) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1795604103000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":2}
+{"t":[1795636504000,0],"d":"linux-prmqvdqk","op":"history.del","text":"niño"}
+{"t":[1795672686007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":3}
+{"t":[1795672746987,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Zażółć gęślą jaźń"}
+{"t":[1795676409000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"aufmachen"}
+{"t":[1795676409000,1],"d":"linux-prmqvdqk","op":"saved.put","text":"perché","kind":"word","lang":"ru","meaning":"почему"}
+{"t":[1795719728987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you? (2)"}
+{"t":[1795871236007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise"}
+{"t":[1795874836007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"a pangram\"}"}
+{"t":[1796018957000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":3}
+{"t":[1796029880007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":4}

@@ -1,0 +1,51 @@
+{
+ "saved": [
+  {"text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)","created":1793362776757,"id":"samsung-qqhxbpcz:1793361674500:0","origin":"samsung-qqhxbpcz","updated_by":"samsung-qqhxbpcz"},
+  {"text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","created":1793363350000,"id":"linux-fylxonci:1793363350000:0","origin":"linux-fylxonci","updated_by":"linux-fylxonci"},
+  {"text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","created":1793361877507,"id":"samsung-qqhxbpcz:1793361809500:1","origin":"samsung-qqhxbpcz","updated_by":"samsung-3plne4z4"},
+  {"text":"ґанок","kind":"word","lang":"en","meaning":"porch","created":1793363289007,"id":"linux-fylxonci:1793362716737:0","origin":"linux-fylxonci","updated_by":"samsung-qqhxbpcz"}
+ ],
+ "history": [
+  {"text":"Добрий вечір","kind":"phrase","lang":"ru","base":null,"meaning":"Добрый вечер","seen":1793363350237,"count":9,"devices":["linux-fylxonci","samsung-3plne4z4","samsung-qqhxbpcz"]},
+  {"text":"Добрый вечер!","kind":"phrase","lang":"de","base":null,"meaning":"Guten Abend!","seen":1793363540257,"count":6,"devices":["linux-fylxonci","samsung-3plne4z4"]},
+  {"text":"Ещё раз","kind":"phrase","lang":"en","base":null,"meaning":"Once more","seen":1793363606737,"count":13,"devices":["linux-fylxonci","samsung-3plne4z4","samsung-qqhxbpcz"]},
+  {"text":"дом","kind":"word","lang":"en","base":null,"meaning":"house (2)","seen":1793363531237,"count":11,"devices":["linux-fylxonci","samsung-3plne4z4","samsung-qqhxbpcz"]},
+  {"text":"съесть","kind":"word","lang":"de","base":"есть","meaning":"aufessen","seen":1793363670757,"count":1,"devices":["samsung-3plne4z4"]},
+  {"text":"ёжик","kind":"word","lang":"en","base":null,"meaning":"hedgehog","seen":1793363532250,"count":8,"devices":["linux-fylxonci","samsung-3plne4z4","samsung-qqhxbpcz"]},
+  {"text":"їжак","kind":"word","lang":"ru","base":null,"meaning":"ёж","seen":1793363411237,"count":1,"devices":["samsung-3plne4z4"]},
+  {"text":"ґанок","kind":"word","lang":"en","base":null,"meaning":"porch (2)","seen":1793363541500,"count":8,"devices":["linux-fylxonci","samsung-3plne4z4","samsung-qqhxbpcz"]}
+ ],
+ "ai": [
+  {"text":"Добрий вечір","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening, ещё\"\t\\ 1. Bedeutung","created":1793361812507},
+  {"text":"Добрий вечір","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Добрый вечер, ещё\"\t\\ 1. Bedeutung","created":1793362909500},
+  {"text":"Добрий вечір","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Добрый вечер","created":1793362203000},
+  {"text":"Добрий вечір","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Добрый вечер\"}","created":1793362205007},
+  {"text":"Добрый вечер!","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Good evening!\"\t\\ 1. Bedeutung","created":1793361802757},
+  {"text":"Добрый вечер!","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Good evening!\"\t\\ 1. Bedeutung","created":1793362138757},
+  {"text":"Добрый вечер!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Good evening! (2)\"}","created":1793362655750},
+  {"text":"Ещё раз","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Once more\"\t\\ 1. Bedeutung","created":1793362205250},
+  {"text":"Ещё раз","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Once more\"\t\\ 1. Bedeutung","created":1793363540257},
+  {"text":"Ещё раз","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Once more","created":1793363287987},
+  {"text":"Ещё раз","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Noch einmal\"}","created":1793363601487},
+  {"text":"дом","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"house","created":1793361803737},
+  {"text":"дом","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\",\"ещё\"]}","created":1793361809500},
+  {"text":"дом","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"house\"}","created":1793362137757},
+  {"text":"съесть","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to eat up (2)\"]}","created":1793362905500},
+  {"text":"съесть","lang":"German","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"aufessen\",\"ещё\"]}","created":1793362844257},
+  {"text":"съесть","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"aufessen\"}","created":1793361810500},
+  {"text":"ёжик","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hedgehog\"\t\\ 1. Bedeutung","created":1793362594750},
+  {"text":"ёжик","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hedgehog","created":1793362410757},
+  {"text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\",\"ещё\"]}","created":1793362336250},
+  {"text":"ёжик","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\"]}","created":1793362400500},
+  {"text":"ёжик","lang":"German","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Igel, ещё\"\t\\ 1. Bedeutung","created":1793363666750},
+  {"text":"ёжик","lang":"German","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Igel (2)\"\t\\ 1. Bedeutung","created":1793361811507},
+  {"text":"ёжик","lang":"German","section":"offline-de","ver":0,"model":"bergamot","answer":"Igel","created":1793362973500},
+  {"text":"ёжик","lang":"German","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Igel\"}","created":1793362845257},
+  {"text":"їжак","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"ёж, ещё\"\t\\ 1. Bedeutung","created":1793362909500},
+  {"text":"їжак","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ёж\"]}","created":1793362839000},
+  {"text":"ґанок","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"porch","created":1793362143000},
+  {"text":"ґанок","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"крыльцо (2)\"\t\\ 1. Bedeutung","created":1793363606500},
+  {"text":"ґанок","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung","created":1793363541257},
+  {"text":"ґанок","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung","created":1793362334737}
+ ]
+}

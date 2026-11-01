@@ -1,0 +1,45 @@
+{"t":[1793361660000,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
+{"t":[1793361722000,0],"d":"win-lha36s2c","op":"history.del","text":"não"}
+{"t":[1793361847487,0],"d":"win-lha36s2c","op":"ai.put","text":"não","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"нет (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793361912737,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо! (2)","c":1}
+{"t":[1793362037737,0],"d":"win-lha36s2c","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793362097750,0],"d":"win-lha36s2c","op":"ai.put","text":"Obrigado!","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Спасибо!, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362110007,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793362113987,0],"d":"win-lha36s2c","op":"ai.put","text":"maçã","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"яблоко, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362115007,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":1}
+{"t":[1793362235000,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":2}
+{"t":[1793362239000,0],"d":"win-lha36s2c","op":"ai.put","text":"Obrigado!","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung"}
+{"t":[1793362420007,0],"d":"win-lha36s2c","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1793362484000,0],"d":"win-lha36s2c","op":"ai.put","text":"coração","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"яблоко\"\t\\ 1. Bedeutung"}
+{"t":[1793362485007,0],"d":"win-lha36s2c","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793362553000,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!, ещё","c":1}
+{"t":[1793362557250,0],"d":"win-lha36s2c","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1793362617250,0],"d":"win-lha36s2c","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё","c":3}
+{"t":[1793362686250,0],"d":"win-lha36s2c","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793362750237,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":2}
+{"t":[1793362750500,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":3}
+{"t":[1793362937737,0],"d":"win-lha36s2c","op":"history.del","text":"coração"}
+{"t":[1793362941750,0],"d":"win-lha36s2c","op":"history.del","text":"maçã"}
+{"t":[1793362943000,0],"d":"win-lha36s2c","op":"ai.put","text":"maçã","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"яблоко\"\t\\ 1. Bedeutung"}
+{"t":[1793363063237,0],"d":"win-lha36s2c","op":"history.del","text":"maçã"}
+{"t":[1793363127500,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
+{"t":[1793363128507,0],"d":"win-lha36s2c","op":"ai.put","text":"não","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нет, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363128507,2],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":2}
+{"t":[1793363324757,0],"d":"win-lha36s2c","op":"ai.put","text":"coração","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сердце\"]}"}
+{"t":[1793363326000,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо! (2)","c":2}
+{"t":[1793363327000,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":3}
+{"t":[1793363331257,0],"d":"win-lha36s2c","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793363332237,0],"d":"win-lha36s2c","op":"history.del","text":"não"}
+{"t":[1793363332507,0],"d":"win-lha36s2c","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1793363392737,0],"d":"win-lha36s2c","op":"saved.del","text":"não"}
+{"t":[1793363453250,0],"d":"win-lha36s2c","op":"ai.put","text":"Obrigado!","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Thank you!, ещё"}
+{"t":[1793363453507,0],"d":"win-lha36s2c","op":"saved.del","text":"coração"}
+{"t":[1793363513507,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!, ещё","c":4}
+{"t":[1793363513737,0],"d":"win-lha36s2c","op":"ai.put","text":"maçã","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"apple"}
+{"t":[1793363574750,0],"d":"win-lha36s2c","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце"}
+{"t":[1793363640007,0],"d":"win-lha36s2c","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793363760000,0],"d":"win-lha36s2c","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце"}
+{"t":[1793363940250,0],"d":"win-lha36s2c","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!, ещё","c":5}
+{"t":[1793363944500,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793364064750,0],"d":"win-lha36s2c","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
+{"t":[1793364134257,0],"d":"win-lha36s2c","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":2}

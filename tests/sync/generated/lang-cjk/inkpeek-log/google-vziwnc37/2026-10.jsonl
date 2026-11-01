@@ -1,0 +1,47 @@
+{"t":[1793361660000,0],"d":"google-vziwnc37","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793361722987,0],"d":"google-vziwnc37","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1793361727000,0],"d":"google-vziwnc37","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":2}
+{"t":[1793361787007,0],"d":"google-vziwnc37","op":"history.del","text":"日本語"}
+{"t":[1793361789000,0],"d":"google-vziwnc37","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":1}
+{"t":[1793361793257,0],"d":"google-vziwnc37","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
+{"t":[1793361794237,0],"d":"google-vziwnc37","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":3}
+{"t":[1793361858250,1],"d":"google-vziwnc37","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":2}
+{"t":[1793361858250,2],"d":"google-vziwnc37","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793361858250,3],"d":"google-vziwnc37","op":"ai.put","text":"你好","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"привет\"\t\\ 1. Bedeutung"}
+{"t":[1793361858500,0],"d":"google-vziwnc37","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио (2)","c":1}
+{"t":[1793361859507,0],"d":"google-vziwnc37","op":"ai.put","text":"사랑해요","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"японский язык\"}"}
+{"t":[1793362045987,0],"d":"google-vziwnc37","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"японский язык\"\t\\ 1. Bedeutung"}
+{"t":[1793362054250,0],"d":"google-vziwnc37","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":1}
+{"t":[1793362054257,0],"d":"google-vziwnc37","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":2}
+{"t":[1793362054507,0],"d":"google-vziwnc37","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":4}
+{"t":[1793362058757,0],"d":"google-vziwnc37","op":"saved.put","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана"}
+{"t":[1793362063757,0],"d":"google-vziwnc37","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":3}
+{"t":[1793362189757,0],"d":"google-vziwnc37","op":"ai.put","text":"사랑해요","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Я люблю тебя (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362249757,0],"d":"google-vziwnc37","op":"ai.put","text":"東京","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Токио"}
+{"t":[1793362370737,0],"d":"google-vziwnc37","op":"ai.put","text":"ひらがな","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"хирагана, ещё\"}"}
+{"t":[1793362371007,0],"d":"google-vziwnc37","op":"ai.put","text":"사랑해요","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
+{"t":[1793362556000,0],"d":"google-vziwnc37","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793362564257,0],"d":"google-vziwnc37","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё","c":1}
+{"t":[1793362626237,0],"d":"google-vziwnc37","op":"ai.put","text":"你好","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"привет (2)"}
+{"t":[1793362631250,0],"d":"google-vziwnc37","op":"ai.put","text":"我爱你。","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Я тебя люблю."}
+{"t":[1793362691257,0],"d":"google-vziwnc37","op":"saved.del","text":"日本語"}
+{"t":[1793362751487,0],"d":"google-vziwnc37","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":2}
+{"t":[1793362752500,0],"d":"google-vziwnc37","op":"saved.del","text":"漢字"}
+{"t":[1793362879250,0],"d":"google-vziwnc37","op":"ai.put","text":"我爱你。","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Я тебя люблю.\"]}"}
+{"t":[1793362887507,0],"d":"google-vziwnc37","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793362951500,0],"d":"google-vziwnc37","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
+{"t":[1793362951500,1],"d":"google-vziwnc37","op":"ai.put","text":"東京","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
+{"t":[1793363073757,0],"d":"google-vziwnc37","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793363078987,0],"d":"google-vziwnc37","op":"history.del","text":"カタカナ"}
+{"t":[1793363078987,1],"d":"google-vziwnc37","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":2}
+{"t":[1793363085507,0],"d":"google-vziwnc37","op":"ai.put","text":"사랑해요","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Я люблю тебя (2)"}
+{"t":[1793363085750,0],"d":"google-vziwnc37","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё"}
+{"t":[1793363150237,0],"d":"google-vziwnc37","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":3}
+{"t":[1793363275250,0],"d":"google-vziwnc37","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":5}
+{"t":[1793363335250,0],"d":"google-vziwnc37","op":"ai.put","text":"𠮷野家","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Я тебя люблю., ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363337237,0],"d":"google-vziwnc37","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"катакана (полуширинная), ещё\"}"}
+{"t":[1793363397500,0],"d":"google-vziwnc37","op":"saved.del","text":"東京"}
+{"t":[1793363462750,0],"d":"google-vziwnc37","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё","c":3}
+{"t":[1793363468000,0],"d":"google-vziwnc37","op":"saved.put","text":"東京","kind":"word","lang":"ru","meaning":"Токио"}
+{"t":[1793363468250,0],"d":"google-vziwnc37","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
+{"t":[1793363713487,0],"d":"google-vziwnc37","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":1}

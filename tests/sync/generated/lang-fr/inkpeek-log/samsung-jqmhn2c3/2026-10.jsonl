@@ -1,0 +1,38 @@
+{"t":[1793361787987,0],"d":"samsung-jqmhn2c3","op":"saved.del","text":"café"}
+{"t":[1793361853987,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":1}
+{"t":[1793361860000,0],"d":"samsung-jqmhn2c3","op":"history.del","text":"cœur"}
+{"t":[1793362041750,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793362290757,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"café","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"today (2)\"}"}
+{"t":[1793362353487,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":2}
+{"t":[1793362414000,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":1}
+{"t":[1793362473987,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"“How are you?”\"\t\\ 1. Bedeutung"}
+{"t":[1793362534007,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":3}
+{"t":[1793362538007,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"cœur","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\"]}"}
+{"t":[1793362542237,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":2}
+{"t":[1793362542250,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":3}
+{"t":[1793362543500,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"garçon","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"today, ещё"}
+{"t":[1793362607507,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"café","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"coffee, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362607737,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
+{"t":[1793362682987,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":4}
+{"t":[1793362687000,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":1}
+{"t":[1793362747007,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":2}
+{"t":[1793362747987,0],"d":"samsung-jqmhn2c3","op":"saved.del","text":"élève"}
+{"t":[1793362812007,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":5}
+{"t":[1793362876987,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":3}
+{"t":[1793363005250,0],"d":"samsung-jqmhn2c3","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
+{"t":[1793363006507,0],"d":"samsung-jqmhn2c3","op":"saved.del","text":"café"}
+{"t":[1793363010487,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"élève","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"pupil, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363073500,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793363138987,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"“How are you?”\",\"ещё\"]}"}
+{"t":[1793363143000,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee, ещё","c":4}
+{"t":[1793363147250,0],"d":"samsung-jqmhn2c3","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer"}
+{"t":[1793363207237,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":6}
+{"t":[1793363213237,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil (2)","base":"élever","c":2}
+{"t":[1793363333500,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy (2)","c":2}
+{"t":[1793363393737,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"élève","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"pupil (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363467500,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":3}
+{"t":[1793363606987,0],"d":"samsung-jqmhn2c3","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”"}
+{"t":[1793363737000,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":7}
+{"t":[1793363738250,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"cœur","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"heart"}
+{"t":[1793363739750,0],"d":"samsung-jqmhn2c3","op":"ai.put","text":"cœur","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363744000,0],"d":"samsung-jqmhn2c3","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer, ещё","c":1}

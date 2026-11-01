@@ -1,0 +1,34 @@
+{"t":[1793361660007,0],"d":"boox-7kszrbhj","op":"ai.put","text":"مرحبا","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"привет\"]}"}
+{"t":[1793361664000,0],"d":"boox-7kszrbhj","op":"saved.del","text":"مرحبا"}
+{"t":[1793361844500,0],"d":"boox-7kszrbhj","op":"ai.put","text":"مرحبا","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"привет"}
+{"t":[1793361850500,0],"d":"boox-7kszrbhj","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё","c":1}
+{"t":[1793361850750,0],"d":"boox-7kszrbhj","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо (2)","c":2}
+{"t":[1793361915757,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello","c":1}
+{"t":[1793361923000,0],"d":"boox-7kszrbhj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга (2)","c":1}
+{"t":[1793361923250,0],"d":"boox-7kszrbhj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
+{"t":[1793361932237,0],"d":"boox-7kszrbhj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793361997257,0],"d":"boox-7kszrbhj","op":"history.del","text":"תודה רבה"}
+{"t":[1793362061250,0],"d":"boox-7kszrbhj","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1793362131750,0],"d":"boox-7kszrbhj","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)"}
+{"t":[1793362200750,0],"d":"boox-7kszrbhj","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё","c":1}
+{"t":[1793362205987,0],"d":"boox-7kszrbhj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":2}
+{"t":[1793362268000,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками), ещё","c":1}
+{"t":[1793362577007,0],"d":"boox-7kszrbhj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё","c":3}
+{"t":[1793362578250,0],"d":"boox-7kszrbhj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793362638237,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
+{"t":[1793362639237,0],"d":"boox-7kszrbhj","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":2}
+{"t":[1793362709737,0],"d":"boox-7kszrbhj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1793362770750,0],"d":"boox-7kszrbhj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":2}
+{"t":[1793362966250,0],"d":"boox-7kszrbhj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
+{"t":[1793363026250,0],"d":"boox-7kszrbhj","op":"saved.del","text":"مرحبا"}
+{"t":[1793363028250,0],"d":"boox-7kszrbhj","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":4}
+{"t":[1793363150737,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":2}
+{"t":[1793363450750,0],"d":"boox-7kszrbhj","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет"}
+{"t":[1793363511000,0],"d":"boox-7kszrbhj","op":"ai.put","text":"שלום","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"мир, привет, ещё"}
+{"t":[1793363594000,0],"d":"boox-7kszrbhj","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1793363656250,0],"d":"boox-7kszrbhj","op":"ai.put","text":"كتاب","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung"}
+{"t":[1793363656500,0],"d":"boox-7kszrbhj","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"книга\"}"}
+{"t":[1793363721750,0],"d":"boox-7kszrbhj","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё"}
+{"t":[1793363787257,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)","c":1}
+{"t":[1793363796487,0],"d":"boox-7kszrbhj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":1}
+{"t":[1793363797507,0],"d":"boox-7kszrbhj","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}

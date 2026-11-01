@@ -1,0 +1,76 @@
+{"t":[1793361660000,0],"d":"win-skpniuht","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"How are you?, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793361660237,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
+{"t":[1793361664250,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child (2)","c":1}
+{"t":[1793361664737,0],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Привет\",\"друг!\"]}"}
+{"t":[1793361669737,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
+{"t":[1793361681757,0],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Hi, friend! (2)"}
+{"t":[1793361742000,0],"d":"win-skpniuht","op":"ai.put","text":"niño","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"child"}
+{"t":[1793361742000,1],"d":"win-skpniuht","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793361748007,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":2}
+{"t":[1793361812250,0],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
+{"t":[1793361872250,0],"d":"win-skpniuht","op":"history.del","text":"corazón"}
+{"t":[1793361872737,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child, ещё","c":2}
+{"t":[1793361933000,0],"d":"win-skpniuht","op":"ai.put","text":"niño","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"child"}
+{"t":[1793361936987,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё","c":3}
+{"t":[1793361997000,0],"d":"win-skpniuht","op":"saved.del","text":"pingüino"}
+{"t":[1793361997000,2],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
+{"t":[1793361998007,0],"d":"win-skpniuht","op":"ai.put","text":"pingüino","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"пингвин (2)\"]}"}
+{"t":[1793361998987,0],"d":"win-skpniuht","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
+{"t":[1793361999000,0],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":2}
+{"t":[1793362000007,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":3}
+{"t":[1793362000007,1],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)","c":2}
+{"t":[1793362000237,0],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\"]}"}
+{"t":[1793362004250,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793362004250,1],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)","c":3}
+{"t":[1793362008237,0],"d":"win-skpniuht","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1793362068250,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё","c":4}
+{"t":[1793362072257,0],"d":"win-skpniuht","op":"history.del","text":"niño"}
+{"t":[1793362076250,0],"d":"win-skpniuht","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1793362076500,0],"d":"win-skpniuht","op":"saved.put","text":"pingüino","kind":"word","lang":"en","meaning":"penguin"}
+{"t":[1793362084500,0],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":4}
+{"t":[1793362088500,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":2}
+{"t":[1793362217507,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":1}
+{"t":[1793362287487,0],"d":"win-skpniuht","op":"history.del","text":"¿Qué tal?"}
+{"t":[1793362291987,0],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin, ещё","c":5}
+{"t":[1793362299987,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793362300987,0],"d":"win-skpniuht","op":"ai.put","text":"corazón","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"heart, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362301250,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":2}
+{"t":[1793362305237,0],"d":"win-skpniuht","op":"saved.put","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)"}
+{"t":[1793362305257,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child (2)","c":2}
+{"t":[1793362365250,0],"d":"win-skpniuht","op":"history.del","text":"corazón"}
+{"t":[1793362371507,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793362377750,1],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child (2)","c":3}
+{"t":[1793362381757,0],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Hi, friend!\"\t\\ 1. Bedeutung"}
+{"t":[1793362441757,0],"d":"win-skpniuht","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you?\"}"}
+{"t":[1793362445750,0],"d":"win-skpniuht","op":"saved.put","text":"niño","kind":"word","lang":"en","meaning":"child (2)"}
+{"t":[1793362446000,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)","c":5}
+{"t":[1793362446237,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":3}
+{"t":[1793362446250,0],"d":"win-skpniuht","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё","c":6}
+{"t":[1793362450250,0],"d":"win-skpniuht","op":"history.del","text":"niño"}
+{"t":[1793362451237,0],"d":"win-skpniuht","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793362511250,0],"d":"win-skpniuht","op":"ai.put","text":"corazón","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart (2)\"}"}
+{"t":[1793362511507,0],"d":"win-skpniuht","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793362511737,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":1}
+{"t":[1793362512987,0],"d":"win-skpniuht","op":"ai.put","text":"niño","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ребёнок\"]}"}
+{"t":[1793362517000,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":4}
+{"t":[1793362521007,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1793362581000,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1793362585987,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":3}
+{"t":[1793362585987,1],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Hi, friend!"}
+{"t":[1793362705987,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)","c":4}
+{"t":[1793362714487,0],"d":"win-skpniuht","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1793362714487,1],"d":"win-skpniuht","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1793362774507,0],"d":"win-skpniuht","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)","c":1}
+{"t":[1793362783000,0],"d":"win-skpniuht","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Hi, friend!\"\t\\ 1. Bedeutung"}
+{"t":[1793362843007,0],"d":"win-skpniuht","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":5}
+{"t":[1793362843250,0],"d":"win-skpniuht","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)"}
+{"t":[1793362848507,0],"d":"win-skpniuht","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1793362848750,0],"d":"win-skpniuht","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1793362909000,0],"d":"win-skpniuht","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1793362913007,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":5}
+{"t":[1793362913250,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":6}
+{"t":[1793362915257,0],"d":"win-skpniuht","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":7}
+{"t":[1793362976250,0],"d":"win-skpniuht","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"penguin, ещё\"}"}
+{"t":[1793363040250,0],"d":"win-skpniuht","op":"saved.put","text":"niño","kind":"word","lang":"en","meaning":"child"}
+{"t":[1793363040257,0],"d":"win-skpniuht","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":3}
+{"t":[1793363041257,0],"d":"win-skpniuht","op":"saved.del","text":"corazón"}

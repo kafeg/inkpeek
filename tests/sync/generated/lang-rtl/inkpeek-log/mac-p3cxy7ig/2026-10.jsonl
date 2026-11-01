@@ -1,0 +1,41 @@
+{"t":[1793361849500,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"مرحبا"}
+{"t":[1793361910757,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793361924257,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1793361933257,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":1}
+{"t":[1793362062500,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":2}
+{"t":[1793362070750,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)"}
+{"t":[1793362071757,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"תודה רבה","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Большое спасибо\"\t\\ 1. Bedeutung"}
+{"t":[1793362200750,0],"d":"mac-p3cxy7ig","op":"history.del","text":"مرحبا"}
+{"t":[1793362208007,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё","c":3}
+{"t":[1793362333000,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":1}
+{"t":[1793362573000,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё"}
+{"t":[1793362578237,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"كتاب","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"book\",\"ещё\"]}"}
+{"t":[1793362638250,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"كتاب"}
+{"t":[1793362639500,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"كتاب"}
+{"t":[1793362641757,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1793362705750,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":2}
+{"t":[1793362831757,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":3}
+{"t":[1793362835750,0],"d":"mac-p3cxy7ig","op":"history.del","text":"שלום"}
+{"t":[1793362895750,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":2}
+{"t":[1793362895757,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"שלום","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"книга\"\t\\ 1. Bedeutung"}
+{"t":[1793362960757,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"كتاب"}
+{"t":[1793362962007,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
+{"t":[1793362962257,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"مرحبا","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"привет"}
+{"t":[1793363027250,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"תודה רבה"}
+{"t":[1793363088250,0],"d":"mac-p3cxy7ig","op":"history.del","text":"תודה רבה"}
+{"t":[1793363150757,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)","c":1}
+{"t":[1793363270750,0],"d":"mac-p3cxy7ig","op":"saved.del","text":"שָׁלוֹם"}
+{"t":[1793363390757,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"كتاب","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung"}
+{"t":[1793363573000,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Мир вам\"\t\\ 1. Bedeutung"}
+{"t":[1793363573257,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
+{"t":[1793363577750,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1793363581757,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":3}
+{"t":[1793363585750,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё"}
+{"t":[1793363589737,0],"d":"mac-p3cxy7ig","op":"ai.put","text":"مرحبا","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"привет (2)\"}"}
+{"t":[1793363589750,0],"d":"mac-p3cxy7ig","op":"history.del","text":"كتاب"}
+{"t":[1793363594250,0],"d":"mac-p3cxy7ig","op":"history.del","text":"كتاب"}
+{"t":[1793363595237,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1793363716737,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
+{"t":[1793363722000,0],"d":"mac-p3cxy7ig","op":"history.del","text":"كتاب"}
+{"t":[1793363727000,0],"d":"mac-p3cxy7ig","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками), ещё"}
+{"t":[1793363727237,0],"d":"mac-p3cxy7ig","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}

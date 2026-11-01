@@ -1,0 +1,78 @@
+{"t":[1793361666000,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793361666250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"why\"]}"}
+{"t":[1793361786750,0],"d":"mac-p3gwqftm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"city\",\"ещё\"]}"}
+{"t":[1793361790757,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
+{"t":[1793361854750,0],"d":"mac-p3gwqftm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why"}
+{"t":[1793361855750,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793361915750,0],"d":"mac-p3gwqftm","op":"saved.del","text":"più"}
+{"t":[1793362108257,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"why, ещё\"}"}
+{"t":[1793362117250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"почему\"\t\\ 1. Bedeutung"}
+{"t":[1793362118250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"città","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"город\"\t\\ 1. Bedeutung"}
+{"t":[1793362122250,0],"d":"mac-p3gwqftm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why, ещё"}
+{"t":[1793362182250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1793362182507,0],"d":"mac-p3gwqftm","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!"}
+{"t":[1793362242500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":3}
+{"t":[1793362302507,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":2}
+{"t":[1793362430750,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
+{"t":[1793362492250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793362492507,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more (2)","c":2}
+{"t":[1793362492507,1],"d":"mac-p3gwqftm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city"}
+{"t":[1793362496500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":3}
+{"t":[1793362617507,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":4}
+{"t":[1793362621487,0],"d":"mac-p3gwqftm","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!"}
+{"t":[1793362627500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":4}
+{"t":[1793362627750,0],"d":"mac-p3gwqftm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city, ещё"}
+{"t":[1793362631750,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793362632007,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more (2)","c":3}
+{"t":[1793362692007,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
+{"t":[1793362752007,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!, ещё","c":3}
+{"t":[1793362812000,0],"d":"mac-p3gwqftm","op":"ai.put","text":"città","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"city (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362812250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":5}
+{"t":[1793362816250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why (2)","c":6}
+{"t":[1793362820250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful!\"}"}
+{"t":[1793362821250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful!\"\t\\ 1. Bedeutung"}
+{"t":[1793362822237,0],"d":"mac-p3gwqftm","op":"saved.del","text":"perché"}
+{"t":[1793362822500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":5}
+{"t":[1793362822507,1],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":7}
+{"t":[1793362822507,2],"d":"mac-p3gwqftm","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more"}
+{"t":[1793362823000,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":8}
+{"t":[1793362823250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"perché","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"why (2)\"]}"}
+{"t":[1793363003250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city, ещё","c":6}
+{"t":[1793363004500,0],"d":"mac-p3gwqftm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city, ещё"}
+{"t":[1793363004737,0],"d":"mac-p3gwqftm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city (2)"}
+{"t":[1793363124737,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":4}
+{"t":[1793363184737,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":4}
+{"t":[1793363184750,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"more (2)\"}"}
+{"t":[1793363185000,0],"d":"mac-p3gwqftm","op":"saved.del","text":"più"}
+{"t":[1793363186000,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":5}
+{"t":[1793363186000,1],"d":"mac-p3gwqftm","op":"history.del","text":"Com'è bello!"}
+{"t":[1793363186250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more, ещё","c":5}
+{"t":[1793363186500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":9}
+{"t":[1793363187507,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":10}
+{"t":[1793363247507,0],"d":"mac-p3gwqftm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"How beautiful!, ещё"}
+{"t":[1793363251500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793363311500,0],"d":"mac-p3gwqftm","op":"history.del","text":"perché"}
+{"t":[1793363372757,0],"d":"mac-p3gwqftm","op":"ai.put","text":"città","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"city\"]}"}
+{"t":[1793363372987,0],"d":"mac-p3gwqftm","op":"ai.put","text":"città","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"city\"\t\\ 1. Bedeutung"}
+{"t":[1793363378250,0],"d":"mac-p3gwqftm","op":"ai.put","text":"perché","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"why, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363380250,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793363380500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":6}
+{"t":[1793363380750,0],"d":"mac-p3gwqftm","op":"saved.del","text":"città"}
+{"t":[1793363384757,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":7}
+{"t":[1793363446987,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
+{"t":[1793363450987,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1793363511000,0],"d":"mac-p3gwqftm","op":"history.del","text":"città"}
+{"t":[1793363571000,0],"d":"mac-p3gwqftm","op":"ai.put","text":"più","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"more\"]}"}
+{"t":[1793363631000,0],"d":"mac-p3gwqftm","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful! (2)"}
+{"t":[1793363639000,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793363707487,0],"d":"mac-p3gwqftm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":8}
+{"t":[1793363767500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":2}
+{"t":[1793363768500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793363768500,1],"d":"mac-p3gwqftm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why (2)"}
+{"t":[1793363772500,0],"d":"mac-p3gwqftm","op":"saved.del","text":"città"}
+{"t":[1793363836500,0],"d":"mac-p3gwqftm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":3}
+{"t":[1793363896507,0],"d":"mac-p3gwqftm","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more, ещё"}
+{"t":[1793363897487,0],"d":"mac-p3gwqftm","op":"history.del","text":"Com'è bello!"}
+{"t":[1793363897750,0],"d":"mac-p3gwqftm","op":"ai.put","text":"città","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"city (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363957737,0],"d":"mac-p3gwqftm","op":"history.del","text":"perché"}
+{"t":[1793363962757,0],"d":"mac-p3gwqftm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":2}

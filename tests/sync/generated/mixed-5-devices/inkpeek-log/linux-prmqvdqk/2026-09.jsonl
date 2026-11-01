@@ -1,0 +1,67 @@
+{"t":[1788225792987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":1}
+{"t":[1788261794000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?” (2)"}
+{"t":[1788304995007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)","c":1}
+{"t":[1788308715000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"STRASSE","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"street, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1788341115007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки), ещё","c":1}
+{"t":[1788377300007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1788416960987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1788514162007,0],"d":"linux-prmqvdqk","op":"history.del","text":"東京"}
+{"t":[1788546683007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm (2)","c":1}
+{"t":[1788654984000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":2}
+{"t":[1788658643987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"nul\u0000inside","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"NUL внутри (2)\"\t\\ 1. Bedeutung"}
+{"t":[1788691105000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
+{"t":[1788723506987,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Fuß"}
+{"t":[1788763109987,0],"d":"linux-prmqvdqk","op":"ai.put","text":" Haus","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"\u0434\u043e\u043c (\u043f\u0440\u043e\u0431\u0435\u043b \u0441\u043b\u0435\u0432\u0430)\"]}"}
+{"t":[1788964952987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)","c":2}
+{"t":[1789011816987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Wie geht's?","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"How are you?\"]}"}
+{"t":[1789011817000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":1}
+{"t":[1789015417987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"aufmachen","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"flag of Germany\"\t\\ 1. Bedeutung"}
+{"t":[1789047818987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Haus ","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"дом (пробел справа) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789112619000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":1}
+{"t":[1789184620987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"漢字","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"kanji\",\"ещё\"]}"}
+{"t":[1789191942000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Ещё раз"}
+{"t":[1789192003000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1789192004000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"　日本　","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Япония (идеографический пробел)\"}"}
+{"t":[1789192064007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Öl","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"cheese (2)\"}"}
+{"t":[1789325325987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no, ещё","c":1}
+{"t":[1789325387000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":2}
+{"t":[1789328987987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"heart (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789332587987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
+{"t":[1789364990000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки), ещё"}
+{"t":[1789401230007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
+{"t":[1789480613987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"東京","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Tokyo\"\t\\ 1. Bedeutung"}
+{"t":[1789513014007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1789549074007,0],"d":"linux-prmqvdqk","op":"history.del","text":"Öl"}
+{"t":[1789585196000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
+{"t":[1789624796007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal (2)","c":1}
+{"t":[1789628457000,0],"d":"linux-prmqvdqk","op":"history.del","text":"aujourd'hui"}
+{"t":[1789660857007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1789693256987,0],"d":"linux-prmqvdqk","op":"saved.del","text":"größer"}
+{"t":[1789725658987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио, ещё","c":2}
+{"t":[1789761720000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"ΟΔΟΣ"}
+{"t":[1789761780000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Hauß","kind":"word","lang":"ru","meaning":"ß","page":12}
+{"t":[1789761781007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)","c":1}
+{"t":[1789761781007,1],"d":"linux-prmqvdqk","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри","c":2}
+{"t":[1789794182000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram (2)","c":1}
+{"t":[1789794183007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":1}
+{"t":[1789992305007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1790024706000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Ha­us"}
+{"t":[1790024707000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)","c":1}
+{"t":[1790064369987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1790132890987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1790244672987,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Ещё раз"}
+{"t":[1790251994000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":1}
+{"t":[1790259254987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)","c":3}
+{"t":[1790259316000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"תודה רבה"}
+{"t":[1790327716987,0],"d":"linux-prmqvdqk","op":"saved.del","text":" Haus"}
+{"t":[1790367438007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1790403499000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you, ещё"}
+{"t":[1790407160000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1790471960000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"garçon"}
+{"t":[1790547679987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1790724143000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"não","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"no\"}"}
+{"t":[1790760263987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"\tHaus\n","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"дом (табуляция, перевод строки)\"}"}
+{"t":[1790760265000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":2}
+{"t":[1790760265007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana","c":1}
+{"t":[1790763864987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки) (2)","c":2}
+{"t":[1790796385000,0],"d":"linux-prmqvdqk","op":"history.del","text":"Ich mache die Tür zu!"}

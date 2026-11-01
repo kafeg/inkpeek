@@ -1,0 +1,54 @@
+{"t":[1793361600237,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
+{"t":[1793361600500,0],"d":"win-mr5amlnz","op":"history.del","text":"łódź"}
+{"t":[1793361600737,0],"d":"win-mr5amlnz","op":"ai.put","text":"łódź","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boat\"]}"}
+{"t":[1793361606757,0],"d":"win-mr5amlnz","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793361670250,0],"d":"win-mr5amlnz","op":"ai.put","text":"łódź","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"boat\"}"}
+{"t":[1793361730250,0],"d":"win-mr5amlnz","op":"ai.put","text":"źdźbło","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"blade of grass\"\t\\ 1. Bedeutung"}
+{"t":[1793361790507,0],"d":"win-mr5amlnz","op":"history.del","text":"łódź"}
+{"t":[1793361791487,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793361851750,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":1}
+{"t":[1793361855750,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":2}
+{"t":[1793361856000,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё","c":2}
+{"t":[1793361976000,0],"d":"win-mr5amlnz","op":"ai.put","text":"źdźbło","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"blade of grass\",\"ещё\"]}"}
+{"t":[1793362039750,0],"d":"win-mr5amlnz","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram"}
+{"t":[1793362045750,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat, ещё","c":3}
+{"t":[1793362166250,0],"d":"win-mr5amlnz","op":"ai.put","text":"źdźbło","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"blade of grass (2)"}
+{"t":[1793362166500,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":1}
+{"t":[1793362166750,0],"d":"win-mr5amlnz","op":"saved.del","text":"Gdańsk"}
+{"t":[1793362166750,1],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":4}
+{"t":[1793362233000,0],"d":"win-mr5amlnz","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793362353007,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram (2)","c":1}
+{"t":[1793362357000,0],"d":"win-mr5amlnz","op":"saved.put","text":"łódź","kind":"word","lang":"en","meaning":"boat"}
+{"t":[1793362417000,0],"d":"win-mr5amlnz","op":"ai.put","text":"łódź","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"boat\"\t\\ 1. Bedeutung"}
+{"t":[1793362537000,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Gdansk\"\t\\ 1. Bedeutung"}
+{"t":[1793362542000,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Gdansk, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362606500,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":5}
+{"t":[1793362606500,1],"d":"win-mr5amlnz","op":"history.del","text":"Gdańsk"}
+{"t":[1793362606987,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":2}
+{"t":[1793362608000,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":6}
+{"t":[1793362672007,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793362673000,0],"d":"win-mr5amlnz","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram (2)"}
+{"t":[1793362736987,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":3}
+{"t":[1793362738007,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass (2)","c":4}
+{"t":[1793362738987,0],"d":"win-mr5amlnz","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793362742987,0],"d":"win-mr5amlnz","op":"ai.put","text":"łódź","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"boat\"\t\\ 1. Bedeutung"}
+{"t":[1793362868250,0],"d":"win-mr5amlnz","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"a pangram"}
+{"t":[1793362868507,0],"d":"win-mr5amlnz","op":"ai.put","text":"źdźbło","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"blade of grass (2)"}
+{"t":[1793362872500,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Gdansk\"]}"}
+{"t":[1793362872750,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Gdansk\"\t\\ 1. Bedeutung"}
+{"t":[1793362873750,0],"d":"win-mr5amlnz","op":"saved.put","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass"}
+{"t":[1793362874750,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat, ещё","c":7}
+{"t":[1793362879007,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":5}
+{"t":[1793362880000,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Gdansk\"\t\\ 1. Bedeutung"}
+{"t":[1793362940000,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":2}
+{"t":[1793363012250,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Gdansk (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363072237,0],"d":"win-mr5amlnz","op":"ai.put","text":"Gdańsk","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Gdansk\"\t\\ 1. Bedeutung"}
+{"t":[1793363136237,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram (2)","c":3}
+{"t":[1793363206000,1],"d":"win-mr5amlnz","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram"}
+{"t":[1793363271000,0],"d":"win-mr5amlnz","op":"ai.put","text":"łódź","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"boat, ещё\"}"}
+{"t":[1793363275007,0],"d":"win-mr5amlnz","op":"saved.put","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass"}
+{"t":[1793363279000,0],"d":"win-mr5amlnz","op":"history.del","text":"źdźbło"}
+{"t":[1793363280000,0],"d":"win-mr5amlnz","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":1}
+{"t":[1793363345500,0],"d":"win-mr5amlnz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":8}
+{"t":[1793363405757,0],"d":"win-mr5amlnz","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"a pangram\"\t\\ 1. Bedeutung"}
+{"t":[1793363406000,0],"d":"win-mr5amlnz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram, ещё","c":4}

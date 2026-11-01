@@ -1,0 +1,43 @@
+{"t":[1793361661000,0],"d":"google-uilhw6rs","op":"ai.put","text":"coração","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"heart\"\t\\ 1. Bedeutung"}
+{"t":[1793361722000,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793361722250,0],"d":"google-uilhw6rs","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793361783237,0],"d":"google-uilhw6rs","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple"}
+{"t":[1793361911487,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1793361977737,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":3}
+{"t":[1793362105737,0],"d":"google-uilhw6rs","op":"ai.put","text":"Obrigado!","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"нет (2)"}
+{"t":[1793362115007,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart (2)","c":4}
+{"t":[1793362175000,0],"d":"google-uilhw6rs","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":1}
+{"t":[1793362299000,0],"d":"google-uilhw6rs","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple (2)"}
+{"t":[1793362420000,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":5}
+{"t":[1793362545000,0],"d":"google-uilhw6rs","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple (2)","c":1}
+{"t":[1793362552987,0],"d":"google-uilhw6rs","op":"ai.put","text":"não","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"no\"}"}
+{"t":[1793362553250,0],"d":"google-uilhw6rs","op":"ai.put","text":"maçã","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"apple, ещё"}
+{"t":[1793362617250,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart (2)","c":6}
+{"t":[1793362618237,0],"d":"google-uilhw6rs","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple (2)","c":2}
+{"t":[1793362678257,0],"d":"google-uilhw6rs","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!, ещё","c":2}
+{"t":[1793362682250,0],"d":"google-uilhw6rs","op":"saved.del","text":"Obrigado!"}
+{"t":[1793362686237,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":7}
+{"t":[1793362746250,0],"d":"google-uilhw6rs","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple"}
+{"t":[1793362750500,0],"d":"google-uilhw6rs","op":"ai.put","text":"coração","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"heart"}
+{"t":[1793362751507,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":8}
+{"t":[1793362812757,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":9}
+{"t":[1793362936757,1],"d":"google-uilhw6rs","op":"history.del","text":"não"}
+{"t":[1793363003257,0],"d":"google-uilhw6rs","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no, ещё","c":1}
+{"t":[1793363129500,0],"d":"google-uilhw6rs","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!, ещё","c":3}
+{"t":[1793363133750,0],"d":"google-uilhw6rs","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":2}
+{"t":[1793363193750,0],"d":"google-uilhw6rs","op":"ai.put","text":"Obrigado!","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Thank you! (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363255750,0],"d":"google-uilhw6rs","op":"history.del","text":"maçã"}
+{"t":[1793363255750,1],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793363315750,0],"d":"google-uilhw6rs","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":4}
+{"t":[1793363316737,0],"d":"google-uilhw6rs","op":"saved.put","text":"coração","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1793363325000,0],"d":"google-uilhw6rs","op":"ai.put","text":"Obrigado!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Thank you!\"}"}
+{"t":[1793363392487,0],"d":"google-uilhw6rs","op":"ai.put","text":"Obrigado!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Thank you!\"]}"}
+{"t":[1793363393007,0],"d":"google-uilhw6rs","op":"history.del","text":"não"}
+{"t":[1793363452987,0],"d":"google-uilhw6rs","op":"ai.put","text":"não","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"no\"\t\\ 1. Bedeutung"}
+{"t":[1793363575757,0],"d":"google-uilhw6rs","op":"ai.put","text":"não","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"no\"\t\\ 1. Bedeutung"}
+{"t":[1793363579750,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart (2)","c":2}
+{"t":[1793363819987,0],"d":"google-uilhw6rs","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple (2)"}
+{"t":[1793363944250,0],"d":"google-uilhw6rs","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple","c":1}
+{"t":[1793364004500,0],"d":"google-uilhw6rs","op":"ai.put","text":"não","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"no, ещё\"}"}
+{"t":[1793364004737,0],"d":"google-uilhw6rs","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":3}
+{"t":[1793364073000,0],"d":"google-uilhw6rs","op":"history.del","text":"coração"}

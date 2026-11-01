@@ -1,0 +1,274 @@
+{"t":[1793480400507,1],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1793480400507,2],"d":"google-fu4cs5wo","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793480401001,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480401501,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480404006,0],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480404006,1],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480404994,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480405514,1],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480406013,0],"d":"google-fu4cs5wo","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":1}
+{"t":[1793480406501,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480407514,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480408016,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480409017,0],"d":"google-fu4cs5wo","op":"ai.put","text":"İstanbul","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hello\",\"ещё\"]}"}
+{"t":[1793480412021,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480414024,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480416030,1],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480416038,0],"d":"google-fu4cs5wo","op":"history.del","text":"🇩🇪"}
+{"t":[1793480416538,1],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480416538,2],"d":"google-fu4cs5wo","op":"ai.put","text":"İstanbul","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"hello, ещё\"}"}
+{"t":[1793480417033,1],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480417033,2],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480418523,0],"d":"google-fu4cs5wo","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"half-width katakana\"\t\\ 1. Bedeutung"}
+{"t":[1793480419551,0],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no (2)"}
+{"t":[1793480419551,1],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480420532,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480421046,0],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480421054,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480422549,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480422549,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480423056,0],"d":"google-fu4cs5wo","op":"saved.del","text":"İstanbul"}
+{"t":[1793480423536,0],"d":"google-fu4cs5wo","op":"history.del","text":"漢字"}
+{"t":[1793480424049,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480424557,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480425057,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480428065,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480429049,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480429074,0],"d":"google-fu4cs5wo","op":"ai.put","text":"não","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"no\"}"}
+{"t":[1793480430574,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480431576,0],"d":"google-fu4cs5wo","op":"history.del","text":"👍🏽"}
+{"t":[1793480432076,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk, ещё"}
+{"t":[1793480432076,1],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793480432569,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)"}
+{"t":[1793480432571,0],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480435078,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480436079,0],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480436079,1],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480438574,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480440578,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480441066,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480441580,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480446574,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480447075,0],"d":"google-fu4cs5wo","op":"ai.put","text":"مرحبا","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hello"}
+{"t":[1793480448596,0],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480450076,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480450579,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480451080,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480452102,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480452102,3],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1793480452102,4],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480452584,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480453589,0],"d":"google-fu4cs5wo","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
+{"t":[1793480454089,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480454602,1],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480456611,0],"d":"google-fu4cs5wo","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480458605,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you (2)"}
+{"t":[1793480458612,0],"d":"google-fu4cs5wo","op":"history.del","text":"não"}
+{"t":[1793480459112,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480459112,1],"d":"google-fu4cs5wo","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793480459606,0],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":2}
+{"t":[1793480460106,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480460614,2],"d":"google-fu4cs5wo","op":"history.del","text":"não"}
+{"t":[1793480461096,0],"d":"google-fu4cs5wo","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":2}
+{"t":[1793480461609,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480461609,1],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480462111,0],"d":"google-fu4cs5wo","op":"history.del","text":"não"}
+{"t":[1793480463616,0],"d":"google-fu4cs5wo","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480464116,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480464616,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)"}
+{"t":[1793480465116,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello, ещё"}
+{"t":[1793480465120,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480466627,0],"d":"google-fu4cs5wo","op":"ai.put","text":"مرحبا","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hello\"]}"}
+{"t":[1793480466627,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480467130,2],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480467613,0],"d":"google-fu4cs5wo","op":"history.del","text":"🇩🇪"}
+{"t":[1793480467636,2],"d":"google-fu4cs5wo","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480467638,3],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480468618,0],"d":"google-fu4cs5wo","op":"ai.put","text":"مرحبا","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hello (2)\"]}"}
+{"t":[1793480468631,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480470618,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480471641,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480472136,0],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480473637,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480473639,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480474149,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480474149,2],"d":"google-fu4cs5wo","op":"history.del","text":"مرحبا"}
+{"t":[1793480474149,4],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480474648,0],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no (2)"}
+{"t":[1793480474649,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480474652,4],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480476662,2],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":3}
+{"t":[1793480478661,0],"d":"google-fu4cs5wo","op":"history.del","text":"مرحبا"}
+{"t":[1793480479663,0],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":4}
+{"t":[1793480480172,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480480172,1],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё"}
+{"t":[1793480480674,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480481169,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480482180,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480483674,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480486675,0],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480486675,1],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480487184,2],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480488186,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480488679,0],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480489187,0],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480489680,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480491681,0],"d":"google-fu4cs5wo","op":"history.del","text":"Gdańsk"}
+{"t":[1793480492183,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480492185,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480494686,0],"d":"google-fu4cs5wo","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
+{"t":[1793480498192,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480498702,1],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
+{"t":[1793480499195,0],"d":"google-fu4cs5wo","op":"history.del","text":"İstanbul"}
+{"t":[1793480500184,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
+{"t":[1793480502203,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480503204,0],"d":"google-fu4cs5wo","op":"history.del","text":"👍🏽"}
+{"t":[1793480503706,1],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480503708,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480503708,1],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480510725,0],"d":"google-fu4cs5wo","op":"history.del","text":"👍🏽"}
+{"t":[1793480512718,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480513726,1],"d":"google-fu4cs5wo","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793480513726,2],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480514227,1],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480514227,2],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё"}
+{"t":[1793480515721,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480516725,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480516725,1],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480516725,2],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480517737,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)"}
+{"t":[1793480518720,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480519221,0],"d":"google-fu4cs5wo","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"flag of Germany (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480519238,0],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1793480520245,1],"d":"google-fu4cs5wo","op":"history.del","text":"漢字"}
+{"t":[1793480520727,0],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480521247,1],"d":"google-fu4cs5wo","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
+{"t":[1793480521247,2],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480521247,3],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480521247,4],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480523747,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480523758,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480524252,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793480524252,1],"d":"google-fu4cs5wo","op":"history.del","text":"Gdańsk"}
+{"t":[1793480524764,0],"d":"google-fu4cs5wo","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480524764,1],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480524764,2],"d":"google-fu4cs5wo","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793480525265,1],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480526768,0],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480527761,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё"}
+{"t":[1793480527762,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480530751,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480530765,0],"d":"google-fu4cs5wo","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793480531767,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480531767,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480532255,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480532779,0],"d":"google-fu4cs5wo","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":1}
+{"t":[1793480532779,1],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480533280,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480533280,1],"d":"google-fu4cs5wo","op":"history.del","text":"Häuser"}
+{"t":[1793480534281,0],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480535285,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480535778,0],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480535778,3],"d":"google-fu4cs5wo","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480535779,0],"d":"google-fu4cs5wo","op":"ai.put","text":"👍🏽","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"thumbs up (skin tone)\"]}"}
+{"t":[1793480536787,1],"d":"google-fu4cs5wo","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"half-width katakana\",\"ещё\"]}"}
+{"t":[1793480537280,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480538283,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480540290,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
+{"t":[1793480540783,0],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480541785,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480542792,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480542792,1],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480543288,0],"d":"google-fu4cs5wo","op":"saved.del","text":"İstanbul"}
+{"t":[1793480543290,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
+{"t":[1793480544291,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480545799,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480546279,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)"}
+{"t":[1793480546293,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480546301,0],"d":"google-fu4cs5wo","op":"ai.put","text":"السلام عليكم","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Peace be upon you\"]}"}
+{"t":[1793480546796,0],"d":"google-fu4cs5wo","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
+{"t":[1793480546804,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480546805,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480546805,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480547800,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480548308,0],"d":"google-fu4cs5wo","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)","c":1}
+{"t":[1793480548308,1],"d":"google-fu4cs5wo","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480549804,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480549813,0],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480551293,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480551807,0],"d":"google-fu4cs5wo","op":"history.del","text":"İstanbul"}
+{"t":[1793480551807,1],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk, ещё"}
+{"t":[1793480551810,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480552818,0],"d":"google-fu4cs5wo","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480552818,1],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480553313,0],"d":"google-fu4cs5wo","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480554315,0],"d":"google-fu4cs5wo","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"flag of Germany, ещё\"}"}
+{"t":[1793480554816,0],"d":"google-fu4cs5wo","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480554816,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480556818,0],"d":"google-fu4cs5wo","op":"history.del","text":"Gdańsk"}
+{"t":[1793480557318,0],"d":"google-fu4cs5wo","op":"ai.put","text":"🇩🇪","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"flag of Germany, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480558318,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480559809,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793480561823,0],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480561825,0],"d":"google-fu4cs5wo","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)","base":"Haus","c":1}
+{"t":[1793480562826,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480562826,1],"d":"google-fu4cs5wo","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480565337,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480565337,3],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё"}
+{"t":[1793480566340,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480566841,0],"d":"google-fu4cs5wo","op":"history.del","text":"🇩🇪"}
+{"t":[1793480569338,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480570338,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480570827,0],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793480570841,0],"d":"google-fu4cs5wo","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793480571348,0],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480572352,0],"d":"google-fu4cs5wo","op":"history.del","text":"Häuser"}
+{"t":[1793480574358,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480576353,0],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480576860,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480576860,1],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480577353,0],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
+{"t":[1793480577856,0],"d":"google-fu4cs5wo","op":"history.del","text":"👍🏽"}
+{"t":[1793480577863,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480577863,1],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480577863,2],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480578358,0],"d":"google-fu4cs5wo","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480578358,1],"d":"google-fu4cs5wo","op":"history.del","text":"İstanbul"}
+{"t":[1793480578366,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480578848,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480578861,1],"d":"google-fu4cs5wo","op":"ai.put","text":"السلام عليكم","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Peace be upon you\",\"ещё\"]}"}
+{"t":[1793480580864,0],"d":"google-fu4cs5wo","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480581864,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480581872,0],"d":"google-fu4cs5wo","op":"saved.del","text":"não"}
+{"t":[1793480582366,0],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480582866,0],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793480582867,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480583368,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480584368,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480585873,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Häuser"}
+{"t":[1793480586374,0],"d":"google-fu4cs5wo","op":"saved.del","text":"İstanbul"}
+{"t":[1793480587875,0],"d":"google-fu4cs5wo","op":"history.del","text":"👍🏽"}
+{"t":[1793480588387,0],"d":"google-fu4cs5wo","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480588387,1],"d":"google-fu4cs5wo","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793480588891,2],"d":"google-fu4cs5wo","op":"history.del","text":"não"}
+{"t":[1793480589896,1],"d":"google-fu4cs5wo","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480589898,2],"d":"google-fu4cs5wo","op":"saved.del","text":"漢字"}
+{"t":[1793480589898,3],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480590402,0],"d":"google-fu4cs5wo","op":"saved.del","text":"größer"}
+{"t":[1793480590402,1],"d":"google-fu4cs5wo","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480590402,2],"d":"google-fu4cs5wo","op":"history.del","text":"漢字"}
+{"t":[1793480594884,0],"d":"google-fu4cs5wo","op":"history.del","text":"漢字"}
+{"t":[1793480595387,0],"d":"google-fu4cs5wo","op":"saved.del","text":"👍🏽"}
+{"t":[1793480595901,0],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480595901,1],"d":"google-fu4cs5wo","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480595901,2],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480596910,2],"d":"google-fu4cs5wo","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480597403,0],"d":"google-fu4cs5wo","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
+{"t":[1793480597404,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480598908,0],"d":"google-fu4cs5wo","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793480600418,0],"d":"google-fu4cs5wo","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480600898,0],"d":"google-fu4cs5wo","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480601412,0],"d":"google-fu4cs5wo","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480602901,0],"d":"google-fu4cs5wo","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480603414,0],"d":"google-fu4cs5wo","op":"saved.del","text":"مرحبا"}
+{"t":[1793480603923,0],"d":"google-fu4cs5wo","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}

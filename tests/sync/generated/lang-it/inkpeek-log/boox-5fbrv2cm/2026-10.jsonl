@@ -1,0 +1,72 @@
+{"t":[1793361660007,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city (2)"}
+{"t":[1793361661000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":1}
+{"t":[1793361665007,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
+{"t":[1793361665007,1],"d":"boox-5fbrv2cm","op":"history.del","text":"Com'è bello!"}
+{"t":[1793361665007,2],"d":"boox-5fbrv2cm","op":"ai.put","text":"città","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"city\"]}"}
+{"t":[1793361666507,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793361726500,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more"}
+{"t":[1793361726750,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why"}
+{"t":[1793361786750,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"città","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"city\"\t\\ 1. Bedeutung"}
+{"t":[1793361790750,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful! (2)\"}"}
+{"t":[1793361790750,1],"d":"boox-5fbrv2cm","op":"history.del","text":"più"}
+{"t":[1793361794750,0],"d":"boox-5fbrv2cm","op":"saved.del","text":"città"}
+{"t":[1793361915757,0],"d":"boox-5fbrv2cm","op":"saved.del","text":"città"}
+{"t":[1793361915757,1],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more, ещё","c":1}
+{"t":[1793361975750,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793361975987,0],"d":"boox-5fbrv2cm","op":"history.del","text":"Com'è bello!"}
+{"t":[1793362036000,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"How beautiful!, ещё\"}"}
+{"t":[1793362039987,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1793362044007,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city"}
+{"t":[1793362104000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793362104250,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more (2)","c":2}
+{"t":[1793362112257,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793362116250,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why"}
+{"t":[1793362182257,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"perché","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"why (2)\"}"}
+{"t":[1793362182507,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city, ещё"}
+{"t":[1793362242500,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"più","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"more (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362306487,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful! (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362310500,0],"d":"boox-5fbrv2cm","op":"history.del","text":"Com'è bello!"}
+{"t":[1793362370500,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
+{"t":[1793362430500,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":3}
+{"t":[1793362430987,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":3}
+{"t":[1793362491000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":2}
+{"t":[1793362491250,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":4}
+{"t":[1793362556487,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793362557487,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why (2)"}
+{"t":[1793362617500,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"How beautiful!\"\t\\ 1. Bedeutung"}
+{"t":[1793362617500,1],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":4}
+{"t":[1793362625487,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city"}
+{"t":[1793362625500,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":5}
+{"t":[1793362626500,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793362822257,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"perché","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"why"}
+{"t":[1793362822257,1],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":5}
+{"t":[1793362822507,0],"d":"boox-5fbrv2cm","op":"saved.del","text":"più"}
+{"t":[1793362822750,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"perché","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"why, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362822987,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"perché","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"why"}
+{"t":[1793362823257,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":3}
+{"t":[1793362883237,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":4}
+{"t":[1793362943237,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":3}
+{"t":[1793363004257,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"città","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"city\"}"}
+{"t":[1793363064757,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":6}
+{"t":[1793363371500,0],"d":"boox-5fbrv2cm","op":"history.del","text":"città"}
+{"t":[1793363372487,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Как красиво!\"\t\\ 1. Bedeutung"}
+{"t":[1793363373987,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more"}
+{"t":[1793363374237,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":7}
+{"t":[1793363374250,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793363378250,1],"d":"boox-5fbrv2cm","op":"ai.put","text":"città","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"city, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363379257,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"più","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"more"}
+{"t":[1793363385000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":1}
+{"t":[1793363385987,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
+{"t":[1793363446000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":8}
+{"t":[1793363511000,0],"d":"boox-5fbrv2cm","op":"history.del","text":"più"}
+{"t":[1793363635000,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793363635000,1],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city (2)","c":2}
+{"t":[1793363643000,0],"d":"boox-5fbrv2cm","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more"}
+{"t":[1793363643250,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"più","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"more\"\t\\ 1. Bedeutung"}
+{"t":[1793363647237,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why","c":2}
+{"t":[1793363647487,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
+{"t":[1793363776500,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+{"t":[1793363776500,1],"d":"boox-5fbrv2cm","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":3}
+{"t":[1793363897757,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793363958757,0],"d":"boox-5fbrv2cm","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":2}
+{"t":[1793364022757,0],"d":"boox-5fbrv2cm","op":"ai.put","text":"Com'è bello!","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful! (2)\"\t\\ 1. Bedeutung"}

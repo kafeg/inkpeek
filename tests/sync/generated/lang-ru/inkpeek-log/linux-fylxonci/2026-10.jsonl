@@ -1,0 +1,50 @@
+{"t":[1793361660007,0],"d":"linux-fylxonci","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
+{"t":[1793361664987,0],"d":"linux-fylxonci","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1793361665007,0],"d":"linux-fylxonci","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house, ещё","c":1}
+{"t":[1793361674257,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1793361674257,1],"d":"linux-fylxonci","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house (2)"}
+{"t":[1793361742757,0],"d":"linux-fylxonci","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер"}
+{"t":[1793361803737,0],"d":"linux-fylxonci","op":"ai.put","text":"дом","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"house"}
+{"t":[1793361809000,0],"d":"linux-fylxonci","op":"saved.del","text":"Добрий вечір"}
+{"t":[1793361809500,3],"d":"linux-fylxonci","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)"}
+{"t":[1793361810500,0],"d":"linux-fylxonci","op":"ai.put","text":"съесть","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"aufessen\"}"}
+{"t":[1793361812507,0],"d":"linux-fylxonci","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal (2)","c":1}
+{"t":[1793361817500,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":2}
+{"t":[1793361882500,0],"d":"linux-fylxonci","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":1}
+{"t":[1793361889500,0],"d":"linux-fylxonci","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":2}
+{"t":[1793362013750,0],"d":"linux-fylxonci","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":2}
+{"t":[1793362073750,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":3}
+{"t":[1793362073757,1],"d":"linux-fylxonci","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":1}
+{"t":[1793362133757,0],"d":"linux-fylxonci","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":1}
+{"t":[1793362142750,0],"d":"linux-fylxonci","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Добрый вечер\"\t\\ 1. Bedeutung"}
+{"t":[1793362203000,0],"d":"linux-fylxonci","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more, ещё","c":2}
+{"t":[1793362203000,1],"d":"linux-fylxonci","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Добрый вечер"}
+{"t":[1793362205007,0],"d":"linux-fylxonci","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":3}
+{"t":[1793362205007,1],"d":"linux-fylxonci","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Добрый вечер\"}"}
+{"t":[1793362205250,0],"d":"linux-fylxonci","op":"ai.put","text":"Ещё раз","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Once more\"\t\\ 1. Bedeutung"}
+{"t":[1793362206237,0],"d":"linux-fylxonci","op":"saved.del","text":"ґанок"}
+{"t":[1793362206257,0],"d":"linux-fylxonci","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":3}
+{"t":[1793362334737,0],"d":"linux-fylxonci","op":"ai.put","text":"ґанок","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
+{"t":[1793362335737,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)","c":1}
+{"t":[1793362336507,0],"d":"linux-fylxonci","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1793362401750,0],"d":"linux-fylxonci","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж (2)","c":2}
+{"t":[1793362405750,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":4}
+{"t":[1793362406750,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":2}
+{"t":[1793362414757,0],"d":"linux-fylxonci","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793362594750,0],"d":"linux-fylxonci","op":"ai.put","text":"ёжик","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hedgehog\"\t\\ 1. Bedeutung"}
+{"t":[1793362716737,0],"d":"linux-fylxonci","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё"}
+{"t":[1793362776987,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":3}
+{"t":[1793362844007,0],"d":"linux-fylxonci","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":3}
+{"t":[1793362845257,0],"d":"linux-fylxonci","op":"ai.put","text":"ёжик","lang":"German","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Igel\"}"}
+{"t":[1793362905250,0],"d":"linux-fylxonci","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":4}
+{"t":[1793362905500,0],"d":"linux-fylxonci","op":"ai.put","text":"съесть","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to eat up (2)\"]}"}
+{"t":[1793362973500,0],"d":"linux-fylxonci","op":"ai.put","text":"ёжик","lang":"German","section":"offline-de","ver":0,"model":"bergamot","answer":"Igel"}
+{"t":[1793362973500,1],"d":"linux-fylxonci","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793363042500,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!","c":4}
+{"t":[1793363106487,0],"d":"linux-fylxonci","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер"}
+{"t":[1793363226987,0],"d":"linux-fylxonci","op":"saved.del","text":"Добрий вечір"}
+{"t":[1793363287007,0],"d":"linux-fylxonci","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house, ещё","c":4}
+{"t":[1793363289007,0],"d":"linux-fylxonci","op":"saved.del","text":"ёжик"}
+{"t":[1793363350000,0],"d":"linux-fylxonci","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793363350237,0],"d":"linux-fylxonci","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":5}
+{"t":[1793363351257,0],"d":"linux-fylxonci","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":4}

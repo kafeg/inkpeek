@@ -1,0 +1,38 @@
+{"t":[1793361660007,0],"d":"boox-belmpaf2","op":"ai.put","text":"garçon","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"boy"}
+{"t":[1793361728000,0],"d":"boox-belmpaf2","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boy, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793361850000,0],"d":"boox-belmpaf2","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793361850000,1],"d":"boox-belmpaf2","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":2}
+{"t":[1793361855000,0],"d":"boox-belmpaf2","op":"history.del","text":"élève"}
+{"t":[1793362291007,0],"d":"boox-belmpaf2","op":"history.del","text":"élève"}
+{"t":[1793362292000,0],"d":"boox-belmpaf2","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793362293257,0],"d":"boox-belmpaf2","op":"ai.put","text":"garçon","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"boy\"\t\\ 1. Bedeutung"}
+{"t":[1793362353750,0],"d":"boox-belmpaf2","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":1}
+{"t":[1793362541987,0],"d":"boox-belmpaf2","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”"}
+{"t":[1793362543500,0],"d":"boox-belmpaf2","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today (2)","c":1}
+{"t":[1793362611757,0],"d":"boox-belmpaf2","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":2}
+{"t":[1793362620737,0],"d":"boox-belmpaf2","op":"ai.put","text":"cœur","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
+{"t":[1793362747007,1],"d":"boox-belmpaf2","op":"ai.put","text":"élève","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"ученик, ещё"}
+{"t":[1793362812000,0],"d":"boox-belmpaf2","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":2}
+{"t":[1793362873000,0],"d":"boox-belmpaf2","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1793363000987,0],"d":"boox-belmpaf2","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee (2)","c":1}
+{"t":[1793363001257,0],"d":"boox-belmpaf2","op":"ai.put","text":"café","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"coffee\",\"ещё\"]}"}
+{"t":[1793363006250,0],"d":"boox-belmpaf2","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":1}
+{"t":[1793363010750,0],"d":"boox-belmpaf2","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":1}
+{"t":[1793363072000,0],"d":"boox-belmpaf2","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
+{"t":[1793363074737,0],"d":"boox-belmpaf2","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":3}
+{"t":[1793363138987,0],"d":"boox-belmpaf2","op":"saved.put","text":"cœur","kind":"word","lang":"en","meaning":"heart, ещё"}
+{"t":[1793363207250,0],"d":"boox-belmpaf2","op":"saved.del","text":"cœur"}
+{"t":[1793363209237,0],"d":"boox-belmpaf2","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":2}
+{"t":[1793363273250,0],"d":"boox-belmpaf2","op":"ai.put","text":"aujourd'hui","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"today\"]}"}
+{"t":[1793363393500,0],"d":"boox-belmpaf2","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":3}
+{"t":[1793363453737,0],"d":"boox-belmpaf2","op":"saved.del","text":"« Ça va ? »"}
+{"t":[1793363457757,0],"d":"boox-belmpaf2","op":"saved.put","text":"élève","kind":"word","lang":"ru","meaning":"ученик, ещё"}
+{"t":[1793363471487,0],"d":"boox-belmpaf2","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart, ещё","c":3}
+{"t":[1793363476000,0],"d":"boox-belmpaf2","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer, ещё","c":1}
+{"t":[1793363480000,0],"d":"boox-belmpaf2","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee"}
+{"t":[1793363540000,0],"d":"boox-belmpaf2","op":"saved.put","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)"}
+{"t":[1793363545007,0],"d":"boox-belmpaf2","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":4}
+{"t":[1793363677007,0],"d":"boox-belmpaf2","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee, ещё"}
+{"t":[1793363738000,0],"d":"boox-belmpaf2","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"coffee"}
+{"t":[1793363739487,0],"d":"boox-belmpaf2","op":"ai.put","text":"l’été","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"the summer\"\t\\ 1. Bedeutung"}
+{"t":[1793363739750,0],"d":"boox-belmpaf2","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":2}

@@ -1,0 +1,17 @@
+{"t":[1798766503007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door! (2)"}
+{"t":[1798770102987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese"}
+{"t":[1798838563987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины), ещё","c":1}
+{"t":[1798870965000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":3}
+{"t":[1798907025000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why (2)","c":1}
+{"t":[1799162868987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello, ещё","c":2}
+{"t":[1799162929000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"GROẞ","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"big\"\t\\ 1. Bedeutung"}
+{"t":[1799296130000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":1}
+{"t":[1799299730000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":3}
+{"t":[1799299791000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana","c":1}
+{"t":[1799299851007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"съесть","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"to eat up\"\t\\ 1. Bedeutung"}
+{"t":[1799379050987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Tab\there","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"табуляция\\tвнутри\"}"}
+{"t":[1799415052000,0],"d":"samsung-irrml2s4","op":"history.del","text":"Fuß"}
+{"t":[1799447452000,1],"d":"samsung-irrml2s4","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":5}
+{"t":[1799479851987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":2}
+{"t":[1799515852007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Gdańsk","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Gdansk (2)\"\t\\ 1. Bedeutung"}
+{"t":[1799519512000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"delchar","kind":"word","lang":"ru","meaning":"DEL внутри","c":2}

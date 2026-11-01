@@ -1,0 +1,6 @@
+{"t":[1793462460000,0],"d":"boox-sm6eatmr","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
+{"t":[1793462584737,0],"d":"boox-sm6eatmr","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё"}
+{"t":[1793462585757,0],"d":"boox-sm6eatmr","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё"}
+{"t":[1793462706757,0],"d":"boox-sm6eatmr","op":"ai.put","text":"Добрий вечір","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Good evening (2)\"}"}
+{"t":[1793462715000,0],"d":"boox-sm6eatmr","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)","c":1}
+{"t":[1793462909250,0],"d":"boox-sm6eatmr","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":1}

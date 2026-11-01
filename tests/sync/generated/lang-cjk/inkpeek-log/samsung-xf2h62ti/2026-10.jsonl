@@ -1,0 +1,54 @@
+{"t":[1793361661007,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean, ещё","c":1}
+{"t":[1793361787987,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":1}
+{"t":[1793361919750,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
+{"t":[1793361920757,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana, ещё","c":1}
+{"t":[1793361924757,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana, ещё","c":1}
+{"t":[1793361984750,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hiragana\",\"ещё\"]}"}
+{"t":[1793362044737,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё","c":1}
+{"t":[1793362045750,0],"d":"samsung-xf2h62ti","op":"history.del","text":"ひらがな"}
+{"t":[1793362049987,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"你好","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793362050007,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
+{"t":[1793362050007,1],"d":"samsung-xf2h62ti","op":"ai.put","text":"你好","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"hello"}
+{"t":[1793362050250,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)"}
+{"t":[1793362054750,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":2}
+{"t":[1793362059737,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you."}
+{"t":[1793362063757,0],"d":"samsung-xf2h62ti","op":"saved.del","text":"漢字"}
+{"t":[1793362123750,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"𠮷野家","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Yoshinoya\"\t\\ 1. Bedeutung"}
+{"t":[1793362124757,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"你好","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793362184737,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё","c":2}
+{"t":[1793362185757,1],"d":"samsung-xf2h62ti","op":"ai.put","text":"漢字","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"kanji\"]}"}
+{"t":[1793362309737,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":1}
+{"t":[1793362309750,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"日本語","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Korean (2)\"]}"}
+{"t":[1793362369757,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)","c":2}
+{"t":[1793362370757,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"東京","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Tokyo, ещё\"}"}
+{"t":[1793362370757,1],"d":"samsung-xf2h62ti","op":"history.del","text":"𠮷野家"}
+{"t":[1793362431007,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana, ещё","c":1}
+{"t":[1793362550987,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"你好","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"hello (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362625257,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":1}
+{"t":[1793362627250,0],"d":"samsung-xf2h62ti","op":"history.del","text":"한국어"}
+{"t":[1793362691500,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"한국어","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Korean\"\t\\ 1. Bedeutung"}
+{"t":[1793362752507,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana, ещё","c":2}
+{"t":[1793362752750,1],"d":"samsung-xf2h62ti","op":"ai.put","text":"𠮷野家","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Yoshinoya (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362813757,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":2}
+{"t":[1793362879237,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)"}
+{"t":[1793362879487,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya"}
+{"t":[1793362879500,0],"d":"samsung-xf2h62ti","op":"saved.del","text":"漢字"}
+{"t":[1793362953737,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":1}
+{"t":[1793363074737,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana (2)","c":3}
+{"t":[1793363078987,1],"d":"samsung-xf2h62ti","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"half-width katakana"}
+{"t":[1793363083007,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана, ещё","c":1}
+{"t":[1793363083007,1],"d":"samsung-xf2h62ti","op":"history.del","text":"𠮷野家"}
+{"t":[1793363146000,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"日本語","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"японский язык\"}"}
+{"t":[1793363146250,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"사랑해요","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"I love you\"\t\\ 1. Bedeutung"}
+{"t":[1793363210237,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"你好","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793363214237,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"half-width katakana, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363215237,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"日本語","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Japanese\"}"}
+{"t":[1793363397257,0],"d":"samsung-xf2h62ti","op":"saved.del","text":"사랑해요"}
+{"t":[1793363397257,1],"d":"samsung-xf2h62ti","op":"saved.del","text":"カタカナ"}
+{"t":[1793363401737,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"half-width katakana (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363461750,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":3}
+{"t":[1793363462750,0],"d":"samsung-xf2h62ti","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793363467000,0],"d":"samsung-xf2h62ti","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё","c":2}
+{"t":[1793363528250,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
+{"t":[1793363588500,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"사랑해요","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"I love you\"}"}
+{"t":[1793363648507,0],"d":"samsung-xf2h62ti","op":"ai.put","text":"ひらがな","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"hiragana"}

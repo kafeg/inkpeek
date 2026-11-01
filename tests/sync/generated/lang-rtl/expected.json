@@ -1,0 +1,47 @@
+{
+ "saved": [
+  {"text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками), ещё","created":1793363727000,"id":"mac-p3cxy7ig:1793363727000:0","origin":"mac-p3cxy7ig","updated_by":"mac-p3cxy7ig"},
+  {"text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","created":1793363450750,"id":"boox-7kszrbhj:1793362131750:0","origin":"boox-7kszrbhj","updated_by":"boox-7kszrbhj"},
+  {"text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","created":1793363787500,"id":"mac-p3cxy7ig:1793363577750:0","origin":"mac-p3cxy7ig","updated_by":"linux-bfy3gmyj"},
+  {"text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","created":1793362966250,"id":"boox-7kszrbhj:1793362578250:0","origin":"boox-7kszrbhj","updated_by":"boox-7kszrbhj"},
+  {"text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё","created":1793363721750,"id":"boox-7kszrbhj:1793363721750:0","origin":"boox-7kszrbhj","updated_by":"boox-7kszrbhj"}
+ ],
+ "history": [
+  {"text":"שָׁלוֹם","kind":"word","lang":"en","base":null,"meaning":"peace (pointed)","seen":1793363795500,"count":1,"devices":["samsung-imliplug"]},
+  {"text":"שלום","kind":"word","lang":"ru","base":null,"meaning":"мир, привет","seen":1793363797507,"count":7,"devices":["boox-7kszrbhj","linux-bfy3gmyj","mac-p3cxy7ig"]},
+  {"text":"السلام عليكم","kind":"phrase","lang":"ru","base":null,"meaning":"Мир вам","seen":1793363796487,"count":12,"devices":["boox-7kszrbhj","linux-bfy3gmyj","mac-p3cxy7ig","samsung-imliplug"]},
+  {"text":"كتاب","kind":"word","lang":"ru","base":null,"meaning":"книга","seen":1793363727237,"count":1,"devices":["mac-p3cxy7ig"]},
+  {"text":"مرحبا","kind":"word","lang":"ru","base":null,"meaning":"привет, ещё","seen":1793363791500,"count":1,"devices":["linux-bfy3gmyj"]}
+ ],
+ "ai": [
+  {"text":"שָׁלוֹם","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Peace be upon you, ещё\"\t\\ 1. Bedeutung","created":1793362640487},
+  {"text":"שלום","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hello\"\t\\ 1. Bedeutung","created":1793362205750},
+  {"text":"שלום","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"peace, hello","created":1793363590000},
+  {"text":"שלום","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"peace\",\"hello\",\"ещё\"]}","created":1793363805487},
+  {"text":"שלום","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"книга\"\t\\ 1. Bedeutung","created":1793362895757},
+  {"text":"שלום","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"мир, привет, ещё","created":1793363511000},
+  {"text":"שלום","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мир\",\"привет\"]}","created":1793363573500},
+  {"text":"שלום","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"привет\"}","created":1793362061487},
+  {"text":"תודה רבה","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Thank you very much\",\"ещё\"]}","created":1793363571987},
+  {"text":"תודה רבה","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Большое спасибо\"\t\\ 1. Bedeutung","created":1793362071757},
+  {"text":"תודה רבה","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Большое спасибо, ещё\"\t\\ 1. Bedeutung","created":1793362513000},
+  {"text":"תודה רבה","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Большое спасибо","created":1793363866500},
+  {"text":"תודה רבה","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Большое спасибо","created":1793362955750},
+  {"text":"السلام عليكم","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Peace be upon you (2)\"\t\\ 1. Bedeutung","created":1793362641487},
+  {"text":"السلام عليكم","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Мир вам\"\t\\ 1. Bedeutung","created":1793363573000},
+  {"text":"السلام عليكم","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Мир вам\"\t\\ 1. Bedeutung","created":1793361784000},
+  {"text":"السلام عليكم","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Мир вам\"}","created":1793363720750},
+  {"text":"السلام عليكم","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Мир вам\"]}","created":1793361920750},
+  {"text":"كتاب","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"book\",\"ещё\"]}","created":1793362578237},
+  {"text":"كتاب","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"книга (2)\"\t\\ 1. Bedeutung","created":1793361937257},
+  {"text":"كتاب","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung","created":1793363806507},
+  {"text":"كتاب","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung","created":1793363656250},
+  {"text":"كتاب","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"книга\"\t\\ 1. Bedeutung","created":1793363390757},
+  {"text":"كتاب","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"книга","created":1793363571000},
+  {"text":"كتاب","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"книга\"}","created":1793363656500},
+  {"text":"مرحبا","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"привет","created":1793361844500},
+  {"text":"مرحبا","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"привет","created":1793362962257},
+  {"text":"مرحبا","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"привет\"]}","created":1793361660007},
+  {"text":"مرحبا","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"привет (2)\"}","created":1793363589737}
+ ]
+}

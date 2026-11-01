@@ -1,0 +1,49 @@
+{"t":[1793361664000,0],"d":"samsung-3plne4z4","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё","base":"есть","c":1}
+{"t":[1793361670237,0],"d":"samsung-3plne4z4","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1793361674487,0],"d":"samsung-3plne4z4","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend! (2)"}
+{"t":[1793361678500,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1793361802757,0],"d":"samsung-3plne4z4","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
+{"t":[1793361809250,0],"d":"samsung-3plne4z4","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер, ещё"}
+{"t":[1793361809500,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
+{"t":[1793361809500,2],"d":"samsung-3plne4z4","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\",\"ещё\"]}"}
+{"t":[1793361816487,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":1}
+{"t":[1793361877507,0],"d":"samsung-3plne4z4","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё"}
+{"t":[1793361878487,0],"d":"samsung-3plne4z4","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":1}
+{"t":[1793361883507,0],"d":"samsung-3plne4z4","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер (2)"}
+{"t":[1793361884507,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":2}
+{"t":[1793361888500,0],"d":"samsung-3plne4z4","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":2}
+{"t":[1793362073757,0],"d":"samsung-3plne4z4","op":"ai.put","text":"ґанок","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
+{"t":[1793362203000,1],"d":"samsung-3plne4z4","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal, ещё","c":2}
+{"t":[1793362203987,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж (2)","c":3}
+{"t":[1793362266257,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж (2)","c":4}
+{"t":[1793362270250,0],"d":"samsung-3plne4z4","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":3}
+{"t":[1793362274750,0],"d":"samsung-3plne4z4","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793362335987,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":3}
+{"t":[1793362410757,0],"d":"samsung-3plne4z4","op":"ai.put","text":"ёжик","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hedgehog"}
+{"t":[1793362474737,0],"d":"samsung-3plne4z4","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house (2)","c":2}
+{"t":[1793362534737,0],"d":"samsung-3plne4z4","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel"}
+{"t":[1793362595737,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":5}
+{"t":[1793362655750,0],"d":"samsung-3plne4z4","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Good evening! (2)\"}"}
+{"t":[1793362778000,0],"d":"samsung-3plne4z4","op":"saved.del","text":"дом"}
+{"t":[1793362839000,0],"d":"samsung-3plne4z4","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ёж\"]}"}
+{"t":[1793362843007,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":2}
+{"t":[1793362844257,0],"d":"samsung-3plne4z4","op":"ai.put","text":"съесть","lang":"German","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"aufessen\",\"ещё\"]}"}
+{"t":[1793362909500,0],"d":"samsung-3plne4z4","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Добрый вечер, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362909500,1],"d":"samsung-3plne4z4","op":"ai.put","text":"їжак","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"ёж, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362969507,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)","c":1}
+{"t":[1793362977507,0],"d":"samsung-3plne4z4","op":"saved.del","text":"ёжик"}
+{"t":[1793362981487,0],"d":"samsung-3plne4z4","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
+{"t":[1793363042507,0],"d":"samsung-3plne4z4","op":"history.del","text":"съесть"}
+{"t":[1793363226757,0],"d":"samsung-3plne4z4","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":3}
+{"t":[1793363288000,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":4}
+{"t":[1793363348987,0],"d":"samsung-3plne4z4","op":"history.del","text":"їжак"}
+{"t":[1793363411237,0],"d":"samsung-3plne4z4","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":1}
+{"t":[1793363471257,0],"d":"samsung-3plne4z4","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":4}
+{"t":[1793363532250,0],"d":"samsung-3plne4z4","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":4}
+{"t":[1793363540257,0],"d":"samsung-3plne4z4","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":2}
+{"t":[1793363541257,0],"d":"samsung-3plne4z4","op":"ai.put","text":"ґанок","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
+{"t":[1793363601487,0],"d":"samsung-3plne4z4","op":"ai.put","text":"Ещё раз","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Noch einmal\"}"}
+{"t":[1793363605507,0],"d":"samsung-3plne4z4","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1793363606500,0],"d":"samsung-3plne4z4","op":"ai.put","text":"ґанок","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"крыльцо (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363666750,0],"d":"samsung-3plne4z4","op":"ai.put","text":"ёжик","lang":"German","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Igel, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363670757,0],"d":"samsung-3plne4z4","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":1}

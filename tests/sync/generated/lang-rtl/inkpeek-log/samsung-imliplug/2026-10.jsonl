@@ -1,0 +1,34 @@
+{"t":[1793361724000,0],"d":"samsung-imliplug","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much, ещё","c":1}
+{"t":[1793361784257,0],"d":"samsung-imliplug","op":"saved.del","text":"مرحبا"}
+{"t":[1793361845507,0],"d":"samsung-imliplug","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1793361919737,0],"d":"samsung-imliplug","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you (2)","c":1}
+{"t":[1793361920987,0],"d":"samsung-imliplug","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793361922007,0],"d":"samsung-imliplug","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":2}
+{"t":[1793362135757,0],"d":"samsung-imliplug","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё"}
+{"t":[1793362204750,0],"d":"samsung-imliplug","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793362205750,0],"d":"samsung-imliplug","op":"ai.put","text":"שלום","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hello\"\t\\ 1. Bedeutung"}
+{"t":[1793362206987,0],"d":"samsung-imliplug","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":1}
+{"t":[1793362268987,0],"d":"samsung-imliplug","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":2}
+{"t":[1793362273000,0],"d":"samsung-imliplug","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё"}
+{"t":[1793362273007,0],"d":"samsung-imliplug","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)","c":3}
+{"t":[1793362577250,0],"d":"samsung-imliplug","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":2}
+{"t":[1793362640487,0],"d":"samsung-imliplug","op":"ai.put","text":"שָׁלוֹם","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Peace be upon you, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362641487,0],"d":"samsung-imliplug","op":"ai.put","text":"السلام عليكم","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Peace be upon you (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362645757,0],"d":"samsung-imliplug","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello (2)","c":1}
+{"t":[1793362645757,1],"d":"samsung-imliplug","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":3}
+{"t":[1793362769757,0],"d":"samsung-imliplug","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)"}
+{"t":[1793362771750,0],"d":"samsung-imliplug","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
+{"t":[1793362956750,0],"d":"samsung-imliplug","op":"ai.put","text":"שלום","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"peace, hello\"}"}
+{"t":[1793362961007,0],"d":"samsung-imliplug","op":"saved.put","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello"}
+{"t":[1793363148257,0],"d":"samsung-imliplug","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much (2)","c":1}
+{"t":[1793363148487,0],"d":"samsung-imliplug","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed), ещё","c":1}
+{"t":[1793363150487,0],"d":"samsung-imliplug","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much","c":2}
+{"t":[1793363450987,0],"d":"samsung-imliplug","op":"saved.del","text":"كتاب"}
+{"t":[1793363571987,0],"d":"samsung-imliplug","op":"ai.put","text":"תודה רבה","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Thank you very much\",\"ещё\"]}"}
+{"t":[1793363577507,0],"d":"samsung-imliplug","op":"history.del","text":"مرحبا"}
+{"t":[1793363590000,0],"d":"samsung-imliplug","op":"ai.put","text":"שלום","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"peace, hello"}
+{"t":[1793363656500,1],"d":"samsung-imliplug","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":1}
+{"t":[1793363722000,0],"d":"samsung-imliplug","op":"history.del","text":"مرحبا"}
+{"t":[1793363795500,0],"d":"samsung-imliplug","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":1}
+{"t":[1793363801487,0],"d":"samsung-imliplug","op":"history.del","text":"תודה רבה"}
+{"t":[1793363805487,0],"d":"samsung-imliplug","op":"ai.put","text":"שלום","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"peace\",\"hello\",\"ещё\"]}"}

@@ -1,0 +1,120 @@
+{"t":[1792886523250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1792886643250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":1}
+{"t":[1792886644250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему","c":1}
+{"t":[1792886776750,0],"d":"samsung-vvr75hns","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
+{"t":[1792887021987,0],"d":"samsung-vvr75hns","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello (2)","c":1}
+{"t":[1792887027000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1792887034000,0],"d":"samsung-vvr75hns","op":"saved.put","text":"corazón","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1792887038250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)"}
+{"t":[1792887042250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
+{"t":[1792887046250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана"}
+{"t":[1792887050237,0],"d":"samsung-vvr75hns","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":1}
+{"t":[1792887237000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё","c":1}
+{"t":[1792887366000,0],"d":"samsung-vvr75hns","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"книга\"]}"}
+{"t":[1792887430000,0],"d":"samsung-vvr75hns","op":"ai.put","text":"𠮷野家","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Yoshinoya\"\t\\ 1. Bedeutung"}
+{"t":[1792887493987,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1792887499500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
+{"t":[1792887501737,0],"d":"samsung-vvr75hns","op":"saved.del","text":"我爱你。"}
+{"t":[1792887501737,1],"d":"samsung-vvr75hns","op":"history.del","text":"ΟΔΟΣ"}
+{"t":[1792887561757,0],"d":"samsung-vvr75hns","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1792887569750,0],"d":"samsung-vvr75hns","op":"saved.del","text":"Zażółć gęślą jaźń"}
+{"t":[1792887578000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1792887578250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1792887698250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1792887698257,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I close the door!\",\"ещё\"]}"}
+{"t":[1792887838007,0],"d":"samsung-vvr75hns","op":"saved.put","text":"perché","kind":"word","lang":"ru","meaning":"почему (2)"}
+{"t":[1792887838250,0],"d":"samsung-vvr75hns","op":"ai.put","text":"كتاب","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"книга, ещё"}
+{"t":[1792887972757,0],"d":"samsung-vvr75hns","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":1}
+{"t":[1792888161750,0],"d":"samsung-vvr75hns","op":"history.del","text":"STRASSE"}
+{"t":[1792888162000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much, ещё","c":1}
+{"t":[1792888162257,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":2}
+{"t":[1792888292987,0],"d":"samsung-vvr75hns","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":1}
+{"t":[1792888423257,0],"d":"samsung-vvr75hns","op":"ai.put","text":"l’été","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лето\"}"}
+{"t":[1792888488500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass","c":1}
+{"t":[1792888488500,1],"d":"samsung-vvr75hns","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":3}
+{"t":[1792888492487,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!"}
+{"t":[1792888560737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone), ещё","c":1}
+{"t":[1792888561750,0],"d":"samsung-vvr75hns","op":"history.del","text":"οδός"}
+{"t":[1792888561750,1],"d":"samsung-vvr75hns","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Стамбул\"]}"}
+{"t":[1792888571257,0],"d":"samsung-vvr75hns","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1792888763500,0],"d":"samsung-vvr75hns","op":"saved.put","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя (2)"}
+{"t":[1792888774500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё","c":2}
+{"t":[1792888835487,0],"d":"samsung-vvr75hns","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child, ещё","c":1}
+{"t":[1792888896500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?” (2)","c":2}
+{"t":[1792888956737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
+{"t":[1792889295000,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"привет"}
+{"t":[1792889356257,0],"d":"samsung-vvr75hns","op":"ai.put","text":"łódź","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"boat\"\t\\ 1. Bedeutung"}
+{"t":[1792889357237,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё"}
+{"t":[1792889487000,0],"d":"samsung-vvr75hns","op":"ai.put","text":"¿Qué tal?","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"«Как дела?» (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792889555500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня, ещё","c":3}
+{"t":[1792889684250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone), ещё"}
+{"t":[1792889689257,0],"d":"samsung-vvr75hns","op":"history.del","text":"日本語"}
+{"t":[1792889697757,0],"d":"samsung-vvr75hns","op":"saved.put","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок, ещё"}
+{"t":[1792889702750,0],"d":"samsung-vvr75hns","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1792889762750,0],"d":"samsung-vvr75hns","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":2}
+{"t":[1792889823737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":1}
+{"t":[1792889824987,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
+{"t":[1792889848750,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Übung","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"упражнение"}
+{"t":[1792889922487,0],"d":"samsung-vvr75hns","op":"ai.put","text":"não","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"I love you.\"}"}
+{"t":[1792889982507,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1792889986500,0],"d":"samsung-vvr75hns","op":"saved.del","text":"ёжик"}
+{"t":[1792889990487,0],"d":"samsung-vvr75hns","op":"ai.put","text":"coração","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"heart\"}"}
+{"t":[1792890057250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello","c":3}
+{"t":[1792890057757,0],"d":"samsung-vvr75hns","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":2}
+{"t":[1792890065737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean (2)","c":1}
+{"t":[1792890126500,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)"}
+{"t":[1792890126750,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Straße","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street (2)\"}"}
+{"t":[1792890487237,0],"d":"samsung-vvr75hns","op":"ai.put","text":"ґанок","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"porch\",\"ещё\"]}"}
+{"t":[1792890620000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце (2)","c":2}
+{"t":[1792890620000,1],"d":"samsung-vvr75hns","op":"ai.put","text":"cœur","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart\"}"}
+{"t":[1792890624000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":1}
+{"t":[1792890624500,0],"d":"samsung-vvr75hns","op":"history.del","text":"שָׁלוֹם"}
+{"t":[1792890745487,0],"d":"samsung-vvr75hns","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё","c":3}
+{"t":[1792890747500,0],"d":"samsung-vvr75hns","op":"ai.put","text":"maçã","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"apple\"]}"}
+{"t":[1792890815500,0],"d":"samsung-vvr75hns","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese, ещё"}
+{"t":[1792891061507,1],"d":"samsung-vvr75hns","op":"ai.put","text":"我爱你。","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Я тебя люблю.\"}"}
+{"t":[1792891130750,0],"d":"samsung-vvr75hns","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
+{"t":[1792891134737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1792891140737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)","c":1}
+{"t":[1792891268750,0],"d":"samsung-vvr75hns","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\"]}"}
+{"t":[1792891335487,0],"d":"samsung-vvr75hns","op":"saved.del","text":"съесть"}
+{"t":[1792891413000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
+{"t":[1792891491987,0],"d":"samsung-vvr75hns","op":"saved.del","text":"não"}
+{"t":[1792891496000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":2}
+{"t":[1792891560000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street, ещё","c":3}
+{"t":[1792891569507,0],"d":"samsung-vvr75hns","op":"saved.put","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана"}
+{"t":[1792891575757,1],"d":"samsung-vvr75hns","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":1}
+{"t":[1792891758987,0],"d":"samsung-vvr75hns","op":"ai.put","text":"תודה רבה","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Thank you very much (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792891833250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":5}
+{"t":[1792891849987,0],"d":"samsung-vvr75hns","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё","base":"élever","c":1}
+{"t":[1792891913987,0],"d":"samsung-vvr75hns","op":"saved.put","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana"}
+{"t":[1792891914500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":1}
+{"t":[1792892098757,1],"d":"samsung-vvr75hns","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"нога, ступня, ещё\"}"}
+{"t":[1792892102750,0],"d":"samsung-vvr75hns","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья","c":1}
+{"t":[1792892166987,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"привет\"}"}
+{"t":[1792892229757,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":2}
+{"t":[1792892291000,0],"d":"samsung-vvr75hns","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"family, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792892426250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":3}
+{"t":[1792892497507,0],"d":"samsung-vvr75hns","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1792892564500,1],"d":"samsung-vvr75hns","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
+{"t":[1792892629257,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Ǆemal","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"hello, ещё"}
+{"t":[1792892691500,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":2}
+{"t":[1792892756507,0],"d":"samsung-vvr75hns","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":2}
+{"t":[1792892756507,1],"d":"samsung-vvr75hns","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1792892760500,1],"d":"samsung-vvr75hns","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья","c":3}
+{"t":[1792892831000,0],"d":"samsung-vvr75hns","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)"}
+{"t":[1792892832007,0],"d":"samsung-vvr75hns","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much","c":2}
+{"t":[1792892956250,0],"d":"samsung-vvr75hns","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня (2)"}
+{"t":[1792892956487,0],"d":"samsung-vvr75hns","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":2}
+{"t":[1792893018737,0],"d":"samsung-vvr75hns","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin, ещё","c":1}
+{"t":[1792893019750,1],"d":"samsung-vvr75hns","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1792893140000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1792893148000,0],"d":"samsung-vvr75hns","op":"saved.put","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!"}
+{"t":[1792893208000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
+{"t":[1792893210007,0],"d":"samsung-vvr75hns","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you, ещё"}
+{"t":[1792893271000,0],"d":"samsung-vvr75hns","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1792893512250,0],"d":"samsung-vvr75hns","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":3}
+{"t":[1792893572250,0],"d":"samsung-vvr75hns","op":"saved.del","text":"pingüino"}
+{"t":[1792893577500,0],"d":"samsung-vvr75hns","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё"}
+{"t":[1792893637750,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Ǆemal","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Djemal"}
+{"t":[1792887236757,0],"d":"samsung-vvr75hns","op":"ai.put","text":"Haus","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"das Haus (Hauses, pl. Häuser) — house, home\"\t\\ 1. Bedeutung"}

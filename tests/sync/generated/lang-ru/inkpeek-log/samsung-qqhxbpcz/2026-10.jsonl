@@ -1,0 +1,51 @@
+{"t":[1793361665237,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\"]}"}
+{"t":[1793361669257,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"house\"}"}
+{"t":[1793361674500,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up"}
+{"t":[1793361678757,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"съесть","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"to eat up, ещё\"}"}
+{"t":[1793361738750,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":1}
+{"t":[1793361742757,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793361807750,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1793361807987,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)"}
+{"t":[1793361809500,1],"d":"samsung-qqhxbpcz","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793361811507,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
+{"t":[1793361811507,1],"d":"samsung-qqhxbpcz","op":"ai.put","text":"ёжик","lang":"German","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Igel (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793361811507,2],"d":"samsung-qqhxbpcz","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793361812507,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"Добрий вечір","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793361878487,1],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more, ещё","c":1}
+{"t":[1793361889750,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1793361949757,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)"}
+{"t":[1793362009757,0],"d":"samsung-qqhxbpcz","op":"saved.del","text":"ёжик"}
+{"t":[1793362137757,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"house\"}"}
+{"t":[1793362138757,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
+{"t":[1793362138757,1],"d":"samsung-qqhxbpcz","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up, ещё","base":"есть","c":2}
+{"t":[1793362143000,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"ґанок","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"porch"}
+{"t":[1793362204000,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)","base":"есть","c":3}
+{"t":[1793362205007,1],"d":"samsung-qqhxbpcz","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1793362270487,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
+{"t":[1793362270757,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё"}
+{"t":[1793362270757,1],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":2}
+{"t":[1793362334750,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":4}
+{"t":[1793362336250,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\",\"ещё\"]}"}
+{"t":[1793362340487,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":3}
+{"t":[1793362400500,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\"]}"}
+{"t":[1793362400757,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1793362474737,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":2}
+{"t":[1793362656750,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер, ещё"}
+{"t":[1793362776757,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)"}
+{"t":[1793362778987,0],"d":"samsung-qqhxbpcz","op":"saved.del","text":"Ещё раз"}
+{"t":[1793362843000,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":4}
+{"t":[1793363041507,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1793363046500,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":2}
+{"t":[1793363106500,0],"d":"samsung-qqhxbpcz","op":"saved.del","text":"дом"}
+{"t":[1793363106750,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":2}
+{"t":[1793363166750,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":2}
+{"t":[1793363227000,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":5}
+{"t":[1793363286987,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":3}
+{"t":[1793363287987,0],"d":"samsung-qqhxbpcz","op":"ai.put","text":"Ещё раз","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Once more"}
+{"t":[1793363289007,1],"d":"samsung-qqhxbpcz","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1793363348987,0],"d":"samsung-qqhxbpcz","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!"}
+{"t":[1793363531237,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house (2)","c":3}
+{"t":[1793363536257,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":6}
+{"t":[1793363540257,1],"d":"samsung-qqhxbpcz","op":"ai.put","text":"Ещё раз","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Once more\"\t\\ 1. Bedeutung"}
+{"t":[1793363541500,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":3}
+{"t":[1793363606737,0],"d":"samsung-qqhxbpcz","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":7}

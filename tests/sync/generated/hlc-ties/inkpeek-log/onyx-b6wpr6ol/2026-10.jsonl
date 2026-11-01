@@ -1,0 +1,312 @@
+{"t":[1793480400008,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1793480400008,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480400008,2],"d":"onyx-b6wpr6ol","op":"saved.del","text":"aufmachen"}
+{"t":[1793480400008,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more, ещё","c":1}
+{"t":[1793480400010,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Ещё раз","lang":"German","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Noch einmal\"\t\\ 1. Bedeutung"}
+{"t":[1793480400011,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица"}
+{"t":[1793480400011,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":1}
+{"t":[1793480400011,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
+{"t":[1793480400012,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1793480400012,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
+{"t":[1793480400012,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение, ещё"}
+{"t":[1793480400014,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793480400015,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Как дела?\"\t\\ 1. Bedeutung"}
+{"t":[1793480400016,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)"}
+{"t":[1793480400018,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"漢字","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Я люблю тебя"}
+{"t":[1793480400019,1],"d":"onyx-b6wpr6ol","op":"history.del","text":"한국어"}
+{"t":[1793480400019,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Käse","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"дома, ещё"}
+{"t":[1793480400019,4],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Добрий вечір"}
+{"t":[1793480400019,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1793480400019,6],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё","c":1}
+{"t":[1793480400023,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1793480400023,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё"}
+{"t":[1793480400023,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)","c":1}
+{"t":[1793480400023,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"GROẞ","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"большой (2)\"]}"}
+{"t":[1793480400023,4],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Mädchen"}
+{"t":[1793480400023,5],"d":"onyx-b6wpr6ol","op":"history.del","text":"Häuser"}
+{"t":[1793480400023,6],"d":"onyx-b6wpr6ol","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793480400023,7],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"катакана (полуширинная)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400023,8],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":2}
+{"t":[1793480400023,9],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1793480400023,10],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1793480400023,11],"d":"onyx-b6wpr6ol","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2}
+{"t":[1793480400023,12],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793480400023,13],"d":"onyx-b6wpr6ol","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж"}
+{"t":[1793480400023,14],"d":"onyx-b6wpr6ol","op":"saved.put","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя"}
+{"t":[1793480400023,15],"d":"onyx-b6wpr6ol","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":2}
+{"t":[1793480400023,16],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Häuser"}
+{"t":[1793480400023,17],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":2}
+{"t":[1793480400023,18],"d":"onyx-b6wpr6ol","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480400028,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю., ещё","c":2}
+{"t":[1793480400028,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё"}
+{"t":[1793480400028,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1793480400030,0],"d":"onyx-b6wpr6ol","op":"history.del","text":"日本語"}
+{"t":[1793480400032,1],"d":"onyx-b6wpr6ol","op":"history.del","text":"aufmachen"}
+{"t":[1793480400032,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"I close the door! (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400036,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
+{"t":[1793480400036,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
+{"t":[1793480400036,3],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Übung"}
+{"t":[1793480400036,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":2}
+{"t":[1793480400036,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
+{"t":[1793480400036,6],"d":"onyx-b6wpr6ol","op":"saved.put","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык, ещё"}
+{"t":[1793480400036,7],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"катакана (полуширинная)\"}"}
+{"t":[1793480400040,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Mädchen","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"девочка\"\t\\ 1. Bedeutung"}
+{"t":[1793480400040,6],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":2}
+{"t":[1793480400040,7],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Haus","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Здравствуйте"}
+{"t":[1793480400040,8],"d":"onyx-b6wpr6ol","op":"saved.del","text":"日本語"}
+{"t":[1793480400043,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (2)","c":2}
+{"t":[1793480400045,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":3}
+{"t":[1793480400045,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ёж\",\"ещё\"]}"}
+{"t":[1793480400046,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":2}
+{"t":[1793480400046,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"日本語","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"японский язык\"\t\\ 1. Bedeutung"}
+{"t":[1793480400047,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"한국어","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"корейский язык (2)\"}"}
+{"t":[1793480400047,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я люблю тебя, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400047,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793480400047,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя","c":1}
+{"t":[1793480400047,4],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Добрый вечер!","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Guten Abend!\"]}"}
+{"t":[1793480400050,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793480400050,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":2}
+{"t":[1793480400051,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1793480400051,1],"d":"onyx-b6wpr6ol","op":"saved.del","text":"한국어"}
+{"t":[1793480400052,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":2}
+{"t":[1793480400052,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":2}
+{"t":[1793480400052,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":3}
+{"t":[1793480400052,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"GROẞ","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"большой, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400054,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана, ещё","c":1}
+{"t":[1793480400054,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)"}
+{"t":[1793480400055,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)","c":1}
+{"t":[1793480400057,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"カタカナ","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"катакана\"\t\\ 1. Bedeutung"}
+{"t":[1793480400058,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
+{"t":[1793480400058,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Добрый вечер"}
+{"t":[1793480400058,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо"}
+{"t":[1793480400058,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":2}
+{"t":[1793480400058,4],"d":"onyx-b6wpr6ol","op":"ai.put","text":"사랑해요","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Я люблю тебя"}
+{"t":[1793480400058,5],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня, ещё"}
+{"t":[1793480400059,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":1}
+{"t":[1793480400059,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480400059,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"STRASSE","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung"}
+{"t":[1793480400059,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":3}
+{"t":[1793480400059,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
+{"t":[1793480400064,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Fuß","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"нога, ступня, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400064,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"我爱你。","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Я тебя люблю. (2)\"]}"}
+{"t":[1793480400064,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house, ещё"}
+{"t":[1793480400064,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":1}
+{"t":[1793480400064,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793480400067,0],"d":"onyx-b6wpr6ol","op":"history.del","text":"Übung"}
+{"t":[1793480400067,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)"}
+{"t":[1793480400067,2],"d":"onyx-b6wpr6ol","op":"history.del","text":"Добрий вечір"}
+{"t":[1793480400067,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1793480400069,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1793480400072,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Добрый вечер (2)\"}"}
+{"t":[1793480400072,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480400075,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":1}
+{"t":[1793480400076,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":2}
+{"t":[1793480400076,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":3}
+{"t":[1793480400076,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио","c":1}
+{"t":[1793480400076,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":2}
+{"t":[1793480400076,4],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Straße","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица\"}"}
+{"t":[1793480400076,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":4}
+{"t":[1793480400076,6],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":4}
+{"t":[1793480400076,7],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1793480400077,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"カタカナ","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"катакана\"\t\\ 1. Bedeutung"}
+{"t":[1793480400077,1],"d":"onyx-b6wpr6ol","op":"history.del","text":"съесть"}
+{"t":[1793480400077,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё","c":1}
+{"t":[1793480400086,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793480400086,1],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Grüß Gott"}
+{"t":[1793480400086,2],"d":"onyx-b6wpr6ol","op":"history.del","text":"東京"}
+{"t":[1793480400087,2],"d":"onyx-b6wpr6ol","op":"saved.del","text":"你好"}
+{"t":[1793480400087,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык, ещё","c":2}
+{"t":[1793480400087,4],"d":"onyx-b6wpr6ol","op":"saved.del","text":"їжак"}
+{"t":[1793480400089,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":3}
+{"t":[1793480400089,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё"}
+{"t":[1793480400089,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1793480400089,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":4}
+{"t":[1793480400091,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"съесть","lang":"German","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"aufessen\"\t\\ 1. Bedeutung"}
+{"t":[1793480400091,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":5}
+{"t":[1793480400091,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
+{"t":[1793480400091,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1793480400091,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
+{"t":[1793480400091,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"日本語","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"японский язык\"\t\\ 1. Bedeutung"}
+{"t":[1793480400091,6],"d":"onyx-b6wpr6ol","op":"saved.put","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя"}
+{"t":[1793480400091,7],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793480400091,8],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":2}
+{"t":[1793480400091,9],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер, ещё","c":1}
+{"t":[1793480400100,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Übung","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"упражнение\"]}"}
+{"t":[1793480400100,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
+{"t":[1793480400101,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1793480400101,1],"d":"onyx-b6wpr6ol","op":"history.del","text":"漢字"}
+{"t":[1793480400101,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house\",\"ещё\"]}"}
+{"t":[1793480400101,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":3}
+{"t":[1793480400101,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":2}
+{"t":[1793480400101,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Häuser","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"дома\"\t\\ 1. Bedeutung"}
+{"t":[1793480400101,6],"d":"onyx-b6wpr6ol","op":"ai.put","text":"你好","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"привет\",\"ещё\"]}"}
+{"t":[1793480400101,7],"d":"onyx-b6wpr6ol","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":2}
+{"t":[1793480400105,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"한국어","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"корейский язык\"\t\\ 1. Bedeutung"}
+{"t":[1793480400105,1],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Straße"}
+{"t":[1793480400107,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":2}
+{"t":[1793480400107,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Здравствуйте\"}"}
+{"t":[1793480400107,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"дом","lang":"German","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Haus\"\t\\ 1. Bedeutung"}
+{"t":[1793480400107,3],"d":"onyx-b6wpr6ol","op":"saved.del","text":"съесть"}
+{"t":[1793480400107,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана (2)","c":2}
+{"t":[1793480400107,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Токио\"}"}
+{"t":[1793480400107,6],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":3}
+{"t":[1793480400107,7],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":4}
+{"t":[1793480400107,8],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480400107,9],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Öl"}
+{"t":[1793480400107,10],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":2}
+{"t":[1793480400115,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
+{"t":[1793480400115,1],"d":"onyx-b6wpr6ol","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480400115,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":2}
+{"t":[1793480400115,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1793480400118,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":3}
+{"t":[1793480400120,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
+{"t":[1793480400120,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Straße","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"die Straße (pl. Straßen) — улица\"\t\\ 1. Bedeutung"}
+{"t":[1793480400120,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1793480400120,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793480400120,4],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Ещё раз","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Once more"}
+{"t":[1793480400120,5],"d":"onyx-b6wpr6ol","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык, ещё"}
+{"t":[1793480400123,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":4}
+{"t":[1793480400123,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend! (2)","c":3}
+{"t":[1793480400123,6],"d":"onyx-b6wpr6ol","op":"saved.del","text":"größer"}
+{"t":[1793480400123,7],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"hedgehog, ещё\"}"}
+{"t":[1793480400125,0],"d":"onyx-b6wpr6ol","op":"history.del","text":"Ещё раз"}
+{"t":[1793480400125,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480400125,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"𠮷野家","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Ёсиноя\"\t\\ 1. Bedeutung"}
+{"t":[1793480400127,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1793480400127,2],"d":"onyx-b6wpr6ol","op":"history.del","text":"Straße"}
+{"t":[1793480400127,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Добрый вечер!","lang":"German","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Guten Abend!, ещё"}
+{"t":[1793480400127,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":3}
+{"t":[1793480400127,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"съесть","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"to eat up\"}"}
+{"t":[1793480400129,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Übung","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"упражнение (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400129,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793480400132,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":6}
+{"t":[1793480400132,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио","c":1}
+{"t":[1793480400133,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Öl","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"масло"}
+{"t":[1793480400134,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":2}
+{"t":[1793480400134,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Здравствуйте"}
+{"t":[1793480400134,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":5}
+{"t":[1793480400134,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":2}
+{"t":[1793480400134,4],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Straße","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"die Straße (pl. Straßen) — улица, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400134,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела?\",\"ещё\"]}"}
+{"t":[1793480400138,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё","c":1}
+{"t":[1793480400138,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ёжик","lang":"German","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Igel (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400138,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет (2)","c":4}
+{"t":[1793480400138,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I close the door!\",\"ещё\"]}"}
+{"t":[1793480400138,4],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1793480400138,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ёжик","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"hedgehog, ещё"}
+{"t":[1793480400141,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":5}
+{"t":[1793480400141,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Как дела?, ещё"}
+{"t":[1793480400141,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":2}
+{"t":[1793480400141,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":3}
+{"t":[1793480400146,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо"}
+{"t":[1793480400146,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
+{"t":[1793480400146,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё"}
+{"t":[1793480400149,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":3}
+{"t":[1793480400149,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!"}
+{"t":[1793480400151,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":2}
+{"t":[1793480400151,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":2}
+{"t":[1793480400151,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"STRASSE","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480400153,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":4}
+{"t":[1793480400153,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Добрый вечер!","lang":"German","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Guten Abend!\"\t\\ 1. Bedeutung"}
+{"t":[1793480400153,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю."}
+{"t":[1793480400153,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":2}
+{"t":[1793480400153,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":5}
+{"t":[1793480400153,5],"d":"onyx-b6wpr6ol","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо"}
+{"t":[1793480400153,6],"d":"onyx-b6wpr6ol","op":"ai.put","text":"日本語","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"японский язык (2)\"]}"}
+{"t":[1793480400153,7],"d":"onyx-b6wpr6ol","op":"history.del","text":"Haus"}
+{"t":[1793480400159,0],"d":"onyx-b6wpr6ol","op":"saved.del","text":"STRASSE"}
+{"t":[1793480400159,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":2}
+{"t":[1793480400159,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"漢字","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"иероглифы, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480400159,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
+{"t":[1793480400159,4],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица"}
+{"t":[1793480400160,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"東京","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
+{"t":[1793480400161,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"사랑해요","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I love you\"]}"}
+{"t":[1793480400161,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)","c":1}
+{"t":[1793480400162,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":3}
+{"t":[1793480400162,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет, ещё"}
+{"t":[1793480400162,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Übung","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"упражнение"}
+{"t":[1793480400162,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"漢字","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"иероглифы (2)\"]}"}
+{"t":[1793480400163,0],"d":"onyx-b6wpr6ol","op":"saved.del","text":"日本語"}
+{"t":[1793480400163,1],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Добрий вечір"}
+{"t":[1793480400163,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":2}
+{"t":[1793480400163,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":6}
+{"t":[1793480400163,4],"d":"onyx-b6wpr6ol","op":"saved.del","text":"𠮷野家"}
+{"t":[1793480400163,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":3}
+{"t":[1793480400163,6],"d":"onyx-b6wpr6ol","op":"saved.del","text":"Mädchen"}
+{"t":[1793480400166,0],"d":"onyx-b6wpr6ol","op":"saved.del","text":"aufmachen"}
+{"t":[1793480400166,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
+{"t":[1793480400166,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)","c":3}
+{"t":[1793480400166,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя (2)","c":4}
+{"t":[1793480400168,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня, ещё"}
+{"t":[1793480400169,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)","c":3}
+{"t":[1793480400171,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1793480400171,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":6}
+{"t":[1793480400171,2],"d":"onyx-b6wpr6ol","op":"history.del","text":"日本語"}
+{"t":[1793480400171,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":2}
+{"t":[1793480400174,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":2}
+{"t":[1793480400174,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)","base":"groß","c":4}
+{"t":[1793480400174,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":7}
+{"t":[1793480400174,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Fuß","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"нога, ступня, ещё"}
+{"t":[1793480400174,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":6}
+{"t":[1793480400174,5],"d":"onyx-b6wpr6ol","op":"saved.del","text":"дом"}
+{"t":[1793480400174,6],"d":"onyx-b6wpr6ol","op":"saved.del","text":"我爱你。"}
+{"t":[1793480400174,7],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица, ещё"}
+{"t":[1793480400174,8],"d":"onyx-b6wpr6ol","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана, ещё","c":4}
+{"t":[1793480400174,9],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":3}
+{"t":[1793480400178,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё","c":3}
+{"t":[1793480400178,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1793480400178,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Ещё раз","lang":"German","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Noch einmal\",\"ещё\"]}"}
+{"t":[1793480400178,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":3}
+{"t":[1793480400178,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё","c":4}
+{"t":[1793480400178,6],"d":"onyx-b6wpr6ol","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)"}
+{"t":[1793480400178,7],"d":"onyx-b6wpr6ol","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
+{"t":[1793480400178,8],"d":"onyx-b6wpr6ol","op":"ai.put","text":"ґанок","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
+{"t":[1793480400182,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"ёж\"}"}
+{"t":[1793480400182,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Häuser","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"дома"}
+{"t":[1793480400183,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя","c":4}
+{"t":[1793480400183,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)"}
+{"t":[1793480400183,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":3}
+{"t":[1793480400183,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет (2)"}
+{"t":[1793480400183,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
+{"t":[1793480400183,5],"d":"onyx-b6wpr6ol","op":"ai.put","text":"aufmachen","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"открывать\"]}"}
+{"t":[1793480400189,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык (2)"}
+{"t":[1793480400189,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":4}
+{"t":[1793480400190,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"漢字","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"иероглифы\"}"}
+{"t":[1793480400191,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё","c":5}
+{"t":[1793480400191,1],"d":"onyx-b6wpr6ol","op":"saved.del","text":"ґанок"}
+{"t":[1793480400191,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)","c":4}
+{"t":[1793480400191,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":3}
+{"t":[1793480400191,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":8}
+{"t":[1793480400191,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя (2)","c":5}
+{"t":[1793480400194,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":5}
+{"t":[1793480400194,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)"}
+{"t":[1793480400194,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Straße","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица (2)\"]}"}
+{"t":[1793480400194,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Straße","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица (2)\"]}"}
+{"t":[1793480400194,4],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":4}
+{"t":[1793480400194,5],"d":"onyx-b6wpr6ol","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":4}
+{"t":[1793480400199,0],"d":"onyx-b6wpr6ol","op":"history.del","text":"日本語"}
+{"t":[1793480400199,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Как дела?\"\t\\ 1. Bedeutung"}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 0","kind":"word","lang":"ru","meaning":"ｶﾀｶﾅ — ｶﾀｶﾅ"}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 0","kind":"word","lang":"ru","meaning":"ｶﾀｶﾅ — ｶﾀｶﾅ","c":1}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 0","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"ｶﾀｶﾅ"}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 0","kind":"word","lang":"ru","meaning":"😀 — 😀"}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 0","kind":"word","lang":"ru","meaning":"😀 — 😀","c":1}
+{"t":[1793480405199,0],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 0","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"😀"}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 1","kind":"word","lang":"ru","meaning":" — "}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 1","kind":"word","lang":"ru","meaning":" — ","c":1}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 1","lang":"Russian","section":"quick","ver":3,"model":"m","answer":""}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 1","kind":"word","lang":"ru","meaning":"𠮷 — 𠮷"}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 1","kind":"word","lang":"ru","meaning":"𠮷 — 𠮷","c":1}
+{"t":[1793480405199,1],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 1","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"𠮷"}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 2","kind":"word","lang":"ru","meaning":"Z — Z"}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 2","kind":"word","lang":"ru","meaning":"Z — Z","c":1}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 2","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"Z"}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 2","kind":"word","lang":"ru","meaning":"Ä — Ä"}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 2","kind":"word","lang":"ru","meaning":"Ä — Ä","c":1}
+{"t":[1793480405199,2],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 2","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"Ä"}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 3","kind":"word","lang":"ru","meaning":"я — я"}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 3","kind":"word","lang":"ru","meaning":"я — я","c":1}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 3","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"я"}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"saved.put","text":"Klon 3","kind":"word","lang":"ru","meaning":"ё — ё"}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"history.seen","text":"Klon 3","kind":"word","lang":"ru","meaning":"ё — ё","c":1}
+{"t":[1793480405199,3],"d":"onyx-b6wpr6ol","op":"ai.put","text":"Klon 3","lang":"Russian","section":"quick","ver":3,"model":"m","answer":"ё"}

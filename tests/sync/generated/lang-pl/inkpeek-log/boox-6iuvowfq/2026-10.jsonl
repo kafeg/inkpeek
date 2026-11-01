@@ -1,0 +1,42 @@
+{"t":[1793361666750,0],"d":"boox-6iuvowfq","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"лодка\"]}"}
+{"t":[1793361667750,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё","c":1}
+{"t":[1793361668007,0],"d":"boox-6iuvowfq","op":"ai.put","text":"łódź","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"лодка, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793361669237,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1793361851500,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Гданьск\"]}"}
+{"t":[1793361851750,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1793361856007,0],"d":"boox-6iuvowfq","op":"history.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793361916000,0],"d":"boox-6iuvowfq","op":"saved.del","text":"Gdańsk"}
+{"t":[1793361976250,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":1}
+{"t":[1793361977257,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793361977500,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":1}
+{"t":[1793361978507,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":1}
+{"t":[1793361979500,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё","c":2}
+{"t":[1793361979507,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
+{"t":[1793361979507,1],"d":"boox-6iuvowfq","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":2}
+{"t":[1793362106007,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Гданьск\"\t\\ 1. Bedeutung"}
+{"t":[1793362477000,0],"d":"boox-6iuvowfq","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лодка\"}"}
+{"t":[1793362546000,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё"}
+{"t":[1793362546500,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":2}
+{"t":[1793362606507,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":3}
+{"t":[1793362606757,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма, ещё"}
+{"t":[1793362612007,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":3}
+{"t":[1793362673007,0],"d":"boox-6iuvowfq","op":"saved.del","text":"łódź"}
+{"t":[1793362677000,0],"d":"boox-6iuvowfq","op":"ai.put","text":"źdźbło","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"стебель, ещё"}
+{"t":[1793362743000,0],"d":"boox-6iuvowfq","op":"saved.put","text":"łódź","kind":"word","lang":"ru","meaning":"лодка (2)"}
+{"t":[1793362743000,1],"d":"boox-6iuvowfq","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель"}
+{"t":[1793362807250,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":3}
+{"t":[1793362808250,0],"d":"boox-6iuvowfq","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель"}
+{"t":[1793362875007,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"панграмма, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363132250,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":4}
+{"t":[1793363132257,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Гданьск\"}"}
+{"t":[1793363143487,0],"d":"boox-6iuvowfq","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"лодка\"}"}
+{"t":[1793363203507,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793363205500,0],"d":"boox-6iuvowfq","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск, ещё","c":1}
+{"t":[1793363205750,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Гданьск\"}"}
+{"t":[1793363209987,0],"d":"boox-6iuvowfq","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Гданьск\",\"ещё\"]}"}
+{"t":[1793363211007,0],"d":"boox-6iuvowfq","op":"history.del","text":"źdźbło"}
+{"t":[1793363345250,0],"d":"boox-6iuvowfq","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
+{"t":[1793363407000,0],"d":"boox-6iuvowfq","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель (2)","c":1}
+{"t":[1793363412000,0],"d":"boox-6iuvowfq","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лодка\"}"}
+{"t":[1793363476000,0],"d":"boox-6iuvowfq","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793363537000,0],"d":"boox-6iuvowfq","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":2}

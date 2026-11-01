@@ -1,0 +1,326 @@
+{"t":[1793480400501,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480401509,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480401510,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480403004,0],"d":"mac-j72h3rcu","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480404006,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480404494,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480405495,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
+{"t":[1793480405516,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480405516,1],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480406011,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480406018,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480406520,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480407021,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480407502,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480407523,0],"d":"mac-j72h3rcu","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793480408016,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480408516,0],"d":"mac-j72h3rcu","op":"history.del","text":"não"}
+{"t":[1793480408517,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480409517,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480410025,0],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":1}
+{"t":[1793480412026,1],"d":"mac-j72h3rcu","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)","c":1}
+{"t":[1793480412521,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480412523,0],"d":"mac-j72h3rcu","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480413024,0],"d":"mac-j72h3rcu","op":"ai.put","text":"漢字","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"kanji"}
+{"t":[1793480414028,0],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480414528,1],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480415529,0],"d":"mac-j72h3rcu","op":"history.del","text":"Häuser"}
+{"t":[1793480416030,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480416030,1],"d":"mac-j72h3rcu","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"flag of Germany (2)\"]}"}
+{"t":[1793480416538,0],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480417021,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480417536,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480418036,0],"d":"mac-j72h3rcu","op":"history.del","text":"🇩🇪"}
+{"t":[1793480419037,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480419541,0],"d":"mac-j72h3rcu","op":"history.del","text":"🇩🇪"}
+{"t":[1793480419551,2],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480420045,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480422536,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё"}
+{"t":[1793480424049,0],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480424537,0],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}
+{"t":[1793480424557,2],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)"}
+{"t":[1793480424557,3],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480425558,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480425558,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480427043,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480427563,1],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480429067,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
+{"t":[1793480429067,6],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480430567,0],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793480430567,1],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480431069,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480431076,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480431576,2],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480432569,0],"d":"mac-j72h3rcu","op":"history.del","text":"漢字"}
+{"t":[1793480432577,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480433071,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480436072,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480436079,0],"d":"mac-j72h3rcu","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":2}
+{"t":[1793480437073,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":1}
+{"t":[1793480437073,1],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480437073,2],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480437574,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480438074,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480439562,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480440082,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480440084,0],"d":"mac-j72h3rcu","op":"saved.del","text":"İstanbul"}
+{"t":[1793480441065,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480442068,0],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}
+{"t":[1793480442088,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480442088,1],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480442584,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":2}
+{"t":[1793480444085,1],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480446093,0],"d":"mac-j72h3rcu","op":"ai.put","text":"🇩🇪","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"flag of Germany"}
+{"t":[1793480446586,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480450599,0],"d":"mac-j72h3rcu","op":"saved.del","text":"İstanbul"}
+{"t":[1793480450599,1],"d":"mac-j72h3rcu","op":"history.del","text":"İstanbul"}
+{"t":[1793480450600,1],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480451595,0],"d":"mac-j72h3rcu","op":"ai.put","text":"🇩🇪","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"flag of Germany\"\t\\ 1. Bedeutung"}
+{"t":[1793480452102,1],"d":"mac-j72h3rcu","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":1}
+{"t":[1793480452102,2],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480452104,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480453098,0],"d":"mac-j72h3rcu","op":"ai.put","text":"Häuser","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"houses\"\t\\ 1. Bedeutung"}
+{"t":[1793480453608,2],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480455110,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":3}
+{"t":[1793480455110,1],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480455611,0],"d":"mac-j72h3rcu","op":"history.del","text":"Gdańsk"}
+{"t":[1793480455611,1],"d":"mac-j72h3rcu","op":"saved.del","text":"İstanbul"}
+{"t":[1793480457105,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480458105,0],"d":"mac-j72h3rcu","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480460107,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480460614,3],"d":"mac-j72h3rcu","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk, ещё","c":1}
+{"t":[1793480461609,0],"d":"mac-j72h3rcu","op":"history.del","text":"não"}
+{"t":[1793480461609,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480461611,0],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}
+{"t":[1793480462618,0],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480462618,1],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480463099,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480463120,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480463620,2],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480463620,3],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480465117,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480465119,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone), ещё"}
+{"t":[1793480465607,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480466107,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480467130,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you (2)"}
+{"t":[1793480467130,1],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480467636,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480467636,1],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480467638,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480467638,1],"d":"mac-j72h3rcu","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":1}
+{"t":[1793480467638,2],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480468631,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480468638,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480469638,0],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480471121,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793480471641,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk (2)"}
+{"t":[1793480472144,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480472144,1],"d":"mac-j72h3rcu","op":"history.del","text":"İstanbul"}
+{"t":[1793480472144,2],"d":"mac-j72h3rcu","op":"history.del","text":"🇩🇪"}
+{"t":[1793480472637,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793480472637,1],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480472637,2],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480472637,4],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480473144,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480473638,0],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё"}
+{"t":[1793480473640,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480473640,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480474149,1],"d":"mac-j72h3rcu","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793480474652,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480474652,1],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793480474652,2],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk (2)"}
+{"t":[1793480474652,3],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё"}
+{"t":[1793480474656,1],"d":"mac-j72h3rcu","op":"saved.del","text":"İstanbul"}
+{"t":[1793480476155,0],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480476662,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480477658,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480478659,0],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}
+{"t":[1793480478659,1],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480478661,0],"d":"mac-j72h3rcu","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":1}
+{"t":[1793480479169,0],"d":"mac-j72h3rcu","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480480165,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793480480166,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480481167,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480481169,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480481176,2],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480481671,0],"d":"mac-j72h3rcu","op":"history.del","text":"Gdańsk"}
+{"t":[1793480483673,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793480483674,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480484675,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480486662,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480487177,0],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480487177,1],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480487184,3],"d":"mac-j72h3rcu","op":"history.del","text":"não"}
+{"t":[1793480490180,0],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480490680,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480491687,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480491690,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480493186,0],"d":"mac-j72h3rcu","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
+{"t":[1793480493693,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello, ещё"}
+{"t":[1793480495193,0],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
+{"t":[1793480495193,1],"d":"mac-j72h3rcu","op":"ai.put","text":"漢字","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"kanji\",\"ещё\"]}"}
+{"t":[1793480495687,0],"d":"mac-j72h3rcu","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":1}
+{"t":[1793480496195,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480496688,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480497188,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)"}
+{"t":[1793480497695,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480497695,1],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":2}
+{"t":[1793480497695,2],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480498679,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk (2)","c":1}
+{"t":[1793480498702,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480498702,2],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)"}
+{"t":[1793480500183,0],"d":"mac-j72h3rcu","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)","c":1}
+{"t":[1793480500697,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793480501197,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)"}
+{"t":[1793480501204,0],"d":"mac-j72h3rcu","op":"history.del","text":"漢字"}
+{"t":[1793480501204,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480501204,2],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480502207,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё"}
+{"t":[1793480502208,0],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480502208,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)"}
+{"t":[1793480503203,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё"}
+{"t":[1793480503706,0],"d":"mac-j72h3rcu","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480503707,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480503707,1],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480503710,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)"}
+{"t":[1793480504711,0],"d":"mac-j72h3rcu","op":"ai.put","text":"não","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"no (2)\"}"}
+{"t":[1793480504712,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480505219,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480505219,1],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480505220,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480509216,0],"d":"mac-j72h3rcu","op":"saved.del","text":"İstanbul"}
+{"t":[1793480509217,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480509217,1],"d":"mac-j72h3rcu","op":"history.del","text":"مرحبا"}
+{"t":[1793480509717,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480510718,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480514228,0],"d":"mac-j72h3rcu","op":"history.del","text":"🇩🇪"}
+{"t":[1793480515228,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480516221,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480516221,1],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480516229,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480516229,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480517234,0],"d":"mac-j72h3rcu","op":"ai.put","text":"não","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"no, ещё"}
+{"t":[1793480517234,1],"d":"mac-j72h3rcu","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"half-width katakana\"}"}
+{"t":[1793480518731,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no (2)"}
+{"t":[1793480519223,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
+{"t":[1793480519725,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480520245,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480521247,0],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1793480523246,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793480523756,0],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480524755,0],"d":"mac-j72h3rcu","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793480524757,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480524764,1],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480525265,1],"d":"mac-j72h3rcu","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"flag of Germany, ещё\"}"}
+{"t":[1793480525265,2],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480525265,3],"d":"mac-j72h3rcu","op":"ai.put","text":"İstanbul","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Istanbul, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480525761,0],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480527248,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480529763,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480530263,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480530263,1],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480531752,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480532769,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480532778,0],"d":"mac-j72h3rcu","op":"history.del","text":"größer"}
+{"t":[1793480532778,1],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul (2)"}
+{"t":[1793480533760,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480534274,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480534274,1],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480534277,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480534778,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480535778,2],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480537281,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480537281,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk, ещё"}
+{"t":[1793480537788,1],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793480537788,3],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480542292,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480543286,0],"d":"mac-j72h3rcu","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":1}
+{"t":[1793480543294,1],"d":"mac-j72h3rcu","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё","c":1}
+{"t":[1793480543297,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480543797,1],"d":"mac-j72h3rcu","op":"ai.put","text":"مرحبا","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"hello, ещё"}
+{"t":[1793480544798,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480546279,0],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480546804,0],"d":"mac-j72h3rcu","op":"history.del","text":"👍🏽"}
+{"t":[1793480546804,1],"d":"mac-j72h3rcu","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":1}
+{"t":[1793480548288,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1793480548802,0],"d":"mac-j72h3rcu","op":"history.del","text":"Gdańsk"}
+{"t":[1793480548802,1],"d":"mac-j72h3rcu","op":"saved.put","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)"}
+{"t":[1793480549303,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana (2)"}
+{"t":[1793480549804,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you (2)"}
+{"t":[1793480550306,0],"d":"mac-j72h3rcu","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793480551811,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480553313,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
+{"t":[1793480559319,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480559320,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480559321,0],"d":"mac-j72h3rcu","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793480559321,1],"d":"mac-j72h3rcu","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1793480559322,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480560322,1],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё"}
+{"t":[1793480561323,0],"d":"mac-j72h3rcu","op":"history.del","text":"漢字"}
+{"t":[1793480561824,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480563333,0],"d":"mac-j72h3rcu","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)","base":"groß","c":1}
+{"t":[1793480565337,1],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello, ещё"}
+{"t":[1793480565337,2],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480566833,1],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480567343,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480567836,0],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480568336,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480568343,0],"d":"mac-j72h3rcu","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480568823,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480569336,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё"}
+{"t":[1793480570347,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480571348,1],"d":"mac-j72h3rcu","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":2}
+{"t":[1793480572342,0],"d":"mac-j72h3rcu","op":"history.del","text":"İstanbul"}
+{"t":[1793480572342,1],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480572350,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480572845,0],"d":"mac-j72h3rcu","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)","c":1}
+{"t":[1793480573352,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480573353,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480573353,2],"d":"mac-j72h3rcu","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480573353,3],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello"}
+{"t":[1793480573850,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480574851,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480574852,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480575352,0],"d":"mac-j72h3rcu","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)"}
+{"t":[1793480575353,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480578366,1],"d":"mac-j72h3rcu","op":"ai.put","text":"مرحبا","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"привет\"\t\\ 1. Bedeutung"}
+{"t":[1793480579863,0],"d":"mac-j72h3rcu","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
+{"t":[1793480580350,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480581364,2],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793480581872,1],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}
+{"t":[1793480582867,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480583855,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480584369,0],"d":"mac-j72h3rcu","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
+{"t":[1793480584871,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Häuser"}
+{"t":[1793480585373,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480587876,1],"d":"mac-j72h3rcu","op":"history.del","text":"漢字"}
+{"t":[1793480587878,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480588370,0],"d":"mac-j72h3rcu","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello, ещё"}
+{"t":[1793480588891,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480588891,1],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480589394,0],"d":"mac-j72h3rcu","op":"saved.del","text":"👍🏽"}
+{"t":[1793480589896,0],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480589898,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480590379,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480590399,0],"d":"mac-j72h3rcu","op":"history.del","text":"größer"}
+{"t":[1793480590399,1],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480590399,2],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480590903,0],"d":"mac-j72h3rcu","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё"}
+{"t":[1793480591883,0],"d":"mac-j72h3rcu","op":"saved.del","text":"não"}
+{"t":[1793480592396,0],"d":"mac-j72h3rcu","op":"saved.del","text":"🇩🇪"}
+{"t":[1793480592896,0],"d":"mac-j72h3rcu","op":"history.del","text":"Gdańsk"}
+{"t":[1793480594396,1],"d":"mac-j72h3rcu","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480594899,1],"d":"mac-j72h3rcu","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
+{"t":[1793480595900,0],"d":"mac-j72h3rcu","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480595901,3],"d":"mac-j72h3rcu","op":"history.del","text":"não"}
+{"t":[1793480596403,0],"d":"mac-j72h3rcu","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no (2)","c":1}
+{"t":[1793480596910,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480597410,0],"d":"mac-j72h3rcu","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1793480598392,0],"d":"mac-j72h3rcu","op":"ai.put","text":"ｶﾀｶﾅ","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"half-width katakana (2)\"]}"}
+{"t":[1793480598892,0],"d":"mac-j72h3rcu","op":"history.del","text":"İstanbul"}
+{"t":[1793480598905,0],"d":"mac-j72h3rcu","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480599917,0],"d":"mac-j72h3rcu","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480600397,0],"d":"mac-j72h3rcu","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793480600912,0],"d":"mac-j72h3rcu","op":"saved.del","text":"漢字"}
+{"t":[1793480602412,0],"d":"mac-j72h3rcu","op":"saved.del","text":"größer"}
+{"t":[1793480603917,0],"d":"mac-j72h3rcu","op":"saved.del","text":"مرحبا"}

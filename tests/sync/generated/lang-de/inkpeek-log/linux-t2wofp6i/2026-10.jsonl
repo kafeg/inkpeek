@@ -1,0 +1,76 @@
+{"t":[1793361659987,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":1}
+{"t":[1793361659987,1],"d":"linux-t2wofp6i","op":"saved.del","text":"Käse"}
+{"t":[1793361659987,2],"d":"linux-t2wofp6i","op":"saved.del","text":"Käse"}
+{"t":[1793361660250,0],"d":"linux-t2wofp6i","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1793361780757,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1793361780757,1],"d":"linux-t2wofp6i","op":"ai.put","text":"Käse","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"сыр"}
+{"t":[1793361781007,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1793361781007,1],"d":"linux-t2wofp6i","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1793361840987,0],"d":"linux-t2wofp6i","op":"ai.put","text":"größer","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"упражнение\"}"}
+{"t":[1793361843007,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)"}
+{"t":[1793361844000,0],"d":"linux-t2wofp6i","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":1}
+{"t":[1793361844000,1],"d":"linux-t2wofp6i","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1793361844257,0],"d":"linux-t2wofp6i","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё"}
+{"t":[1793361844500,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня (2)"}
+{"t":[1793361845750,0],"d":"linux-t2wofp6i","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":1}
+{"t":[1793361905750,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
+{"t":[1793361965750,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Как дела?"}
+{"t":[1793362029737,0],"d":"linux-t2wofp6i","op":"history.del","text":"Übung"}
+{"t":[1793362149757,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1793362210000,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1793362210250,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Straße","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"девочка"}
+{"t":[1793362212257,0],"d":"linux-t2wofp6i","op":"history.del","text":"Wie geht's?"}
+{"t":[1793362272257,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1793362332500,0],"d":"linux-t2wofp6i","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":2}
+{"t":[1793362332750,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)","base":"Haus","c":1}
+{"t":[1793362336750,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":2}
+{"t":[1793362341750,0],"d":"linux-t2wofp6i","op":"history.del","text":"STRASSE"}
+{"t":[1793362342250,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1793362342487,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"большой\"\t\\ 1. Bedeutung"}
+{"t":[1793362346507,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
+{"t":[1793362350500,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)","c":1}
+{"t":[1793362357507,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Haus","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"дом\"}"}
+{"t":[1793362361737,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1793362421750,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1793362421987,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":3}
+{"t":[1793362481987,0],"d":"linux-t2wofp6i","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
+{"t":[1793362483000,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела?\"]}"}
+{"t":[1793362542987,0],"d":"linux-t2wofp6i","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица"}
+{"t":[1793362603000,0],"d":"linux-t2wofp6i","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":3}
+{"t":[1793362662987,0],"d":"linux-t2wofp6i","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793362668507,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1793362672500,0],"d":"linux-t2wofp6i","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё"}
+{"t":[1793362734507,0],"d":"linux-t2wofp6i","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":4}
+{"t":[1793362736000,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло, ещё","c":1}
+{"t":[1793362741257,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":4}
+{"t":[1793362806250,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1793362806250,1],"d":"linux-t2wofp6i","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793362810257,0],"d":"linux-t2wofp6i","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)","c":2}
+{"t":[1793362814257,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":2}
+{"t":[1793362814500,0],"d":"linux-t2wofp6i","op":"saved.del","text":"Fuß"}
+{"t":[1793362819500,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":5}
+{"t":[1793362828750,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Fuß","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"нога, ступня"}
+{"t":[1793362837250,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1793362897500,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Mädchen","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"девочка\"]}"}
+{"t":[1793362901500,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Mädchen","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"девочка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362905487,0],"d":"linux-t2wofp6i","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":5}
+{"t":[1793362906500,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Käse","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"сыр (2)"}
+{"t":[1793362966750,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1793362971987,0],"d":"linux-t2wofp6i","op":"ai.put","text":"größer","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"больше\"\t\\ 1. Bedeutung"}
+{"t":[1793362976507,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Käse","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сыр (2)\"]}"}
+{"t":[1793363100500,0],"d":"linux-t2wofp6i","op":"history.del","text":"Käse"}
+{"t":[1793363162737,0],"d":"linux-t2wofp6i","op":"ai.put","text":"aufmachen","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"открывать, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363226757,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Haus","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"das Haus (Hauses, pl. Häuser) — дом, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363227000,0],"d":"linux-t2wofp6i","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":3}
+{"t":[1793363231987,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1793363232000,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)"}
+{"t":[1793363232000,1],"d":"linux-t2wofp6i","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1793363292007,0],"d":"linux-t2wofp6i","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Как дела?, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363352750,0],"d":"linux-t2wofp6i","op":"ai.put","text":"STRASSE","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улица"}
+{"t":[1793363353000,0],"d":"linux-t2wofp6i","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793363357007,0],"d":"linux-t2wofp6i","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":4}
+{"t":[1793363358250,0],"d":"linux-t2wofp6i","op":"saved.del","text":"Fuß"}
+{"t":[1793363418237,0],"d":"linux-t2wofp6i","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
+{"t":[1793363419257,0],"d":"linux-t2wofp6i","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":4}
+{"t":[1793363423250,0],"d":"linux-t2wofp6i","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1793363483500,0],"d":"linux-t2wofp6i","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":1}

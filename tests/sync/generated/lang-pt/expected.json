@@ -1,0 +1,49 @@
+{
+ "saved": [
+  {"text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","created":1793364068987,"id":"linux-xwo2vbvt:1793364068987:0","origin":"linux-xwo2vbvt","updated_by":"linux-xwo2vbvt"},
+  {"text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё","created":1793364138237,"id":"win-lha36s2c:1793363574750:0","origin":"win-lha36s2c","updated_by":"linux-xwo2vbvt"},
+  {"text":"não","kind":"word","lang":"ru","meaning":"нет, ещё","created":1793364064750,"id":"linux-xwo2vbvt:1793363392757:0","origin":"linux-xwo2vbvt","updated_by":"win-lha36s2c"}
+ ],
+ "history": [
+  {"text":"Obrigado!","kind":"phrase","lang":"ru","base":null,"meaning":"Спасибо!, ещё","seen":1793363940250,"count":16,"devices":["google-qicv7anm","google-uilhw6rs","linux-xwo2vbvt","win-lha36s2c"]},
+  {"text":"maçã","kind":"word","lang":"ru","base":null,"meaning":"яблоко","seen":1793364142257,"count":3,"devices":["google-uilhw6rs","linux-xwo2vbvt"]},
+  {"text":"não","kind":"word","lang":"ru","base":null,"meaning":"нет","seen":1793364134257,"count":5,"devices":["google-qicv7anm","linux-xwo2vbvt","win-lha36s2c"]}
+ ],
+ "ai": [
+  {"text":"Obrigado!","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Thank you! (2)\"\t\\ 1. Bedeutung","created":1793363193750},
+  {"text":"Obrigado!","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you!\"\t\\ 1. Bedeutung","created":1793363133750},
+  {"text":"Obrigado!","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you!\"\t\\ 1. Bedeutung","created":1793364068750},
+  {"text":"Obrigado!","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Thank you!, ещё","created":1793363453250},
+  {"text":"Obrigado!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Thank you!\"}","created":1793363325000},
+  {"text":"Obrigado!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Thank you!\"]}","created":1793363392487},
+  {"text":"Obrigado!","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung","created":1793362239000},
+  {"text":"Obrigado!","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Спасибо!, ещё\"\t\\ 1. Bedeutung","created":1793362097750},
+  {"text":"Obrigado!","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"нет (2)","created":1793362105737},
+  {"text":"Obrigado!","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Спасибо! (2)\"]}","created":1793363327000},
+  {"text":"coração","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"heart\"\t\\ 1. Bedeutung","created":1793361661000},
+  {"text":"coração","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung","created":1793363700000},
+  {"text":"coração","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"heart","created":1793362750500},
+  {"text":"coração","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"heart (2)","created":1793363063500},
+  {"text":"coração","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"яблоко\"\t\\ 1. Bedeutung","created":1793362484000},
+  {"text":"coração","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"сердце, ещё\"}","created":1793363320750},
+  {"text":"coração","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сердце\"]}","created":1793363324757},
+  {"text":"maçã","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"apple\"\t\\ 1. Bedeutung","created":1793363392750},
+  {"text":"maçã","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"apple, ещё\"\t\\ 1. Bedeutung","created":1793363514750},
+  {"text":"maçã","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"apple, ещё","created":1793362553250},
+  {"text":"maçã","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"apple","created":1793363330987},
+  {"text":"maçã","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"apple","created":1793363513737},
+  {"text":"maçã","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"apple\"}","created":1793363067487},
+  {"text":"maçã","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"яблоко\"\t\\ 1. Bedeutung","created":1793362943000},
+  {"text":"maçã","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"яблоко, ещё\"\t\\ 1. Bedeutung","created":1793362113987},
+  {"text":"maçã","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"яблоко","created":1793363940237},
+  {"text":"não","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"no\"\t\\ 1. Bedeutung","created":1793363452987},
+  {"text":"não","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"no\"\t\\ 1. Bedeutung","created":1793363575757},
+  {"text":"não","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"no, ещё\"\t\\ 1. Bedeutung","created":1793362101750},
+  {"text":"não","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"no","created":1793363940000},
+  {"text":"não","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"no, ещё\"}","created":1793364134257},
+  {"text":"não","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung","created":1793362485000},
+  {"text":"não","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"нет (2)\"\t\\ 1. Bedeutung","created":1793361847487},
+  {"text":"não","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нет, ещё\"\t\\ 1. Bedeutung","created":1793363128507},
+  {"text":"não","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"нет\",\"ещё\"]}","created":1793363332507}
+ ]
+}

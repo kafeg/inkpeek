@@ -1,0 +1,488 @@
+{"t":[1790812859987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1790816460987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Добрий вечір"}
+{"t":[1790816521000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1790820121000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":1}
+{"t":[1790823783987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":1}
+{"t":[1790823847000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":1}
+{"t":[1790831048000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Häuser"}
+{"t":[1790834768007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1790834769000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":1}
+{"t":[1790841971000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":1}
+{"t":[1790845572000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":1}
+{"t":[1790845692987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":1}
+{"t":[1790845754007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
+{"t":[1790853196987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Käse","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"cheese\",\"ещё\"]}"}
+{"t":[1790860517007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
+{"t":[1790864177987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1790867779000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
+{"t":[1790874978987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
+{"t":[1790878580000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":2}
+{"t":[1790882180000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1790885780000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение"}
+{"t":[1790885782000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё","c":1}
+{"t":[1790893042987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1790896643007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня, ещё","c":1}
+{"t":[1790896703987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1790907626987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"съесть"}
+{"t":[1790911288987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё"}
+{"t":[1790911471000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":2}
+{"t":[1790922272000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1790922334987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1790926060007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1790940582000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)","c":2}
+{"t":[1790940883000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)","c":3}
+{"t":[1790944483000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1790951742987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1790955403007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":1}
+{"t":[1790969864000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"corazón","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"сердце, ещё\"}"}
+{"t":[1790969926000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"съесть"}
+{"t":[1790988046007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Добрий вечір","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Good evening, ещё"}
+{"t":[1790988047000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1790991647987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица, ещё"}
+{"t":[1790998848000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1791002449987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":1}
+{"t":[1791006051007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"¿Qué tal?"}
+{"t":[1791009651007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"How are you? (2)\"]}"}
+{"t":[1791016971987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":2}
+{"t":[1791020572987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)"}
+{"t":[1791020633000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1791020634000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":2}
+{"t":[1791024237000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"exercise\"]}"}
+{"t":[1791024356987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":1}
+{"t":[1791024417000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"größer"}
+{"t":[1791028018007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":1}
+{"t":[1791031619007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1791031620000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"größer"}
+{"t":[1791035340000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":1}
+{"t":[1791046384007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1791046385000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1791046446000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1791050108000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":2}
+{"t":[1791053708000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё"}
+{"t":[1791068291987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child, ещё","c":1}
+{"t":[1791071952007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"GROẞ"}
+{"t":[1791071955000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ещё раз","lang":"German","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Noch einmal\"\t\\ 1. Bedeutung"}
+{"t":[1791071955987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Ещё раз"}
+{"t":[1791072016000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"STRASSE","lang":"German","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"aufessen"}
+{"t":[1791090081000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":2}
+{"t":[1791093681987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Übung"}
+{"t":[1791093742000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1791108263007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":1}
+{"t":[1791115523987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
+{"t":[1791115585007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Straße"}
+{"t":[1791119187007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок, ещё"}
+{"t":[1791122967987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1791123028000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal (2)","c":1}
+{"t":[1791126627987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
+{"t":[1791130229000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":1}
+{"t":[1791148229000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Здравствуйте"}
+{"t":[1791151829987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":2}
+{"t":[1791152012007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1791159214000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1791170077987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня, ещё"}
+{"t":[1791173738007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1791177399000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":2}
+{"t":[1791181000000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Fuß"}
+{"t":[1791181060007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1791202903000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1791203023000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Добрый вечер!"}
+{"t":[1791203024007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ещё раз","lang":"German","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Noch einmal\"\t\\ 1. Bedeutung"}
+{"t":[1791203144000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1791206744000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":3}
+{"t":[1791210345000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":3}
+{"t":[1791213945000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1791217545000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Fuß"}
+{"t":[1791224745007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё"}
+{"t":[1791228345000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1791231944987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big (2)","c":2}
+{"t":[1791231946987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1791235547987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"I close the door!"}
+{"t":[1791239207987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё"}
+{"t":[1791242808000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё","c":1}
+{"t":[1791242867987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"GROẞ"}
+{"t":[1791246529000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Добрий вечір"}
+{"t":[1791246530000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня, ещё","c":1}
+{"t":[1791257391007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Öl"}
+{"t":[1791260991000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"GROẞ","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"big\"\t\\ 1. Bedeutung"}
+{"t":[1791260991987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Haus"}
+{"t":[1791260992987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1791264653007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"pingüino"}
+{"t":[1791275514007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"нога, ступня (2)\"}"}
+{"t":[1791275694007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1791275755000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)"}
+{"t":[1791275756000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"aufmachen","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"открывать"}
+{"t":[1791279597000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1791279657007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":1}
+{"t":[1791279779007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
+{"t":[1791287039000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1791287099987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё","c":2}
+{"t":[1791287161000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1791287224000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Öl","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"масло, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1791301688000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё","c":1}
+{"t":[1791305349987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо (2)","c":1}
+{"t":[1791312610000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
+{"t":[1791319989987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1791319990987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1791323772987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Öl"}
+{"t":[1791334753987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Я закрываю дверь!\"}"}
+{"t":[1791345553987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"größer"}
+{"t":[1791345614987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus (2)","c":4}
+{"t":[1791349275007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big, ещё","c":3}
+{"t":[1791349276007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"pingüino"}
+{"t":[1791367398987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":2}
+{"t":[1791374840000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"GROẞ","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"big"}
+{"t":[1791374841000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё"}
+{"t":[1791378501987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"дом","kind":"word","lang":"de","meaning":"Haus"}
+{"t":[1791385701987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1791385763987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1791385764987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":3}
+{"t":[1791396626000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Käse"}
+{"t":[1791396686007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1791400287007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":2}
+{"t":[1791403888000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":2}
+{"t":[1791403949000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1791404009007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1791404009987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
+{"t":[1791407610000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":4}
+{"t":[1791407611007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"ґанок","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"porch\"}"}
+{"t":[1791411271000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Häuser"}
+{"t":[1791414872000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":3}
+{"t":[1791418472007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1791418472987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Fuß","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нога, ступня\"\t\\ 1. Bedeutung"}
+{"t":[1791418535000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я закрываю дверь!\"\t\\ 1. Bedeutung"}
+{"t":[1791418535987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ещё раз"}
+{"t":[1791418595987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":1}
+{"t":[1791426100987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Добрый вечер\"\t\\ 1. Bedeutung"}
+{"t":[1791426161000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло, ещё","c":1}
+{"t":[1791433483000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":2}
+{"t":[1791433484987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Übung"}
+{"t":[1791440805000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":2}
+{"t":[1791440807007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1791444407000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Mädchen"}
+{"t":[1791444408007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":4}
+{"t":[1791451669000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1791455269000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1791455330000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Добрый вечер (2)\"}"}
+{"t":[1791455331000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Häuser","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"houses"}
+{"t":[1791455391007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1791462711000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"GROẞ"}
+{"t":[1791462711987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1791470034000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!, ещё","c":1}
+{"t":[1791470094007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":3}
+{"t":[1791477355000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"ґанок"}
+{"t":[1791492120000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)"}
+{"t":[1791492120987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё"}
+{"t":[1791495783000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"съесть"}
+{"t":[1791499504987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":4}
+{"t":[1791499625000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо"}
+{"t":[1791503227000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1791506888987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1791517749007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Öl"}
+{"t":[1791517810000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":2}
+{"t":[1791532269987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
+{"t":[1791532331987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":3}
+{"t":[1791535933000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Fuß"}
+{"t":[1791543136007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":3}
+{"t":[1791543137000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"aufmachen","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"to open\"}"}
+{"t":[1791543137987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1791546737987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё"}
+{"t":[1791550399000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":2}
+{"t":[1791550400000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"corazón","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1791557781007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок (2)"}
+{"t":[1791557843987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"How are you?"}
+{"t":[1791557904000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":5}
+{"t":[1791561566000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1791561566987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":2}
+{"t":[1791561688000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1791561808000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Mädchen","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"girl\"]}"}
+{"t":[1791565408000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
+{"t":[1791569011987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё"}
+{"t":[1791569073000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1791569133987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1791576336007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ещё раз"}
+{"t":[1791580177007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":4}
+{"t":[1791594701987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Добрий вечір"}
+{"t":[1791598606007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"exercise (2)\"}"}
+{"t":[1791602206000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)"}
+{"t":[1791605806007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal"}
+{"t":[1791605866000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"съесть","lang":"German","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"aufessen\"]}"}
+{"t":[1791613125987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ещё раз"}
+{"t":[1791613128000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":3}
+{"t":[1791620390000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":4}
+{"t":[1791623990000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door! (2)","c":1}
+{"t":[1791624049987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":5}
+{"t":[1791631251000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Straße"}
+{"t":[1791631312007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":4}
+{"t":[1791631312987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":3}
+{"t":[1791634914987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Grüß Gott"}
+{"t":[1791638515000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Käse"}
+{"t":[1791642116007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Straße"}
+{"t":[1791642176000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1791642236000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1791649497000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1791656697000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Häuser"}
+{"t":[1791656698007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1791656819000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"дом","kind":"word","lang":"de","meaning":"Haus"}
+{"t":[1791656879000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"niño","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"child\"\t\\ 1. Bedeutung"}
+{"t":[1791656879987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"größer","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"больше, ещё"}
+{"t":[1791660481000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Mädchen"}
+{"t":[1791664081987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1791664141987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"дом"}
+{"t":[1791667801987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"дом","kind":"word","lang":"de","meaning":"Haus"}
+{"t":[1791671402000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":5}
+{"t":[1791671462000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"STRASSE"}
+{"t":[1791671584007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
+{"t":[1791675185000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":2}
+{"t":[1791678786000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise (2)","c":3}
+{"t":[1791678967000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":5}
+{"t":[1791682567987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":1}
+{"t":[1791682570000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!","c":2}
+{"t":[1791682630007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":2}
+{"t":[1791682690007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1791682750007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1791682750987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":6}
+{"t":[1791682811987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1791701176007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
+{"t":[1791704897000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё"}
+{"t":[1791704958987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
+{"t":[1791712399000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"corazón","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"сердце, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1791716000000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё"}
+{"t":[1791719662000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":6}
+{"t":[1791719781987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1791730584007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"pingüino"}
+{"t":[1791730586000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":2}
+{"t":[1791734186987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"GROẞ"}
+{"t":[1791741508000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":3}
+{"t":[1791748771000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1791748772007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)"}
+{"t":[1791756034000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1791759695000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Käse"}
+{"t":[1791759754987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
+{"t":[1791763355000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1791770616000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"нога, ступня\"}"}
+{"t":[1791792460000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо (2)"}
+{"t":[1791792522007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":1}
+{"t":[1791796122000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":3}
+{"t":[1791803323987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Fuß"}
+{"t":[1791806924000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"niño"}
+{"t":[1791807044000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё","c":1}
+{"t":[1791811007007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":3}
+{"t":[1791814607000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
+{"t":[1791814730007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1791814851987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":7}
+{"t":[1791822051987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё","c":7}
+{"t":[1791822053007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":2}
+{"t":[1791825713007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":8}
+{"t":[1791825773000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":1}
+{"t":[1791829373000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1791829373987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1791833034007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"STRASSE","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street\"}"}
+{"t":[1791836634000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Haus","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"das Haus (Hauses, pl. Häuser) — дом\"\t\\ 1. Bedeutung"}
+{"t":[1791840234000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1791843834000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":4}
+{"t":[1791858293987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1791858295000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1791858356987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
+{"t":[1791865557007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":5}
+{"t":[1791865617987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Wie geht's?"}
+{"t":[1791865679007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)","c":1}
+{"t":[1791865680000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
+{"t":[1791872941987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"съесть","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"to eat up"}
+{"t":[1791872943007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1791872945000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Grüß Gott"}
+{"t":[1791880205000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":4}
+{"t":[1791880206007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1791880206987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"aufmachen"}
+{"t":[1791883807007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1791883808987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"niño"}
+{"t":[1791887410007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!, ещё","c":2}
+{"t":[1791891011987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":4}
+{"t":[1791891072000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё"}
+{"t":[1791891252007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)"}
+{"t":[1791894852000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":1}
+{"t":[1791894853000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":2}
+{"t":[1791894914000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":5}
+{"t":[1791916696000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Добрий вечір"}
+{"t":[1791916756000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Grüß Gott","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Hello"}
+{"t":[1791920358007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":1}
+{"t":[1791920418000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Öl"}
+{"t":[1791920419000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":6}
+{"t":[1791920479000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1791920540000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1791927740000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"niño"}
+{"t":[1791927801000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":3}
+{"t":[1791938724007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
+{"t":[1791938783987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1791946105007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"niño"}
+{"t":[1791957085987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
+{"t":[1791957146000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen"}
+{"t":[1791960809007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":6}
+{"t":[1791960810000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":8}
+{"t":[1791964469987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)","c":1}
+{"t":[1791968131987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise"}
+{"t":[1791975393007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"ёжик"}
+{"t":[1791982837000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":9}
+{"t":[1791982896987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":2}
+{"t":[1791982897987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1791986559000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":5}
+{"t":[1791990159000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Fuß"}
+{"t":[1791990161000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1792004622007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Häuser"}
+{"t":[1792004682007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Straße"}
+{"t":[1792008341987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal (2)","c":2}
+{"t":[1792019141987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"aufmachen"}
+{"t":[1792019143000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal, ещё"}
+{"t":[1792019144000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"дом","kind":"word","lang":"de","meaning":"Haus"}
+{"t":[1792019205000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё"}
+{"t":[1792030124987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Mädchen"}
+{"t":[1792030305987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":2}
+{"t":[1792033967000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":3}
+{"t":[1792033968000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"їжак","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"hedgehog, ещё"}
+{"t":[1792052272987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Mädchen"}
+{"t":[1792052274000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"größer","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"bigger\"\t\\ 1. Bedeutung"}
+{"t":[1792055934000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1792055937000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":7}
+{"t":[1792066978007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":3}
+{"t":[1792070578007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!"}
+{"t":[1792070578987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Häuser"}
+{"t":[1792070640000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1792070700000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Mädchen","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"girl\"\t\\ 1. Bedeutung"}
+{"t":[1792070702007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"corazón","kind":"word","lang":"ru","meaning":"сердце"}
+{"t":[1792085168007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child, ещё","c":1}
+{"t":[1792085227987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"дом"}
+{"t":[1792085348000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1792085348987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё"}
+{"t":[1792089069007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё"}
+{"t":[1792092791000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1792092910987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"STRASSE","kind":"word","lang":"en","meaning":"street"}
+{"t":[1792092971000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Добрый вечер, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792107436007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":2}
+{"t":[1792107496000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Haus","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"дом, ещё"}
+{"t":[1792107557000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"corazón","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792111158007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus, ещё","c":1}
+{"t":[1792114819007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
+{"t":[1792118479000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":1}
+{"t":[1792125799000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"niño"}
+{"t":[1792129518987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":2}
+{"t":[1792129641000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":3}
+{"t":[1792133300987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"їжак"}
+{"t":[1792136903000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё","base":"Haus","c":1}
+{"t":[1792144105000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"aufmachen"}
+{"t":[1792151304987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок, ещё","c":2}
+{"t":[1792155027000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1792173150000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
+{"t":[1792173211000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":7}
+{"t":[1792176811000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Добрий вечір"}
+{"t":[1792176873000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal, ещё","c":3}
+{"t":[1792176933000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)"}
+{"t":[1792176934000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":8}
+{"t":[1792176995000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":1}
+{"t":[1792180895000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"їжак"}
+{"t":[1792180896000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1792184495987,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Käse"}
+{"t":[1792188155987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё","c":1}
+{"t":[1792188215987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":6}
+{"t":[1792192060007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":1}
+{"t":[1792192124007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1792192184000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1792195904000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise (2)"}
+{"t":[1792195964007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ещё раз","lang":"German","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Noch einmal\"\t\\ 1. Bedeutung"}
+{"t":[1792196024007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1792199807000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)"}
+{"t":[1792199869000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"I close the door!\"\t\\ 1. Bedeutung"}
+{"t":[1792207128987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":3}
+{"t":[1792210789000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Straße","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"street\"\t\\ 1. Bedeutung"}
+{"t":[1792210909007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1792214508987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"pingüino"}
+{"t":[1792214510000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":4}
+{"t":[1792229037007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"съесть"}
+{"t":[1792232636987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":1}
+{"t":[1792236296987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":1}
+{"t":[1792239898987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":1}
+{"t":[1792254361987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
+{"t":[1792258082000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"дом","lang":"German","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Haus\"\t\\ 1. Bedeutung"}
+{"t":[1792258144000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер (2)","c":2}
+{"t":[1792265464000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":2}
+{"t":[1792269126000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица (2)","c":1}
+{"t":[1792272786987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":5}
+{"t":[1792287250000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ещё раз"}
+{"t":[1792301831000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":2}
+{"t":[1792301893000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel"}
+{"t":[1792305734000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Öl"}
+{"t":[1792309335000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Wie geht's?","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1792312996000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1792313176000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1792313237000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!","c":2}
+{"t":[1792316836987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening"}
+{"t":[1792316838007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
+{"t":[1792316898987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Добрый вечер!","lang":"German","section":"offline-de","ver":0,"model":"bergamot","answer":"Guten Abend! (2)"}
+{"t":[1792316900007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1792324159987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":2}
+{"t":[1792324220000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Fuß","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"foot (2)"}
+{"t":[1792327881000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1792335204987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Я закрываю дверь!\"]}"}
+{"t":[1792338926000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"größer","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"bigger (2)"}
+{"t":[1792342586987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":2}
+{"t":[1792342588007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Übung","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"exercise\"\t\\ 1. Bedeutung"}
+{"t":[1792342767987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Mädchen"}
+{"t":[1792353749007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Straße"}
+{"t":[1792353749987,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
+{"t":[1792353812000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":7}
+{"t":[1792353813007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1792353934000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)","c":3}
+{"t":[1792364853987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1792368574007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":2}
+{"t":[1792368576000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"der Käse — сыр\"\t\\ 1. Bedeutung"}
+{"t":[1792372237000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"aufmachen","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"to open\"\t\\ 1. Bedeutung"}
+{"t":[1792379677007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":8}
+{"t":[1792390538000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё"}
+{"t":[1792390601007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё"}
+{"t":[1792394201987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1792401463000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":1}
+{"t":[1792408846007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"ёжик"}
+{"t":[1792408967000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":6}
+{"t":[1792412568000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":2}
+{"t":[1792419832000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":7}
+{"t":[1792427095007,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)"}
+{"t":[1792427096007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":9}
+{"t":[1792430695987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1792434297007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"STRASSE"}
+{"t":[1792437897000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":1}
+{"t":[1792441561007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":3}
+{"t":[1792441621000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Übung","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"упражнение\"\t\\ 1. Bedeutung"}
+{"t":[1792445223000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Öl","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"масло\"}"}
+{"t":[1792445286000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"ґанок"}
+{"t":[1792449126987,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"ёжик","lang":"German","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Igel\"\t\\ 1. Bedeutung"}
+{"t":[1792449188000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1792449191000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":1}
+{"t":[1792474700007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"niño"}
+{"t":[1792474702000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":3}
+{"t":[1792478422000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Wie geht's?"}
+{"t":[1792482082000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо (2)"}
+{"t":[1792482204000,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"corazón","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"сердце\"\t\\ 1. Bedeutung"}
+{"t":[1792489528000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":1}
+{"t":[1792489590007,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1792493431007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":10}
+{"t":[1792493492007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)","base":"machen","c":2}
+{"t":[1792493552000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"Haus"}
+{"t":[1792497152000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":4}
+{"t":[1792500814000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"pingüino"}
+{"t":[1792500814987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"GROẞ"}
+{"t":[1792504416000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":4}
+{"t":[1792504476000,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"niño"}
+{"t":[1792511676987,0],"d":"mac-lhyt2fcc","op":"saved.del","text":"съесть"}
+{"t":[1792518937000,0],"d":"mac-lhyt2fcc","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1792522538007,0],"d":"mac-lhyt2fcc","op":"ai.put","text":"Übung","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"упражнение"}
+{"t":[1792522659000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)"}
+{"t":[1792526259000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":1}
+{"t":[1792529918987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":3}
+{"t":[1792548099007,0],"d":"mac-lhyt2fcc","op":"history.del","text":"pingüino"}
+{"t":[1792548159987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":1}
+{"t":[1792548161000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":2}
+{"t":[1792551822000,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":2}
+{"t":[1792559022987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":1}
+{"t":[1792573606000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1792573607000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!"}
+{"t":[1792577207007,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1792580927987,0],"d":"mac-lhyt2fcc","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1792595450000,0],"d":"mac-lhyt2fcc","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)"}

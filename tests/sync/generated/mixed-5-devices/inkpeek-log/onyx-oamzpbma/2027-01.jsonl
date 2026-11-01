@@ -1,0 +1,16 @@
+{"t":[1798802504000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины)"}
+{"t":[1798906965000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)"}
+{"t":[1798971824987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово (2)","c":2}
+{"t":[1799007825007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Здравствуйте\"\t\\ 1. Bedeutung"}
+{"t":[1799007825007,1],"d":"onyx-oamzpbma","op":"history.del","text":"não"}
+{"t":[1799007825007,2],"d":"onyx-oamzpbma","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":4}
+{"t":[1799011485000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
+{"t":[1799015085000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":2}
+{"t":[1799018745000,1],"d":"onyx-oamzpbma","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя (2)","c":1}
+{"t":[1799022347000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Токио\"}"}
+{"t":[1799022407000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"¡Hola, amigo!","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Привет, друг!, ещё"}
+{"t":[1799058469007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":1}
+{"op": "history.seen", "d": "onyx-oamzpbma", "text": "🇩🇪", "kind": "word", "lang": "ru", "meaning": "флаг Германии", "c": 3, "t": [1799411451000, 0]}
+{"t":[1799415050987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1799512252000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":3}
+{"t":[1799555572007,0],"d":"onyx-oamzpbma","op":"saved.del","text":"שָׁלוֹם"}

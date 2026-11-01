@@ -1,0 +1,65 @@
+{"t":[1788258193000,0],"d":"win-qyytupzg","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1788304994987,0],"d":"win-qyytupzg","op":"ai.put","text":"Öl","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"oil\"\t\\ 1. Bedeutung"}
+{"t":[1788344716007,0],"d":"win-qyytupzg","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Гданьск, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1788377297987,0],"d":"win-qyytupzg","op":"history.del","text":"Käse"}
+{"t":[1788377299007,0],"d":"win-qyytupzg","op":"ai.put","text":"Öl","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1788413299987,0],"d":"win-qyytupzg","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"мир (с огласовками)\"\t\\ 1. Bedeutung"}
+{"t":[1788413359987,0],"d":"win-qyytupzg","op":"ai.put","text":"Grüß Gott","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
+{"t":[1788449361007,0],"d":"win-qyytupzg","op":"ai.put","text":"Hauß","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"ß"}
+{"t":[1788514160987,0],"d":"win-qyytupzg","op":"saved.put","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко"}
+{"t":[1788691104987,0],"d":"win-qyytupzg","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":1}
+{"t":[1788860310000,0],"d":"win-qyytupzg","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как красиво!\"]}"}
+{"t":[1788860370000,0],"d":"win-qyytupzg","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"op": "ai.put", "d": "win-qyytupzg", "text": " Haus", "lang": "Russian", "section": "offline-de", "ver": 0, "model": "bergamot", "answer": "дом (пробел слева), ещё", "t": [1788899972000, 0]}
+{"t":[1788968552987,0],"d":"win-qyytupzg","op":"history.del","text":"Ich mache die Tür zu!"}
+{"t":[1788972155007,0],"d":"win-qyytupzg","op":"ai.put","text":"¿Qué tal?","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Как дела?\"}"}
+{"t":[1788972156007,0],"d":"win-qyytupzg","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе, ещё","c":1}
+{"t":[1789004556000,0],"d":"win-qyytupzg","op":"history.seen","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины) (2)","c":1}
+{"t":[1789008217007,0],"d":"win-qyytupzg","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1789015419000,0],"d":"win-qyytupzg","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":1}
+{"t":[1789080219007,1],"d":"win-qyytupzg","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":2}
+{"t":[1789112619000,0],"d":"win-qyytupzg","op":"saved.put","text":"élève","kind":"word","lang":"ru","meaning":"ученик, ещё"}
+{"t":[1789152220000,0],"d":"win-qyytupzg","op":"ai.put","text":"𠮷野家","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Ёсиноя\"]}"}
+{"t":[1789152221000,0],"d":"win-qyytupzg","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
+{"t":[1789191942000,0],"d":"win-qyytupzg","op":"ai.put","text":"Fuß","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нога, ступня (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789260523987,0],"d":"win-qyytupzg","op":"saved.put","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины)"}
+{"t":[1789292925000,0],"d":"win-qyytupzg","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
+{"t":[1789292926000,0],"d":"win-qyytupzg","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)"}
+{"t":[1789401110007,0],"d":"win-qyytupzg","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1789437231000,0],"d":"win-qyytupzg","op":"history.del","text":"aufmachen"}
+{"t":[1789444612000,0],"d":"win-qyytupzg","op":"saved.del","text":"Haus "}
+{"t":[1789477014007,0],"d":"win-qyytupzg","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":1}
+{"t":[1789545474000,0],"d":"win-qyytupzg","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1789588796000,0],"d":"win-qyytupzg","op":"saved.put","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028"}
+{"t":[1789621196000,0],"d":"win-qyytupzg","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":2}
+{"t":[1789628397000,0],"d":"win-qyytupzg","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":1}
+{"t":[1789758059000,0],"d":"win-qyytupzg","op":"ai.put","text":" Haus","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"дом (пробел слева) (2)\"}"}
+{"t":[1789761659000,0],"d":"win-qyytupzg","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю., ещё","c":3}
+{"t":[1789826583007,0],"d":"win-qyytupzg","op":"history.seen","text":" Haus","kind":"word","lang":"ru","meaning":"дом (пробел слева)","c":1}
+{"t":[1789862643987,0],"d":"win-qyytupzg","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо"}
+{"t":[1789862644000,0],"d":"win-qyytupzg","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин (2)","c":2}
+{"t":[1789862645007,0],"d":"win-qyytupzg","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)","c":1}
+{"t":[1789927505007,0],"d":"win-qyytupzg","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2}
+{"t":[1790064430000,0],"d":"win-qyytupzg","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!, ещё","c":1}
+{"t":[1790241011000,0],"d":"win-qyytupzg","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе","c":2}
+{"t":[1790241072987,0],"d":"win-qyytupzg","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":2}
+{"t":[1790248273007,0],"d":"win-qyytupzg","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028, ещё","c":2}
+{"t":[1790259254000,0],"d":"win-qyytupzg","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1790259315007,0],"d":"win-qyytupzg","op":"history.del","text":"più"}
+{"t":[1790327777007,0],"d":"win-qyytupzg","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":1}
+{"t":[1790335038000,0],"d":"win-qyytupzg","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1790367439000,0],"d":"win-qyytupzg","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":3}
+{"t":[1790403558987,0],"d":"win-qyytupzg","op":"ai.put","text":"Hauß","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ß\"]}"}
+{"t":[1790507959987,0],"d":"win-qyytupzg","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1790544020000,0],"d":"win-qyytupzg","op":"history.del","text":"garçon"}
+{"t":[1790544080007,0],"d":"win-qyytupzg","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":1}
+{"t":[1790547740007,0],"d":"win-qyytupzg","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
+{"t":[1790648541007,0],"d":"win-qyytupzg","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1790652142000,0],"d":"win-qyytupzg","op":"history.seen","text":"Zeile eins\nZeile zwei","kind":"phrase","lang":"ru","meaning":"строка один\nстрока два","c":1}
+{"t":[1790655742987,0],"d":"win-qyytupzg","op":"ai.put","text":"съесть","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"девочка\"]}"}
+{"t":[1790720543007,0],"d":"win-qyytupzg","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":3}
+{"t":[1790760143000,0],"d":"win-qyytupzg","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1790760143987,0],"d":"win-qyytupzg","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1790760204000,0],"d":"win-qyytupzg","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram, ещё"}
+{"t":[1790796325000,0],"d":"win-qyytupzg","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus, ещё","c":1}
+{"t":[1790796385000,0],"d":"win-qyytupzg","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри","c":1}

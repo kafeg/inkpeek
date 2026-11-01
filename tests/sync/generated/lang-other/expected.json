@@ -1,0 +1,36 @@
+{
+ "saved": [
+  {"text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","created":1793363314750,"id":"linux-z4bilk54:1793361988987:0","origin":"linux-z4bilk54","updated_by":"google-mrtleppz"},
+  {"text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё","created":1793363041487,"id":"google-mrtleppz:1793362443507:0","origin":"google-mrtleppz","updated_by":"google-mrtleppz"},
+  {"text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","created":1793363252250,"id":"linux-z4bilk54:1793362301750:0","origin":"linux-z4bilk54","updated_by":"boox-xvmlcsxs"}
+ ],
+ "history": [
+  {"text":"İstanbul","kind":"word","lang":"ru","base":null,"meaning":"Стамбул (2)","seen":1793363254750,"count":6,"devices":["boox-xvmlcsxs","linux-z4bilk54"]},
+  {"text":"ılık","kind":"word","lang":"en","base":null,"meaning":"lukewarm","seen":1793363374737,"count":13,"devices":["boox-xvmlcsxs","google-mrtleppz","linux-z4bilk54"]},
+  {"text":"Ǆemal","kind":"word","lang":"en","base":null,"meaning":"Djemal","seen":1793362944250,"count":1,"devices":["google-mrtleppz"]},
+  {"text":"ΟΔΟΣ","kind":"word","lang":"ru","base":null,"meaning":"улица, ещё","seen":1793363119007,"count":5,"devices":["boox-xvmlcsxs","google-mrtleppz"]}
+ ],
+ "ai": [
+  {"text":"İstanbul","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung","created":1793362174500},
+  {"text":"ılık","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"lukewarm\"]}","created":1793363118757},
+  {"text":"ılık","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"lukewarm (2)\"}","created":1793363033487},
+  {"text":"ılık","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"тёплый (2)\"\t\\ 1. Bedeutung","created":1793363021237},
+  {"text":"ılık","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"тёплый, ещё\"\t\\ 1. Bedeutung","created":1793363251250},
+  {"text":"ılık","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\",\"ещё\"]}","created":1793362753500},
+  {"text":"ılık","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\"]}","created":1793362294750},
+  {"text":"ılık","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"тёплый\"}","created":1793363016257},
+  {"text":"ılık","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\"]}","created":1793363106507},
+  {"text":"Ǆemal","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Djemal","created":1793362294757},
+  {"text":"Ǆemal","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Джемаль","created":1793362510757},
+  {"text":"Ǆemal","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Джемаль (2)","created":1793361601487},
+  {"text":"Ǆemal","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Джемаль, ещё\"}","created":1793362302237},
+  {"text":"Ǆemal","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\"]}","created":1793361849507},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung","created":1793362368750},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung","created":1793362438500},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung","created":1793362876000},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"улица, ещё","created":1793362948257},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"улица","created":1793363110500},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица\"]}","created":1793362875750},
+  {"text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}","created":1793361980507}
+ ]
+}

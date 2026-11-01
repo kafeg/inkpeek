@@ -1,0 +1,46 @@
+{
+ "saved": [
+  {"text":"niño","kind":"word","lang":"en","meaning":"child","created":1793363106250,"id":"win-skpniuht:1793362445750:0","origin":"win-skpniuht","updated_by":"google-pztvuasm"},
+  {"text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё","created":1793363042257,"id":"google-pztvuasm:1793362844507:0","origin":"google-pztvuasm","updated_by":"google-pztvuasm"}
+ ],
+ "history": [
+  {"text":"corazón","kind":"word","lang":"en","base":null,"meaning":"heart","seen":1793362843007,"count":8,"devices":["google-pztvuasm","win-skpniuht"]},
+  {"text":"niño","kind":"word","lang":"en","base":null,"meaning":"child","seen":1793363040257,"count":6,"devices":["google-pztvuasm","win-skpniuht"]},
+  {"text":"pingüino","kind":"word","lang":"en","base":null,"meaning":"penguin","seen":1793363036250,"count":1,"devices":["google-pztvuasm"]},
+  {"text":"¿Qué tal?","kind":"phrase","lang":"en","base":null,"meaning":"How are you?, ещё","seen":1793363102237,"count":14,"devices":["google-pztvuasm","win-skpniuht"]}
+ ],
+ "ai": [
+  {"text":"corazón","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"heart\"\t\\ 1. Bedeutung","created":1793362377507},
+  {"text":"corazón","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"heart, ещё\"\t\\ 1. Bedeutung","created":1793362300987},
+  {"text":"corazón","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Hi, friend!","created":1793362080507},
+  {"text":"corazón","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend! (2)\"]}","created":1793361742000},
+  {"text":"corazón","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart (2)\"}","created":1793362511250},
+  {"text":"niño","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"child\"\t\\ 1. Bedeutung","created":1793362706257},
+  {"text":"niño","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"child\"\t\\ 1. Bedeutung","created":1793361664507},
+  {"text":"niño","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"child","created":1793361933000},
+  {"text":"niño","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"child","created":1793361742000},
+  {"text":"niño","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"child\"]}","created":1793361677737},
+  {"text":"niño","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"child\"]}","created":1793362281487},
+  {"text":"niño","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"child, ещё\"}","created":1793362373500},
+  {"text":"niño","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ребёнок\"]}","created":1793362512987},
+  {"text":"pingüino","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"penguin\"\t\\ 1. Bedeutung","created":1793362277500},
+  {"text":"pingüino","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"penguin","created":1793362582007},
+  {"text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"penguin, ещё\"}","created":1793362976250},
+  {"text":"pingüino","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"penguin\"]}","created":1793362774507},
+  {"text":"pingüino","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"пингвин (2)\"]}","created":1793361998007},
+  {"text":"¡Hola, amigo!","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Hi, friend!\"\t\\ 1. Bedeutung","created":1793362783000},
+  {"text":"¡Hola, amigo!","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Hi, friend!\"\t\\ 1. Bedeutung","created":1793362517007},
+  {"text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"How are you?, ещё","created":1793361743007},
+  {"text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Hi, friend! (2)","created":1793361681757},
+  {"text":"¡Hola, amigo!","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Hi, friend!","created":1793362779007},
+  {"text":"¡Hola, amigo!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\"]}","created":1793362000237},
+  {"text":"¡Hola, amigo!","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Привет\",\"друг!\"]}","created":1793361664737},
+  {"text":"¿Qué tal?","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"How are you?, ещё\"\t\\ 1. Bedeutung","created":1793361660000},
+  {"text":"¿Qué tal?","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How are you?\"\t\\ 1. Bedeutung","created":1793362714487},
+  {"text":"¿Qué tal?","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"How are you? (2)\"\t\\ 1. Bedeutung","created":1793362301000},
+  {"text":"¿Qué tal?","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Hi, friend!","created":1793361741750},
+  {"text":"¿Qué tal?","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you?\"}","created":1793362441757},
+  {"text":"¿Qué tal?","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you? (2)\"}","created":1793362450257},
+  {"text":"¿Qué tal?","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Привет, друг!","created":1793361808000}
+ ]
+}

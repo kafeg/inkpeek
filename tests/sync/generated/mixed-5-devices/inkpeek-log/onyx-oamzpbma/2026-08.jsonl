@@ -1,0 +1,69 @@
+{"t":[1785574859987,0],"d":"onyx-oamzpbma","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
+{"t":[1785589443007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1785593044000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)","base":"groß","c":1}
+{"t":[1785596765007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"größer","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"больше, ещё"}
+{"t":[1785665288987,0],"d":"onyx-oamzpbma","op":"saved.del","text":"שָׁלוֹם"}
+{"t":[1785697749000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Häuser","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"blade of grass"}
+{"t":[1785766391000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр"}
+{"t":[1785766392000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1785766452000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"a/b </script> & <b>","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"тёплый, ещё"}
+{"t":[1785770052987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1785770054987,0],"d":"onyx-oamzpbma","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1785773655000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD), ещё","c":1}
+{"t":[1785903496000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло, ещё"}
+{"t":[1785975557000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!"}
+{"t":[1785975617000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1786044017000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1786087279000,1],"d":"onyx-oamzpbma","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1786123459000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1786123459000,1],"d":"onyx-oamzpbma","op":"saved.del","text":"nul\u0000inside"}
+{"t":[1786155919007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Tab\there","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"сердце"}
+{"t":[1786191981007,0],"d":"onyx-oamzpbma","op":"saved.del","text":"Mädchen"}
+{"t":[1786195581007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Haus ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"сыр (NFD)\"}"}
+{"t":[1786292902007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"café","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"кофе (2)\"}"}
+{"t":[1786426224007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":1}
+{"t":[1786473146987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Hauß","kind":"word","lang":"ru","meaning":"ß","c":1}
+{"t":[1786476747000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD), ещё","c":2}
+{"t":[1786563210987,0],"d":"onyx-oamzpbma","op":"ai.put","text":"תודה רבה","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"флаг Германии (2)\"]}"}
+{"t":[1786635516007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1786639237007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":1}
+{"t":[1786642837000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»"}
+{"t":[1786682497000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"ひらがな","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"хирагана\"]}"}
+{"t":[1786682557000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+ 	{"t":[1786682558000,0],"d":"onyx-oamzpbma","op":"saved.del","text":"東京"} 
+{"t":[1786891540987,0],"d":"onyx-oamzpbma","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"ребёнок\"\t\\ 1. Bedeutung"}
+{"t":[1786898920987,0],"d":"onyx-oamzpbma","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)"}
+{"t":[1786931321000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":1}
+{"t":[1786935043000,0],"d":"onyx-oamzpbma","op":"saved.del","text":"a/b </script> & <b>"}
+{"t":[1786971104000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)","c":1}
+{"op": "history.seen", "d": "onyx-oamzpbma", "text": "ｶﾀｶﾅ", "kind": "word", "lang": "ru", "meaning": "катакана (полуширинная), ещё", "c": 1, "t": [1787079225000, 0]}
+{"t":[1787082825000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2,"page":12}
+{"t":[1787183745007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"😀","kind":"word","lang":"ru","meaning":"улыбка, ещё"}
+{"t":[1787252145000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр (2)","c":1}
+{"t":[1787324266000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ha­us","kind":"word","lang":"ru","meaning":"дом (мягкий перенос)","c":1}
+{"t":[1787324387000,0],"d":"onyx-oamzpbma","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)"}
+{"t":[1787356786987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":2}
+{"t":[1787392847007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки», ещё"}
+{"t":[1787392847987,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"привет\"]}"}
+{"t":[1787392849987,0],"d":"onyx-oamzpbma","op":"saved.del","text":"Käse"}
+{"t":[1787392850007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"😀","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"улыбка\"\t\\ 1. Bedeutung"}
+{"t":[1787392850007,1],"d":"onyx-oamzpbma","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел)","c":1}
+{"t":[1787497374000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Fuß","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"лето"}
+{"t":[1787598235000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"日本語","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Здравствуйте (2)"}
+{"t":[1787601897007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»"}
+{"t":[1787699097007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1787767497007,0],"d":"onyx-oamzpbma","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
+{"t":[1787843160000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"cœur","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"<разметка> & «кавычки» (2)\"\t\\ 1. Bedeutung"}
+{"t":[1787882760000,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"лето\"}"}
+{"t":[1787886360007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"привет"}
+{"t":[1787922361007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
+{"t":[1787926022007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
+{"t":[1787926081987,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"der Käse — сыр, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1788037864000,0],"d":"onyx-oamzpbma","op":"saved.del","text":"Hauß"}
+{"t":[1788037865007,0],"d":"onyx-oamzpbma","op":"ai.put","text":"Добрый вечер!","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"<разметка> & «кавычки» (2)\"\t\\ 1. Bedeutung"}
+{"t":[1788070265007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик, ещё","base":"élever","c":1}
+{"t":[1788073865000,0],"d":"onyx-oamzpbma","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1788073925987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1788074047987,0],"d":"onyx-oamzpbma","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин (2)","c":1}
+{"t":[1788077828987,0],"d":"onyx-oamzpbma","op":"saved.del","text":" Haus"}
+{"t":[1788081489007,0],"d":"onyx-oamzpbma","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":1}

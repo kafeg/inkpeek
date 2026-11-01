@@ -1,0 +1,36 @@
+{"t":[1793361661000,0],"d":"google-qicv7anm","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple","c":1}
+{"t":[1793361662007,0],"d":"google-qicv7anm","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":1}
+{"t":[1793361721987,0],"d":"google-qicv7anm","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no (2)","c":1}
+{"t":[1793361782237,0],"d":"google-qicv7anm","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple","c":2}
+{"t":[1793361787500,0],"d":"google-qicv7anm","op":"ai.put","text":"Obrigado!","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Thank you!\",\"ещё\"]}"}
+{"t":[1793361912500,0],"d":"google-qicv7anm","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple (2)"}
+{"t":[1793361972737,0],"d":"google-qicv7anm","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793361976737,0],"d":"google-qicv7anm","op":"history.del","text":"maçã"}
+{"t":[1793361976750,0],"d":"google-qicv7anm","op":"history.del","text":"Obrigado!"}
+{"t":[1793362101750,0],"d":"google-qicv7anm","op":"ai.put","text":"não","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"no, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793362114987,0],"d":"google-qicv7anm","op":"history.del","text":"Obrigado!"}
+{"t":[1793362480000,0],"d":"google-qicv7anm","op":"history.del","text":"Obrigado!"}
+{"t":[1793362549000,0],"d":"google-qicv7anm","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":1}
+{"t":[1793362686237,1],"d":"google-qicv7anm","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793362752507,0],"d":"google-qicv7anm","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":2}
+{"t":[1793362816737,0],"d":"google-qicv7anm","op":"saved.del","text":"Obrigado!"}
+{"t":[1793362876750,0],"d":"google-qicv7anm","op":"history.del","text":"maçã"}
+{"t":[1793363003000,0],"d":"google-qicv7anm","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":3}
+{"t":[1793363063500,0],"d":"google-qicv7anm","op":"ai.put","text":"coração","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"heart (2)"}
+{"t":[1793363067487,0],"d":"google-qicv7anm","op":"ai.put","text":"maçã","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"apple\"}"}
+{"t":[1793363128507,0],"d":"google-qicv7anm","op":"saved.del","text":"coração"}
+{"t":[1793363129750,0],"d":"google-qicv7anm","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1793363133750,0],"d":"google-qicv7anm","op":"ai.put","text":"Obrigado!","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you!\"\t\\ 1. Bedeutung"}
+{"t":[1793363194737,0],"d":"google-qicv7anm","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no (2)","c":1}
+{"t":[1793363254750,0],"d":"google-qicv7anm","op":"saved.put","text":"coração","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1793363327000,0],"d":"google-qicv7anm","op":"ai.put","text":"Obrigado!","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Спасибо! (2)\"]}"}
+{"t":[1793363330987,0],"d":"google-qicv7anm","op":"ai.put","text":"maçã","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"apple"}
+{"t":[1793363392750,0],"d":"google-qicv7anm","op":"ai.put","text":"maçã","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"apple\"\t\\ 1. Bedeutung"}
+{"t":[1793363514750,0],"d":"google-qicv7anm","op":"ai.put","text":"maçã","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"apple, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363579750,0],"d":"google-qicv7anm","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793363579987,0],"d":"google-qicv7anm","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":2}
+{"t":[1793363700000,0],"d":"google-qicv7anm","op":"ai.put","text":"coração","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
+{"t":[1793363879987,0],"d":"google-qicv7anm","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no, ещё"}
+{"t":[1793363940000,0],"d":"google-qicv7anm","op":"ai.put","text":"não","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"no"}
+{"t":[1793364068750,0],"d":"google-qicv7anm","op":"ai.put","text":"Obrigado!","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you!\"\t\\ 1. Bedeutung"}
+{"t":[1793364134257,0],"d":"google-qicv7anm","op":"ai.put","text":"não","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"no, ещё\"}"}

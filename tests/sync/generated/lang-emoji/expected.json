@@ -1,0 +1,37 @@
+{
+ "saved": [
+  {"text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё","created":1793363371250,"id":"win-zaqg5u5f:1793363175007:0","origin":"win-zaqg5u5f","updated_by":"win-zaqg5u5f"},
+  {"text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","created":1793363183237,"id":"samsung-pfzn3vgj:1793362178487:0","origin":"samsung-pfzn3vgj","updated_by":"win-zaqg5u5f"},
+  {"text":"😀","kind":"word","lang":"en","meaning":"grin","created":1793363247257,"id":"samsung-pfzn3vgj:1793362589237:0","origin":"samsung-pfzn3vgj","updated_by":"win-zaqg5u5f"}
+ ],
+ "history": [
+  {"text":"Haus 🏠","kind":"phrase","lang":"ru","base":null,"meaning":"дом 🏠","seen":1793363307250,"count":14,"devices":["samsung-pfzn3vgj","win-zaqg5u5f"]},
+  {"text":"👍🏽","kind":"word","lang":"en","base":null,"meaning":"thumbs up (skin tone)","seen":1793363247250,"count":11,"devices":["samsung-pfzn3vgj","win-zaqg5u5f"]},
+  {"text":"👨‍👩‍👧","kind":"word","lang":"en","base":null,"meaning":"family","seen":1793363311250,"count":5,"devices":["samsung-pfzn3vgj","win-zaqg5u5f"]},
+  {"text":"😀","kind":"word","lang":"en","base":null,"meaning":"grin","seen":1793363247257,"count":8,"devices":["samsung-pfzn3vgj","win-zaqg5u5f"]}
+ ],
+ "ai": [
+  {"text":"Haus 🏠","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"house 🏠 (2)\"]}","created":1793362321750},
+  {"text":"👍🏽","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung","created":1793362834737},
+  {"text":"👍🏽","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung","created":1793362317750},
+  {"text":"👍🏽","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung","created":1793361665000},
+  {"text":"👍🏽","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung","created":1793362464250},
+  {"text":"👍🏽","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"thumbs up (skin tone)\"\t\\ 1. Bedeutung","created":1793362253750},
+  {"text":"👍🏽","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"thumbs up (skin tone)","created":1793363031500},
+  {"text":"👍🏽","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"thumbs up (skin tone) (2)","created":1793362528237},
+  {"text":"👍🏽","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"thumbs up (skin tone)","created":1793362189250},
+  {"text":"👍🏽","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"flag of Germany\"]}","created":1793361734237},
+  {"text":"👍🏽","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"thumbs up (skin tone) (2)\"]}","created":1793362178500},
+  {"text":"👍🏽","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"thumbs up (skin tone)\",\"ещё\"]}","created":1793361729000},
+  {"text":"👨‍👩‍👧","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"family (2)\"\t\\ 1. Bedeutung","created":1793362041237},
+  {"text":"👨‍👩‍👧","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"family","created":1793362331250},
+  {"text":"👨‍👩‍👧","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"family\"}","created":1793362457237},
+  {"text":"😀","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"grin\"\t\\ 1. Bedeutung","created":1793362960007},
+  {"text":"😀","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"grin\"\t\\ 1. Bedeutung","created":1793363034007},
+  {"text":"😀","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"grin\"}","created":1793362649250},
+  {"text":"😀","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin, ещё\"}","created":1793362460250},
+  {"text":"😀","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"grin\"}","created":1793363187257},
+  {"text":"😀","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"grin\"]}","created":1793363111007},
+  {"text":"😀","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улыбка (2)\"\t\\ 1. Bedeutung","created":1793362834737}
+ ]
+}

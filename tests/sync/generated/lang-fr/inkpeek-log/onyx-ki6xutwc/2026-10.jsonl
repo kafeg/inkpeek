@@ -1,0 +1,36 @@
+{"t":[1793361724000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
+{"t":[1793361848007,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":1}
+{"t":[1793361849000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":1}
+{"t":[1793361856007,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":2}
+{"t":[1793361920737,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee"}
+{"t":[1793362101757,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":2}
+{"t":[1793362162750,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793362162757,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"garçon","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"boy\"\t\\ 1. Bedeutung"}
+{"t":[1793362166750,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"coffee"}
+{"t":[1793362293000,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee (2)"}
+{"t":[1793362542257,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"coffee (2)"}
+{"t":[1793362543237,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)"}
+{"t":[1793362612757,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"aujourd'hui","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"heart\"}"}
+{"t":[1793362616757,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
+{"t":[1793362621007,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”"}
+{"t":[1793362872007,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1793363006237,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart, ещё","c":2}
+{"t":[1793363072257,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"café","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"coffee\"\t\\ 1. Bedeutung"}
+{"t":[1793363072500,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)"}
+{"t":[1793363074500,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?” (2)","c":3}
+{"t":[1793363147007,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"l’été","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"the summer\"}"}
+{"t":[1793363213257,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик (2)","c":3}
+{"t":[1793363213257,1],"d":"onyx-ki6xutwc","op":"saved.del","text":"café"}
+{"t":[1793363333487,0],"d":"onyx-ki6xutwc","op":"history.del","text":"café"}
+{"t":[1793363458007,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"l’été","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"the summer"}
+{"t":[1793363463000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":4}
+{"t":[1793363467007,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart, ещё","c":3}
+{"t":[1793363467250,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":4}
+{"t":[1793363475500,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё","base":"élever","c":1}
+{"t":[1793363541000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":1}
+{"t":[1793363546007,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"élève","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"pupil"}
+{"t":[1793363606000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil (2)","base":"élever","c":2}
+{"t":[1793363672000,0],"d":"onyx-ki6xutwc","op":"ai.put","text":"élève","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"pupil (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363673000,0],"d":"onyx-ki6xutwc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?” (2)","c":5}
+{"t":[1793363739750,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1793363740007,0],"d":"onyx-ki6xutwc","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}

@@ -1,0 +1,40 @@
+{
+ "saved": [
+  {"text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful! (2)","created":1793363631000,"id":"mac-p3gwqftm:1793362182507:0","origin":"mac-p3gwqftm","updated_by":"mac-p3gwqftm"},
+  {"text":"perché","kind":"word","lang":"en","meaning":"why (2)","created":1793363768500,"id":"mac-p3gwqftm:1793363768500:1","origin":"mac-p3gwqftm","updated_by":"mac-p3gwqftm"},
+  {"text":"più","kind":"word","lang":"en","meaning":"more, ещё","created":1793363896507,"id":"boox-5fbrv2cm:1793363373987:0","origin":"boox-5fbrv2cm","updated_by":"mac-p3gwqftm"}
+ ],
+ "history": [
+  {"text":"Com'è bello!","kind":"phrase","lang":"en","base":null,"meaning":"How beautiful!","seen":1793363897757,"count":2,"devices":["boox-5fbrv2cm"]},
+  {"text":"città","kind":"word","lang":"en","base":null,"meaning":"city (2)","seen":1793363962757,"count":5,"devices":["boox-5fbrv2cm","mac-p3gwqftm"]},
+  {"text":"più","kind":"word","lang":"en","base":null,"meaning":"more","seen":1793363958757,"count":10,"devices":["boox-5fbrv2cm","mac-p3gwqftm"]}
+ ],
+ "ai": [
+  {"text":"Com'è bello!","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful! (2)\"\t\\ 1. Bedeutung","created":1793362306487},
+  {"text":"Com'è bello!","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful!\"\t\\ 1. Bedeutung","created":1793362821250},
+  {"text":"Com'è bello!","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"How beautiful! (2)\"\t\\ 1. Bedeutung","created":1793364022757},
+  {"text":"Com'è bello!","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"How beautiful!, ещё","created":1793363247507},
+  {"text":"Com'è bello!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful!\"}","created":1793362820250},
+  {"text":"Com'è bello!","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful! (2)\"}","created":1793361790750},
+  {"text":"Com'è bello!","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Как красиво!\"\t\\ 1. Bedeutung","created":1793363372487},
+  {"text":"città","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"city, ещё\"\t\\ 1. Bedeutung","created":1793363378250},
+  {"text":"città","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"city\"\t\\ 1. Bedeutung","created":1793361786750},
+  {"text":"città","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"city (2)\"\t\\ 1. Bedeutung","created":1793363897750},
+  {"text":"città","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"city\"]}","created":1793361665007},
+  {"text":"città","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"city\"}","created":1793363004257},
+  {"text":"città","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"city\"]}","created":1793363372757},
+  {"text":"città","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"город\"\t\\ 1. Bedeutung","created":1793362118250},
+  {"text":"perché","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"why, ещё\"\t\\ 1. Bedeutung","created":1793362822750},
+  {"text":"perché","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"why, ещё\"\t\\ 1. Bedeutung","created":1793363378250},
+  {"text":"perché","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"why","created":1793362822987},
+  {"text":"perché","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"why (2)\"]}","created":1793362823250},
+  {"text":"perché","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"why (2)\"}","created":1793362182257},
+  {"text":"più","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"more (2)\"\t\\ 1. Bedeutung","created":1793362242500},
+  {"text":"più","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"more\"\t\\ 1. Bedeutung","created":1793363643250},
+  {"text":"più","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"more","created":1793363379257},
+  {"text":"più","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"more\"]}","created":1793363571000},
+  {"text":"più","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"more (2)\"}","created":1793363184750},
+  {"text":"più","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"почему\"\t\\ 1. Bedeutung","created":1793362117250},
+  {"text":"più","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}","created":1793362692007}
+ ]
+}

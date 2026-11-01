@@ -1,0 +1,145 @@
+{"t":[1793480412237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793480421250,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1793480421250,1],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
+{"t":[1793480490257,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793480491250,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480495237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё"}
+{"t":[1793480508500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1793480508500,1],"d":"linux-m4ndk7vn","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":1}
+{"t":[1793480572500,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1793480577500,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Haus"}
+{"t":[1793480642500,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Öl","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"масло\"]}"}
+{"t":[1793480642500,1],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё"}
+{"t":[1793480642750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":2}
+{"t":[1793480837000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil, ещё","c":3}
+{"t":[1793480906250,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
+{"t":[1793480966250,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1793480966507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":2}
+{"t":[1793481026750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793481152507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)","c":2}
+{"t":[1793481221750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)","c":3}
+{"t":[1793481225750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)","c":2}
+{"t":[1793481226237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793481290500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)"}
+{"t":[1793481379000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1793481449757,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Öl","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1793481457737,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"aufmachen","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"открывать (2)"}
+{"t":[1793481461737,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today"}
+{"t":[1793481464000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":4}
+{"t":[1793481468487,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1793481470750,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Öl"}
+{"t":[1793481534750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло, ещё"}
+{"t":[1793481540750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1793481542750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё"}
+{"t":[1793481793500,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":4}
+{"t":[1793481868750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1793481928737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":2}
+{"t":[1793481998750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1793482005000,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Здравствуйте"}
+{"t":[1793482065007,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1793482069000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793482073000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":3}
+{"t":[1793482282000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1793482346487,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":5}
+{"t":[1793482347500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793482407507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё","c":6}
+{"t":[1793482529507,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793482537500,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":7}
+{"t":[1793482598507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё","base":"machen","c":3}
+{"t":[1793482722750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)"}
+{"t":[1793482722750,1],"d":"linux-m4ndk7vn","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793482782750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793482910750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":5}
+{"t":[1793482911000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1793482977000,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Grüß Gott"}
+{"t":[1793483038250,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)","c":3}
+{"t":[1793483295500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1793483296500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1793483365757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня (2)"}
+{"t":[1793483369737,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1793483373737,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё"}
+{"t":[1793483373750,0],"d":"linux-m4ndk7vn","op":"history.del","text":"aujourd'hui"}
+{"t":[1793483382000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)"}
+{"t":[1793483449000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё","c":4}
+{"t":[1793483449987,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)","c":6}
+{"t":[1793483450500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1793483451500,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793483512737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё","c":8}
+{"t":[1793483516750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793483586737,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1793483706987,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793483829500,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793483829750,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":9}
+{"t":[1793483845987,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Haus","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"дом\"}"}
+{"t":[1793483910000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793483983000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":4}
+{"t":[1793484228000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)","c":5}
+{"t":[1793484229237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1793484229500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё"}
+{"t":[1793484234507,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Haus","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"дом, ещё\"}"}
+{"t":[1793484240500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793484241507,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1793484245487,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Mädchen"}
+{"t":[1793484305507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)","c":6}
+{"t":[1793484310000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":5}
+{"t":[1793484628737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня (2)","c":1}
+{"t":[1793484754757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)"}
+{"t":[1793484755737,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793484819737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":7}
+{"t":[1793484881237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё"}
+{"t":[1793485063257,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё","c":6}
+{"t":[1793485127257,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
+{"t":[1793485132250,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"größer"}
+{"t":[1793485134750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1793485384500,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":2}
+{"t":[1793485388500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793485520487,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"größer"}
+{"t":[1793485588507,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793485592757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1793485596757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
+{"t":[1793485597000,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Здравствуйте (2)\"]}"}
+{"t":[1793485657000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793485657000,1],"d":"linux-m4ndk7vn","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":1}
+{"t":[1793485659250,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793485660250,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793485785507,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
+{"t":[1793486030987,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793486217237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793486286750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793486287000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
+{"t":[1793486288007,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)"}
+{"t":[1793486353000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":8}
+{"t":[1793486354250,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":9}
+{"t":[1793486418507,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1793486419507,0],"d":"linux-m4ndk7vn","op":"history.del","text":"aufmachen"}
+{"t":[1793486423487,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте"}
+{"t":[1793486424507,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)"}
+{"t":[1793486604487,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Mädchen","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"девочка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793486620737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":1}
+{"t":[1793486621757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня"}
+{"t":[1793486742750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё"}
+{"t":[1793486923000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)","base":"groß","c":1}
+{"t":[1793486988487,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1793487108750,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Öl","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"масло"}
+{"t":[1793487174500,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":10}
+{"t":[1793487294487,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":2}
+{"t":[1793487301500,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793487302750,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Öl"}
+{"t":[1793487424250,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1793487432257,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793487436257,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё"}
+{"t":[1793487497737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":10}
+{"t":[1793487497757,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":11}
+{"t":[1793487558237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом"}
+{"t":[1793487560237,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793487562487,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка"}
+{"t":[1793487567757,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793487632737,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1793487634000,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)"}
+{"t":[1793487694000,0],"d":"linux-m4ndk7vn","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше (2)","base":"groß","c":2}
+{"t":[1793487695007,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1793487696000,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сегодня (2)\"]}"}
+{"t":[1793487766007,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793487894500,0],"d":"linux-m4ndk7vn","op":"saved.del","text":"Haus"}
+{"t":[1793487895750,0],"d":"linux-m4ndk7vn","op":"ai.put","text":"Mädchen","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"девочка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793488015750,0],"d":"linux-m4ndk7vn","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}

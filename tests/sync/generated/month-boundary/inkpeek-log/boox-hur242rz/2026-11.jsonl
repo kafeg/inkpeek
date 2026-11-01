@@ -1,0 +1,269 @@
+{"t":[1793491800100,2],"d":"boox-hur242rz","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793491800100,3],"d":"boox-hur242rz","op":"ai.put","text":"Добрий вечір","lang":"German","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Noch einmal (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491803300,1],"d":"boox-hur242rz","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"сегодня, ещё\"}"}
+{"t":[1793491804407,1],"d":"boox-hur242rz","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)"}
+{"t":[1793491805400,3],"d":"boox-hur242rz","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel","c":1}
+{"t":[1793491805500,1],"d":"boox-hur242rz","op":"ai.put","text":"🇩🇪","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"flag of Germany\"]}"}
+{"t":[1793491805500,2],"d":"boox-hur242rz","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1793491810907,1],"d":"boox-hur242rz","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
+{"t":[1793491810907,2],"d":"boox-hur242rz","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1793491810907,3],"d":"boox-hur242rz","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793491810907,4],"d":"boox-hur242rz","op":"ai.put","text":"🇩🇪","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"flag of Germany (2)"}
+{"t":[1793491810907,5],"d":"boox-hur242rz","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
+{"t":[1793491810907,6],"d":"boox-hur242rz","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":1}
+{"t":[1793491810907,7],"d":"boox-hur242rz","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё","c":1}
+{"t":[1793491810907,8],"d":"boox-hur242rz","op":"saved.put","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1793491814087,1],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"дома"}
+{"t":[1793491814087,2],"d":"boox-hur242rz","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793491819300,1],"d":"boox-hur242rz","op":"saved.put","text":"l’été","kind":"word","lang":"ru","meaning":"лето"}
+{"t":[1793491819300,2],"d":"boox-hur242rz","op":"saved.put","text":"niño","kind":"word","lang":"en","meaning":"child"}
+{"t":[1793491819300,3],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"the summer\"}"}
+{"t":[1793491826300,1],"d":"boox-hur242rz","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1793491826300,2],"d":"boox-hur242rz","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
+{"t":[1793491826300,3],"d":"boox-hur242rz","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793491826300,4],"d":"boox-hur242rz","op":"saved.del","text":"café"}
+{"t":[1793491833100,2],"d":"boox-hur242rz","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793491833100,3],"d":"boox-hur242rz","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"катакана (полуширинная)\"}"}
+{"t":[1793491833100,4],"d":"boox-hur242rz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793491833100,5],"d":"boox-hur242rz","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful!, ещё\"}"}
+{"t":[1793491833100,6],"d":"boox-hur242rz","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793491833100,7],"d":"boox-hur242rz","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":1}
+{"t":[1793491833100,8],"d":"boox-hur242rz","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
+{"t":[1793491833100,9],"d":"boox-hur242rz","op":"ai.put","text":"Добрий вечір","lang":"German","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Noch einmal (2)\"]}"}
+{"t":[1793491833100,10],"d":"boox-hur242rz","op":"ai.put","text":"coração","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"сердце, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491836800,1],"d":"boox-hur242rz","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus, ещё","c":1}
+{"t":[1793491836800,2],"d":"boox-hur242rz","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето","c":2}
+{"t":[1793491836800,3],"d":"boox-hur242rz","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793491844687,1],"d":"boox-hur242rz","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":1}
+{"t":[1793491845687,1],"d":"boox-hur242rz","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed) (2)","c":1}
+{"t":[1793491845807,1],"d":"boox-hur242rz","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"How beautiful!, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491845807,2],"d":"boox-hur242rz","op":"ai.put","text":"كتاب","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"book (2)\"}"}
+{"t":[1793491845807,3],"d":"boox-hur242rz","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"I close the door!\"}"}
+{"t":[1793491845807,4],"d":"boox-hur242rz","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793491845807,5],"d":"boox-hur242rz","op":"history.seen","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana","c":1}
+{"t":[1793491849000,1],"d":"boox-hur242rz","op":"ai.put","text":"ひらがな","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"hiragana\"\t\\ 1. Bedeutung"}
+{"t":[1793491849000,2],"d":"boox-hur242rz","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":2}
+{"t":[1793491849000,3],"d":"boox-hur242rz","op":"ai.put","text":"Übung","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"exercise\"\t\\ 1. Bedeutung"}
+{"t":[1793491849000,4],"d":"boox-hur242rz","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица (2)","c":1}
+{"t":[1793491849000,5],"d":"boox-hur242rz","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":2}
+{"t":[1793491853407,2],"d":"boox-hur242rz","op":"history.del","text":"😀"}
+{"t":[1793491853407,3],"d":"boox-hur242rz","op":"saved.del","text":"Ǆemal"}
+{"t":[1793491853407,4],"d":"boox-hur242rz","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица"}
+{"t":[1793491857100,1],"d":"boox-hur242rz","op":"ai.put","text":"їжак","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"half-width katakana"}
+{"t":[1793491857100,2],"d":"boox-hur242rz","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык","c":2}
+{"t":[1793491857100,3],"d":"boox-hur242rz","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица\"}"}
+{"t":[1793491857100,4],"d":"boox-hur242rz","op":"ai.put","text":"Добрый вечер!","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"катакана (полуширинная), ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491857100,5],"d":"boox-hur242rz","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big, ещё","c":1}
+{"t":[1793491857100,6],"d":"boox-hur242rz","op":"ai.put","text":"cœur","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
+{"t":[1793491857100,7],"d":"boox-hur242rz","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":1}
+{"t":[1793491857100,8],"d":"boox-hur242rz","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
+{"t":[1793491857100,9],"d":"boox-hur242rz","op":"ai.put","text":"你好","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"«Как дела?», ещё\"}"}
+{"t":[1793491857100,10],"d":"boox-hur242rz","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":1}
+{"t":[1793491860707,3],"d":"boox-hur242rz","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":2}
+{"t":[1793491860707,4],"d":"boox-hur242rz","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese"}
+{"t":[1793491860707,5],"d":"boox-hur242rz","op":"ai.put","text":"👍🏽","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"класс (тон кожи) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491872507,1],"d":"boox-hur242rz","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)","c":1}
+{"t":[1793491872507,3],"d":"boox-hur242rz","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1793491872507,5],"d":"boox-hur242rz","op":"saved.put","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)"}
+{"t":[1793491872507,6],"d":"boox-hur242rz","op":"ai.put","text":"Ещё раз","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"флаг Германии"}
+{"t":[1793491872507,7],"d":"boox-hur242rz","op":"saved.del","text":"Ещё раз"}
+{"t":[1793491876707,1],"d":"boox-hur242rz","op":"history.del","text":"🇩🇪"}
+{"t":[1793491876707,2],"d":"boox-hur242rz","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко (2)","c":1}
+{"t":[1793491880207,1],"d":"boox-hur242rz","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья (2)"}
+{"t":[1793491880207,2],"d":"boox-hur242rz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1793491880207,3],"d":"boox-hur242rz","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка, ещё","c":1}
+{"t":[1793491881287,1],"d":"boox-hur242rz","op":"ai.put","text":"Übung","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"exercise (2)"}
+{"t":[1793491881287,2],"d":"boox-hur242rz","op":"ai.put","text":"Mädchen","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"девочка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491881287,3],"d":"boox-hur242rz","op":"history.del","text":"Übung"}
+{"t":[1793491881287,4],"d":"boox-hur242rz","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"книга (2)\"}"}
+{"t":[1793491881287,5],"d":"boox-hur242rz","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю. (2)"}
+{"t":[1793491881287,6],"d":"boox-hur242rz","op":"ai.put","text":"Добрый вечер!","lang":"German","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Guten Abend!\"\t\\ 1. Bedeutung"}
+{"t":[1793491887787,4],"d":"boox-hur242rz","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик (2)","c":1}
+{"t":[1793491887787,5],"d":"boox-hur242rz","op":"history.seen","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany","c":1}
+{"t":[1793491887787,6],"d":"boox-hur242rz","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
+{"t":[1793491887787,7],"d":"boox-hur242rz","op":"ai.put","text":"garçon","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"boy (2)"}
+{"t":[1793491887787,8],"d":"boox-hur242rz","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”, ещё","c":1}
+{"t":[1793491887787,9],"d":"boox-hur242rz","op":"saved.del","text":"ёжик"}
+{"t":[1793491898900,1],"d":"boox-hur242rz","op":"saved.del","text":"Haus"}
+{"t":[1793491904000,1],"d":"boox-hur242rz","op":"ai.put","text":"漢字","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улыбка\"\t\\ 1. Bedeutung"}
+{"t":[1793491904000,2],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"the summer\"]}"}
+{"t":[1793491904000,3],"d":"boox-hur242rz","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
+{"t":[1793491904000,4],"d":"boox-hur242rz","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
+{"t":[1793491904000,5],"d":"boox-hur242rz","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как красиво!\"]}"}
+{"t":[1793491904000,6],"d":"boox-hur242rz","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
+{"t":[1793491904000,7],"d":"boox-hur242rz","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":3}
+{"t":[1793491904000,8],"d":"boox-hur242rz","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":4}
+{"t":[1793491904000,9],"d":"boox-hur242rz","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Как дела?\"}"}
+{"t":[1793491904000,10],"d":"boox-hur242rz","op":"history.del","text":"STRASSE"}
+{"t":[1793491913800,2],"d":"boox-hur242rz","op":"ai.put","text":"ılık","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"девочка (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491913800,3],"d":"boox-hur242rz","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер"}
+{"t":[1793491916107,1],"d":"boox-hur242rz","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя (2)","c":1}
+{"t":[1793491916107,2],"d":"boox-hur242rz","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга"}
+{"t":[1793491916107,3],"d":"boox-hur242rz","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":2}
+{"t":[1793491916107,5],"d":"boox-hur242rz","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
+{"t":[1793491916107,6],"d":"boox-hur242rz","op":"ai.put","text":"дом","lang":"German","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Haus, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491916107,7],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"the summer, ещё"}
+{"t":[1793491916107,8],"d":"boox-hur242rz","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель"}
+{"t":[1793491916107,9],"d":"boox-hur242rz","op":"ai.put","text":"שלום","lang":"German","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Guten Abend!\"]}"}
+{"t":[1793491916107,10],"d":"boox-hur242rz","op":"history.seen","text":"東京","kind":"word","lang":"ru","meaning":"Токио","c":1}
+{"t":[1793491916107,11],"d":"boox-hur242rz","op":"history.del","text":"日本語"}
+{"t":[1793491916107,12],"d":"boox-hur242rz","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":3}
+{"t":[1793491916107,13],"d":"boox-hur242rz","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much (2)","c":1}
+{"t":[1793491916107,14],"d":"boox-hur242rz","op":"ai.put","text":"aujourd'hui","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"today\"\t\\ 1. Bedeutung"}
+{"t":[1793491916107,15],"d":"boox-hur242rz","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":1}
+{"t":[1793491916107,16],"d":"boox-hur242rz","op":"history.del","text":"perché"}
+{"t":[1793491931300,2],"d":"boox-hur242rz","op":"ai.put","text":"Übung","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"упражнение (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491931300,3],"d":"boox-hur242rz","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"exercise\"\t\\ 1. Bedeutung"}
+{"t":[1793491931300,4],"d":"boox-hur242rz","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":1}
+{"t":[1793491935600,3],"d":"boox-hur242rz","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето","c":1}
+{"t":[1793491935600,4],"d":"boox-hur242rz","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"большой\"\t\\ 1. Bedeutung"}
+{"t":[1793491938000,1],"d":"boox-hur242rz","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1793491938000,2],"d":"boox-hur242rz","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1793491939200,1],"d":"boox-hur242rz","op":"ai.put","text":"Straße","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица\"]}"}
+{"t":[1793491939200,2],"d":"boox-hur242rz","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":2}
+{"t":[1793491939200,3],"d":"boox-hur242rz","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":1}
+{"t":[1793491939200,4],"d":"boox-hur242rz","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee"}
+{"t":[1793491940300,1],"d":"boox-hur242rz","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":1}
+{"t":[1793491940300,2],"d":"boox-hur242rz","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793491940300,3],"d":"boox-hur242rz","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793491940300,4],"d":"boox-hur242rz","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":3}
+{"t":[1793491940300,5],"d":"boox-hur242rz","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you. (2)","c":1}
+{"t":[1793491940300,6],"d":"boox-hur242rz","op":"saved.del","text":"Straße"}
+{"t":[1793491940300,7],"d":"boox-hur242rz","op":"ai.put","text":"pingüino","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"penguin (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491944100,5],"d":"boox-hur242rz","op":"ai.put","text":"日本語","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Japanese\"}"}
+{"t":[1793491944100,6],"d":"boox-hur242rz","op":"ai.put","text":"😀","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улыбка\"\t\\ 1. Bedeutung"}
+{"t":[1793491944100,7],"d":"boox-hur242rz","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":2}
+{"t":[1793491944100,8],"d":"boox-hur242rz","op":"saved.del","text":"élève"}
+{"t":[1793491944100,9],"d":"boox-hur242rz","op":"saved.del","text":"aufmachen"}
+{"t":[1793491944100,10],"d":"boox-hur242rz","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1793491944100,11],"d":"boox-hur242rz","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"мир (с огласовками) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491944100,12],"d":"boox-hur242rz","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":3}
+{"t":[1793491944100,13],"d":"boox-hur242rz","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen (2)","base":"есть","c":1}
+{"t":[1793491944100,14],"d":"boox-hur242rz","op":"saved.put","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок"}
+{"t":[1793491944100,15],"d":"boox-hur242rz","op":"ai.put","text":"שָׁלוֹם","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"peace (pointed)\"}"}
+{"t":[1793491944100,16],"d":"boox-hur242rz","op":"ai.put","text":"Übung","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"упражнение\"]}"}
+{"t":[1793491953600,1],"d":"boox-hur242rz","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик (2)","c":2}
+{"t":[1793491953600,2],"d":"boox-hur242rz","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":2}
+{"t":[1793491953600,3],"d":"boox-hur242rz","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":2}
+{"t":[1793491959007,1],"d":"boox-hur242rz","op":"saved.del","text":"Häuser"}
+{"t":[1793491959007,2],"d":"boox-hur242rz","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
+{"t":[1793491959007,3],"d":"boox-hur242rz","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1793491959007,4],"d":"boox-hur242rz","op":"ai.put","text":"coração","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"сердце\"\t\\ 1. Bedeutung"}
+{"t":[1793491959007,5],"d":"boox-hur242rz","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal (2)","c":1}
+{"t":[1793491959007,6],"d":"boox-hur242rz","op":"history.del","text":"👍🏽"}
+{"t":[1793491965487,1],"d":"boox-hur242rz","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица (2)\"}"}
+{"t":[1793491965687,1],"d":"boox-hur242rz","op":"saved.del","text":"Добрий вечір"}
+{"t":[1793491965687,2],"d":"boox-hur242rz","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
+{"t":[1793491965687,3],"d":"boox-hur242rz","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":1}
+{"t":[1793491965687,4],"d":"boox-hur242rz","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет, ещё","c":1}
+{"t":[1793491965687,5],"d":"boox-hur242rz","op":"saved.del","text":"Haus"}
+{"t":[1793491965687,6],"d":"boox-hur242rz","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето (2)","c":2}
+{"t":[1793491965687,7],"d":"boox-hur242rz","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"ёж (2)\"]}"}
+{"t":[1793491971700,1],"d":"boox-hur242rz","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1793491971700,2],"d":"boox-hur242rz","op":"saved.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793491972700,1],"d":"boox-hur242rz","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Токио\"]}"}
+{"t":[1793491972700,2],"d":"boox-hur242rz","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Здравствуйте"}
+{"t":[1793491972700,3],"d":"boox-hur242rz","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why"}
+{"t":[1793491972700,4],"d":"boox-hur242rz","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":2}
+{"t":[1793491972700,5],"d":"boox-hur242rz","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese (2)","c":1}
+{"t":[1793491972700,6],"d":"boox-hur242rz","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":3}
+{"t":[1793491980300,1],"d":"boox-hur242rz","op":"saved.put","text":"corazón","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1793491980300,2],"d":"boox-hur242rz","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":2}
+{"t":[1793491980300,3],"d":"boox-hur242rz","op":"saved.put","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana, ещё"}
+{"t":[1793491980300,4],"d":"boox-hur242rz","op":"ai.put","text":"日本語","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"японский язык\"}"}
+{"t":[1793491980300,5],"d":"boox-hur242rz","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)"}
+{"t":[1793491980300,6],"d":"boox-hur242rz","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)","base":"Haus","c":2}
+{"t":[1793491983900,2],"d":"boox-hur242rz","op":"ai.put","text":"日本語","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Japanese, ещё"}
+{"t":[1793491988000,1],"d":"boox-hur242rz","op":"ai.put","text":"漢字","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улыбка"}
+{"t":[1793491988000,2],"d":"boox-hur242rz","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":2}
+{"t":[1793491988000,3],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"лето\"\t\\ 1. Bedeutung"}
+{"t":[1793491988000,4],"d":"boox-hur242rz","op":"ai.put","text":"corazón","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сердце\",\"ещё\"]}"}
+{"t":[1793491988000,5],"d":"boox-hur242rz","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana"}
+{"t":[1793491990707,1],"d":"boox-hur242rz","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1793491990707,2],"d":"boox-hur242rz","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin, ещё","c":2}
+{"t":[1793491990707,3],"d":"boox-hur242rz","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)","c":1}
+{"t":[1793491990707,4],"d":"boox-hur242rz","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":2}
+{"t":[1793491990707,5],"d":"boox-hur242rz","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё","c":2}
+{"t":[1793491990707,6],"d":"boox-hur242rz","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":2}
+{"t":[1793491990707,7],"d":"boox-hur242rz","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"boy\"\t\\ 1. Bedeutung"}
+{"t":[1793491990707,8],"d":"boox-hur242rz","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":2}
+{"t":[1793491990707,9],"d":"boox-hur242rz","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":1}
+{"t":[1793491998987,1],"d":"boox-hur242rz","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":1}
+{"t":[1793491998987,2],"d":"boox-hur242rz","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
+{"t":[1793491998987,3],"d":"boox-hur242rz","op":"ai.put","text":"café","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"кофе\"]}"}
+{"t":[1793491998987,4],"d":"boox-hur242rz","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793492004300,1],"d":"boox-hur242rz","op":"ai.put","text":"coração","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сердце\"]}"}
+{"t":[1793492004300,2],"d":"boox-hur242rz","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"a pangram"}
+{"t":[1793492004300,3],"d":"boox-hur242rz","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка (2)","c":2}
+{"t":[1793492006587,1],"d":"boox-hur242rz","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal"}
+{"t":[1793492006587,2],"d":"boox-hur242rz","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":3}
+{"t":[1793492006587,3],"d":"boox-hur242rz","op":"saved.del","text":"ґанок"}
+{"t":[1793492006587,4],"d":"boox-hur242rz","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":1}
+{"t":[1793492014887,1],"d":"boox-hur242rz","op":"history.del","text":"¿Qué tal?"}
+{"t":[1793492014887,2],"d":"boox-hur242rz","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)","c":1}
+{"t":[1793492014887,3],"d":"boox-hur242rz","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"японский язык\",\"ещё\"]}"}
+{"t":[1793492014887,4],"d":"boox-hur242rz","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":3}
+{"t":[1793492014887,5],"d":"boox-hur242rz","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":2}
+{"t":[1793492014887,6],"d":"boox-hur242rz","op":"ai.put","text":"👨‍👩‍👧","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"family"}
+{"t":[1793492014887,7],"d":"boox-hur242rz","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте, ещё","c":2}
+{"t":[1793492014887,8],"d":"boox-hur242rz","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":1}
+{"t":[1793492024687,1],"d":"boox-hur242rz","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)","c":2}
+{"t":[1793492024687,2],"d":"boox-hur242rz","op":"saved.del","text":"Com'è bello!"}
+{"t":[1793492024687,3],"d":"boox-hur242rz","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":1}
+{"t":[1793492024687,4],"d":"boox-hur242rz","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык (2)","c":1}
+{"t":[1793492024687,5],"d":"boox-hur242rz","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)","c":3}
+{"t":[1793492024687,6],"d":"boox-hur242rz","op":"saved.del","text":"שלום"}
+{"t":[1793492034200,1],"d":"boox-hur242rz","op":"ai.put","text":"pingüino","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"пингвин"}
+{"t":[1793492034200,2],"d":"boox-hur242rz","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему","c":1}
+{"t":[1793492034200,3],"d":"boox-hur242rz","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1793492034200,4],"d":"boox-hur242rz","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”","c":2}
+{"t":[1793492034200,5],"d":"boox-hur242rz","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":2}
+{"t":[1793492034200,6],"d":"boox-hur242rz","op":"saved.del","text":"漢字"}
+{"t":[1793492034200,7],"d":"boox-hur242rz","op":"ai.put","text":"東京","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Tokyo"}
+{"t":[1793492034200,8],"d":"boox-hur242rz","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1793492034200,9],"d":"boox-hur242rz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm (2)","c":1}
+{"t":[1793492034200,10],"d":"boox-hur242rz","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":1}
+{"t":[1793492051007,1],"d":"boox-hur242rz","op":"ai.put","text":"l’été","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"the summer, ещё\"}"}
+{"t":[1793492051007,2],"d":"boox-hur242rz","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)","c":3}
+{"t":[1793492051007,3],"d":"boox-hur242rz","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
+{"t":[1793492051007,4],"d":"boox-hur242rz","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":2}
+{"t":[1793492051007,5],"d":"boox-hur242rz","op":"ai.put","text":"السلام عليكم","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"flag of Germany (2)\"}"}
+{"t":[1793492051007,6],"d":"boox-hur242rz","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much"}
+{"t":[1793492051007,7],"d":"boox-hur242rz","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big, ещё","c":4}
+{"t":[1793492051007,8],"d":"boox-hur242rz","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese"}
+{"t":[1793492060600,1],"d":"boox-hur242rz","op":"ai.put","text":"Häuser","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"дома, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793492060600,2],"d":"boox-hur242rz","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":3}
+{"t":[1793492062607,1],"d":"boox-hur242rz","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793492062607,2],"d":"boox-hur242rz","op":"ai.put","text":"дом","lang":"German","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Haus\"]}"}
+{"t":[1793492062607,3],"d":"boox-hur242rz","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":3}
+{"t":[1793492062607,4],"d":"boox-hur242rz","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"сегодня"}
+{"t":[1793492062607,5],"d":"boox-hur242rz","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":1}
+{"t":[1793492062607,6],"d":"boox-hur242rz","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":2}
+{"t":[1793492062607,7],"d":"boox-hur242rz","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no, ещё","c":4}
+{"t":[1793492065187,2],"d":"boox-hur242rz","op":"saved.del","text":"perché"}
+{"t":[1793492067500,2],"d":"boox-hur242rz","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":4}
+{"t":[1793492067500,3],"d":"boox-hur242rz","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot, ещё","c":1}
+{"t":[1793492067500,4],"d":"boox-hur242rz","op":"history.del","text":"Добрий вечір"}
+{"t":[1793492069607,1],"d":"boox-hur242rz","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl","c":3}
+{"t":[1793492069607,2],"d":"boox-hur242rz","op":"saved.put","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya (2)"}
+{"t":[1793492069607,3],"d":"boox-hur242rz","op":"ai.put","text":"Käse","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"cheese"}
+{"t":[1793492069607,4],"d":"boox-hur242rz","op":"history.del","text":"السلام عليكم"}
+{"t":[1793492073900,1],"d":"boox-hur242rz","op":"ai.put","text":"كتاب","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"book\"]}"}
+{"t":[1793492073900,2],"d":"boox-hur242rz","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце, ещё","c":3}
+{"t":[1793492073900,3],"d":"boox-hur242rz","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
+{"t":[1793492073900,4],"d":"boox-hur242rz","op":"ai.put","text":"maçã","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"apple\",\"ещё\"]}"}
+{"t":[1793492073900,5],"d":"boox-hur242rz","op":"ai.put","text":"한국어","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Korean\"]}"}
+{"t":[1793492073900,6],"d":"boox-hur242rz","op":"ai.put","text":"Öl","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"oil, ещё"}
+{"t":[1793492073900,7],"d":"boox-hur242rz","op":"ai.put","text":"¡Hola, amigo!","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Привет\",\"друг! (2)\"]}"}
+{"t":[1793492073900,8],"d":"boox-hur242rz","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":4}
+{"t":[1793492083807,1],"d":"boox-hur242rz","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1793492083807,2],"d":"boox-hur242rz","op":"saved.del","text":"ёжик"}
+{"t":[1793492083807,3],"d":"boox-hur242rz","op":"ai.put","text":"größer","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"иероглифы (2)\"}"}
+{"t":[1793492083807,4],"d":"boox-hur242rz","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
+{"t":[1793492083807,5],"d":"boox-hur242rz","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё","base":"Haus","c":3}
+{"t":[1793492083807,6],"d":"boox-hur242rz","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":1}
+{"t":[1793492091607,1],"d":"boox-hur242rz","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you.","c":2}
+{"t":[1793492091607,2],"d":"boox-hur242rz","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":1}
+{"t":[1793492091607,3],"d":"boox-hur242rz","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык, ещё"}
+{"t":[1793492091607,4],"d":"boox-hur242rz","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese"}
+{"t":[1793492091607,5],"d":"boox-hur242rz","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!, ещё","c":3}

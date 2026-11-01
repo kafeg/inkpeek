@@ -1,0 +1,49 @@
+{"t":[1793361601237,0],"d":"google-mrtleppz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)"}
+{"t":[1793361661507,0],"d":"google-mrtleppz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)","c":1}
+{"t":[1793361665507,0],"d":"google-mrtleppz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793361725500,0],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
+{"t":[1793361729507,0],"d":"google-mrtleppz","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street, ещё"}
+{"t":[1793361789487,0],"d":"google-mrtleppz","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal","c":1}
+{"t":[1793361854487,0],"d":"google-mrtleppz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793361858757,0],"d":"google-mrtleppz","op":"saved.del","text":"ılık"}
+{"t":[1793361858757,1],"d":"google-mrtleppz","op":"saved.del","text":"İstanbul"}
+{"t":[1793361920000,0],"d":"google-mrtleppz","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
+{"t":[1793361980007,0],"d":"google-mrtleppz","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":2}
+{"t":[1793361980737,0],"d":"google-mrtleppz","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1793361988757,0],"d":"google-mrtleppz","op":"saved.del","text":"Ǆemal"}
+{"t":[1793362112987,0],"d":"google-mrtleppz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1793362173257,0],"d":"google-mrtleppz","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street (2)"}
+{"t":[1793362294757,0],"d":"google-mrtleppz","op":"ai.put","text":"Ǆemal","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Djemal"}
+{"t":[1793362296250,0],"d":"google-mrtleppz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793362301500,0],"d":"google-mrtleppz","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1793362303257,0],"d":"google-mrtleppz","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street (2)","c":2}
+{"t":[1793362368500,0],"d":"google-mrtleppz","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":3}
+{"t":[1793362371000,0],"d":"google-mrtleppz","op":"saved.del","text":"οδός"}
+{"t":[1793362372250,0],"d":"google-mrtleppz","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul, ещё"}
+{"t":[1793362436500,0],"d":"google-mrtleppz","op":"saved.del","text":"ılık"}
+{"t":[1793362443507,0],"d":"google-mrtleppz","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
+{"t":[1793362503500,0],"d":"google-mrtleppz","op":"history.del","text":"ΟΔΟΣ"}
+{"t":[1793362510987,0],"d":"google-mrtleppz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)","c":1}
+{"t":[1793362511500,0],"d":"google-mrtleppz","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":3}
+{"t":[1793362571507,0],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё","c":1}
+{"t":[1793362631507,0],"d":"google-mrtleppz","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":4}
+{"t":[1793362692500,0],"d":"google-mrtleppz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)"}
+{"t":[1793362752500,0],"d":"google-mrtleppz","op":"saved.put","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal"}
+{"t":[1793362755500,0],"d":"google-mrtleppz","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793362875750,0],"d":"google-mrtleppz","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)"}
+{"t":[1793362880257,0],"d":"google-mrtleppz","op":"history.del","text":"Ǆemal"}
+{"t":[1793362944250,0],"d":"google-mrtleppz","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal","c":1}
+{"t":[1793362944250,1],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё","c":2}
+{"t":[1793362956237,0],"d":"google-mrtleppz","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":4}
+{"t":[1793363017250,0],"d":"google-mrtleppz","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street (2)","c":5}
+{"t":[1793363025250,0],"d":"google-mrtleppz","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street, ещё"}
+{"t":[1793363033487,0],"d":"google-mrtleppz","op":"ai.put","text":"ılık","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"lukewarm (2)\"}"}
+{"t":[1793363041487,0],"d":"google-mrtleppz","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm, ещё"}
+{"t":[1793363110750,0],"d":"google-mrtleppz","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1793363118757,0],"d":"google-mrtleppz","op":"ai.put","text":"ılık","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"lukewarm\"]}"}
+{"t":[1793363178987,0],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":3}
+{"t":[1793363183000,0],"d":"google-mrtleppz","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793363191250,0],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":4}
+{"t":[1793363253250,0],"d":"google-mrtleppz","op":"saved.del","text":"ΟΔΟΣ"}
+{"t":[1793363314750,0],"d":"google-mrtleppz","op":"saved.put","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793363374737,0],"d":"google-mrtleppz","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":5}

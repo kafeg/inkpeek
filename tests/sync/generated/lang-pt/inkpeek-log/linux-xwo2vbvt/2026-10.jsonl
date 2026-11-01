@@ -1,0 +1,26 @@
+{"t":[1793361787250,0],"d":"linux-xwo2vbvt","op":"saved.del","text":"Obrigado!"}
+{"t":[1793361851487,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё","c":1}
+{"t":[1793361851500,0],"d":"linux-xwo2vbvt","op":"saved.put","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко"}
+{"t":[1793362106000,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко, ещё","c":1}
+{"t":[1793362359000,0],"d":"linux-xwo2vbvt","op":"history.del","text":"maçã"}
+{"t":[1793362419000,0],"d":"linux-xwo2vbvt","op":"saved.put","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко, ещё"}
+{"t":[1793362485000,0],"d":"linux-xwo2vbvt","op":"ai.put","text":"não","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung"}
+{"t":[1793362617257,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":1}
+{"t":[1793362618237,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793362752750,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1793362936757,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко (2)","c":1}
+{"t":[1793362942750,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё","c":3}
+{"t":[1793363128507,1],"d":"linux-xwo2vbvt","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":2}
+{"t":[1793363320750,0],"d":"linux-xwo2vbvt","op":"ai.put","text":"coração","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"сердце, ещё\"}"}
+{"t":[1793363327000,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":3}
+{"t":[1793363332507,0],"d":"linux-xwo2vbvt","op":"ai.put","text":"não","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"нет\",\"ещё\"]}"}
+{"t":[1793363392757,0],"d":"linux-xwo2vbvt","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793363514750,1],"d":"linux-xwo2vbvt","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793363880000,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":4}
+{"t":[1793363940237,0],"d":"linux-xwo2vbvt","op":"ai.put","text":"maçã","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"яблоко"}
+{"t":[1793364068987,0],"d":"linux-xwo2vbvt","op":"saved.put","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!"}
+{"t":[1793364073000,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1793364132987,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793364134000,0],"d":"linux-xwo2vbvt","op":"saved.del","text":"maçã"}
+{"t":[1793364138237,0],"d":"linux-xwo2vbvt","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце, ещё"}
+{"t":[1793364142257,0],"d":"linux-xwo2vbvt","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":2}

@@ -1,0 +1,52 @@
+{
+ "saved": [
+  {"text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","created":1793363476000,"id":"boox-gdcfw4nj:1793362227000:0","origin":"boox-gdcfw4nj","updated_by":"boox-6iuvowfq"},
+  {"text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","created":1793363345250,"id":"boox-6iuvowfq:1793362546000:0","origin":"boox-6iuvowfq","updated_by":"boox-gdcfw4nj"},
+  {"text":"łódź","kind":"word","lang":"ru","meaning":"лодка","created":1793363204507,"id":"boox-6iuvowfq:1793362743000:0","origin":"boox-6iuvowfq","updated_by":"boox-gdcfw4nj"}
+ ],
+ "history": [
+  {"text":"Gdańsk","kind":"word","lang":"ru","base":null,"meaning":"Гданьск","seen":1793363341237,"count":3,"devices":["boox-6iuvowfq","boox-gdcfw4nj"]},
+  {"text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","base":null,"meaning":"панграмма","seen":1793363477007,"count":12,"devices":["boox-6iuvowfq","boox-gdcfw4nj","win-mr5amlnz"]},
+  {"text":"łódź","kind":"word","lang":"ru","base":null,"meaning":"лодка","seen":1793363537000,"count":15,"devices":["boox-6iuvowfq","boox-gdcfw4nj","win-mr5amlnz"]},
+  {"text":"źdźbło","kind":"word","lang":"ru","base":null,"meaning":"стебель (2)","seen":1793363407000,"count":2,"devices":["boox-6iuvowfq","win-mr5amlnz"]}
+ ],
+ "ai": [
+  {"text":"Gdańsk","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Gdansk\"\t\\ 1. Bedeutung","created":1793362872750},
+  {"text":"Gdańsk","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Gdansk\"\t\\ 1. Bedeutung","created":1793362880000},
+  {"text":"Gdańsk","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Gdansk (2)\"\t\\ 1. Bedeutung","created":1793363012250},
+  {"text":"Gdańsk","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Gdansk\"\t\\ 1. Bedeutung","created":1793362537000},
+  {"text":"Gdańsk","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Gdansk\"\t\\ 1. Bedeutung","created":1793363072237},
+  {"text":"Gdańsk","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Gdansk, ещё\"\t\\ 1. Bedeutung","created":1793362542000},
+  {"text":"Gdańsk","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Gdansk\"]}","created":1793362872500},
+  {"text":"Gdańsk","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Гданьск (2)\"\t\\ 1. Bedeutung","created":1793363211007},
+  {"text":"Gdańsk","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Гданьск (2)\"\t\\ 1. Bedeutung","created":1793362232000},
+  {"text":"Gdańsk","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Гданьск\"\t\\ 1. Bedeutung","created":1793362106007},
+  {"text":"Gdańsk","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Гданьск, ещё","created":1793363281000},
+  {"text":"Gdańsk","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Гданьск","created":1793363008250},
+  {"text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Гданьск\"}","created":1793363132257},
+  {"text":"Gdańsk","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Гданьск\",\"ещё\"]}","created":1793363209987},
+  {"text":"Zażółć gęślą jaźń","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"a pangram\"\t\\ 1. Bedeutung","created":1793363405757},
+  {"text":"Zażółć gęślą jaźń","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"a pangram","created":1793362868250},
+  {"text":"Zażółć gęślą jaźń","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"панграмма, ещё\"\t\\ 1. Bedeutung","created":1793362875007},
+  {"text":"Zażółć gęślą jaźń","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма\"\t\\ 1. Bedeutung","created":1793363137487},
+  {"text":"Zażółć gęślą jaźń","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма\"\t\\ 1. Bedeutung","created":1793362044737},
+  {"text":"łódź","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"boat\"\t\\ 1. Bedeutung","created":1793362417000},
+  {"text":"łódź","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"boat\"\t\\ 1. Bedeutung","created":1793362742987},
+  {"text":"łódź","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"boat\"}","created":1793361670250},
+  {"text":"łódź","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"boat, ещё\"}","created":1793363271000},
+  {"text":"łódź","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boat\"]}","created":1793361600737},
+  {"text":"łódź","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"лодка\"\t\\ 1. Bedeutung","created":1793362538000},
+  {"text":"łódź","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"лодка\"\t\\ 1. Bedeutung","created":1793361855987},
+  {"text":"łódź","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"лодка\"\t\\ 1. Bedeutung","created":1793361790250},
+  {"text":"łódź","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"лодка (2)","created":1793361606757},
+  {"text":"łódź","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"лодка\"]}","created":1793362948257},
+  {"text":"łódź","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лодка\"}","created":1793363412000},
+  {"text":"łódź","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лодка\"}","created":1793362477000},
+  {"text":"źdźbło","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"blade of grass\"\t\\ 1. Bedeutung","created":1793361730250},
+  {"text":"źdźbło","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"blade of grass (2)","created":1793362166250},
+  {"text":"źdźbło","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"blade of grass (2)","created":1793362868507},
+  {"text":"źdźbło","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"blade of grass\",\"ещё\"]}","created":1793361976000},
+  {"text":"źdźbło","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"стебель, ещё","created":1793362677000},
+  {"text":"źdźbło","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"стебель, ещё","created":1793362166757}
+ ]
+}

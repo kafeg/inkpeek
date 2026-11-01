@@ -1,0 +1,15 @@
+{"t":[1798754100087,0],"d":"boox-fa5rkzri","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin","c":1}
+{"t":[1798754100100,0],"d":"boox-fa5rkzri","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)","c":1}
+{"t":[1798761302100,1],"d":"boox-fa5rkzri","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany"}
+{"t":[1798761302100,2],"d":"boox-fa5rkzri","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
+{"t":[1798761303207,1],"d":"boox-fa5rkzri","op":"saved.del","text":"pingüino"}
+{"t":[1798761303300,1],"d":"boox-fa5rkzri","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no (2)","c":1}
+{"t":[1798761303300,2],"d":"boox-fa5rkzri","op":"saved.del","text":"السلام عليكم"}
+{"t":[1798761303300,3],"d":"boox-fa5rkzri","op":"ai.put","text":"não","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"no\"\t\\ 1. Bedeutung"}
+{"t":[1798761303300,4],"d":"boox-fa5rkzri","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
+{"t":[1798761303300,5],"d":"boox-fa5rkzri","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":2}
+{"t":[1798761303300,6],"d":"boox-fa5rkzri","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":1}
+{"t":[1798761303300,7],"d":"boox-fa5rkzri","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”, ещё","c":1}
+{"t":[1798761303300,8],"d":"boox-fa5rkzri","op":"saved.del","text":"Ещё раз"}
+{"t":[1798761303300,9],"d":"boox-fa5rkzri","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":1}
+{"t":[1798761303300,10],"d":"boox-fa5rkzri","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
