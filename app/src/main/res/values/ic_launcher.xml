@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The launcher icon's ink blue: a dark grey tile on e-ink. -->
+    <color name="ic_launcher_background">#1F3A5F</color>
+</resources>
