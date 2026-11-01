@@ -211,7 +211,9 @@ object Ai {
     }
 
     private fun claude(key: String, model: String, prompt: String, sys: String, ask: Ask): String {
-        fun params(extras: Boolean) = MessageCreateParams.builder().model(model).maxTokens(ask.maxTokens).system(sys).addUserMessage(prompt).apply {
+        // A long passage's translation needs more than a word's answer: about a token per character of the prompt, at most 4096.
+        val max = maxOf(ask.maxTokens, minOf(prompt.length.toLong(), 4096))
+        fun params(extras: Boolean) = MessageCreateParams.builder().model(model).maxTokens(max).system(sys).addUserMessage(prompt).apply {
             if (!extras) return@apply
             // Least thinking the model allows: none, or "between_tools" (Sonnet 5.5), or only effort low (Opus 5.5).
             outputConfig(BetaOutputConfig.builder().effort(BetaOutputConfig.Effort.LOW).format(BetaJsonOutputFormat.builder()
@@ -231,7 +233,10 @@ object Ai {
                 Log.i("InkPeek", "$model: 400 with effort / thinking / schema, plain from now on: ${e.message?.take(200)}")
                 c.beta().messages().create(params(false)).also { remember(memo, 1) }
             }
-        if (msg.stopReason().map { it.toString() }.orElse("") == "refusal") throw AiError("The model declined this request")
+        when (msg.stopReason().map { it.toString() }.orElse("")) {
+            "refusal" -> throw AiError("The model declined this request")
+            "max_tokens" -> throw AiError(CUT)
+        }
         return msg.content().mapNotNull { it.text().orElse(null)?.text() }.joinToString("\n")
     }
 
@@ -261,8 +266,12 @@ object Ai {
         if ((code == 400 || code == 422) && json) { json = false; attempt().let { code = it.first; s = it.second }; if (code in 200..299) remember(fmtMemo, 1) }
         if (code !in 200..299) throw AiError("${p.title}: HTTP $code ${errorText(s)}")
         val choices = JSONObject(s).optJSONArray("choices") ?: throw AiError("${p.title}: ${errorText(s)}")
-        return choices.getJSONObject(0).getJSONObject("message").optString("content")
+        val first = choices.getJSONObject(0)
+        if (first.optString("finish_reason") == "length") throw AiError(CUT)
+        return first.getJSONObject("message").optString("content", "").takeIf { it != "null" }.orEmpty()
     }
+
+    private const val CUT = "The answer was cut off: the text is too long for one answer"
 
     private fun withFields(body: JSONObject, extra: JSONObject) = JSONObject(body.toString()).apply { extra.keys().forEach { put(it, extra.get(it)) } }
 

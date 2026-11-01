@@ -27,7 +27,7 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         return scope.async(Dispatchers.IO) { runCatching {
             val name = name(); val ver = ask.version(name)
             store.answer(text, lang, ask.section, ver)?.let { return@runCatching JSONObject(it) }
-            if (!online()) throw Offline()
+            if (pr != Provider.CUSTOM && !online()) throw Offline() // a server on the local network needs no internet
             Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr), source(), name)
                 .also { runCatching { store.putAnswer(text, lang, ask.section, ver, model, it.toString()) } }
         } }.also { started[ask] = it }
@@ -51,7 +51,7 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
             !prefs.aiOn -> R.string.ai_off
             pr != Provider.CUSTOM && prefs.effectiveKey(pr).isBlank() -> R.string.err_no_key
             prefs.model(pr).isBlank() -> R.string.err_no_model
-            !online() && runCatching { store.answer(text, prefs.answerLang, ask.section, ask.version(name())) }.getOrNull() == null -> R.string.err_offline
+            pr != Provider.CUSTOM && !online() && runCatching { store.answer(text, prefs.answerLang, ask.section, ask.version(name())) }.getOrNull() == null -> R.string.err_offline
             else -> null
         }
     }
