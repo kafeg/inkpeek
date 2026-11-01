@@ -1,7 +1,7 @@
 # Data formats
 
 The formats InkPeek reads and writes that other apps share: the language packs list, the records (saved words,
-history, answers) and the sync log; and the sentence breaks of offline translation. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
+history, answers), the sync log and the Anki notes; and the sentence breaks of offline translation. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
 implements the same formats with its own code. A format changes here and in `tests/` first, then in the apps.
 
 ## Language packs: `packs.json`
@@ -219,6 +219,32 @@ install checks at start and when its sync folder is chosen, before it writes:
 folder and what the app keeps → keep / new), `writer/` (steps at fixed clock values → the bytes of the device's
 files), `generated/` (reader cases made by `tests/sync/generate.py`: many devices, ops and languages). Every app runs
 all of them; a failing case is a finding about the app, never a reason to change the case.
+
+## Anki notes
+Both apps send the saved words, phrases and (when on) the history to Anki by themselves: LexiPeek through AnkiConnect,
+InkPeek through AnkiDroid. One note type `Peek`, fields `Front, Back, Audio, Example, Key` (`Key` in no template), one
+note per entry by its Key. AnkiWeb merges notes by their GUID, which neither app can set: the same entry sent by both
+apps must give the same fields, or each app rewrites the other's on every sync.
+- `Key`: `h-` for a history note, then the entry's `lang` (the answer language when it has none: old rows) in lower
+  case, `-`, the first 32 hex digits of sha256 (UTF-8) of the text's lookup key: NFC, soft hyphens (U+00AD) out,
+  whitespace trimmed at the edges (Kotlin's `isWhitespace`: Unicode's space separators, no-break ones too, line and
+  paragraph separators, TAB LF VT FF CR, U+001C–U+001F), lower case by Unicode's full mapping (Java's
+  `toLowerCase(Locale.ROOT)`: `İ` → `i̇`, `Σ` at a word's end → `ς`). `ru-1a21f58f9570039d5e23f3619c8e9749` is `Haus`.
+- `Front`: the text as it is, escaped (`&` `<` `>` → `&amp;` `&lt;` `&gt;`, `\n` → `<br>`).
+- `Back`: the entry's `meaning`; when it is blank (only whitespace, as above), the brief line of its newest quick AI
+  answer (`ai`: section `quick`, `lang` the English name of the entry's language, the greatest `created`). Cut at its
+  first ` — `: `<div class="head">` + the part before + `</div>` + the part after, each escaped as `Front`; without
+  ` — `: the line escaped. The brief line of an answer: a JSON object (else `""`); its `translation` (a string) when not
+  blank, else `article` and `base` (strings, the non-blank ones, joined by a space) and the strings of `meanings`
+  (joined by `, `), the non-blank of these two joined by ` — `; its first 140 characters (code points).
+- `Example`: `""`. `Audio`: LexiPeek's reading (`[sound:lexipeek_<Key>.wav]`); a note updated without a reading keeps
+  its Audio, and InkPeek never changes it. Tags: `inkpeek` or `lexipeek` on the notes an app adds; never read.
+- Duplicates (both apps added a note before AnkiWeb synced): among the `Peek` notes, per Key (not empty), the smallest
+  id stays; when its Audio is empty it takes the first non-empty Audio of the others by id; the others are deleted.
+  Each app checks every 10 minutes and on "Send now" (InkPeek every Key, LexiPeek the Keys of its own entries).
+
+Cases: `tests/anki/` (`keys.json`, `fields.json`, `dedupe.json`; made by `tests/anki/generate.py`, see its README):
+every app runs all of them.
 
 ## Sentence breaks
 Offline translation cuts a text into sentences: an OPUS-MT model with a target tag gets the tag before each one, Hy-MT2

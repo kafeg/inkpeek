@@ -128,7 +128,7 @@ object Sync {
     /** The store keeps a line's language by its English name ("Russian"); the log, as LexiPeek, by its code ("ru"). AI answers keep theirs. */
     private val codes by lazy { Locale.getISOLanguages().associateBy { Locale(it).getDisplayLanguage(Locale.ENGLISH) } }
     fun code(lang: String) = codes[lang] ?: lang
-    private fun name(lang: String) = if (lang.matches(Regex("[a-z]{2,3}"))) Locale(lang).getDisplayLanguage(Locale.ENGLISH) else lang
+    fun name(lang: String) = if (lang.matches(Regex("[a-z]{2,3}"))) Locale(lang).getDisplayLanguage(Locale.ENGLISH) else lang
     private fun coded(l: Line) = if (l.op == "saved.put" || l.op == "history.seen") l.copy(lang = code(l.lang)) else l
 
     /** The Sync tab's line: the error, else when the folder was read (ms; 0 = not yet). */

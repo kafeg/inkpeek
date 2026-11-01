@@ -247,12 +247,12 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
         } finally { db.endTransaction() }
     }
 
-    /** Saved words and phrases, or the history: text, kind, the language of its line, the line (else the quick AI answer's). */
-    fun anki(history: Boolean): List<Entry> = readableDatabase.rawQuery(
-        "SELECT t.text, t.kind, t.meaning, t.lang, (SELECT answer FROM ai WHERE text=t.text AND lang=t.lang AND section='quick' ORDER BY created DESC LIMIT 1) " +
-            "FROM ${if (history) "history" else "saved"} t", null).use { c ->
+    /** Saved or seen entries with their newest quick AI answer ([ai]; [answer]: the language of rows without one). */
+    fun anki(history: Boolean, answer: String): List<Entry> = readableDatabase.rawQuery(
+        "SELECT t.text, t.kind, t.meaning, t.lang, (SELECT answer FROM ai WHERE text=t.text AND lang=COALESCE(NULLIF(t.lang, ''), ?) AND section='quick' ORDER BY created DESC LIMIT 1) " +
+            "FROM ${if (history) "history" else "saved"} t", arrayOf(answer)).use { c ->
         generateSequence { if (!c.moveToNext()) null else Entry(c.getString(0), c.getString(1).orEmpty(),
-            c.getString(2).orEmpty().ifBlank { brief(c.getString(4)) }, 0, lang = c.getString(3).orEmpty()) }.toList() }
+            c.getString(2).orEmpty(), 0, c.getString(4).orEmpty(), c.getString(3).orEmpty()) }.toList() }
     fun count(table: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table", null).use { it.moveToFirst(); it.getInt(0) }
     fun count(table: String, kind: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table WHERE kind=?", arrayOf(kind)).use { it.moveToFirst(); it.getInt(0) }
 
@@ -307,14 +307,15 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
             }
         }
 
-        /** One line from a quick AI answer (JSON): the translation, or the base form with its meanings. */
+        /** One line from a quick AI answer (JSON): the translation, or the base form with its meanings; 140 characters at most. */
         fun brief(answer: String?): String = runCatching {
             val j = org.json.JSONObject(answer ?: return "")
-            j.optString("translation").ifBlank {
-                val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).joinToString(", ") { a.getString(it) } }.orEmpty()
-                listOf(listOf(j.optString("article"), j.optString("base")).filter { it.isNotBlank() }.joinToString(" "), m)
+            fun s(k: String) = j.opt(k) as? String ?: ""
+            s("translation").ifBlank {
+                val m = j.optJSONArray("meanings")?.let { a -> (0 until a.length()).mapNotNull { a.opt(it) as? String }.joinToString(", ") }.orEmpty()
+                listOf(listOf(s("article"), s("base")).filter { it.isNotBlank() }.joinToString(" "), m)
                     .filter { it.isNotBlank() }.joinToString(" — ")
-            }.take(140)
+            }.let { if (it.codePointCount(0, it.length) > 140) it.substring(0, it.offsetByCodePoints(0, 140)) else it }
         }.getOrDefault("")
     }
 }

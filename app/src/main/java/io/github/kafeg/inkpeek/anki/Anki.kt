@@ -35,9 +35,9 @@ object Anki {
         ".example { font-size: 15px; color: #666; font-style: italic; margin-top: 10px; }\n" +
         ".nightMode .head, .nightMode .example { color: #aaa; }\n"
 
-    /** The answer language, then 32 hex digits of sha256 of the text's lookup key; "h-" before a history note's. */
-    fun key(text: String, lang: String, history: Boolean = false) =
-        (if (history) "h-" else "") + lang.lowercase(Locale.ROOT) + "-" + sha(normKey(text)).take(32)
+    /** The answer language ([answer] when empty), then 32 hex digits of sha256 of the text's lookup key; "h-" before a history note's. */
+    fun key(text: String, lang: String, history: Boolean = false, answer: String = "") =
+        (if (history) "h-" else "") + lang.ifEmpty { answer }.lowercase(Locale.ROOT) + "-" + sha(normKey(text)).take(32)
 
     private fun sha(s: String) = MessageDigest.getInstance("SHA-256").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
 
@@ -48,13 +48,22 @@ object Anki {
 
     data class Note(val key: String, val kind: String, val front: String, val back: String) {
         val digest get() = sha(front + SEP + back + SEP).take(16)
+        /** What a note gets of ours (docs/formats.md, "Anki notes"); Audio is kept as it is. */
+        val fields get() = mapOf("Front" to front, "Back" to back, "Example" to "", "Key" to key)
     }
+
+    /**
+     * An entry as the store keeps it ([lang]: its English name, "" in old rows: [answer], a code) as a note: the line
+     * shown, else (blank) its newest quick AI answer's line [quick].
+     */
+    fun note(text: String, kind: String, meaning: String, lang: String, quick: String?, history: Boolean, answer: String) =
+        Note(key(text, Sync.code(lang), history, answer), if (history) "history" else kind, html(text), back(meaning.ifBlank { Store.brief(quick) }))
 
     /** The entries of [kinds] as notes. */
     fun notes(ctx: Context, kinds: Collection<String>): List<Note> {
-        val st = Store.get(ctx); val ans = Prefs(ctx).answerCode
-        return kinds.flatMap { k -> st.anki(k == "history").filter { k == "history" || it.kind == k }.map { e ->
-            Note(key(e.text, Sync.code(e.lang).ifEmpty { ans }, k == "history"), k, html(e.text), back(e.meaning)) } }
+        val p = Prefs(ctx); val st = Store.get(ctx)
+        return kinds.flatMap { k -> st.anki(k == "history", p.answerLang).filter { k == "history" || it.kind == k }.map { e ->
+            note(e.text, e.kind, e.meaning, e.lang, e.ai, k == "history", p.answerCode) } }
     }
 
     private var sentCache: MutableMap<String, String>? = null
@@ -69,7 +78,7 @@ object Anki {
     }
 
     @Synchronized fun inAnki(ctx: Context, text: String, lang: String, history: Boolean) =
-        sent(ctx).containsKey(key(text, Sync.code(lang).ifEmpty { Prefs(ctx).answerCode }, history))
+        sent(ctx).containsKey(key(text, Sync.code(lang), history, Prefs(ctx).answerCode))
 
     /** Per list: (in Anki, waiting). */
     @Synchronized fun counts(ctx: Context): Map<String, Pair<Int, Int>> = sent(ctx).let { s ->
@@ -141,16 +150,26 @@ object Anki {
     private fun heal(r: ContentResolver) {
         val (mid, fields) = model(r)
         val key = fields.indexOf("Key"); val audio = fields.indexOf("Audio")
-        val byKey = HashMap<String, MutableList<Pair<Long, List<String>>>>()
+        val notes = HashMap<Long, List<String>>()
         r.query(uri("notes"), arrayOf("_id", "flds", "mid"), "\"note:$MODEL\"", null, null)?.use { c ->
-            while (c.moveToNext()) if (c.getLong(2) == mid) c.getString(1).split(SEP).let { f ->
-                f.getOrNull(key)?.takeIf { it.isNotEmpty() }?.let { byKey.getOrPut(it) { ArrayList() } += c.getLong(0) to f } } }
-        for (ns in byKey.values.filter { it.size > 1 }.map { v -> v.sortedBy { it.first } }) {
-            val (id, f) = ns.first()
-            if (f.getOrNull(audio).isNullOrEmpty()) ns.drop(1).firstOrNull { !it.second.getOrNull(audio).isNullOrEmpty() }?.let { (_, other) ->
-                r.update(uri("notes/$id"), ContentValues().apply { put("flds", f.mapIndexed { i, v -> if (i == audio) other[i] else v }.joinToString(SEP)) }, null, null) }
-            ns.drop(1).forEach { r.delete(uri("notes/${it.first}"), null, null) }
+            while (c.moveToNext()) if (c.getLong(2) == mid) notes[c.getLong(0)] = c.getString(1).split(SEP) }
+        val plan = plan(notes.map { (id, f) -> Found(id, f.getOrNull(key).orEmpty(), f.getOrNull(audio).orEmpty()) })
+        for ((id, a) in plan.audio) notes.getValue(id).let { f ->
+            r.update(uri("notes/$id"), ContentValues().apply { put("flds", f.mapIndexed { i, v -> if (i == audio) a else v }.joinToString(SEP)) }, null, null) }
+        plan.deleted.forEach { r.delete(uri("notes/$it"), null, null) }
+    }
+
+    data class Found(val id: Long, val key: String, val audio: String)
+    data class Plan(val audio: Map<Long, String>, val deleted: List<Long>)
+
+    /** Per Key (not empty): the smallest id stays, with the first other Audio by id when its own is empty; the others go. */
+    fun plan(notes: List<Found>): Plan {
+        val audio = HashMap<Long, String>(); val deleted = ArrayList<Long>()
+        for (ns in notes.filter { it.key.isNotEmpty() }.groupBy { it.key }.values.filter { it.size > 1 }.map { v -> v.sortedBy { it.id } }) {
+            if (ns[0].audio.isEmpty()) ns.drop(1).firstOrNull { it.audio.isNotEmpty() }?.let { audio[ns[0].id] = it.audio }
+            deleted += ns.drop(1).map { it.id }
         }
+        return Plan(audio, deleted.sorted())
     }
 
     private fun send(r: ContentResolver, wait: List<Note>, p: Prefs, sent: MutableMap<String, String>) {
@@ -164,8 +183,7 @@ object Anki {
                 val found = HashMap<String, MutableList<Pair<Long, List<String>>>>()
                 r.query(uri("notes"), arrayOf("_id", "flds"), "\"note:$MODEL\" (" + part.joinToString(" OR ") { "Key:${it.key}" } + ")", null, null)?.use { c ->
                     while (c.moveToNext()) c.getString(1).split(SEP).let { f -> found.getOrPut(f.getOrElse(fields.indexOf("Key")) { "" }) { ArrayList() } += c.getLong(0) to f } }
-                fun flds(n: Note, old: List<String>?) = fields.mapIndexed { i, f -> when (f) {
-                    "Front" -> n.front; "Back" -> n.back; "Example" -> ""; "Key" -> n.key; else -> old?.getOrNull(i).orEmpty() } }.joinToString(SEP)
+                fun flds(n: Note, old: List<String>?) = n.fields.let { ours -> fields.mapIndexed { i, f -> ours[f] ?: old?.getOrNull(i).orEmpty() }.joinToString(SEP) }
                 val add = part.filter { it.key !in found }
                 part.filter { it.key in found }.forEach { n -> found.getValue(n.key).forEach { (id, old) ->
                     r.update(uri("notes/$id"), ContentValues().apply { put("flds", flds(n, old)) }, null, null) } }
