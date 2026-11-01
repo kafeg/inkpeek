@@ -26,10 +26,11 @@ class SyncSettings(private val a: MainActivity) {
 
     fun refresh() { refreshSync(); refreshAnki() }
 
-    private fun refreshSync() {
-        sync.removeAllViews()
+    private fun refreshSync() = a.launch {
         val uri = prefs.syncUri
-        val shown = if (uri.isEmpty()) a.getString(R.string.sync_folder_none) else place(android.net.Uri.parse(uri))
+        // Another app's folder is asked for its name: a slow provider must not hold the screen.
+        val shown = if (uri.isEmpty()) a.getString(R.string.sync_folder_none) else withContext(Dispatchers.IO) { place(android.net.Uri.parse(uri)) }
+        sync.removeAllViews()
         sync.addView(Rows.info(a, null, a.getString(R.string.sync_folder_t), shown))
         sync.addView(Rows.buttons(a, a.getString(if (uri.isEmpty()) R.string.sync_choose else R.string.sync_change) to {
             a.startActivityForResult(Intent(Intent.ACTION_OPEN_DOCUMENT_TREE).addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION or
