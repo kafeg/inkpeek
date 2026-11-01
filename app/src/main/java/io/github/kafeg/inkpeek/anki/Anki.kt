@@ -93,10 +93,12 @@ object Anki {
     /** What waits goes, when sending is on and AnkiDroid answers; a failure is tried again a minute later, or by [force]. */
     @Synchronized fun auto(ctx: Context, force: Boolean = false) {
         val p = Prefs(ctx)
-        if (!p.ankiOn || check(ctx).state != State.OK || (!force && System.currentTimeMillis() < retry)) return
+        if (!p.ankiOn || (!force && System.currentTimeMillis() < retry)) return
         val s = sent(ctx)
         val wait = notes(ctx, KINDS.filter { p.ankiDeckOn(it) }).filter { s[it.key] != it.digest }
         if (wait.isEmpty()) { last = ""; return }
+        // AnkiDroid is asked only when something waits: a card closing must not start it for nothing.
+        if (check(ctx).state != State.OK) return
         last = runCatching { send(ctx.contentResolver, wait, p, s); "" }.getOrElse { e ->
             retry = System.currentTimeMillis() + 60_000
             if (e is Missing) ctx.getString(R.string.anki_model_changed, MODEL, e.field) else ctx.getString(R.string.anki_refused, e.message ?: e.javaClass.simpleName)
