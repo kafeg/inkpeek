@@ -459,6 +459,7 @@
     <string name="anki_how_d">InkPeek invia ad AnkiDroid su questo dispositivo; su un computer LexiPeek invia tramite AnkiConnect. Entrambi creano le stesse note (tipo di nota Peek): dopo la sincronizzazione AnkiWeb una parola è una sola nota.</string>
     <string name="anki_on_t">Invia ad Anki</string>
     <string name="anki_on_d">Le parole e le frasi salvate vanno da sole in AnkiDroid, senza audio.</string>
+    <string name="anki_lexipeek">Usi anche LexiPeek? Sincronizza AnkiDroid con AnkiWeb prima di attivarlo, così entrambe le app trovano le stesse note.</string>
     <string name="anki_none_t">AnkiDroid non è installato</string>
     <string name="anki_none_d">Installa AnkiDroid (F-Droid o Google Play), poi torna qui.</string>
     <string name="anki_perm_t">Ancora nessun accesso ad AnkiDroid</string>

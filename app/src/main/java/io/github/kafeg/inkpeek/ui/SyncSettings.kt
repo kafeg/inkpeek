@@ -57,6 +57,7 @@ class SyncSettings(private val a: MainActivity) {
         anki.addView(Rows.info(a, null, a.getString(R.string.anki_how_t), a.getString(R.string.anki_how_d), lines = 4))
         anki.addView(Rows.check(a, a.getString(R.string.anki_on_t), a.getString(R.string.anki_on_d), prefs.ankiOn) {
             prefs.ankiOn = it; if (it && check.state == Anki.State.NO_PERMISSION) ask() else if (it) Sync.refresh() })
+        anki.addView(Rows.note(a, a.getString(R.string.anki_lexipeek)))
         // The step that fails, else the connection; a tap asks for the permission.
         val (title, about) = when (check.state) {
             Anki.State.NOT_INSTALLED -> R.string.anki_none_t to a.getString(R.string.anki_none_d)

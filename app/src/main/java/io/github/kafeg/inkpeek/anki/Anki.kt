@@ -89,6 +89,7 @@ object Anki {
     /** The last send's outcome for the tab ("" = fine). */
     @Volatile var last = ""
     private var retry = 0L
+    private var healAt = 0L
 
     /** What waits goes, when sending is on and AnkiDroid answers; a failure is tried again a minute later, or by [force]. */
     @Synchronized fun auto(ctx: Context, force: Boolean = false) {
@@ -96,10 +97,14 @@ object Anki {
         if (!p.ankiOn || (!force && System.currentTimeMillis() < retry)) return
         val s = sent(ctx)
         val wait = notes(ctx, KINDS.filter { p.ankiDeckOn(it) }).filter { s[it.key] != it.digest }
-        if (wait.isEmpty()) { last = ""; return }
-        // AnkiDroid is asked only when something waits: a card closing must not start it for nothing.
+        val heal = force || System.currentTimeMillis() >= healAt
+        if (wait.isEmpty() && !heal) { last = ""; return }
+        // AnkiDroid is asked only when something waits or duplicates are due: a card closing must not start it for nothing.
         if (check(ctx).state != State.OK) return
-        last = runCatching { send(ctx.contentResolver, wait, p, s); "" }.getOrElse { e ->
+        last = runCatching {
+            if (heal) { heal(ctx.contentResolver); healAt = System.currentTimeMillis() + 10 * 60_000 }
+            if (wait.isNotEmpty()) send(ctx.contentResolver, wait, p, s); ""
+        }.getOrElse { e ->
             retry = System.currentTimeMillis() + 60_000
             if (e is Missing) ctx.getString(R.string.anki_model_changed, MODEL, e.field) else ctx.getString(R.string.anki_refused, e.message ?: e.javaClass.simpleName)
         }
@@ -127,6 +132,25 @@ object Anki {
         r.update(Uri.withAppendedPath(u, "templates/0"), ContentValues().apply {
             put("card_template_name", "Card 1"); put("question_format", FRONT); put("answer_format", BACK) }, null, null)
         return u.lastPathSegment!!.toLong() to FIELDS
+    }
+
+    /**
+     * Duplicates by Key (an AnkiWeb sync keeps both: the provider cannot set a note's GUID): the oldest note (the smallest
+     * id) stays and takes an Audio it lacks from another; the others are deleted. Only "Peek" notes, only equal Keys; as LexiPeek.
+     */
+    private fun heal(r: ContentResolver) {
+        val (mid, fields) = model(r)
+        val key = fields.indexOf("Key"); val audio = fields.indexOf("Audio")
+        val byKey = HashMap<String, MutableList<Pair<Long, List<String>>>>()
+        r.query(uri("notes"), arrayOf("_id", "flds", "mid"), "\"note:$MODEL\"", null, null)?.use { c ->
+            while (c.moveToNext()) if (c.getLong(2) == mid) c.getString(1).split(SEP).let { f ->
+                f.getOrNull(key)?.takeIf { it.isNotEmpty() }?.let { byKey.getOrPut(it) { ArrayList() } += c.getLong(0) to f } } }
+        for (ns in byKey.values.filter { it.size > 1 }.map { v -> v.sortedBy { it.first } }) {
+            val (id, f) = ns.first()
+            if (f.getOrNull(audio).isNullOrEmpty()) ns.drop(1).firstOrNull { !it.second.getOrNull(audio).isNullOrEmpty() }?.let { (_, other) ->
+                r.update(uri("notes/$id"), ContentValues().apply { put("flds", f.mapIndexed { i, v -> if (i == audio) other[i] else v }.joinToString(SEP)) }, null, null) }
+            ns.drop(1).forEach { r.delete(uri("notes/${it.first}"), null, null) }
+        }
     }
 
     private fun send(r: ContentResolver, wait: List<Note>, p: Prefs, sent: MutableMap<String, String>) {

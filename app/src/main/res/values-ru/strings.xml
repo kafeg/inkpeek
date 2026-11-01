@@ -460,6 +460,7 @@
     <string name="anki_how_d">InkPeek отправляет в AnkiDroid на этом устройстве; на компьютере LexiPeek отправляет через AnkiConnect. Оба делают одинаковые записи (тип Peek): после синхронизации AnkiWeb слово — одна запись.</string>
     <string name="anki_on_t">Отправлять в Anki</string>
     <string name="anki_on_d">Сохранённые слова и фразы уходят в AnkiDroid сами, без аудио.</string>
+    <string name="anki_lexipeek">Пользуетесь и LexiPeek? Синхронизируйте AnkiDroid с AnkiWeb до включения, чтобы оба приложения находили одни и те же записи.</string>
     <string name="anki_none_t">AnkiDroid не установлена</string>
     <string name="anki_none_d">Установите AnkiDroid (F-Droid или Google Play) и вернитесь сюда.</string>
     <string name="anki_perm_t">Нет доступа к AnkiDroid</string>
