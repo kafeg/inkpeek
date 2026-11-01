@@ -1,5 +1,0 @@
-{"v":2,"t":[1793145605000,0],"d":"boox-7hq2mzta","op":"history.seen","text":"Bahnhof","kind":"word","lang":"en","meaning":"station","c":1}
-{"v":2,"t":[1793145606000,0],"d":"boox-7hq2mzta","op":"history.seen","text":"Bahnhöfe","kind":"word","lang":"en","meaning":"stations","base":"Bahnhof","c":1}
-{"v":2,"t":[1793145607000,0],"d":"boox-7hq2mzta","op":"history.seen","text":"Bahnhof","kind":"word","lang":"en","meaning":"station","c":2}
-{"v":2,"t":[1793145607000,1],"d":"boox-7hq2mzta","op":"ai.put","text":"Bahnhof","lang":"en","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Bahnhof\",\"article\":\"der\",\"meanings\":[\"station\"],\"note\":\"a \\\"Kopf\\\" station\\nends here\"}"}
-{"v":2,"t":[1793145608000,0],"d":"boox-7hq2mzta","op":"saved.del","text":"Gleis"}

@@ -1,5 +1,0 @@
-{"v":1,"t":[1793145600000,0],"d":"mac-91c0","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"дом"}
-{"v":1,"t":[1793145601000,0],"d":"mac-91c0","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"дом","c":1}
-{"v":1,"t":[1793145602000,0],"d":"mac-91c0","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"дом","c":2}
-{"v":1,"t":[1793145603000,0],"d":"mac-91c0","op":"ai.put","text":"Haus","lang":"ru","section":"quick","ver":3,"model":"claude-sonnet-5-5","answer":"{\"meanings\":[\"дом\"]}"}
-{"v":2,"t":[1793145630000,0],"d":"mac-91c0","op":"saved.del","text":"Haus"}

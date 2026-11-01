@@ -1,0 +1,26 @@
+{
+ "saved": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дерево",
+   "created": 1761400040000,
+   "id": "boox-7hq2mzta:1761400040000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "mac-k3fw2xqa"
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "house, home",
+   "created": 1761400030000,
+   "id": "mac-k3fw2xqa:1761400030000:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "mac-k3fw2xqa"
+  }
+ ],
+ "history": [],
+ "ai": []
+}

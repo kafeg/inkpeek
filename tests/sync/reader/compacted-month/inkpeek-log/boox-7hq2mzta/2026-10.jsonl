@@ -1,0 +1,9 @@
+{"t":[1793145600000,0],"d":"boox-7hq2mzta","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793145606000,0],"d":"boox-7hq2mzta","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house, home"}
+{"t":[1793145608000,0],"d":"boox-7hq2mzta","op":"saved.del","text":"Weg"}
+{"t":[1793145609000,0],"d":"boox-7hq2mzta","op":"saved.put","text":"Weg","kind":"word","lang":"en","meaning":"way, path"}
+{"t":[1793145611000,0],"d":"boox-7hq2mzta","op":"saved.put","text":"Weg","kind":"word","lang":"en","meaning":"path"}
+{"t":[1793145613000,0],"d":"boox-7hq2mzta","op":"ai.put","text":"Haus","lang":"en","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"meanings\":[\"house\",\"home\"]}"}
+{"t":[1793145616000,0],"d":"boox-7hq2mzta","op":"history.del","text":"Baum"}
+{"t":[1793145618000,0],"d":"boox-7hq2mzta","op":"history.seen","text":"Baum","kind":"word","lang":"en","meaning":"tree","c":2}
+{"t":[1793145620000,0],"d":"boox-7hq2mzta","op":"saved.del","text":"Ast"}

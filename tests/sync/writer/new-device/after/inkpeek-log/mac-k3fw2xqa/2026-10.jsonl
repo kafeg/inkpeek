@@ -1,0 +1,3 @@
+{"t":[1793491198000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"дом, \"здание\""}
+{"t":[1793491198000,1],"d":"mac-k3fw2xqa","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"дом, \"здание\"","c":1}
+{"t":[1793491198500,0],"d":"mac-k3fw2xqa","op":"ai.put","text":"Haus","lang":"ru","section":"quick","ver":3,"model":"claude-sonnet-5-5","answer":"{\"base\":\"Haus\",\"meanings\":[\"дом\"],\n\"note\":\"a\\\\b\"}"}

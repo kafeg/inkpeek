@@ -1,0 +1,29 @@
+{
+ "saved": [
+  {
+   "text": "Weg",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "way, path",
+   "created": 1761400030000,
+   "id": "boox-7hq2mzta:1761400030000:2",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "дом",
+   "seen": 1761400120000,
+   "count": 1,
+   "devices": [
+    "mac-k3fw2xqa"
+   ]
+  }
+ ],
+ "ai": []
+}

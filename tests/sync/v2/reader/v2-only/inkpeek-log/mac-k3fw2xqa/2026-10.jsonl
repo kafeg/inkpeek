@@ -1,4 +1,0 @@
-{"v":2,"t":[1793145600000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Bahnhof","kind":"word","lang":"en","meaning":"station","id":"mac-k3fw2xqa:1793145600000:0"}
-{"v":2,"t":[1793145601000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Gleis","kind":"word","lang":"en","meaning":"track","id":"mac-k3fw2xqa:1793145601000:0"}
-{"v":2,"t":[1793145602000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Der Zug fährt ab.","kind":"phrase","lang":"ru","meaning":"Поезд отправляется.","id":"mac-k3fw2xqa:1793145602000:0"}
-{"v":2,"t":[1793145603000,0],"d":"mac-k3fw2xqa","op":"ai.put","text":"Weiche","lang":"en","section":"quick","ver":3,"model":"claude-sonnet-5-5","answer":"{\"meanings\":[\"switch\"]}"}

@@ -1,0 +1,9 @@
+{"t":[1793491200000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house"}
+{"t":[1793491201000,0],"d":"mac-k3fw2xqa","op":"note.put","text":"Haus","note":"p. 12"}
+{"t":[1793491203000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Baum","kind":"word","lang":"en","meaning":"tree","book":"Effi Briest","tags":["nature"]}
+{"d":"mac-k3fw2xqa","op":"saved.del","text":"Baum"}
+{"t":[1793491204000,0,1],"d":"mac-k3fw2xqa","op":"saved.del","text":"Baum"}
+{"t":[1793491204000,0.5],"d":"mac-k3fw2xqa","op":"saved.del","text":"Baum"}
+{"t":[1793491204000,1],"op":"saved.del","text":"Baum"}
+{"t":[1793491204000,2],"d":"mac-k3fw2xqa","op":"saved.del"}
+{"t":[1793491205000,0],"d":"mac-k3fw2xqa","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"house","c":1,"page":12}
