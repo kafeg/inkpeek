@@ -1,14 +1,29 @@
-{"t":[1798802503000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":1}
-{"t":[1798802564000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"não","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нет, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1798838564987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Good evening!\",\"ещё\"]}"}
-{"t":[1798939425007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":1}
-{"t":[1799004225000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":2}
-{"t":[1799018745000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки» (2)","c":1}
-{"t":[1799022347000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)","c":4}
-{"t":[1799022468000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"perché","kind":"word","lang":"en","meaning":"why, ещё","c":2}
-{"t":[1799094469007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":3}
-{"t":[1799339451000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"più","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"more\"\t\\ 1. Bedeutung"}
-{"t":[1799343050987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
-{"t":[1799479852007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":1}
-{"t":[1799519451987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city"}
-{"t":[1799551912007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":4}
+{"t":[1798785542000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"città"}
+{"t":[1798817943007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)"}
+{"t":[1798821544000,0],"d":"linux-prmqvdqk","op":"history.del","text":"a/b </script> & <b>"}
+{"t":[1798944185000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово (2)"}
+{"t":[1798944246000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему","c":1}
+{"t":[1799012767007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"café","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"coffee, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1799077569000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"ΣΟΦΙΑ"}
+{"t":[1799113629000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Übung","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"exercise (2)\"\t\\ 1. Bedeutung"}
+{"t":[1799214550000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"　日本　","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Япония (идеографический пробел), ещё\"}"}
+{"t":[1799214550000,1],"d":"linux-prmqvdqk","op":"ai.put","text":"漢字","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"kanji, ещё\"}"}
+{"t":[1799218211000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":4}
+{"t":[1799250610987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел) (2)","c":1}
+{"t":[1799286731987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Gdańsk","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Gdansk, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1799351594007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":1}
+{"t":[1799383995987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":1}
+{"t":[1799383997007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":2}
+{"t":[1799383997007,1],"d":"linux-prmqvdqk","op":"history.seen","text":"\u4f60\u597d","kind":"word","lang":"ru","meaning":"\u043f\u0440\u0438\u0432\u0435\u0442","c":4}
+{"t":[1799416457000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":1}
+{"t":[1799520919007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"coração"}
+{"t":[1799524520007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Er sagte: \"Komm!\"","kind":"phrase","lang":"ru","meaning":"Он сказал: \"Иди!\"","c":2,"book":"Effi Briest","tags":["nature","ö"]}
+{"t":[1799564181007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"我爱你。","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"I love you. (2)\"\t\\ 1. Bedeutung"}
+{"t":[1799675786000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Zeile eins\nZeile zwei"}
+{"t":[1799758708000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё","c":1}
+{"t":[1799758887987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":2}
+{"t":[1799758890000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family"}
+{"t":[1799758951007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":3}
+{"t":[1799867074007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"🇩🇪"}
+ 	{"t":[1799867195007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"größer","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"bigger\"\t\\ 1. Bedeutung"} 
+{"t":[1799881716007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины), ещё","c":5}

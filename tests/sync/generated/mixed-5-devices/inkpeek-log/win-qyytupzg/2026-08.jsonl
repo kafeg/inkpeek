@@ -2,74 +2,68 @@
 {"t":[1785578520000,0],"d":"win-qyytupzg","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"мир (с огласовками)\"\t\\ 1. Bedeutung"}
 {"t":[1785582180000,0],"d":"win-qyytupzg","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мир (с огласовками)\"]}"}
 {"t":[1785585841000,0],"d":"win-qyytupzg","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мир (с огласовками)\"]}"}
-{"t":[1785593045000,0],"d":"win-qyytupzg","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028","c":1}
-{"t":[1785596767007,0],"d":"win-qyytupzg","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)","base":"Haus","c":1}
-{"t":[1785629227000,0],"d":"win-qyytupzg","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":1}
-{"t":[1785661688000,0],"d":"win-qyytupzg","op":"history.del","text":"Hauß"}
-{"t":[1785766270987,0],"d":"win-qyytupzg","op":"history.seen","text":"\u00bfQu\u00e9 tal?","kind":"phrase","lang":"ru","meaning":"\u041a\u0430\u043a \u0434\u0435\u043b\u0430?","c":1}
-{"t":[1785766331000,0],"d":"win-qyytupzg","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"открывать"}
-{"t":[1785766451987,0],"d":"win-qyytupzg","op":"history.del","text":"ΟΔΟΣ"}
-{"t":[1785770052000,0],"d":"win-qyytupzg","op":"saved.del","text":"cœur"}
-{"t":[1785806176000,0],"d":"win-qyytupzg","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":1}
-{"t":[1785838575987,0],"d":"win-qyytupzg","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":1}
-{"t":[1785838695987,0],"d":"win-qyytupzg","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much"}
-{"t":[1785907097000,0],"d":"win-qyytupzg","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1785910696987,0],"d":"win-qyytupzg","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":1}
-{"t":[1786011617000,0],"d":"win-qyytupzg","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
-{"t":[1786087278987,0],"d":"win-qyytupzg","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
-{"t":[1786090938987,0],"d":"win-qyytupzg","op":"ai.put","text":"Mädchen","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"строка один\\nстрока два (2)\"]}"}
-{"t":[1786090999007,0],"d":"win-qyytupzg","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"японский язык\"}"}
-{"t":[1786123398987,0],"d":"win-qyytupzg","op":"saved.del","text":"Fuß"}
-{"t":[1786191921007,0],"d":"win-qyytupzg","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город","c":1}
-{"t":[1786191921007,1],"d":"win-qyytupzg","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":1}
-{"t":[1786293022000,0],"d":"win-qyytupzg","op":"saved.del","text":"a/b </script> & <b>"}
-{"t":[1786293023000,0],"d":"win-qyytupzg","op":"ai.put","text":"Mädchen","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"строка один\nстрока два\"\t\\ 1. Bedeutung"}
- 	{"t":[1786390222987,0],"d":"win-qyytupzg","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел)","c":1} 
-{"t":[1786469546000,0],"d":"win-qyytupzg","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё","c":1}
-{"t":[1786512807000,0],"d":"win-qyytupzg","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
-{"t":[1786512807000,1],"d":"win-qyytupzg","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
-{"t":[1786523607000,0],"d":"win-qyytupzg","op":"saved.del","text":"Hauß"}
-{"t":[1786628193007,0],"d":"win-qyytupzg","op":"history.del","text":"Straße"}
-{"t":[1786628193987,0],"d":"win-qyytupzg","op":"saved.del","text":"😀"}
-{"t":[1786635516007,1],"d":"win-qyytupzg","op":"saved.del","text":"pingüino"}
-{"t":[1786639117000,0],"d":"win-qyytupzg","op":"saved.put","text":"cœur","kind":"word","lang":"ru","meaning":"сердце"}
-{"t":[1786682559007,0],"d":"win-qyytupzg","op":"saved.put","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)"}
-{"t":[1786714959987,0],"d":"win-qyytupzg","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":2}
-{"t":[1786779821000,0],"d":"win-qyytupzg","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе (2)"}
-{"t":[1786783421000,0],"d":"win-qyytupzg","op":"history.del","text":" Haus"}
-{"t":[1786826741007,0],"d":"win-qyytupzg","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"панграмма (2)\"}"}
-{"t":[1786931383000,0],"d":"win-qyytupzg","op":"saved.del","text":"Öl"}
-{"t":[1786935044000,0],"d":"win-qyytupzg","op":"history.del","text":"Ich mache die Tür zu!"}
-{"t":[1786967444000,0],"d":"win-qyytupzg","op":"saved.put","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы"}
-{"t":[1787039503987,0],"d":"win-qyytupzg","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
-{"t":[1787043164987,0],"d":"win-qyytupzg","op":"ai.put","text":"ґанок","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
-{"t":[1787079165000,0],"d":"win-qyytupzg","op":"ai.put","text":"日本語","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Hi, friend!\"}"}
-{"t":[1787151344987,0],"d":"win-qyytupzg","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":1}
-{"t":[1787187345000,1],"d":"win-qyytupzg","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
-{"t":[1787219745000,1],"d":"win-qyytupzg","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":2}
-{"t":[1787255806007,0],"d":"win-qyytupzg","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки», ещё"}
-{"t":[1787255806007,1],"d":"win-qyytupzg","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":1}
-{"t":[1787255866007,0],"d":"win-qyytupzg","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
-{"t":[1787324266007,0],"d":"win-qyytupzg","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
-{"t":[1787324386000,0],"d":"win-qyytupzg","op":"saved.put","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри"}
-{"t":[1787356847000,0],"d":"win-qyytupzg","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
-{"t":[1787425251987,0],"d":"win-qyytupzg","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
-{"t":[1787565835000,0],"d":"win-qyytupzg","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)","c":2}
-{"t":[1787601895007,0],"d":"win-qyytupzg","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет (2)","c":2}
-{"t":[1787601896000,0],"d":"win-qyytupzg","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)","c":1}
-{"t":[1787601897007,0],"d":"win-qyytupzg","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка (2)","c":2}
-{"t":[1787666697007,0],"d":"win-qyytupzg","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
-{"t":[1787699097007,0],"d":"win-qyytupzg","op":"ai.put","text":"漢字","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Я тебя люблю., ещё\"\t\\ 1. Bedeutung"}
-{"t":[1787735097007,0],"d":"win-qyytupzg","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мир (с огласовками)\",\"ещё\"]}"}
-{"t":[1787922421007,0],"d":"win-qyytupzg","op":"ai.put","text":"C:\\Pfad\\Datei","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I love you.\"]}"}
-{"t":[1787933402000,0],"d":"win-qyytupzg","op":"history.seen","text":" Haus","kind":"word","lang":"ru","meaning":"дом (пробел слева)","c":1}
-{"t":[1787937063007,0],"d":"win-qyytupzg","op":"history.del","text":"Fuß"}
-{"t":[1787937064000,0],"d":"win-qyytupzg","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)","c":1}
-{"t":[1788073866000,0],"d":"win-qyytupzg","op":"history.del","text":"ΟΔΟΣ"}
-{"t":[1788077707987,0],"d":"win-qyytupzg","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)","c":2}
-{"t":[1788077768000,0],"d":"win-qyytupzg","op":"history.seen","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)","c":1}
-{"t":[1788077829000,0],"d":"win-qyytupzg","op":"history.del","text":"perché"}
-{"t":[1788077889000,0],"d":"win-qyytupzg","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":2}
-{"t":[1788081549987,0],"d":"win-qyytupzg","op":"ai.put","text":"ılık","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"флаг Германии\"\t\\ 1. Bedeutung"}
-{"t":[1788088752000,0],"d":"win-qyytupzg","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю.","c":1}
-{"t":[1788157272987,0],"d":"win-qyytupzg","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана, ещё","c":1}
+{"t":[1785593045000,0],"d":"win-qyytupzg","op":"history.seen","text":"Zeile eins\nZeile zwei","kind":"phrase","lang":"ru","meaning":"строка один\nстрока два","c":1}
+{"t":[1785632825000,0],"d":"win-qyytupzg","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки)","c":1}
+{"t":[1785665226000,1],"d":"win-qyytupzg","op":"ai.put","text":"Mädchen","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"очень длинный отрывок\"\t\\ 1. Bedeutung"}
+{"t":[1785697686000,0],"d":"win-qyytupzg","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать","base":"machen","c":1}
+{"t":[1785697687000,1],"d":"win-qyytupzg","op":"history.del","text":"Σ"}
+{"t":[1785766086987,0],"d":"win-qyytupzg","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
+{"t":[1785874207987,0],"d":"win-qyytupzg","op":"history.seen","text":"\u00bfQu\u00e9 tal?","kind":"phrase","lang":"ru","meaning":"\u041a\u0430\u043a \u0434\u0435\u043b\u0430?","c":1}
+{"t":[1785874268000,0],"d":"win-qyytupzg","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"открывать"}
+{"t":[1785874388987,0],"d":"win-qyytupzg","op":"history.del","text":"garçon"}
+{"t":[1785877989000,0],"d":"win-qyytupzg","op":"saved.del","text":"사랑해요"}
+{"t":[1785914113000,0],"d":"win-qyytupzg","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":1}
+{"t":[1785946512987,0],"d":"win-qyytupzg","op":"history.seen","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово","c":1}
+{"t":[1785946513007,0],"d":"win-qyytupzg","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"ru","meaning":"Я тебя люблю., ещё","c":1}
+{"t":[1786022114987,0],"d":"win-qyytupzg","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":1}
+{"t":[1786123035000,0],"d":"win-qyytupzg","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1786195096000,0],"d":"win-qyytupzg","op":"ai.put","text":"\tHaus\n","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"дом (табуляция, перевод строки) (2)"}
+{"t":[1786195156987,0],"d":"win-qyytupzg","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1786242077007,1],"d":"win-qyytupzg","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":1}
+{"t":[1786278139007,0],"d":"win-qyytupzg","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":2}
+{"t":[1786310539007,0],"d":"win-qyytupzg","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет","c":1}
+{"t":[1786411640000,0],"d":"win-qyytupzg","op":"saved.del","text":"Zeile eins\nZeile zwei"}
+{"t":[1786411641000,0],"d":"win-qyytupzg","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"привет\"\t\\ 1. Bedeutung"}
+ 	{"t":[1786508840987,0],"d":"win-qyytupzg","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1} 
+{"t":[1786548501987,0],"d":"win-qyytupzg","op":"ai.put","text":"שלום","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"мир, привет\"\t\\ 1. Bedeutung"}
+{"t":[1786616963000,0],"d":"win-qyytupzg","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё","c":1}
+{"t":[1786660224000,0],"d":"win-qyytupzg","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1786818926007,0],"d":"win-qyytupzg","op":"history.del","text":"Straße"}
+{"t":[1786818926987,0],"d":"win-qyytupzg","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1786826249007,1],"d":"win-qyytupzg","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1786829850000,0],"d":"win-qyytupzg","op":"saved.put","text":"cœur","kind":"word","lang":"ru","meaning":"сердце"}
+{"t":[1786873230000,0],"d":"win-qyytupzg","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1786873232007,0],"d":"win-qyytupzg","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
+{"t":[1786905632987,0],"d":"win-qyytupzg","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":3}
+{"t":[1786970494000,0],"d":"win-qyytupzg","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе (2)"}
+{"t":[1786974094000,0],"d":"win-qyytupzg","op":"history.del","text":"\tHaus\n"}
+{"t":[1787186736987,0],"d":"win-qyytupzg","op":"saved.del","text":"السلام عليكم"}
+{"t":[1787186738000,1],"d":"win-qyytupzg","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин, ещё","c":1}
+{"t":[1787186739000,0],"d":"win-qyytupzg","op":"history.del","text":"Käse"}
+{"t":[1787219139000,0],"d":"win-qyytupzg","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":1}
+{"t":[1787291199987,0],"d":"win-qyytupzg","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1787294860987,0],"d":"win-qyytupzg","op":"ai.put","text":"Σ","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"сигма\"\t\\ 1. Bedeutung"}
+{"t":[1787330861000,0],"d":"win-qyytupzg","op":"ai.put","text":"שלום","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"peace, hello\"}"}
+{"t":[1787403040987,0],"d":"win-qyytupzg","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":2}
+{"t":[1787439041000,1],"d":"win-qyytupzg","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1787471441000,1],"d":"win-qyytupzg","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
+{"t":[1787507502007,0],"d":"win-qyytupzg","op":"saved.put","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри, ещё"}
+{"t":[1787507502007,1],"d":"win-qyytupzg","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":1}
+{"t":[1787507562000,0],"d":"win-qyytupzg","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (NEL, разделитель абзацев)","c":1}
+{"t":[1787575962000,1],"d":"win-qyytupzg","op":"saved.put","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки», ещё"}
+{"t":[1787576082000,0],"d":"win-qyytupzg","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)"}
+{"t":[1787608543000,0],"d":"win-qyytupzg","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1787676947987,0],"d":"win-qyytupzg","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1787813929000,0],"d":"win-qyytupzg","op":"ai.put","text":"Zeile eins\nZeile zwei","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"строка один\\nстрока два, ещё\"}"}
+{"t":[1787846329007,0],"d":"win-qyytupzg","op":"history.del","text":"السلام عليكم"}
+{"t":[1787846329007,1],"d":"win-qyytupzg","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)","c":1}
+{"t":[1787849929000,0],"d":"win-qyytupzg","op":"saved.del","text":"garçon"}
+{"t":[1787853529987,0],"d":"win-qyytupzg","op":"ai.put","text":"pingüino","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"пингвин (2)"}
+{"t":[1787918390000,0],"d":"win-qyytupzg","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel"}
+{"t":[1787918390000,1],"d":"win-qyytupzg","op":"saved.put","text":"\u6771\u4eac","kind":"word","lang":"ru","meaning":"\u0422\u043e\u043a\u0438\u043e, \u0435\u0449\u0451"}
+{"t":[1787950790007,0],"d":"win-qyytupzg","op":"history.seen","text":"Zeile eins\nZeile zwei","kind":"phrase","lang":"ru","meaning":"строка один\nстрока два, ещё","c":2}
+{"t":[1787983190000,0],"d":"win-qyytupzg","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Я люблю тебя (2)\"\t\\ 1. Bedeutung"}
+{"t":[1787983250007,0],"d":"win-qyytupzg","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель (2)","c":1}
+{"t":[1787983252000,0],"d":"win-qyytupzg","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1788062513007,0],"d":"win-qyytupzg","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","c":1}
+{"t":[1788062514000,0],"d":"win-qyytupzg","op":"saved.del","text":"città"}

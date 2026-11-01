@@ -1,244 +1,239 @@
-{"t":[1793491800100,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
+{"t":[1793491800100,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"en","meaning":"street and house","c":1}
 {"t":[1793491800100,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)","c":1}
 {"t":[1793491800100,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрий вечір","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"no (2)\"\t\\ 1. Bedeutung"}
 {"t":[1793491800100,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"🇩🇪","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"coffee\"\t\\ 1. Bedeutung"}
 {"t":[1793491805400,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"Übung","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you very much\"\t\\ 1. Bedeutung"}
 {"t":[1793491805400,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
-{"t":[1793491805500,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрий вечір","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"no\"]}"}
-{"t":[1793491805500,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":1}
-{"t":[1793491805500,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
-{"t":[1793491805500,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese (2)"}
-{"t":[1793491805500,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":1}
-{"t":[1793491805500,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm (2)","c":2}
-{"t":[1793491805500,8],"d":"onyx-g5mz25gl","op":"ai.put","text":"não","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"no (2)\"}"}
-{"t":[1793491805500,9],"d":"onyx-g5mz25gl","op":"ai.put","text":"città","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"city\"\t\\ 1. Bedeutung"}
-{"t":[1793491814107,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё"}
-{"t":[1793491814107,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"Obrigado!"}
-{"t":[1793491814107,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"Öl"}
-{"t":[1793491817207,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
-{"t":[1793491817207,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
-{"t":[1793491817207,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"l’été","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"child\"}"}
-{"t":[1793491817207,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"Com'è bello!"}
-{"t":[1793491817207,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
-{"t":[1793491819300,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":1}
-{"t":[1793491819300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":1}
-{"t":[1793491819300,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
-{"t":[1793491819300,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much","c":1}
-{"t":[1793491819300,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
-{"t":[1793491819300,9],"d":"onyx-g5mz25gl","op":"saved.del","text":"não"}
-{"t":[1793491819300,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"תודה רבה","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Thank you very much\"}"}
-{"t":[1793491819300,11],"d":"onyx-g5mz25gl","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)","c":1}
-{"t":[1793491835200,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"Käse","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"cheese (2)"}
-{"t":[1793491835200,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"Mädchen","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"girl"}
-{"t":[1793491835200,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana, ещё","c":1}
-{"t":[1793491835200,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"café"}
-{"t":[1793491836800,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"שָׁלוֹם"}
-{"t":[1793491841987,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":1}
-{"t":[1793491841987,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
-{"t":[1793491842407,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":2}
-{"t":[1793491842407,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
-{"t":[1793491842407,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"Häuser","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"houses\"}"}
-{"t":[1793491845687,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much","c":2}
-{"t":[1793491845687,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"Fuß","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"foot (2)"}
-{"t":[1793491853407,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
-{"t":[1793491853407,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":1}
-{"t":[1793491853407,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"corazón","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"heart (2)"}
-{"t":[1793491853407,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"カタカナ","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
-{"t":[1793491859500,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
-{"t":[1793491859500,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
-{"t":[1793491859500,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen"}
-{"t":[1793491859500,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise (2)","c":1}
-{"t":[1793491860707,1],"d":"onyx-g5mz25gl","op":"history.del","text":"οδός"}
-{"t":[1793491860707,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)"}
-{"t":[1793491860707,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
-{"t":[1793491860707,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"カタカナ","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"heart"}
-{"t":[1793491866487,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello"}
-{"t":[1793491866487,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":3}
-{"t":[1793491866487,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"Öl","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\"]}"}
-{"t":[1793491866487,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise"}
-{"t":[1793491866487,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"한국어","kind":"word","lang":"en","meaning":"Korean"}
-{"t":[1793491872507,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"en","meaning":"half-width katakana","c":2}
-{"t":[1793491872507,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
-{"t":[1793491872507,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"corazón","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сердце (2)\"]}"}
-{"t":[1793491872507,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee (2)"}
-{"t":[1793491872507,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
-{"t":[1793491872507,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"дом","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"cheese (2)\"]}"}
-{"t":[1793491872507,8],"d":"onyx-g5mz25gl","op":"saved.del","text":"Mädchen"}
-{"t":[1793491885587,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean, ещё","c":1}
-{"t":[1793491885587,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":1}
-{"t":[1793491887787,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"カタカナ"}
-{"t":[1793491887787,2],"d":"onyx-g5mz25gl","op":"history.del","text":"łódź"}
-{"t":[1793491887787,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"łódź"}
-{"t":[1793491887787,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"Grüß Gott","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Hello\"\t\\ 1. Bedeutung"}
-{"t":[1793491889000,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"больше\"\t\\ 1. Bedeutung"}
-{"t":[1793491895300,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"não","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"no"}
-{"t":[1793491897487,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"più","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"more\"\t\\ 1. Bedeutung"}
-{"t":[1793491897487,2],"d":"onyx-g5mz25gl","op":"history.del","text":"garçon"}
-{"t":[1793491897487,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
-{"t":[1793491897487,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"οδός","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"I love you, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793491897487,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"l’été","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"the summer\"\t\\ 1. Bedeutung"}
-{"t":[1793491897487,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":1}
-{"t":[1793491897487,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today","c":1}
-{"t":[1793491897487,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone)","c":1}
-{"t":[1793491904000,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch, ещё","c":1}
-{"t":[1793491909300,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"пингвин\"]}"}
-{"t":[1793491909387,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"𠮷野家","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Yoshinoya, ещё\"}"}
-{"t":[1793491910400,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"カタカナ","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
-{"t":[1793491910400,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
-{"t":[1793491910400,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"coffee"}
-{"t":[1793491911500,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
-{"t":[1793491911500,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"🇩🇪","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"coffee (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793491911500,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
-{"t":[1793491916107,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin (2)","c":1}
-{"t":[1793491916107,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"exercise (2)\"]}"}
-{"t":[1793491916107,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"漢字","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"kanji\"\t\\ 1. Bedeutung"}
-{"t":[1793491916107,6],"d":"onyx-g5mz25gl","op":"saved.del","text":"カタカナ"}
-{"t":[1793491916107,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":2}
-{"t":[1793491921507,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed) (2)","c":2}
-{"t":[1793491921507,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"why (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793491924800,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":2}
-{"t":[1793491926000,1],"d":"onyx-g5mz25gl","op":"history.del","text":"ılık"}
-{"t":[1793491926000,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":1}
-{"t":[1793491926000,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you., ещё","c":1}
-{"t":[1793491927300,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":2}
-{"t":[1793491927300,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё","c":1}
-{"t":[1793491927300,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"łódź","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"boat"}
-{"t":[1793491927300,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"사랑해요","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"I love you (2)\"}"}
-{"t":[1793491927300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
-{"t":[1793491927300,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
-{"t":[1793491927300,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
-{"t":[1793491927300,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":2}
-{"t":[1793491935600,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji"}
-{"t":[1793491935600,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
-{"t":[1793491935600,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":2}
-{"t":[1793491935600,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"cœur","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"heart"}
-{"t":[1793491940300,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
-{"t":[1793491940300,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
-{"t":[1793491940300,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"你好","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hello\"\t\\ 1. Bedeutung"}
-{"t":[1793491940300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":1}
-{"t":[1793491944100,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"תודה רבה","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Thank you very much\"\t\\ 1. Bedeutung"}
-{"t":[1793491944100,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
-{"t":[1793491944100,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"Häuser"}
-{"t":[1793491944100,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"łódź","kind":"word","lang":"en","meaning":"boat"}
-{"t":[1793491944100,5],"d":"onyx-g5mz25gl","op":"saved.del","text":"corazón"}
-{"t":[1793491944100,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"مرحبا","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"hello, ещё\"}"}
-{"t":[1793491944100,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠, ещё","c":1}
-{"t":[1793491951800,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":1}
-{"t":[1793491951800,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"pingüino","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"penguin (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793491951800,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
-{"t":[1793491951800,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
-{"t":[1793491951800,5],"d":"onyx-g5mz25gl","op":"saved.del","text":"aufmachen"}
-{"t":[1793491953600,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":3}
-{"t":[1793491956807,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"كتاب"}
-{"t":[1793491956807,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"l’été","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"the summer, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793491956807,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"Öl","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"oil\"\t\\ 1. Bedeutung"}
-{"t":[1793491956807,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793491956807,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
-{"t":[1793491956807,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)"}
-{"t":[1793491956807,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boy (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793491956807,8],"d":"onyx-g5mz25gl","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793491956807,9],"d":"onyx-g5mz25gl","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":2}
-{"t":[1793491956807,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"Wie geht's?","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you?\"}"}
-{"t":[1793491967807,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up"}
-{"t":[1793491969200,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"οδός","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I love you (2)\"]}"}
-{"t":[1793491969200,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793491973900,1],"d":"onyx-g5mz25gl","op":"history.del","text":"größer"}
-{"t":[1793491975900,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram, ещё","c":2}
-{"t":[1793491975900,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"İstanbul","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Istanbul"}
-{"t":[1793491975900,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"l’été"}
-{"t":[1793491975900,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
-{"t":[1793491975900,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
-{"t":[1793491975900,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё"}
-{"t":[1793491975900,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"カタカナ","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"katakana\"]}"}
-{"t":[1793491975900,8],"d":"onyx-g5mz25gl","op":"ai.put","text":"ґанок","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
-{"t":[1793491983900,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
-{"t":[1793491983900,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":2}
-{"t":[1793491983900,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"não"}
-{"t":[1793491983900,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
-{"t":[1793491983900,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":2}
-{"t":[1793491983900,6],"d":"onyx-g5mz25gl","op":"saved.del","text":"Ǆemal"}
-{"t":[1793491983900,7],"d":"onyx-g5mz25gl","op":"saved.put","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello, ещё"}
-{"t":[1793491983900,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":2}
-{"t":[1793491983900,9],"d":"onyx-g5mz25gl","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":1}
-{"t":[1793491983900,10],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё","base":"élever","c":1}
-{"t":[1793491998987,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":1}
-{"t":[1793491998987,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΟΔΟΣ","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"penguin, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793491998987,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
-{"t":[1793491998987,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
-{"t":[1793491998987,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":2}
-{"t":[1793491998987,6],"d":"onyx-g5mz25gl","op":"saved.del","text":"ひらがな"}
-{"t":[1793491998987,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":3}
-{"t":[1793491998987,8],"d":"onyx-g5mz25gl","op":"history.del","text":"Übung"}
-{"t":[1793491998987,9],"d":"onyx-g5mz25gl","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot (2)"}
-{"t":[1793491998987,10],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":2}
-{"t":[1793491998987,11],"d":"onyx-g5mz25gl","op":"history.del","text":"¿Qué tal?"}
-{"t":[1793492021300,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":2}
-{"t":[1793492021300,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street"}
-{"t":[1793492023387,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
-{"t":[1793492023387,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"ılık","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"lukewarm\"\t\\ 1. Bedeutung"}
-{"t":[1793492023587,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΟΔΟΣ","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"penguin\"]}"}
-{"t":[1793492023587,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":1}
-{"t":[1793492026787,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё","base":"élever","c":3}
-{"t":[1793492026787,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"¿Qué tal?"}
-{"t":[1793492029100,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
-{"t":[1793492029100,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\"]}"}
-{"t":[1793492029100,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":2}
-{"t":[1793492029100,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"東京","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Tokyo\"]}"}
-{"t":[1793492029100,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":2}
-{"t":[1793492029100,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"città","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"city, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793492034200,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home (2)","c":1}
-{"t":[1793492034200,3],"d":"onyx-g5mz25gl","op":"history.del","text":"aujourd'hui"}
-{"t":[1793492039507,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
-{"t":[1793492041707,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"Käse"}
-{"t":[1793492041707,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":2}
-{"t":[1793492041707,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"coffee"}
-{"t":[1793492047007,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more, ещё"}
-{"t":[1793492049000,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!"}
-{"t":[1793492049000,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)","base":"есть","c":2}
-{"t":[1793492049000,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"perché"}
-{"t":[1793492049000,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":1}
-{"t":[1793492049000,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much","c":3}
-{"t":[1793492049000,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":1}
-{"t":[1793492049000,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":2}
-{"t":[1793492049000,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":2}
-{"t":[1793492062607,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch, ещё"}
-{"t":[1793492062607,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"我爱你。","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Я тебя люблю. (2)"}
-{"t":[1793492062607,8],"d":"onyx-g5mz25gl","op":"ai.put","text":"İstanbul","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Istanbul, ещё\"}"}
-{"t":[1793492062607,9],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)","c":2}
-{"t":[1793492062607,10],"d":"onyx-g5mz25gl","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street, ещё"}
-{"t":[1793492065187,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё","c":1}
-{"t":[1793492065187,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":2}
-{"t":[1793492065187,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":2}
-{"t":[1793492067500,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"più"}
-{"t":[1793492068600,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":3}
-{"t":[1793492068600,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":2}
-{"t":[1793492068600,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”, ещё","c":1}
-{"t":[1793492068600,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"Grüß Gott","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Hello, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793492069607,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
-{"t":[1793492071707,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрий вечір","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"no (2)\"}"}
-{"t":[1793492072687,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening (2)","c":1}
-{"t":[1793492072687,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!","c":1}
-{"t":[1793492072687,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":1}
-{"t":[1793492072687,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
-{"t":[1793492072687,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"Com'è bello!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How beautiful! (2)\"}"}
-{"t":[1793492072687,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)"}
-{"t":[1793492072687,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":2}
-{"t":[1793492072687,8],"d":"onyx-g5mz25gl","op":"ai.put","text":"garçon","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boy\"]}"}
-{"t":[1793492072687,9],"d":"onyx-g5mz25gl","op":"ai.put","text":"🇩🇪","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"coffee"}
-{"t":[1793492072687,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"a pangram\"\t\\ 1. Bedeutung"}
-{"t":[1793492072687,11],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":2}
-{"t":[1793492072687,12],"d":"onyx-g5mz25gl","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":2}
-{"t":[1793492083807,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)","c":3}
-{"t":[1793492089107,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
-{"t":[1793492089107,2],"d":"onyx-g5mz25gl","op":"history.del","text":"Übung"}
-{"t":[1793492089107,3],"d":"onyx-g5mz25gl","op":"history.del","text":"garçon"}
-{"t":[1793492089107,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":3}
-{"t":[1793492089107,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
-{"t":[1793492089107,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
-{"t":[1793492090500,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"カタカナ","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"katakana\"]}"}
-{"t":[1793492090500,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":3}
-{"t":[1793492090500,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)"}
-{"t":[1793492090500,4],"d":"onyx-g5mz25gl","op":"history.del","text":"שלום"}
-{"t":[1793492090500,5],"d":"onyx-g5mz25gl","op":"saved.del","text":"Wie geht's?"}
-{"t":[1793492090500,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
-{"t":[1793492090500,7],"d":"onyx-g5mz25gl","op":"history.del","text":"Grüß Gott"}
+{"t":[1793491805500,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much, ещё","c":1}
+{"t":[1793491805500,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793491805500,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese"}
+{"t":[1793491805500,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":1}
+{"t":[1793491805500,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"não","kind":"word","lang":"en","meaning":"no"}
+{"t":[1793491805500,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese (2)"}
+{"t":[1793491805500,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793491805500,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"en","meaning":"street and house (2)","c":2}
+{"t":[1793491805500,9],"d":"onyx-g5mz25gl","op":"ai.put","text":"Übung","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Thank you very much (2)\"}"}
+{"t":[1793491805500,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"città","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"city\"\t\\ 1. Bedeutung"}
+{"t":[1793491815107,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё"}
+{"t":[1793491815107,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"aujourd'hui"}
+{"t":[1793491815107,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"Übung"}
+{"t":[1793491818207,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё"}
+{"t":[1793491818207,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":1}
+{"t":[1793491818207,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"niño","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"child\"}"}
+{"t":[1793491818207,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"Com'è bello!"}
+{"t":[1793491818207,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
+{"t":[1793491820300,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello, ещё","c":1}
+{"t":[1793491820300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal (2)","c":1}
+{"t":[1793491820300,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
+{"t":[1793491820300,7],"d":"onyx-g5mz25gl","op":"saved.put","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much"}
+{"t":[1793491820300,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1793491820300,9],"d":"onyx-g5mz25gl","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793491835000,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793491835000,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"corazón"}
+{"t":[1793491838400,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"съесть"}
+{"t":[1793491845587,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)","c":1}
+{"t":[1793491845587,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё"}
+{"t":[1793491846007,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":2}
+{"t":[1793491846007,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"en","meaning":"street and house","c":3}
+{"t":[1793491846007,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"Häuser","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"houses\"}"}
+{"t":[1793491846007,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese (2)","c":1}
+{"t":[1793491846007,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you"}
+{"t":[1793491846007,6],"d":"onyx-g5mz25gl","op":"history.del","text":"Zażółć gęślą jaźń"}
+{"t":[1793491846007,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"Übung","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Thank you very much\"\t\\ 1. Bedeutung"}
+{"t":[1793491846007,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":3}
+{"t":[1793491856507,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793491856507,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"łódź","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"city, ещё"}
+{"t":[1793491857787,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793491857787,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΑΣ̈Σ́","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"katakana, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491857787,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer","c":1}
+{"t":[1793491857787,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"a pangram (2)\"}"}
+{"t":[1793491857787,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1793491857787,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"Käse","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"cheese\"\t\\ 1. Bedeutung"}
+{"t":[1793491873187,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"사랑해요","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"I love you (2)"}
+{"t":[1793491873187,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello (2)"}
+{"t":[1793491873187,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Стамбул (2)\"]}"}
+{"t":[1793491873187,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee (2)"}
+{"t":[1793491873187,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
+{"t":[1793491873187,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"cheese (2)\"]}"}
+{"t":[1793491886207,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean, ещё","c":1}
+{"t":[1793491886207,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":1}
+{"t":[1793491888287,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"їжак"}
+{"t":[1793491888287,2],"d":"onyx-g5mz25gl","op":"history.del","text":"Mädchen"}
+{"t":[1793491888287,3],"d":"onyx-g5mz25gl","op":"history.del","text":"תודה רבה"}
+{"t":[1793491889500,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"aufmachen","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"больше\"\t\\ 1. Bedeutung"}
+{"t":[1793491892800,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"maçã","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"sigma"}
+{"t":[1793491894887,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"não","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"no\"\t\\ 1. Bedeutung"}
+{"t":[1793491894887,2],"d":"onyx-g5mz25gl","op":"history.del","text":"한국어"}
+{"t":[1793491894887,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks, ещё"}
+{"t":[1793491894887,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"a pangram, ещё\"}"}
+{"t":[1793491896700,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy (2)","c":1}
+{"t":[1793491896700,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin, ещё","c":1}
+{"t":[1793491900000,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up, ещё"}
+{"t":[1793491900000,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":2}
+{"t":[1793491900000,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"pingüino","kind":"word","lang":"en","meaning":"penguin (2)"}
+{"t":[1793491900000,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё","c":1}
+{"t":[1793491902500,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"👨‍👩‍👧"}
+{"t":[1793491902500,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed)"}
+{"t":[1793491902500,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
+{"t":[1793491902500,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"aujourd'hui","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"hello"}
+{"t":[1793491905900,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks","c":1}
+{"t":[1793491905900,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"你好","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"hello (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491905900,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793491911407,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin (2)","c":1}
+{"t":[1793491911407,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"« Ça va ? »","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to eat up (2)\"]}"}
+{"t":[1793491911407,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"漢字","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"kanji\"\t\\ 1. Bedeutung"}
+{"t":[1793491911407,6],"d":"onyx-g5mz25gl","op":"saved.del","text":"カタカナ"}
+{"t":[1793491911407,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart (2)","c":2}
+{"t":[1793491916807,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm","c":1}
+{"t":[1793491916807,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil"}
+{"t":[1793491916807,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog (2)"}
+{"t":[1793491923500,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks, ещё","c":2}
+{"t":[1793491923500,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to open (2)\"]}"}
+{"t":[1793491923500,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793491923500,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Good evening! (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491923500,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks (2)","c":3}
+{"t":[1793491923500,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"ёжик","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491923500,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
+{"t":[1793491923500,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
+{"t":[1793491923500,9],"d":"onyx-g5mz25gl","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese","c":1}
+{"t":[1793491923500,10],"d":"onyx-g5mz25gl","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":2}
+{"t":[1793491923500,11],"d":"onyx-g5mz25gl","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee"}
+{"t":[1793491923500,12],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":1}
+{"t":[1793491923500,13],"d":"onyx-g5mz25gl","op":"ai.put","text":"cœur","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"heart"}
+{"t":[1793491938300,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
+{"t":[1793491938300,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
+{"t":[1793491938300,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"שלום","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"wisdom\"\t\\ 1. Bedeutung"}
+{"t":[1793491938300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul, ещё","c":2}
+{"t":[1793491938300,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat, ещё","c":2}
+{"t":[1793491938300,7],"d":"onyx-g5mz25gl","op":"saved.put","text":"łódź","kind":"word","lang":"en","meaning":"boat"}
+{"t":[1793491944587,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"한국어","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Korean\"]}"}
+{"t":[1793491944587,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":1}
+{"t":[1793491947900,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"كتاب","kind":"word","lang":"en","meaning":"book","c":3}
+{"t":[1793491947900,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk (2)","c":1}
+{"t":[1793491947900,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!, ещё","c":1}
+{"t":[1793491947900,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":1}
+{"t":[1793491947900,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
+{"t":[1793491947900,7],"d":"onyx-g5mz25gl","op":"saved.del","text":"aufmachen"}
+{"t":[1793491952500,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl (2)","c":1}
+{"t":[1793491955707,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"їжак"}
+{"t":[1793491955707,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"l’été","lang":"English","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"the summer, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491955707,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"più","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"more\"}"}
+{"t":[1793491960000,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"дом","kind":"word","lang":"en","meaning":"house, ещё"}
+{"t":[1793491960000,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
+{"t":[1793491960000,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book (2)"}
+{"t":[1793491960000,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"garçon","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"boy (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793491960000,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость"}
+{"t":[1793491960000,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why"}
+{"t":[1793491960000,7],"d":"onyx-g5mz25gl","op":"saved.put","text":"città","kind":"word","lang":"en","meaning":"city (2)"}
+{"t":[1793491960000,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":2}
+{"t":[1793491960000,9],"d":"onyx-g5mz25gl","op":"ai.put","text":"Wie geht's?","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you?\"}"}
+{"t":[1793491970507,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up"}
+{"t":[1793491971900,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"Ǆemal","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Djemal (2)\"]}"}
+{"t":[1793491971900,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"οδός","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"street\"]}"}
+{"t":[1793491971900,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"ёжик"}
+{"t":[1793491971900,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful! (2)"}
+{"t":[1793491971900,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΣΟΦΙΑ","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"wisdom"}
+{"t":[1793491971900,6],"d":"onyx-g5mz25gl","op":"saved.del","text":"größer"}
+{"t":[1793491971900,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"en","meaning":"wisdom","c":1}
+{"t":[1793491971900,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
+{"t":[1793491971900,9],"d":"onyx-g5mz25gl","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё"}
+{"t":[1793491971900,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"שלום","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"wisdom\"]}"}
+{"t":[1793491971900,11],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
+{"t":[1793491971900,12],"d":"onyx-g5mz25gl","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"girl\"]}"}
+{"t":[1793491971900,13],"d":"onyx-g5mz25gl","op":"saved.del","text":"não"}
+{"t":[1793491971900,14],"d":"onyx-g5mz25gl","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793491971900,15],"d":"onyx-g5mz25gl","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
+{"t":[1793491971900,16],"d":"onyx-g5mz25gl","op":"saved.del","text":"Σ"}
+{"t":[1793491971900,17],"d":"onyx-g5mz25gl","op":"saved.put","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello, ещё"}
+{"t":[1793491971900,18],"d":"onyx-g5mz25gl","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":1}
+{"t":[1793491971900,19],"d":"onyx-g5mz25gl","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul","c":3}
+{"t":[1793491971900,20],"d":"onyx-g5mz25gl","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass (2)","c":2}
+{"t":[1793491993807,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat, ещё","c":3}
+{"t":[1793491993807,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793491993807,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1793491995887,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":1}
+{"t":[1793491995887,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"Ǆemal","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Djemal, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793491995887,3],"d":"onyx-g5mz25gl","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793491995887,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
+{"t":[1793492003500,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1793492003500,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":2}
+{"t":[1793492003500,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"STRASSE","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"street\"\t\\ 1. Bedeutung"}
+{"t":[1793492003500,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street (2)","c":1}
+{"t":[1793492003500,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":2}
+{"t":[1793492003500,6],"d":"onyx-g5mz25gl","op":"history.del","text":"Übung"}
+{"t":[1793492003500,7],"d":"onyx-g5mz25gl","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot (2)"}
+{"t":[1793492003500,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil","base":"élever","c":1}
+{"t":[1793492003500,9],"d":"onyx-g5mz25gl","op":"history.del","text":"¿Qué tal?"}
+{"t":[1793492014500,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more","c":2}
+{"t":[1793492014500,2],"d":"onyx-g5mz25gl","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793492016487,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":2}
+{"t":[1793492016487,2],"d":"onyx-g5mz25gl","op":"history.del","text":"coração"}
+{"t":[1793492017787,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"Ǆemal","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Djemal\"]}"}
+{"t":[1793492017787,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё","c":1}
+{"t":[1793492020987,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё","base":"élever","c":2}
+{"t":[1793492020987,2],"d":"onyx-g5mz25gl","op":"saved.del","text":"¿Qué tal?"}
+{"t":[1793492023300,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1793492023300,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\"]}"}
+{"t":[1793492023300,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
+{"t":[1793492023300,4],"d":"onyx-g5mz25gl","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"big\"]}"}
+{"t":[1793492023300,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat","c":4}
+{"t":[1793492023300,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"città","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"city, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793492028400,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Ǆemal","kind":"word","lang":"en","meaning":"Djemal (2)","c":2}
+{"t":[1793492028400,3],"d":"onyx-g5mz25gl","op":"history.del","text":"aujourd'hui"}
+{"t":[1793492033707,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1793492035907,1],"d":"onyx-g5mz25gl","op":"saved.del","text":"Käse"}
+{"t":[1793492035907,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1793492035907,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"coffee"}
+{"t":[1793492041207,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"più","kind":"word","lang":"en","meaning":"more, ещё"}
+{"t":[1793492043200,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!"}
+{"t":[1793492043200,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)","base":"есть","c":2}
+{"t":[1793492043200,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"perché"}
+{"t":[1793492043200,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой, ещё","c":1}
+{"t":[1793492043200,5],"d":"onyx-g5mz25gl","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1793492043200,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":2}
+{"t":[1793492050700,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"GROẞ","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"big (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793492050700,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":2}
+{"t":[1793492054007,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":3}
+{"t":[1793492054007,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch, ещё"}
+{"t":[1793492054007,6],"d":"onyx-g5mz25gl","op":"ai.put","text":"كتاب","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"книга (2)"}
+{"t":[1793492054007,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"İSTANBUL","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Istanbul, ещё\"}"}
+{"t":[1793492054007,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street (2)","c":1}
+{"t":[1793492054007,9],"d":"onyx-g5mz25gl","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street, ещё"}
+{"t":[1793492058587,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji, ещё","c":2}
+{"t":[1793492058587,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":2}
+{"t":[1793492058587,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":1}
+{"t":[1793492058587,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":2}
+{"t":[1793492064000,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"cœur","kind":"word","lang":"en","meaning":"heart","c":3}
+{"t":[1793492064000,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":1}
+{"t":[1793492064000,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"en","meaning":"“How are you?”, ещё","c":1}
+{"t":[1793492064000,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"Grüß Gott","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Hello, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793492065007,1],"d":"onyx-g5mz25gl","op":"saved.put","text":"Straße","kind":"word","lang":"en","meaning":"street"}
+{"t":[1793492067107,1],"d":"onyx-g5mz25gl","op":"ai.put","text":"ΟΔΟΣ","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street (2)\"}"}
+{"t":[1793492068087,1],"d":"onyx-g5mz25gl","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening (2)","c":1}
+{"t":[1793492068087,2],"d":"onyx-g5mz25gl","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!","c":1}
+{"t":[1793492068087,3],"d":"onyx-g5mz25gl","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch, ещё","c":3}
+{"t":[1793492068087,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no, ещё","c":2}
+{"t":[1793492068087,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
+{"t":[1793492068087,6],"d":"onyx-g5mz25gl","op":"saved.put","text":"łódź","kind":"word","lang":"en","meaning":"boat"}
+{"t":[1793492073807,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"𠮷野家","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Yoshinoya\"\t\\ 1. Bedeutung"}
+{"t":[1793492073807,3],"d":"onyx-g5mz25gl","op":"saved.del","text":"사랑해요"}
+{"t":[1793492073807,4],"d":"onyx-g5mz25gl","op":"saved.del","text":"👍🏽"}
+{"t":[1793492073807,5],"d":"onyx-g5mz25gl","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)"}
+{"t":[1793492073807,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":3}
+{"t":[1793492073807,7],"d":"onyx-g5mz25gl","op":"ai.put","text":"garçon","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"boy\"]}"}
+{"t":[1793492073807,8],"d":"onyx-g5mz25gl","op":"ai.put","text":"Добрий вечір","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Good evening\"\t\\ 1. Bedeutung"}
+{"t":[1793492073807,9],"d":"onyx-g5mz25gl","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":2}
+{"t":[1793492077600,4],"d":"onyx-g5mz25gl","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)","c":3}
+{"t":[1793492077600,5],"d":"onyx-g5mz25gl","op":"history.del","text":"사랑해요"}
+{"t":[1793492079787,1],"d":"onyx-g5mz25gl","op":"history.del","text":"garçon"}
+{"t":[1793492079787,2],"d":"onyx-g5mz25gl","op":"ai.put","text":"Ещё раз","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Once more (2)"}
+{"t":[1793492079787,3],"d":"onyx-g5mz25gl","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"How are you?\"\t\\ 1. Bedeutung"}
+{"t":[1793492079787,4],"d":"onyx-g5mz25gl","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
+{"t":[1793492079787,5],"d":"onyx-g5mz25gl","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"a pangram, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793492079787,6],"d":"onyx-g5mz25gl","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":2}
+{"t":[1793492079787,7],"d":"onyx-g5mz25gl","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you","c":1}
+{"t":[1793492079787,8],"d":"onyx-g5mz25gl","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo, ещё","c":3}
+{"t":[1793492079787,9],"d":"onyx-g5mz25gl","op":"saved.del","text":"🇩🇪"}
+{"t":[1793492079787,10],"d":"onyx-g5mz25gl","op":"ai.put","text":"Haus","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"house, home"}
+{"t":[1793492079787,11],"d":"onyx-g5mz25gl","op":"history.del","text":"съесть"}
+{"t":[1793492079787,12],"d":"onyx-g5mz25gl","op":"saved.del","text":"Wie geht's?"}

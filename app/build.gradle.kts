@@ -39,7 +39,10 @@ android {
     if (!updates) sourceSets.getByName("release").manifest.srcFile("src/noupdates/AndroidManifest.xml")
     sourceSets.getByName("androidTest").assets.srcDir("../tests/sentences") // shared cases (LexiPeek runs them too)
     externalNativeBuild { cmake { path = file("src/main/cpp/CMakeLists.txt"); version = "3.22.1" } }
-    testOptions { unitTests.isReturnDefaultValues = true } // android.util.Log in JVM tests
+    testOptions {
+        unitTests.isReturnDefaultValues = true // android.util.Log in JVM tests
+        unitTests.all { it.inputs.dir("../tests").withPropertyName("cases"); it.inputs.property("stress", System.getenv("INKPEEK_STRESS").orEmpty()) } // shared cases, INKPEEK_STRESS=1
+    }
     testBuildType = "release" // device tests run in the installed release app (same signature, its packs)
     signingConfigs {
         if (keystoreProps.isNotEmpty()) create("release") {

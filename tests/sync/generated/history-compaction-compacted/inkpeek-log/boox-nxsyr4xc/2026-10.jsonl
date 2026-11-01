@@ -1,6 +1,9 @@
 {"t":[1790823781007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"їжак"}
 {"t":[1790860578000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"STRASSE","kind":"word","lang":"en","meaning":"street (2)"}
+{"t":[1790911350000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I close the door!\"]}"}
+{"t":[1790922333007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"їжак"}
 {"t":[1790922395000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Mädchen","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"girl\"]}"}
+{"t":[1790940763000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
 {"t":[1790966264000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"¿Qué tal?"}
 {"t":[1790969925000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"big"}
 {"t":[1791009711987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Käse","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"cheese (2)"}
@@ -11,8 +14,12 @@
 {"t":[1791057309000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"съесть","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"to eat up\"]}"}
 {"t":[1791068230987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"corazón","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"heart\"]}"}
 {"t":[1791068232000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
+{"t":[1791090081987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё"}
+{"t":[1791093801987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Straße"}
+{"t":[1791093802987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up, ещё"}
 {"t":[1791108323000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?"}
 {"t":[1791119188007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Übung","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"exercise, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1791137429007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"pingüino"}
 {"t":[1791166418007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"big\"\t\\ 1. Bedeutung"}
 {"t":[1791173678000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Fuß"}
 {"t":[1791206745000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"їжак","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"hedgehog, ещё\"}"}
@@ -31,161 +38,125 @@
 {"t":[1791418838000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Fuß","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"foot (2)\"\t\\ 1. Bedeutung"}
 {"t":[1791426161987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Mädchen","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"girl\"\t\\ 1. Bedeutung"}
 {"t":[1791433423000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"съесть","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"to eat up"}
+{"t":[1791455329007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Добрий вечір"}
 {"t":[1791462650987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
+{"t":[1791466372007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
 {"t":[1791473693987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Straße","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"street\"\t\\ 1. Bedeutung"}
 {"t":[1791477356007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!, ещё"}
 {"t":[1791477475987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"aufmachen"}
+{"t":[1791481135987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"дом"}
+{"t":[1791492121987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Käse"}
 {"t":[1791495843007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"съесть"}
+{"t":[1791499565007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Good evening!\"]}"}
 {"t":[1791517809000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
 {"t":[1791539534000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"I close the door!"}
 {"t":[1791557780000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
 {"t":[1791557965987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
 {"t":[1791565412000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog\"]}"}
+{"t":[1791569136007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Übung"}
+{"t":[1791580236987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"corazón"}
 {"t":[1791580300000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"їжак","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"hedgehog\"}"}
+{"t":[1791598302000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Käse","kind":"word","lang":"en","meaning":"cheese"}
 {"t":[1791609466000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Käse"}
 {"t":[1791642114987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
 {"t":[1791656698987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil"}
+{"t":[1791660482007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение"}
 {"t":[1791671523000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"ґанок"}
 {"t":[1791678906007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Mädchen","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"girl\"\t\\ 1. Bedeutung"}
 {"t":[1791682566987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрий вечір","lang":"English","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening\"\t\\ 1. Bedeutung"}
 {"t":[1791682569007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
+{"t":[1791686412000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"GROẞ"}
 {"t":[1791693612000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":3}
 {"t":[1791700996000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":9}
+{"t":[1791701055987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"съесть","kind":"word","lang":"en","meaning":"to eat up"}
 {"t":[1791704899000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"größer","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"bigger\",\"ещё\"]}"}
+{"t":[1791708679000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":5}
+{"t":[1791712339000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
 {"t":[1791719661007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"aufmachen","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"to open, ещё\"}"}
 {"t":[1791723383000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"ёжик"}
 {"t":[1791723384000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Häuser","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"houses (2)\"\t\\ 1. Bedeutung"}
 {"t":[1791741386987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Wie geht's?"}
 {"t":[1791763415000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"How are you? (2)\"]}"}
+{"t":[1791767015000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
 {"t":[1791774276000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"дом"}
+{"t":[1791785137000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"aufmachen"}
 {"t":[1791785138000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"corazón","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart\"}"}
 {"t":[1791788799000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"pingüino","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"penguin, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1791803323000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё"}
 {"t":[1791807046007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Mädchen","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"girl"}
+{"t":[1791814728007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё","base":"Haus","c":1}
 {"t":[1791822113000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
 {"t":[1791865742007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"corazón"}
+{"t":[1791869342000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"ґанок"}
 {"t":[1791872943987,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
 {"t":[1791887410987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Fuß","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"foot\"}"}
 {"t":[1791894853987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"How are you?\"}"}
+{"t":[1791902175000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"ґанок","kind":"word","lang":"en","meaning":"porch"}
+{"t":[1791905896000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog, ещё"}
 {"t":[1791913096007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello"}
 {"t":[1791931462987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Käse","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"cheese (2)"}
 {"t":[1791946106000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Ich mache die Tür zu!"}
 {"t":[1791957147000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"I close the door!\"\t\\ 1. Bedeutung"}
+{"t":[1791960808000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Häuser"}
 {"t":[1791968131000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open"}
+{"t":[1791979116987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
 {"t":[1791979177007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
 {"t":[1791986558000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"big\"}"}
+{"t":[1791990160000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"STRASSE"}
 {"t":[1792030306987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"niño","kind":"word","lang":"en","meaning":"child","c":1}
 {"t":[1792030366987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Добрий вечір"}
 {"t":[1792034091000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"дом","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"house, ещё"}
 {"t":[1792037690987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\"]}"}
 {"t":[1792041290987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"niño","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"child"}
+{"t":[1792044950987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"GROẞ"}
 {"t":[1792048552007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"съесть","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"to eat up, ещё\"}"}
+{"t":[1792052271987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":3}
+{"t":[1792055935000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Mädchen"}
 {"t":[1792059597987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Mädchen"}
+{"t":[1792063378007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":1}
 {"t":[1792074301987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Добрый вечер!"}
 {"t":[1792074302987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Ещё раз","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Once more\",\"ещё\"]}"}
 {"t":[1792077903007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!, ещё"}
+{"t":[1792085408987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":3}
 {"t":[1792092790007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Haus"}
 {"t":[1792092850987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Käse","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"cheese\"\t\\ 1. Bedeutung"}
 {"t":[1792100171007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend! (2)"}
+{"t":[1792100172000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Übung","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"exercise\"\t\\ 1. Bedeutung"}
 {"t":[1792103834987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":8}
 {"t":[1792107556000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"größer"}
+{"t":[1792111157007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":2}
 {"t":[1792118539000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"penguin\"}"}
 {"t":[1792125858987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"ёжик"}
+{"t":[1792136901007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
 {"t":[1792140503987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":2}
 {"t":[1792147705000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Ich mache die Tür zu!"}
 {"t":[1792154966000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"größer","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"bigger\"}"}
 {"t":[1792155028000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
 {"t":[1792162289007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?"}
 {"t":[1792162290000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"STRASSE","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street\"}"}
+{"t":[1792173151007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Grüß Gott"}
 {"t":[1792191879007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Haus"}
 {"t":[1792191938987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"¿Qué tal?"}
 {"t":[1792192000000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog"}
 {"t":[1792192061007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Good evening!\"\t\\ 1. Bedeutung"}
 {"t":[1792192062000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)"}
+{"t":[1792192063000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening"}
+{"t":[1792195844007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Straße"}
+{"t":[1792196084000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":8}
+{"t":[1792196205000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"corazón","kind":"word","lang":"en","meaning":"heart","c":6}
+{"t":[1792199805000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger","base":"groß","c":1}
+{"t":[1792210729000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":2}
+{"t":[1792210849007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":2}
+{"t":[1792218109987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"pingüino"}
 {"t":[1792218111000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"größer","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"bigger, ещё\"\t\\ 1. Bedeutung"}
 {"t":[1792221712987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Hello\"}"}
 {"t":[1792221772987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"größer","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"bigger"}
 {"t":[1792225437000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрий вечір","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Good evening\"}"}
 {"t":[1792236237000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Hi, friend!, ещё\"}"}
+{"t":[1792239897007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1792239900000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":6}
+{"t":[1792239901000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"größer"}
+{"t":[1792239961000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Wie geht's?"}
 {"t":[1792243561987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё","c":1}
 {"t":[1792254422000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Good evening!"}
 {"t":[1792258143000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Ещё раз"}
-{"t":[1792261744000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":3}
-{"t":[1792261863987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":1}
-{"t":[1792280048000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Добрый вечер!"}
-{"t":[1792283648000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"STRASSE","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"street\"\t\\ 1. Bedeutung"}
-{"t":[1792294450007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)"}
-{"t":[1792298111000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё"}
-{"t":[1792301832987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Добрий вечір"}
-{"t":[1792302013007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":2}
-{"t":[1792305672987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Öl","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"oil\"]}"}
-{"t":[1792305733000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?, ещё"}
-{"t":[1792305735000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":2}
-{"t":[1792313236007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"їжак"}
-{"t":[1792316839000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":9}
-{"t":[1792331481000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"big"}
-{"t":[1792331483007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"niño","kind":"word","lang":"en","meaning":"child (2)"}
-{"t":[1792342586000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Grüß Gott"}
-{"t":[1792342647987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"corazón","lang":"English","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"heart (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792350027987,0],"d":"boox-nxsyr4xc","op":"history.del","text":"pingüino"}
-{"t":[1792353811000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
-{"t":[1792357534007,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"дом"}
-{"t":[1792357594007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"aufmachen"}
-{"t":[1792368636000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\"]}"}
-{"t":[1792379557000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Übung","lang":"English","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"exercise (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792379617000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Good evening!, ещё\"}"}
-{"t":[1792390539987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"größer"}
-{"t":[1792390541007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё","c":2}
-{"t":[1792394262000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Wie geht's?"}
-{"t":[1792401464000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch","c":3}
-{"t":[1792405246000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Straße","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"street, ещё"}
-{"t":[1792412628000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more"}
-{"t":[1792419831000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"ґанок"}
-{"t":[1792419833000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot (2)"}
-{"t":[1792441498000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"Straße"}
-{"t":[1792441558007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"big\"]}"}
-{"t":[1792448946000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрий вечір","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Good evening (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792449126000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Straße"}
-{"t":[1792449189007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger, ещё","base":"groß","c":3}
-{"t":[1792449254007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
-{"t":[1792449255000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"I close the door!\",\"ещё\"]}"}
-{"t":[1792449315007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart"}
-{"t":[1792452975000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home, ещё"}
-{"t":[1792453035000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"niño","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"child\"]}"}
-{"t":[1792456635000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"ґанок","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"porch\"}"}
-{"t":[1792460235000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"How are you?"}
-{"t":[1792460236000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street","c":1}
-{"t":[1792460296007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":3}
-{"t":[1792463896000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"niño","kind":"word","lang":"en","meaning":"child, ещё"}
-{"t":[1792467499000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\",\"ещё\"]}"}
-{"t":[1792478362000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
-{"t":[1792482143000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Häuser"}
-{"t":[1792482263987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"съесть","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"to eat up"}
-{"t":[1792485865987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":2}
-{"t":[1792485926000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"GROẞ"}
-{"t":[1792485927007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"größer","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"bigger (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792489529000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more, ещё"}
-{"t":[1792493370007,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Wie geht's?","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"How are you? (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792497212007,0],"d":"boox-nxsyr4xc","op":"history.del","text":"STRASSE"}
-{"t":[1792500816000,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
-{"t":[1792508076987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё","c":1}
-{"t":[1792515277000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up, ещё","base":"есть","c":6}
-{"t":[1792518876987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Good evening!"}
-{"t":[1792518937987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open","base":"machen","c":1}
-{"t":[1792522598987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"большой\"\t\\ 1. Bedeutung"}
-{"t":[1792537239000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Käse"}
-{"t":[1792540838987,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":6}
-{"t":[1792540899000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot (2)","c":4}
-{"t":[1792544499000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Mädchen"}
-{"t":[1792548159007,0],"d":"boox-nxsyr4xc","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses, ещё"}
-{"t":[1792562682987,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"дом","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"house\"\t\\ 1. Bedeutung"}
-{"t":[1792569883000,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)","c":1}
-{"t":[1792573483007,0],"d":"boox-nxsyr4xc","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
-{"t":[1792573484000,0],"d":"boox-nxsyr4xc","op":"history.del","text":"corazón"}
-{"t":[1792573544000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"съесть"}
-{"t":[1792573544987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"Übung"}
-{"t":[1792580868000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"¡Hola, amigo!","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hi\",\"friend!\",\"ещё\"]}"}
-{"t":[1792584527987,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"GROẞ"}
-{"t":[1792588128000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Fuß","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"foot\"\t\\ 1. Bedeutung"}
-{"t":[1792591789000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Straße","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"street, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1792595389000,0],"d":"boox-nxsyr4xc","op":"saved.del","text":"pingüino"}
-{"t":[1792595451000,0],"d":"boox-nxsyr4xc","op":"ai.put","text":"Übung","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"упражнение (2)"}

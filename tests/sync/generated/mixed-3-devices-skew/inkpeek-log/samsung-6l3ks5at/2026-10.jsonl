@@ -1,3 +1,3 @@
-{"t":[1793462584000,0],"d":"samsung-6l3ks5at","op":"ai.put","text":"Tab\there","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"табуляция\tвнутри, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793462584000,0],"d":"samsung-6l3ks5at","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"сыр (NFD), ещё\"\t\\ 1. Bedeutung"}
 {"t":[1793462584500,0],"d":"samsung-6l3ks5at","op":"history.seen","text":"Übung","kind":"word","lang":"en","meaning":"exercise","c":1}
 {"t":[1793462645750,0],"d":"samsung-6l3ks5at","op":"saved.del","text":"Übung"}

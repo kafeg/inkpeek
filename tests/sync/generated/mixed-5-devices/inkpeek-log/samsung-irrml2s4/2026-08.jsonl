@@ -2,83 +2,69 @@
 {"t":[1785589444000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"coração","kind":"word","lang":"en","meaning":"heart, ещё","c":1}
 {"t":[1785596644987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":1,"book":"Effi Briest","tags":["nature","ö"]}
 {"t":[1785596705000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"en","meaning":"street","c":1}
-{"t":[1785661628000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"a/b </script> & <b>","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog (2)\"]}"}
-{"t":[1785665287987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"한국어","kind":"word","lang":"en","meaning":"Korean (2)"}
- 	{"t":[1785665288000,1],"d":"samsung-irrml2s4","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки» (2)","c":1} 
-{"t":[1785665349007,0],"d":"samsung-irrml2s4","op":"saved.del","text":"a/b </script> & <b>"}
-{"t":[1785701349007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Zeile Trenner","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"дом (неразрывный пробел)\"\t\\ 1. Bedeutung"}
-{"t":[1785701349007,1],"d":"samsung-irrml2s4","op":"saved.del","text":"Ich mache die Tür zu!"}
-{"t":[1785701351000,0],"d":"samsung-irrml2s4","op":"history.del","text":"Ich mache die Tür zu!"}
-{"t":[1785733871000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"coração","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
-{"t":[1785766391000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"cœur"}
-{"t":[1785766391007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD), ещё","c":1}
-{"t":[1785766452007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":1}
-{"t":[1785943096987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"maçã","kind":"word","lang":"en","meaning":"apple, ещё"}
-{"t":[1786008017000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
-{"t":[1786083679000,0],"d":"samsung-irrml2s4","op":"history.del","text":"maçã"}
-{"t":[1786087279000,0],"d":"samsung-irrml2s4","op":"history.del","text":"Hauß"}
-{"t":[1786090879000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
-{"t":[1786123458987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"en","meaning":"today, ещё"}
-{"t":[1786123519000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Gdańsk","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Gdansk"}
-{"t":[1786325423007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hiragana\"]}"}
-{"t":[1786393824000,0],"d":"samsung-irrml2s4","op":"history.del","text":"Hauß"}
-{"t":[1786429824007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"łódź","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"foot (2)\"\t\\ 1. Bedeutung"}
-{"t":[1786433425007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":1}
-{"t":[1786469545000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё"}
-{"t":[1786473146007,0],"d":"samsung-irrml2s4","op":"history.del","text":"niño"}
-{"t":[1786512807007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":1}
-{"t":[1786523606987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Gdańsk","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Gdansk\",\"ещё\"]}"}
-{"t":[1786556010000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)","c":1}
-{"t":[1786556011000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":1}
-{"t":[1786563272000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри"}
-{"t":[1786595793000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":1}
-{"t":[1786635517000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"　日本　","kind":"word","lang":"ru","meaning":"Япония (идеографический пробел)"}
-{"t":[1786642837000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street, ещё","c":1}
-{"t":[1786650037000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Hauß","kind":"word","lang":"ru","meaning":"ß (2)","c":1}
-{"t":[1786747360000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":1}
-{"t":[1786779821000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"niño","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"child (2)\"\t\\ 1. Bedeutung"}
-{"t":[1786779821000,1],"d":"samsung-irrml2s4","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much (2)","c":1}
-{"t":[1786783481000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"😀","kind":"word","lang":"en","meaning":"grin, ещё","c":1}
-{"t":[1786819481000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел), ещё","c":1}
-{"t":[1786819541000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":1}
-{"t":[1786823141007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)","c":1}
-{"t":[1786859141000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"en","meaning":"Thank you!","c":1}
-{"t":[1786895201000,0],"d":"samsung-irrml2s4","op":"saved.put","text":" Haus","kind":"word","lang":"ru","meaning":"дом (пробел слева)"}
-{"t":[1786895261007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
-{"t":[1786931322000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Fuß","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"I love you.\"\t\\ 1. Bedeutung"}
-{"t":[1786931323007,1],"d":"samsung-irrml2s4","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)","c":2}
-{"t":[1786935043007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1786967444007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"¿Qué tal?","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"How are you? (2)\"]}"}
-{"t":[1787035904007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)"}
-{"t":[1787043103987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
-{"t":[1787082885000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово","c":1}
-{"t":[1787118885007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
-{"t":[1787118945000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Tab\there","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"табуляция\\tвнутри (2)\"}"}
-{"t":[1787252145987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)","c":1}
-{"t":[1787252206007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
-{"t":[1787425249987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer"}
-{"t":[1787425251007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Käse","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"сыр (NFD), ещё"}
-{"t":[1787428912000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":1}
- 	{"t":[1787428913000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"\u0001steuer\u001f"} 
-{"t":[1787432573000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"corazón","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"heart\"\t\\ 1. Bedeutung"}
-{"t":[1787497373007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Я закрываю дверь! (NFD) (2)"}
-{"t":[1787529834000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"Добрый вечер!"}
-{"t":[1787533434987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Ha­us","kind":"word","lang":"ru","meaning":"дом (мягкий перенос)","c":1}
-{"t":[1787565835000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"Haus 🏠"}
-{"t":[1787634297007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»","c":2}
-{"t":[1787799957987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"STRASSE","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"street\"]}"}
-{"t":[1787832358987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"كتاب","lang":"English","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"the summer\"\t\\ 1. Bedeutung"}
-{"t":[1787879160000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
-{"t":[1787933401987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"дом (пробел справа)\"}"}
-{"t":[1787933402987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":3}
-{"t":[1787933463000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"مرحبا","kind":"word","lang":"en","meaning":"hello","c":1}
-{"t":[1788005463987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Grüß Gott","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Hello (2)\"\t\\ 1. Bedeutung"}
-{"t":[1788073985987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"STRASSE","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"street, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1788077648007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl"}
-{"t":[1788077828000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Com'è bello!","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"heart\"\t\\ 1. Bedeutung"}
-{"t":[1788081549007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"größer","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"bigger, ещё"}
-{"t":[1788081550987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Zeile Trenner","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"дом (неразрывный пробел)"}
-{"t":[1788088811987,0],"d":"samsung-irrml2s4","op":"saved.del","text":"Gdańsk"}
-{"t":[1788092412007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"łódź","kind":"word","lang":"en","meaning":"boat (2)","c":1}
-{"t":[1788092413007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm"}
-{"t":[1788157333000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Fuß","kind":"word","lang":"en","meaning":"foot","c":1}
+{"t":[1785596765000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"漢字","lang":"English","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"kanji\"\t\\ 1. Bedeutung"}
+{"t":[1785600365000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!"}
+{"t":[1785665226000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you? (2)","c":1}
+{"t":[1785766147000,0],"d":"samsung-irrml2s4","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1785769747000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Zeile eins\nZeile zwei","lang":"English","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"lukewarm, ещё\"}"}
+{"t":[1785841808000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"nul\u0000inside","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"sigmas with marks\"\t\\ 1. Bedeutung"}
+{"t":[1785874328000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1785874328007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"\tHaus\n","kind":"word","lang":"ru","meaning":"дом (табуляция, перевод строки), ещё","c":1}
+{"t":[1785874389007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Käse","kind":"word","lang":"en","meaning":"cheese, ещё","c":1}
+{"t":[1786018515000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD) (2)"}
+{"t":[1786054514987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок, ещё"}
+{"t":[1786119435000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
+{"t":[1786195035987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk, ещё","c":1}
+{"t":[1786195096987,0],"d":"samsung-irrml2s4","op":"history.del","text":"Σ"}
+{"t":[1786234817000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"東京","kind":"word","lang":"en","meaning":"Tokyo"}
+{"t":[1786274478000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
+{"t":[1786274479000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри"}
+{"t":[1786278079007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":1}
+{"t":[1786444041007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"ひらがな","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hiragana\"]}"}
+{"t":[1786512442000,0],"d":"samsung-irrml2s4","op":"history.del","text":"Gdańsk"}
+{"t":[1786548442000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"a/b </script> & <b>","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"<разметка> & «кавычки» (2)"}
+{"t":[1786548501987,0],"d":"samsung-irrml2s4","op":"ai.put","text":"più","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"more"}
+{"t":[1786584562000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello","c":1}
+{"t":[1786616962000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"élève","kind":"word","lang":"en","meaning":"pupil, ещё"}
+{"t":[1786620563007,0],"d":"samsung-irrml2s4","op":"history.del","text":"niño"}
+{"t":[1786663823987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»","c":1}
+{"t":[1786667484007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Öl","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"oil, ещё"}
+{"t":[1786699884000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1786703484000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"GROẞ","kind":"word","lang":"en","meaning":"big","c":1}
+{"t":[1786707084000,0],"d":"samsung-irrml2s4","op":"saved.del","text":"תודה רבה"}
+{"t":[1786710744000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"ΟΔΟΣ","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"street (2)\"]}"}
+{"t":[1786754005000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD)"}
+{"t":[1786786526000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening","c":1}
+{"t":[1786822527000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass (2)"}
+{"t":[1786826250000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (NEL, разделитель абзацев)"}
+{"t":[1786833570000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1786840770000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри (2)","c":1}
+{"t":[1786938033000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello, ещё","c":1}
+{"t":[1786970494000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"più","lang":"English","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"more (2)\"\t\\ 1. Bedeutung"}
+{"t":[1786970494000,1],"d":"samsung-irrml2s4","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"en","meaning":"Thank you very much (2)","c":1}
+{"t":[1787006553987,0],"d":"samsung-irrml2s4","op":"history.seen","text":" Haus","kind":"word","lang":"ru","meaning":"дом (пробел слева), ещё","c":1}
+{"t":[1787038954000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":1}
+{"t":[1787114554000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":1}
+{"t":[1787114554987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
+{"t":[1787118215000,0],"d":"samsung-irrml2s4","op":"saved.put","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks"}
+{"t":[1787118275007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Öl","kind":"word","lang":"en","meaning":"oil (2)"}
+{"t":[1787154336000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks (2)","c":1}
+{"t":[1787154337007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":2}
+{"t":[1787154337007,1],"d":"samsung-irrml2s4","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок","c":1}
+{"t":[1787287600007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"漢字","kind":"word","lang":"en","meaning":"kanji (2)"}
+{"t":[1787294799987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"漢字","kind":"word","lang":"en","meaning":"kanji","c":1}
+{"t":[1787334581000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Zeile Trenner","kind":"phrase","lang":"ru","meaning":"разделитель строк U+2028","c":1}
+{"t":[1787370581007,0],"d":"samsung-irrml2s4","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?"}
+{"t":[1787370641000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"a/b </script> & <b>","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"<разметка> & «кавычки» (2)\"}"}
+{"t":[1787503841987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer (2)","c":1}
+{"t":[1787503902007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
+{"t":[1787676945987,0],"d":"samsung-irrml2s4","op":"saved.put","text":"l’été","kind":"word","lang":"en","meaning":"the summer"}
+{"t":[1787676947007,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Mädchen","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"дом (мягкий перенос), ещё"}
+{"t":[1787680608000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"en","meaning":"wisdom","c":1}
+{"t":[1787680608987,0],"d":"samsung-irrml2s4","op":"saved.del","text":"\tHaus\n"}
+{"t":[1787713009000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":1}
+{"t":[1787713069000,0],"d":"samsung-irrml2s4","op":"ai.put","text":"Häuser","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"houses\"]}"}
+{"t":[1788026512000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"größer","kind":"word","lang":"en","meaning":"bigger (2)","base":"groß","c":1}
+{"t":[1788062511987,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. ","kind":"phrase","lang":"ru","meaning":"очень длинный отрывок, ещё","c":2}
+{"t":[1788062514007,0],"d":"samsung-irrml2s4","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy (2)","c":1}
+{"t":[1788195715000,0],"d":"samsung-irrml2s4","op":"history.seen","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри","c":1}

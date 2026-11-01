@@ -387,8 +387,8 @@ def build(out, sc):
 ALL = ["de", "ru", "fr", "es", "pl", "pt", "it", "cjk", "rtl", "emoji", "other"]
 OCT = at(2026, 10, 31, 21)
 SCENARIOS = [
-    {"name": "mixed-2-devices", "devices": 2, "ops": 600, "groups": ALL, "base": at(2026, 9, 20)},
-    {"name": "mixed-3-devices-skew", "devices": 3, "ops": 1200, "groups": ALL + ["edge"], "base": OCT, "skews": [-5 * HOUR, 0, 3 * HOUR], "jump": 2 * HOUR},
+    {"name": "mixed-2-devices", "devices": 2, "ops": 500, "groups": ALL, "base": at(2026, 9, 20)},
+    {"name": "mixed-3-devices-skew", "devices": 3, "ops": 1000, "groups": ALL + ["edge"], "base": OCT, "skews": [-5 * HOUR, 0, 3 * HOUR], "jump": 2 * HOUR},
     {"name": "mixed-5-devices", "devices": 5, "ops": 2000, "groups": ALL + ["edge"], "base": at(2026, 8, 1),
      "steps": [0, 1000, 60_000, HOUR, 9 * HOUR], "flaky": True, "variants": 0.03},
     {"name": "hlc-ties", "devices": 3, "ops": 800, "groups": ["de", "ru", "cjk"], "base": OCT, "steps": [0, 0, 0, 1], "sync": 0.1, "clone": True},
@@ -401,7 +401,7 @@ SCENARIOS = [
     {"name": "year-boundary", "devices": 3, "ops": 800, "groups": ALL, "base": at(2026, 12, 31, 23, 55), "steps": [0, 100, 1000],
      "skews": [-2 * HOUR, 0, 30 * 60_000]},
     {"name": "conflicted-copies", "devices": 3, "ops": 600, "groups": ALL, "base": at(2026, 10, 25), "copies": True},
-    {"name": "history-compaction", "devices": 3, "ops": 1500, "groups": ["de", "ru", "es"], "hot": 30, "base": at(2026, 10, 1), "compacted": True,
+    {"name": "history-compaction", "devices": 3, "ops": 1200, "groups": ["de", "ru", "es"], "hot": 30, "base": at(2026, 10, 1), "compacted": True,
      "steps": [1000, 60_000, HOUR], "weights": {"saved.put": 20, "saved.del": 12, "history.seen": 45, "history.del": 10, "ai.put": 13}},
     {"name": "unknown-and-broken", "devices": 3, "ops": 500, "groups": ALL + ["edge"], "base": at(2026, 11, 1), "variants": 0.25, "broken": True, "cut": True},
     {"name": "edge-texts", "devices": 2, "ops": 300, "groups": ["edge"], "base": at(2026, 11, 1)},

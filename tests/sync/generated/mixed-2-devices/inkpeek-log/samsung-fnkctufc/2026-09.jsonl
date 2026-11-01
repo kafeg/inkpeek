@@ -5,301 +5,254 @@
 {"t":[1789862466257,1],"d":"samsung-fnkctufc","op":"saved.put","text":"coração","kind":"word","lang":"ru","meaning":"сердце"}
 {"t":[1789862526250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"l’été","kind":"word","lang":"ru","meaning":"лето"}
 {"t":[1789862530250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение (2)","c":1}
-{"t":[1789862530487,0],"d":"samsung-fnkctufc","op":"saved.del","text":"我爱你。"}
-{"t":[1789862594750,0],"d":"samsung-fnkctufc","op":"saved.del","text":"café"}
-{"t":[1789862594750,1],"d":"samsung-fnkctufc","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
-{"t":[1789862595750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
-{"t":[1789862664257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
-{"t":[1789862664507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1789862665507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!, ещё","c":1}
-{"t":[1789862669500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"большой\"\t\\ 1. Bedeutung"}
-{"t":[1789862673487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":1}
-{"t":[1789862681507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"漢字","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"иероглифы\"\t\\ 1. Bedeutung"}
-{"t":[1789862682500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
-{"t":[1789862684500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":1}
-{"t":[1789862684757,0],"d":"samsung-fnkctufc","op":"history.del","text":"größer"}
-{"t":[1789862684757,1],"d":"samsung-fnkctufc","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
-{"t":[1789862684757,2],"d":"samsung-fnkctufc","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
-{"t":[1789862749007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
-{"t":[1789862753000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)","c":1}
-{"t":[1789862812987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
-{"t":[1789862873237,0],"d":"samsung-fnkctufc","op":"ai.put","text":"مرحبا","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"привет"}
-{"t":[1789862873487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
-{"t":[1789862877507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
-{"t":[1789862878500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":1}
-{"t":[1789862882487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":1}
-{"t":[1789862946500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"pingüino","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"пингвин\"}"}
-{"t":[1789862948500,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Добрый вечер!"}
-{"t":[1789862964487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":1}
-{"t":[1789862968750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Com'è bello!","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Как красиво!"}
-{"t":[1789863028757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
-{"t":[1789863029000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё"}
-{"t":[1789863274000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё","c":1}
-{"t":[1789863274000,1],"d":"samsung-fnkctufc","op":"saved.del","text":"Haus 🏠"}
-{"t":[1789863278007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1789863342000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
-{"t":[1789863343000,0],"d":"samsung-fnkctufc","op":"history.del","text":"Übung"}
-{"t":[1789863408000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Я люблю тебя\"}"}
-{"t":[1789863411987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":1}
-{"t":[1789863531987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица (2)","c":1}
-{"t":[1789863533000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"źdźbło","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"дома, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1789863598000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам (2)","c":1}
-{"t":[1789863658000,0],"d":"samsung-fnkctufc","op":"history.del","text":"STRASSE"}
-{"t":[1789863780007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":2}
-{"t":[1789863781007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"¡Hola, amigo!","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Привет, друг!\"}"}
-{"t":[1789863782000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья","c":1}
-{"t":[1789863782257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Гданьск"}
-{"t":[1789863782757,0],"d":"samsung-fnkctufc","op":"history.del","text":"👍🏽"}
-{"t":[1789863783757,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Haus 🏠"}
-{"t":[1789863847737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":2}
-{"t":[1789863971750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!, ещё","c":2}
-{"t":[1789863976007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык (2)","c":1}
-{"t":[1789863980000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
-{"t":[1789864103987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"🇩🇪","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"флаг Германии (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789864105007,0],"d":"samsung-fnkctufc","op":"history.del","text":"東京"}
-{"t":[1789864165000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1789864285007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет"}
-{"t":[1789864292987,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Добрий вечір"}
-{"t":[1789864293000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение"}
-{"t":[1789864357000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Добрый вечер!"}
-{"t":[1789864361007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":1}
-{"t":[1789864421000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии"}
-{"t":[1789864481250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом (2)"}
-{"t":[1789864541500,0],"d":"samsung-fnkctufc","op":"saved.del","text":"السلام عليكم"}
-{"t":[1789864601737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"мир (с огласовками)\"}"}
-{"t":[1789864665987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё","c":1}
-{"t":[1789864666250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
-{"t":[1789864666250,1],"d":"samsung-fnkctufc","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой (2)"}
-{"t":[1789864731750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
-{"t":[1789864736000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"niño"}
-{"t":[1789864742000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше (2)\"}"}
-{"t":[1789864744007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
-{"t":[1789864804000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":2}
-{"t":[1789864808987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
-{"t":[1789864809237,0],"d":"samsung-fnkctufc","op":"saved.del","text":"مرحبا"}
-{"t":[1789864809500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Мир вам (2)"}
-{"t":[1789864869750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"улица (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789864870987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво! (2)"}
-{"t":[1789864991000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
-{"t":[1789865115257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!"}
-{"t":[1789865180257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня"}
-{"t":[1789865240250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин"}
-{"t":[1789865249500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
-{"t":[1789865250500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":1}
-{"t":[1789865310500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Я люблю тебя, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1789865371487,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Käse","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"сыр (2)\"}"}
-{"t":[1789865375507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
-{"t":[1789865435987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
-{"t":[1789865445237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":2}
-{"t":[1789865446507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга"}
-{"t":[1789865450757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":2}
-{"t":[1789865510757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
-{"t":[1789865570750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга (2)","c":2}
-{"t":[1789865571000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
-{"t":[1789865571257,0],"d":"samsung-fnkctufc","op":"history.del","text":"Straße"}
-{"t":[1789865575507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"їжак","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"ёж, ещё\"}"}
-{"t":[1789865636500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"панграмма\"\t\\ 1. Bedeutung"}
-{"t":[1789865636500,1],"d":"samsung-fnkctufc","op":"ai.put","text":"👍🏽","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"яблоко\"\t\\ 1. Bedeutung"}
-{"t":[1789865696507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"garçon","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung"}
-{"t":[1789865700507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ひらがな","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"хирагана\"\t\\ 1. Bedeutung"}
-{"t":[1789865705500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
-{"t":[1789865707487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
-{"t":[1789865772500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
-{"t":[1789865772750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
-{"t":[1789865834750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Мир вам (2)\"]}"}
-{"t":[1789865895000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
-{"t":[1789865899000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето","c":1}
-{"t":[1789865963257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":2}
-{"t":[1789865963507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":3}
-{"t":[1789866023500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
-{"t":[1789866088750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":2}
-{"t":[1789866089750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Я люблю тебя"}
-{"t":[1789866153750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Большое спасибо\"]}"}
-{"t":[1789866154757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня (2)"}
-{"t":[1789866155000,0],"d":"samsung-fnkctufc","op":"history.del","text":"οδός"}
-{"t":[1789866155007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen","base":"есть","c":1}
-{"t":[1789866155250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
-{"t":[1789866159250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"GROẞ","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"большой, ещё\"}"}
-{"t":[1789866279500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе","c":1}
-{"t":[1789866279500,1],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":3}
-{"t":[1789866283500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"семья\"\t\\ 1. Bedeutung"}
-{"t":[1789866344000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":4}
-{"t":[1789866346007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":3}
-{"t":[1789866350007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}"}
-{"t":[1789866410237,0],"d":"samsung-fnkctufc","op":"saved.del","text":"οδός"}
-{"t":[1789866470487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":1}
-{"t":[1789866530500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"שלום","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"мир, привет (2)"}
-{"t":[1789866532737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":3}
-{"t":[1789866537007,0],"d":"samsung-fnkctufc","op":"history.del","text":"𠮷野家"}
-{"t":[1789866538007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":1}
-{"t":[1789866603000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":2}
-{"t":[1789866603000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":2}
-{"t":[1789866604000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"улица\"\t\\ 1. Bedeutung"}
-{"t":[1789866665007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Ещё раз","lang":"German","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Noch einmal\"}"}
-{"t":[1789866665250,0],"d":"samsung-fnkctufc","op":"saved.del","text":"👍🏽"}
-{"t":[1789866665250,1],"d":"samsung-fnkctufc","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица (2)\"]}"}
-{"t":[1789866665750,0],"d":"samsung-fnkctufc","op":"saved.del","text":"👨‍👩‍👧"}
-{"t":[1789866670000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё","c":2}
-{"t":[1789866675000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"我爱你。","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"I love you.\"\t\\ 1. Bedeutung"}
-{"t":[1789866679987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
-{"t":[1789866799987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"катакана (полуширинная)\"\t\\ 1. Bedeutung"}
-{"t":[1789866801000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)","c":2}
-{"t":[1789866809237,0],"d":"samsung-fnkctufc","op":"ai.put","text":"東京","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Большое спасибо\"]}"}
-{"t":[1789866813257,0],"d":"samsung-fnkctufc","op":"saved.del","text":"più"}
-{"t":[1789866817257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Гданьск\"}"}
-{"t":[1789866818257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)","c":1}
-{"t":[1789867003257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья"}
-{"t":[1789867003257,1],"d":"samsung-fnkctufc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок (2)","c":2}
-{"t":[1789867063250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":1}
-{"t":[1789867067257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
-{"t":[1789867131250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":2}
-{"t":[1789867131257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"maçã","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"яблоко (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789867132250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
-{"t":[1789867140257,0],"d":"samsung-fnkctufc","op":"saved.del","text":"дом"}
-{"t":[1789867141000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"пингвин"}
-{"t":[1789867141237,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
-{"t":[1789867145487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":3}
-{"t":[1789867205487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":4}
-{"t":[1789867265500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё","c":1}
-{"t":[1789867390000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Übung"}
-{"t":[1789867391507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"我爱你。","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Я тебя люблю. (2)"}
-{"t":[1789867395500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":1}
-{"t":[1789867395757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё","c":4}
-{"t":[1789867399737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"класс (тон кожи)\"]}"}
-{"t":[1789867405737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Здравствуйте, ещё\"}"}
-{"t":[1789867405987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше (2)"}
-{"t":[1789867406250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Я люблю тебя\"]}"}
-{"t":[1789867406500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
-{"t":[1789867407487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":2}
-{"t":[1789867407750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":3}
-{"t":[1789867407750,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":1}
-{"t":[1789867467737,0],"d":"samsung-fnkctufc","op":"saved.del","text":"👨‍👩‍👧"}
-{"t":[1789867468757,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"семья (2)"}
-{"t":[1789867469750,0],"d":"samsung-fnkctufc","op":"history.del","text":"дом"}
-{"t":[1789867470737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
-{"t":[1789867471000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя (2)"}
-{"t":[1789867475000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"лодка, ещё\"}"}
-{"t":[1789867479000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
-{"t":[1789867480007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":4}
-{"t":[1789867480007,1],"d":"samsung-fnkctufc","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":2}
-{"t":[1789867483987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":2}
-{"t":[1789867612007,0],"d":"samsung-fnkctufc","op":"history.del","text":"👨‍👩‍👧"}
-{"t":[1789867672007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":4}
-{"t":[1789867673007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"їжак","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"ёж\"\t\\ 1. Bedeutung"}
-{"t":[1789867677000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
-{"t":[1789867677237,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
-{"t":[1789867681257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"café","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"кофе (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789867685500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"città","kind":"word","lang":"ru","meaning":"город, ещё"}
-{"t":[1789867689500,2],"d":"samsung-fnkctufc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":3}
-{"t":[1789867693487,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Haus 🏠","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"дом 🏠"}
-{"t":[1789867697487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":1}
-{"t":[1789867698737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"한국어","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"корейский язык\"\t\\ 1. Bedeutung"}
-{"t":[1789867699000,0],"d":"samsung-fnkctufc","op":"history.del","text":"città"}
-{"t":[1789867700000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"coração","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"сердце\"\t\\ 1. Bedeutung"}
-{"t":[1789867820000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ёжик","lang":"German","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Igel\"\t\\ 1. Bedeutung"}
-{"t":[1789867821000,0],"d":"samsung-fnkctufc","op":"history.del","text":"Добрый вечер!"}
-{"t":[1789867821250,0],"d":"samsung-fnkctufc","op":"saved.del","text":"съесть"}
-{"t":[1789867825237,0],"d":"samsung-fnkctufc","op":"history.del","text":"ґанок"}
-{"t":[1789867826500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Как дела?\"}"}
-{"t":[1789867894500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":1}
-{"t":[1789867898487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё"}
-{"t":[1789867898737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":2}
-{"t":[1789867899007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"𠮷野家","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"катакана"}
-{"t":[1789867903000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":5}
-{"t":[1789867903000,1],"d":"samsung-fnkctufc","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
-{"t":[1789868031000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе","c":2}
-{"t":[1789868091000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":2}
-{"t":[1789868092000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":5}
-{"t":[1789868152237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":6}
-{"t":[1789868156500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик (2)","base":"élever","c":2}
-{"t":[1789868216487,0],"d":"samsung-fnkctufc","op":"history.del","text":"źdźbło"}
-{"t":[1789868221500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет, ещё"}
-{"t":[1789868221500,1],"d":"samsung-fnkctufc","op":"ai.put","text":"Öl","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"масло\"\t\\ 1. Bedeutung"}
-{"t":[1789868290757,0],"d":"samsung-fnkctufc","op":"ai.put","text":"aufmachen","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"открывать\"}"}
-{"t":[1789868359757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица (2)"}
-{"t":[1789868360750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Mädchen","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"катакана"}
-{"t":[1789868360757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":2}
-{"t":[1789868361737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё","c":3}
-{"t":[1789868361750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":2}
-{"t":[1789868366757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)","c":3}
-{"t":[1789868366757,1],"d":"samsung-fnkctufc","op":"ai.put","text":"дом","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Haus (2)\"]}"}
-{"t":[1789868495000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":1}
-{"t":[1789868496000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
-{"t":[1789868496987,0],"d":"samsung-fnkctufc","op":"history.del","text":"Zażółć gęślą jaźń"}
-{"t":[1789868557987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":2}
-{"t":[1789868562000,0],"d":"samsung-fnkctufc","op":"history.del","text":"città"}
-{"t":[1789868622000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
-{"t":[1789868686000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":3}
-{"t":[1789868690007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
-{"t":[1789868695007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":1}
-{"t":[1789868758000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"съесть","lang":"German","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"aufessen (2)\"}"}
-{"t":[1789868818000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
-{"t":[1789868877987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1789868999750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
-{"t":[1789868999750,1],"d":"samsung-fnkctufc","op":"ai.put","text":"più","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"больше"}
-{"t":[1789869001007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр","c":2}
-{"t":[1789869061007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"aufmachen","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"открывать (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789869069250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город (2)","c":1}
-{"t":[1789869069250,1],"d":"samsung-fnkctufc","op":"history.del","text":"한국어"}
-{"t":[1789869074237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":3}
-{"t":[1789869078250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"en","meaning":"I close the door!","c":2}
-{"t":[1789869078500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":3}
-{"t":[1789869082500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Ещё раз","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Noch einmal\"]}"}
-{"t":[1789869087000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":3}
-{"t":[1789869147000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":6}
-{"t":[1789869147000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1789869147987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
-{"t":[1789869217257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
-{"t":[1789869217257,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":1}
-{"t":[1789869221487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1789869225507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик, ещё"}
-{"t":[1789869226757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":3}
-{"t":[1789869286757,0],"d":"samsung-fnkctufc","op":"saved.del","text":"😀"}
-{"t":[1789869293257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"più","kind":"word","lang":"en","meaning":"more (2)","c":2}
-{"t":[1789869294250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"Мир вам"}
-{"t":[1789869294500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"семья (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789869299500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"οδός","lang":"English","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"street\"}"}
-{"t":[1789869359500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)"}
-{"t":[1789869359757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":4}
-{"t":[1789869359757,1],"d":"samsung-fnkctufc","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Добрый вечер (2)"}
-{"t":[1789869419750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
-{"t":[1789869423987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"English","section":"offline-de","ver":0,"model":"bergamot","answer":"Gdansk"}
-{"t":[1789869432000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"garçon","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мальчик (2)\"]}"}
-{"t":[1789869432987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1789869433000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)"}
-{"t":[1789869497007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1789869497007,1],"d":"samsung-fnkctufc","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
-{"t":[1789869562000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя (2)","c":2}
-{"t":[1789869563257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Mädchen","kind":"word","lang":"ru","meaning":"девочка","c":1}
-{"t":[1789869690500,0],"d":"samsung-fnkctufc","op":"history.del","text":"사랑해요"}
-{"t":[1789869690757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше (2)"}
-{"t":[1789869691000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ёжик","lang":"German","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Igel (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789869691987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
-{"t":[1789869696000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"ひらがな"}
-{"t":[1789869697000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
-{"t":[1789869941500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня"}
-{"t":[1789869942487,0],"d":"samsung-fnkctufc","op":"ai.put","text":"İstanbul","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung"}
-{"t":[1789869946750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо! (2)","c":7}
-{"t":[1789870006750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"їжак","kind":"word","lang":"ru","meaning":"ёж"}
-{"t":[1789870008750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
-{"t":[1789870012737,0],"d":"samsung-fnkctufc","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин"}
-{"t":[1789870013757,0],"d":"samsung-fnkctufc","op":"ai.put","text":"più","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"больше\"\t\\ 1. Bedeutung"}
-{"t":[1789870074000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Käse","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"der Käse — сыр, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1789870074987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
-{"t":[1789870076000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин"}
-{"t":[1789870076250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":3}
-{"t":[1789870077507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"你好","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
-{"t":[1789870261507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":7}
-{"t":[1789870321507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Я люблю тебя"}
-{"t":[1789870321757,0],"d":"samsung-fnkctufc","op":"saved.del","text":"größer"}
-{"t":[1789870322737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе, ещё","c":3}
-{"t":[1789870327750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":4}
-{"t":[1789870387750,0],"d":"samsung-fnkctufc","op":"saved.del","text":"שָׁלוֹם"}
-{"t":[1789870391750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":2}
-{"t":[1789870393000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Ich mache die Tür zu!","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Я закрываю дверь! (2)"}
-{"t":[1789870397000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":2}
-{"t":[1789870397000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица (2)","c":1}
-{"t":[1789870402000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло (2)"}
-{"t":[1789870403000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":2}
-{"t":[1789870403507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
-{"t":[1789870465487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"كتاب","kind":"word","lang":"ru","meaning":"книга"}
+{"t":[1789862530500,0],"d":"samsung-fnkctufc","op":"saved.del","text":"ΑΣ̈Σ́"}
+{"t":[1789862654750,0],"d":"samsung-fnkctufc","op":"saved.del","text":"café"}
+{"t":[1789862654750,1],"d":"samsung-fnkctufc","op":"saved.put","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой"}
+{"t":[1789862655750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
+{"t":[1789862724257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
+{"t":[1789862724507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"你好","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1789862725507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!, ещё","c":1}
+{"t":[1789862729500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"GROẞ","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"большой\"\t\\ 1. Bedeutung"}
+{"t":[1789862733487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж, ещё","c":1}
+{"t":[1789862741507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"漢字","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"иероглифы\"\t\\ 1. Bedeutung"}
+{"t":[1789862742500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1789862803500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":1}
+{"t":[1789862803757,0],"d":"samsung-fnkctufc","op":"history.del","text":"größer"}
+{"t":[1789862803757,1],"d":"samsung-fnkctufc","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
+{"t":[1789862803757,2],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
+{"t":[1789862804000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":1}
+{"t":[1789862806000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":2}
+{"t":[1789862807000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин (2)"}
+{"t":[1789862807000,1],"d":"samsung-fnkctufc","op":"ai.put","text":"їжак","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"ёж\"\t\\ 1. Bedeutung"}
+{"t":[1789862807000,2],"d":"samsung-fnkctufc","op":"saved.del","text":"l’été"}
+{"t":[1789862819007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1789862820000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":1}
+{"t":[1789862823987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1789862888000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"¡Hola, amigo!","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
+{"t":[1789862890000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Ǆemal"}
+{"t":[1789862905987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":1}
+{"t":[1789862910250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Com'è bello!","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"Как красиво!"}
+{"t":[1789862970257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1789862970500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать, ещё"}
+{"t":[1789863212500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё","c":1}
+{"t":[1789863212500,1],"d":"samsung-fnkctufc","op":"saved.del","text":"Haus 🏠"}
+{"t":[1789863216507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1789863280500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
+{"t":[1789863281500,0],"d":"samsung-fnkctufc","op":"history.del","text":"Übung"}
+{"t":[1789863346500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"你好","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"привет\"}"}
+{"t":[1789863350487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":1}
+{"t":[1789863470487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица (2)","c":1}
+{"t":[1789863471500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ılık","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"дома, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1789863531507,1],"d":"samsung-fnkctufc","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё","c":1}
+{"t":[1789863535487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":3}
+{"t":[1789863595507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"книга\"]}"}
+{"t":[1789863595507,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":1}
+{"t":[1789863655500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"مرحبا","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"привет, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1789863715507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":2}
+{"t":[1789863716500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
+{"t":[1789863717500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👍🏽","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1789863838507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Гданьск"}
+{"t":[1789863838757,1],"d":"samsung-fnkctufc","op":"ai.put","text":"東京","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
+{"t":[1789863839757,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Гданьск (2)\"]}"}
+{"t":[1789863903737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":2}
+{"t":[1789864027750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!, ещё","c":2}
+{"t":[1789864032007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык (2)","c":1}
+{"t":[1789864036000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками","c":1}
+{"t":[1789864036250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма","c":1}
+{"t":[1789864041257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
+{"t":[1789864041487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
+{"t":[1789864045507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Käse","kind":"word","lang":"ru","meaning":"der Käse — сыр, ещё","c":1}
+{"t":[1789864105500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":4}
+{"t":[1789864229500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Straße","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"die Straße (pl. Straßen) — улица\"\t\\ 1. Bedeutung"}
+{"t":[1789864229507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!"}
+{"t":[1789864229750,0],"d":"samsung-fnkctufc","op":"history.del","text":"élève"}
+{"t":[1789864351000,0],"d":"samsung-fnkctufc","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1789864351250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Fuß","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела?\"]}"}
+{"t":[1789864351507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"en","meaning":"Hello","c":1}
+{"t":[1789864351737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart\"}"}
+{"t":[1789864356000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"日本語","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"японский язык\"\t\\ 1. Bedeutung"}
+{"t":[1789864356987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
+{"t":[1789864356987,1],"d":"samsung-fnkctufc","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1789864357257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1789864358237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо (2)","c":1}
+{"t":[1789864422250,0],"d":"samsung-fnkctufc","op":"saved.del","text":"日本語"}
+{"t":[1789864422250,1],"d":"samsung-fnkctufc","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":1}
+{"t":[1789864426500,0],"d":"samsung-fnkctufc","op":"saved.del","text":"niño"}
+{"t":[1789864432500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше (2)\"}"}
+{"t":[1789864434507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":1}
+{"t":[1789864494500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня","c":1}
+{"t":[1789864499487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1789864499737,0],"d":"samsung-fnkctufc","op":"saved.del","text":"مرحبا"}
+{"t":[1789864620250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΑΣ̈Σ́","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"сигмы с метками (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789864621487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво! (2)"}
+{"t":[1789864741500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1789864865757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!"}
+{"t":[1789864930757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня"}
+{"t":[1789864990750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин"}
+{"t":[1789865000000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
+{"t":[1789865001000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":3}
+{"t":[1789865061000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"東京","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Токио, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1789865121987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Haus 🏠","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"дом 🏠 (2)\"}"}
+{"t":[1789865126007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":1}
+{"t":[1789865186487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё"}
+{"t":[1789865195737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1789865197007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1789865197007,1],"d":"samsung-fnkctufc","op":"ai.put","text":"garçon","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мальчик (2)\"]}"}
+{"t":[1789865201007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul","c":1}
+{"t":[1789865261000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"élève","kind":"word","lang":"ru","meaning":"ученик","base":"élever","c":1}
+{"t":[1789865261000,2],"d":"samsung-fnkctufc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":2}
+{"t":[1789865265237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица (2)","c":1}
+{"t":[1789865265250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1789865269257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
+{"t":[1789865270250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Straße","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"die Straße (pl. Straßen) — улица\"\t\\ 1. Bedeutung"}
+{"t":[1789865270250,1],"d":"samsung-fnkctufc","op":"ai.put","text":"사랑해요","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
+{"t":[1789865330257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"coração","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"сердце\"\t\\ 1. Bedeutung"}
+{"t":[1789865334257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"мир (с огласовками)\"\t\\ 1. Bedeutung"}
+{"t":[1789865339250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня"}
+{"t":[1789865341237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1789865346500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog, ещё","c":1}
+{"t":[1789865346750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
+{"t":[1789865408750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ёжик","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"hedgehog (2)\"]}"}
+{"t":[1789865469000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
+{"t":[1789865473000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"l’été","kind":"word","lang":"ru","meaning":"лето","c":1}
+{"t":[1789865537257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":2}
+{"t":[1789865537507,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":3}
+{"t":[1789865597500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
+{"t":[1789865662757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":2}
+{"t":[1789865842757,0],"d":"samsung-fnkctufc","op":"saved.del","text":"coração"}
+{"t":[1789865842987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Джемаль\"\t\\ 1. Bedeutung"}
+{"t":[1789865843000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма"}
+{"t":[1789865847000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ёжик","kind":"word","lang":"de","meaning":"Igel (2)"}
+{"t":[1789865851250,0],"d":"samsung-fnkctufc","op":"history.del","text":"Ǆemal"}
+{"t":[1789865851250,1],"d":"samsung-fnkctufc","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":2}
+{"t":[1789865852500,2],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more (2)","c":4}
+{"t":[1789865912500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
+{"t":[1789865974507,0],"d":"samsung-fnkctufc","op":"saved.del","text":"한국어"}
+{"t":[1789865974507,1],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё","c":2}
+{"t":[1789865975000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":4}
+{"t":[1789865977007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":3}
+{"t":[1789865981007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}"}
+{"t":[1789866041237,0],"d":"samsung-fnkctufc","op":"saved.del","text":"Ǆemal"}
+{"t":[1789866101487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":2}
+{"t":[1789866161500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ёжик","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"hedgehog, ещё"}
+{"t":[1789866163737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog (2)","c":3}
+{"t":[1789866168007,0],"d":"samsung-fnkctufc","op":"history.del","text":"👍🏽"}
+{"t":[1789866169007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":2}
+{"t":[1789866234000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце","c":3}
+{"t":[1789866234000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":2}
+{"t":[1789866235000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"улица\"\t\\ 1. Bedeutung"}
+{"t":[1789866296007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Ещё раз","lang":"German","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Noch einmal\"}"}
+{"t":[1789866296250,0],"d":"samsung-fnkctufc","op":"saved.del","text":"사랑해요"}
+{"t":[1789866296250,1],"d":"samsung-fnkctufc","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица (2)\"]}"}
+{"t":[1789866296750,0],"d":"samsung-fnkctufc","op":"saved.del","text":"사랑해요"}
+{"t":[1789866356987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":3}
+{"t":[1789866361000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"日本語","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"японский язык (2)"}
+{"t":[1789866421000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
+{"t":[1789866421000,1],"d":"samsung-fnkctufc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":2}
+{"t":[1789866429987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
+{"t":[1789866549987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"漢字","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"иероглифы\"\t\\ 1. Bedeutung"}
+{"t":[1789866619237,0],"d":"samsung-fnkctufc","op":"ai.put","text":"你好","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"привет\"]}"}
+{"t":[1789866623257,0],"d":"samsung-fnkctufc","op":"saved.del","text":"più"}
+{"t":[1789866627257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Гданьск\"}"}
+{"t":[1789866628257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)","c":1}
+{"t":[1789866813257,0],"d":"samsung-fnkctufc","op":"saved.put","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья"}
+{"t":[1789866813257,1],"d":"samsung-fnkctufc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок (2)","c":3}
+{"t":[1789866873250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":2}
+{"t":[1789866877257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
+{"t":[1789866941250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"en","meaning":"Once more","c":5}
+{"t":[1789866941257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"l’été","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"лето (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789866942250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1789866950257,0],"d":"samsung-fnkctufc","op":"saved.del","text":"дом"}
+{"t":[1789866958500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"niño","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"ребёнок"}
+{"t":[1789866958737,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
+{"t":[1789866962987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":2}
+{"t":[1789867022987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце","c":4}
+{"t":[1789867083000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом, ещё","c":1}
+{"t":[1789867216500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь!","c":1}
+{"t":[1789867216757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга, ещё","c":2}
+{"t":[1789867220737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"한국어","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"корейский язык\"]}"}
+{"t":[1789867226737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Здравствуйте, ещё\"}"}
+{"t":[1789867226987,0],"d":"samsung-fnkctufc","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше (2)"}
+{"t":[1789867227250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"日本語","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"японский язык\"]}"}
+{"t":[1789867227500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1789867228487,0],"d":"samsung-fnkctufc","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":1}
+{"t":[1789867228750,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":3}
+{"t":[1789867228750,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма","c":1}
+{"t":[1789867288737,0],"d":"samsung-fnkctufc","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1789867289757,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"катакана (полуширинная) (2)"}
+{"t":[1789867290750,0],"d":"samsung-fnkctufc","op":"history.del","text":"ΣΟΦΙΑ"}
+{"t":[1789867291007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1789867291007,1],"d":"samsung-fnkctufc","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
+{"t":[1789867291250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя (2)"}
+{"t":[1789867295250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"тёплый, ещё\"}"}
+{"t":[1789867299250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1789867300257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":4}
+{"t":[1789867300257,1],"d":"samsung-fnkctufc","op":"history.seen","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель","c":2}
+{"t":[1789867304237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":3}
+{"t":[1789867432257,0],"d":"samsung-fnkctufc","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1789867492257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":4}
+{"t":[1789867493257,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Добрый вечер!","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Привет, друг!\"\t\\ 1. Bedeutung"}
+{"t":[1789867497250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
+{"t":[1789867497487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё"}
+{"t":[1789867501507,0],"d":"samsung-fnkctufc","op":"ai.put","text":"café","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"кофе (2)\"\t\\ 1. Bedeutung"}
+{"t":[1789867505750,0],"d":"samsung-fnkctufc","op":"saved.put","text":"città","kind":"word","lang":"ru","meaning":"город, ещё"}
+{"t":[1789867509750,2],"d":"samsung-fnkctufc","op":"history.seen","text":"niño","kind":"word","lang":"ru","meaning":"ребёнок","c":4}
+{"t":[1789867513737,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Haus 🏠","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"дом 🏠"}
+{"t":[1789867517737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать (2)","base":"machen","c":1}
+{"t":[1789867518987,0],"d":"samsung-fnkctufc","op":"ai.put","text":"東京","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
+{"t":[1789867519250,0],"d":"samsung-fnkctufc","op":"history.del","text":"città"}
+{"t":[1789867520250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"😀","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"катакана (полуширинная)\"}"}
+{"t":[1789867640250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"катакана (полуширинная), ещё"}
+{"t":[1789867641250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":2}
+{"t":[1789867642250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"pingüino","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"пингвин\"\t\\ 1. Bedeutung"}
+{"t":[1789867642250,1],"d":"samsung-fnkctufc","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана (2)","c":2}
+{"t":[1789867646257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":5}
+{"t":[1789867646257,1],"d":"samsung-fnkctufc","op":"history.del","text":"Ещё раз"}
+{"t":[1789867647500,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Wie geht's?","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Как дела?\"}"}
+{"t":[1789867715500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":1}
+{"t":[1789867719487,0],"d":"samsung-fnkctufc","op":"saved.put","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё"}
+{"t":[1789867719737,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":1}
+{"t":[1789867720007,0],"d":"samsung-fnkctufc","op":"ai.put","text":"👍🏽","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"класс (тон кожи)"}
+{"t":[1789867724000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠 (2)","c":6}
+{"t":[1789867724000,1],"d":"samsung-fnkctufc","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
+{"t":[1789867852000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе","c":1}
+{"t":[1789867912000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"GROẞ","kind":"word","lang":"ru","meaning":"большой","c":3}
+{"t":[1789867913000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Obrigado!","kind":"phrase","lang":"ru","meaning":"Спасибо!","c":5}
+{"t":[1789867973237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":7}
+{"t":[1789867977500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":3}
+{"t":[1789868037487,0],"d":"samsung-fnkctufc","op":"history.del","text":"łódź"}
+{"t":[1789868042500,0],"d":"samsung-fnkctufc","op":"saved.put","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет, ещё"}
+{"t":[1789868042500,1],"d":"samsung-fnkctufc","op":"ai.put","text":"Öl","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"масло\"\t\\ 1. Bedeutung"}
+{"t":[1789868112000,0],"d":"samsung-fnkctufc","op":"history.del","text":"Fuß"}
+{"t":[1789868113000,0],"d":"samsung-fnkctufc","op":"history.del","text":"Öl"}
+{"t":[1789868174007,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица (2)"}
+{"t":[1789868175000,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Mädchen","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"катакана"}
+{"t":[1789868175007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"👍🏽","kind":"word","lang":"en","meaning":"thumbs up (skin tone) (2)","c":1}
+{"t":[1789868175987,0],"d":"samsung-fnkctufc","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце, ещё","c":4}
+{"t":[1789868176000,0],"d":"samsung-fnkctufc","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
+{"t":[1789868181007,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте (2)","c":4}
+{"t":[1789868181007,1],"d":"samsung-fnkctufc","op":"ai.put","text":"дом","lang":"German","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Haus (2)\"]}"}
+{"t":[1789868309250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана","c":3}
+{"t":[1789868310250,0],"d":"samsung-fnkctufc","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
+{"t":[1789868311237,0],"d":"samsung-fnkctufc","op":"history.del","text":"Zażółć gęślą jaźń"}
+{"t":[1789868372237,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":2}
+{"t":[1789868376250,0],"d":"samsung-fnkctufc","op":"history.del","text":"città"}
+{"t":[1789868436250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1789868500250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":2}
+{"t":[1789868504257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":2}
+{"t":[1789868509257,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела? (2)","c":1}
+{"t":[1789868572250,0],"d":"samsung-fnkctufc","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица (2)\"}"}
+{"t":[1789868632250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":1}
+{"t":[1789868692237,0],"d":"samsung-fnkctufc","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1789868692757,0],"d":"samsung-fnkctufc","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":2}
+{"t":[1789868813000,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
+{"t":[1789868813000,1],"d":"samsung-fnkctufc","op":"ai.put","text":"più","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"больше"}
+{"t":[1789868814250,0],"d":"samsung-fnkctufc","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":4}
+{"t":[1789868882500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город (2)","c":1}
+{"t":[1789868882507,0],"d":"samsung-fnkctufc","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый (2)"}
+{"t":[1789868942500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":5}
+{"t":[1789868946500,0],"d":"samsung-fnkctufc","op":"history.seen","text":"Grüß Gott","kind":"phrase","lang":"ru","meaning":"Здравствуйте","c":6}
+{"t":[1789868950507,0],"d":"samsung-fnkctufc","op":"history.del","text":"niño"}
+{"t":[1789868954750,0],"d":"samsung-fnkctufc","op":"ai.put","text":"Σ","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сигма\"]}"}
+{"t":[1789869025757,0],"d":"samsung-fnkctufc","op":"saved.put","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?"}
+{"t":[1789869025757,1],"d":"samsung-fnkctufc","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма (2)","c":2}

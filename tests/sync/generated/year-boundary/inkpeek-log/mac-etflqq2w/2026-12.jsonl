@@ -1,8 +1,3 @@
-{"t":[1798761300100,0],"d":"mac-etflqq2w","op":"ai.put","text":"😀","lang":"English","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"hiragana, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1798761301087,0],"d":"mac-etflqq2w","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам (2)"}
-{"t":[1798761302100,0],"d":"mac-etflqq2w","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин","c":1}
-{"t":[1798761303207,0],"d":"mac-etflqq2w","op":"ai.put","text":"😀","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"hiragana (2)\"\t\\ 1. Bedeutung"}
-{"t":[1798761303300,0],"d":"mac-etflqq2w","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
-{"t":[1798761303400,0],"d":"mac-etflqq2w","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠"}
-{"t":[1798761303487,0],"d":"mac-etflqq2w","op":"ai.put","text":"السلام عليكم","lang":"English","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Peace be upon you, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1798761308000,0],"d":"mac-etflqq2w","op":"history.seen","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home","c":1}
+{"t":[1798761302087,0],"d":"mac-etflqq2w","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"penguin\"]}"}
+{"t":[1798761302207,0],"d":"mac-etflqq2w","op":"ai.put","text":"pingüino","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"penguin\"]}"}
+{"t":[1798761303400,0],"d":"mac-etflqq2w","op":"saved.del","text":"pingüino"}

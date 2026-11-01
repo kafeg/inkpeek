@@ -41,8 +41,8 @@ some lines now and then; `expected.json` is the script's own merge, written from
 Texts: `tests/corpus.py` (German, Cyrillic, French, Spanish, Polish, Portuguese, Italian, CJK, Arabic, Hebrew, emoji,
 Greek, Turkish; edge whitespace, NFD, escapes, control characters, long texts). Besides the merge, runners check that
 it does not depend on file and line order, a line read twice, or every device compacting its log.
-`generate.py --stress DIR [OPS]` writes one case of 50,000 ops into `DIR/stress`: `INKPEEK_STRESS=1` (JVM tests,
-`--rerun`) and `LEXIPEEK_STRESS=1` (doctest) run it; not on CI.
+`generate.py --stress DIR [OPS]` writes one case of 50,000 ops into `DIR/stress`: `INKPEEK_STRESS=1` (JVM tests) and
+`LEXIPEEK_STRESS=1` (doctest) run it; not on CI.
 
 | case | what it checks |
 |---|---|

@@ -6,176 +6,201 @@
 {"t":[1792886583250,0],"d":"mac-iiq56sql","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
 {"t":[1792886648250,0],"d":"mac-iiq56sql","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
 {"t":[1792886716487,0],"d":"mac-iiq56sql","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик, ещё","c":1}
-{"t":[1792886901000,0],"d":"mac-iiq56sql","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"семья (2)\"}"}
-{"t":[1792887025987,0],"d":"mac-iiq56sql","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня, ещё","c":1}
-{"t":[1792887027987,0],"d":"mac-iiq56sql","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё","c":1}
-{"t":[1792887030000,0],"d":"mac-iiq56sql","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1792887111507,0],"d":"mac-iiq56sql","op":"history.del","text":"źdźbło"}
-{"t":[1792887232750,0],"d":"mac-iiq56sql","op":"ai.put","text":"كتاب","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"почему\"\t\\ 1. Bedeutung"}
-{"t":[1792887236750,0],"d":"mac-iiq56sql","op":"saved.put","text":"aufmachen","kind":"word","lang":"ru","meaning":"открывать"}
-{"t":[1792887237007,0],"d":"mac-iiq56sql","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер","c":1}
-{"t":[1792887238007,0],"d":"mac-iiq56sql","op":"history.seen","text":"città","kind":"word","lang":"en","meaning":"city","c":1}
-{"t":[1792887306000,0],"d":"mac-iiq56sql","op":"history.del","text":"corazón"}
-{"t":[1792887425987,0],"d":"mac-iiq56sql","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо","c":1}
-{"t":[1792887430007,0],"d":"mac-iiq56sql","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе","c":2}
-{"t":[1792887495007,0],"d":"mac-iiq56sql","op":"ai.put","text":"« Ça va ? »","lang":"Russian","section":"analysis","ver":0,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Спасибо!\"\t\\ 1. Bedeutung"}
-{"t":[1792887561757,0],"d":"mac-iiq56sql","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему, ещё","c":1}
-{"t":[1792887638257,0],"d":"mac-iiq56sql","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город, ещё","c":2}
-{"t":[1792887698257,1],"d":"mac-iiq56sql","op":"saved.del","text":"źdźbło"}
-{"t":[1792887702250,0],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
-{"t":[1792887706500,0],"d":"mac-iiq56sql","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":1}
-{"t":[1792887710500,0],"d":"mac-iiq56sql","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
-{"t":[1792887714750,0],"d":"mac-iiq56sql","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
-{"t":[1792887776757,0],"d":"mac-iiq56sql","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше, ещё","c":1}
-{"t":[1792887776987,0],"d":"mac-iiq56sql","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1792887838750,0],"d":"mac-iiq56sql","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"больше\"]}"}
-{"t":[1792887842757,0],"d":"mac-iiq56sql","op":"saved.del","text":"İstanbul"}
-{"t":[1792887842757,1],"d":"mac-iiq56sql","op":"saved.del","text":"Ich mache die Tür zu!"}
-{"t":[1792887903737,0],"d":"mac-iiq56sql","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"нет"}
-{"t":[1792887907750,0],"d":"mac-iiq56sql","op":"saved.del","text":"não"}
-{"t":[1792887971757,0],"d":"mac-iiq56sql","op":"saved.del","text":"não"}
-{"t":[1792887973750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение, ещё","c":1}
-{"t":[1792888156500,0],"d":"mac-iiq56sql","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
-{"t":[1792888161500,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":1}
-{"t":[1792888227750,0],"d":"mac-iiq56sql","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык, ещё"}
-{"t":[1792888227987,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё","c":1}
-{"t":[1792888228000,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":1}
-{"t":[1792888289007,0],"d":"mac-iiq56sql","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё"}
-{"t":[1792888414237,0],"d":"mac-iiq56sql","op":"history.del","text":"їжак"}
-{"t":[1792888496487,0],"d":"mac-iiq56sql","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":1}
-{"t":[1792888500750,0],"d":"mac-iiq56sql","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?», ещё","c":2}
-{"t":[1792888569750,0],"d":"mac-iiq56sql","op":"history.del","text":"İstanbul"}
-{"t":[1792888570000,0],"d":"mac-iiq56sql","op":"saved.del","text":"Ich mache die Tür zu!"}
-{"t":[1792888635257,0],"d":"mac-iiq56sql","op":"history.del","text":"garçon"}
-{"t":[1792888703250,0],"d":"mac-iiq56sql","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
-{"t":[1792888767487,0],"d":"mac-iiq56sql","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Здравствуйте\"\t\\ 1. Bedeutung"}
-{"t":[1792888771507,0],"d":"mac-iiq56sql","op":"ai.put","text":"garçon","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"мальчик\"\t\\ 1. Bedeutung"}
-{"t":[1792888773487,0],"d":"mac-iiq56sql","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
-{"t":[1792888895487,0],"d":"mac-iiq56sql","op":"ai.put","text":"İstanbul","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Стамбул, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1792888956750,0],"d":"mac-iiq56sql","op":"saved.del","text":"Gdańsk"}
-{"t":[1792888957000,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка, ещё","c":2}
-{"t":[1792889017250,0],"d":"mac-iiq56sql","op":"ai.put","text":"« Ça va ? »","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"«Как дела?»\"\t\\ 1. Bedeutung"}
-{"t":[1792889140507,0],"d":"mac-iiq56sql","op":"ai.put","text":"garçon","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"мальчик (2)"}
-{"t":[1792889140737,0],"d":"mac-iiq56sql","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
-{"t":[1792889141757,0],"d":"mac-iiq56sql","op":"history.del","text":"カタカナ"}
-{"t":[1792889205750,0],"d":"mac-iiq56sql","op":"ai.put","text":"😀","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"улыбка\"\t\\ 1. Bedeutung"}
-{"t":[1792889213737,0],"d":"mac-iiq56sql","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя"}
-{"t":[1792889217750,0],"d":"mac-iiq56sql","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё"}
-{"t":[1792889221987,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":3}
-{"t":[1792889355007,0],"d":"mac-iiq56sql","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":1}
-{"t":[1792889355250,0],"d":"mac-iiq56sql","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
-{"t":[1792889356257,0],"d":"mac-iiq56sql","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
-{"t":[1792889356257,1],"d":"mac-iiq56sql","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"класс (тон кожи)\"}"}
-{"t":[1792889487250,0],"d":"mac-iiq56sql","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)","c":1}
-{"t":[1792889559500,0],"d":"mac-iiq56sql","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
-{"t":[1792889619750,0],"d":"mac-iiq56sql","op":"history.del","text":"Straße"}
-{"t":[1792889620750,0],"d":"mac-iiq56sql","op":"saved.put","text":"l’été","kind":"word","lang":"ru","meaning":"лето"}
-{"t":[1792889622000,0],"d":"mac-iiq56sql","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
-{"t":[1792889623000,0],"d":"mac-iiq56sql","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":1}
-{"t":[1792889683000,0],"d":"mac-iiq56sql","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)"}
-{"t":[1792889688237,0],"d":"mac-iiq56sql","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"ru","meaning":"панграмма"}
-{"t":[1792889693500,0],"d":"mac-iiq56sql","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо, ещё","c":2}
-{"t":[1792889697507,0],"d":"mac-iiq56sql","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше","c":2}
-{"t":[1792889697737,0],"d":"mac-iiq56sql","op":"history.seen","text":"café","kind":"word","lang":"ru","meaning":"кофе, ещё","c":3}
-{"t":[1792889698757,0],"d":"mac-iiq56sql","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
-{"t":[1792889823737,0],"d":"mac-iiq56sql","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"der Käse — сыр (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792889830487,0],"d":"mac-iiq56sql","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик (2)","c":2}
-{"t":[1792889913750,0],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":2}
-{"t":[1792889994507,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё"}
-{"t":[1792889994757,0],"d":"mac-iiq56sql","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё"}
-{"t":[1792889995007,0],"d":"mac-iiq56sql","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё","c":2}
-{"t":[1792889996000,0],"d":"mac-iiq56sql","op":"ai.put","text":"كتاب","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"почему"}
-{"t":[1792889997000,0],"d":"mac-iiq56sql","op":"ai.put","text":"İstanbul","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Стамбул\"}"}
-{"t":[1792890057500,0],"d":"mac-iiq56sql","op":"saved.del","text":"😀"}
-{"t":[1792890065750,0],"d":"mac-iiq56sql","op":"ai.put","text":"aufmachen","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"открывать\"}"}
-{"t":[1792890246750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":1}
-{"t":[1792890246750,1],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":3}
-{"t":[1792890426750,0],"d":"mac-iiq56sql","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
-{"t":[1792890489257,0],"d":"mac-iiq56sql","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка, ещё","c":1}
-{"t":[1792890549237,0],"d":"mac-iiq56sql","op":"ai.put","text":"съесть","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"нога, ступня\"\t\\ 1. Bedeutung"}
-{"t":[1792890613250,0],"d":"mac-iiq56sql","op":"ai.put","text":"한국어","lang":"Russian","section":"analysis","ver":0,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Я люблю тебя\"\t\\ 1. Bedeutung"}
-{"t":[1792890614237,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"de","meaning":"Guten Abend!"}
-{"t":[1792890614487,0],"d":"mac-iiq56sql","op":"ai.put","text":"Obrigado!","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"упражнение\",\"ещё\"]}"}
-{"t":[1792890618500,0],"d":"mac-iiq56sql","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
-{"t":[1792890624500,1],"d":"mac-iiq56sql","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1792890684487,0],"d":"mac-iiq56sql","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house (2)","c":1}
-{"t":[1792890936507,0],"d":"mac-iiq56sql","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё"}
-{"t":[1792890996500,0],"d":"mac-iiq56sql","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
-{"t":[1792890997507,0],"d":"mac-iiq56sql","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии","c":1}
-{"t":[1792891121507,0],"d":"mac-iiq56sql","op":"saved.del","text":"niño"}
-{"t":[1792891121507,1],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1792891134737,0],"d":"mac-iiq56sql","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1792891144750,0],"d":"mac-iiq56sql","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":1}
-{"t":[1792891144757,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":2}
-{"t":[1792891204750,0],"d":"mac-iiq56sql","op":"history.del","text":"İstanbul"}
-{"t":[1792891205750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво! (2)","c":2}
-{"t":[1792891208750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё","c":1}
-{"t":[1792891270007,0],"d":"mac-iiq56sql","op":"ai.put","text":"ґанок","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"крыльцо\"\t\\ 1. Bedeutung"}
-{"t":[1792891339500,0],"d":"mac-iiq56sql","op":"saved.del","text":"Wie geht's?"}
-{"t":[1792891399507,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё","c":2}
-{"t":[1792891399750,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":3}
-{"t":[1792891414507,0],"d":"mac-iiq56sql","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":1}
-{"t":[1792891418500,0],"d":"mac-iiq56sql","op":"ai.put","text":"l’été","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"лето (2)"}
-{"t":[1792891422500,0],"d":"mac-iiq56sql","op":"ai.put","text":"Добрый вечер!","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Good evening! (2)\"}"}
-{"t":[1792891422750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":2}
-{"t":[1792891482757,0],"d":"mac-iiq56sql","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж (2)","c":1}
-{"t":[1792891487987,0],"d":"mac-iiq56sql","op":"ai.put","text":"東京","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
-{"t":[1792891560000,0],"d":"mac-iiq56sql","op":"history.seen","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя","c":1}
-{"t":[1792891560250,0],"d":"mac-iiq56sql","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
-{"t":[1792891564500,0],"d":"mac-iiq56sql","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
-{"t":[1792891636750,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер"}
-{"t":[1792891637737,0],"d":"mac-iiq56sql","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья, ещё","c":2}
-{"t":[1792891638007,0],"d":"mac-iiq56sql","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
-{"t":[1792891698007,0],"d":"mac-iiq56sql","op":"ai.put","text":"їжак","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"ёж, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1792891758000,0],"d":"mac-iiq56sql","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1792891763007,0],"d":"mac-iiq56sql","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":3}
-{"t":[1792891763007,1],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":4}
-{"t":[1792891764007,1],"d":"mac-iiq56sql","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин, ещё","c":1}
-{"t":[1792891772000,0],"d":"mac-iiq56sql","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":2}
-{"t":[1792891838757,0],"d":"mac-iiq56sql","op":"ai.put","text":"дом","lang":"English","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"house\"\t\\ 1. Bedeutung"}
-{"t":[1792891843987,0],"d":"mac-iiq56sql","op":"saved.put","text":"Fuß","kind":"word","lang":"ru","meaning":"нога, ступня (2)"}
-{"t":[1792891845007,0],"d":"mac-iiq56sql","op":"ai.put","text":"їжак","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"ёж\"\t\\ 1. Bedeutung"}
-{"t":[1792891914250,0],"d":"mac-iiq56sql","op":"saved.del","text":"não"}
-{"t":[1792892034487,0],"d":"mac-iiq56sql","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
-{"t":[1792892038500,0],"d":"mac-iiq56sql","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше (2)"}
-{"t":[1792892167257,0],"d":"mac-iiq56sql","op":"saved.del","text":"l’été"}
-{"t":[1792892228757,0],"d":"mac-iiq56sql","op":"ai.put","text":"𠮷野家","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма (2)\"\t\\ 1. Bedeutung"}
-{"t":[1792892289750,0],"d":"mac-iiq56sql","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":2}
-{"t":[1792892290737,0],"d":"mac-iiq56sql","op":"saved.put","text":"élève","kind":"word","lang":"ru","meaning":"ученик"}
-{"t":[1792892292007,0],"d":"mac-iiq56sql","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":3}
-{"t":[1792892301007,0],"d":"mac-iiq56sql","op":"ai.put","text":"İstanbul","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Стамбул\"\t\\ 1. Bedeutung"}
-{"t":[1792892306007,0],"d":"mac-iiq56sql","op":"ai.put","text":"Haus 🏠","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"дом 🏠, ещё\"}"}
-{"t":[1792892427257,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":5}
-{"t":[1792892427257,1],"d":"mac-iiq56sql","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
-{"t":[1792892432237,0],"d":"mac-iiq56sql","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё","c":2}
-{"t":[1792892493487,0],"d":"mac-iiq56sql","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
-{"t":[1792892497737,0],"d":"mac-iiq56sql","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
-{"t":[1792892499000,0],"d":"mac-iiq56sql","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram"}
-{"t":[1792892560000,0],"d":"mac-iiq56sql","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1792892690250,0],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2}
-{"t":[1792892692500,1],"d":"mac-iiq56sql","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese (2)","c":1}
-{"t":[1792892756500,0],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё","base":"есть","c":1}
-{"t":[1792892756500,1],"d":"mac-iiq56sql","op":"ai.put","text":"STRASSE","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улица (2)"}
-{"t":[1792892756500,2],"d":"mac-iiq56sql","op":"saved.put","text":"città","kind":"word","lang":"ru","meaning":"город, ещё"}
-{"t":[1792892761500,0],"d":"mac-iiq56sql","op":"saved.del","text":"οδός"}
-{"t":[1792892822737,0],"d":"mac-iiq56sql","op":"ai.put","text":"👍🏽","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"класс (тон кожи), ещё\"\t\\ 1. Bedeutung"}
-{"t":[1792892827000,0],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":3}
-{"t":[1792892892250,0],"d":"mac-iiq56sql","op":"ai.put","text":"ёжик","lang":"German","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Igel\"\t\\ 1. Bedeutung"}
-{"t":[1792892956250,0],"d":"mac-iiq56sql","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
-{"t":[1792892956737,0],"d":"mac-iiq56sql","op":"ai.put","text":"😀","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улыбка\"\t\\ 1. Bedeutung"}
-{"t":[1792893018757,0],"d":"mac-iiq56sql","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","c":2}
-{"t":[1792893019250,0],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
-{"t":[1792893019257,0],"d":"mac-iiq56sql","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё","c":1}
-{"t":[1792893019507,0],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица, ещё","c":4}
-{"t":[1792893079737,0],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":2}
-{"t":[1792893139750,0],"d":"mac-iiq56sql","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":1}
-{"t":[1792893143987,0],"d":"mac-iiq56sql","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город","c":1}
-{"t":[1792893144000,0],"d":"mac-iiq56sql","op":"ai.put","text":"città","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"город\"\t\\ 1. Bedeutung"}
-{"t":[1792893144000,1],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":3}
-{"t":[1792893330987,0],"d":"mac-iiq56sql","op":"history.seen","text":"дом","kind":"word","lang":"de","meaning":"Haus","c":2}
-{"t":[1792893331250,0],"d":"mac-iiq56sql","op":"history.del","text":"Ещё раз"}
-{"t":[1792893391257,0],"d":"mac-iiq56sql","op":"saved.put","text":"łódź","kind":"word","lang":"ru","meaning":"лодка"}
-{"t":[1792893451237,0],"d":"mac-iiq56sql","op":"saved.put","text":"café","kind":"word","lang":"ru","meaning":"кофе"}
-{"t":[1792893452250,0],"d":"mac-iiq56sql","op":"saved.put","text":"كتاب","kind":"word","lang":"en","meaning":"book, ещё"}
-{"t":[1792893577757,0],"d":"mac-iiq56sql","op":"saved.put","text":"Öl","kind":"word","lang":"ru","meaning":"масло"}
-{"t":[1792893638750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠","c":1}
+{"t":[1792886844750,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening!, ещё"}
+{"t":[1792886846000,0],"d":"mac-iiq56sql","op":"saved.put","text":"カタカナ","kind":"word","lang":"ru","meaning":"катакана"}
+{"t":[1792886854250,0],"d":"mac-iiq56sql","op":"history.del","text":"👨‍👩‍👧"}
+{"t":[1792886854487,0],"d":"mac-iiq56sql","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":1}
+{"t":[1792886860007,0],"d":"mac-iiq56sql","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":1}
+{"t":[1792886989757,0],"d":"mac-iiq56sql","op":"history.del","text":"źdźbło"}
+{"t":[1792887110000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
+{"t":[1792887114257,0],"d":"mac-iiq56sql","op":"ai.put","text":"Mädchen","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Добрый вечер\"}"}
+{"t":[1792887115237,0],"d":"mac-iiq56sql","op":"saved.put","text":"我爱你。","kind":"phrase","lang":"en","meaning":"I love you., ещё"}
+{"t":[1792887115507,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":1}
+{"t":[1792887179750,0],"d":"mac-iiq56sql","op":"history.del","text":"ΣΟΦΙΑ"}
+{"t":[1792887299750,0],"d":"mac-iiq56sql","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":1}
+{"t":[1792887300000,0],"d":"mac-iiq56sql","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)"}
+{"t":[1792887306237,0],"d":"mac-iiq56sql","op":"history.seen","text":"Добрый вечер!","kind":"phrase","lang":"en","meaning":"Good evening! (2)","c":1}
+{"t":[1792887307500,0],"d":"mac-iiq56sql","op":"history.del","text":"Straße"}
+{"t":[1792887308507,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка, ещё","c":1}
+{"t":[1792887375257,0],"d":"mac-iiq56sql","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему, ещё","c":1}
+{"t":[1792887451757,0],"d":"mac-iiq56sql","op":"saved.put","text":"città","kind":"word","lang":"ru","meaning":"город, ещё"}
+{"t":[1792887511757,1],"d":"mac-iiq56sql","op":"saved.del","text":"Добрый вечер!"}
+{"t":[1792887515750,0],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1792887520000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)","c":1}
+{"t":[1792887524000,0],"d":"mac-iiq56sql","op":"history.seen","text":"ґанок","kind":"word","lang":"ru","meaning":"крыльцо","c":1}
+{"t":[1792887528250,0],"d":"mac-iiq56sql","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":1}
+{"t":[1792887590257,1],"d":"mac-iiq56sql","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1792887714500,0],"d":"mac-iiq56sql","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)","c":1}
+{"t":[1792887715000,0],"d":"mac-iiq56sql","op":"ai.put","text":"Übung","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"пингвин\"]}"}
+{"t":[1792887719007,0],"d":"mac-iiq56sql","op":"saved.del","text":"ΣΟΦΙΑ"}
+{"t":[1792887719007,1],"d":"mac-iiq56sql","op":"saved.del","text":"Ich mache die Tür zu!"}
+{"t":[1792887779987,0],"d":"mac-iiq56sql","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"нет"}
+{"t":[1792887784000,0],"d":"mac-iiq56sql","op":"saved.del","text":"perché"}
+{"t":[1792887848007,0],"d":"mac-iiq56sql","op":"saved.del","text":"não"}
+{"t":[1792887850000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение, ещё","c":1}
+{"t":[1792888032750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":1}
+{"t":[1792888037750,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":2}
+{"t":[1792888104000,0],"d":"mac-iiq56sql","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый, ещё"}
+{"t":[1792888104237,0],"d":"mac-iiq56sql","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё","c":1}
+{"t":[1792888104250,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана (2)","c":1}
+{"t":[1792888165257,0],"d":"mac-iiq56sql","op":"saved.put","text":"Haus 🏠","kind":"phrase","lang":"ru","meaning":"дом 🏠, ещё"}
+{"t":[1792888233500,0],"d":"mac-iiq56sql","op":"history.seen","text":"łódź","kind":"word","lang":"ru","meaning":"лодка","c":1}
+{"t":[1792888297507,0],"d":"mac-iiq56sql","op":"saved.del","text":"Straße"}
+{"t":[1792888357487,0],"d":"mac-iiq56sql","op":"saved.put","text":"źdźbło","kind":"word","lang":"ru","meaning":"стебель, ещё"}
+{"t":[1792888358500,0],"d":"mac-iiq56sql","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"мир (с огласовками)"}
+{"t":[1792888358507,0],"d":"mac-iiq56sql","op":"ai.put","text":"カタカナ","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"катакана, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792888419750,0],"d":"mac-iiq56sql","op":"history.del","text":"café"}
+{"t":[1792888424757,0],"d":"mac-iiq56sql","op":"history.seen","text":"più","kind":"word","lang":"ru","meaning":"больше (2)","c":1}
+{"t":[1792888424757,1],"d":"mac-iiq56sql","op":"saved.put","text":"😀","kind":"word","lang":"ru","meaning":"улыбка"}
+{"t":[1792888424987,0],"d":"mac-iiq56sql","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Здравствуйте\"\t\\ 1. Bedeutung"}
+{"t":[1792888429237,0],"d":"mac-iiq56sql","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1792888489500,0],"d":"mac-iiq56sql","op":"ai.put","text":"cœur","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"семья\"\t\\ 1. Bedeutung"}
+{"t":[1792888670750,0],"d":"mac-iiq56sql","op":"ai.put","text":"¿Qué tal?","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Как дела? (2)\"}"}
+{"t":[1792888678007,0],"d":"mac-iiq56sql","op":"saved.put","text":"l’été","kind":"word","lang":"ru","meaning":"лето"}
+{"t":[1792888744000,0],"d":"mac-iiq56sql","op":"history.seen","text":"cœur","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1792888808237,0],"d":"mac-iiq56sql","op":"ai.put","text":"Grüß Gott","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Здравствуйте\"\t\\ 1. Bedeutung"}
+{"t":[1792888812257,0],"d":"mac-iiq56sql","op":"ai.put","text":"l’été","lang":"Russian","section":"context","ver":2071311475,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"лето\"\t\\ 1. Bedeutung"}
+{"t":[1792888814237,0],"d":"mac-iiq56sql","op":"history.seen","text":"maçã","kind":"word","lang":"ru","meaning":"яблоко","c":2}
+{"t":[1792888821237,0],"d":"mac-iiq56sql","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
+{"t":[1792888825250,0],"d":"mac-iiq56sql","op":"ai.put","text":"Käse","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"яблоко\"}"}
+{"t":[1792888825737,0],"d":"mac-iiq56sql","op":"saved.del","text":"café"}
+{"t":[1792888829987,1],"d":"mac-iiq56sql","op":"saved.put","text":"élève","kind":"word","lang":"ru","meaning":"ученик, ещё"}
+{"t":[1792888891257,0],"d":"mac-iiq56sql","op":"history.seen","text":"perché","kind":"word","lang":"ru","meaning":"почему","c":2}
+{"t":[1792888896757,0],"d":"mac-iiq56sql","op":"ai.put","text":"Σ","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"сигма (2)"}
+{"t":[1792888896987,0],"d":"mac-iiq56sql","op":"history.seen","text":"ёжик","kind":"word","lang":"en","meaning":"hedgehog","c":1}
+{"t":[1792888898007,0],"d":"mac-iiq56sql","op":"history.del","text":"Добрый вечер!"}
+{"t":[1792888958000,0],"d":"mac-iiq56sql","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Гданьск\"\t\\ 1. Bedeutung"}
+{"t":[1792888962000,0],"d":"mac-iiq56sql","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1792888962007,0],"d":"mac-iiq56sql","op":"history.seen","text":"Öl","kind":"word","lang":"ru","meaning":"масло","c":2}
+{"t":[1792888962007,1],"d":"mac-iiq56sql","op":"ai.put","text":"łódź","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"лодка\"}"}
+{"t":[1792888966000,0],"d":"mac-iiq56sql","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё"}
+{"t":[1792888970237,0],"d":"mac-iiq56sql","op":"history.seen","text":"😀","kind":"word","lang":"ru","meaning":"улыбка","c":3}
+{"t":[1792889044257,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":2}
+{"t":[1792889045257,0],"d":"mac-iiq56sql","op":"history.del","text":"Добрий вечір"}
+{"t":[1792889050500,0],"d":"mac-iiq56sql","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
+{"t":[1792889052500,0],"d":"mac-iiq56sql","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1792889057487,0],"d":"mac-iiq56sql","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"семья (2)\"}"}
+{"t":[1792889122500,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":2}
+{"t":[1792889182750,0],"d":"mac-iiq56sql","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)","c":2}
+{"t":[1792889255000,0],"d":"mac-iiq56sql","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1792889315250,0],"d":"mac-iiq56sql","op":"history.del","text":"Wie geht's?"}
+{"t":[1792889316250,0],"d":"mac-iiq56sql","op":"saved.put","text":"l’été","kind":"word","lang":"ru","meaning":"лето"}
+{"t":[1792889317500,0],"d":"mac-iiq56sql","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
+{"t":[1792889318500,0],"d":"mac-iiq56sql","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик","c":2}
+{"t":[1792889378500,0],"d":"mac-iiq56sql","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)"}
+{"t":[1792889379487,1],"d":"mac-iiq56sql","op":"history.seen","text":"corazón","kind":"word","lang":"ru","meaning":"сердце","c":2}
+{"t":[1792889379500,0],"d":"mac-iiq56sql","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792889383487,0],"d":"mac-iiq56sql","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"мир (с огласовками) (2)"}
+{"t":[1792889443500,0],"d":"mac-iiq56sql","op":"history.seen","text":"aujourd'hui","kind":"word","lang":"ru","meaning":"сегодня","c":1}
+{"t":[1792889452750,0],"d":"mac-iiq56sql","op":"saved.del","text":"łódź"}
+{"t":[1792889512737,0],"d":"mac-iiq56sql","op":"ai.put","text":"كتاب","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Как дела?\"]}"}
+{"t":[1792889573987,0],"d":"mac-iiq56sql","op":"history.del","text":"תודה רבה"}
+{"t":[1792889573987,1],"d":"mac-iiq56sql","op":"ai.put","text":"Käse","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"der Käse — сыр (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792889580737,0],"d":"mac-iiq56sql","op":"history.seen","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик (2)","c":3}
+{"t":[1792889588750,0],"d":"mac-iiq56sql","op":"saved.put","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык"}
+{"t":[1792889588987,0],"d":"mac-iiq56sql","op":"ai.put","text":"źdźbło","lang":"Russian","section":"context","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"стебель, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792889711000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1792889800507,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening, ещё"}
+{"t":[1792889800757,0],"d":"mac-iiq56sql","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"ru","meaning":"Я люблю тебя, ещё"}
+{"t":[1792889801007,0],"d":"mac-iiq56sql","op":"history.seen","text":"תודה רבה","kind":"phrase","lang":"ru","meaning":"Большое спасибо, ещё","c":1}
+{"t":[1792889802000,0],"d":"mac-iiq56sql","op":"ai.put","text":"שָׁלוֹם","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"мир (с огласовками)"}
+{"t":[1792889803000,0],"d":"mac-iiq56sql","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица и дом\"}"}
+{"t":[1792889863500,0],"d":"mac-iiq56sql","op":"saved.del","text":"😀"}
+{"t":[1792889871750,0],"d":"mac-iiq56sql","op":"ai.put","text":"aujourd'hui","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"сегодня\"}"}
+{"t":[1792890052750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!","c":3}
+{"t":[1792890052750,1],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1792890232750,0],"d":"mac-iiq56sql","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
+{"t":[1792890417000,0],"d":"mac-iiq56sql","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee, ещё","c":1}
+{"t":[1792890422000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"ru","meaning":"Как дела?","c":1}
+{"t":[1792890423000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Straße","kind":"word","lang":"ru","meaning":"die Straße (pl. Straßen) — улица","c":1}
+{"t":[1792890429500,0],"d":"mac-iiq56sql","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками) (2)","c":2}
+{"t":[1792890490237,0],"d":"mac-iiq56sql","op":"saved.put","text":"東京","kind":"word","lang":"ru","meaning":"Токио (2)"}
+{"t":[1792890490237,1],"d":"mac-iiq56sql","op":"history.seen","text":"coração","kind":"word","lang":"ru","meaning":"сердце (2)","c":1}
+{"t":[1792890558507,0],"d":"mac-iiq56sql","op":"saved.del","text":"perché"}
+{"t":[1792890618487,0],"d":"mac-iiq56sql","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками)"}
+{"t":[1792890678487,0],"d":"mac-iiq56sql","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house (2)","c":1}
+{"t":[1792890930507,0],"d":"mac-iiq56sql","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё"}
+{"t":[1792890990500,0],"d":"mac-iiq56sql","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
+{"t":[1792890991507,0],"d":"mac-iiq56sql","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии","c":1}
+{"t":[1792891115507,0],"d":"mac-iiq56sql","op":"saved.del","text":"perché"}
+{"t":[1792891115507,1],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1792891128737,0],"d":"mac-iiq56sql","op":"saved.put","text":"più","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1792891138757,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":3}
+{"t":[1792891198750,0],"d":"mac-iiq56sql","op":"history.del","text":"İSTANBUL"}
+{"t":[1792891199750,0],"d":"mac-iiq56sql","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво! (2)","c":4}
+{"t":[1792891200750,1],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up (2)","base":"есть","c":1}
+{"t":[1792891204737,0],"d":"mac-iiq56sql","op":"saved.put","text":"Com'è bello!","kind":"phrase","lang":"ru","meaning":"Как красиво!"}
+{"t":[1792891266487,0],"d":"mac-iiq56sql","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":2}
+{"t":[1792891512750,0],"d":"mac-iiq56sql","op":"saved.del","text":"👨‍👩‍👧"}
+{"t":[1792891572757,0],"d":"mac-iiq56sql","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё","c":2}
+{"t":[1792891573000,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":4}
+{"t":[1792891587757,0],"d":"mac-iiq56sql","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":1}
+{"t":[1792891591750,0],"d":"mac-iiq56sql","op":"ai.put","text":"l’été","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"лето (2)"}
+{"t":[1792891595750,0],"d":"mac-iiq56sql","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"улица (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792891658237,0],"d":"mac-iiq56sql","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":2}
+{"t":[1792891662257,0],"d":"mac-iiq56sql","op":"ai.put","text":"più","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"больше (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792891735000,0],"d":"mac-iiq56sql","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":1}
+{"t":[1792891796007,1],"d":"mac-iiq56sql","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":3}
+{"t":[1792891863250,0],"d":"mac-iiq56sql","op":"saved.put","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер"}
+{"t":[1792891864237,0],"d":"mac-iiq56sql","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"ru","meaning":"семья, ещё","c":2}
+{"t":[1792891864507,0],"d":"mac-iiq56sql","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1792891924507,0],"d":"mac-iiq56sql","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Добрый вечер, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1792891984500,0],"d":"mac-iiq56sql","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1792891989507,0],"d":"mac-iiq56sql","op":"history.seen","text":"« Ça va ? »","kind":"phrase","lang":"ru","meaning":"«Как дела?»","c":1}
+{"t":[1792891989507,1],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана","c":5}
+{"t":[1792891990507,1],"d":"mac-iiq56sql","op":"history.seen","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин, ещё","c":1}
+{"t":[1792891998500,0],"d":"mac-iiq56sql","op":"history.seen","text":"їжак","kind":"word","lang":"ru","meaning":"ёж","c":1}
+{"t":[1792892121000,0],"d":"mac-iiq56sql","op":"saved.del","text":"🇩🇪"}
+{"t":[1792892181000,0],"d":"mac-iiq56sql","op":"history.seen","text":"كتاب","kind":"word","lang":"ru","meaning":"книга","c":2}
+{"t":[1792892184987,0],"d":"mac-iiq56sql","op":"ai.put","text":"東京","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Токио\"\t\\ 1. Bedeutung"}
+{"t":[1792892189007,0],"d":"mac-iiq56sql","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам","c":1}
+{"t":[1792892257250,0],"d":"mac-iiq56sql","op":"ai.put","text":"𠮷野家","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Tokyo"}
+{"t":[1792892381237,0],"d":"mac-iiq56sql","op":"history.seen","text":"שלום","kind":"word","lang":"ru","meaning":"мир, привет","c":1}
+{"t":[1792892385237,0],"d":"mac-iiq56sql","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed), ещё","c":3}
+{"t":[1792892390487,0],"d":"mac-iiq56sql","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык (2)","c":1}
+{"t":[1792892394487,0],"d":"mac-iiq56sql","op":"history.seen","text":"שָׁלוֹם","kind":"word","lang":"ru","meaning":"мир (с огласовками), ещё","c":4}
+{"t":[1792892455487,0],"d":"mac-iiq56sql","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1792892515737,0],"d":"mac-iiq56sql","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица"}
+{"t":[1792892526257,0],"d":"mac-iiq56sql","op":"saved.del","text":"l’été"}
+{"t":[1792892587757,0],"d":"mac-iiq56sql","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"панграмма (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792892648750,0],"d":"mac-iiq56sql","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"ru","meaning":"Как дела?, ещё","c":2}
+{"t":[1792892649737,0],"d":"mac-iiq56sql","op":"saved.put","text":"élève","kind":"word","lang":"ru","meaning":"ученик"}
+{"t":[1792892651007,0],"d":"mac-iiq56sql","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1792892660007,0],"d":"mac-iiq56sql","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улица и дом\"\t\\ 1. Bedeutung"}
+{"t":[1792892844000,0],"d":"mac-iiq56sql","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии (2)"}
+{"t":[1792892848000,0],"d":"mac-iiq56sql","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер, ещё","c":1}
+{"t":[1792892909257,0],"d":"mac-iiq56sql","op":"history.seen","text":"ひらがな","kind":"word","lang":"ru","meaning":"хирагана, ещё","c":6}
+{"t":[1792892909257,1],"d":"mac-iiq56sql","op":"saved.put","text":"Übung","kind":"word","lang":"en","meaning":"exercise, ещё"}
+{"t":[1792892914237,0],"d":"mac-iiq56sql","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё","c":2}
+{"t":[1792892975487,0],"d":"mac-iiq56sql","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
+{"t":[1792892979737,0],"d":"mac-iiq56sql","op":"saved.put","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык"}
+{"t":[1792892981000,0],"d":"mac-iiq56sql","op":"saved.put","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram"}
+{"t":[1792893042000,0],"d":"mac-iiq56sql","op":"saved.put","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость"}
+{"t":[1792893058757,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ещё раз","kind":"phrase","lang":"de","meaning":"Noch einmal","c":1}
+{"t":[1792893062757,0],"d":"mac-iiq56sql","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"ru","meaning":"Добрый вечер, ещё","c":2}
+{"t":[1792893123750,0],"d":"mac-iiq56sql","op":"history.seen","text":"STRASSE","kind":"word","lang":"ru","meaning":"улица","c":2}
+{"t":[1792893126000,1],"d":"mac-iiq56sql","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese (2)","c":1}
+{"t":[1792893190000,0],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"de","meaning":"aufessen, ещё","base":"есть","c":2}
+{"t":[1792893190000,1],"d":"mac-iiq56sql","op":"ai.put","text":"STRASSE","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улица (2)"}
+{"t":[1792893190000,2],"d":"mac-iiq56sql","op":"saved.put","text":"città","kind":"word","lang":"ru","meaning":"город, ещё"}
+{"t":[1792893195000,0],"d":"mac-iiq56sql","op":"saved.del","text":"ΑΣ̈Σ́"}
+{"t":[1792893256250,0],"d":"mac-iiq56sql","op":"ai.put","text":"👨‍👩‍👧","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"семья (2)\"]}"}
+{"t":[1792893257257,0],"d":"mac-iiq56sql","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии (2)","c":2}
+{"t":[1792893257257,1],"d":"mac-iiq56sql","op":"ai.put","text":"più","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"больше (2)\"}"}
+{"t":[1792893264237,0],"d":"mac-iiq56sql","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость (2)","c":2}
+{"t":[1792893268250,0],"d":"mac-iiq56sql","op":"ai.put","text":"Добрий вечір","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Добрый вечер\"\t\\ 1. Bedeutung"}
+{"t":[1792893332250,0],"d":"mac-iiq56sql","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
+{"t":[1792893332737,0],"d":"mac-iiq56sql","op":"ai.put","text":"한국어","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"корейский язык\"\t\\ 1. Bedeutung"}
+{"t":[1792893394757,0],"d":"mac-iiq56sql","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","c":2}
+{"t":[1792893395250,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":2}
+{"t":[1792893395257,0],"d":"mac-iiq56sql","op":"history.seen","text":"𠮷野家","kind":"word","lang":"ru","meaning":"Ёсиноя, ещё","c":1}
+{"t":[1792893395507,0],"d":"mac-iiq56sql","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё","c":3}
+{"t":[1792893455737,0],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":3}
+{"t":[1792893515750,0],"d":"mac-iiq56sql","op":"history.seen","text":"한국어","kind":"word","lang":"ru","meaning":"корейский язык","c":2}
+{"t":[1792893519987,0],"d":"mac-iiq56sql","op":"history.seen","text":"città","kind":"word","lang":"ru","meaning":"город","c":1}
+{"t":[1792893520000,0],"d":"mac-iiq56sql","op":"ai.put","text":"città","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"город\"\t\\ 1. Bedeutung"}
+{"t":[1792893520000,1],"d":"mac-iiq56sql","op":"history.seen","text":"съесть","kind":"word","lang":"en","meaning":"to eat up","base":"есть","c":4}
+{"t":[1792893584237,0],"d":"mac-iiq56sql","op":"ai.put","text":"garçon","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"мальчик (2)\"]}"}
+{"t":[1792893644250,0],"d":"mac-iiq56sql","op":"saved.put","text":"pingüino","kind":"word","lang":"ru","meaning":"пингвин (2)"}
+{"t":[1792893784487,0],"d":"mac-iiq56sql","op":"history.seen","text":"ёжик","kind":"word","lang":"de","meaning":"Igel, ещё","c":2}
+{"t":[1792893784750,0],"d":"mac-iiq56sql","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":3}

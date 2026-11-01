@@ -1,308 +1,307 @@
-{"t":[1793480400507,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
-{"t":[1793480400988,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
-{"t":[1793480402992,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
-{"t":[1793480404014,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480405007,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё","c":1}
-{"t":[1793480405514,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480405514,3],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480406010,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"não"}
-{"t":[1793480406010,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793480408003,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1793480408516,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
-{"t":[1793480409524,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
-{"t":[1793480410525,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
-{"t":[1793480411018,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии (2)"}
-{"t":[1793480411518,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793480411526,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
-{"t":[1793480413531,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480414011,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480414025,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
-{"t":[1793480414027,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии, ещё","c":1}
-{"t":[1793480414035,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480414528,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"İstanbul","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793480415029,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
-{"t":[1793480415029,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480415537,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793480417535,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480418536,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480419538,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480419540,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480419540,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480419551,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480420532,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
-{"t":[1793480421048,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
-{"t":[1793480421548,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
-{"t":[1793480423049,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
-{"t":[1793480424050,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480424557,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480425551,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480426052,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480426560,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480426560,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480426560,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии"}
-{"t":[1793480427556,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"катакана (полуширинная)\"}"}
-{"t":[1793480428065,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
-{"t":[1793480428065,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"🇩🇪"}
-{"t":[1793480428560,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480429067,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
-{"t":[1793480429067,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"класс (тон кожи)\"}"}
-{"t":[1793480429554,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480430067,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
-{"t":[1793480431576,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480432069,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480432556,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
-{"t":[1793480433578,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480434058,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
-{"t":[1793480435571,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
-{"t":[1793480435571,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480437072,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480437073,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480439081,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"нет (2)"}
-{"t":[1793480441566,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
-{"t":[1793480442068,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
-{"t":[1793480443092,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
-{"t":[1793480444585,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":2}
-{"t":[1793480445092,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480445585,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480445585,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
-{"t":[1793480447087,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
-{"t":[1793480448089,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480449089,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"größer","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
-{"t":[1793480449089,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480449576,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
-{"t":[1793480450096,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск, ещё","c":1}
-{"t":[1793480450579,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
-{"t":[1793480450593,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480451100,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
-{"t":[1793480451100,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480451100,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480451102,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":2}
-{"t":[1793480453097,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480453097,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё"}
-{"t":[1793480453097,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480453100,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
-{"t":[1793480453101,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
-{"t":[1793480453608,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480453608,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
-{"t":[1793480454603,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480456111,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480457612,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё","c":1}
-{"t":[1793480459605,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480460614,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
-{"t":[1793480460614,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
-{"t":[1793480461611,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480462118,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
-{"t":[1793480463113,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480463620,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Мир вам (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793480463623,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"🇩🇪","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"флаг Германии\"}"}
-{"t":[1793480465118,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480466120,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480466120,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","c":1}
-{"t":[1793480466620,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480467122,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
-{"t":[1793480467130,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
-{"t":[1793480467130,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480467615,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
-{"t":[1793480468131,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1793480468638,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480470639,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
-{"t":[1793480470640,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
-{"t":[1793480471622,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480472135,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)"}
-{"t":[1793480472136,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793480473639,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480474149,3],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480474652,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480474652,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё"}
-{"t":[1793480474656,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"İstanbul","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Стамбул\"}"}
-{"t":[1793480475660,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480475660,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
-{"t":[1793480476662,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480477145,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам (2)","c":1}
-{"t":[1793480478658,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)","c":1}
-{"t":[1793480478658,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480478662,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480479150,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1793480480164,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
-{"t":[1793480480167,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":2}
-{"t":[1793480481168,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
-{"t":[1793480481671,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480481672,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480483180,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
-{"t":[1793480483180,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
-{"t":[1793480486677,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!, ещё"}
-{"t":[1793480487184,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480487686,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
-{"t":[1793480488679,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
-{"t":[1793480488679,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480490180,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480491167,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480491687,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1793480492184,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
-{"t":[1793480492685,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480493193,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480494186,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480495687,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
-{"t":[1793480495694,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Гданьск\"}"}
-{"t":[1793480495694,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480497688,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
-{"t":[1793480497688,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
-{"t":[1793480497695,3],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":2}
-{"t":[1793480498680,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480498694,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480499695,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
-{"t":[1793480500195,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
-{"t":[1793480501700,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
-{"t":[1793480502187,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
-{"t":[1793480502200,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480502710,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
-{"t":[1793480503191,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480504210,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии"}
-{"t":[1793480504711,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
-{"t":[1793480505213,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Мир вам\"\t\\ 1. Bedeutung"}
-{"t":[1793480505219,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480505220,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"não"}
-{"t":[1793480507721,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии","c":1}
-{"t":[1793480507722,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Häuser","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"дома\"]}"}
-{"t":[1793480508215,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480510224,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
-{"t":[1793480510717,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
-{"t":[1793480512218,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480513206,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480516210,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480516229,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480517226,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480517226,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"класс (тон кожи) (2)\"}"}
-{"t":[1793480517226,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
-{"t":[1793480518230,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480518739,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)","c":1}
-{"t":[1793480519233,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480519235,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
-{"t":[1793480519242,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
-{"t":[1793480520245,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480520245,3],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
-{"t":[1793480520726,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480521247,4],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480522245,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
-{"t":[1793480523746,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480523747,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
-{"t":[1793480524251,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
-{"t":[1793480524251,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480524753,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
-{"t":[1793480524754,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
-{"t":[1793480525265,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480526248,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480527768,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
-{"t":[1793480529269,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480529269,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
-{"t":[1793480530751,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480531265,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"漢字","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"иероглифы\"}"}
-{"t":[1793480531766,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":4}
-{"t":[1793480531767,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии","c":1}
-{"t":[1793480532757,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480533774,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480533774,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
-{"t":[1793480534281,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480534281,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480535778,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
-{"t":[1793480536287,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
-{"t":[1793480536787,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480537781,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
-{"t":[1793480537788,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480537788,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"🇩🇪","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"флаг Германии (2)"}
-{"t":[1793480542793,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
-{"t":[1793480543294,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480543294,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
-{"t":[1793480543797,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
-{"t":[1793480544298,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
-{"t":[1793480545291,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480545791,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480546279,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"катакана (полуширинная)\"\t\\ 1. Bedeutung"}
-{"t":[1793480546302,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Мир вам, ещё"}
-{"t":[1793480546302,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480546804,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
-{"t":[1793480547299,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
-{"t":[1793480547786,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480548287,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
-{"t":[1793480548301,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"класс (тон кожи)\",\"ещё\"]}"}
-{"t":[1793480548803,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
-{"t":[1793480549303,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480549812,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
-{"t":[1793480549812,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":1}
-{"t":[1793480550813,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
-{"t":[1793480551307,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
-{"t":[1793480551815,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!, ещё"}
-{"t":[1793480552311,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"não","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"нет\"\t\\ 1. Bedeutung"}
-{"t":[1793480554802,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
-{"t":[1793480556304,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480556824,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
-{"t":[1793480557825,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
-{"t":[1793480558818,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480559329,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480562325,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480562825,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480562826,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480563333,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480563833,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480563835,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480564316,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480565329,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480565329,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480566833,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул (2)"}
-{"t":[1793480566833,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии"}
-{"t":[1793480569336,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
-{"t":[1793480569336,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
-{"t":[1793480569337,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
-{"t":[1793480570847,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
-{"t":[1793480571348,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"İstanbul"}
-{"t":[1793480571829,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё"}
-{"t":[1793480573334,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
-{"t":[1793480573349,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
-{"t":[1793480575860,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
-{"t":[1793480575860,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
-{"t":[1793480576860,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany, ещё"}
-{"t":[1793480577840,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё"}
-{"t":[1793480577841,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
-{"t":[1793480578365,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480578366,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии, ещё"}
-{"t":[1793480578366,3],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Мир вам\"]}"}
-{"t":[1793480579361,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"🇩🇪","kind":"word","lang":"ru","meaning":"флаг Германии, ещё","c":1}
-{"t":[1793480579862,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
-{"t":[1793480580364,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480581364,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
-{"t":[1793480581364,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
-{"t":[1793480582866,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480582867,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
-{"t":[1793480582867,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"🇩🇪"}
-{"t":[1793480584355,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
-{"t":[1793480585371,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480586881,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480587374,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
-{"t":[1793480587375,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"İstanbul"}
-{"t":[1793480587875,3],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
-{"t":[1793480587876,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
-{"t":[1793480588379,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
-{"t":[1793480588380,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
-{"t":[1793480588885,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480588886,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
-{"t":[1793480589388,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"🇩🇪","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"флаг Германии\"}"}
-{"t":[1793480589395,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
-{"t":[1793480590382,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Мир вам, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1793480591403,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
-{"t":[1793480591403,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
-{"t":[1793480591903,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İstanbul"}
-{"t":[1793480592903,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
-{"t":[1793480593383,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
-{"t":[1793480594899,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
-{"t":[1793480594907,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793480595903,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
-{"t":[1793480597391,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"🇩🇪","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"флаг Германии"}
-{"t":[1793480598404,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480598411,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
-{"t":[1793480598907,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
-{"t":[1793480598908,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"🇩🇪"}
-{"t":[1793480599395,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"🇩🇪","kind":"word","lang":"en","meaning":"flag of Germany (2)"}
-{"t":[1793480599896,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Мир вам\"\t\\ 1. Bedeutung"}
-{"t":[1793480599915,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
-{"t":[1793480601912,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"ｶﾀｶﾅ"}
-{"t":[1793480603416,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480403005,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё"}
+{"t":[1793480403995,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480404497,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480404517,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480404517,3],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480405013,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"İSTANBUL"}
+{"t":[1793480405013,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480407006,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480407519,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!","c":1}
+{"t":[1793480408527,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480409528,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
+{"t":[1793480410021,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма (2)"}
+{"t":[1793480410521,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480410529,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
+{"t":[1793480412534,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480413014,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480413028,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":1}
+{"t":[1793480413030,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё","c":1}
+{"t":[1793480413038,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480413531,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480414032,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
+{"t":[1793480414032,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480414540,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480416538,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480417539,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480418541,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480418543,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480418543,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480418554,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480419535,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480420051,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480420551,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
+{"t":[1793480422052,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793480423053,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480423560,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480424554,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480425055,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480425563,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480425563,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480425563,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма"}
+{"t":[1793480426559,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"漢字","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"иероглифы\"}"}
+{"t":[1793480427068,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
+{"t":[1793480427068,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480427563,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480428070,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480428070,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"класс (тон кожи)\"}"}
+{"t":[1793480428557,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480429070,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
+{"t":[1793480430579,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480431072,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480431559,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
+{"t":[1793480432581,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480433061,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
+{"t":[1793480434574,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
+{"t":[1793480434574,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480436075,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480436076,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480438084,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"não","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"нет (2)"}
+{"t":[1793480440569,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Σ"}
+{"t":[1793480441071,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
+{"t":[1793480442095,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная), ещё"}
+{"t":[1793480443588,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":2}
+{"t":[1793480444095,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480444588,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480444588,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480446090,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
+{"t":[1793480447092,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480448092,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"größer","lang":"Russian","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"больше\"}"}
+{"t":[1793480448092,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480448579,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":2}
+{"t":[1793480449099,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск, ещё","c":1}
+{"t":[1793480449582,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё","c":1}
+{"t":[1793480449596,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480450103,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793480450103,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480450103,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480450105,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет","c":2}
+{"t":[1793480452100,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480452100,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё"}
+{"t":[1793480452100,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480452103,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793480452104,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480452611,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480452611,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
+{"t":[1793480453606,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480455114,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480456615,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы, ещё","c":1}
+{"t":[1793480458608,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480459617,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480459617,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)"}
+{"t":[1793480460614,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480461121,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
+{"t":[1793480462116,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480462623,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Σ","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"сигма (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793480462626,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Σ","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"сигма\"}"}
+{"t":[1793480464121,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480465123,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480465123,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам, ещё","c":1}
+{"t":[1793480465623,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480466125,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
+{"t":[1793480466133,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет","c":1}
+{"t":[1793480466133,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480466618,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
+{"t":[1793480467134,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480467641,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480469642,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1793480469643,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
+{"t":[1793480470625,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480471138,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет (2)"}
+{"t":[1793480471139,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Σ"}
+{"t":[1793480472642,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480473152,3],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480473655,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480473655,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё"}
+{"t":[1793480473659,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Стамбул\"}"}
+{"t":[1793480474663,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480474663,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
+{"t":[1793480475665,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480476148,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам (2)","c":1}
+{"t":[1793480477661,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)","c":1}
+{"t":[1793480477661,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480477665,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480478153,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480479167,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)"}
+{"t":[1793480479170,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":2}
+{"t":[1793480480171,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
+{"t":[1793480480674,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480480675,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480482183,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)"}
+{"t":[1793480482183,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793480485680,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!, ещё"}
+{"t":[1793480486187,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480486689,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
+{"t":[1793480487682,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you"}
+{"t":[1793480487682,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480489183,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480490170,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480490690,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480491187,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"t":[1793480491688,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480492196,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480493189,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480494690,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
+{"t":[1793480494697,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Gdańsk","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Гданьск\"}"}
+{"t":[1793480494697,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480496691,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Gdańsk"}
+{"t":[1793480496691,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":3}
+{"t":[1793480496698,3],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома, ещё","base":"Haus","c":2}
+{"t":[1793480497683,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480497697,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480498698,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
+{"t":[1793480499198,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793480500703,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
+{"t":[1793480501190,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480501203,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480501713,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"en","meaning":"hello (2)"}
+{"t":[1793480502194,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480503213,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма"}
+{"t":[1793480503714,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480504216,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Σ","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"сигма\"\t\\ 1. Bedeutung"}
+{"t":[1793480504222,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480504223,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"não"}
+{"t":[1793480506724,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма","c":1}
+{"t":[1793480506725,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Häuser","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"дома\"]}"}
+{"t":[1793480507218,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480509227,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
+{"t":[1793480509720,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Σ"}
+{"t":[1793480511221,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480512209,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480515213,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480515232,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480516229,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480516229,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"translation\":\"класс (тон кожи) (2)\"}"}
+{"t":[1793480516229,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480517233,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480517742,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи) (2)","c":1}
+{"t":[1793480518236,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480518238,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"مرحبا"}
+{"t":[1793480518245,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!"}
+{"t":[1793480519248,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480519248,3],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793480519729,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480520250,4],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480521248,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480522749,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480522750,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск (2)"}
+{"t":[1793480523254,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы"}
+{"t":[1793480523254,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Σ"}
+{"t":[1793480523756,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480523757,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793480524268,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480525251,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480526771,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"en","meaning":"bigger"}
+{"t":[1793480528272,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480528272,2],"d":"samsung-a6mkjhdj","op":"history.seen","text":"não","kind":"word","lang":"ru","meaning":"нет (2)","c":1}
+{"t":[1793480529754,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480530268,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"مرحبا","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"привет\"}"}
+{"t":[1793480530769,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше","base":"groß","c":4}
+{"t":[1793480530770,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма","c":1}
+{"t":[1793480531760,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480532777,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480532777,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Σ"}
+{"t":[1793480533284,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480533284,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480534781,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
+{"t":[1793480535290,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
+{"t":[1793480535790,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480536784,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
+{"t":[1793480536791,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480536791,2],"d":"samsung-a6mkjhdj","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"катакана (полуширинная) (2)"}
+{"t":[1793480541796,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480542297,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480542297,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
+{"t":[1793480542800,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793480543301,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"não"}
+{"t":[1793480544294,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480544794,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480545282,1],"d":"samsung-a6mkjhdj","op":"ai.put","text":"漢字","lang":"Russian","section":"context","ver":3,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"иероглифы\"\t\\ 1. Bedeutung"}
+{"t":[1793480545305,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Мир вам, ещё"}
+{"t":[1793480545305,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"漢字"}
+{"t":[1793480545807,2],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480546302,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"¡Hola, amigo!"}
+{"t":[1793480546789,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480547290,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480547304,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"👍🏽","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"класс (тон кожи)\",\"ещё\"]}"}
+{"t":[1793480547806,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)"}
+{"t":[1793480548306,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480548815,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
+{"t":[1793480548815,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё","base":"groß","c":1}
+{"t":[1793480549816,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Gdańsk"}
+{"t":[1793480550310,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480550818,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг!, ещё"}
+{"t":[1793480551314,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"não","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"нет\"\t\\ 1. Bedeutung"}
+{"t":[1793480553805,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"ru","meaning":"Привет, друг! (2)","c":1}
+{"t":[1793480555307,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480555827,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"السلام عليكم"}
+{"t":[1793480556828,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет, ещё"}
+{"t":[1793480557821,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480558332,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480561328,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480561828,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480561829,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480562336,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480562836,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480562838,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480563319,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480564332,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480564332,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480565836,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул (2)"}
+{"t":[1793480565836,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма"}
+{"t":[1793480568339,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}
+{"t":[1793480568339,1],"d":"samsung-a6mkjhdj","op":"history.del","text":"Häuser"}
+{"t":[1793480568340,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
+{"t":[1793480569850,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная) (2)"}
+{"t":[1793480570351,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"İSTANBUL"}
+{"t":[1793480570832,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше, ещё"}
+{"t":[1793480572337,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"👍🏽"}
+{"t":[1793480572352,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"größer"}
+{"t":[1793480574863,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"السلام عليكم"}
+{"t":[1793480574863,1],"d":"samsung-a6mkjhdj","op":"history.seen","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи)","c":1}
+{"t":[1793480575863,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"en","meaning":"sigma, ещё"}
+{"t":[1793480576843,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет, ещё"}
+{"t":[1793480576844,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск","c":1}
+{"t":[1793480577368,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480577369,2],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё"}
+{"t":[1793480577369,3],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Σ","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"сигма\"]}"}
+{"t":[1793480578364,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё","c":1}
+{"t":[1793480578865,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома"}
+{"t":[1793480579367,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480580367,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"ru","meaning":"Гданьск"}
+{"t":[1793480580367,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"مرحبا"}
+{"t":[1793480581869,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480581870,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
+{"t":[1793480581870,2],"d":"samsung-a6mkjhdj","op":"saved.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480583358,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
+{"t":[1793480584374,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480585884,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480586377,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"مرحبا","kind":"word","lang":"ru","meaning":"привет"}
+{"t":[1793480586378,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"İSTANBUL"}
+{"t":[1793480586878,3],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480586879,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"👍🏽","kind":"word","lang":"ru","meaning":"класс (тон кожи), ещё"}
+{"t":[1793480587382,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Häuser","kind":"word","lang":"ru","meaning":"дома (2)"}
+{"t":[1793480587383,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you, ещё"}
+{"t":[1793480587888,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480587889,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"größer","kind":"word","lang":"ru","meaning":"больше"}
+{"t":[1793480588391,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"катакана (полуширинная)\"}"}
+{"t":[1793480588398,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"ｶﾀｶﾅ","kind":"word","lang":"ru","meaning":"катакана (полуширинная)","c":1}
+{"t":[1793480589385,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"Σ","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"сигма, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793480590406,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses","base":"Haus","c":1}
+{"t":[1793480590406,1],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480590906,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793480591906,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"السلام عليكم","kind":"phrase","lang":"ru","meaning":"Мир вам"}
+{"t":[1793480592386,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет (2)"}
+{"t":[1793480593902,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk"}
+{"t":[1793480593910,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793480594906,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"👍🏽"}
+{"t":[1793480596394,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"ｶﾀｶﾅ","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"катакана (полуширинная)"}
+{"t":[1793480597407,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480597414,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы (2)"}
+{"t":[1793480597910,0],"d":"samsung-a6mkjhdj","op":"saved.del","text":"Häuser"}
+{"t":[1793480597911,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"ｶﾀｶﾅ"}
+{"t":[1793480598398,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"Σ","kind":"word","lang":"en","meaning":"sigma (2)"}
+{"t":[1793480598899,0],"d":"samsung-a6mkjhdj","op":"ai.put","text":"السلام عليكم","lang":"Russian","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Мир вам\"\t\\ 1. Bedeutung"}
+{"t":[1793480598918,1],"d":"samsung-a6mkjhdj","op":"saved.del","text":"¡Hola, amigo!"}
+{"t":[1793480600915,0],"d":"samsung-a6mkjhdj","op":"history.del","text":"漢字"}
+{"t":[1793480602419,0],"d":"samsung-a6mkjhdj","op":"history.seen","text":"漢字","kind":"word","lang":"ru","meaning":"иероглифы","c":1}
+{"t":[1793480602907,0],"d":"samsung-a6mkjhdj","op":"saved.put","text":"não","kind":"word","lang":"ru","meaning":"нет"}

@@ -1,50 +1,50 @@
-{"t":[1793361601237,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый, ещё"}
-{"t":[1793361601487,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"Джемаль (2)"}
-{"t":[1793361729507,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё"}
-{"t":[1793361849507,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\"]}"}
-{"t":[1793361850500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё","c":1}
-{"t":[1793361854757,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
-{"t":[1793361859750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул (2)","c":1}
+{"t":[1793361601237,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
+{"t":[1793361601487,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ılık","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"тёплый (2)"}
+{"t":[1793361729507,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё"}
+{"t":[1793361849507,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Стамбул\"]}"}
+{"t":[1793361850500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом, ещё","c":1}
+{"t":[1793361854757,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793361859750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма (2)","c":1}
 {"t":[1793361859750,1],"d":"boox-xvmlcsxs","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё"}
-{"t":[1793361860007,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"οδός","kind":"word","lang":"en","meaning":"street, ещё"}
-{"t":[1793361980257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1793361984757,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)"}
-{"t":[1793361993000,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793361860007,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΣΟΦΙΑ","kind":"word","lang":"en","meaning":"wisdom, ещё"}
+{"t":[1793361980257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793361984757,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом (2)"}
+{"t":[1793361993000,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками"}
 {"t":[1793362174250,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"translation\":\"улица\"}"}
-{"t":[1793362234487,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"Ǆemal"}
-{"t":[1793362294987,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":2}
-{"t":[1793362295987,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":3}
-{"t":[1793362301257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё","c":4}
+{"t":[1793362234487,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"ΑΣ̈Σ́"}
+{"t":[1793362294987,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом","c":2}
+{"t":[1793362295987,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом","c":3}
+{"t":[1793362301257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость, ещё","c":1}
 {"t":[1793362302237,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"Джемаль, ещё\"}"}
 {"t":[1793362303507,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
-{"t":[1793362307500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица (2)","c":2}
-{"t":[1793362368750,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung"}
-{"t":[1793362372000,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793362437500,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"οδός"}
-{"t":[1793362438500,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"ılık"}
-{"t":[1793362504487,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)"}
-{"t":[1793362505500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
-{"t":[1793362506750,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё"}
-{"t":[1793362511257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793362307500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)","c":2}
+{"t":[1793362368750,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Σ","lang":"Russian","section":"analysis","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"сигма\"\t\\ 1. Bedeutung"}
+{"t":[1793362372000,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма"}
+{"t":[1793362437500,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"ΣΟΦΙΑ"}
+{"t":[1793362438500,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"İSTANBUL"}
+{"t":[1793362504487,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость (2)"}
+{"t":[1793362505500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":2}
+{"t":[1793362506750,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом, ещё"}
+{"t":[1793362511257,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"ru","meaning":"улица и дом","c":4}
 {"t":[1793362691487,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1793362752500,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
-{"t":[1793362752500,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"İstanbul","kind":"word","lang":"en","meaning":"Istanbul","c":2}
-{"t":[1793362754500,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":2}
-{"t":[1793362815487,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"οδός","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"улица, ещё"}
-{"t":[1793362875500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":2}
-{"t":[1793362875750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":3}
-{"t":[1793362875750,1],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица\"]}"}
-{"t":[1793362940250,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый"}
-{"t":[1793362940250,1],"d":"boox-xvmlcsxs","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый"}
-{"t":[1793362948257,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"улица, ещё"}
+{"t":[1793362752500,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё"}
+{"t":[1793362752500,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"Σ","kind":"word","lang":"en","meaning":"sigma","c":1}
+{"t":[1793362754500,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый (2)","c":1}
+{"t":[1793362815487,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΣΟΦΙΑ","lang":"Russian","section":"offline-de","ver":2071311475,"model":"bergamot","answer":"мудрость, ещё"}
+{"t":[1793362875500,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":3}
+{"t":[1793362875750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль (2)","c":2}
+{"t":[1793362875750,1],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"улица и дом\"]}"}
+{"t":[1793362940250,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793362940250,1],"d":"boox-xvmlcsxs","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793362948257,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"улица и дом, ещё"}
 {"t":[1793363016257,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"translation\":\"тёплый\"}"}
-{"t":[1793363021237,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ılık","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"тёплый (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793363029250,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица (2)","c":2}
-{"t":[1793363041507,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":3}
-{"t":[1793363106507,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\"]}"}
-{"t":[1793363114750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":3}
-{"t":[1793363119007,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё","c":3}
+{"t":[1793363021237,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Джемаль (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793363029250,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица (2)","c":3}
+{"t":[1793363041507,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793363106507,0],"d":"boox-xvmlcsxs","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":2071311475,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\"]}"}
+{"t":[1793363114750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма","c":2}
+{"t":[1793363119007,1],"d":"boox-xvmlcsxs","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица, ещё","c":4}
 {"t":[1793363251250,0],"d":"boox-xvmlcsxs","op":"saved.del","text":"οδός"}
-{"t":[1793363251250,1],"d":"boox-xvmlcsxs","op":"ai.put","text":"ılık","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"тёплый, ещё\"\t\\ 1. Bedeutung"}
+{"t":[1793363251250,1],"d":"boox-xvmlcsxs","op":"ai.put","text":"İSTANBUL","lang":"Russian","section":"context","ver":3,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"Стамбул, ещё\"\t\\ 1. Bedeutung"}
 {"t":[1793363252250,0],"d":"boox-xvmlcsxs","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
-{"t":[1793363254750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул (2)","c":4}
+{"t":[1793363254750,0],"d":"boox-xvmlcsxs","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма (2)","c":3}

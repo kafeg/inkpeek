@@ -1,51 +1,51 @@
 {"t":[1793361601000,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":3,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung"}
 {"t":[1793361665500,0],"d":"linux-z4bilk54","op":"history.del","text":"ΟΔΟΣ"}
-{"t":[1793361980507,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}"}
-{"t":[1793361988987,0],"d":"linux-z4bilk54","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул"}
-{"t":[1793361989000,0],"d":"linux-z4bilk54","op":"saved.put","text":"οδός","kind":"word","lang":"ru","meaning":"улица"}
+{"t":[1793361980507,0],"d":"linux-z4bilk54","op":"ai.put","text":"οδός","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"улица\"}"}
+{"t":[1793361988987,0],"d":"linux-z4bilk54","op":"saved.put","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками"}
+{"t":[1793361989000,0],"d":"linux-z4bilk54","op":"saved.put","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость"}
 {"t":[1793362053007,0],"d":"linux-z4bilk54","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё"}
-{"t":[1793362113257,0],"d":"linux-z4bilk54","op":"history.del","text":"Ǆemal"}
-{"t":[1793362174257,0],"d":"linux-z4bilk54","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
-{"t":[1793362174500,0],"d":"linux-z4bilk54","op":"ai.put","text":"İstanbul","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"Стамбул (2)\"\t\\ 1. Bedeutung"}
-{"t":[1793362294487,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый, ещё","c":1}
-{"t":[1793362294750,0],"d":"linux-z4bilk54","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\"]}"}
-{"t":[1793362300257,0],"d":"linux-z4bilk54","op":"saved.del","text":"οδός"}
+{"t":[1793362113257,0],"d":"linux-z4bilk54","op":"history.del","text":"ΑΣ̈Σ́"}
+{"t":[1793362174257,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
+{"t":[1793362174500,0],"d":"linux-z4bilk54","op":"ai.put","text":"İstanbul","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793362294487,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":1}
+{"t":[1793362294750,0],"d":"linux-z4bilk54","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\"]}"}
+{"t":[1793362300257,0],"d":"linux-z4bilk54","op":"saved.del","text":"ΣΟΦΙΑ"}
 {"t":[1793362301237,0],"d":"linux-z4bilk54","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё"}
 {"t":[1793362301750,0],"d":"linux-z4bilk54","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
-{"t":[1793362302000,0],"d":"linux-z4bilk54","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
+{"t":[1793362302000,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":1}
 {"t":[1793362302007,0],"d":"linux-z4bilk54","op":"history.del","text":"οδός"}
-{"t":[1793362302007,1],"d":"linux-z4bilk54","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё"}
+{"t":[1793362302007,1],"d":"linux-z4bilk54","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый, ещё"}
 {"t":[1793362302250,0],"d":"linux-z4bilk54","op":"history.del","text":"ılık"}
-{"t":[1793362307500,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
-{"t":[1793362307507,0],"d":"linux-z4bilk54","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\"]}"}
-{"t":[1793362367487,0],"d":"linux-z4bilk54","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
-{"t":[1793362369750,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":2}
-{"t":[1793362370000,0],"d":"linux-z4bilk54","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый"}
-{"t":[1793362432250,0],"d":"linux-z4bilk54","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый (2)"}
-{"t":[1793362436250,0],"d":"linux-z4bilk54","op":"ai.put","text":"ılık","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"lukewarm\",\"ещё\"]}"}
-{"t":[1793362438500,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung"}
-{"t":[1793362442507,0],"d":"linux-z4bilk54","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":2}
+{"t":[1793362307500,0],"d":"linux-z4bilk54","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма","c":1}
+{"t":[1793362307507,0],"d":"linux-z4bilk54","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\"]}"}
+{"t":[1793362367487,0],"d":"linux-z4bilk54","op":"saved.put","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый"}
+{"t":[1793362369750,0],"d":"linux-z4bilk54","op":"history.seen","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё","c":2}
+{"t":[1793362370000,0],"d":"linux-z4bilk54","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул"}
+{"t":[1793362432250,0],"d":"linux-z4bilk54","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул (2)"}
+{"t":[1793362436250,0],"d":"linux-z4bilk54","op":"ai.put","text":"Ǆemal","lang":"English","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Djemal\",\"ещё\"]}"}
+{"t":[1793362438500,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"Стамбул\"\t\\ 1. Bedeutung"}
+{"t":[1793362442507,0],"d":"linux-z4bilk54","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":1}
 {"t":[1793362506500,0],"d":"linux-z4bilk54","op":"saved.put","text":"ΟΔΟΣ","kind":"word","lang":"ru","meaning":"улица, ещё"}
-{"t":[1793362506757,0],"d":"linux-z4bilk54","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль, ещё","c":3}
-{"t":[1793362510757,0],"d":"linux-z4bilk54","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"Джемаль"}
-{"t":[1793362631507,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":1}
-{"t":[1793362753500,0],"d":"linux-z4bilk54","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\",\"ещё\"]}"}
-{"t":[1793362753507,0],"d":"linux-z4bilk54","op":"saved.put","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё"}
-{"t":[1793362754500,0],"d":"linux-z4bilk54","op":"ai.put","text":"ılık","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"тёплый\",\"ещё\"]}"}
-{"t":[1793362754500,1],"d":"linux-z4bilk54","op":"history.seen","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль","c":4}
-{"t":[1793362876000,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"улица\"\t\\ 1. Bedeutung"}
-{"t":[1793362876250,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул (2)","c":3}
-{"t":[1793362952250,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":4}
-{"t":[1793363029257,0],"d":"linux-z4bilk54","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":1}
-{"t":[1793363029487,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый (2)","c":2}
-{"t":[1793363037487,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"en","meaning":"lukewarm (2)","c":3}
-{"t":[1793363041507,0],"d":"linux-z4bilk54","op":"history.del","text":"İstanbul"}
-{"t":[1793363045507,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":4}
-{"t":[1793363046487,0],"d":"linux-z4bilk54","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":2}
-{"t":[1793363110500,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"улица"}
-{"t":[1793363119000,0],"d":"linux-z4bilk54","op":"history.seen","text":"οδός","kind":"word","lang":"ru","meaning":"улица","c":3}
+{"t":[1793362506757,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый, ещё","c":1}
+{"t":[1793362510757,0],"d":"linux-z4bilk54","op":"ai.put","text":"ΟΔΟΣ","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"улица"}
+{"t":[1793362631507,0],"d":"linux-z4bilk54","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул","c":1}
+{"t":[1793362753500,0],"d":"linux-z4bilk54","op":"ai.put","text":"İstanbul","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Стамбул\",\"ещё\"]}"}
+{"t":[1793362753507,0],"d":"linux-z4bilk54","op":"saved.put","text":"Σ","kind":"word","lang":"ru","meaning":"сигма, ещё"}
+{"t":[1793362754500,0],"d":"linux-z4bilk54","op":"ai.put","text":"Ǆemal","lang":"Russian","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Джемаль\",\"ещё\"]}"}
+{"t":[1793362754500,1],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый","c":2}
+{"t":[1793362876000,0],"d":"linux-z4bilk54","op":"ai.put","text":"Σ","lang":"Russian","section":"analysis","ver":2071311475,"model":"claude-haiku-5-5","answer":"**analysis**\n\n- \"сигма\"\t\\ 1. Bedeutung"}
+{"t":[1793362876250,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками (2)","c":1}
+{"t":[1793362952250,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками, ещё","c":2}
+{"t":[1793363029257,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":2}
+{"t":[1793363029487,0],"d":"linux-z4bilk54","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул (2)","c":2}
+{"t":[1793363037487,0],"d":"linux-z4bilk54","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul (2)","c":3}
+{"t":[1793363041507,0],"d":"linux-z4bilk54","op":"history.del","text":"İSTANBUL"}
+{"t":[1793363045507,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":2}
+{"t":[1793363046487,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΟΔΟΣ ΚΑΙ ΣΠΙΤΙ","kind":"phrase","lang":"en","meaning":"street and house","c":1}
+{"t":[1793363110500,0],"d":"linux-z4bilk54","op":"ai.put","text":"Σ","lang":"Russian","section":"offline-de","ver":3,"model":"bergamot","answer":"сигма"}
+{"t":[1793363119000,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΣΟΦΙΑ","kind":"word","lang":"ru","meaning":"мудрость","c":3}
 {"t":[1793363119007,0],"d":"linux-z4bilk54","op":"saved.put","text":"Ǆemal","kind":"word","lang":"ru","meaning":"Джемаль"}
-{"t":[1793363187000,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул, ещё","c":1}
-{"t":[1793363187250,0],"d":"linux-z4bilk54","op":"history.seen","text":"İstanbul","kind":"word","lang":"ru","meaning":"Стамбул","c":2}
-{"t":[1793363253500,0],"d":"linux-z4bilk54","op":"history.del","text":"οδός"}
-{"t":[1793363253757,0],"d":"linux-z4bilk54","op":"history.seen","text":"ılık","kind":"word","lang":"ru","meaning":"тёплый (2)","c":5}
+{"t":[1793363187000,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками, ещё","c":3}
+{"t":[1793363187250,0],"d":"linux-z4bilk54","op":"history.seen","text":"ΑΣ̈Σ́","kind":"word","lang":"ru","meaning":"сигмы с метками","c":4}
+{"t":[1793363253500,0],"d":"linux-z4bilk54","op":"history.del","text":"ΣΟΦΙΑ"}
+{"t":[1793363253757,0],"d":"linux-z4bilk54","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"ru","meaning":"Стамбул (2)","c":1}

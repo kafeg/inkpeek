@@ -1,72 +1,65 @@
-{"t":[1790828785007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin","c":2}
-{"t":[1790864845007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"GROẞ","kind":"word","lang":"en","meaning":"big"}
-{"t":[1790864907007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Grüß Gott","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"Hello\"]}"}
-{"t":[1791005731000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Käse"}
-{"t":[1791045391000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":1}
-{"t":[1791160594007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Gdańsk","kind":"word","lang":"en","meaning":"Gdansk","c":1}
-{"t":[1791160655000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
- 	{"t":[1791167856000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Tab\there","kind":"phrase","lang":"ru","meaning":"табуляция\tвнутри, ещё"} 
-{"t":[1791171576000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё","base":"machen","c":1}
-{"t":[1791171636000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Wie geht's?","kind":"phrase","lang":"en","meaning":"How are you?","c":1}
-{"t":[1791175296000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"źdźbło"}
-{"t":[1791211297987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy (2)","c":2}
-{"t":[1791290560987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus 🏠","kind":"phrase","lang":"en","meaning":"house 🏠","c":2}
-{"t":[1791373421987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"quick","ver":3,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"apple\"]}"}
-{"t":[1791380682987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese"}
-{"t":[1791413083000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why (2)"}
-{"t":[1791413084000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Ich mache die Tür zu!"}
-{"t":[1791445543987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Häuser","kind":"word","lang":"en","meaning":"houses"}
-{"t":[1791445544000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Zażółć gęślą jaźń","lang":"English","section":"quick","ver":3,"model":"gpt-5.2-mini","answer":"{\"translation\":\"a pangram, ещё\"}"}
-{"t":[1791550428000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"한국어","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Korean (2)"}
-{"t":[1791651291007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Käse","lang":"English","section":"context","ver":-1532418720,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"cheese\"\t\\ 1. Bedeutung"}
-{"t":[1791683752000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee","c":1}
-{"t":[1791687351987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":1}
-{"t":[1791723474000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Haus ","lang":"English","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"foot (2)\"]}"}
-{"t":[1791755996000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy, ещё","c":3}
-{"t":[1791763196000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"사랑해요","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"I love you"}
-{"t":[1791763197007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"дом","lang":"English","section":"analysis","ver":2071311475,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"house\"\t\\ 1. Bedeutung"}
-{"t":[1791795658007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"ґанок","kind":"word","lang":"en","meaning":"porch (2)","c":2}
-{"t":[1791828063000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"nul\u0000inside","lang":"Russian","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"NUL внутри"}
-{"t":[1791828124000,0],"d":"linux-prmqvdqk","op":"history.del","text":"Tab\there"}
-{"t":[1791828125000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"coração","lang":"English","section":"quick","ver":2071311475,"model":"claude-haiku-5-5","answer":"{\"translation\":\"heart (2)\"}"}
-{"t":[1791831724987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!"}
-{"t":[1791932648987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":3}
-{"t":[1791932650000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"aufmachen","kind":"word","lang":"en","meaning":"to open, ещё"}
-{"t":[1791965050000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana, ещё"}
-{"t":[1791997450987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"السلام عليكم","kind":"phrase","lang":"en","meaning":"Peace be upon you","c":2}
-{"t":[1792001113007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"ひらがな","kind":"word","lang":"en","meaning":"hiragana"}
-{"t":[1792040714000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"C:\\Pfad\\Datei","lang":"Russian","section":"context","ver":2071311475,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"путь \\ с обратной косой\"\t\\ 1. Bedeutung"}
-{"t":[1792040715007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo","c":3}
-{"t":[1792040716000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)"}
-{"t":[1792073115987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street (2)","c":2}
-{"t":[1792174098007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"\tHaus\n","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"дом (табуляция, перевод строки)"}
-{"t":[1792213761987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed) (2)"}
-{"t":[1792314622000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"não","kind":"word","lang":"en","meaning":"no","c":2}
-{"t":[1792314682000,0],"d":"linux-prmqvdqk","op":"history.del","text":"　日本　"}
-{"t":[1792314743007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog","c":2}
-{"t":[1792354343987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot, ещё"}
-{"t":[1792354404000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"aufmachen","kind":"word","lang":"en","meaning":"to open (2)","base":"machen","c":2}
-{"t":[1792462405000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house","c":1}
-{"t":[1792462405007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Er sagte: \"Komm!\""}
-{"t":[1792534405007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Tab\there","lang":"Russian","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"табуляция\tвнутри\"\t\\ 1. Bedeutung"}
-{"t":[1792538004987,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Zażółć gęślą jaźń"}
-{"t":[1792570467987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"¡Hola, amigo!","kind":"phrase","lang":"en","meaning":"Hi, friend!","c":1}
-{"t":[1792667728000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"שָׁלוֹם","kind":"word","lang":"en","meaning":"peace (pointed), ещё"}
-{"t":[1792704148987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"l’été","kind":"word","lang":"en","meaning":"the summer, ещё","c":1}
-{"t":[1792707749000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"οδός","kind":"word","lang":"en","meaning":"street","c":3}
-{"t":[1792740271000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)"}
-{"t":[1792740271000,1],"d":"linux-prmqvdqk","op":"history.seen","text":"Öl","kind":"word","lang":"en","meaning":"oil","c":1}
-{"t":[1792779871987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"日本語","kind":"word","lang":"en","meaning":"Japanese, ещё"}
-{"t":[1792931314000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"nul\u0000inside","kind":"word","lang":"ru","meaning":"NUL внутри, ещё","c":3}
-{"t":[1792931314000,1],"d":"linux-prmqvdqk","op":"ai.put","text":"Ich mache die Tür zu!","lang":"English","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"lukewarm, ещё\"\t\\ 1. Bedeutung"}
-{"t":[1792999777007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":1}
-{"t":[1793071779000,0],"d":"linux-prmqvdqk","op":"history.del","text":"Grüß Gott"}
-{"t":[1793104181000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"źdźbło","kind":"word","lang":"en","meaning":"blade of grass, ещё","c":1}
-{"t":[1793140183000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"日本語","kind":"word","lang":"ru","meaning":"японский язык, ещё","c":1}
-{"t":[1793143784000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"café","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"coffee (2)"}
-{"t":[1793284307007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"pingüino","lang":"English","section":"offline-de","ver":-1532418720,"model":"bergamot","answer":"penguin"}
-{"t":[1793284427000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx","kind":"word","lang":"ru","meaning":"длинное слово, ещё","c":2}
-{"t":[1793316829000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Fuß","kind":"word","lang":"en","meaning":"foot"}
-{"t":[1793320429000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":2}
-{"t":[1793352890007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Mädchen","kind":"word","lang":"en","meaning":"girl, ещё"}
-{"t":[1793424891987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"日本語","kind":"word","lang":"en","meaning":"Japanese","c":2}
+{"t":[1790856596000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (неразрывный пробел), ещё"}
+{"t":[1790863796000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Übung","kind":"word","lang":"ru","meaning":"упражнение","c":1}
+{"t":[1790896197007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Hauß","kind":"word","lang":"ru","meaning":"ß"}
+{"t":[1790900039000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"사랑해요","kind":"phrase","lang":"en","meaning":"I love you"}
+{"t":[1790900099007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Haus ","kind":"word","lang":"ru","meaning":"дом (пробел справа)"}
+{"t":[1790900100007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul, ещё","c":1}
+{"t":[1790900101007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"a/b </script> & <b>","kind":"phrase","lang":"ru","meaning":"<разметка> & «кавычки»","c":2}
+{"t":[1790910961000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"das Haus (Hauses, pl. Häuser) — дом","c":1}
+{"t":[1790910961007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"maçã"}
+{"t":[1790990402000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"STRASSE","kind":"word","lang":"en","meaning":"street","c":2}
+{"t":[1790994062000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"pingüino","kind":"word","lang":"en","meaning":"penguin, ещё","c":4}
+{"t":[1791026522007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Com'è bello!"}
+{"t":[1791026582000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"das Haus (Hauses, pl. Häuser) — house, home"}
+{"t":[1791026703000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"İSTANBUL","lang":"English","section":"quick","ver":0,"model":"claude-haiku-5-5","answer":"{\"translation\":\"Istanbul\"}"}
+{"t":[1791127683007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Zeile eins\nZeile zwei","lang":"Russian","section":"quick","ver":0,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"строка один\\nстрока два\"]}"}
+{"t":[1791160265000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"السلام عليكم","lang":"English","section":"offline-de","ver":3,"model":"bergamot","answer":"Peace be upon you (2)"}
+{"t":[1791228786000,0],"d":"linux-prmqvdqk","op":"history.del","text":"\u000bHaus\u001c"}
+{"t":[1791498849000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"你好","kind":"word","lang":"en","meaning":"hello (2)","c":2}
+{"t":[1791599711000,0],"d":"linux-prmqvdqk","op":"history.del","text":"Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. Es war einmal ein kleines Haus am Rande eines großen, dunklen Waldes, und niemand wusste, wer darin wohnte. "}
+{"t":[1791599771007,0],"d":"linux-prmqvdqk","op":"history.del","text":"​Haus"}
+{"t":[1791599771007,1],"d":"linux-prmqvdqk","op":"history.seen","text":"C:\\Pfad\\Datei","kind":"phrase","lang":"ru","meaning":"путь \\ с обратной косой","c":2}
+{"t":[1791632291000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Com'è bello!","kind":"phrase","lang":"en","meaning":"How beautiful!","c":1}
+ 	{"t":[1791639493000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"Käse","kind":"word","lang":"ru","meaning":"сыр (NFD), ещё"} 
+{"t":[1791679214000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"İstanbul"}
+{"t":[1791682815000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"garçon","kind":"word","lang":"ru","meaning":"мальчик"}
+{"t":[1791798140007,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Tab\there"}
+{"t":[1791798320007,0],"d":"linux-prmqvdqk","op":"saved.put","text":"garçon","kind":"word","lang":"en","meaning":"boy"}
+{"t":[1791830781007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"\u0001steuer\u001f","kind":"word","lang":"ru","meaning":"управляющие символы","c":1}
+{"t":[1791870441987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"カタカナ","kind":"word","lang":"en","meaning":"katakana","c":3}
+{"t":[1791935363000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"perché","kind":"word","lang":"en","meaning":"why (2)"}
+{"t":[1791935365007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"garçon","kind":"word","lang":"en","meaning":"boy","c":2}
+{"t":[1792036768987,0],"d":"linux-prmqvdqk","op":"history.del","text":"Mädchen"}
+{"t":[1792180891007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Häuser","kind":"word","lang":"en","meaning":"houses (2)","base":"Haus","c":2}
+{"t":[1792181011000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Mädchen","lang":"Russian","section":"quick","ver":-1532418720,"model":"claude-haiku-5-5","answer":"{\"translation\":\"строка один\\nстрока два\"}"}
+{"t":[1792213472987,0],"d":"linux-prmqvdqk","op":"history.del","text":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"}
+{"t":[1792213473000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Ha­us","lang":"Russian","section":"analysis","ver":3,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"дом (мягкий перенос) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1792220794000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"café","kind":"word","lang":"en","meaning":"coffee (2)","c":2}
+{"t":[1792224396000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":1}
+{"t":[1792328796987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"corazón","kind":"word","lang":"en","meaning":"heart (2)"}
+{"t":[1792332396987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"𠮷野家","kind":"word","lang":"en","meaning":"Yoshinoya","c":1}
+{"t":[1792440764000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple","c":1}
+{"t":[1792548948007,0],"d":"linux-prmqvdqk","op":"ai.put","text":"Zeile Trenner","lang":"Russian","section":"quick","ver":-1532418720,"model":"gpt-5.2-mini","answer":"{\"base\":\"Haus\",\"article\":\"das\",\"meanings\":[\"разделитель строк U+2028\",\"ещё\"]}"}
+{"t":[1792790207987,0],"d":"linux-prmqvdqk","op":"history.seen","text":"​Haus","kind":"word","lang":"ru","meaning":"дом (пробел нулевой ширины), ещё","c":1}
+{"t":[1792862391000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"我爱你。","lang":"English","section":"context","ver":0,"model":"gpt-5.2-mini","answer":"**context**\n\n- \"flag of Germany\"\t\\ 1. Bedeutung"}
+{"t":[1792927310987,0],"d":"linux-prmqvdqk","op":"saved.put","text":"café","kind":"word","lang":"en","meaning":"coffee"}
+{"t":[1792927312000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Straße","kind":"word","lang":"en","meaning":"street, ещё","c":1}
+{"t":[1792927373000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"C:\\Pfad\\Datei","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"путь \\ с обратной косой (2)"}
+{"t":[1792930973000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"שלום","lang":"Russian","section":"context","ver":0,"model":"claude-haiku-5-5","answer":"**context**\n\n- \"Япония (идеографический пробел)\"\t\\ 1. Bedeutung"}
+{"t":[1792934636000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"¿Qué tal?","kind":"phrase","lang":"en","meaning":"How are you?, ещё","c":1}
+{"t":[1792970756000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"שלום","kind":"word","lang":"en","meaning":"peace, hello, ещё","c":1}
+{"t":[1793003216000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"한국어","kind":"word","lang":"en","meaning":"Korean","c":3}
+{"t":[1793093759000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"👨‍👩‍👧","kind":"word","lang":"en","meaning":"family","c":2}
+{"t":[1793241481007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"maçã","kind":"word","lang":"en","meaning":"apple","c":2}
+{"t":[1793241483000,1],"d":"linux-prmqvdqk","op":"history.seen","text":"Ich mache die Tür zu!","kind":"phrase","lang":"ru","meaning":"Я закрываю дверь! (NFD)","c":2}
+{"t":[1793309943000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"İSTANBUL","kind":"word","lang":"en","meaning":"Istanbul"}
+{"t":[1793342342987,0],"d":"linux-prmqvdqk","op":"ai.put","text":"​Haus","lang":"Russian","section":"analysis","ver":-1532418720,"model":"gpt-5.2-mini","answer":"**analysis**\n\n- \"дом (пробел нулевой ширины) (2)\"\t\\ 1. Bedeutung"}
+{"t":[1793342404000,1],"d":"linux-prmqvdqk","op":"saved.put","text":"ΑΣ̈Σ́","kind":"word","lang":"en","meaning":"sigmas with marks (2)"}
+{"t":[1793374865007,0],"d":"linux-prmqvdqk","op":"history.seen","text":"Zażółć gęślą jaźń","kind":"phrase","lang":"en","meaning":"a pangram","c":2}
+{"t":[1793385727000,0],"d":"linux-prmqvdqk","op":"history.seen","text":"дом","kind":"word","lang":"en","meaning":"house, ещё","c":1}
+{"t":[1793421728000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"Haus"}
+{"t":[1793421788000,0],"d":"linux-prmqvdqk","op":"saved.del","text":"שלום"}
+{"t":[1793425448000,0],"d":"linux-prmqvdqk","op":"saved.put","text":"їжак","kind":"word","lang":"en","meaning":"hedgehog"}
+{"t":[1793425448000,1],"d":"linux-prmqvdqk","op":"history.seen","text":"Добрий вечір","kind":"phrase","lang":"en","meaning":"Good evening (2)","c":2}
+{"t":[1793432892007,1],"d":"linux-prmqvdqk","op":"history.seen","text":"東京","kind":"word","lang":"en","meaning":"Tokyo (2)","c":3}
+{"t":[1793436552000,0],"d":"linux-prmqvdqk","op":"ai.put","text":"corazón","lang":"Russian","section":"offline-de","ver":0,"model":"bergamot","answer":"сердце, ещё"}
