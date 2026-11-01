@@ -1,0 +1,1 @@
+Fixes: a word removed while the sync folder was unreachable no longer returns; the same word from InkPeek and LexiPeek is one Anki note; long Claude translations are no longer cut off; your own AI server works without internet; dictionary articles with a sound show their text; words with separated accents from PDFs are found; faster phrase lookup; fewer card crashes.

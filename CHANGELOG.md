@@ -4,6 +4,17 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.255 — 2026-11-01
+- Sync: a word removed while the folder could not be written no longer comes back after the app is closed; a word
+  saved during a slow folder read is kept; a slow cloud folder no longer freezes the Sync tab. Words from InkPeek and
+  LexiPeek now go to the same Anki note in every case (special letters, empty translations).
+- AI: a long passage's translation by Claude is no longer cut off; your own AI server on a home network works on Wi-Fi
+  without internet; a failed AI translation frees its memory.
+- Dictionaries: an article whose last field is a sound shows its text again; a word with separated accents (from some
+  PDF and EPUB files) is looked up as one word; phrases look up faster.
+- Card: text shared as styled text opens the card; a long selection is not cut inside an emoji; ← returns to the right
+  article; removing a note from the card no longer crashes.
+
 ### 0.8.239 — 2026-11-01
 - Settings: the five sections are icons (their names on a long press), so they fit on any screen. On phones and
   tablets one accent colour marks what is selected; e-readers stay black and white.
