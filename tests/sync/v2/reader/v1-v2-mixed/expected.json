@@ -1,0 +1,51 @@
+{
+ "saved": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "tree",
+   "created": 1793145616000,
+   "id": "boox-7hq2mzta:1793145616000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дом, здание",
+   "created": 1793145621000,
+   "id": "mac-91c0:1793145600000:0",
+   "origin": "mac-91c0",
+   "updated_by": "mac-k3fw2xqa"
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "дом",
+   "seen": 1793145620000,
+   "count": 4,
+   "devices": [
+    "boox-7hq2mzta",
+    "mac-91c0",
+    "mac-k3fw2xqa"
+   ]
+  }
+ ],
+ "ai": [
+  {
+   "text": "Haus",
+   "lang": "ru",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-sonnet-5-5",
+   "answer": "{\"meanings\":[\"дом\",\"здание\"]}",
+   "created": 1793145622000
+  }
+ ]
+}

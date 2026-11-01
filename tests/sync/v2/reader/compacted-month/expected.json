@@ -1,0 +1,62 @@
+{
+ "saved": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "house, home",
+   "created": 1793145606000,
+   "id": "boox-7hq2mzta:1793145600000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  },
+  {
+   "text": "Weg",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "path",
+   "created": 1793145611000,
+   "id": "boox-7hq2mzta:1793145611000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  }
+ ],
+ "history": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "tree",
+   "seen": 1793145618000,
+   "count": 2,
+   "devices": [
+    "boox-7hq2mzta"
+   ]
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "house, home",
+   "seen": 1793491202000,
+   "count": 8,
+   "devices": [
+    "boox-7hq2mzta",
+    "mac-k3fw2xqa"
+   ]
+  }
+ ],
+ "ai": [
+  {
+   "text": "Haus",
+   "lang": "en",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-haiku-5-5",
+   "answer": "{\"meanings\":[\"house\",\"home\"]}",
+   "created": 1793145613000
+  }
+ ]
+}

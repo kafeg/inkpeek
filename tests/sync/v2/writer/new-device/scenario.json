@@ -1,0 +1,85 @@
+{
+ "device": "mac-k3fw2xqa",
+ "app": "lexipeek",
+ "name": "MacBook Air",
+ "created": 1793145600000,
+ "steps": [
+  {
+   "now": 1793491198000,
+   "op": "saved.put",
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дом, \"здание\""
+  },
+  {
+   "now": 1793491198000,
+   "op": "history.seen",
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дом, \"здание\""
+  },
+  {
+   "now": 1793491198500,
+   "op": "ai.put",
+   "text": "Haus",
+   "lang": "ru",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-sonnet-5-5",
+   "answer": "{\"base\":\"Haus\",\"meanings\":[\"дом\"],\n\"note\":\"a\\\\b\"}"
+  },
+  {
+   "now": 1793491200000,
+   "op": "history.seen",
+   "text": "Häuser",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дома",
+   "base": "Haus"
+  },
+  {
+   "now": 1793491140000,
+   "op": "history.seen",
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дом"
+  },
+  {
+   "now": 1793491201000,
+   "op": "history.del",
+   "text": "Haus"
+  },
+  {
+   "now": 1793491201000,
+   "op": "history.seen",
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "дом"
+  },
+  {
+   "now": 1793491202000,
+   "op": "saved.del",
+   "text": "Haus"
+  },
+  {
+   "now": 1793491203000,
+   "op": "saved.put",
+   "text": "Weg",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "way\tpath"
+  },
+  {
+   "now": 1793491203000,
+   "op": "saved.put",
+   "text": "Guten Morgen!",
+   "kind": "phrase",
+   "lang": "en",
+   "meaning": "Good morning!"
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{"v":2,"t":[1793491200000,0],"d":"mac-k3fw2xqa","op":"history.seen","text":"Häuser","kind":"word","lang":"ru","meaning":"дома","base":"Haus","c":1}
+{"v":2,"t":[1793491200000,1],"d":"mac-k3fw2xqa","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"дом","c":2}
+{"v":2,"t":[1793491201000,0],"d":"mac-k3fw2xqa","op":"history.del","text":"Haus"}
+{"v":2,"t":[1793491201000,1],"d":"mac-k3fw2xqa","op":"history.seen","text":"Haus","kind":"word","lang":"ru","meaning":"дом","c":1}
+{"v":2,"t":[1793491202000,0],"d":"mac-k3fw2xqa","op":"saved.del","text":"Haus"}
+{"v":2,"t":[1793491203000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Weg","kind":"word","lang":"en","meaning":"way\tpath","id":"mac-k3fw2xqa:1793491203000:0"}
+{"v":2,"t":[1793491203000,1],"d":"mac-k3fw2xqa","op":"saved.put","text":"Guten Morgen!","kind":"phrase","lang":"en","meaning":"Good morning!","id":"mac-k3fw2xqa:1793491203000:1"}

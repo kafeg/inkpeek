@@ -1,0 +1,39 @@
+{
+ "saved": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "tree",
+   "created": 1793491200500,
+   "id": "mac-k3fw2xqa:1793491200500:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "mac-k3fw2xqa"
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "house",
+   "created": 1793491200000,
+   "id": "boox-7hq2mzta:1793491200000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "house",
+   "seen": 1793491202000,
+   "count": 1,
+   "devices": [
+    "boox-7hq2mzta"
+   ]
+  }
+ ],
+ "ai": []
+}

@@ -1,0 +1,30 @@
+{
+ "saved": [
+  {
+   "text": "Kalender",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "calendar, diary",
+   "created": 1793491200000,
+   "id": "boox-7hq2mzta:1793491199999:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  }
+ ],
+ "history": [
+  {
+   "text": "Kalender",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "calendar",
+   "seen": 1793491205000,
+   "count": 3,
+   "devices": [
+    "boox-7hq2mzta",
+    "mac-k3fw2xqa"
+   ]
+  }
+ ],
+ "ai": []
+}

@@ -1,0 +1,4 @@
+{"v":2,"t":[1793145601000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Tisch","kind":"word","lang":"en","meaning":"table","id":"mac-k3fw2xqa:1793145601000:0"}
+{"v":2,"t":[1793145601000,1],"d":"mac-k3fw2xqa","op":"history.seen","text":"Tisch","kind":"word","lang":"en","meaning":"table","c":1}
+{"v":2,"t":[1793145604000,2],"d":"mac-k3fw2xqa","op":"ai.put","text":"Tisch","lang":"en","section":"analysis","ver":1,"model":"claude-sonnet-5-5","answer":"{\"text\":\"mac\"}"}
+{"v":2,"t":[1793145605000,0],"d":"mac-k3fw2xqa","op":"history.seen","text":"Tisch","kind":"word","lang":"en","meaning":"table","c":2}

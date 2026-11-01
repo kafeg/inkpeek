@@ -1,0 +1,50 @@
+{
+ "saved": [
+  {
+   "text": "Stuhl",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "chair",
+   "created": 1793145609000,
+   "id": "boox-7hq2mzta:1793145609000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-c5yu3jle"
+  },
+  {
+   "text": "Tisch",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "стол",
+   "created": 1793145604000,
+   "id": "mac-k3fw2xqa:1793145601000:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "win-r4dn6wpe"
+  }
+ ],
+ "history": [
+  {
+   "text": "Tisch",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "table, desk",
+   "seen": 1793145608000,
+   "count": 3,
+   "devices": [
+    "boox-7hq2mzta",
+    "win-r4dn6wpe"
+   ]
+  }
+ ],
+ "ai": [
+  {
+   "text": "Tisch",
+   "lang": "en",
+   "section": "analysis",
+   "ver": 1,
+   "model": "claude-sonnet-5-5",
+   "answer": "{\"text\":\"win\"}",
+   "created": 1793145604000
+  }
+ ]
+}

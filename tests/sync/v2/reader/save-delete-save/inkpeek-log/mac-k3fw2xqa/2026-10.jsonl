@@ -1,0 +1,6 @@
+{"v":2,"t":[1793145600000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house","id":"mac-k3fw2xqa:1793145600000:0"}
+{"v":2,"t":[1793145600000,1],"d":"mac-k3fw2xqa","op":"saved.put","text":"Baum","kind":"word","lang":"en","meaning":"tree","id":"mac-k3fw2xqa:1793145600000:1"}
+{"v":2,"t":[1793145600000,2],"d":"mac-k3fw2xqa","op":"saved.put","text":"Weg","kind":"word","lang":"en","meaning":"way","id":"mac-k3fw2xqa:1793145600000:2"}
+{"v":2,"t":[1793145601000,0],"d":"mac-k3fw2xqa","op":"saved.del","text":"Weg"}
+{"v":2,"t":[1793145602000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Weg","kind":"word","lang":"en","meaning":"path","id":"mac-k3fw2xqa:1793145602000:0"}
+{"v":2,"t":[1793145630000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Haus","kind":"word","lang":"en","meaning":"house, home","id":"mac-k3fw2xqa:1793145630000:0"}

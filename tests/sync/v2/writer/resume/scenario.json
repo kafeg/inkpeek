@@ -1,0 +1,32 @@
+{
+ "device": "boox-7hq2mzta",
+ "app": "inkpeek",
+ "name": "Boox Note Air4 C",
+ "created": 1793145600000,
+ "steps": [
+  {
+   "now": 1793491204000,
+   "op": "history.seen",
+   "text": "Wort",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "слово"
+  },
+  {
+   "now": 1793491260000,
+   "op": "history.seen",
+   "text": "Wort",
+   "kind": "word",
+   "lang": "ru",
+   "meaning": "слово"
+  },
+  {
+   "now": 1793491261000,
+   "op": "saved.put",
+   "text": "Ein ganzer Satz.",
+   "kind": "phrase",
+   "lang": "ru",
+   "meaning": "Целое предложение."
+  }
+ ]
+}

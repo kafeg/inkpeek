@@ -1,0 +1,46 @@
+{
+ "saved": [
+  {
+   "text": "Baum",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "tree, wood",
+   "created": 1793145610000,
+   "id": "boox-7hq2mzta:1793145610000:2",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  },
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "house, home",
+   "created": 1793145630000,
+   "id": "win-r4dn6wpe:1793145620000:0",
+   "origin": "win-r4dn6wpe",
+   "updated_by": "mac-k3fw2xqa"
+  },
+  {
+   "text": "Tür",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "door",
+   "created": 1793145640000,
+   "id": "win-r4dn6wpe:1793145640000:0",
+   "origin": "win-r4dn6wpe",
+   "updated_by": "win-r4dn6wpe"
+  },
+  {
+   "text": "Weg",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "path",
+   "created": 1793145602000,
+   "id": "mac-k3fw2xqa:1793145602000:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "mac-k3fw2xqa"
+  }
+ ],
+ "history": [],
+ "ai": []
+}

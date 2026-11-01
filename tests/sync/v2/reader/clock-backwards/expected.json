@@ -1,0 +1,39 @@
+{
+ "saved": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "home",
+   "created": 1793145620000,
+   "id": "boox-7hq2mzta:1793145620000:3",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  },
+  {
+   "text": "Uhr",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "watch",
+   "created": 1793145630000,
+   "id": "boox-7hq2mzta:1793145630000:0",
+   "origin": "boox-7hq2mzta",
+   "updated_by": "boox-7hq2mzta"
+  }
+ ],
+ "history": [
+  {
+   "text": "Haus",
+   "kind": "word",
+   "lang": "ru",
+   "base": null,
+   "meaning": "дом",
+   "seen": 1793145620000,
+   "count": 1,
+   "devices": [
+    "mac-k3fw2xqa"
+   ]
+  }
+ ],
+ "ai": []
+}

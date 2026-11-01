@@ -90,10 +90,131 @@ the shared model: the sync log carries the same fields, the merged state in the 
 - Looks of a word count across its forms: Σ `count` where `COALESCE(base, text)` is the word.
 - A word saved as its base form takes the looked-up form's answers along.
 
-## Sync log
-Not implemented yet; this is the format both apps implement. No servers: the logs live in a folder that a sync tool
-(Syncthing, a cloud drive) copies between devices. The records (above) are built from the logs; each app may keep
-them in its own store.
+## Sync log v2
+Not implemented yet; this is the format both apps implement (v1, below, is read only). No servers: the logs live in a
+folder that a sync tool (Syncthing, a cloud drive, a NAS share) copies between devices; the user picks it in each app
+(`<sync>`). One folder serves InkPeek and LexiPeek together, any number of installs of each. Synced: saved words and
+phrases, the history, the answers (`ai`). Not synced: settings, packs, models, voices. The records (above) are built
+from the logs; each app keeps them in its own store, with `origin`, `updated_by` and `devices` (below).
+
+### Files
+```
+<sync>/inkpeek-log/
+  <device>/device.json      the device: id, app, name, when it was added
+  <device>/2026-10.jsonl    the device's lines whose t[0] is in that month (UTC)
+  <device>/2026-11.jsonl
+<sync>/log/<device>.jsonl   v1 logs: read, never written
+```
+- Only the device `<device>` writes in `inkpeek-log/<device>/`. Every device reads every device folder, its own too.
+- In a device folder a reader reads every file whose name ends with `.jsonl` and does not start with `.`: the month
+  files and the copies cloud clients make on a conflict (`2026-11 (conflicted copy 2026-11-02).jsonl`,
+  `2026-11.sync-conflict-20261102-101500-ABCDEFG.jsonl`, `2026-11 (1).jsonl`). The merge is idempotent, so the copies
+  are harmless; the file a line is in does not matter. Not read: other names (`*.tmp`, `.syncthing.*`), files directly
+  in `inkpeek-log/`, deeper folders. A folder without `device.json` (not synced yet) is read too.
+- UTF-8, one JSON object per line, every line ends with `\n`.
+
+### Device id
+- `<platform>-<8 random characters>` of lower-case base32 (RFC 4648: `a-z`, `2-7`): `mac-k3fw2xqa`, `boox-7hq2mzta`.
+  `<platform>`: 1–12 of `a-z0-9`. LexiPeek: `mac`, `win`, `linux`; InkPeek: the device maker (`Build.MANUFACTURER`
+  lower-cased, only `a-z0-9`, at most 12; empty: `android`). Only informative: readers never parse an id.
+- Made once and kept in the app's own data, not in `<sync>`: LexiPeek's data folder (survives a reinstall), InkPeek's
+  private app data (lost on an uninstall). With it the app keeps `name`, `created` and `last`: the last line it wrote
+  (its bytes, without `\n`). A new id always means a new folder; the old folder stays and is read.
+- A device that wrote v1 (LexiPeek's `mac-91c0`) takes a new v2 id; its v1 file stays and is read, never written again.
+
+### `device.json`
+```json
+{"v":2,"device":"mac-k3fw2xqa","app":"lexipeek","name":"MacBook Air","created":1793145600000}
+```
+- `v`: 2. `device`: the id, the same as the folder name. `app`: `inkpeek` or `lexipeek`. `name`: the name people see
+  (by default the device model or the computer's name; changed in the app's settings). `created`: when the device was
+  added (the id was made), ms since the epoch; apps show it in local time.
+- Written whole (canonical form, below, and `\n`) when the device first writes to the folder or finds the file
+  missing, and when its name changes. A new name makes no new id and no new log.
+- Readers ignore unknown fields. Apps show `name` for a device's lines (the device of a saved word); without the file:
+  the id.
+
+### A line
+```json
+{"v":2,"t":[1793491198000,0],"d":"mac-k3fw2xqa","op":"saved.put","text":"Haus","kind":"word","lang":"ru","meaning":"дом","id":"mac-k3fw2xqa:1793491198000:0"}
+```
+- The same as v1 (the ops and their fields, `t`, the clock), with `v`: 2 and `id` on `saved.put`:
+  `<d>:<t[0]>:<t[1]>`, the line's own key. `d` and `t` give the same value, so readers do not need `id`: a missing or
+  different `id` changes nothing.
+- Skipped: a line without the final `\n` (being written or cut; also when it is valid JSON), a line that is not a
+  JSON object, `v` other than 2 (in `log/`: other than 1), an unknown `op`, a line without `t` (two integers), `d` or
+  `text` (strings). A missing field of a known op reads as `""` (`ver`, `c`: 0; `base`: none). Unknown fields are
+  ignored. So a new op or field needs no new `v`; a new `v` is for lines that older readers must not apply.
+- The canonical form, so that both apps write the same bytes: compact JSON (no spaces); keys `v, t, d, op`, then
+  `saved.put`: `text, kind, lang, meaning, id`; `saved.del`, `history.del`: `text`; `history.seen`:
+  `text, kind, lang, meaning, base, c` (`base` left out when none); `ai.put`: `text, lang, section, ver, model,
+  answer`. Strings: UTF-8 as is; escaped are only `"` (`\"`), `\` (`\\`), `\b \f \n \r \t` and the other characters
+  below U+0020 (`\u001f`, lower-case hex); `/` and non-ASCII are not escaped. Integers in decimal.
+
+### Writing
+- A line goes to the month file of its `t[0]` in UTC: `YYYY-MM.jsonl` (`1793491199999` → `2026-10.jsonl`,
+  `1793491200000` → `2026-11.jsonl`). The clock never goes back, so a device writes only to its newest month; past
+  months never change, except by the device's own compaction.
+- Appending: a file that does not end with `\n` (a crash mid-line) is cut back to its last `\n` first. Where a file
+  cannot be appended to (Android SAF providers without `"wa"`), the current month file is written whole: its complete
+  lines as they are in the folder now and the new line: the same bytes as appending.
+- The clock: as v1, from the greatest `t` of every line read (v1 and v2, every device, its own too). `c` of
+  `history.seen`: as v1, counted over the v1 and v2 lines read.
+- After a line is written the app stores it as `last`. A crash in between can only cause a needless new id (below).
+
+### Two installs with one id
+Copied app data, a restored backup or a cloned machine give two installs one id: two writers of one folder. Each
+install checks at start and when its sync folder is chosen, before it writes:
+- `own`: the complete, valid v2 lines with `d` = its id in `inkpeek-log/<id>/` (every file read, as above).
+- `own` is empty: **keep** the id (nothing written there yet, or another folder).
+- Else the lines of `own` with the greatest `t`: all of them byte-equal to `last` → **keep**; else (no `last`, an
+  older one, or another line with the same `t`) → **new** id: a new device (new id, `created` = now, the same
+  `name`); the clock goes on. In a race both installs may take new ids: that costs a folder, no data.
+
+### Continue as a device
+An app without an id (first start, data deleted, Android after an uninstall) looks at the folder when it is chosen:
+- Candidates: every `inkpeek-log/<x>/` whose `device.json` is readable, with `v` 2, `device` = `<x>` and `app` = this
+  app, whose last activity is at least 24 hours (86,400,000 ms) before now (the wall clock). Last activity: the
+  greatest `t[0]` of the complete, valid v2 lines with `d` = `<x>` in that folder; none: `created`.
+- No candidates: a new device, no question. Else the app asks: "Continue as `<name>`" for each candidate, newest
+  last activity first (equal: by id), with its last activity in local time; and "New device".
+- Continue: the app takes `<x>` as its id, `name` and `created` from its `device.json`, `last` = the newest line of
+  `own`; the clock from every line read. A device active in the last 24 hours is not offered: it is probably in use,
+  and two writers would follow (the check above would split them again).
+- v1 logs are never offered. Old logs are read in every case.
+
+### The merge
+- The lines: `log/*.jsonl` (v1) and the device folders (v2), as above. Byte-equal lines are one (a line read twice:
+  conflicted copies, the same file twice).
+- Order: `t[0]`, then `t[1]`, then `d` (string order), then the line's bytes (only two installs with one id write two
+  lines with the same `t` and `d`). "Newest" means last in this order.
+- The rules of v1 (`saved`: the newest `saved.*` wins; `history.seen` after the last `history.del`, Σ per device of
+  its greatest `c`; `ai`: union, the newest per key, only for a `text` in `saved` or `history`), and:
+  - `saved`: `origin` is the `d` of the first `saved.put` after the text's newest `saved.del` (no delete: its first
+    `saved.put`); `id` is that put's `<d>:<t[0]>:<t[1]>`; `updated_by` is the `d` of the winning put. A word saved
+    again after a delete is a new entry, of the device that saved it again. `created` stays the winning put's `t[0]`.
+  - `history`: `devices` are the `d` of the devices whose `history.seen` lines count, sorted.
+
+### Compaction
+A device may make its own files shorter, never other devices' files. Over all its lines (every file of its folder),
+per `text` it keeps: its newest `saved.del` and every `saved.put` after it; its newest `history.del` and its newest
+`history.seen` after it; per `(lang, section, ver)` its newest `ai.put`. Kept lines stay byte-equal and in the file of
+their month; a changed month file is written whole (`<name>.tmp`, then renamed); a month left empty is deleted.
+Merged with any other logs, the result is the same state, `origin` and `updated_by` too. The device's newest line is
+always kept, so its clock and `last` stay valid.
+
+### From v1
+- v2 readers also read `<sync>/log/*.jsonl` (v1 lines only); v2 writers write only `inkpeek-log/`. A v1 reader does
+  not see v2 logs. The v1 cases stay valid for v2 readers (their fields).
+
+### Test cases
+`tests/sync/v2/` (format and list: `tests/sync/README.md`): `reader/` (a folder → the merged state), `identity/` (a
+folder and what the app keeps → keep / new / ask), `writer/` (steps at fixed clock values → the bytes of the device's
+files). Every app runs all of them; a failing case is a finding about the app, never a reason to change the case.
+
+## Sync log v1 (read only)
+The previous format, written by LexiPeek before v2. v2 readers still read it from `<sync>/log/`; nothing new writes
+it. What follows is v1 as it was.
 
 ### Files
 - `<folder>/log/<device>.jsonl`. Only its own device writes a file, only appends. Others read every `*.jsonl`.
@@ -140,7 +261,7 @@ wall clock and `(l, n)` the last `t` written or read:
 So a device's `t` always grows, also when its wall clock goes back, and a change made after reading another
 device's change is newer than it. `ms` is close to the wall time, not equal: use it for order and display only.
 
-### Test cases
+### Test cases (v1)
 `tests/sync/<case>/`: the logs (`<device>.jsonl`) and `expected.json`, the merged state:
 `{"saved": [{text, kind, lang, meaning, created}], "history": [{text, kind, lang, base, meaning, seen, count}],
 "ai": [{text, lang, section, ver, model, answer, created}]}`. Compare as sets by key (the lists are sorted for reading).

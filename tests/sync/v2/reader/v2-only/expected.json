@@ -1,0 +1,61 @@
+{
+ "saved": [
+  {
+   "text": "Bahnhof",
+   "kind": "word",
+   "lang": "en",
+   "meaning": "station",
+   "created": 1793145600000,
+   "id": "mac-k3fw2xqa:1793145600000:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "mac-k3fw2xqa"
+  },
+  {
+   "text": "Der Zug fährt ab.",
+   "kind": "phrase",
+   "lang": "ru",
+   "meaning": "Поезд отправляется.",
+   "created": 1793145602000,
+   "id": "mac-k3fw2xqa:1793145602000:0",
+   "origin": "mac-k3fw2xqa",
+   "updated_by": "mac-k3fw2xqa"
+  }
+ ],
+ "history": [
+  {
+   "text": "Bahnhof",
+   "kind": "word",
+   "lang": "en",
+   "base": null,
+   "meaning": "station",
+   "seen": 1793145607000,
+   "count": 2,
+   "devices": [
+    "boox-7hq2mzta"
+   ]
+  },
+  {
+   "text": "Bahnhöfe",
+   "kind": "word",
+   "lang": "en",
+   "base": "Bahnhof",
+   "meaning": "stations",
+   "seen": 1793145606000,
+   "count": 1,
+   "devices": [
+    "boox-7hq2mzta"
+   ]
+  }
+ ],
+ "ai": [
+  {
+   "text": "Bahnhof",
+   "lang": "en",
+   "section": "quick",
+   "ver": 3,
+   "model": "claude-haiku-5-5",
+   "answer": "{\"base\":\"Bahnhof\",\"article\":\"der\",\"meanings\":[\"station\"],\"note\":\"a \\\"Kopf\\\" station\\nends here\"}",
+   "created": 1793145607000
+  }
+ ]
+}
