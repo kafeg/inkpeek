@@ -120,6 +120,8 @@ from the logs; each app keeps them in its own store, with `id`, `origin`, `updat
 - Made once and kept in the app's own data, not in `<sync>`: LexiPeek's data folder (survives a reinstall), InkPeek's
   private app data (lost on an uninstall). With it the app keeps `name`, `created` and `last`: the last line it wrote
   (its bytes, without `\n`). A new id always means a new folder; the old folder stays and is read.
+- An app without an id (first start, its data deleted, Android after an uninstall) makes a new one. The logs of its
+  earlier id are read as every other device's: nothing is lost, and no question is asked.
 
 ### `device.json`
 ```json
@@ -209,21 +211,9 @@ install checks at start and when its sync folder is chosen, before it writes:
   older one, or another line with the same `t`) → **new** id: a new device (new id, `created` = now, the same
   `name`); the clock goes on. In a race both installs may take new ids: that costs a folder, no data.
 
-### Continue as a device
-An app without an id (first start, data deleted, Android after an uninstall) looks at the folder when it is chosen:
-- Candidates: every `inkpeek-log/<x>/` whose `device.json` is readable, with `device` = `<x>` and `app` = this app,
-  whose last activity is at least 24 hours (86,400,000 ms) before now (the wall clock). Last activity: the greatest
-  `t[0]` of the complete, valid lines with `d` = `<x>` in that folder; none: `created`.
-- No candidates: a new device, no question. Else the app asks: "Continue as `<name>`" for each candidate, newest
-  last activity first (equal: by id), with its last activity in local time; and "New device".
-- Continue: the app takes `<x>` as its id, `name` and `created` from its `device.json`, `last` = the newest line of
-  `own`; the clock from every line read. A device active in the last 24 hours is not offered: it is probably in use,
-  and two writers would follow (the check above would split them again).
-- The other devices' logs are read in every case.
-
 ### Test cases
 `tests/sync/` (format and list: `tests/sync/README.md`): `reader/` (a folder → the merged state), `identity/` (a
-folder and what the app keeps → keep / new / ask), `writer/` (steps at fixed clock values → the bytes of the device's
+folder and what the app keeps → keep / new), `writer/` (steps at fixed clock values → the bytes of the device's
 files). Every app runs all of them; a failing case is a finding about the app, never a reason to change the case.
 
 ## Sentence breaks

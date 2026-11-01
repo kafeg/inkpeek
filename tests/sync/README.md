@@ -35,10 +35,9 @@ a sorted list. The lists are sorted for reading.
 | `save-delete-save` | saved, deleted on another device, saved on a third: the third is the origin; a stale put older than the delete is not; a delete and a put of one device; equal `t` of a delete and a put |
 
 ## `identity/<case>/`
-A `<sync>` folder as above, `local.json` and `expected.json`. `local.json`: `{"app", "device", "last", "now"}`:
-the app, its id (`null`: none), its stored last line (without `\n`; `null`: none) and the wall clock (ms). With an id
-the app runs the check "Two installs with one id", without one "Continue as a device". `expected.json`:
-`{"decision": "keep"}`, `{"decision": "new"}` or `{"decision": "ask", "offer": [ids, in the order shown]}`.
+A `<sync>` folder as above, `local.json` and `expected.json`. `local.json`: `{"device", "last"}`: the app's id and its
+stored last line (without `\n`; `null`: none). The app runs the check "Two installs with one id". `expected.json`:
+`{"decision": "keep"}` or `{"decision": "new"}`.
 
 | case | what it checks |
 |---|---|
@@ -48,8 +47,6 @@ the app runs the check "Two installs with one id", without one "Continue as a de
 | `new-newer-line-in-folder` | the folder has an own line newer than `last` (the other install wrote) |
 | `new-no-local-line` | own lines in the folder, nothing stored |
 | `new-two-last-lines` | two different own lines with the newest `t`, one of them `last` |
-| `ask-continue` | offered: the same app, last line 24 h ago exactly, 3 days ago, no lines and `created` 30 days ago, newest first; not offered: active within 24 h (by one ms), another app, `device.json` naming another id, no `device.json`; another device's line in a folder does not count as its activity |
-| `new-nothing-to-continue` | the same folder for the other app at another time: its only log is active → a new device |
 
 ## `writer/<case>/`
 `scenario.json`: `{"device", "app", "name", "created", "steps": [...]}`. A step: `now` (the wall clock, ms) and a
