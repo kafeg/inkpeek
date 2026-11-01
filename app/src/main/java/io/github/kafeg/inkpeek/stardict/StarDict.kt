@@ -50,7 +50,7 @@ class StarDict(ifoFile: File, workRoot: File) {
     @Volatile private var good: String? = null
 
     /** The dictionary's files as they are now: names, sizes, times (a new edition in place keeps an old .ifo time). */
-    private fun stamp() = listOf(".ifo", ".idx", ".idx.gz", ".dict", ".dict.dz", ".syn", ".syn.dz").map { File(base + it) }
+    private fun stamp() = EXT.map { File(base + it) }
         .filter { it.exists() }.joinToString("\n") { "${it.name} ${it.length()} ${it.lastModified()}" }
 
     /** The index is there, whole (its header and length), and made from these very files. */
@@ -180,6 +180,8 @@ class StarDict(ifoFile: File, workRoot: File) {
 
     companion object {
         private const val MAGIC = 0x49504B32 // "IPK2"
+        /** A dictionary's files: <base> and one of these. */
+        val EXT = listOf(".ifo", ".idx", ".idx.gz", ".dict", ".dict.dz", ".syn", ".syn.dz")
         private val BUILDING = java.util.concurrent.ConcurrentHashMap<String, Any>()
         fun sha1(s: String) = MessageDigest.getInstance("SHA-1").digest(s.toByteArray()).joinToString("") { "%02x".format(it) }
         /** Every .ifo below [root] (any depth). */

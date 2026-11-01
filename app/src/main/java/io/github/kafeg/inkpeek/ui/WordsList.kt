@@ -43,9 +43,9 @@ object WordsList {
     const val PAGE_SHORT = 20
 
     /** ◀ "51–100 of 230" ▶ over a long list; [turn] gets the new page. */
-    fun pager(ctx: Context, page: Int, total: Int, sp: Float, size: Int = PAGE, turn: (Int) -> Unit) =
-        bar(ctx, Ink.escape(ctx.getString(io.github.kafeg.inkpeek.R.string.page_of, page * size + 1, minOf(total, (page + 1) * size), total)),
-            sp, page, (total + size - 1) / size, turn)
+    fun pager(ctx: Context, page: Int, total: Int, sp: Float, turn: (Int) -> Unit) =
+        bar(ctx, Ink.escape(ctx.getString(io.github.kafeg.inkpeek.R.string.page_of, page * PAGE + 1, minOf(total, (page + 1) * PAGE), total)),
+            sp, page, (total + PAGE - 1) / PAGE, turn)
 
     /**
      * The one page bar (lists, sections, the dictionaries' full articles): ◀ [html] ▶, the width of the page, bold in the

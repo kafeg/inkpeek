@@ -15,9 +15,7 @@ data class Imported(val added: List<File>, val already: List<String>)
 
 /** Unpacks an archive or loose StarDict files into [target]/<dictionary>/; a dictionary already there is not added twice. */
 object Importer {
-    private val DICT_EXT = listOf(".ifo", ".idx", ".idx.gz", ".dict", ".dict.dz", ".syn", ".syn.dz")
-
-    fun isDictFile(name: String) = DICT_EXT.any { name.lowercase().endsWith(it) }
+    fun isDictFile(name: String) = StarDict.EXT.any { name.lowercase().endsWith(it) }
 
     fun importStream(name: String, input: InputStream, target: File, tmpRoot: File): Imported {
         val tmp = File(tmpRoot, "import-" + System.nanoTime()).apply { mkdirs() }
@@ -73,7 +71,7 @@ object Importer {
         // The .ifo last: a dictionary is found by it, so one cut short (the app killed) is never seen half.
         // Cut short (no room): the new folder goes, not left without its .ifo in the person's folder.
         try {
-            ifo.parentFile!!.listFiles()!!.filter { f -> DICT_EXT.any { f.name == base + it } }.sortedBy { it == ifo }.forEach { f ->
+            ifo.parentFile!!.listFiles()!!.filter { f -> StarDict.EXT.any { f.name == base + it } }.sortedBy { it == ifo }.forEach { f ->
                 val dst = File(dir, f.name); if (!f.renameTo(dst)) { f.copyTo(dst, true); f.delete() }
             }
         } catch (e: Throwable) { dir.deleteRecursively(); throw e }
@@ -89,7 +87,7 @@ object Importer {
         val r = root.canonicalPath
         if (dir.canonicalPath != r && !dir.canonicalPath.startsWith(r + File.separator)) return
         val base = ifo.name.removeSuffix(".ifo")
-        dir.listFiles()?.filter { f -> DICT_EXT.any { f.name == base + it } }?.forEach { it.delete() }
+        dir.listFiles()?.filter { f -> StarDict.EXT.any { f.name == base + it } }?.forEach { it.delete() }
         if (dir.canonicalPath != r && dir.list()?.isEmpty() == true) dir.delete()
     }
 
