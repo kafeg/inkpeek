@@ -104,7 +104,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         if (query.isEmpty()) { finish(); return }
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
-        val back = intent.getStringExtra(AT)?.split('|')
+        // tab|place|scroll: the place may hold a headword with "|" in it.
+        val back = intent.getStringExtra(AT)?.let { listOf(it.substringBefore('|'), it.substringAfter('|').substringBeforeLast('|'), it.substringAfterLast('|')) }
         // One look per opening: not again when the card is made anew (theme, language) or returned to with ←.
         if (prefs.history && back == null && !intent.getBooleanExtra(COUNTED, false)) { intent.putExtra(COUNTED, true)
             seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } } }
