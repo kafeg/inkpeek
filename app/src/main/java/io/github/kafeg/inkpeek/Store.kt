@@ -80,8 +80,7 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
             put("text", text); put("lang", lang); put("section", section); put("ver", ver); put("model", model)
             put("answer", answer); put("created", System.currentTimeMillis())
         }, SQLiteDatabase.CONFLICT_REPLACE)
-        val bases = readableDatabase.rawQuery("SELECT base FROM history WHERE text=? AND base IS NOT NULL AND base<>text AND base IN (SELECT text FROM saved)", arrayOf(text))
-            .use { c -> generateSequence { if (c.moveToNext()) c.getString(0) else null }.toList() }
+        val bases = readableDatabase.rows("SELECT base FROM history WHERE text=? AND base IS NOT NULL AND base<>text AND base IN (SELECT text FROM saved)", arrayOf(text)) { it.getString(0) }
         log((listOf(text).filter { kept(it) } + bases).map { Line(0, 0, "", "ai.put", it, lang = lang, section = section, ver = ver.toLong(), model = model, answer = answer) })
         // An answer that comes after the word was saved as its base form goes with the saved word too.
         writableDatabase.execSQL("INSERT OR REPLACE INTO ai(text, lang, section, ver, model, answer, created) " +
@@ -112,9 +111,8 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
 
     private fun kept(text: String) = readableDatabase.rawQuery("SELECT 1 FROM history WHERE text=? UNION SELECT 1 FROM saved WHERE text=?", arrayOf(text, text)).use { it.moveToFirst() }
 
-    private fun answers(text: String) = readableDatabase.rawQuery("SELECT lang, section, ver, model, answer FROM ai WHERE text=?", arrayOf(text)).use { c ->
-        generateSequence { if (!c.moveToNext()) null else Line(0, 0, "", "ai.put", text, lang = c.getString(0), section = c.getString(1), ver = c.getLong(2),
-            model = c.getString(3).orEmpty(), answer = c.getString(4).orEmpty()) }.toList() }
+    private fun answers(text: String) = readableDatabase.rows("SELECT lang, section, ver, model, answer FROM ai WHERE text=?", arrayOf(text)) { c ->
+        Line(0, 0, "", "ai.put", text, lang = c.getString(0), section = c.getString(1), ver = c.getLong(2), model = c.getString(3).orEmpty(), answer = c.getString(4).orEmpty()) }
 
     /** Saved entries of [kind], newest first, each with its line in [lang] where there is one (see [list]). */
     fun saved(kind: String, lang: String): List<Entry> = list(lang,
@@ -198,13 +196,15 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
         }
     }
 
-    private fun columns(db: SQLiteDatabase, table: String) =
-        db.rawQuery("PRAGMA table_info($table)", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(1) else null }.toList() }
+    private fun columns(db: SQLiteDatabase, table: String) = db.rows("PRAGMA table_info($table)") { it.getString(1) }
+
+    private fun <T> SQLiteDatabase.rows(sql: String, args: Array<String>? = null, f: (android.database.Cursor) -> T): List<T> =
+        rawQuery(sql, args).use { c -> generateSequence { if (c.moveToNext()) f(c) else null }.toList() }
 
     /** Removing a text from the history also removes its answers, unless it is saved. */
     fun forget(text: String) { writableDatabase.run { delete("history", "text=?", arrayOf(text)); dropAnswers(this) }; log(listOf(Line(0, 0, "", "history.del", text))) }
     fun clearHistory() {
-        val all = readableDatabase.rawQuery("SELECT text FROM history", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(0) else null }.toList() }
+        val all = readableDatabase.rows("SELECT text FROM history") { it.getString(0) }
         writableDatabase.run { delete("history", null, null); dropAnswers(this) }
         log(all.map { Line(0, 0, "", "history.del", it) })
     }
@@ -218,12 +218,11 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
     /** Everything here as records (the log's own fields empty): what sync compares with the log. */
     fun records(): State {
         val db = readableDatabase
-        fun <T> rows(sql: String, f: (android.database.Cursor) -> T) = db.rawQuery(sql, null).use { c -> generateSequence { if (c.moveToNext()) f(c) else null }.toList() }
         return State(
-            rows("SELECT text, kind, lang, meaning, created FROM saved") { Saved(it.getString(0), it.getString(1).orEmpty(), it.getString(2).orEmpty(), it.getString(3).orEmpty(), it.getLong(4), "", "", "") },
-            rows("SELECT text, kind, lang, base, meaning, seen, count FROM history") { Seen(it.getString(0), it.getString(1).orEmpty(), it.getString(2).orEmpty(),
+            db.rows("SELECT text, kind, lang, meaning, created FROM saved") { Saved(it.getString(0), it.getString(1).orEmpty(), it.getString(2).orEmpty(), it.getString(3).orEmpty(), it.getLong(4), "", "", "") },
+            db.rows("SELECT text, kind, lang, base, meaning, seen, count FROM history") { Seen(it.getString(0), it.getString(1).orEmpty(), it.getString(2).orEmpty(),
                 it.getString(3)?.takeIf { b -> b != it.getString(0) }, it.getString(4).orEmpty(), it.getLong(5), it.getLong(6), emptyList()) },
-            rows("SELECT text, lang, section, ver, model, answer, created FROM ai") { Answer(it.getString(0), it.getString(1), it.getString(2), it.getLong(3),
+            db.rows("SELECT text, lang, section, ver, model, answer, created FROM ai") { Answer(it.getString(0), it.getString(1), it.getString(2), it.getLong(3),
                 it.getString(4).orEmpty(), it.getString(5).orEmpty(), it.getLong(6)) })
     }
 
@@ -233,8 +232,7 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
         db.beginTransaction()
         try {
             db.delete("saved", null, null); db.delete("ai", null, null)
-            db.rawQuery("SELECT text FROM history", null).use { c -> generateSequence { if (c.moveToNext()) c.getString(0) else null }.toList() }
-                .filter { it !in keep }.forEach { db.delete("history", "text=?", arrayOf(it)) }
+            db.rows("SELECT text FROM history") { it.getString(0) }.filter { it !in keep }.forEach { db.delete("history", "text=?", arrayOf(it)) }
             s.saved.forEach { db.insert("saved", null, ContentValues().apply { put("text", it.text); put("kind", it.kind); put("meaning", it.meaning); put("created", it.created); put("lang", it.lang) }) }
             s.history.filter { it.text !in keep }.forEach { db.insert("history", null, ContentValues().apply { put("text", it.text); put("kind", it.kind); put("seen", it.seen)
                 put("count", it.count); put("meaning", it.meaning); put("lang", it.lang); put("base", it.base) }) }
@@ -246,11 +244,10 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
     }
 
     /** Saved or seen entries with their newest quick AI answer ([ai]; [answer]: the language of rows without one). */
-    fun anki(history: Boolean, answer: String): List<Entry> = readableDatabase.rawQuery(
+    fun anki(history: Boolean, answer: String): List<Entry> = readableDatabase.rows(
         "SELECT t.text, t.kind, t.meaning, t.lang, (SELECT answer FROM ai WHERE text=t.text AND lang=COALESCE(NULLIF(t.lang, ''), ?) AND section='quick' ORDER BY created DESC LIMIT 1) " +
-            "FROM ${if (history) "history" else "saved"} t", arrayOf(answer)).use { c ->
-        generateSequence { if (!c.moveToNext()) null else Entry(c.getString(0), c.getString(1).orEmpty(),
-            c.getString(2).orEmpty(), 0, c.getString(4).orEmpty(), c.getString(3).orEmpty()) }.toList() }
+            "FROM ${if (history) "history" else "saved"} t", arrayOf(answer)) { c ->
+        Entry(c.getString(0), c.getString(1).orEmpty(), c.getString(2).orEmpty(), 0, c.getString(4).orEmpty(), c.getString(3).orEmpty()) }
     fun count(table: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table", null).use { it.moveToFirst(); it.getInt(0) }
     fun count(table: String, kind: String): Int = readableDatabase.rawQuery("SELECT COUNT(*) FROM $table WHERE kind=?", arrayOf(kind)).use { it.moveToFirst(); it.getInt(0) }
 
@@ -258,13 +255,11 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
      * Rows: text, kind, saved line, time, AI answer in [lang], history line, saved line's language, history line's.
      * The line shown: one in [lang] (saved, history, the AI answer), else whichever there is (a list in a new app language).
      */
-    private fun list(lang: String, sql: String, args: Array<String>) = readableDatabase.rawQuery(sql, args).use { c ->
-        generateSequence { if (!c.moveToNext()) null else {
-            val saved = c.getString(2).orEmpty(); val hist = c.getString(5).orEmpty(); val ai = brief(c.getString(4))
-            val line = listOf(saved.takeIf { c.getString(6) == lang }, hist.takeIf { c.getString(7) == lang }, ai, saved, hist)
-                .firstOrNull { !it.isNullOrBlank() }.orEmpty()
-            Entry(c.getString(0), c.getString(1), line, c.getLong(3), ai.orEmpty(), c.getString(6).orEmpty().ifEmpty { c.getString(7).orEmpty() })
-        } }.toList()
+    private fun list(lang: String, sql: String, args: Array<String>) = readableDatabase.rows(sql, args) { c ->
+        val saved = c.getString(2).orEmpty(); val hist = c.getString(5).orEmpty(); val ai = brief(c.getString(4))
+        val line = listOf(saved.takeIf { c.getString(6) == lang }, hist.takeIf { c.getString(7) == lang }, ai, saved, hist)
+            .firstOrNull { !it.isNullOrBlank() }.orEmpty()
+        Entry(c.getString(0), c.getString(1), line, c.getLong(3), ai.orEmpty(), c.getString(6).orEmpty().ifEmpty { c.getString(7).orEmpty() })
     }
 
     companion object {
