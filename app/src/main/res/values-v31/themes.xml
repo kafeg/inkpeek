@@ -1,0 +1,8 @@
+<resources>
+    <!-- The splash: the launcher's page on its ink-blue circle; the drawing fits the circle (the corners were cut off). -->
+    <style name="Theme.InkPeek" parent="Base.InkPeek">
+        <item name="android:windowSplashScreenBackground">@android:color/white</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/ic_launcher_background</item>
+    </style>
+</resources>

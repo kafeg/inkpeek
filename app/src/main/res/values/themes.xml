@@ -1,5 +1,7 @@
 <resources>
-    <style name="Theme.InkPeek" parent="android:Theme.Material.Light.NoActionBar">
+    <!-- Android 12+ adds its splash screen in values-v31. -->
+    <style name="Theme.InkPeek" parent="Base.InkPeek" />
+    <style name="Base.InkPeek" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:colorAccent">@android:color/black</item>
