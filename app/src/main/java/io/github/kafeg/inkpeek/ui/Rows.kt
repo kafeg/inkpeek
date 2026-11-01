@@ -41,7 +41,7 @@ object Rows {
     fun check(ctx: Context, title: String, about: String, on: Boolean, remove: (() -> Unit)? = null, edit: (() -> Unit)? = null, save: (Boolean) -> Unit) =
         Ink.horizontal(ctx).apply {
             isBaselineAligned = false
-            val box = CheckBox(ctx).apply { isChecked = on; setOnCheckedChangeListener { _, v -> save(v) } }
+            val box = CheckBox(ctx).apply { isChecked = on; buttonTintList = Ink.ticks(ctx); setOnCheckedChangeListener { _, v -> save(v) } }
             addView(box, Ink.lp(ViewGroup.LayoutParams.WRAP_CONTENT).apply { rightMargin = Ink.dp(ctx, 6) })
             addView(texts(ctx, title, about, if (remove != null) 1 else 2).apply { setOnClickListener { if (box.isEnabled) box.toggle() } }, Ink.lp(0, weight = 1f))
             (remove?.let { "✕" to it } ?: edit?.let { "✎" to it })?.let { (mark, act) -> addView(Ink.button(ctx, mark, 16f) { act() }

@@ -14,8 +14,35 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 
-/** E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples or colors. */
+/**
+ * E-ink styling: black on white (or white on black: the dark theme), thin borders, no ripples. On a phone or a tablet one
+ * accent colour marks what is chosen (the section, the sub-tab, ★, ticks), and the dark theme is #121212.
+ */
 object Ink {
+    /**
+     * An e-ink reader, by its maker (no API tells): there everything stays black and white.
+     * `adb shell setprop debug.inkpeek.eink 1` (or 0) forces it, for a check on a phone.
+     */
+    val eink: Boolean by lazy {
+        prop("debug.inkpeek.eink")?.let { return@lazy it == "1" }
+        val maker = "${android.os.Build.MANUFACTURER} ${android.os.Build.BRAND}".lowercase()
+        listOf("onyx", "boox", "pocketbook", "kobo", "bigme", "meebook").any { it in maker } ||
+            "hisense" in maker && Regex("^(A5|A6|A7|A9|Touch)\\b|HLTE20[23]|HLTE226|HLTE316|HLTE556", RegexOption.IGNORE_CASE).containsMatchIn(android.os.Build.MODEL)
+    }
+
+    private fun prop(key: String): String? = runCatching {
+        Class.forName("android.os.SystemProperties").getMethod("get", String::class.java).invoke(null, key) as String
+    }.getOrNull()?.takeIf { it.isNotEmpty() }
+
+    /** What is chosen: Material You's accent (Android 12+), else the icon's ink blue; on e-ink the text colour. */
+    fun accent(ctx: Context): Int = when {
+        eink -> fg(ctx)
+        android.os.Build.VERSION.SDK_INT >= 31 -> ctx.getColor(if (dark(ctx)) android.R.color.system_accent1_200 else android.R.color.system_accent1_600)
+        else -> if (dark(ctx)) 0xFF9DB3D6.toInt() else 0xFF1F3A5F.toInt()
+    }
+
+    /** A tick box: ticked in the accent. */
+    fun ticks(ctx: Context) = android.content.res.ColorStateList(arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()), intArrayOf(accent(ctx), fg(ctx)))
     /** White on black (⚙ App → Theme: dark, or the system's night mode), for the whole app. */
     fun dark(ctx: Context) = when (Prefs(ctx).theme) {
         "dark" -> true
@@ -26,13 +53,13 @@ object Ink {
     const val OFF = 0.45f
 
     fun fg(ctx: Context) = if (dark(ctx)) Color.WHITE else Color.BLACK
-    fun bg(ctx: Context) = if (dark(ctx)) Color.BLACK else Color.WHITE
+    fun bg(ctx: Context) = if (!dark(ctx)) Color.WHITE else if (eink) Color.BLACK else 0xFF121212.toInt()
 
     /** A screen in the theme: called before its onCreate. */
     fun theme(a: android.app.Activity, card: Boolean = false) = a.setTheme(when {
         card -> if (dark(a)) io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card_Dark else io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Card
         else -> if (dark(a)) io.github.kafeg.inkpeek.R.style.Theme_InkPeek_Dark else io.github.kafeg.inkpeek.R.style.Theme_InkPeek
-    })
+    }).also { if (!card) a.window.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(bg(a))) }
 
     /** A language's name in the app's language, capitalized: "Немецкий"; the code when Android has no name for it. */
     fun lang(ctx: Context, code: String): String = java.util.Locale(code).getDisplayLanguage(ctx.resources.configuration.locales[0])
@@ -47,8 +74,8 @@ object Ink {
 
     fun dp(ctx: Context, v: Number) = (v.toFloat() * ctx.resources.displayMetrics.density).toInt()
 
-    fun border(ctx: Context, width: Int = 2, radius: Int = 6) = GradientDrawable().apply {
-        setColor(bg(ctx)); setStroke(dp(ctx, width) / 2 + 1, fg(ctx)); cornerRadius = dp(ctx, radius).toFloat()
+    fun border(ctx: Context, width: Int = 2, radius: Int = 6, stroke: Int = fg(ctx)) = GradientDrawable().apply {
+        setColor(bg(ctx)); setStroke(dp(ctx, width) / 2 + 1, stroke); cornerRadius = dp(ctx, radius).toFloat()
     }
 
     fun text(ctx: Context, s: CharSequence, sp: Float, bold: Boolean = false, html: Boolean = false) = TextView(ctx).apply {
@@ -95,12 +122,6 @@ object Ink {
         isClickable = true; isFocusable = true
     }
 
-    /** A tab button: one line, the text shrinks to fit a narrow screen (a phone) instead of breaking the word. */
-    fun tab(ctx: Context, label: String, sp: Float, onClick: (View) -> Unit) = button(ctx, label, sp, onClick).apply {
-        maxLines = 1; gravity = Gravity.CENTER // the padding stays clear of the open tab's thick border; the text shrinks instead
-        setAutoSizeTextTypeUniformWithConfiguration(10, sp.toInt(), 1, TypedValue.COMPLEX_UNIT_SP)
-    }
-
     /** Second-level tabs: plain text, the open one bold over a thick line, so they differ from bordered buttons. */
     fun subTabs(ctx: Context, items: List<Pair<String, String>>, open: String, sp: Float, pick: (String) -> Unit) = horizontal(ctx).apply {
         items.forEach { (k, label) ->
@@ -110,7 +131,7 @@ object Ink {
                 // One line in every language: a long label shrinks instead of wrapping, the tabs keep one height.
                 addView(text(ctx, label, sp, bold = on).apply { gravity = Gravity.CENTER; val p = dp(ctx, 8); setPadding(dp(ctx, 2), p, dp(ctx, 2), p)
                     maxLines = 1; setAutoSizeTextTypeUniformWithConfiguration(10, sp.toInt(), 1, android.util.TypedValue.COMPLEX_UNIT_SP) })
-                addView(View(ctx).apply { setBackgroundColor(fg(ctx)) }, lp(h = dp(ctx, if (on) 4 else 1)))
+                addView(View(ctx).apply { setBackgroundColor(if (on) accent(ctx) else fg(ctx)) }, lp(h = dp(ctx, if (on) 4 else 1)))
             }, lp(0, weight = 1f))
         }
     }

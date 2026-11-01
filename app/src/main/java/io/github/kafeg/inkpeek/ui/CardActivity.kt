@@ -515,6 +515,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     fun starred(on: Boolean) {
         starButton.setImageResource(if (on) R.drawable.ic_star_on else R.drawable.ic_star)
+        starButton.setColorFilter(if (on) Ink.accent(this) else Ink.fg(this))
         (starButton.parent as View).apply { contentDescription = getString(if (on) R.string.unsave_word else R.string.save_word); tooltipText = contentDescription }
     }
 

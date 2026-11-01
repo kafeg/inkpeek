@@ -125,7 +125,8 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   text and one line (cut with "…"); tap opens the card, ✕ removes; "Clear history" under the list.
 
 ## Settings screen
-Five sections with up to three tabs each (milestone 14.4), in the order of setting up: Languages (InkPeek · Other
+Five sections, buttons with icons only (Material Symbols: translate, cards, sparkles, star, sync; the name on a long
+press), with up to three tabs each (milestone 14.4), in the order of setting up: Languages (InkPeek · Other
 dictionaries · Help), Card (Main: language, theme, dictionary view and order, phrases · Appearance: size, place, text,
 font › · Icons: which are shown, what each does), AI (Main · Prompts · Help), Notes (Words · Phrases · History), Sync
 (Sync · Anki: milestone 22). The status line on top, the

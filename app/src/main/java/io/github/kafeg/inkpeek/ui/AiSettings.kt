@@ -166,7 +166,7 @@ class AiSettings(private val a: MainActivity) {
         val makers = listOf(a.getString(R.string.all_publishers)) + models.map { it.publisher }.filter { it.isNotBlank() }
             .groupingBy { it }.eachCount().entries.sortedByDescending { it.value }.map { it.key }
         var maker = 0; var sort = 0
-        val freeOnly = CheckBox(a).apply { text = a.getString(R.string.free_only); textSize = 16f; visibility = if (models.any { it.free }) View.VISIBLE else View.GONE }
+        val freeOnly = CheckBox(a).apply { text = a.getString(R.string.free_only); textSize = 16f; buttonTintList = Ink.ticks(a); visibility = if (models.any { it.free }) View.VISIBLE else View.GONE }
         val list = ListView(a)
         var shown = models
         fun label(m: ModelInfo) = m.id + when {

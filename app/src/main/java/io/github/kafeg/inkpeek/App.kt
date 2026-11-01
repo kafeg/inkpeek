@@ -20,6 +20,9 @@ class App : android.app.Application() {
     private object Bars : ActivityLifecycleCallbacks {
         override fun onActivityPostCreated(a: Activity, b: Bundle?) {
             if (a is CardActivity) return
+            // The theme is picked in code (Ink.theme): the bars' icons follow it, not the manifest's light one.
+            val light = android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS or android.view.WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS
+            a.window.insetsController?.setSystemBarsAppearance(if (io.github.kafeg.inkpeek.ui.Ink.dark(a)) 0 else light, light)
             a.findViewById<View>(android.R.id.content).setOnApplyWindowInsetsListener { v, ins ->
                 val bars = ins.getInsets(WindowInsets.Type.systemBars() or WindowInsets.Type.displayCutout())
                 val ime = ins.getInsets(WindowInsets.Type.ime())

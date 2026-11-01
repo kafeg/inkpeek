@@ -65,7 +65,10 @@ when the screen sleeps: `adb shell input keyevent KEYCODE_WAKEUP` first.
 - **An app, not a device.** Everything a user needs comes from the app's own downloads: curated language packs
   (dictionary, grammar, translation models) built by our scripts and covered by tests. Never fix quality by
   hand-installing or deleting files on a test device; a manual step there is a missing feature.
-- KISS; comments — one line at most. No WebView, no animations, no colors (e-ink).
+- KISS; comments — one line at most. No WebView, no animations. Colour: text and background black and white (dark theme
+  #121212 on phones); one accent only on the selected section button, the selected sub-tab's line, the ★ of a saved
+  word, ticks and toggles — Material You's dynamic colour on Android 12+, else the icon's #1F3A5F (`Ink.accent`).
+  None on e-ink: off by maker (`Ink.eink`: Onyx/Boox, PocketBook, Kobo, Bigme, Meebook, Hisense e-ink models), no setting.
 - The API key never goes to logs, UI or commits.
 - **Reference for LexiPeek** (desktop sibling, github.com/kafeg/lexipeek): InkPeek defines behaviour and data formats
   (`docs/formats.md`, cases in `tests/`); no shared code. A format changes in `docs/formats.md` and `tests/` first.

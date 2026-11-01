@@ -34,7 +34,7 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private val download = Rows.JobDialog(this)
     private lateinit var scroll: ScrollView
     private val sections = LinkedHashMap<Int, LinearLayout>()
-    private val sectionButtons = HashMap<Int, TextView>()
+    private val sectionButtons = HashMap<Int, ImageView>()
     private val ui = Handler(Looper.getMainLooper())
     /** The open sub-tab of each section ("lang" → "other"), kept over a recreation. */
     val open = HashMap<String, String>()
@@ -96,19 +96,18 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
         }, LinearLayout.LayoutParams(Ink.dp(this, 52), Ink.dp(this, 52)).apply { leftMargin = Ink.dp(this@MainActivity, 8) })
         main.addView(tryRow, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 8) })
 
-        // Tabs with shrunk labels (a narrow screen) must not drop to a shared text baseline: their bottoms got cut.
-        val bar = Ink.horizontal(this).apply { isBaselineAligned = false }
-        listOf(R.string.tab_dicts, R.string.tab_card, R.string.tab_ai, R.string.tab_words, R.string.tab_sync).forEachIndexed { i, t ->
+        // The sections as icons; the name is said and shown on a long press.
+        val bar = Ink.horizontal(this)
+        listOf(Triple(R.string.tab_dicts, R.drawable.ic_sec_languages, R.string.tab_dicts), Triple(R.string.tab_card, R.drawable.ic_sec_card, R.string.tab_card),
+            Triple(R.string.tab_ai, R.drawable.ic_sec_ai, R.string.tab_ai), Triple(R.string.tab_words, R.drawable.ic_sec_notes, R.string.tab_words),
+            Triple(R.string.tab_sync, R.drawable.ic_sec_sync, R.string.sync_t)).forEachIndexed { i, (t, icon, name) ->
             sections[t] = Ink.vertical(this)
-            val b = Ink.tab(this, getString(t), 18f) { show(t) }
+            val b = ImageView(this).apply { setImageResource(icon); val q = Ink.dp(this@MainActivity, 11); setPadding(q, q, q, q)
+                contentDescription = getString(name); tooltipText = contentDescription; isClickable = true; setOnClickListener { show(t) } }
             sectionButtons[t] = b
-            // All as tall as the tallest, the text in the middle: a shrunk label does not stick to the top.
-            bar.addView(b, Ink.lp(0, android.view.ViewGroup.LayoutParams.MATCH_PARENT, 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
+            bar.addView(b, Ink.lp(0, Ink.dp(this, 52), 1f).apply { if (i > 0) leftMargin = Ink.dp(this@MainActivity, 6) })
         }
         main.addView(bar, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 16) })
-        // One text size for all five: the size the longest label shrank to on this screen.
-        bar.post { val min = sectionButtons.values.minOf { it.textSize }
-            sectionButtons.values.forEach { it.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_NONE); it.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, min) } }
         sections.values.forEach { main.addView(it, Ink.lp().apply { topMargin = Ink.dp(this@MainActivity, 12) }) }
         languages = LanguagesSettings(this).also { it.build(sections.getValue(R.string.tab_dicts)) }
         ai = AiSettings(this).also { it.build(sections.getValue(R.string.tab_ai)) }
@@ -145,7 +144,8 @@ class MainActivity : Activity(), CoroutineScope by MainScope() {
     private fun show(tab: Int) {
         current = tab
         sections.forEach { (t, v) -> v.visibility = if (t == tab) View.VISIBLE else View.GONE }
-        sectionButtons.forEach { (t, b) -> b.background = Ink.border(this, if (t == tab) 7 else 2) }
+        sectionButtons.forEach { (t, b) -> val on = t == tab; val c = if (on) Ink.accent(this) else Ink.fg(this)
+            b.background = Ink.border(this, if (on) 7 else 2, stroke = c); b.setColorFilter(c) }
         if (tab == R.string.tab_words) words.refresh()
         if (tab == R.string.tab_card) card.refreshOpening()
         if (tab == R.string.tab_ai) ai.refreshAnswers()
