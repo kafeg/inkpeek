@@ -59,6 +59,8 @@ class Prefs(private val ctx: Context) {
     val syncName: String get() = android.os.Build.MODEL.orEmpty().ifBlank { "Android" }
     /** When the folder was last read (ms). */
     var syncRead: Long get() = sp.getLong("sync_read", 0); set(v) = sp.edit().putLong("sync_read", v).apply()
+    /** A write to the folder failed and its lines may be gone with the process: the store's records go first (Sync). */
+    var syncPending: Boolean get() = sp.getBoolean("sync_pending", false); set(v) = sp.edit().putBoolean("sync_pending", v).apply()
 
     /** Anki through AnkiDroid: on, and per list ("word", "phrase", "history") whether it goes and its deck. */
     var ankiOn: Boolean get() = sp.getBoolean("anki_on", false); set(v) = sp.edit().putBoolean("anki_on", v).apply()

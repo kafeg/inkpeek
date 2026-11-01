@@ -19,7 +19,8 @@ object Sync {
     private var writer: Writer? = null
     private var writerOf = ""
     private val looks = LinkedHashSet<String>()
-    private val failed = ArrayList<Line>()
+    /** Lines not written yet, each with its record's own time (null: the clock's). */
+    private val failed = ArrayList<Pair<Line, Long?>>()
     private var applied = 0
     private var readAt = 0L
     /** What went wrong last ("" = nothing): the Sync tab shows it instead of the read time. */
@@ -75,15 +76,16 @@ object Sync {
     }
 
     private fun write(lines: List<Line>, at: (Line) -> Long? = { null }) {
-        val todo = failed + lines; failed.clear()
+        val todo = failed + lines.map { it to at(it) }; failed.clear()
         try {
             val w = writer()
             // An answer the log has already (saved again, a copy) is not written twice.
-            val fresh = todo.filter { l -> l.op != "ai.put" || w.lines.none { it.op == "ai.put" && it.text == l.text && it.lang == l.lang &&
-                it.section == l.section && it.ver == l.ver && it.model == l.model && it.answer == l.answer } }
-            w.write(fresh.map { coded(it) }, now(), at)
+            val fresh = todo.filter { (l, _) -> l.op != "ai.put" || w.lines.none { it.op == "ai.put" && it.text == l.text && it.lang == l.lang &&
+                it.section == l.section && it.ver == l.ver && it.model == l.model && it.answer == l.answer } }.map { (l, t) -> coded(l) to t }
+            val times = java.util.IdentityHashMap<Line, Long>().apply { fresh.forEach { (l, t) -> if (t != null) put(l, t) } }
+            w.write(fresh.map { it.first }, now()) { times[it] }
             prefs.syncLast = w.last?.raw.orEmpty(); error = ""
-        } catch (e: Exception) { failed += todo; fail(e) }
+        } catch (e: Exception) { failed += todo; prefs.syncPending = true; fail(e) }
     }
 
     private fun flush() {
@@ -96,6 +98,8 @@ object Sync {
         if (!force && now() - readAt < 30_000) return
         val w = writer().apply { read() }
         readAt = now(); prefs.syncRead = readAt
+        // A write failed (in this run or one that ended since): what the store has and the log lacks goes first.
+        if (failed.isNotEmpty() || prefs.syncPending) exportNow()
         if (failed.isNotEmpty()) return // the store has what the log lacks: it waits until the lines are written
         val s = SyncLog.merge(w.lines)
         if (s.hashCode() == applied) return
@@ -106,6 +110,9 @@ object Sync {
 
     private fun exportNow() {
         flush()
+        // The failed lines first: the drafts below then count only what they lack.
+        if (failed.isNotEmpty()) write(emptyList())
+        if (failed.isNotEmpty()) return
         val w = writer(); val m = SyncLog.merge(w.lines); val local = Store.get(app).records()
         val saved = m.saved.map { it.text }.toSet(); val counts = m.history.associate { it.text to it.count }
         val ai = m.ai.map { listOf(it.text, it.lang, it.section, it.ver) }.toSet()
@@ -115,6 +122,7 @@ object Sync {
             local.ai.filter { listOf(it.text, it.lang, it.section, it.ver) !in ai }.map {
                 Line(it.created, 0, "", "ai.put", it.text, lang = it.lang, section = it.section, ver = it.ver, model = it.model, answer = it.answer) }
         write(drafts.sortedBy { it.ms }) { it.ms }
+        if (failed.isEmpty()) prefs.syncPending = false
     }
 
     /** The store keeps a line's language by its English name ("Russian"); the log, as LexiPeek, by its code ("ru"). AI answers keep theirs. */
