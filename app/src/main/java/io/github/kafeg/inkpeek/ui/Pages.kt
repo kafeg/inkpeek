@@ -92,6 +92,13 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
             item(t, R.string.hw_save_t, R.string.hw_save); item(t, R.string.hw_hist_t, R.string.hw_hist); item(t, R.string.hw_del_t, R.string.hw_del)
             item(t, R.string.hw_anki_t, R.string.hw_anki); item(t, R.string.hw_backup_t, R.string.hw_backup); item(t, R.string.hw_daily_t, R.string.hw_daily)
         },
+        Topic(R.string.sync_t, Triple(R.string.tab_sync, "sync", R.string.sync_t)) { t ->
+            item(t, R.string.hy_what_t, R.string.hy_what); item(t, R.string.hy_folder_t, R.string.hy_folder)
+            item(t, R.string.hy_apps_t, R.string.hy_apps); item(t, R.string.hy_when_t, R.string.hy_when)
+        },
+        Topic(R.string.anki_tab, Triple(R.string.tab_sync, "anki", R.string.anki_tab)) { t ->
+            item(t, R.string.hk_how_t, R.string.hk_how); item(t, R.string.hk_decks_t, R.string.hk_decks); item(t, R.string.hk_one_t, R.string.hk_one)
+        },
         Topic(R.string.app_t, null) { t ->
             item(t, R.string.ui_lang, R.string.ha_lang); item(t, R.string.look_theme, R.string.ha_theme); item(t, R.string.files_t, R.string.ha_files)
             if (Updates.enabled) item(t, R.string.updates_t, R.string.ha_upd)

@@ -407,9 +407,10 @@ otherwise, with a plain note in the app and the README that it goes through Engl
 
 22. **Sync and Anki** (01.11; as LexiPeek's Settings → Sync). Only a Settings section: nothing in the card, no device
    list, no dialogs.
-   - **Sync tab:** one folder (the system picker, a tree URI kept across restarts); a hint: sync it with any tool,
-     Syncthing works best (it copies files as they are), others work too; one status line: when it was read, or the
-     error. The log: `docs/formats.md`, "Sync log" (cases `tests/sync`, JVM tests). Every change of the store is written
+   - **Sync tab:** one folder (the system picker, a tree URI kept across restarts); a hint: a folder a sync app
+     keeps on the device (Syncthing-Fork best, Nextcloud, Yandex Disk; Google Drive, OneDrive, Dropbox or a NAS through
+     Round Sync or RSAF: they give no writable tree themselves), details in Help (topics Sync, Anki); one status line:
+     when it was read, or the error. The log: `docs/formats.md`, "Sync log" (cases `tests/sync`, JVM tests). Every change of the store is written
      at once (a look when its card closes, with its line and base form); the folder is read when a card closes and when
      the settings show, at most every 30 s, and the store becomes the merged log. A folder picked: what the store has
      and the log lacks is written first, with the records' own times. The log keeps a line's language as a code

@@ -451,7 +451,7 @@
     <string name="sync_choose">Выбрать…</string>
     <string name="sync_change">Изменить…</string>
     <string name="sync_hint_t">Как держать её одинаковой везде</string>
-    <string name="sync_hint">Синхронизируйте эту папку любым удобным способом: Syncthing, Nextcloud, Dropbox, OneDrive или сетевая папка NAS. Лучше всего Syncthing: он копирует каждый файл как есть, напрямую между вашими устройствами, и на компьютеры тоже.</string>
+    <string name="sync_hint">Выберите папку, которую держит на устройстве приложение синхронизации: лучше всего Syncthing-Fork, подойдут Nextcloud и Яндекс Диск; Google Drive, OneDrive, Dropbox или NAS — через Round Sync или RSAF. Подробнее в Справке.</string>
     <string name="sync_state_t">Папка</string>
     <string name="sync_read">Прочитана %1$s</string>
     <string name="sync_not_read">Ещё не прочитана</string>
@@ -484,4 +484,18 @@
     <string name="anki_deck_hint">Колода</string>
     <string name="anki_model_changed">В типе записи %1$s в Anki нет поля %2$s: переименуйте этот тип в Anki, и будет создан новый.</string>
     <string name="anki_refused">Anki не приняла: %1$s</string>
+    <string name="hy_what_t">Что синхронизируется</string>
+    <string name="hy_what">Сохранённые слова и фразы, история и ответы ИИ. Настройки, паки и словари остаются на каждом устройстве.</string>
+    <string name="hy_folder_t">Одна папка</string>
+    <string name="hy_folder">Каждое устройство пишет только свою папку внутри и читает все, поэтому копии никогда не конфликтуют. LexiPeek на компьютере работает с той же папкой.</string>
+    <string name="hy_apps_t">Какие приложения</string>
+    <string name="hy_apps">Выбор папки в Android показывает только приложения, которые дают папку для записи. Напрямую: локальная папка, которую держит Syncthing-Fork (надёжнее всего между своими устройствами, и с читалками вроде Boox), Nextcloud, Яндекс Диск. Официальные приложения Google Drive, OneDrive и Dropbox такой папки не дают: используйте их или NAS Synology / WebDAV через Round Sync или RSAF, либо синхронизируйте локальную папку их собственными средствами.</string>
+    <string name="hy_when_t">Когда</string>
+    <string name="hy_when">Изменения записываются сразу; папка читается при открытии InkPeek и когда получится. В фоне Android может это откладывать.</string>
+    <string name="hk_how_t">AnkiDroid</string>
+    <string name="hk_how">Записи сами уходят в AnkiDroid на этом устройстве. Он должен быть установлен; при включении отправки он один раз спросит разрешение.</string>
+    <string name="hk_decks_t">Колоды</string>
+    <string name="hk_decks">Peek::Words, Peek::Phrases и Peek::History — каждую можно выключить, выбрать из колод AnkiDroid или ввести; история сначала выключена. Отправленная строка в Notes помечена «В Anki».</string>
+    <string name="hk_one_t">С LexiPeek</string>
+    <string name="hk_one">На компьютере LexiPeek отправляет через AnkiConnect, с тем же типом записи Peek: после синхронизации AnkiWeb одно слово из обоих приложений — одна запись.</string>
 </resources>

@@ -450,7 +450,7 @@
     <string name="sync_choose">Choose…</string>
     <string name="sync_change">Change…</string>
     <string name="sync_hint_t">Keeping it the same everywhere</string>
-    <string name="sync_hint">Sync this folder with any tool you use: Syncthing, Nextcloud, Dropbox, OneDrive or a NAS share. Syncthing works best: it copies each file as it is, straight between your devices, computers too.</string>
+    <string name="sync_hint">Pick a folder a sync app keeps on this device: Syncthing-Fork works best, Nextcloud and Yandex Disk too; Google Drive, OneDrive, Dropbox or a NAS through Round Sync or RSAF. Details in Help.</string>
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Read %1$s</string>
     <string name="sync_not_read">Not read yet</string>
@@ -483,4 +483,18 @@
     <string name="anki_deck_hint">Deck</string>
     <string name="anki_model_changed">The note type %1$s in Anki has no field %2$s: rename that note type in Anki, and a new one is made.</string>
     <string name="anki_refused">Anki did not take it: %1$s</string>
+    <string name="hy_what_t">What syncs</string>
+    <string name="hy_what">Saved words and phrases, the history and the AI answers. Settings, packs and dictionaries stay on each device.</string>
+    <string name="hy_folder_t">One folder</string>
+    <string name="hy_folder">Each device writes only its own folder inside it and reads all of them, so copies never conflict. LexiPeek on a computer uses the same folder.</string>
+    <string name="hy_apps_t">Which apps</string>
+    <string name="hy_apps">Android\'s folder picker shows only apps that give a folder InkPeek can write to. Directly: a local folder kept by Syncthing-Fork (the most reliable between your own devices, e-readers like Boox too), Nextcloud, Yandex Disk. Google Drive, OneDrive and Dropbox\'s own apps give none: use them, or a Synology or WebDAV NAS, through Round Sync or RSAF, or sync a local folder with their own tools.</string>
+    <string name="hy_when_t">When</string>
+    <string name="hy_when">What you change is written at once; the folder is read when InkPeek opens and when it can. Android may delay that in the background.</string>
+    <string name="hk_how_t">AnkiDroid</string>
+    <string name="hk_how">Notes go to AnkiDroid on this device by themselves. It must be installed; it asks once for its permission when you turn sending on.</string>
+    <string name="hk_decks_t">Decks</string>
+    <string name="hk_decks">Peek::Words, Peek::Phrases and Peek::History, each on or off, picked from AnkiDroid\'s decks or typed; the history is off at first. A row sent shows “In Anki” in Notes.</string>
+    <string name="hk_one_t">With LexiPeek</string>
+    <string name="hk_one">On a computer LexiPeek sends through AnkiConnect, with the same note type Peek: after AnkiWeb sync one word from both apps is one note.</string>
 </resources>

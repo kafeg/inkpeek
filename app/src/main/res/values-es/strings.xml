@@ -450,7 +450,7 @@
     <string name="sync_choose">Elegir…</string>
     <string name="sync_change">Cambiar…</string>
     <string name="sync_hint_t">Mantenerla igual en todas partes</string>
-    <string name="sync_hint">Sincronice esta carpeta con la herramienta que use: Syncthing, Nextcloud, Dropbox, OneDrive o una carpeta de un NAS. Syncthing es lo mejor: copia cada archivo tal cual, directamente entre sus dispositivos, también ordenadores.</string>
+    <string name="sync_hint">Elija una carpeta que una app de sincronización mantenga en este dispositivo: Syncthing-Fork es lo mejor, también Nextcloud y Yandex Disk; Google Drive, OneDrive, Dropbox o un NAS a través de Round Sync o RSAF. Detalles en la Ayuda.</string>
     <string name="sync_state_t">Carpeta</string>
     <string name="sync_read">Leída el %1$s</string>
     <string name="sync_not_read">Aún no leída</string>
@@ -483,4 +483,18 @@
     <string name="anki_deck_hint">Mazo</string>
     <string name="anki_model_changed">El tipo de nota %1$s en Anki no tiene el campo %2$s: renómbrelo en Anki y se creará uno nuevo.</string>
     <string name="anki_refused">Anki no lo aceptó: %1$s</string>
+    <string name="hy_what_t">Qué se sincroniza</string>
+    <string name="hy_what">Las palabras y frases guardadas, el historial y las respuestas de la IA. Ajustes, paquetes y diccionarios se quedan en cada dispositivo.</string>
+    <string name="hy_folder_t">Una carpeta</string>
+    <string name="hy_folder">Cada dispositivo escribe solo su propia carpeta dentro y lee todas, así que las copias nunca chocan. LexiPeek en un ordenador usa la misma carpeta.</string>
+    <string name="hy_apps_t">Qué apps</string>
+    <string name="hy_apps">El selector de carpetas de Android solo muestra apps que dan una carpeta con escritura. Directamente: una carpeta local que mantiene Syncthing-Fork (lo más fiable entre sus dispositivos, también lectores como Boox), Nextcloud, Yandex Disk. Las apps oficiales de Google Drive, OneDrive y Dropbox no la dan: úselas, o un NAS Synology o WebDAV, a través de Round Sync o RSAF, o sincronice una carpeta local con sus propias herramientas.</string>
+    <string name="hy_when_t">Cuándo</string>
+    <string name="hy_when">Los cambios se escriben al momento; la carpeta se lee al abrir InkPeek y cuando se puede. En segundo plano Android puede retrasarlo.</string>
+    <string name="hk_how_t">AnkiDroid</string>
+    <string name="hk_how">Las notas van solas a AnkiDroid en este dispositivo. Debe estar instalado; pide su permiso una vez al activar el envío.</string>
+    <string name="hk_decks_t">Mazos</string>
+    <string name="hk_decks">Peek::Words, Peek::Phrases y Peek::History, cada uno activable, elegido entre los mazos de AnkiDroid o escrito; el historial empieza desactivado. Una fila enviada muestra «En Anki» en Notes.</string>
+    <string name="hk_one_t">Con LexiPeek</string>
+    <string name="hk_one">En un ordenador LexiPeek envía a través de AnkiConnect, con el mismo tipo de nota Peek: tras sincronizar con AnkiWeb, una palabra de ambas apps es una sola nota.</string>
 </resources>

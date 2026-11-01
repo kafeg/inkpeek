@@ -451,7 +451,7 @@
     <string name="sync_choose">Wybierz…</string>
     <string name="sync_change">Zmień…</string>
     <string name="sync_hint_t">Jak utrzymać go wszędzie takim samym</string>
-    <string name="sync_hint">Synchronizuj ten folder dowolnym narzędziem: Syncthing, Nextcloud, Dropbox, OneDrive lub udział NAS. Najlepiej działa Syncthing: kopiuje każdy plik bez zmian, bezpośrednio między twoimi urządzeniami, także na komputery.</string>
+    <string name="sync_hint">Wybierz folder, który aplikacja do synchronizacji trzyma na tym urządzeniu: najlepiej Syncthing-Fork, działają też Nextcloud i Yandex Disk; Google Drive, OneDrive, Dropbox lub NAS przez Round Sync albo RSAF. Szczegóły w Pomocy.</string>
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Przeczytany %1$s</string>
     <string name="sync_not_read">Jeszcze nieprzeczytany</string>
@@ -484,4 +484,18 @@
     <string name="anki_deck_hint">Talia</string>
     <string name="anki_model_changed">Typ notatki %1$s w Anki nie ma pola %2$s: zmień jego nazwę w Anki, a powstanie nowy.</string>
     <string name="anki_refused">Anki nie przyjęło: %1$s</string>
+    <string name="hy_what_t">Co się synchronizuje</string>
+    <string name="hy_what">Zapisane słowa i frazy, historia i odpowiedzi AI. Ustawienia, pakiety i słowniki zostają na każdym urządzeniu.</string>
+    <string name="hy_folder_t">Jeden folder</string>
+    <string name="hy_folder">Każde urządzenie pisze tylko swój folder w środku i czyta wszystkie, więc kopie nigdy się nie gryzą. LexiPeek na komputerze używa tego samego folderu.</string>
+    <string name="hy_apps_t">Jakie aplikacje</string>
+    <string name="hy_apps">Wybór folderu w Androidzie pokazuje tylko aplikacje, które dają folder do zapisu. Bezpośrednio: lokalny folder trzymany przez Syncthing-Fork (najpewniejszy między własnymi urządzeniami, także czytnikami jak Boox), Nextcloud, Yandex Disk. Oficjalne aplikacje Google Drive, OneDrive i Dropbox go nie dają: używaj ich, albo NAS Synology lub WebDAV, przez Round Sync lub RSAF, albo synchronizuj lokalny folder ich własnymi narzędziami.</string>
+    <string name="hy_when_t">Kiedy</string>
+    <string name="hy_when">Zmiany są zapisywane od razu; folder jest czytany przy otwarciu InkPeek i kiedy się da. W tle Android może to opóźniać.</string>
+    <string name="hk_how_t">AnkiDroid</string>
+    <string name="hk_how">Notatki same trafiają do AnkiDroid na tym urządzeniu. Musi być zainstalowany; raz zapyta o zgodę, gdy włączysz wysyłanie.</string>
+    <string name="hk_decks_t">Talie</string>
+    <string name="hk_decks">Peek::Words, Peek::Phrases i Peek::History, każdą można wyłączyć, wybrać z talii AnkiDroid albo wpisać; historia na początku jest wyłączona. Wysłany wiersz ma w Notes oznaczenie „W Anki”.</string>
+    <string name="hk_one_t">Z LexiPeek</string>
+    <string name="hk_one">Na komputerze LexiPeek wysyła przez AnkiConnect, z tym samym typem notatki Peek: po synchronizacji z AnkiWeb słowo z obu aplikacji to jedna notatka.</string>
 </resources>
