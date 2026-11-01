@@ -19,8 +19,10 @@ object Sync {
     private var writer: Writer? = null
     private var writerOf = ""
     private val looks = LinkedHashSet<String>()
-    /** Lines not written yet, each with its record's own time (null: the clock's). */
+    /** Lines not written yet, each with its record's own time (null: the clock's); kept in a file, so a delete is not lost with the process. */
     private val failed = ArrayList<Pair<Line, Long?>>()
+    /** Records given to [record] and not written yet: a read does not replace the store under them. */
+    private val queued = java.util.concurrent.atomic.AtomicInteger()
     private var applied = 0
     private var readAt = 0L
     /** What went wrong last ("" = nothing): the Sync tab shows it instead of the read time. */
@@ -28,14 +30,21 @@ object Sync {
     /** Called on the main thread after a read or a send (the open settings refresh). */
     @Volatile var changed: (() -> Unit)? = null
 
-    fun init(ctx: Context) { app = ctx.applicationContext }
+    fun init(ctx: Context) {
+        app = ctx.applicationContext
+        exec.execute { runCatching { pending.readLines().mapNotNull { SyncLog.parse(it) }.forEach { failed += it.copy(ms = 0) to it.ms.takeIf { t -> t != 0L } } } }
+    }
+    private val pending get() = java.io.File(app.filesDir, "sync-pending.jsonl")
     private val prefs get() = Prefs(app)
     private val on get() = ::app.isInitialized && prefs.syncUri.isNotEmpty()
 
     /** A look counted in the store: its line is written by [refresh] (the card adds its line and base form first). */
     fun look(text: String) { if (on) synchronized(looks) { looks += text } }
 
-    fun record(lines: List<Line>) { if (on && lines.isNotEmpty()) exec.execute { write(lines) } }
+    fun record(lines: List<Line>) {
+        if (!on || lines.isEmpty()) return
+        queued.incrementAndGet(); exec.execute { try { write(lines) } finally { queued.decrementAndGet() } }
+    }
 
     /** Reads the folder (not again within half a minute unless [force]), then sends to Anki. */
     fun refresh(force: Boolean = false) {
@@ -85,7 +94,11 @@ object Sync {
             val times = java.util.IdentityHashMap<Line, Long>().apply { fresh.forEach { (l, t) -> if (t != null) put(l, t) } }
             w.write(fresh.map { it.first }, now()) { times[it] }
             prefs.syncLast = w.last?.raw.orEmpty(); error = ""
-        } catch (e: Exception) { failed += todo; prefs.syncPending = true; fail(e) }
+            if (todo.isNotEmpty()) pending.delete()
+        } catch (e: Exception) {
+            failed += todo; prefs.syncPending = true; fail(e)
+            runCatching { pending.writeText(failed.joinToString("") { (l, t) -> SyncLog.format(l.copy(ms = t ?: 0)) + "\n" }) }
+        }
     }
 
     private fun flush() {
@@ -102,7 +115,7 @@ object Sync {
         if (failed.isNotEmpty() || prefs.syncPending) exportNow()
         if (failed.isNotEmpty()) return // the store has what the log lacks: it waits until the lines are written
         val s = SyncLog.merge(w.lines)
-        if (s.hashCode() == applied) return
+        if (s.hashCode() == applied || queued.get() > 0) return
         Store.get(app).replace(State(s.saved.map { it.copy(lang = name(it.lang)) }, s.history.map { it.copy(lang = name(it.lang)) }, s.ai),
             synchronized(looks) { looks.toSet() })
         applied = s.hashCode(); error = ""

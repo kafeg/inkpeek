@@ -414,7 +414,8 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      when it was read, or the error. The log: `docs/formats.md`, "Sync log" (cases `tests/sync`, JVM tests). Every change of the store is written
      at once (a look when its card closes, with its line and base form); the folder is read when a card closes and when
      the settings show, at most every 30 s, and the store becomes the merged log. A folder picked: what the store has
-     and the log lacks is written first, with the records' own times. The log keeps a line's language as a code
+     and the log lacks is written first, with the records' own times. Lines the folder refused wait in `sync-pending.jsonl`
+     (app files, kept across restarts: a delete is not lost) and go first. The log keeps a line's language as a code
      (`ru`), the store as its English name.
    - **Anki tab** (AnkiDroid's content provider, permission `com.ichi2.anki.permission.READ_WRITE_DATABASE` asked when
      needed): on/off; how it works (InkPeek → AnkiDroid, LexiPeek → AnkiConnect); a check line naming the failing step
