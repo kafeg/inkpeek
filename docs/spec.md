@@ -110,7 +110,7 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
 
 ## Storage
 - One SQLite file `/sdcard/InkPeek/inkpeek.db` (app files when all-files access is missing); survives a reinstall
-  (debug ↔ release needs one). No WAL (shared storage), no UPSERT (Android 8–9 SQLite).
+  (debug ↔ release needs one). No WAL (shared storage).
 - `ai`: answers by (text, answer language, request quick / detail, prompt hash) as JSON, and the offline translation
   (`offline-<from>`); shown again without a request, also offline. An answer lives as long as its text is in the
   history or saved: removing it there (✕, clear history, the 1000 limit) removes its answers. No separate setting.

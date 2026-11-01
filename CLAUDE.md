@@ -24,6 +24,7 @@ dictionaries, the app), `Updates` + `About` (GitHub releases, in-app install), `
 share / web menu). Indexes: one builder thread and one build per dictionary for the process (`Library`, `StarDict`).
 Without the in-app updater (F-Droid, stores): `./gradlew assembleRelease -Pinkpeek.updates=false` — see `docs/fdroid.md`.
 Language packs are built in `packs/` (Python, see its README). JVM unit tests. Settings — `Prefs.kt`; `App` hands AI its settings (every screen).
+Notes (history, saved, AI answers) — `Store.kt`: one SQLite file in `/sdcard/InkPeek`, a copy a day in its `backup/`.
 New language (book or answer) or translation model: `packs/README.md` → "Adding a language" — every step, in order.
 
 ## Build and run
