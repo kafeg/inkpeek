@@ -153,9 +153,12 @@ from the logs; each app keeps them in its own store, with `id`, `origin`, `updat
   knows (every device's), this look included. Each look writes one line; reading a line twice does not count it twice.
 - Clearing the history writes one `history.del` per entry. The 1,000-entry limit is applied by each app to its own
   store, not by the merge.
-- Skipped: a line without the final `\n` (being written or cut; also when it is valid JSON), a line that is not a
-  JSON object, an unknown `op`, a line without `t` (two integers), `d` or `text` (strings). A missing field of a known
-  op reads as `""` (`ver`, `c`: 0; `base`: none). Unknown fields are ignored: a new op or field needs no other change.
+- Skipped: a line without the final `\n` (being written or cut; also when it is valid JSON), a line that is not valid
+  UTF-8, a line that is not one JSON object (JSON's whitespace — space, `\t`, `\r` — around it is allowed: a CRLF file
+  reads; a BOM or anything else before or after it is not), an unknown `op`, a line without `t` (two integers), `d` or
+  `text` (strings). A missing field of a known op, or one of another type (a number with a fraction or exponent is not
+  an integer: `"c":2.5`, `"ver":3.0`), reads as `""` (`ver`, `c`: 0; `base`: none). Unknown fields are ignored: a new
+  op or field needs no other change. Field order and escapes do not matter for reading (the bytes still make the line).
 - The canonical form, so that both apps write the same bytes: compact JSON (no spaces); keys `t, d, op`, then the
   op's fields in the order of the table. Strings: UTF-8 as is; escaped are only `"` (`\"`), `\` (`\\`),
   `\b \f \n \r \t` and the other characters below U+0020 (`\u001f`, lower-case hex); `/` and non-ASCII are not
@@ -180,8 +183,8 @@ equal: use it for order and display only.
 ### The merge
 - The lines: every device folder, as above. Byte-equal lines are one (a line read twice: conflicted copies, the same
   file twice).
-- Order: `t[0]`, then `t[1]`, then `d` (string order), then the line's bytes (only two installs with one id write two
-  lines with the same `t` and `d`). "Newest" means last in this order; the order of lines in a file and of files does
+- Order: `t[0]`, then `t[1]`, then `d`, then the line's bytes (only two installs with one id write two lines with the
+  same `t` and `d`); strings compare by their UTF-8 bytes (code points, not UTF-16 units: `😀` after `ｶ`). "Newest" means last in this order; the order of lines in a file and of files does
   not matter.
 - `saved`, per `text`: the newest `saved.*` wins: a put keeps the entry (`kind`, `lang`, `meaning`, `created` = its
   `t[0]`), a delete removes it, a newer put brings it back. `origin` is the `d` of the first `saved.put` after the
@@ -214,7 +217,8 @@ install checks at start and when its sync folder is chosen, before it writes:
 ### Test cases
 `tests/sync/` (format and list: `tests/sync/README.md`): `reader/` (a folder → the merged state), `identity/` (a
 folder and what the app keeps → keep / new), `writer/` (steps at fixed clock values → the bytes of the device's
-files). Every app runs all of them; a failing case is a finding about the app, never a reason to change the case.
+files), `generated/` (reader cases made by `tests/sync/generate.py`: many devices, ops and languages). Every app runs
+all of them; a failing case is a finding about the app, never a reason to change the case.
 
 ## Sentence breaks
 Offline translation cuts a text into sentences: an OPUS-MT model with a target tag gets the tag before each one, Hy-MT2

@@ -48,8 +48,19 @@ object SyncLog {
         "ai.put" to listOf("text", "lang", "section", "ver", "model", "answer"),
     )
 
+    /** UTF-8 byte order (code points), not UTF-16's: "😀" after "ｶ", as other apps sort bytes. */
+    fun utf8Order(a: String, b: String): Int {
+        var i = 0; var j = 0
+        while (i < a.length && j < b.length) {
+            val x = a.codePointAt(i); val y = b.codePointAt(j)
+            if (x != y) return x.compareTo(y)
+            i += Character.charCount(x); j += Character.charCount(y)
+        }
+        return (a.length - i).compareTo(b.length - j)
+    }
+
     /** "Newest" is last: t, then the device, then the bytes. */
-    val ORDER = compareBy<Line>({ it.ms }, { it.n }, { it.d }, { it.raw })
+    val ORDER = compareBy<Line>({ it.ms }, { it.n }).then { a, b -> utf8Order(a.d, b.d) }.then { a, b -> utf8Order(a.raw, b.raw) }
 
     /** Month files and the copies sync tools make on a conflict; not `.tmp`, `.syncthing.*`. */
     fun logFile(name: String) = name.endsWith(".jsonl") && !name.startsWith(".")
@@ -57,15 +68,23 @@ object SyncLog {
     /** The month file of [ms], UTC. */
     fun month(ms: Long): String = java.time.Instant.ofEpochMilli(ms).atZone(java.time.ZoneOffset.UTC).let { "%04d-%02d.jsonl".format(it.year, it.monthValue) }
 
-    /** The complete lines of a file: what follows the last "\n" is being written or was cut. */
+    /** The complete lines of a file: what follows the last "\n" is being written or was cut; a line not valid UTF-8 is skipped. */
     fun lines(bytes: ByteArray): List<Line> {
-        val s = String(bytes, Charsets.UTF_8)
-        return s.substring(0, s.lastIndexOf('\n') + 1).split('\n').mapNotNull { parse(it) }
+        val out = ArrayList<Line>(); var at = 0
+        while (true) {
+            val nl = (at until bytes.size).firstOrNull { bytes[it] == '\n'.code.toByte() } ?: return out
+            runCatching { Charsets.UTF_8.newDecoder().decode(java.nio.ByteBuffer.wrap(bytes, at, nl - at)).toString() }.getOrNull()?.let(::parse)?.let(out::add)
+            at = nl + 1
+        }
     }
 
     fun parse(raw: String): Line? = runCatching {
-        if (!raw.startsWith("{")) return null
-        val j = JSONObject(raw)
+        // One JSON object, JSON's whitespace around it, nothing else.
+        val body = raw.trim(' ', '\t', '\r')
+        if (!body.startsWith('{') || !body.endsWith('}')) return null
+        val tk = org.json.JSONTokener(body)
+        val j = tk.nextValue() as? JSONObject ?: return null
+        if (tk.nextClean() != 0.toChar()) return null
         val t = j.opt("t") as? JSONArray ?: return null
         if (t.length() != 2 || (0..1).any { t.get(it) !is Int && t.get(it) !is Long }) return null
         val op = j.opt("op") as? String ?: return null
@@ -73,7 +92,7 @@ object SyncLog {
         val text = j.opt("text") as? String ?: return null
         if (op !in OPS) return null
         fun s(k: String) = (j.opt(k) as? String).orEmpty()
-        fun n(k: String) = (j.opt(k) as? Number)?.toLong() ?: 0
+        fun n(k: String) = j.opt(k).let { if (it is Int || it is Long) (it as Number).toLong() else 0 }
         Line(t.getLong(0), t.getLong(1), d, op, text, s("kind"), s("lang"), s("meaning"), s("base"), n("c"),
             s("section"), n("ver"), s("model"), s("answer"), raw)
     }.getOrNull()
@@ -123,7 +142,7 @@ object SyncLog {
             // A delete drops the looks at or before it.
             val h = ls.filter { it.op.startsWith("history.") }.let { h -> h.drop(h.indexOfLast { it.op == "history.del" } + 1) }
             h.lastOrNull()?.let { top -> history += Seen(text, top.kind, top.lang, top.base.ifEmpty { null }, top.meaning, top.ms,
-                h.groupBy { it.d }.values.sumOf { v -> v.maxOf { it.c } }, h.map { it.d }.distinct().sorted()) }
+                h.groupBy { it.d }.values.sumOf { v -> v.maxOf { it.c } }, h.map { it.d }.distinct().sortedWith(::utf8Order)) }
             ls.filter { it.op == "ai.put" }.forEach { ai[listOf(it.text, it.lang, it.section, it.ver)] = it }
         }
         val kept = saved.map { it.text }.toSet() + history.map { it.text }
