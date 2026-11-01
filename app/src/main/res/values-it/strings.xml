@@ -60,9 +60,7 @@
     <string name="save_word">Salva nelle Note</string>
     <string name="unsave_word">Togli dalle Note</string>
     <string name="a_analysis">Analisi</string>
-    <string name="a_analysis_d">La grammatica della forma o frase e la regola; parole difficili o sinonimi.</string>
     <string name="a_context">Contesto</string>
-    <string name="a_context_d">Cosa significa qui, registro, sfumature; tre esempi tradotti.</string>
     <string name="irregular">irreg.</string>
     <string name="close">Chiudi</string>
     <string name="icon_dict_d">Pacchetti e altri dizionari; una frase: parola per parola. Offline.</string>

@@ -61,9 +61,7 @@
     <string name="save_word">Save to Notes</string>
     <string name="unsave_word">Remove from Notes</string>
     <string name="a_analysis">Analysis</string>
-    <string name="a_analysis_d">The grammar of the form or phrase and its rule; harder words or synonyms.</string>
     <string name="a_context">Context</string>
-    <string name="a_context_d">What it means here, register, nuances; three examples with a translation.</string>
     <string name="irregular">irregular</string>
     <string name="close">Close</string>
     <string name="icon_dict_d">Packs and other dictionaries; a phrase: word by word. Works offline.</string>

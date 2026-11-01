@@ -66,7 +66,6 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
     private fun row(db: SQLiteDatabase, text: String, kind: String, seen: Long) =
         db.execSQL("INSERT OR IGNORE INTO history(text, kind, seen, count) VALUES(?, ?, ?, 0)", arrayOf(text, kind, seen))
 
-    /** Answers of texts that are neither in the history nor saved. */
     /** Answers of texts neither in the history nor saved (the history is off): gone when the card closes. */
     fun dropUnkept() = dropAnswers(writableDatabase)
     private fun dropAnswers(db: SQLiteDatabase) =
@@ -128,7 +127,6 @@ class Store private constructor(ctx: Context, path: String, private val logged: 
     fun seen(text: String, kind: String) = writableDatabase.let { db -> db.beginTransaction(); try { seen(db, text, kind); db.setTransactionSuccessful() } finally { db.endTransaction() } }
 
     private fun seen(db: SQLiteDatabase, text: String, kind: String) {
-        // No UPSERT: Android 8 and 9 ship SQLite older than 3.24.
         row(db, text, kind, 0)
         if (logged) Sync.look(text)
         db.execSQL("UPDATE history SET seen=?, count=count+1 WHERE text=?", arrayOf(System.currentTimeMillis(), text))

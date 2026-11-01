@@ -161,7 +161,6 @@ object Ink {
     }
 
     fun label(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}", a.id)
-    fun description(ctx: Context, a: io.github.kafeg.inkpeek.ai.Action) = res(ctx, "a_${a.id}_d", "")
     private fun res(ctx: Context, name: String, fallback: String) =
         ctx.resources.getIdentifier(name, "string", ctx.packageName).takeIf { it != 0 }?.let { ctx.getString(it) } ?: fallback
 

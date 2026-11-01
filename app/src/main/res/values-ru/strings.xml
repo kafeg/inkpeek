@@ -60,9 +60,7 @@
     <string name="save_word">Сохранить в записи</string>
     <string name="unsave_word">Убрать из записей</string>
     <string name="a_analysis">Разбор</string>
-    <string name="a_analysis_d">Грамматика формы или фразы и правило; трудные слова или синонимы.</string>
     <string name="a_context">Контекст</string>
-    <string name="a_context_d">Что значит здесь, стиль, оттенки; три примера с переводом.</string>
     <string name="irregular">неправ.</string>
     <string name="close">Закрыть</string>
     <string name="icon_dict_d">Пакеты и другие словари; фраза — перевод по словам. Работает офлайн.</string>

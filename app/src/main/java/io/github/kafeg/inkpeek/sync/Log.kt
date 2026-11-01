@@ -30,15 +30,6 @@ interface Folder {
     fun append(device: String, name: String, bytes: ByteArray): Boolean
 }
 
-class FileFolder(private val root: java.io.File) : Folder {
-    private fun dir(d: String) = java.io.File(root, "inkpeek-log/$d").also { it.mkdirs() }
-    override fun devices() = java.io.File(root, "inkpeek-log").listFiles { f -> f.isDirectory }.orEmpty().map { it.name }
-    override fun files(device: String) = java.io.File(root, "inkpeek-log/$device").listFiles { f -> f.isFile }.orEmpty().map { it.name }
-    override fun read(device: String, name: String) = java.io.File(root, "inkpeek-log/$device/$name").takeIf { it.isFile }?.readBytes()
-    override fun write(device: String, name: String, bytes: ByteArray) = java.io.File(dir(device), name).writeBytes(bytes)
-    override fun append(device: String, name: String, bytes: ByteArray) = true.also { java.io.File(dir(device), name).appendBytes(bytes) }
-}
-
 object SyncLog {
     val OPS = mapOf(
         "saved.put" to listOf("text", "kind", "lang", "meaning"),

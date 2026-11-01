@@ -60,9 +60,7 @@
     <string name="save_word">In Notizen speichern</string>
     <string name="unsave_word">Aus Notizen entfernen</string>
     <string name="a_analysis">Analyse</string>
-    <string name="a_analysis_d">Grammatik der Form oder Phrase und ihre Regel; schwierige Wörter oder Synonyme.</string>
     <string name="a_context">Kontext</string>
-    <string name="a_context_d">Was es hier bedeutet, Stilebene, Nuancen; drei Beispiele mit Übersetzung.</string>
     <string name="irregular">unregelm.</string>
     <string name="close">Schließen</string>
     <string name="icon_dict_d">Pakete und andere Wörterbücher; eine Phrase: Wort für Wort. Offline.</string>

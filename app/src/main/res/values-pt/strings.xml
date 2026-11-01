@@ -60,9 +60,7 @@
     <string name="save_word">Guardar em Notas</string>
     <string name="unsave_word">Remover de Notas</string>
     <string name="a_analysis">Análise</string>
-    <string name="a_analysis_d">A gramática da forma ou frase e a regra; palavras difíceis ou sinónimos.</string>
     <string name="a_context">Contexto</string>
-    <string name="a_context_d">O que significa aqui, registo, nuances; três exemplos traduzidos.</string>
     <string name="irregular">irreg.</string>
     <string name="close">Fechar</string>
     <string name="icon_dict_d">Pacotes e outros dicionários; uma frase: palavra a palavra. Funciona offline.</string>
