@@ -116,8 +116,7 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
      * among them a pack into [answer] wins, then the one that knows more words of this text; an own dictionary gives its
      * first meaning.
      */
-    fun gloss(text: String, answer: String, limit: Int = 60): List<Gloss> {
-        val dicts = all() // once: every lookup below would scan the folders again
+    fun gloss(text: String, answer: String, limit: Int = 60, dicts: List<StarDict> = all()): List<Gloss> { // once: every lookup would scan the folders again
         val all = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).toList()
         val words = all.map { it.value }.distinctBy { it.lowercase() }.take(limit)
         // A sentence's first word is capitalized by spelling, not by meaning: "Er" is "er", "Der" is "der".

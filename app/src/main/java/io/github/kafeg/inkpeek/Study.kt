@@ -12,7 +12,7 @@ object Study {
     fun offered(answer: String, pairs: Collection<Pair<String, String>>): List<String> =
         pairs.filter { it.first == answer && it.second != answer }.map { it.second }.distinct().sorted()
 
-    /** What the card uses: [stored] when its pack [answer] → it is there (installed and ticked), else null. */
+    /** What the card uses: [stored] when its pack [answer] → it is installed (ticked or not), else null. */
     fun effective(stored: String?, answer: String, pairs: Collection<Pair<String, String>>): String? =
         stored?.takeIf { (answer to it) in pairs }
 

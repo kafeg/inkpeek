@@ -108,7 +108,7 @@ class DictionaryPage(private val card: CardActivity) {
 
     /** The packs answer → [lang] (the language you learn) that the card uses. */
     private fun studyDicts(lib: io.github.kafeg.inkpeek.stardict.Library, lang: String) =
-        lib.all().filter { lib.isPack(it) && it.book == card.prefs.answerCode && it.answer == lang }
+        lib.found().filter { lib.isPack(it) && it.book == card.prefs.answerCode && it.answer == lang } // installed, ticked or not
 
     /**
      * The language you learn: the line of the pack answer → it (tap: the article, ← back), then the translated words with
@@ -125,7 +125,7 @@ class DictionaryPage(private val card: CardActivity) {
             val lib = card.prefs.library(); val ans = card.prefs.answerCode
             val words = withContext(Dispatchers.IO) { io.github.kafeg.inkpeek.Study.words(meaning(list.first())).map { w ->
                 // Its own grammar and frequency from the pack of its language (de → ru); none: the word alone.
-                val h = runCatching { lib.heads(w, ans, lib.all().filter { lib.isPack(it) && it.book == lang }).firstOrNull() }.getOrNull()
+                val h = runCatching { lib.heads(w, ans, lib.found().filter { lib.isPack(it) && it.book == lang }).firstOrNull() }.getOrNull()
                 Triple(w, h, h?.let { runCatching { lib.rank(it.word, lang) }.getOrDefault(0) } ?: 0)
             } }
             words.forEach { (w, h, rank) ->
@@ -175,7 +175,7 @@ class DictionaryPage(private val card: CardActivity) {
             if (study == null) { job = rows(p) { w -> card.lookUp(w) }; return@launch }
             // The language you learn: word by word through its pack.
             val lib = card.prefs.library()
-            val g = withContext(Dispatchers.IO) { runCatching { lib.gloss(card.query, study) }.getOrDefault(emptyList()) }
+            val g = withContext(Dispatchers.IO) { runCatching { lib.gloss(card.query, study, dicts = (lib.all() + studyDicts(lib, study)).distinct()) }.getOrDefault(emptyList()) }
             if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
             g.forEach { x -> listRow(p, glossLine(x)) { card.lookUp(x.base.ifBlank { x.word }) } }
             card.scrollBack()

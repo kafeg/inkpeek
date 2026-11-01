@@ -388,7 +388,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
      is listed dimmed with "no pack — get it in Packs" and cannot be picked (no download from here). Stored **per answer
      language**, per device (not synced): Prefs `study_<answer>` = one code (`study_ru` = `de`); "" — off; an older
      value with two codes ("de,en"): only the first counts. Changing the answer language shows that language's choice.
-   - **When it applies:** the chosen language's pack answer → X is installed and ticked, and the text's language is the
+   - **When it applies:** the chosen language's pack answer → X is installed (ticked or not), and the text's language is the
      answer language: language id as for offline translation with the answer language as one more candidate (fastText;
      unsure — the pack answer → X that knows more of the words).
    - **Card:** under the title a passive line "ru → de" (codes; no menu) — it names the language, so the tabs have no

@@ -78,11 +78,10 @@ class Prefs(private val ctx: Context) {
     /** The language you learn for [answer] (Languages → Translation): `study_<answer>` = "de"; "" or null off. */
     fun study(answer: String): String? = Study.parse(sp.getString("study_$answer", ""))
     fun setStudy(answer: String, lang: String?) = sp.edit().putString("study_$answer", lang.orEmpty()).apply()
-    /** The language you learn the card shows [text] in: the text is in the answer language and its pack is there. Blocking. */
+    /** The language you learn the card shows [text] in: the text is in the answer language and its pack is installed (ticked or not). Blocking. */
     fun studyOf(text: String): String? {
         val ans = answerCode; val stored = study(ans) ?: return null
-        val ticked = pairs; val have = packs.installedPairs().filter { ticked == null || "${it.first}-${it.second}" in ticked }
-        val lang = Study.effective(stored, ans, have) ?: return null
+        val lang = Study.effective(stored, ans, packs.installedPairs()) ?: return null
         return lang.takeIf { io.github.kafeg.inkpeek.mt.LangId.source(text, ans, packs, packDictionaries(), self = true).first == ans }
     }
     /** Its English name ("Russian"): what AI prompts and saved answers use. */
