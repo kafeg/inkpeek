@@ -4,9 +4,17 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
-### Unreleased
+### 0.8.228 — 2026-11-01
+- Sync (⚙ → Sync): pick a folder that a sync app keeps on this device — Syncthing-Fork works best, Nextcloud and
+  Yandex Disk too; Google Drive, OneDrive, Dropbox or a NAS through Round Sync or RSAF. Saved words and phrases, the
+  history and AI answers stay the same on every device without conflicts; LexiPeek on a computer uses the same folder.
+- Anki (⚙ → Sync → Anki): saved words and phrases go to AnkiDroid by themselves, into Peek::Words and Peek::Phrases
+  (the history too, if you want); each deck is optional and can be another one. Notes mark what is in Anki. A word sent
+  from LexiPeek too is one note.
+- Help: Sync and Anki — how to set them up.
 - Languages you learn: one language, chosen in a list. A text already in your answer language opens in it — no pages to
-  turn on the Dictionary tab, one translation, AI about that one version.
+  turn on the Dictionary tab, one translation, AI about that one version. It works as soon as its pack is installed,
+  ticked or not.
 - Card: an article and its noun ("die Konjugation") opens as the noun's word card — its header, Dictionary first —
   when the language pack's header starts so; "die Häuser" or "den Tisch" stay phrases.
 - Offline translation, Direct (OPUS-MT): a long text no longer turns partly English, and no stray ", " starts a
