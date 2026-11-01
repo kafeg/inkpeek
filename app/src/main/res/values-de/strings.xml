@@ -449,7 +449,7 @@
     <string name="sync_choose">Auswählen…</string>
     <string name="sync_change">Ändern…</string>
     <string name="sync_hint_t">Überall gleich halten</string>
-    <string name="sync_hint">Wählen Sie einen Ordner, den eine Sync-App auf diesem Gerät hält: Syncthing-Fork geht am besten, Nextcloud und Yandex Disk auch; Google Drive, OneDrive, Dropbox oder ein NAS über Round Sync oder RSAF. Mehr in der Hilfe.</string>
+    <string name="sync_hint">Wählen Sie einen Ordner, den eine Sync-App auf diesem Gerät hält: Syncthing-Fork geht am besten; Synology Drive (eine Sync-Aufgabe), Nextcloud und Yandex Disk auch; Google Drive, OneDrive oder Dropbox über Round Sync oder RSAF. Mehr in der Hilfe.</string>
     <string name="sync_state_t">Ordner</string>
     <string name="sync_read">Gelesen %1$s</string>
     <string name="sync_not_read">Noch nicht gelesen</string>
@@ -487,7 +487,9 @@
     <string name="hy_folder_t">Ein Ordner</string>
     <string name="hy_folder">Jedes Gerät schreibt nur seinen eigenen Ordner darin und liest alle, deshalb gibt es nie Konflikte. LexiPeek am Computer nutzt denselben Ordner.</string>
     <string name="hy_apps_t">Welche Apps</string>
-    <string name="hy_apps">Androids Ordnerauswahl zeigt nur Apps, die einen beschreibbaren Ordner geben. Direkt: ein lokaler Ordner, den Syncthing-Fork hält (am zuverlässigsten zwischen eigenen Geräten, auch E-Readern wie Boox), Nextcloud, Yandex Disk. Die eigenen Apps von Google Drive, OneDrive und Dropbox geben keinen: Nutzen Sie sie, oder ein Synology- bzw. WebDAV-NAS, über Round Sync oder RSAF, oder synchronisieren Sie einen lokalen Ordner mit deren eigenen Programmen.</string>
+    <string name="hy_apps">Androids Ordnerauswahl zeigt nur Apps, die einen beschreibbaren Ordner geben. Direkt: ein lokaler Ordner, den Syncthing-Fork hält (am zuverlässigsten zwischen eigenen Geräten, auch E-Readern wie Boox), Synology Drive (eine Sync-Aufgabe), Nextcloud, Yandex Disk. Die eigenen Apps von Google Drive, OneDrive und Dropbox geben keinen: Nutzen Sie sie über Round Sync oder RSAF.</string>
+    <string name="hy_nas_t">Synology-NAS</string>
+    <string name="hy_nas">In Synology Drive: Mehr → Sicherungs- und Synchronisierungsaufgaben → Synchronisierungsaufgaben → +, ein NAS-Ordner ↔ ein lokaler Ordner; dann wählen Sie hier diesen lokalen Ordner. Drive fragt nach „Zugriff auf alle Dateien“: der ist nötig.</string>
     <string name="hy_when_t">Wann</string>
     <string name="hy_when">Änderungen werden sofort geschrieben; der Ordner wird beim Öffnen von InkPeek gelesen und wann immer es geht. Im Hintergrund kann Android das verzögern.</string>
     <string name="hk_how_t">AnkiDroid</string>

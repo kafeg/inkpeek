@@ -451,7 +451,7 @@
     <string name="sync_choose">Wybierz…</string>
     <string name="sync_change">Zmień…</string>
     <string name="sync_hint_t">Jak utrzymać go wszędzie takim samym</string>
-    <string name="sync_hint">Wybierz folder, który aplikacja do synchronizacji trzyma na tym urządzeniu: najlepiej Syncthing-Fork, działają też Nextcloud i Yandex Disk; Google Drive, OneDrive, Dropbox lub NAS przez Round Sync albo RSAF. Szczegóły w Pomocy.</string>
+    <string name="sync_hint">Wybierz folder, który aplikacja do synchronizacji trzyma na tym urządzeniu: najlepiej Syncthing-Fork; działają też Synology Drive (zadanie synchronizacji), Nextcloud i Yandex Disk; Google Drive, OneDrive lub Dropbox przez Round Sync albo RSAF. Szczegóły w Pomocy.</string>
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Przeczytany %1$s</string>
     <string name="sync_not_read">Jeszcze nieprzeczytany</string>
@@ -489,7 +489,9 @@
     <string name="hy_folder_t">Jeden folder</string>
     <string name="hy_folder">Każde urządzenie pisze tylko swój folder w środku i czyta wszystkie, więc kopie nigdy się nie gryzą. LexiPeek na komputerze używa tego samego folderu.</string>
     <string name="hy_apps_t">Jakie aplikacje</string>
-    <string name="hy_apps">Wybór folderu w Androidzie pokazuje tylko aplikacje, które dają folder do zapisu. Bezpośrednio: lokalny folder trzymany przez Syncthing-Fork (najpewniejszy między własnymi urządzeniami, także czytnikami jak Boox), Nextcloud, Yandex Disk. Oficjalne aplikacje Google Drive, OneDrive i Dropbox go nie dają: używaj ich, albo NAS Synology lub WebDAV, przez Round Sync lub RSAF, albo synchronizuj lokalny folder ich własnymi narzędziami.</string>
+    <string name="hy_apps">Wybór folderu w Androidzie pokazuje tylko aplikacje, które dają folder do zapisu. Bezpośrednio: lokalny folder trzymany przez Syncthing-Fork (najpewniejszy między własnymi urządzeniami, także czytnikami jak Boox), Synology Drive (zadanie synchronizacji), Nextcloud, Yandex Disk. Oficjalne aplikacje Google Drive, OneDrive i Dropbox go nie dają: używaj ich przez Round Sync lub RSAF.</string>
+    <string name="hy_nas_t">NAS Synology</string>
+    <string name="hy_nas">W Synology Drive: Więcej → Zadania kopii zapasowej i synchronizacji → Zadania synchronizacji → +, folder NAS ↔ folder lokalny; potem wybierz tutaj ten folder lokalny. Drive poprosi o „Dostęp do wszystkich plików”: jest potrzebny.</string>
     <string name="hy_when_t">Kiedy</string>
     <string name="hy_when">Zmiany są zapisywane od razu; folder jest czytany przy otwarciu InkPeek i kiedy się da. W tle Android może to opóźniać.</string>
     <string name="hk_how_t">AnkiDroid</string>

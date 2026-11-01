@@ -450,7 +450,7 @@
     <string name="sync_choose">Choisir…</string>
     <string name="sync_change">Changer…</string>
     <string name="sync_hint_t">La garder identique partout</string>
-    <string name="sync_hint">Choisissez un dossier qu’une appli de synchronisation garde sur cet appareil : Syncthing-Fork est le meilleur, Nextcloud et Yandex Disk aussi ; Google Drive, OneDrive, Dropbox ou un NAS via Round Sync ou RSAF. Détails dans l’Aide.</string>
+    <string name="sync_hint">Choisissez un dossier qu’une appli de synchronisation garde sur cet appareil : Syncthing-Fork est le meilleur ; Synology Drive (une tâche de synchronisation), Nextcloud et Yandex Disk aussi ; Google Drive, OneDrive ou Dropbox via Round Sync ou RSAF. Détails dans l’Aide.</string>
     <string name="sync_state_t">Dossier</string>
     <string name="sync_read">Lu le %1$s</string>
     <string name="sync_not_read">Pas encore lu</string>
@@ -488,7 +488,9 @@
     <string name="hy_folder_t">Un seul dossier</string>
     <string name="hy_folder">Chaque appareil n’écrit que son propre dossier dedans et les lit tous : les copies n’entrent jamais en conflit. LexiPeek sur un ordinateur utilise le même dossier.</string>
     <string name="hy_apps_t">Quelles applis</string>
-    <string name="hy_apps">Le sélecteur de dossiers d’Android ne montre que les applis qui offrent un dossier modifiable. Directement : un dossier local tenu par Syncthing-Fork (le plus fiable entre vos appareils, liseuses comme Boox comprises), Nextcloud, Yandex Disk. Les applis officielles de Google Drive, OneDrive et Dropbox n’en offrent pas : utilisez-les, ou un NAS Synology ou WebDAV, via Round Sync ou RSAF, ou synchronisez un dossier local avec leurs propres outils.</string>
+    <string name="hy_apps">Le sélecteur de dossiers d’Android ne montre que les applis qui offrent un dossier modifiable. Directement : un dossier local tenu par Syncthing-Fork (le plus fiable entre vos appareils, liseuses comme Boox comprises), Synology Drive (une tâche de synchronisation), Nextcloud, Yandex Disk. Les applis officielles de Google Drive, OneDrive et Dropbox n’en offrent pas : utilisez-les via Round Sync ou RSAF.</string>
+    <string name="hy_nas_t">NAS Synology</string>
+    <string name="hy_nas">Dans Synology Drive : Plus → Tâches de sauvegarde et de synchronisation → Tâches de synchronisation → +, un dossier du NAS ↔ un dossier local ; puis choisissez ce dossier local ici. Drive demande « Accès à tous les fichiers » : il est nécessaire.</string>
     <string name="hy_when_t">Quand</string>
     <string name="hy_when">Les changements sont écrits tout de suite ; le dossier est lu à l’ouverture d’InkPeek et dès que possible. En arrière-plan, Android peut retarder cela.</string>
     <string name="hk_how_t">AnkiDroid</string>

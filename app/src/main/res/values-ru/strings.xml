@@ -451,7 +451,7 @@
     <string name="sync_choose">Выбрать…</string>
     <string name="sync_change">Изменить…</string>
     <string name="sync_hint_t">Как держать её одинаковой везде</string>
-    <string name="sync_hint">Выберите папку, которую держит на устройстве приложение синхронизации: лучше всего Syncthing-Fork, подойдут Nextcloud и Яндекс Диск; Google Drive, OneDrive, Dropbox или NAS — через Round Sync или RSAF. Подробнее в Справке.</string>
+    <string name="sync_hint">Выберите папку, которую держит на устройстве приложение синхронизации: лучше всего Syncthing-Fork; подойдут Synology Drive (задача синхронизации), Nextcloud и Яндекс Диск; Google Drive, OneDrive или Dropbox — через Round Sync или RSAF. Подробнее в Справке.</string>
     <string name="sync_state_t">Папка</string>
     <string name="sync_read">Прочитана %1$s</string>
     <string name="sync_not_read">Ещё не прочитана</string>
@@ -489,7 +489,9 @@
     <string name="hy_folder_t">Одна папка</string>
     <string name="hy_folder">Каждое устройство пишет только свою папку внутри и читает все, поэтому копии никогда не конфликтуют. LexiPeek на компьютере работает с той же папкой.</string>
     <string name="hy_apps_t">Какие приложения</string>
-    <string name="hy_apps">Выбор папки в Android показывает только приложения, которые дают папку для записи. Напрямую: локальная папка, которую держит Syncthing-Fork (надёжнее всего между своими устройствами, и с читалками вроде Boox), Nextcloud, Яндекс Диск. Официальные приложения Google Drive, OneDrive и Dropbox такой папки не дают: используйте их или NAS Synology / WebDAV через Round Sync или RSAF, либо синхронизируйте локальную папку их собственными средствами.</string>
+    <string name="hy_apps">Выбор папки в Android показывает только приложения, которые дают папку для записи. Напрямую: локальная папка, которую держит Syncthing-Fork (надёжнее всего между своими устройствами, и с читалками вроде Boox), Synology Drive (задача синхронизации), Nextcloud, Яндекс Диск. Официальные приложения Google Drive, OneDrive и Dropbox такой папки не дают: используйте их через Round Sync или RSAF.</string>
+    <string name="hy_nas_t">Synology NAS</string>
+    <string name="hy_nas">В Synology Drive: Ещё → Задачи резервного копирования и синхронизации → Задачи синхронизации → +, папка NAS ↔ локальная папка; затем выберите эту локальную папку здесь. Drive попросит «Доступ ко всем файлам»: он нужен.</string>
     <string name="hy_when_t">Когда</string>
     <string name="hy_when">Изменения записываются сразу; папка читается при открытии InkPeek и когда получится. В фоне Android может это откладывать.</string>
     <string name="hk_how_t">AnkiDroid</string>
