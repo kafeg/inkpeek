@@ -290,9 +290,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    7. Notes in the card: 50 per page with the pager, as in settings.
    8. **Look up** in the selection menu (first icon): the selected text in the card; the words before are kept, ← and
       Back return to them; entries of Notes in the card open the same way. From settings it opens a card.
-   9. **Export** under the Notes list: the open tab (Words, Phrases, History) as TSV in `Download/InkPeek` via MediaStore —
-      text, meaning (the line shown), saved AI translation, the meaning's language, date — then Share. Readers send only
-      the selection, so no sentence column.
+   9. ~~Export as TSV~~: removed — Anki (Settings → Sync → Anki) replaces it.
 
 16. **Offline translation methods** (22.10; research in the owner's notes: Mozilla through English loses du/Sie, gender,
    idioms; measured on a phone and a Boox Go 6). One method for all pairs, Languages → InkPeek → Offline translation ›:
@@ -355,7 +353,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
    - Under the header: the frequency band (.rel: the rank) and "looked up N times" across the word's forms (history:
      each look's base form).
    - Notes → Export / Import: the whole store as one file (`VACUUM INTO`); an import adds missing rows by the columns
-     both have (an older backup works). The list's TSV export stays.
+     both have (an older backup works). No TSV export (Anki replaces it).
 
 20. **One way through settings and the card** (24.10). Rule: AI only on a person's action (or a setting they chose).
    - **Header:** one line under the title — version · Settings (⚙) · Help (?) — plain clickable text, no frames.

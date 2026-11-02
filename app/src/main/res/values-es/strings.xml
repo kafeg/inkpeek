@@ -259,7 +259,6 @@
     <string name="font_device_d">Fuentes de Android con todas las letras de la tarjeta: ä ß é ł д ж.</string>
     <string name="font_yours_d">De fonts/, koreader/fonts e InkPeek/fonts; ✕ borra un archivo elegido.</string>
     <string name="export">Exportar</string>
-    <string name="exported">Guardado: %1$s (%2$d)</string>
     <string name="look_dim">Oscurecer la página</string>
     <string name="look_dim_d">Desactivado por defecto: en e-ink se ve como una capa gris.</string>
     <string name="dim_off">No</string>
@@ -325,8 +324,7 @@
     <string name="backup_d">Todo a la vez — palabras y frases guardadas, el historial y las respuestas de la IA — a un archivo en Download/InkPeek, y de vuelta: una importación añade lo que este dispositivo no tiene.</string>
     <string name="backup_done">Guardado: %1$s</string>
     <string name="restore_done">Añadido: %1$d</string>
-    <string name="tsv_q">Una lista TSV para Anki o una hoja de cálculo: texto, significado, traducción de la IA, idioma, fecha. No se puede volver a importar — para pasar las notas a otro dispositivo, use «Exportar» abajo.</string>
-    <string name="restore_bad">No es una copia de seguridad de InkPeek: «Importar» toma el archivo inkpeek-backup-….db que crea «Exportar». Una lista .tsv es para Anki o una hoja de cálculo.</string>
+    <string name="restore_bad">No es una copia de seguridad de InkPeek: «Importar» toma el archivo inkpeek-backup-….db que crea «Exportar».</string>
     <string name="ans_lang">Idioma de las respuestas</string>
     <string name="ans_lang_d">Los diccionarios, las traducciones y las respuestas de la IA llegan en este idioma; los paquetes hacia él van primero.</string>
     <string name="ans_lang_same">Como la app</string>
@@ -424,8 +422,6 @@
     <string name="hw_hist">Todo lo que abres, las últimas 1000 entradas, con cuántas veces consultaste cada una; sus respuestas de IA se quedan con ellas, así que luego se abren sin conexión. Se desactiva en Tarjeta → Apertura → Historial.</string>
     <string name="hw_del_t">Borrar</string>
     <string name="hw_del">✕ quita una entrada; Borrar historial, todo el historial; lo guardado se queda.</string>
-    <string name="hw_anki_t">Anki</string>
-    <string name="hw_anki">El botón TSV guarda la lista abierta en Download/InkPeek: texto, significado, traducción IA, idioma, fecha — Anki la importa tal cual.</string>
     <string name="hw_backup_t">Exportar e importar</string>
     <string name="hw_backup">Exportar guarda todo (lo guardado, el historial, las respuestas de IA) en un solo archivo en Download/InkPeek; Importar añade de ese archivo lo que este dispositivo no tiene.</string>
     <string name="hw_daily_t">Copias diarias</string>

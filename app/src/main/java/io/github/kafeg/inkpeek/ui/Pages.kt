@@ -90,7 +90,6 @@ class HelpPage(private val a: MainActivity, private val box: LinearLayout) {
         },
         Topic(R.string.ht_notes, Triple(R.string.tab_words, null, null)) { t ->
             item(t, R.string.hw_save_t, R.string.hw_save); item(t, R.string.hw_hist_t, R.string.hw_hist); item(t, R.string.hw_del_t, R.string.hw_del)
-            item(t, R.string.hw_anki_t, R.string.hw_anki)
         },
         Topic(R.string.sync_t, Triple(R.string.tab_sync, "sync", R.string.sync_t)) { t ->
             item(t, R.string.hy_what_t, R.string.hy_what); item(t, R.string.hy_folder_t, R.string.hy_folder)
