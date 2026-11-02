@@ -27,7 +27,7 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
                     // Saved per model version: an updated model translates again. The English in between is saved as the
                     // text's translation into English (it is one).
                     val installed = prefs.packs.installed()
-                    fun ver(x: String, y: String) = Engine.steps(x, y).joinToString { (a, b) -> installed["model-$a-$b"].orEmpty() }.hashCode()
+                    fun ver(x: String, y: String) = version(Engine.steps(x, y).map { (a, b) -> installed["model-$a-$b"].orEmpty() })
                     val ver = ver(from, to)
                     val pivot = Engine.steps(from, to).size > 1
                     var en: String? = if (pivot) runCatching { store.answer(text, "en", "offline-$from", ver(from, "en")) }.getOrNull() else null
@@ -50,13 +50,18 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
         val packs = prefs.packs; val installed = packs.installed()
         val c = packs.cachedList().orEmpty().firstOrNull { it.kind == kind && "$from-$to" in it.covers && installed[it.id] == it.sha256 } ?: return null
         if (device()?.cannot(c) != null) return null
-        val ver = c.sha256.hashCode()
+        val ver = version(listOf(c.sha256))
         return runCatching {
             store.answer(text, to, "offline-$from", ver) ?: when (kind) {
                 "opus" -> Engine.translateDirect(packs.opusDir(c.id), from, c.tags[to], text, keep = roomy())
                 else -> Llm.translate(packs.llmFile(c.id), c.template, c.names, from, to, text, keep = roomy())
             }.also { runCatching { store.putAnswer(text, to, "offline-$from", ver, kind, it) } }
         }.fold({ Result(from, null, kotlin.Result.success(it), if (kind == "opus") "OPUS-MT" else c.name) }, { null }) // a failure: Mozilla
+    }
+
+    companion object {
+        /** An offline answer's ver: the sha256s of the models it took, in order (docs/formats.md, "Answer versions"). */
+        fun version(sha256s: List<String>): Int = sha256s.joinToString().hashCode()
     }
 
     /** The translation, if it is done. */

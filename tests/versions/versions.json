@@ -1,0 +1,15 @@
+{"about": "Answer versions (docs/formats.md, \"Answer versions\"): an AI prompt's (ask, the language you learn or null) and an offline answer's (the sha256s of the models it took, in order) → ver.", "cases": [
+{"ask": "quick", "study": null, "ver": 1031579369},
+{"ask": "quick", "study": "German", "ver": -466709766},
+{"ask": "quick", "study": "English", "ver": -808486070},
+{"ask": "analysis", "study": null, "ver": -358010166},
+{"ask": "analysis", "study": "German", "ver": -443731271},
+{"ask": "analysis", "study": "English", "ver": 844058411},
+{"ask": "context", "study": null, "ver": -357382659},
+{"ask": "context", "study": "German", "ver": -1894429594},
+{"ask": "context", "study": "English", "ver": -948749730},
+{"offline": ["9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08", "60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752"], "ver": 189589710},
+{"offline": ["9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"], "ver": -651348412},
+{"offline": ["hello"], "ver": 99162322},
+{"offline": [], "ver": 0}
+]}

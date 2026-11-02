@@ -90,6 +90,16 @@ the shared model: the sync log carries the same fields, the merged state in the 
 - Looks of a word count across its forms: Σ `count` where `COALESCE(base, text)` is the word.
 - A word saved as its base form takes the looked-up form's answers along.
 
+### Answer versions
+`ver` is a Java `String.hashCode()` (a 32-bit int), so an answer saved by one app opens in the other:
+- AI: of the request's original prompt (`Ask.prompt()`: the default abouts, the picked keys, without the system prompt);
+  with a language you learn, of the prompt + the study paragraph with its English name (`Ai.study`).
+- Offline: of the sha256s of the models it took, in order, joined by `", "` (`OfflineTranslation.version`): Mozilla's
+  steps (`model-<a>-<b>`, two through English), else the one OPUS-MT or Hy-MT2 component.
+
+Cases: `tests/versions/versions.json` (`ask` + `study` or `offline` → `ver`): every app runs all of them. A changed
+prompt changes its numbers: the case changes in the same commit, and the other app follows.
+
 ## Sync log
 The one format both apps write and read. No servers: the logs live in a folder
 that a sync tool (Syncthing, a cloud drive, a NAS share) copies between devices; the user picks it in each app
