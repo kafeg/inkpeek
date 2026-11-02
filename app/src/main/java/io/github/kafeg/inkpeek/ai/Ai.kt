@@ -265,6 +265,7 @@ object Ai {
         }
         // No reasoning pass: try the host's "off" field, then a weaker one, then none; remember what worked.
         // JSON mode first; a server without it gets the request again without, the prompt still asks for JSON.
+        // Again only when the error names the field: any other 400 would come back the same.
         val variants = noReasoning(url) + JSONObject()
         val memo = "${url.substringAfter("://").substringBefore('/')}|$model"; val fmtMemo = "json|$memo"
         var json = recall(fmtMemo) != 1
@@ -272,18 +273,21 @@ object Ai {
             val b = if (json) withFields(body, JSONObject().put("response_format", JSONObject().put("type", "json_object"))) else body
             var i = (recall(memo) ?: 0).coerceIn(0, variants.size - 1)
             var r = call(withFields(b, variants[i]))
-            while ((r.first == 400 || r.first == 422) && i < variants.size - 1) { i++; r = call(withFields(b, variants[i])) }
+            while (i < variants.size - 1 && rejects(r, variants[i].keys().asSequence().toList())) { i++; r = call(withFields(b, variants[i])) }
             if (r.first in 200..299) remember(memo, i)
             return r
         }
         var (code, s) = attempt()
-        if ((code == 400 || code == 422) && json) { json = false; attempt().let { code = it.first; s = it.second }; if (code in 200..299) remember(fmtMemo, 1) }
+        if (json && rejects(code to s, listOf("response_format", "json_object"))) { json = false; attempt().let { code = it.first; s = it.second }; if (code in 200..299) remember(fmtMemo, 1) }
         if (code !in 200..299) throw AiError("${p.title}: HTTP $code ${errorText(s)}")
         val choices = JSONObject(s).optJSONArray("choices") ?: throw AiError("${p.title}: ${errorText(s)}")
         val first = choices.getJSONObject(0)
         if (first.optString("finish_reason") == "length") throw AiError(CUT)
         return first.getJSONObject("message").optString("content", "").takeIf { it != "null" }.orEmpty()
     }
+
+    /** A 400 or 422 about one of [fields] (an unknown field, a value it does not take). */
+    private fun rejects(r: Pair<Int, String>, fields: List<String>) = (r.first == 400 || r.first == 422) && fields.any { r.second.contains(it, ignoreCase = true) }
 
     private const val CUT = "The answer was cut off: the text is too long for one answer"
 

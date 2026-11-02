@@ -32,7 +32,7 @@ class AiTest {
             JSONObject().put("content", "```json\n" + JSONObject().put("translation", "дом") + "\n```")))).toString()
         val seen = ArrayList<Boolean>()
         val ss = serve { b -> seen += b.has("reasoning_effort"); assertEquals("json_object", b.getJSONObject("response_format").getString("type"))
-            if (b.has("reasoning_effort")) 400 to """{"error":{"message":"unknown field"}}""" else 200 to reply }
+            if (b.has("reasoning_effort")) 400 to """{"error":{"message":"Unrecognized request argument supplied: reasoning_effort"}}""" else 200 to reply }
         val memo = HashMap<String, Int>()
         Ai.recall = { memo[it] }; Ai.remember = { k, v -> memo[k] = v }
         try {
@@ -42,6 +42,18 @@ class AiTest {
             seen.clear()
             assertEquals("дом", Ai.ask(Provider.CUSTOM, "", "m", Ask.ANALYSIS, "Haus", "Russian", url).getString("translation"))
             assertEquals(listOf(false), seen) // remembered: one call
+        } finally { ss.close() }
+    }
+
+    /** A 400 that is not about a field the app adds (too long, a bad model) is not sent again in other variants. */
+    @Test fun otherBadRequestIsAskedOnce() {
+        var calls = 0
+        val ss = serve { calls++; 400 to """{"error":{"message":"This model's maximum context length is 4096 tokens"}}""" }
+        Ai.recall = { null }; Ai.remember = { _, _ -> }
+        try {
+            val e = runCatching { Ai.ask(Provider.CUSTOM, "", "m", Ask.QUICK, "Haus", "Russian", "http://127.0.0.1:${ss.localPort}/v1") }.exceptionOrNull()
+            org.junit.Assert.assertTrue(e?.message.orEmpty().contains("HTTP 400"))
+            assertEquals(1, calls)
         } finally { ss.close() }
     }
 
