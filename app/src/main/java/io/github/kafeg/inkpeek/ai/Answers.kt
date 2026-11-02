@@ -7,6 +7,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.runInterruptible
 import org.json.JSONObject
 
 /** The AI answers about one [text]: each request started once and shared by the tabs; a saved answer opens offline. */
@@ -28,8 +30,10 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
             val name = name(); val ver = ask.version(name)
             store.answer(text, lang, ask.section, ver)?.let { return@runCatching JSONObject(it) }
             if (pr != Provider.CUSTOM && !online()) throw Offline() // a server on the local network needs no internet
-            Ai.ask(pr, prefs.effectiveKey(pr), model, ask, text, lang, prefs.url(pr), source(), name)
-                .also { runCatching { store.putAnswer(text, lang, ask.section, ver, model, it.toString()) } }
+            val key = prefs.effectiveKey(pr); val url = prefs.url(pr); val from = source()
+            // The card closed: the request is cancelled, a late answer not saved (only the request: an interrupted file read closes its channel).
+            runInterruptible { Ai.ask(pr, key, model, ask, text, lang, url, from, name) }
+                .also { ensureActive(); runCatching { store.putAnswer(text, lang, ask.section, ver, model, it.toString()) } }
         } }.also { started[ask] = it }
     }
 

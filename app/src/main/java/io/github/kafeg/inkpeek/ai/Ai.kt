@@ -9,12 +9,18 @@ import com.anthropic.models.beta.messages.BetaJsonOutputFormat
 import com.anthropic.models.beta.messages.BetaOutputConfig
 import com.anthropic.models.beta.messages.BetaThinkingConfigDisabled
 import com.anthropic.models.beta.messages.MessageCreateParams
+import okhttp3.Call
+import okhttp3.Callback
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.IOException
+import java.util.concurrent.CompletableFuture
+import java.util.concurrent.ExecutionException
 import java.util.concurrent.TimeUnit
 
 enum class Provider(val title: String, val baseUrl: String, val defaultModel: String) {
@@ -247,7 +253,15 @@ object Ai {
         fun call(b: JSONObject): Pair<Int, String> {
             val req = Request.Builder().url(url.trimEnd('/') + "/chat/completions").apply { if (key.isNotBlank()) header("Authorization", "Bearer $key") }
                 .header("X-Title", "InkPeek").post(b.toString().toRequestBody("application/json".toMediaType())).build()
-            return (if (p == Provider.CUSTOM) slow else http).newCall(req).execute().use { it.code to it.body?.string().orEmpty() }
+            // Enqueued, not executed: an interrupt (the card closed) cancels the call itself, not only the wait for it.
+            val c = (if (p == Provider.CUSTOM) slow else http).newCall(req); val f = CompletableFuture<Pair<Int, String>>()
+            c.enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) { f.completeExceptionally(e) }
+                override fun onResponse(call: Call, response: Response) {
+                    runCatching { response.use { it.code to it.body?.string().orEmpty() } }.fold({ f.complete(it) }, { f.completeExceptionally(it) })
+                }
+            })
+            return try { f.get() } catch (e: InterruptedException) { c.cancel(); throw e } catch (e: ExecutionException) { throw e.cause ?: e }
         }
         // No reasoning pass: try the host's "off" field, then a weaker one, then none; remember what worked.
         // JSON mode first; a server without it gets the request again without, the prompt still asks for JSON.

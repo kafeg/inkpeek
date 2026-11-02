@@ -31,8 +31,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.job
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 
 /**
  * The pop-up card: the header (the word's first line from the packs), the open tab's page, the icon bar. The tabs fill
@@ -227,8 +230,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
     override fun onDestroy() {
-        cancel()
-        if (isFinishing && !prefs.history) Thread { runCatching { store.dropUnkept() } }.start()
+        val work = coroutineContext.job; cancel()
+        // After the card's requests have stopped: none saves an answer after the drop.
+        if (isFinishing && !prefs.history) Thread { runBlocking { withTimeoutOrNull(60_000) { work.join() } }; runCatching { store.dropUnkept() } }.start()
         // The card's look goes to the sync log, the folder is read, what waits goes to Anki.
         if (isFinishing) io.github.kafeg.inkpeek.sync.Sync.refresh()
         super.onDestroy()
