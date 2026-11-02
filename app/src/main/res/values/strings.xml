@@ -448,7 +448,7 @@
     <string name="sync_choose">Choose…</string>
     <string name="sync_change">Change…</string>
     <string name="sync_hint_t">Keeping it the same everywhere</string>
-    <string name="sync_hint">Pick a folder a sync app keeps on this device: Syncthing-Fork works best; Synology Drive (a sync task), Nextcloud and Yandex Disk too; Google Drive, OneDrive or Dropbox through Round Sync or RSAF. Details in Help.</string>
+    <string name="sync_hint">Pick a folder that a sync app keeps on this device — Syncthing, Nextcloud, your NAS\'s or cloud\'s app. A cloud app that gives no folder (Google Drive, OneDrive, Dropbox) works through a bridge such as Round Sync or RSAF. Details in Help.</string>
     <string name="sync_state_t">Folder</string>
     <string name="sync_read">Read %1$s</string>
     <string name="sync_not_read">Not read yet</string>
@@ -489,9 +489,9 @@
     <string name="hy_folder_t">One folder</string>
     <string name="hy_folder">Each device writes only its own folder inside it and reads all of them, so copies never conflict. LexiPeek on a computer uses the same folder.</string>
     <string name="hy_apps_t">Which apps</string>
-    <string name="hy_apps">Android\'s folder picker shows only apps that give a folder InkPeek can write to. Directly: a local folder kept by Syncthing-Fork (the most reliable between your own devices, e-readers like Boox too), Synology Drive (a sync task), Nextcloud, Yandex Disk. Google Drive, OneDrive and Dropbox\'s own apps give none: use them through Round Sync or RSAF.</string>
-    <string name="hy_nas_t">Synology NAS</string>
-    <string name="hy_nas">In Synology Drive: More → Backup and Sync Tasks → Sync Tasks → +, a NAS folder ↔ a local folder; then pick that local folder here. Drive asks for “All files access”: it is needed.</string>
+    <string name="hy_apps">Android\'s folder picker shows only apps that give a folder InkPeek can write to. Any app that keeps a local folder the same as elsewhere works: Syncthing between your own devices, Nextcloud, a NAS\'s or a cloud\'s own app. Apps that give no such folder (Google Drive, OneDrive, Dropbox) work through a bridge app such as Round Sync or RSAF.</string>
+    <string name="hy_nas_t">A server or a NAS</string>
+    <string name="hy_nas">If your app syncs a folder of this device with a server or a NAS (a two-way sync task, not a backup), pick that local folder here. An app may ask for “All files access”: it is needed.</string>
     <string name="hy_when_t">When</string>
     <string name="hy_when">What you change is written at once; the folder is read when InkPeek opens and when it can. Android may delay that in the background.</string>
     <string name="hk_how_t">AnkiDroid</string>

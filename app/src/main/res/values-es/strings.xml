@@ -448,7 +448,7 @@
     <string name="sync_choose">Elegir…</string>
     <string name="sync_change">Cambiar…</string>
     <string name="sync_hint_t">Mantenerla igual en todas partes</string>
-    <string name="sync_hint">Elija una carpeta que una app de sincronización mantenga en este dispositivo: Syncthing-Fork es lo mejor; también Synology Drive (una tarea de sincronización), Nextcloud y Yandex Disk; Google Drive, OneDrive o Dropbox a través de Round Sync o RSAF. Detalles en la Ayuda.</string>
+    <string name="sync_hint">Elija una carpeta que una app de sincronización mantenga en este dispositivo — Syncthing, Nextcloud, la app de su NAS o su nube. Una nube que no da carpeta (Google Drive, OneDrive, Dropbox) funciona a través de un puente como Round Sync o RSAF. Detalles en la Ayuda.</string>
     <string name="sync_state_t">Carpeta</string>
     <string name="sync_read">Leída el %1$s</string>
     <string name="sync_not_read">Aún no leída</string>
@@ -489,9 +489,9 @@
     <string name="hy_folder_t">Una carpeta</string>
     <string name="hy_folder">Cada dispositivo escribe solo su propia carpeta dentro y lee todas, así que las copias nunca chocan. LexiPeek en un ordenador usa la misma carpeta.</string>
     <string name="hy_apps_t">Qué apps</string>
-    <string name="hy_apps">El selector de carpetas de Android solo muestra apps que dan una carpeta con escritura. Directamente: una carpeta local que mantiene Syncthing-Fork (lo más fiable entre sus dispositivos, también lectores como Boox), Synology Drive (una tarea de sincronización), Nextcloud, Yandex Disk. Las apps oficiales de Google Drive, OneDrive y Dropbox no la dan: úselas a través de Round Sync o RSAF.</string>
-    <string name="hy_nas_t">NAS Synology</string>
-    <string name="hy_nas">En Synology Drive: Más → Tareas de copia de seguridad y sincronización → Tareas de sincronización → +, una carpeta del NAS ↔ una carpeta local; luego elija esa carpeta local aquí. Drive pide «Acceso a todos los archivos»: es necesario.</string>
+    <string name="hy_apps">El selector de carpetas de Android solo muestra apps que dan una carpeta donde InkPeek puede escribir. Sirve cualquier app que mantenga una carpeta local igual que en otros sitios: Syncthing entre sus dispositivos, Nextcloud, la app de un NAS o de una nube. Las apps sin esa carpeta (Google Drive, OneDrive, Dropbox) funcionan a través de una app puente como Round Sync o RSAF.</string>
+    <string name="hy_nas_t">Un servidor o un NAS</string>
+    <string name="hy_nas">Si su app sincroniza una carpeta de este dispositivo con un servidor o un NAS (una tarea de sincronización en ambos sentidos, no una copia de seguridad), elija aquí esa carpeta local. Una app puede pedir «Acceso a todos los archivos»: es necesario.</string>
     <string name="hy_when_t">Cuándo</string>
     <string name="hy_when">Los cambios se escriben al momento; la carpeta se lee al abrir InkPeek y cuando se puede. En segundo plano Android puede retrasarlo.</string>
     <string name="hk_how_t">AnkiDroid</string>
