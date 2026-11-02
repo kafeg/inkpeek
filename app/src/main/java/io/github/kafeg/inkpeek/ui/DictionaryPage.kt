@@ -34,6 +34,9 @@ class DictionaryPage(private val card: CardActivity) {
             return "$form$first<br><small>${Ink.escape(source)}</small>"
         }
 
+        /** A word's one line from the packs: with its grammar ("das Haus (Hauses, мн. Häuser) — дом"), or without when that is off. */
+        fun shortLine(prefs: io.github.kafeg.inkpeek.Prefs, h: Head): String = if (prefs.packGrammar) h.line else "${h.word} — ${h.meaning}"
+
         /** The first meaning of an entry: "дом, здание". */
         fun meaning(h: Hit): String = headLine(h.html)?.let { Head(h.word, it).meaning } ?: runCatching { shortMeaning(h.html, h.word) }.getOrDefault("")
 
@@ -184,7 +187,7 @@ class DictionaryPage(private val card: CardActivity) {
 
     /** A gloss row: "schläft: schlafen (schläft, schlief, hat geschlafen) — спать", the word alone when no pack knows it. */
     private fun glossLine(x: Gloss): String {
-        val line = x.head?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") }
+        val line = x.head?.let { Ink.escape(shortLine(card.prefs, it)) }
         return when {
             line == null -> "<b>${Ink.escape(x.word)}</b>"
             x.base.equals(x.word, true) -> line
@@ -279,7 +282,7 @@ class DictionaryPage(private val card: CardActivity) {
             if (g.isEmpty()) card.note(p, card.getString(R.string.not_found))
             // A verb written apart first: "mache … zu: zumachen (macht zu, …) — закрывать".
             apart.forEach { (f, h) ->
-                val line = h?.let { Ink.escape(if (card.prefs.packGrammar) it.line else "${it.word} — ${it.meaning}") } ?: "<b>${Ink.escape(f.verb)}</b>"
+                val line = h?.let { Ink.escape(shortLine(card.prefs, it)) } ?: "<b>${Ink.escape(f.verb)}</b>"
                 listRow(p, "<b>${Ink.escape(f.form)} … ${Ink.escape(f.particle)}</b>: $line") { tap(f.verb) }
             }
             // The same first line as the header and the Dictionary tab: "der Hund (Hundes, мн. Hunde) — собака".

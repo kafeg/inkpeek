@@ -15,7 +15,7 @@ import org.json.JSONObject
 class Answers(private val prefs: Prefs, private val store: Store, private val text: String, private val study: () -> String?,
               private val online: () -> Boolean) {
     /** The language you learn for this text, as AI is told it ("German"); blocking. */
-    private fun name() = study()?.let { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
+    private fun name() = study()?.let(Prefs::english)
 
     /** No network and no saved answer. */
     class Offline : Exception()
@@ -45,7 +45,7 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
     /** The text's language as the offline side finds it (fastText, then the pack that knows more words), in English. */
     private fun source(): String? = runCatching {
         val (book, other) = io.github.kafeg.inkpeek.mt.LangId.source(text, prefs.answerCode, prefs.packs, prefs.packDictionaries())
-        (book ?: other)?.let { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) }
+        (book ?: other)?.let(Prefs::english)
     }.getOrNull()
 
     /** Why an AI tab cannot open now (a string id), or null. Blocking. */

@@ -87,7 +87,7 @@ class Prefs(private val ctx: Context) {
         return lang.takeIf { io.github.kafeg.inkpeek.mt.LangId.source(text, ans, packs, packDictionaries(), self = true).first == ans }
     }
     /** Its English name ("Russian"): what AI prompts and saved answers use. */
-    val answerLang: String get() = java.util.Locale(answerCode).getDisplayLanguage(java.util.Locale.ENGLISH)
+    val answerLang: String get() = english(answerCode)
     var provider: Provider
         get() = runCatching { Provider.valueOf(sp.getString("provider", Provider.ANTHROPIC.name)!!) }.getOrDefault(Provider.ANTHROPIC)
         set(v) = sp.edit().putString("provider", v.name).apply()
@@ -153,7 +153,7 @@ class Prefs(private val ctx: Context) {
         return packs.cachedList().orEmpty().any { it.kind == kind && it.id in have }
     }
     /** An AI module (AI → Modules) can ask: AI on and a part of it ticked. */
-    fun aiModule(ask: io.github.kafeg.inkpeek.ai.Ask) = aiOn && ask.keys.any { aiKey("${ask.section}.${it.name}") ?: !it.extra }
+    fun aiModule(ask: io.github.kafeg.inkpeek.ai.Ask) = aiOn && ask.active.isNotEmpty()
     /** Mozilla's English in between shown under a translation through English. */
     var mtEnglish: Boolean get() = sp.getBoolean("mt_english", false); set(v) = sp.edit().putBoolean("mt_english", v).apply()
     /** A method's measured time per phrase on this device, ms (0: not measured). */
@@ -200,5 +200,7 @@ class Prefs(private val ctx: Context) {
         private fun ticked(p: android.content.SharedPreferences, d: StarDict) = p.getStringSet("pairs", null)?.contains("${d.book}-${d.answer}") ?: true
         /** App languages = the answer languages of the packs. */
         val ANSWERS = listOf("en", "ru", "de", "fr", "es", "it", "pt", "pl")
+        /** A language's English name ("de" → "German"): what AI prompts, saved answers and the sync log use. */
+        fun english(code: String): String = java.util.Locale(code).getDisplayLanguage(java.util.Locale.ENGLISH)
     }
 }

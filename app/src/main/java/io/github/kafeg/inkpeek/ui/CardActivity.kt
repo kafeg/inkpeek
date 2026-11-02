@@ -143,7 +143,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             if (offlineOk && prefs.mtMethod != "llm") launch {
                 val lang = withContext(Dispatchers.IO) { study }
                 (if (lang == null) mt else mtStudy).start(this@CardActivity).await().text?.getOrNull()?.takeIf { prefs.history }?.let { t -> withContext(Dispatchers.IO) {
-                    runCatching { store.meaning(query, kindName, t, lang?.let { java.util.Locale(it).getDisplayLanguage(java.util.Locale.ENGLISH) } ?: prefs.answerLang) } } }
+                    runCatching { store.meaning(query, kindName, t, lang?.let(Prefs::english) ?: prefs.answerLang) } } }
             }
         }
         // The direction under the title when the text is shown in the language you learn: "ru → de".
@@ -578,7 +578,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             val (key, keyKind) = saveKey()
             if (isSaved()) { store.unsave(key); store.unsave(query); false } else {
                 val line = answers.saved() ?: if (keyKind != "word") mt.done() else prefs.library().heads(key, prefs.answerCode, prefs.packDictionaries())
-                    .firstOrNull()?.let { if (prefs.packGrammar) it.line else "${it.word} — ${it.meaning}" }
+                    .firstOrNull()?.let { DictionaryPage.shortLine(prefs, it) }
                 store.save(key, keyKind, line.orEmpty(), prefs.answerLang, from = query); true
             }
         }.getOrNull() } ?: return@launch

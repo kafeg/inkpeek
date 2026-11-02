@@ -118,7 +118,7 @@ class AiSettings(private val a: MainActivity) {
             ask.keys.forEach { k ->
                 val id = "${ask.section}.${k.name}"
                 val (name, about) = KEYS[k.name] ?: return@forEach
-                t.addView(Rows.check(a, a.getString(name), mark(prefs.prompt(id) != null, a.getString(about)), prefs.aiKey(id) ?: !k.extra,
+                t.addView(Rows.check(a, a.getString(name), mark(prefs.prompt(id) != null, a.getString(about)), ask.on(k),
                     edit = { prompts(a.getString(name) + " · AI", R.string.prompt_keys, listOf(Triple(id, null, k.about))) { refreshModules() } }) { prefs.setAiKey(id, it) })
             }
         }

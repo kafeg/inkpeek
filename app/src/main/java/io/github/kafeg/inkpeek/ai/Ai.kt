@@ -124,8 +124,10 @@ enum class Ask(val intro: String, val keys: List<Key>, val tail: String, val max
         Key("origin", "s", "where the word comes from, in 1–3 sentences, and a memorable link to a word the reader may know; " +
             "\"\" for a passage.", extra = true)), "", 3000);
 
-    /** The keys asked now (AI → Modules); none: the module is off — no tab, no request. */
-    val active: List<Key> get() = keys.filter { k -> Ai.picked("$section.${k.name}") ?: !k.extra }
+    /** A key ticked (AI → Modules), else its default: on unless [Key.extra]. */
+    fun on(k: Key): Boolean = Ai.picked("$section.${k.name}") ?: !k.extra
+    /** The keys asked now; none: the module is off — no tab, no request. */
+    val active: List<Key> get() = keys.filter(::on)
 
     /** The prompt with the edited abouts ([edited]: "analysis.grammar" → text, null — the original). */
     fun prompt(edited: (String) -> String? = { null }): String = "Selected text: «{text}». $intro\n" +
