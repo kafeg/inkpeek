@@ -4,6 +4,12 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.261 — 2026-11-02
+- The card opens without a freeze on a slow reader ("…" meanwhile); turning the screen or switching the theme keeps the
+  open tab, article and scroll, and AI answers already in are not asked again.
+- AI: a closed card stops its requests (also with history off nothing late is saved); an own server is no longer asked
+  several times after an error.
+
 ### 0.8.255 — 2026-11-01
 - Sync: a word removed while the folder could not be written no longer comes back after the app is closed; a word
   saved during a slow folder read is kept; a slow cloud folder no longer freezes the Sync tab. Words from InkPeek and

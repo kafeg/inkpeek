@@ -1,0 +1,1 @@
+The card opens without freezing on slow readers; turning the screen keeps the open tab and its AI answers. A closed card stops its AI requests; an own AI server is no longer asked again and again after an error.
