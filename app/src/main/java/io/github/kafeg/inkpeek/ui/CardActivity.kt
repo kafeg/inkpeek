@@ -30,6 +30,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -98,10 +99,30 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
         val raw = Ink.cut(textOf(intent).orEmpty(), 4000) // about a page
         query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
-        // "die Konjugation": the noun's word card (the pack's header starts so). Blocking, only for two words.
-        if (kind == Kind.PHRASE && Kind.words(query) == 2)
-            runCatching { prefs.library().articleNoun(query, prefs.answerCode, prefs.packDictionaries()) }.getOrNull()?.let { query = it }
         if (query.isEmpty()) { finish(); return }
+        // Storage off the main thread (a slow reader's /sdcard): the packs, the notes; a card not ready at once shows "…".
+        val wait = launch { delay(150); waiting() }
+        launch {
+            query = withContext(Dispatchers.IO) {
+                offlineOk; store
+                // "die Konjugation": the noun's word card (the pack's header starts so). Only for two words.
+                if (kind != Kind.PHRASE || Kind.words(query) != 2) query
+                else runCatching { prefs.library().articleNoun(query, prefs.answerCode, prefs.packDictionaries()) }.getOrNull() ?: query
+            }
+            wait.cancel()
+            start()
+        }
+    }
+
+    /** The card while its text is looked up: "…", as a tab still being filled. */
+    private fun waiting() {
+        val pad = Ink.dp(this, 14)
+        setContentView(Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad)
+            addView(Ink.text(this@CardActivity, "…", size)) })
+        placeWindow()
+    }
+
+    private fun start() {
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
         // tab|place|scroll: the place may hold a headword with "|" in it.
@@ -564,7 +585,8 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
 
     /** A tap beside a selection ends it and its menu. */
     override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean {
-        TextActions.outside(ev); swipe.onTouchEvent(ev); return super.dispatchTouchEvent(ev)
+        if (::root.isInitialized) { TextActions.outside(ev); swipe.onTouchEvent(ev) }
+        return super.dispatchTouchEvent(ev)
     }
 
     /** Full articles: a swipe left or right turns to the next or previous dictionary. */
