@@ -101,7 +101,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         prefs = Prefs(this)
         // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
         val raw = Ink.cut(textOf(intent).orEmpty(), 4000) // about a page
-        query = if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
+        query = savedInstanceState?.getString(QUERY) ?: if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
         if (query.isEmpty()) { finish(); return }
         // Storage off the main thread (a slow reader's /sdcard): the packs, the notes; a card not ready at once shows "…".
         val wait = launch { delay(150); waiting() }
@@ -109,11 +109,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
             query = withContext(Dispatchers.IO) {
                 offlineOk; store
                 // "die Konjugation": the noun's word card (the pack's header starts so). Only for two words.
-                if (kind != Kind.PHRASE || Kind.words(query) != 2) query
+                if (savedInstanceState != null || kind != Kind.PHRASE || Kind.words(query) != 2) query
                 else runCatching { prefs.library().articleNoun(query, prefs.answerCode, prefs.packDictionaries()) }.getOrNull() ?: query
             }
             wait.cancel()
-            start()
+            start(savedInstanceState)
         }
     }
 
@@ -125,11 +125,11 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         placeWindow()
     }
 
-    private fun start() {
+    private fun start(saved: Bundle?) {
         before = intent.getStringArrayListExtra(BEFORE).orEmpty()
         beforeAt = intent.getStringArrayListExtra(BEFORE_AT).orEmpty().let { if (it.size == before.size) it else before.map { "" } }
         // tab|place|scroll: the place may hold a headword with "|" in it.
-        val back = intent.getStringExtra(AT)?.let { listOf(it.substringBefore('|'), it.substringAfter('|').substringBeforeLast('|'), it.substringAfterLast('|')) }
+        val back = (saved?.getString(AT) ?: intent.getStringExtra(AT))?.let { listOf(it.substringBefore('|'), it.substringAfter('|').substringBeforeLast('|'), it.substringAfterLast('|')) }
         // One look per opening: not again when the card is made anew (theme, language) or returned to with ←.
         if (prefs.history && back == null && !intent.getBooleanExtra(COUNTED, false)) { intent.putExtra(COUNTED, true)
             seenJob = launch(Dispatchers.IO) { runCatching { store.seen(query, kindName) } } }
@@ -150,6 +150,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         launch { withContext(Dispatchers.IO) { study }?.let { dirLine = io.github.kafeg.inkpeek.Study.direction(prefs.answerCode, it); showSub() } }
         // Back from a word looked up here: the tab, article and scroll it was left at; else where a new card starts.
         if (back != null && back.size == 3 && back[0] in tabButtons) {
+            saved?.let { translate.by = it.getString(TRANSLATE).orEmpty(); ai.by = it.getString(AI).orEmpty() }
             dictionary.restore = back[1]; restoreScroll = back[2].toIntOrNull() ?: -1
             open(back[0])
             if (back[0] != DICT && restoreScroll >= 0) scroll.postDelayed({ scrollBack() }, 400)
@@ -227,7 +228,17 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         scroll.scrollTo(0, at)
     }
 
-    override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); recreate() }
+    /** Made anew (rotation, theme): the same text, tab, sub-tab, article and scroll; AI answers come from the notes. */
+    override fun onSaveInstanceState(out: Bundle) {
+        super.onSaveInstanceState(out)
+        if (!::root.isInitialized || renewed) return
+        out.putString(QUERY, query); out.putString(AT, "$shown|${dictionary.place}|${scroll.scrollY}")
+        out.putString(TRANSLATE, translate.by); out.putString(AI, ai.by)
+    }
+
+    /** A new text came: the card starts anew, not where the old one was. */
+    private var renewed = false
+    override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); renewed = true; recreate() }
     override fun onPause() { TextActions.end(); super.onPause() }
     override fun onDestroy() {
         val work = coroutineContext.job; cancel()
@@ -582,6 +593,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         private const val BEFORE = "inkpeek.before"; private const val BEFORE_AT = "inkpeek.before.at"; private const val AT = "inkpeek.at"
         /** The intent's look is counted (the card made again keeps its intent). */
         private const val COUNTED = "inkpeek.counted"
+        private const val QUERY = "inkpeek.query"
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"; const val AI = "ai"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4
