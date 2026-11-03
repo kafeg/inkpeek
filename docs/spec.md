@@ -269,7 +269,7 @@ otherwise, with a plain note in the app and the README that it goes through Engl
       icons opens over it (copy, share, search the web; select all for a text), like FBReader's: nothing on the page
       moves. One card for every way in (a reader, the search field, Notes), so it works the same everywhere.
    2. **Version and updates**: the settings' status line shows the version on the right, "0.5.112 → 0.5.118" when a
-      newer release is out (as of the last check). A tap opens About: what InkPeek is, the version and the update
+      newer release is out (as of the last check). A tap opens About: what InkPeek is, LexiPeek (its desktop sibling, a link), the version and the update
       state, Check now, GitHub, the licenses. The update check runs only on the person's action (About → Check now; one
       request to GitHub); never automatic.
       Update: the APK through the download dialog (progress, Cancel, Hide), then Android's installer.

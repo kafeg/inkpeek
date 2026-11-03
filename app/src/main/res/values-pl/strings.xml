@@ -224,6 +224,7 @@
     <string name="search_web">Szukaj w sieci</string>
     <string name="select_all">Zaznacz wszystko</string>
     <string name="about_text">Wyskakujący słownik i tłumacz dla czytników: pakiety językowe, własne słowniki StarDict, tłumaczenie offline; AI według uznania.</string>
+    <string name="about_lexipeek">LexiPeek: ten sam słownik na komputerze (Mac, Windows, Linux), z synchronizacją i Anki między nimi →</string>
     <string name="update_latest">Najnowsza wersja. Sprawdzono o %1$s.</string>
     <string name="update_never">Jeszcze nie sprawdzano.</string>
     <string name="update_new">Nowa wersja: %1$s</string>

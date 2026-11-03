@@ -224,6 +224,7 @@
     <string name="search_web">Buscar en la web</string>
     <string name="select_all">Seleccionar todo</string>
     <string name="about_text">Diccionario y traductor emergente para lectores: paquetes de idioma, tus diccionarios StarDict, traducción sin conexión; IA si quieres.</string>
+    <string name="about_lexipeek">LexiPeek: el mismo diccionario en el ordenador (Mac, Windows, Linux), con sincronización y Anki entre ambos →</string>
     <string name="update_latest">Última versión. Comprobado a las %1$s.</string>
     <string name="update_never">Aún no comprobado.</string>
     <string name="update_new">Nueva versión: %1$s</string>

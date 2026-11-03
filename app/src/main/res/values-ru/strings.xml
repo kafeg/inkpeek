@@ -224,6 +224,7 @@
     <string name="search_web">Искать в интернете</string>
     <string name="select_all">Выделить всё</string>
     <string name="about_text">Всплывающий словарь и переводчик для читалок: языковые пакеты, свои словари StarDict, офлайн-перевод; AI — по желанию.</string>
+    <string name="about_lexipeek">LexiPeek: тот же словарь на компьютере (Mac, Windows, Linux), с синхронизацией и Anki между ними →</string>
     <string name="update_latest">Последняя версия. Проверено в %1$s.</string>
     <string name="update_never">Ещё не проверялось.</string>
     <string name="update_new">Есть %1$s</string>

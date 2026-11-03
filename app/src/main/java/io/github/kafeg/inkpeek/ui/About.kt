@@ -8,9 +8,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** About: what InkPeek is, the version and the update state, Check now / Update, GitHub, licenses. */
+/** About: what InkPeek is, LexiPeek (its desktop sibling), the version and the update state, Check now / Update, GitHub, licenses. */
 object About {
     private const val GITHUB = "https://github.com/kafeg/inkpeek"
+    private const val LEXIPEEK = "https://github.com/kafeg/lexipeek"
 
     fun show(a: MainActivity) {
         val box = Ink.vertical(a)
@@ -40,6 +41,10 @@ object About {
         }
         box.addView(Ink.text(a, "InkPeek " + Updates.versionName(a), 20f, bold = true))
         box.addView(Ink.text(a, a.getString(R.string.about_text), 15f), Ink.lp().apply { topMargin = Ink.dp(a, 6) })
+        box.addView(Ink.text(a, a.getString(R.string.about_lexipeek), 15f).apply {
+            paintFlags = paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
+            setOnClickListener { runCatching { a.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(LEXIPEEK))) } }
+        }, Ink.lp().apply { topMargin = Ink.dp(a, 10) })
         if (Updates.enabled) {
             box.addView(state, Ink.lp().apply { topMargin = Ink.dp(a, 14) })
             box.addView(action, Ink.lp().apply { topMargin = Ink.dp(a, 8) })

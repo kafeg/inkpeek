@@ -224,6 +224,7 @@
     <string name="search_web">Im Web suchen</string>
     <string name="select_all">Alles auswählen</string>
     <string name="about_text">Ein Pop-up-Wörterbuch und Übersetzer für E-Reader: Sprachpakete, eigene StarDict-Wörterbücher, Offline-Übersetzung; KI nach Wunsch.</string>
+    <string name="about_lexipeek">LexiPeek: dasselbe Wörterbuch auf dem Computer (Mac, Windows, Linux), mit Synchronisierung und Anki zwischen beiden →</string>
     <string name="update_latest">Die neueste Version. Geprüft um %1$s.</string>
     <string name="update_never">Noch nicht geprüft.</string>
     <string name="update_new">%1$s ist da</string>

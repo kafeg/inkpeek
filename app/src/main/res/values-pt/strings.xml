@@ -224,6 +224,7 @@
     <string name="search_web">Pesquisar na web</string>
     <string name="select_all">Selecionar tudo</string>
     <string name="about_text">Dicionário e tradutor em pop-up para leitores: pacotes de idioma, os seus dicionários StarDict, tradução offline; IA se quiser.</string>
+    <string name="about_lexipeek">LexiPeek: o mesmo dicionário no computador (Mac, Windows, Linux), com sincronização e Anki entre os dois →</string>
     <string name="update_latest">Última versão. Verificado às %1$s.</string>
     <string name="update_never">Ainda não verificado.</string>
     <string name="update_new">Saiu a %1$s</string>
