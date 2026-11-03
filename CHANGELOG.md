@@ -4,6 +4,9 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.267 — 2026-11-03
+- About names LexiPeek, the same dictionary on a computer (Mac, Windows, Linux), with a link.
+
 ### 0.8.265 — 2026-11-03
 - Notes: the TSV export is gone — Anki (Settings → Sync → Anki) does its job.
 - Sync: the hint and Help name sync apps in general (Syncthing, Nextcloud, a NAS's or a cloud's own app), not one
