@@ -1,0 +1,1 @@
+Notes: the TSV export is gone, Anki export replaces it. Sync help names sync apps in general. AI answers saved by LexiPeek open in InkPeek, and back.

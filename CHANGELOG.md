@@ -4,6 +4,12 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### 0.8.265 — 2026-11-03
+- Notes: the TSV export is gone — Anki (Settings → Sync → Anki) does its job.
+- Sync: the hint and Help name sync apps in general (Syncthing, Nextcloud, a NAS's or a cloud's own app), not one
+  vendor's steps.
+- AI answers saved by LexiPeek open in InkPeek for every kind of answer, and back.
+
 ### 0.8.261 — 2026-11-02
 - The card opens without a freeze on a slow reader ("…" meanwhile); turning the screen or switching the theme keeps the
   open tab, article and scroll, and AI answers already in are not asked again.
