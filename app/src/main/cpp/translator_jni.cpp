@@ -37,6 +37,7 @@ static jbyteArray bytes(JNIEnv *env, const std::string &s) {
 }
 
 // One direction: the model from its YAML config; kept in memory when [keep], else freed after the call.
+// Files load by path (empty MemoryBundle): Marian frees the file buffer once the graph has its weights.
 extern "C" JNIEXPORT jbyteArray JNICALL
 Java_io_github_kafeg_inkpeek_mt_Engine_translateNative(JNIEnv *env, jobject, jstring cfg, jbyteArray text, jboolean keep) {
   std::lock_guard<std::mutex> guard(lock);
@@ -51,7 +52,7 @@ Java_io_github_kafeg_inkpeek_mt_Engine_translateNative(JNIEnv *env, jobject, jst
     std::string config = str(env, cfg);
     auto it = models.find(config);
     std::shared_ptr<TranslationModel> model = it != models.end() ? it->second
-        : std::make_shared<TranslationModel>(parseOptionsFromString(config, /*validate=*/true, /*pathsDir=*/""));
+        : std::make_shared<TranslationModel>(parseOptionsFromString(config, /*validate=*/true, /*pathsDir=*/""), MemoryBundle{});
     if (keep) models[config] = model; else models.erase(config);
     std::vector<std::string> in{utf8(env, text)};
     std::vector<ResponseOptions> opts(1);
