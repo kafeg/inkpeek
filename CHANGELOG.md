@@ -4,7 +4,7 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
-### Next
+### 0.8.270 — 2026-11-04
 - Words joined by a dash with no spaces ("you—resentful", "Haus—Garten") open word by word when no dictionary knows the
   whole; a real entry ("well-known", "E-Mail") still opens as a word, also written with another dash ("well—known"),
   and a dashed word no dictionary knows shows its parts in the word list.
