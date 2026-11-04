@@ -1,0 +1,1 @@
+Offline translation uses less memory: about 235 MB less with a big model, so Android closes your reader less often.
