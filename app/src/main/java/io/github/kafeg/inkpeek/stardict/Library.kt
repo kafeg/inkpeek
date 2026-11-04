@@ -94,17 +94,19 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
     }
 
     /**
-     * A word with a dash or hyphen between letters that no dictionary knows ("you—resentful", "half-asleep"): the word
-     * with its dashes as spaces when a dictionary has that headword ("half asleep"), else "" (open it word by word);
-     * null when the word is known, has no such dash, or a dictionary is still being indexed (a card keeps its kind).
+     * A word with a dash or hyphen between letters that no dictionary knows ("you—resentful", "well—known"): the
+     * headword with its dashes as another kind ("well-known") or as spaces ("half asleep"), else "" (open it word by
+     * word); null when the word is known, has no such dash, or a dictionary is still being indexed (a card keeps its kind).
      */
     fun dashed(word: String, answer: String, among: List<StarDict> = all()): String? {
         if (!DASH.containsMatchIn(word)) return null
         val notReady = ArrayList<StarDict>()
         if (lookup(word, answer, notReady, among).isNotEmpty() || notReady.isNotEmpty()) return null
-        val spaced = DASH.replace(word, " ")
-        return if (lookup(spaced, answer, among = among).isNotEmpty()) spaced else ""
+        return (variants(word) + DASH.replace(word, " ")).firstOrNull { lookup(it, answer, among = among).isNotEmpty() } ?: ""
     }
+
+    /** [word] with every run of dashes between letters as "-", then "–", then "—" (not [word] itself). */
+    private fun variants(word: String) = listOf("-", "–", "—").map { DASH.replace(word, it) }.filter { it != word }.distinct()
 
     /** A word's rank in the frequency list of [book] (its language) from the packs (1: the most frequent), 0 when unknown. */
     fun rank(word: String, book: String): Int = all().filter { isPack(it) && it.ready && it.book == book }
@@ -130,19 +132,19 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
      * first meaning.
      */
     fun gloss(text: String, answer: String, limit: Int = 60, dicts: List<StarDict> = all()): List<Gloss> { // once: every lookup would scan the folders again
-        val all = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).toList()
+        val all = WORD.findAll(text).toList()
         // A sentence's first word is capitalized by spelling, not by meaning: "Er" is "er", "Der" is "der".
         val starts = all.filter { m -> text.substring(0, m.range.first).trimEnd().let { it.isEmpty() || it.last() in ".!?…:" } }.map { it.value }.toSet()
         fun look(w: String) = (if (w in starts && w != w.lowercase()) lookup(w.lowercase(), answer, among = dicts).filter { (_, h) -> h.first().word == w.lowercase() } else emptyList())
             .ifEmpty { lookup(w, answer, among = dicts) }
-        // A hyphenated word no dictionary knows gives its parts ("half-asleep" → half, asleep).
+        // A dashed word no dictionary knows: its dash variants ("well—known" → well-known), else its parts (half, asleep).
         val found = LinkedHashMap<String, List<Pair<StarDict, List<Hit>>>>()
         fun add(w: String, r: () -> List<Pair<StarDict, List<Hit>>>) { if (found.size < limit && found.keys.none { it.equals(w, true) }) found[w] = r() }
         for (w in all.map { it.value }) {
             if (found.size >= limit) break
             if (found.keys.any { it.equals(w, true) }) continue
-            val r = look(w)
-            if (r.isEmpty() && '-' in w) w.split('-').filter { it.isNotEmpty() }.forEach { p -> add(p) { look(p) } } else add(w) { r }
+            val r = look(w).ifEmpty { variants(w).firstNotNullOfOrNull { v -> look(v).ifEmpty { null } } ?: emptyList() }
+            if (r.isEmpty() && DASH.containsMatchIn(w)) w.split(DASH).forEach { p -> add(p) { look(p) } } else add(w) { r }
         }
         val words = found.keys.toList()
         val known = found.values.flatMap { r -> r.map { it.first.id } }.groupingBy { it }.eachCount()
@@ -166,6 +168,8 @@ private val WORKER = Executors.newSingleThreadExecutor { r -> Thread(r, "inkpeek
 val StarDict.book: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(1)
 val StarDict.answer: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(2)
 private val PACK_DIR = Regex("dict-([a-z]{2,3})-([a-z]{2,3})")
+/** A word of a text: letters and apostrophes, dashes (Pd) only between letters ("well-known", "you—resentful"). */
+private val WORD = Regex("\\p{L}[\\p{L}'’]*(?:\\p{Pd}+\\p{L}[\\p{L}'’]*)*")
 /** Dashes and hyphens (Unicode's Pd) between letters. */
 private val DASH = Regex("(?<=\\p{L})\\p{Pd}+(?=\\p{L})")
 

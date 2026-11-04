@@ -274,13 +274,16 @@ same card for the same text and dictionaries.
 - **A word with a dash or hyphen between letters** (`\p{Pd}`: `-` U+2010–U+2015, U+2E3A, U+2E3B…) that no dictionary
   knows, in this order:
   1. the word itself, exactly: a real entry (`well-known`, `mother-in-law`, `E-Mail`) opens as a word;
-  2. the same word with each run of dashes as one space (`half asleep`), when a dictionary has that headword: a word
-     card of it (title and stored text `half asleep`);
-  3. else a phrase: its words one by one, as `you — resentful` (title as selected, stored text the word).
+  2. the word with each run of dashes between letters as `-`, then `–`, then `—` (each an exact lookup, not the word
+     itself): `well—known` → `well-known`, `Michelson-Morley` → `Michelson–Morley`; a word card of that headword (title
+     and stored text the headword). Keys keep their dashes (no folding in `normKey`): the index stays as it is;
+  3. the word with each run of dashes as one space (`half asleep`), when a dictionary has that headword: a word card of it;
+  4. else a phrase: its words one by one, as `you — resentful` (title as selected, stored text the word).
   While a dictionary is still being indexed the word stays a word ("preparing"): a card never changes its kind later.
-- **Word by word** (phrases, step 3): words are `\p{L}[\p{L}'’-]*`, so any dash but `-` separates them. A word with
-  `-` that no dictionary knows gives its parts in its place (`half-asleep` → `half`, `asleep`); a known one stays whole.
-  A part already in the list is not repeated.
+- **Word by word** (phrases, step 4): words are `\p{L}[\p{L}'’]*(?:\p{Pd}+\p{L}[\p{L}'’]*)*` (dashes only between
+  letters: `Haus- und` gives `Haus`). A dashed word goes whole; no dictionary knows it → its dash variants as in step
+  2 (the row: the word as written, the variant's line); none → its parts in its place (`half-asleep` → `half`,
+  `asleep`). A word already in the list is not repeated.
 
 Cases: `tests/lookup/selection.tsv` (title, query, kind; no dictionary needed) and `tests/lookup/dashes.tsv` (with
 a dictionary). UTF-8, one case a line, `#` a comment, tab-separated:

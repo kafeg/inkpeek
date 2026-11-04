@@ -23,6 +23,11 @@ well-known|well|known	well-known	word	well-known	well-known	well-known
 E-Mail|Mail	E-Mail	word	E-Mail	E-Mail	E-Mail
 mother-in-law|mother|law	mother-in-law	word	mother-in-law	mother-in-law	mother-in-law
 you—resentful|you	you—resentful	word	you—resentful	you—resentful	you—resentful
+# Another kind of dash: every run of dashes as "-", then "–", then "—".
+well-known|well|known	well—known	word	well-known	well-known	well-known
+well-known|well|known	well–known	word	well-known	well-known	well-known
+Michelson–Morley|Michelson|Morley	Michelson-Morley	word	Michelson–Morley	Michelson–Morley	Michelson–Morley
+well-known|well|being	well—being	phrase	well—being	well—being	well|being
 # The dashes as spaces: a multi-word headword.
 half asleep|half|asleep	half-asleep	word	half asleep	half asleep	half asleep
 half asleep|half|asleep	half—asleep	word	half asleep	half asleep	half asleep
@@ -30,3 +35,7 @@ half asleep|half|asleep	half—asleep	word	half asleep	half asleep	half asleep
 half-asleep|half|asleep|man	the half-asleep man	phrase	the half-asleep man	the half-asleep man	the?|half-asleep|man
 half|asleep|man	the half-asleep man	phrase	the half-asleep man	the half-asleep man	the?|half|asleep|man
 you|resentful	you — resentful	phrase	you — resentful	you — resentful	you|resentful
+well-known|a|man	a well—known man	phrase	a well—known man	a well—known man	a|well—known|man
+Michelson–Morley|experiment	the Michelson-Morley experiment	phrase	the Michelson-Morley experiment	the Michelson-Morley experiment	the?|Michelson-Morley|experiment
+half|asleep|man	the half—asleep man	phrase	the half—asleep man	the half—asleep man	the?|half|asleep|man
+Haus|Garten|und	Haus- und Gartenarbeit	phrase	Haus- und Gartenarbeit	Haus- und Gartenarbeit	Haus|und|Gartenarbeit?
