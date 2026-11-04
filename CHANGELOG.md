@@ -4,6 +4,13 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
+### Next
+- Words joined by a dash with no spaces ("you—resentful", "Haus—Garten") open word by word when no dictionary knows the
+  whole; a real entry ("well-known", "E-Mail") still opens as a word, and a hyphenated word no dictionary knows shows
+  its parts in the word list.
+- A phrase's title, offline translation and AI keep it as selected, quotes included ("привет" - сказала она); a word
+  loses a pair of quotes or brackets together.
+
 ### 0.8.267 — 2026-11-03
 - About names LexiPeek, the same dictionary on a computer (Mac, Windows, Linux), with a link.
 

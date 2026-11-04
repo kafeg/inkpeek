@@ -1,7 +1,7 @@
 # Data formats
 
 The formats InkPeek reads and writes that other apps share: the language packs list, the records (saved words,
-history, answers), the sync log and the Anki notes; and the sentence breaks of offline translation. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
+history, answers), the sync log and the Anki notes; how a selection becomes a card; and the sentence breaks of offline translation. InkPeek is the reference; [LexiPeek](https://github.com/kafeg/lexipeek) (macOS)
 implements the same formats with its own code. A format changes here and in `tests/` first, then in the apps.
 
 ## Language packs: `packs.json`
@@ -255,6 +255,39 @@ apps must give the same fields, or each app rewrites the other's on every sync.
 
 Cases: `tests/anki/` (`keys.json`, `fields.json`, `dedupe.json`; made by `tests/anki/generate.py`, see its README):
 every app runs all of them.
+
+## Selection and lookup
+How a selected text becomes a card: what it opens as (a word or a phrase), what the card shows, what offline
+translation and AI get, and the text looked up and stored (`history`, `saved` and `ai` key on it). Both apps give the
+same card for the same text and dictionaries.
+- Spaces: NFC, soft hyphens (U+00AD) out, each run of whitespace (Java's `\s`: SPACE, TAB, LF, VT, FF, CR) one space.
+  Kind: whitespace-separated words, as `Kind.of`: one → a word; up to 8 and one sentence → a phrase; else a passage.
+- **A word**: its edges lose punctuation, symbols and spaces (`\p{P}`, `\p{S}`, `\s`). A pair around the whole goes
+  together (`"привет"` → `привет`, `“you—resentful,”` → `you—resentful`). An opening quote or bracket whose closing one
+  is inside stays, and so does a closing one whose opening one is inside: `(s)he` stays `(s)he`. Pairs: `()` `[]` `{}`
+  `（）` `［］` `«»` `»«` `‹›` `›‹` `“”` `„“` `„”` `‚‘` `‚’` `‘’` `""` `''` `「」` `『』` `《》` `〈〉`. The title, the
+  translation's and AI's text and the lookup are this word.
+- **A phrase or passage**: the title, offline translation and AI get the selection as selected, spaces as above and
+  trimmed (`"привет" - сказала она`). The lookup, the word-by-word list and the stored text are the selection without
+  stray edge punctuation: as above, but `¿` `¡` at the start and `.` `!` `?` `…` `。` `！` `？` at the end stay, and
+  pairs are not looked for (`привет" - сказала она`, as stored so far).
+- **A word with a dash or hyphen between letters** (`\p{Pd}`: `-` U+2010–U+2015, U+2E3A, U+2E3B…) that no dictionary
+  knows, in this order:
+  1. the word itself, exactly: a real entry (`well-known`, `mother-in-law`, `E-Mail`) opens as a word;
+  2. the same word with each run of dashes as one space (`half asleep`), when a dictionary has that headword: a word
+     card of it (title and stored text `half asleep`);
+  3. else a phrase: its words one by one, as `you — resentful` (title as selected, stored text the word).
+  While a dictionary is still being indexed the word stays a word ("preparing"): a card never changes its kind later.
+- **Word by word** (phrases, step 3): words are `\p{L}[\p{L}'’-]*`, so any dash but `-` separates them. A word with
+  `-` that no dictionary knows gives its parts in its place (`half-asleep` → `half`, `asleep`); a known one stays whole.
+  A part already in the list is not repeated.
+
+Cases: `tests/lookup/selection.tsv` (title, query, kind; no dictionary needed) and `tests/lookup/dashes.tsv` (with
+a dictionary). UTF-8, one case a line, `#` a comment, tab-separated:
+`known` (the headwords of one dictionary, `|`-separated; each article `<p class="head">word — x</p>`), `text` (the
+selection), `kind` (`word` / `phrase` / `passage`), `title` (also what translation and AI get), `query` (the text
+looked up and stored), `words` (a word: the headwords shown; a phrase: the word list's words in order; `?` after a word
+no dictionary knows; `|`-separated, empty for none). Every app runs all of them.
 
 ## Sentence breaks
 Offline translation cuts a text into sentences: an OPUS-MT model with a target tag gets the tag before each one, Hy-MT2

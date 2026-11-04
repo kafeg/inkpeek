@@ -74,8 +74,10 @@ that resolves a form (Häuser → Haus) makes the base form be looked up in the 
   soft hyphen), sorted, binary search over a memory-mapped file. Upstream `.idx` sort order does not matter.
   `.dict.dz` is read by dictzip chunks. The index is built again when it is cut or the dictionary's files change
   (names, sizes, times); one build per dictionary at a time in the app.
-- Query normalization: trim, strip surrounding punctuation and quotes, collapse spaces; soft hyphen removed.
-  The card and the AI get a phrase with its sentence end (`?!.…`) kept and stray edge quotes / brackets removed.
+- Query normalization (`docs/formats.md` "Selection and lookup", cases in `tests/lookup`): a word loses its edge
+  punctuation, a pair of quotes or brackets around it together; a phrase is shown, translated and asked as selected
+  (spaces collapsed), looked up and stored without stray edge quotes, its sentence end (`?!.…`) kept. A word with a dash
+  or hyphen between letters that no dictionary knows ("you—resentful"): the headword with spaces, else word by word.
 - Rendering: HTML through `Html.fromHtml` into a `TextView` (no WebView, no JS); images ignored.
 
 ## AI

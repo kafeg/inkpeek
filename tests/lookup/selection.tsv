@@ -1,0 +1,24 @@
+# What a card shows, translates and looks up: InkPeek's SelectionCasesTest, LexiPeek's lookup cases.
+# known	text	kind	title	query	words: see docs/formats.md "Selection and lookup". known: one dictionary's headwords.
+# A phrase: the title (and translation, AI) as selected; the query and stored text without stray edge punctuation.
+привет|сказала|она	"привет" - сказала она	phrase	"привет" - сказала она	привет" - сказала она	привет|сказала|она
+Hallo|sagte|sie	«Hallo», sagte sie.	phrase	«Hallo», sagte sie.	Hallo», sagte sie.	Hallo|sagte|sie
+see|above	(see above)	phrase	(see above)	see above	see|above
+sehr|gut	(sehr gut),	phrase	(sehr gut),	sehr gut	sehr|gut
+ist|er	„Wo ist er?“ 	phrase	„Wo ist er?“	Wo ist er?	Wo?|ist|er
+Dónde|está	«¿Dónde está?»	phrase	«¿Dónde está?»	¿Dónde está?	Dónde|está
+sehr|gut	  sehr   gut  	phrase	sehr gut	sehr gut	sehr|gut
+Er|kam|Sie|ging	"Er kam. Sie ging."	passage	"Er kam. Sie ging."	Er kam. Sie ging.	Er|kam|Sie|ging
+# A word: edges off, a pair around it together; a quote or bracket paired inside stays.
+привет	"привет"	word	привет	привет	привет
+привет	"привет",	word	привет	привет	привет
+abend	«abend»,	word	abend	abend	abend
+Hallo	»Hallo«	word	Hallo	Hallo	Hallo
+see	(see	word	see	see	see
+see	see)	word	see	see	see
+dogs	dogs'	word	dogs	dogs	dogs
+don’t	„don’t“	word	don’t	don’t	don’t
+he	(s)he	word	(s)he	(s)he	
+he	(s)he,	word	(s)he	(s)he	
+Häuser	Häuser,	word	Häuser	Häuser	Häuser
+Haus	Haus­	word	Haus	Haus	Haus

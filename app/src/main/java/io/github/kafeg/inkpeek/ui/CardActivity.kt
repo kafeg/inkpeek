@@ -22,10 +22,9 @@ import io.github.kafeg.inkpeek.ai.Ask
 import io.github.kafeg.inkpeek.ai.Kind
 import io.github.kafeg.inkpeek.mt.Engine
 import io.github.kafeg.inkpeek.mt.OfflineTranslation
-import io.github.kafeg.inkpeek.stardict.cleanPhrase
 import io.github.kafeg.inkpeek.stardict.answer
 import io.github.kafeg.inkpeek.stardict.book
-import io.github.kafeg.inkpeek.stardict.cleanQuery
+import io.github.kafeg.inkpeek.Selection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
@@ -44,14 +43,17 @@ import kotlinx.coroutines.withTimeoutOrNull
 class CardActivity : Activity(), CoroutineScope by MainScope() {
     lateinit var prefs: Prefs; private set
     val store by lazy { Store.get(this) }
+    /** Looked up and stored; [title]: shown, and what translation and AI get (a phrase as selected). */
     var query = ""; private set
+    private var title = ""
     /** The words looked up before this one in this card ("Look up" from a text, an entry of Notes); ← returns to them. */
     private var before: List<String> = emptyList()
     /** Where the card was on each of them: "tab|place in the dictionary|scroll" (see [at]). */
     private var beforeAt: List<String> = emptyList()
     /** The scroll to come back to once the restored page has its content. */
     var restoreScroll = -1; private set
-    val kind get() = Kind.of(query)
+    /** A word, a phrase or a passage: a dashed word no dictionary knows is a phrase ([Selection.open]). */
+    var kind = Kind.WORD; private set
     /** This look counted in the history: the count under the header waits for it. */
     private var seenJob: kotlinx.coroutines.Job? = null
     private val kindName get() = if (kind == Kind.WORD) "word" else "phrase"
@@ -60,10 +62,10 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     val online: Boolean get() = Net.online(this)
     /** The language you learn (Languages → Translation) when the text is in the answer language, else null. Blocking, once. */
     val study: String? by lazy { runCatching { prefs.studyOf(query) }.getOrNull() }
-    val answers by lazy { Answers(prefs, store, query, study = { study }) { online } }
-    val mt by lazy { OfflineTranslation(prefs, store, query, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }) }
+    val answers by lazy { Answers(prefs, store, title, study = { study }, stored = query) { online } }
+    val mt by lazy { OfflineTranslation(prefs, store, title, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }, stored = query) }
     /** The offline translation from the answer language into the language you learn ([study]: read it off the main thread first). */
-    val mtStudy by lazy { OfflineTranslation(prefs, store, query, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }, from = prefs.answerCode, to = study) }
+    val mtStudy by lazy { OfflineTranslation(prefs, store, title, ::roomy, { io.github.kafeg.inkpeek.mt.Device.of(this) }, from = prefs.answerCode, to = study, stored = query) }
     val dictionary = DictionaryPage(this)
     val ai = AiPage(this)
     private val translate = TranslatePage(this)
@@ -99,18 +101,19 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         Ink.theme(this, card = true)
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
-        // A word loses its edge punctuation; a phrase keeps "?" or "!" — the sentence type is part of the meaning.
+        // A word loses its edge punctuation; a phrase is shown and translated as selected, looked up without stray quotes.
         val raw = Ink.cut(textOf(intent).orEmpty(), 4000) // about a page
-        query = savedInstanceState?.getString(QUERY) ?: if (Kind.of(cleanQuery(raw)) == Kind.WORD) cleanQuery(raw) else cleanPhrase(raw)
+        val saved = savedInstanceState?.getString(QUERY)?.let { Selection.Card(Kind.valueOf(savedInstanceState.getString(KIND) ?: "WORD"), savedInstanceState.getString(TITLE) ?: it, it) }
+        (saved ?: Selection.of(raw)).let { kind = it.kind; title = it.title; query = it.query }
         if (query.isEmpty()) { finish(); return }
         // Storage off the main thread (a slow reader's /sdcard): the packs, the notes; a card not ready at once shows "…".
         val wait = launch { delay(150); waiting() }
         launch {
-            query = withContext(Dispatchers.IO) {
+            withContext(Dispatchers.IO) {
                 offlineOk; store
-                // "die Konjugation": the noun's word card (the pack's header starts so). Only for two words.
-                if (savedInstanceState != null || kind != Kind.PHRASE || Kind.words(query) != 2) query
-                else runCatching { prefs.library().articleNoun(query, prefs.answerCode, prefs.packDictionaries()) }.getOrNull() ?: query
+                // "die Konjugation": the noun's word card; "you—resentful": word by word. Once: a card keeps its kind.
+                if (saved == null) runCatching { Selection.open(raw, prefs.library(), prefs.answerCode, prefs.packDictionaries()) }.getOrNull()
+                    ?.let { kind = it.kind; title = it.title; query = it.query }
             }
             wait.cancel()
             start(savedInstanceState)
@@ -232,7 +235,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
     override fun onSaveInstanceState(out: Bundle) {
         super.onSaveInstanceState(out)
         if (!::root.isInitialized || renewed) return
-        out.putString(QUERY, query); out.putString(AT, "$shown|${dictionary.place}|${scroll.scrollY}")
+        out.putString(QUERY, query); out.putString(TITLE, title); out.putString(KIND, kind.name); out.putString(AT, "$shown|${dictionary.place}|${scroll.scrollY}")
         out.putString(TRANSLATE, translate.by); out.putString(AI, ai.by)
     }
 
@@ -269,9 +272,9 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         val card = Ink.vertical(this).apply { background = Ink.border(this@CardActivity, 3, 10); setPadding(pad, pad, pad, pad) }
         root = card
         val head = FrameLayout(this)
-        val long = query.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
+        val long = title.length > 40 // long selections: smaller, 2 lines; the whole text still goes to the lookup and AI
         titleSp = if (long) size * 0.95f else size * 1.3f; titleBold = !long
-        titleView = Ink.text(this, query, titleSp, bold = titleBold).apply {
+        titleView = Ink.text(this, title, titleSp, bold = titleBold).apply {
             // No "…": Android's selection goes wrong on ellipsized text (a double tap took it all, a triple missed a word).
             maxLines = if (long) 2 else 3; setLineSpacing(0f, 1f)
             TextActions.selectable(this, paragraph = false)
@@ -593,7 +596,7 @@ class CardActivity : Activity(), CoroutineScope by MainScope() {
         private const val BEFORE = "inkpeek.before"; private const val BEFORE_AT = "inkpeek.before.at"; private const val AT = "inkpeek.at"
         /** The intent's look is counted (the card made again keeps its intent). */
         private const val COUNTED = "inkpeek.counted"
-        private const val QUERY = "inkpeek.query"
+        private const val QUERY = "inkpeek.query"; private const val TITLE = "inkpeek.title"; private const val KIND = "inkpeek.kind"
         const val DICT = "dict"; const val SAVED = "saved"; const val TRANSLATE = "translate"; const val AI = "ai"
         /** Border of the open tab: a little heavier than the others, not bold. */
         const val SELECTED = 4

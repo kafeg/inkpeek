@@ -7,9 +7,10 @@ import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 
-/** The offline translation of one [text] into the app's language (or [to], from [from]: languages you learn): started once, shared, saved per model version. */
+/** The offline translation of one [text] into the app's language (or [to], from [from]: languages you learn): started once, shared, saved per model version under [stored] (the text as stored). */
 class OfflineTranslation(private val prefs: Prefs, private val store: Store, private val text: String, private val roomy: () -> Boolean,
-                         private val device: () -> Device? = { null }, private val from: String? = null, private val to: String? = null) {
+                         private val device: () -> Device? = { null }, private val from: String? = null, private val to: String? = null,
+                         private val stored: String = text) {
     /** [from] the detected language, [other] a language without a pack; [text] null when no translation can be made; [by] the model ("OPUS-MT", "" for Mozilla). */
     /** [english]: Mozilla's English in between (a pair without English), when asked for (Languages → Translation). */
     class Result(val from: String?, val other: String?, val text: kotlin.Result<String>?, val by: String = "", val english: String? = null)
@@ -30,11 +31,11 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
                     fun ver(x: String, y: String) = version(Engine.steps(x, y).map { (a, b) -> installed["model-$a-$b"].orEmpty() })
                     val ver = ver(from, to)
                     val pivot = Engine.steps(from, to).size > 1
-                    var en: String? = if (pivot) runCatching { store.answer(text, "en", "offline-$from", ver(from, "en")) }.getOrNull() else null
-                    fun keepEnglish(e: String) { en = e; runCatching { store.putAnswer(text, "en", "offline-$from", ver(from, "en"), "bergamot", e) } }
+                    var en: String? = if (pivot) runCatching { store.answer(stored, "en", "offline-$from", ver(from, "en")) }.getOrNull() else null
+                    fun keepEnglish(e: String) { en = e; runCatching { store.putAnswer(stored, "en", "offline-$from", ver(from, "en"), "bergamot", e) } }
                     val t = runCatching {
-                        store.answer(text, to, "offline-$from", ver) ?: Engine.translate(root, from, to, text, keep = roomy()) { keepEnglish(it) }
-                            .also { runCatching { store.putAnswer(text, to, "offline-$from", ver, "bergamot", it) } }
+                        store.answer(stored, to, "offline-$from", ver) ?: Engine.translate(root, from, to, text, keep = roomy()) { keepEnglish(it) }
+                            .also { runCatching { store.putAnswer(stored, to, "offline-$from", ver, "bergamot", it) } }
                     }
                     // Saved before the setting was on: only the English step now.
                     if (pivot && en == null && prefs.mtEnglish && t.isSuccess) runCatching { keepEnglish(Engine.translate(root, from, "en", text, keep = roomy())) }
@@ -52,10 +53,10 @@ class OfflineTranslation(private val prefs: Prefs, private val store: Store, pri
         if (device()?.cannot(c) != null) return null
         val ver = version(listOf(c.sha256))
         return runCatching {
-            store.answer(text, to, "offline-$from", ver) ?: when (kind) {
+            store.answer(stored, to, "offline-$from", ver) ?: when (kind) {
                 "opus" -> Engine.translateDirect(packs.opusDir(c.id), from, c.tags[to], text, keep = roomy())
                 else -> Llm.translate(packs.llmFile(c.id), c.template, c.names, from, to, text, keep = roomy())
-            }.also { runCatching { store.putAnswer(text, to, "offline-$from", ver, kind, it) } }
+            }.also { runCatching { store.putAnswer(stored, to, "offline-$from", ver, kind, it) } }
         }.fold({ Result(from, null, kotlin.Result.success(it), if (kind == "opus") "OPUS-MT" else c.name) }, { null }) // a failure: Mozilla
     }
 

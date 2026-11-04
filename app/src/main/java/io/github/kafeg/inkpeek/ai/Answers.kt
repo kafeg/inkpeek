@@ -11,9 +11,9 @@ import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.runInterruptible
 import org.json.JSONObject
 
-/** The AI answers about one [text]: each request started once and shared by the tabs; a saved answer opens offline. */
+/** The AI answers about one [text], saved under [stored] (the text as stored): each request started once and shared by the tabs; a saved answer opens offline. */
 class Answers(private val prefs: Prefs, private val store: Store, private val text: String, private val study: () -> String?,
-              private val online: () -> Boolean) {
+              private val stored: String = text, private val online: () -> Boolean) {
     /** The language you learn for this text, as AI is told it ("German"); blocking. */
     private fun name() = study()?.let(Prefs::english)
 
@@ -28,12 +28,12 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
         val pr = prefs.provider; val lang = prefs.answerLang; val model = prefs.model(pr)
         return scope.async(Dispatchers.IO) { runCatching {
             val name = name(); val ver = ask.version(name)
-            store.answer(text, lang, ask.section, ver)?.let { return@runCatching JSONObject(it) }
+            store.answer(stored, lang, ask.section, ver)?.let { return@runCatching JSONObject(it) }
             if (pr != Provider.CUSTOM && !online()) throw Offline() // a server on the local network needs no internet
             val key = prefs.effectiveKey(pr); val url = prefs.url(pr); val from = source()
             // The card closed: the request is cancelled, a late answer not saved (only the request: an interrupted file read closes its channel).
             runInterruptible { Ai.ask(pr, key, model, ask, text, lang, url, from, name) }
-                .also { ensureActive(); runCatching { store.putAnswer(text, lang, ask.section, ver, model, it.toString()) } }
+                .also { ensureActive(); runCatching { store.putAnswer(stored, lang, ask.section, ver, model, it.toString()) } }
         } }.also { started[ask] = it }
     }
 
@@ -55,7 +55,7 @@ class Answers(private val prefs: Prefs, private val store: Store, private val te
             !prefs.aiOn -> R.string.ai_off
             pr != Provider.CUSTOM && prefs.effectiveKey(pr).isBlank() -> R.string.err_no_key
             prefs.model(pr).isBlank() -> R.string.err_no_model
-            pr != Provider.CUSTOM && !online() && runCatching { store.answer(text, prefs.answerLang, ask.section, ask.version(name())) }.getOrNull() == null -> R.string.err_offline
+            pr != Provider.CUSTOM && !online() && runCatching { store.answer(stored, prefs.answerLang, ask.section, ask.version(name())) }.getOrNull() == null -> R.string.err_offline
             else -> null
         }
     }

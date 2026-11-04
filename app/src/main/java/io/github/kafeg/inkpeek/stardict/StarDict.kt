@@ -17,8 +17,35 @@ data class Hit(val word: String, val html: String)
 fun normKey(s: String): String =
     Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").trim().lowercase(Locale.ROOT)
 
-private val EDGE = Regex("^[\\p{P}\\p{S}\\s]+|[\\p{P}\\p{S}\\s]+$")
-fun cleanQuery(s: String): String = Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").replace(Regex("\\s+"), " ").replace(EDGE, "")
+/** NFC, no soft hyphen, each run of whitespace one space, trimmed: a phrase as the card shows it and translation gets it. */
+fun spaced(s: String): String = Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").replace(Regex("\\s+"), " ").trim()
+
+/** Opening quotes and brackets → the closing ones that pair with them. */
+private val PAIRS = mapOf('(' to ")", '[' to "]", '{' to "}", '（' to "）", '［' to "］", '«' to "»", '»' to "«", '‹' to "›", '›' to "‹",
+    '“' to "”", '„' to "“”", '‚' to "‘’", '‘' to "’", '"' to "\"", '\'' to "'", '「' to "」", '『' to "』", '《' to "》", '〈' to "〉")
+private val EDGE_TYPES = setOf(Character.CONNECTOR_PUNCTUATION, Character.DASH_PUNCTUATION, Character.START_PUNCTUATION,
+    Character.END_PUNCTUATION, Character.INITIAL_QUOTE_PUNCTUATION, Character.FINAL_QUOTE_PUNCTUATION, Character.OTHER_PUNCTUATION,
+    Character.MATH_SYMBOL, Character.CURRENCY_SYMBOL, Character.MODIFIER_SYMBOL, Character.OTHER_SYMBOL).map { it.toInt() }.toSet()
+private fun edge(c: Int) = c == ' '.code || c in 9..13 || Character.getType(c) in EDGE_TYPES
+
+/** A word without edge punctuation: a pair around it goes together, a quote or bracket paired inside stays ("(s)he"). */
+fun cleanQuery(s: String): String {
+    val t = Normalizer.normalize(s, Normalizer.Form.NFC).replace("­", "").replace(Regex("\\s+"), " ")
+    var a = 0; var b = t.length
+    while (a < b) {
+        val first = t.codePointAt(a); val last = t.codePointBefore(b)
+        val fl = Character.charCount(first); val ll = Character.charCount(last)
+        val inner = if (b - a >= fl + ll) t.substring(a + fl, b - ll) else null
+        val closers = if (fl == 1) PAIRS[first.toChar()] else null
+        when {
+            inner != null && closers != null && ll == 1 && last.toChar() in closers -> { a += fl; b -= ll }
+            edge(first) && closers?.any { it in t.substring(a + fl, b) } != true -> a += fl
+            edge(last) && (ll != 1 || PAIRS.none { (o, c) -> last.toChar() in c && o in t.substring(a, b - ll) }) -> b -= ll
+            else -> break
+        }
+    }
+    return t.substring(a, b)
+}
 
 private val PHRASE_START = Regex("^[\\p{P}\\p{S}\\s&&[^¿¡]]+")
 private val PHRASE_END = Regex("[\\p{P}\\p{S}\\s&&[^.!?…。！？]]+$")

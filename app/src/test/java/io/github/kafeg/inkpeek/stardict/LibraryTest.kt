@@ -34,6 +34,16 @@ class LibraryTest {
         return Library(root, listOf(mine), File(root, "work"), use, order).also { lib -> lib.found().forEach { it.prepare() } }
     }
 
+    @Test fun dashedWaitsForTheIndex() {
+        val root = Files.createTempDirectory("packs").toFile()
+        pack(root, "dict-en-ru", mapOf("you" to "<b>you</b> — ты", "resentful" to "<b>resentful</b> — обиженный"))
+        val lib = Library(root, emptyList(), File(root, "work"))
+        assertEquals(null, lib.dashed("you—resentful", "ru"))
+        lib.found().forEach { it.prepare() }
+        assertEquals("", lib.dashed("you—resentful", "ru"))
+        assertEquals(null, lib.dashed("you", "ru"))
+    }
+
     @Test fun headsPerBookLanguageAnswerFirst() {
         val lib = library()
         assertEquals(listOf(Head("Haus", "das Haus (Hauses, мн. Häuser) — дом, здание", "de")), lib.heads("Häuser", "ru"))

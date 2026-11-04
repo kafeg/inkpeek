@@ -93,6 +93,19 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
         return heads(w[1], answer, among).firstOrNull()?.takeIf { it.header.startsWith("${w[0]} ${w[1]}", ignoreCase = true) }?.word
     }
 
+    /**
+     * A word with a dash or hyphen between letters that no dictionary knows ("you—resentful", "half-asleep"): the word
+     * with its dashes as spaces when a dictionary has that headword ("half asleep"), else "" (open it word by word);
+     * null when the word is known, has no such dash, or a dictionary is still being indexed (a card keeps its kind).
+     */
+    fun dashed(word: String, answer: String, among: List<StarDict> = all()): String? {
+        if (!DASH.containsMatchIn(word)) return null
+        val notReady = ArrayList<StarDict>()
+        if (lookup(word, answer, notReady, among).isNotEmpty() || notReady.isNotEmpty()) return null
+        val spaced = DASH.replace(word, " ")
+        return if (lookup(spaced, answer, among = among).isNotEmpty()) spaced else ""
+    }
+
     /** A word's rank in the frequency list of [book] (its language) from the packs (1: the most frequent), 0 when unknown. */
     fun rank(word: String, book: String): Int = all().filter { isPack(it) && it.ready && it.book == book }
         .firstNotNullOfOrNull { d -> runCatching { d.related?.of(word)?.rank }.getOrNull()?.takeIf { it > 0 } } ?: 0
@@ -118,13 +131,20 @@ class Library(private val packRoot: File, private val ownRoots: List<File>, priv
      */
     fun gloss(text: String, answer: String, limit: Int = 60, dicts: List<StarDict> = all()): List<Gloss> { // once: every lookup would scan the folders again
         val all = Regex("[\\p{L}][\\p{L}'’-]*").findAll(text).toList()
-        val words = all.map { it.value }.distinctBy { it.lowercase() }.take(limit)
         // A sentence's first word is capitalized by spelling, not by meaning: "Er" is "er", "Der" is "der".
         val starts = all.filter { m -> text.substring(0, m.range.first).trimEnd().let { it.isEmpty() || it.last() in ".!?…:" } }.map { it.value }.toSet()
-        val found = words.associateWith { w ->
-            (if (w in starts && w != w.lowercase()) lookup(w.lowercase(), answer, among = dicts).filter { (_, h) -> h.first().word == w.lowercase() } else emptyList())
-                .ifEmpty { lookup(w, answer, among = dicts) }
+        fun look(w: String) = (if (w in starts && w != w.lowercase()) lookup(w.lowercase(), answer, among = dicts).filter { (_, h) -> h.first().word == w.lowercase() } else emptyList())
+            .ifEmpty { lookup(w, answer, among = dicts) }
+        // A hyphenated word no dictionary knows gives its parts ("half-asleep" → half, asleep).
+        val found = LinkedHashMap<String, List<Pair<StarDict, List<Hit>>>>()
+        fun add(w: String, r: () -> List<Pair<StarDict, List<Hit>>>) { if (found.size < limit && found.keys.none { it.equals(w, true) }) found[w] = r() }
+        for (w in all.map { it.value }) {
+            if (found.size >= limit) break
+            if (found.keys.any { it.equals(w, true) }) continue
+            val r = look(w)
+            if (r.isEmpty() && '-' in w) w.split('-').filter { it.isNotEmpty() }.forEach { p -> add(p) { look(p) } } else add(w) { r }
         }
+        val words = found.keys.toList()
         val known = found.values.flatMap { r -> r.map { it.first.id } }.groupingBy { it }.eachCount()
         val top = known.values.maxOrNull() ?: 0
         return words.map { w ->
@@ -146,6 +166,8 @@ private val WORKER = Executors.newSingleThreadExecutor { r -> Thread(r, "inkpeek
 val StarDict.book: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(1)
 val StarDict.answer: String? get() = PACK_DIR.matchEntire(ifo.parentFile?.name.orEmpty())?.groupValues?.get(2)
 private val PACK_DIR = Regex("dict-([a-z]{2,3})-([a-z]{2,3})")
+/** Dashes and hyphens (Unicode's Pd) between letters. */
+private val DASH = Regex("(?<=\\p{L})\\p{Pd}+(?=\\p{L})")
 
 /** An article's first line: a pack's own, else "word — its first meaning" (other dictionaries). */
 fun head(h: Hit): Head? = headLine(h.html)?.let { Head(h.word, it) }

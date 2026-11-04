@@ -1,0 +1,32 @@
+# Words joined by dashes or hyphens: InkPeek's SelectionCasesTest, LexiPeek's lookup cases.
+# known	text	kind	title	query	words: see docs/formats.md "Selection and lookup". known: one dictionary's headwords.
+# A dash or hyphen between letters, no entry for the whole: the words one by one, as "you — resentful".
+you|resentful	you—resentful	phrase	you—resentful	you—resentful	you|resentful
+you|resentful	you–resentful	phrase	you–resentful	you–resentful	you|resentful
+you|resentful	you‒resentful	phrase	you‒resentful	you‒resentful	you|resentful
+you|resentful	you―resentful	phrase	you―resentful	you―resentful	you|resentful
+you|resentful	you⸺resentful	phrase	you⸺resentful	you⸺resentful	you|resentful
+you|resentful	you‐resentful	phrase	you‐resentful	you‐resentful	you|resentful
+you|resentful	you-resentful	phrase	you-resentful	you-resentful	you|resentful
+you|resentful	“you—resentful,”	phrase	“you—resentful,”	you—resentful	you|resentful
+Haus|Garten	Haus—Garten	phrase	Haus—Garten	Haus—Garten	Haus|Garten
+half|asleep	half-asleep	phrase	half-asleep	half-asleep	half|asleep
+half|asleep	half-asleep-ish	phrase	half-asleep-ish	half-asleep-ish	half|asleep|ish?
+you	you—you	phrase	you—you	you—you	you
+x	foo—bar	phrase	foo—bar	foo—bar	foo?|bar?
+# A dash at an edge is edge punctuation; a dash between digits is not split.
+you|resentful	you—	word	you	you	you
+you|resentful	—resentful	word	resentful	resentful	resentful
+you	1990–2000	word	1990–2000	1990–2000	
+# A real entry for the whole stays a word.
+well-known|well|known	well-known	word	well-known	well-known	well-known
+E-Mail|Mail	E-Mail	word	E-Mail	E-Mail	E-Mail
+mother-in-law|mother|law	mother-in-law	word	mother-in-law	mother-in-law	mother-in-law
+you—resentful|you	you—resentful	word	you—resentful	you—resentful	you—resentful
+# The dashes as spaces: a multi-word headword.
+half asleep|half|asleep	half-asleep	word	half asleep	half asleep	half asleep
+half asleep|half|asleep	half—asleep	word	half asleep	half asleep	half asleep
+# Word by word: a hyphenated word whole first, else its parts.
+half-asleep|half|asleep|man	the half-asleep man	phrase	the half-asleep man	the half-asleep man	the?|half-asleep|man
+half|asleep|man	the half-asleep man	phrase	the half-asleep man	the half-asleep man	the?|half|asleep|man
+you|resentful	you — resentful	phrase	you — resentful	you — resentful	you|resentful
