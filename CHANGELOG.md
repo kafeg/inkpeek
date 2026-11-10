@@ -4,7 +4,7 @@ What changed for people who use InkPeek. The version is `<major>.<minor>.<commit
 count, so every release has its own.
 
 ## 0.8 — 2026-10-25
-### Next
+### 0.8.275 — 2026-11-10
 - Notes: the page arrows (◀ 51–100 of 214 ▶) are also under a long list, not only above it.
 ### 0.8.273 — 2026-11-04
 - Offline translation uses less memory: a big model by about 235 MB, a small one by its file size.
