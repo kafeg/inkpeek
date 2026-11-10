@@ -10,7 +10,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-/** Notes: saved words, saved phrases, the history; 50 per page, the pager and "Clear history" under the list. */
+/** Notes: saved words, saved phrases, the history; 50 per page, the pager above and below, "Clear history" under the list. */
 class WordsSettings(private val a: MainActivity) {
     private lateinit var tabs: LinearLayout
     private lateinit var list: LinearLayout

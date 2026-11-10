@@ -26,7 +26,7 @@ object WordsList {
     }
 
     /**
-     * [items] into [box], [PAGE] at a time: the page bar on top, a row each (› opens it, ✕ removes it); [page] is kept
+     * [items] into [box], [PAGE] at a time: the page bar above and below, a row each (› opens it, ✕ removes it); [page] is kept
      * within the pages, the one shown is returned; [turn] gets another.
      */
     fun fill(ctx: Context, box: android.widget.LinearLayout, items: List<Store.Entry>, page: Int, sp: Float, turn: (Int) -> Unit,
@@ -35,6 +35,7 @@ object WordsList {
         val at = page.coerceIn(0, (pages - 1).coerceAtLeast(0))
         if (pages > 1) box.addView(pager(ctx, at, items.size, sp * 0.9f, turn = turn), Ink.lp().apply { bottomMargin = Ink.dp(ctx, 6) })
         items.drop(at * PAGE).take(PAGE).forEach { e -> box.addView(row(ctx, e, sp, { open(e) }, { remove(e) }, mark(e))) }
+        if (pages > 1) box.addView(pager(ctx, at, items.size, sp * 0.9f, turn = turn), Ink.lp().apply { topMargin = Ink.dp(ctx, 6) })
         return at
     }
 
